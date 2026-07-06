@@ -9,7 +9,6 @@ import {
   Users,
   Compass,
   Zap,
-  CheckCircle2,
   Phone,
   MapPin,
   ChevronDown,
@@ -18,11 +17,9 @@ import {
   Percent,
   Play,
   ArrowUpRight,
-  Shield,
   Layers,
   BarChart3,
   Mail,
-  User,
   ExternalLink,
   Gem,
   Shirt,
@@ -1094,89 +1091,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ABOUT FOUNDER SECTION */}
-      <section className="py-24 px-6 bg-[#111111] border-y border-white/[0.08] relative">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-          
-          {/* Left Column Profile Frame */}
-          <div className="lg:col-span-5 relative flex justify-center">
-            {/* Background elements */}
-            <div className="absolute inset-0 bg-[#00AF56]/[0.03] blur-3xl rounded-full" />
-            
-            {/* Apple styled founder glass card mockup */}
-            <div className="relative w-full max-w-sm rounded-3xl bg-[#181818] border border-white/[0.08] overflow-hidden p-6 shadow-2xl flex flex-col gap-6">
-              <div className="aspect-square w-full rounded-2xl bg-gradient-to-tr from-[#050505] to-[#111111] border border-white/[0.04] flex items-center justify-center relative overflow-hidden group">
-                {/* Visual Placeholder representing a premium portrait overlay */}
-                <User className="w-20 h-20 text-[#8C8C8C] group-hover:scale-105 transition-transform duration-300" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-85" />
-                
-                {/* Float signature detail */}
-                <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between">
-                  <div className="flex flex-col">
-                    <span className="text-white font-bold text-base">Pankaj Singh</span>
-                    <span className="text-[10px] text-[#00AF56] font-mono tracking-widest uppercase">Founder & Consultant</span>
-                  </div>
-                  <span className="text-[10px] bg-[#00AF56]/20 border border-[#00AF56]/30 text-[#00AF56] px-2 py-0.5 rounded-full font-bold">10+ YEARS EXP</span>
-                </div>
-              </div>
-
-              {/* Registered Badge */}
-              <div className="p-4 rounded-xl bg-black/40 border border-white/[0.04] flex items-center gap-3">
-                <Shield className="w-5 h-5 text-[#00AF56] shrink-0" />
-                <div className="flex flex-col">
-                  <span className="text-[10px] text-[#8C8C8C] uppercase tracking-wider font-semibold">Government Registered</span>
-                  <span className="text-xs text-white font-bold">SALEPXL MSME</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Column Experience Details */}
-          <div className="lg:col-span-7 flex flex-col gap-6 text-left">
-            <span className="text-xs text-[#00AF56] font-mono uppercase tracking-widest font-bold">
-              About The Founder
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-              Pankaj Singh — ECommerce Architect
-            </h2>
-            
-            <p className="text-sm sm:text-base text-[#D7D7D7] leading-relaxed">
-              With over 10+ years of hands-on experience scaling digital businesses, Pankaj Singh founded SalePXL to address the critical friction gap in traditional marketing. While average agencies focus purely on media bidding, Pankaj's framework integrates conversion engineering, copy psychology, and ad optimization into a unified growth vehicle.
-            </p>
-
-            <p className="text-xs sm:text-sm text-[#8C8C8C] leading-relaxed">
-              Based out of Dehradun, Uttarakhand, Pankaj has consulted for over 100+ brands, managing over ₹20 Crores in aggregate ad budgets. Specializing directly in Meta Ads strategies, Google Ads setups, and advanced Shopify liquid customization.
-            </p>
-
-            {/* Checklist of Core Capabilities */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
-              {[
-                "10+ Years Professional Experience",
-                "Meta Ads Strategic Engineering",
-                "Shopify Performance Coding",
-                "Conversion Rate Optimization (CRO)",
-                "Paid Search & PMax Consultant",
-                "Government Certified MSME Entity"
-              ].map((cap, index) => (
-                <div key={index} className="flex items-center gap-2 text-xs">
-                  <CheckCircle2 className="w-4 h-4 text-[#00AF56]" />
-                  <span className="text-white font-medium">{cap}</span>
-                </div>
-              ))}
-            </div>
-
-            <div className="pt-6 border-t border-white/[0.06] mt-6 flex items-center gap-4">
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 text-xs uppercase tracking-wider font-bold text-[#00AF56] hover:text-white transition-colors"
-              >
-                <span>Consult With Pankaj Singh Directly</span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* TESTIMONIALS AUTO-SLIDER */}
       <section className="py-24 px-6 relative">
