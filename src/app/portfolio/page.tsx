@@ -71,8 +71,8 @@ const PROJECTS: Project[] = [
     accentColor: "#3b82f6",
   },
   {
-    name: "Panihari Vastra",
-    url: "https://paniharivastra.com/",
+    name: "Swadezi",
+    url: "https://swadezi.com/",
     industry: "Ethnic Apparel",
     category: "dev",
     services: ["Shopify Layout Development", "Speed Acceleration", "SEO Setup"],
@@ -143,8 +143,8 @@ const PROJECTS: Project[] = [
     accentColor: "#0f766e",
   },
   {
-    name: "Shop Selectives",
-    url: "https://www.shopselectives.com/",
+    name: "SOBO Beauty",
+    url: "https://sobobeauty.com/",
     industry: "Curated Cosmetics",
     category: "ads",
     services: ["Performance Media Buying", "Google PMax", "Meta Creative strategy"],
@@ -154,8 +154,8 @@ const PROJECTS: Project[] = [
   
   // 7 Placeholder Projects (Required to reach 20 total)
   {
-    name: "Humble Organic Labs",
-    url: "https://humbleorganiclabs.com/",
+    name: "Well Essentials",
+    url: "https://wellessentials.com/",
     industry: "Superfoods & Health",
     category: "ads",
     services: ["Meta Scaling", "Google Search Ads", "Landing Page Development"],
@@ -163,8 +163,8 @@ const PROJECTS: Project[] = [
     accentColor: "#22c55e",
   },
   {
-    name: "Minimal Thread",
-    url: "https://minimalthread.in/",
+    name: "Kohkayn",
+    url: "https://kohkayn.com/",
     industry: "Modern Basics Apparel",
     category: "dev",
     services: ["Next.js Headless Store", "Lightning Speed Rebuild", "Tailwind Config"],
@@ -172,8 +172,8 @@ const PROJECTS: Project[] = [
     accentColor: "#111827",
   },
   {
-    name: "Aura Fragrances",
-    url: "https://aurafragrances.com/",
+    name: "Amarose",
+    url: "https://amarose.com/",
     industry: "Luxury Perfumes",
     category: "cro",
     services: ["UX Audit", "Scent Finder Quiz", "Add-To-Cart CRO"],
@@ -199,8 +199,8 @@ const PROJECTS: Project[] = [
     accentColor: "#78350f",
   },
   {
-    name: "Luxe Leather",
-    url: "https://luxeleather.co/",
+    name: "Skin Basics",
+    url: "https://skinbasics.com/",
     industry: "Leather Goods",
     category: "cro",
     services: ["Conversion Rate Audit", "Trust Badging", "Optimized Checkout Drawer"],
@@ -234,7 +234,19 @@ function getMockupConfig(name: string, category: string, industry: string): Mock
   let products = [ { name: "Best Seller Item", price: "₹2,500" }, { name: "New Arrival Set", price: "₹4,800" } ];
   let image: string | undefined = undefined;
 
-  if (lowerName.includes("humble organic") || lowerName.includes("organic rootz")) {
+  if (lowerName.includes("sobo")) {
+    image = "/imgi_80_sobo-beauty.webp";
+  } else if (lowerName.includes("well essentials") || lowerName.includes("humble")) {
+    image = "/imgi_81_well-essentials.webp";
+  } else if (lowerName.includes("amarose")) {
+    image = "/imgi_83_amarose.webp";
+  } else if (lowerName.includes("kohkayn")) {
+    image = "/imgi_89_kohkayn-com.webp";
+  } else if (lowerName.includes("skin basics")) {
+    image = "/imgi_91_skin-basics.webp";
+  } else if (lowerName.includes("swadezi")) {
+    image = "/imgi_93_swadezi.webp";
+  } else if (lowerName.includes("humble organic") || lowerName.includes("organic rootz")) {
     image = "/supplement_mockup.png";
   } else if (lowerName.includes("rcfyiy")) {
     image = "/apparel_mockup.png";
