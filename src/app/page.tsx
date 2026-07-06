@@ -510,6 +510,15 @@ function StorefrontMockup({ store }: { store: MockupConfig }) {
   );
 }
 
+const PORTFOLIO_STORES = [
+  { name: "SOBO Beauty", image: "/imgi_80_sobo-beauty.webp" },
+  { name: "Well Essentials", image: "/imgi_81_well-essentials.webp" },
+  { name: "Amarose", image: "/imgi_83_amarose.webp" },
+  { name: "Kohkayn", image: "/imgi_89_kohkayn-com.webp" },
+  { name: "Skin Basics", image: "/imgi_91_skin-basics.webp" },
+  { name: "Swadezi", image: "/imgi_93_swadezi.webp" }
+];
+
 export default function HomePage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
@@ -1005,17 +1014,18 @@ export default function HomePage() {
 
         <div className="max-w-7xl mx-auto px-6 mb-8 text-center">
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#00AF56] via-white to-[#00AF56] tracking-tight uppercase">
-            Transformed
+            Store Who Have Built
           </h2>
         </div>
 
         {/* Row 1: Landscape mockups scrolling left (Brands 1-10) */}
         <div className="w-full overflow-hidden marquee-container py-3">
           <div className="animate-marquee-left flex gap-6">
-            {[...ALL_STORES.slice(0, 10), ...ALL_STORES.slice(0, 10)].map((store, idx) => (
+            {[...PORTFOLIO_STORES, ...PORTFOLIO_STORES, ...PORTFOLIO_STORES].map((store, idx) => (
               <div
                 key={idx}
-                className="w-[280px] sm:w-[340px] md:w-[400px] flex flex-col rounded-3xl bg-[#111111] border border-white/[0.08] overflow-hidden hover:border-[#00AF56]/30 hover:shadow-[0_0_30px_rgba(0,175,86,0.15)] transition-all duration-500 shrink-0"
+                className="w-[240px] sm:w-[320px] md:w-[400px] flex flex-col rounded-3xl bg-[#111111] border border-white/[0.08] overflow-hidden hover:border-[#00AF56]/30 hover:shadow-[0_0_30px_rgba(0,175,86,0.15)] transition-all duration-500 shrink-0"
+                style={{ aspectRatio: "400/715" }}
               >
                 {/* Browser dots top bar */}
                 <div className="px-4 py-3 bg-[#181818] border-b border-white/[0.06] flex items-center justify-between">
@@ -1027,17 +1037,13 @@ export default function HomePage() {
                   <span className="w-2.5 h-2.5 rounded-full bg-white/[0.05]" />
                 </div>
                 {/* Mockup Image Container */}
-                <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#0a0a0a]">
-                  {store.image ? (
-                    <img
-                      src={store.image}
-                      alt={store.name}
-                      className="w-full h-full object-cover object-top"
-                      loading="lazy"
-                    />
-                  ) : (
-                    <StorefrontMockup store={store} />
-                  )}
+                <div className="relative flex-1 w-full overflow-hidden bg-[#0a0a0a]">
+                  <img
+                    src={store.image}
+                    alt={store.name}
+                    className="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105"
+                    loading="lazy"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
                 </div>
               </div>
@@ -1048,10 +1054,11 @@ export default function HomePage() {
         {/* Row 2: Portrait mockups scrolling right (Brands 11-20) */}
         <div className="w-full overflow-hidden marquee-container py-3 mt-4">
           <div className="animate-marquee-right flex gap-6">
-            {[...ALL_STORES.slice(10, 20), ...ALL_STORES.slice(10, 20)].map((store, idx) => (
+            {[...PORTFOLIO_STORES, ...PORTFOLIO_STORES, ...PORTFOLIO_STORES].reverse().map((store, idx) => (
               <div
                 key={idx}
-                className="w-[200px] sm:w-[240px] md:w-[280px] flex flex-col rounded-3xl bg-[#111111] border border-white/[0.08] overflow-hidden hover:border-[#00AF56]/30 hover:shadow-[0_0_30px_rgba(0,175,86,0.15)] transition-all duration-500 shrink-0"
+                className="w-[240px] sm:w-[320px] md:w-[400px] flex flex-col rounded-3xl bg-[#111111] border border-white/[0.08] overflow-hidden hover:border-[#00AF56]/30 hover:shadow-[0_0_30px_rgba(0,175,86,0.15)] transition-all duration-500 shrink-0"
+                style={{ aspectRatio: "400/715" }}
               >
                 {/* Browser dots top bar */}
                 <div className="px-4 py-3 bg-[#181818] border-b border-white/[0.06] flex items-center justify-between">
@@ -1063,17 +1070,13 @@ export default function HomePage() {
                   <span className="w-2.5 h-2.5 rounded-full bg-white/[0.05]" />
                 </div>
                 {/* Mockup Image Container */}
-                <div className="relative aspect-[3/4] w-full overflow-hidden bg-[#0a0a0a]">
-                  {store.image ? (
-                    <img
-                      src={store.image}
-                      alt={store.name}
-                      className="w-full h-full object-cover object-top"
-                      loading="lazy"
-                    />
-                  ) : (
-                    <StorefrontMockup store={store} />
-                  )}
+                <div className="relative flex-1 w-full overflow-hidden bg-[#0a0a0a]">
+                  <img
+                    src={store.image}
+                    alt={store.name}
+                    className="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105"
+                    loading="lazy"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
                 </div>
               </div>
@@ -1086,7 +1089,7 @@ export default function HomePage() {
             href="/portfolio"
             className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-sm font-semibold uppercase tracking-wider text-black bg-white hover:bg-white/90 transition-all text-center"
           >
-            <span>Explore All 20 Portfolio Brands</span>
+            <span>Explore All Portfolio Brands</span>
           </Link>
         </div>
       </section>
