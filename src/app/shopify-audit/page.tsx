@@ -47,7 +47,7 @@ export default function ShopifyAuditPage() {
   const [roas, setRoas] = useState(2.2);
   const [convRate, setConvRate] = useState(1.4);
   const [aov, setAov] = useState(2000);
-  const [trafficSource, setTrafficSource] = useState("Meta Ads");
+  const [trafficSource, setTrafficSource] = useState("Paid Social");
 
   // Lead Form Inputs
   const [contactName, setContactName] = useState("");
@@ -225,7 +225,7 @@ export default function ShopifyAuditPage() {
             <div className="flex flex-col gap-2">
               <span className="text-xs text-[#8C8C8C] font-semibold">Primary Traffic Channel</span>
               <div className="grid grid-cols-2 gap-2">
-                {["Meta Ads", "Google Ads", "TikTok", "Organic"].map(source => (
+                {["Paid Social", "Paid Search", "Social Media", "Organic Traffic"].map(source => (
                   <button
                     key={source}
                     type="button"
@@ -245,7 +245,7 @@ export default function ShopifyAuditPage() {
             {/* Input 3: Monthly Ad Spend */}
             <div className="flex flex-col gap-2 mt-2">
               <div className="flex justify-between items-center text-xs">
-                <span className="text-[#8C8C8C] font-semibold">Monthly Ad Spend</span>
+                <span className="text-[#8C8C8C] font-semibold">Monthly Marketing Spend</span>
                 <span className="text-white font-mono font-bold bg-white/[0.03] border border-white/[0.06] px-2 py-0.5 rounded-lg text-xs">
                   {formatCurrency(adSpend)}
                 </span>
@@ -293,7 +293,7 @@ export default function ShopifyAuditPage() {
             {/* Input 5: Current ROAS */}
             <div className="flex flex-col gap-2 mt-2">
               <div className="flex justify-between items-center text-xs">
-                <span className="text-[#8C8C8C] font-semibold">Current Ad Account ROAS</span>
+                <span className="text-[#8C8C8C] font-semibold">Current Marketing ROAS</span>
                 <span className="text-white font-mono font-bold bg-white/[0.03] border border-white/[0.06] px-2 py-0.5 rounded-lg text-xs">
                   {roas}x
                 </span>
@@ -382,7 +382,7 @@ export default function ShopifyAuditPage() {
                     ⚠️ Your Store Is Leaking Revenue
                   </h3>
                   <p className="text-xs text-red-200/80 leading-relaxed">
-                    You're spending money to buy traffic, but your Shopify store isn't converting enough visitors. Most brands focus on increasing ad spend. We focus on increasing conversion rate first.
+                    You're spending money to buy traffic, but your Shopify store isn't converting enough visitors. Most brands focus on increasing marketing spend. We focus on increasing conversion rate first.
                   </p>
                 </div>
               </motion.div>
@@ -433,7 +433,7 @@ export default function ShopifyAuditPage() {
                   <span className="text-[10px] text-[#8C8C8C] uppercase tracking-wider font-bold">Current Metrics</span>
                   <div className="flex flex-col gap-2.5">
                     <div className="flex justify-between text-xs">
-                      <span className="text-[#8C8C8C]">Ad Spend</span>
+                      <span className="text-[#8C8C8C]">Marketing Spend</span>
                       <span className="font-mono text-white">{formatCurrency(adSpend)}</span>
                     </div>
                     <div className="flex justify-between text-xs">
@@ -456,7 +456,7 @@ export default function ShopifyAuditPage() {
                   <span className="text-[10px] text-[#00AF56] uppercase tracking-wider font-bold">Projected (SalePXL CRO)</span>
                   <div className="flex flex-col gap-2.5">
                     <div className="flex justify-between text-xs">
-                      <span className="text-[#8C8C8C]">Ad Spend</span>
+                      <span className="text-[#8C8C8C]">Marketing Spend</span>
                       <span className="font-mono text-white">{formatCurrency(adSpend)}</span>
                     </div>
                     <div className="flex justify-between text-xs">
@@ -476,7 +476,7 @@ export default function ShopifyAuditPage() {
               </div>
 
               <div className="text-[10px] text-[#8C8C8C] leading-relaxed pt-2 border-t border-white/[0.04]">
-                💡 **Insight:** You can scale your revenue to **{formatCurrency(optimizedRevenue)}** without increasing your monthly ad spend by simply fixing your website's conversion bottlenecks.
+                💡 **Insight:** You can scale your revenue to **{formatCurrency(optimizedRevenue)}** without increasing your monthly marketing spend by simply fixing your website's conversion bottlenecks.
               </div>
             </div>
 

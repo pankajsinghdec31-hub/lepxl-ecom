@@ -26,7 +26,7 @@ interface Project {
   name: string;
   url: string;
   industry: string;
-  category: "dev" | "ads" | "cro";
+  category: "dev" | "cro";
   services: string[];
   description: string;
   accentColor: string;
@@ -38,9 +38,9 @@ const PROJECTS: Project[] = [
     name: "The Wheels Co",
     url: "https://thewheelsco.com/",
     industry: "Automotive Accessories",
-    category: "ads",
-    services: ["Meta Ads Scaling", "Creative Production", "CRO Strategy"],
-    description: "Scaled traffic and reduced Cost Per Acquisition by optimizing product layouts and launching high-hook video creatives.",
+    category: "cro",
+    services: ["Shopify Custom Design", "High-Converting PDP Layout", "AOV Optimization"],
+    description: "Redesigned Shopify product layout and checkout elements, lifting overall conversions and customer trust.",
     accentColor: "#00AF56",
   },
   {
@@ -48,7 +48,7 @@ const PROJECTS: Project[] = [
     url: "https://ratanrashi.in/",
     industry: "Precious Gemstones",
     category: "cro",
-    services: ["Shopify CRO", "Search Engine Funneling", "Trust Factors Integration"],
+    services: ["Shopify CRO", "UX Navigation Tuning", "Trust Factors Integration"],
     description: "Redesigned Gemstone Recommendation Funnel and product trust cards, yielding an immediate bump in average order value.",
     accentColor: "#fbbf24",
   },
@@ -65,9 +65,9 @@ const PROJECTS: Project[] = [
     name: "Glyters",
     url: "https://www.glyters.com/",
     industry: "Fashion Jewelry",
-    category: "ads",
-    services: ["Google Ads PMax", "Meta Retargeting", "Landing Page CRO"],
-    description: "Developed secondary landing pages matching search term semantics and scaled PMax Google ads to 8.76x blended ROAS.",
+    category: "dev",
+    services: ["Shopify Theme Development", "Mobile-First UX Rebuild", "Custom Cart Drawer"],
+    description: "Rebuilt Glyters jewelry storefront using custom templates and speed optimization best practices.",
     accentColor: "#3b82f6",
   },
   {
@@ -75,7 +75,7 @@ const PROJECTS: Project[] = [
     url: "https://swadezi.com/",
     industry: "Ethnic Apparel",
     category: "dev",
-    services: ["Shopify Layout Development", "Speed Acceleration", "SEO Setup"],
+    services: ["Shopify Layout Development", "Speed Acceleration", "Shopify Setup"],
     description: "Designed a clean, minimal ethnic catalog interface. Compressed core script bundles to secure a 97 PageSpeed score.",
     accentColor: "#10b981",
   },
@@ -101,9 +101,9 @@ const PROJECTS: Project[] = [
     name: "Hay Clothing",
     url: "https://www.hayclothing.in/",
     industry: "Contemporary Apparel",
-    category: "ads",
-    services: ["Meta Ads Scaling", "Email Retention Marketing", "Creative Hooks"],
-    description: "Coordinated creative video assets and automated cart abandonment sequences to trigger secondary high-margin purchases.",
+    category: "dev",
+    services: ["Custom Shopify Sections", "Logistics API Integration", "Retention Architecture"],
+    description: "Integrated custom delivery options and automated order management features to optimize the purchase path.",
     accentColor: "#f43f5e",
   },
   {
@@ -146,9 +146,9 @@ const PROJECTS: Project[] = [
     name: "SOBO Beauty",
     url: "https://sobobeauty.com/",
     industry: "Curated Cosmetics",
-    category: "ads",
-    services: ["Performance Media Buying", "Google PMax", "Meta Creative strategy"],
-    description: "Automated search keyword optimization cycles and Meta retargeting to maximize efficiency on cold traffic bidding.",
+    category: "cro",
+    services: ["Shopify Store Redesign", "Mobile Sticky Buy Box", "Cosmetics Collections Grid"],
+    description: "Redesigned Sobo Beauty checkout path and landing pages to reduce user drop-offs.",
     accentColor: "#d946ef",
   },
   
@@ -157,9 +157,9 @@ const PROJECTS: Project[] = [
     name: "Well Essentials",
     url: "https://wellessentials.com/",
     industry: "Superfoods & Health",
-    category: "ads",
-    services: ["Meta Scaling", "Google Search Ads", "Landing Page Development"],
-    description: "Achieved a 5.2x ROAS scaling superfood blends by matching ad angles to dedicated comparison landing pages.",
+    category: "cro",
+    services: ["Shopify Speed Tuning", "Asset Lazy-Loading", "Page Speed Optimization"],
+    description: "Optimized image loading pipelines and scripts to secure a PageSpeed score of 95+.",
     accentColor: "#22c55e",
   },
   {
@@ -184,9 +184,9 @@ const PROJECTS: Project[] = [
     name: "NutriBlend Ecom",
     url: "https://nutriblend.in/",
     industry: "Sports Nutrition",
-    category: "ads",
-    services: ["Google PMax Scaling", "Influencer Creatives", "Email Flows"],
-    description: "Routed search traffic to optimized bundle PDPs, accelerating ROAS during high-volume sports cycles.",
+    category: "dev",
+    services: ["Shopify Custom Development", "Bundle Builder App", "ERP Sync Integration"],
+    description: "Built custom Shopify bundle selector interfaces and automated order routing.",
     accentColor: "#0284c7",
   },
   {
@@ -483,7 +483,7 @@ function StorefrontMockup({ store }: { store: MockupConfig }) {
 }
 
 export default function PortfolioPage() {
-  const [filter, setFilter] = useState<"all" | "dev" | "ads" | "cro">("all");
+  const [filter, setFilter] = useState<"all" | "dev" | "cro">("all");
 
   const filteredProjects = PROJECTS.filter(
     (p) => filter === "all" || p.category === filter
@@ -504,7 +504,7 @@ export default function PortfolioPage() {
             Brands We've Helped Grow
           </h1>
           <p className="text-[#8C8C8C] text-sm sm:text-base leading-relaxed">
-            Browse through our portfolio of 20 ecommerce brands scaling profit margins using custom Shopify systems, Conversion Rate Optimization (CRO), and advanced Facebook & Google campaigns.
+            Browse through our portfolio of ecommerce brands scaling conversions and performance using custom Shopify stores, designs, and speed optimization.
           </p>
         </div>
 
@@ -512,9 +512,8 @@ export default function PortfolioPage() {
         <div className="flex justify-center flex-wrap gap-2.5">
           {[
             { id: "all", name: "All Brands" },
-            { id: "dev", name: "Shopify Store Rebuilds" },
-            { id: "ads", name: "Paid Traffic Scaling" },
-            { id: "cro", name: "Conversion Optimization (CRO)" },
+            { id: "dev", name: "Shopify Design & Development" },
+            { id: "cro", name: "Shopify CRO & Speed" },
           ].map((tab) => (
             <button
               key={tab.id}
@@ -627,7 +626,7 @@ export default function PortfolioPage() {
                   <span className="text-[#8C8C8C] font-mono uppercase tracking-wider text-[9px]">Strategic Focus</span>
                   <span className="font-bold text-white font-mono flex items-center gap-1">
                     <Check className="w-3 h-3 text-[#00AF56]" />
-                    {proj.category === "dev" ? "Development" : proj.category === "ads" ? "Paid Media" : "CRO Metrics"}
+                    {proj.category === "dev" ? "Development" : "CRO Metrics"}
                   </span>
                 </div>
               </motion.div>

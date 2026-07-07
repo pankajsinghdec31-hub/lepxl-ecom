@@ -1,92 +1,111 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { TrendingUp, ShoppingBag, Target, ArrowUpRight, DollarSign } from "lucide-react";
+import { TrendingUp, ShoppingBag, Target, ArrowUpRight, Zap, Check, ShieldAlert } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-
-const Facebook = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
-    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-  </svg>
-);
-
-const Chrome = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    {...props}
-  >
-    <circle cx="12" cy="12" r="10" />
-    <circle cx="12" cy="12" r="4" />
-    <line x1="21.17" y1="8" x2="12" y2="8" />
-    <line x1="3.95" y1="6.06" x2="8.54" y2="14" />
-    <line x1="10.88" y1="21.94" x2="15.46" y2="14" />
-  </svg>
-);
 
 interface Order {
   id: string;
   brand: string;
   amount: number;
   time: string;
-  channel: "Meta" | "Google" | "Organic";
+  channel: "Shopify Pay" | "UPI" | "COD";
+}
+
+interface SpeedLog {
+  id: string;
+  brand: string;
+  action: string;
+  time: string;
+  metric: string;
 }
 
 const INITIAL_ORDERS: Order[] = [
-  { id: "1", brand: "The Wheels Co", amount: 4890, time: "Just now", channel: "Meta" },
-  { id: "2", brand: "Glyters", amount: 2450, time: "2 min ago", channel: "Google" },
-  { id: "3", brand: "Ratan Rashi", amount: 12900, time: "5 min ago", channel: "Meta" },
-  { id: "4", brand: "Hay Clothing", amount: 3200, time: "8 min ago", channel: "Organic" },
+  { id: "1", brand: "The Wheels Co", amount: 4890, time: "Just now", channel: "Shopify Pay" },
+  { id: "2", brand: "Glyters", amount: 2450, time: "2 min ago", channel: "UPI" },
+  { id: "3", brand: "Ratan Rashi", amount: 12900, time: "5 min ago", channel: "Shopify Pay" },
+  { id: "4", brand: "Hay Clothing", amount: 3200, time: "8 min ago", channel: "COD" },
 ];
 
-const BRANDS = ["Panihari Vastra", "Chashma", "Suvastra Varnam", "Prisachi", "Anand Sweets", "Get My Couch"];
-const CHANNELS: ("Meta" | "Google" | "Organic")[] = ["Meta", "Google", "Organic"];
+const INITIAL_LOGS: SpeedLog[] = [
+  { id: "1", brand: "SOBO Beauty", action: "Optimized script rendering order", time: "Just now", metric: "1.9s mobile load" },
+  { id: "2", brand: "Glyters", action: "Compressed collection image grids", time: "3 min ago", metric: "-840KB payload" },
+  { id: "3", brand: "Swadezi", action: "Deferred 4 heavy theme apps", time: "6 min ago", metric: "TBT: 42ms" },
+  { id: "4", brand: "Well Essentials", action: "Minified core CSS & JS bundles", time: "9 min ago", metric: "98 Speed Score" },
+];
+
+const BRANDS = ["SOBO Beauty", "Well Essentials", "Amarose", "Kohkayn", "Skin Basics", "Swadezi"];
+const CHANNELS: ("Shopify Pay" | "UPI" | "COD")[] = ["Shopify Pay", "UPI", "COD"];
+const ACTIONS = [
+  { text: "Optimized script load paths", metric: "TTI: 1.1s" },
+  { text: "Lazyloaded products media grid", metric: "-1.2MB payload" },
+  { text: "Refactored checkout cart drawer", metric: "Avg CR: 4.2%" },
+  { text: "Compiled Custom Liquid templates", metric: "PageSpeed: 97" }
+];
 
 export default function AnimatedDashboard() {
-  const [activeTab, setActiveTab] = useState<"shopify" | "ads">("shopify");
+  const [activeTab, setActiveTab] = useState<"shopify" | "speed">("shopify");
   const [revenue, setRevenue] = useState(1482900);
   const [ordersCount, setOrdersCount] = useState(2405);
   const [recentOrders, setRecentOrders] = useState<Order[]>(INITIAL_ORDERS);
-  const [roas, setRoas] = useState(8.24);
+  const [speedLogs, setSpeedLogs] = useState<SpeedLog[]>(INITIAL_LOGS);
+  const [speedScore, setSpeedScore] = useState(96);
 
   // Live data simulation
   useEffect(() => {
     const interval = setInterval(() => {
-      // Simulate new order
       const randomBrand = BRANDS[Math.floor(Math.random() * BRANDS.length)];
-      const randomChannel = CHANNELS[Math.floor(Math.random() * CHANNELS.length)];
-      const randomAmount = Math.floor(Math.random() * 8500) + 1500;
       
-      const newOrder: Order = {
-        id: Date.now().toString(),
-        brand: randomBrand,
-        amount: randomAmount,
-        time: "Just now",
-        channel: randomChannel,
-      };
+      if (Math.random() > 0.5) {
+        // Simulate order
+        const randomChannel = CHANNELS[Math.floor(Math.random() * CHANNELS.length)];
+        const randomAmount = Math.floor(Math.random() * 8500) + 1500;
+        
+        const newOrder: Order = {
+          id: Date.now().toString(),
+          brand: randomBrand,
+          amount: randomAmount,
+          time: "Just now",
+          channel: randomChannel,
+        };
 
-      setRecentOrders((prev) => {
-        const updated = [newOrder, ...prev.slice(0, 3)];
-        return updated.map((o, idx) => ({
-          ...o,
-          time: idx === 0 ? "Just now" : `${idx * 2} min ago`,
-        }));
-      });
+        setRecentOrders((prev) => {
+          const updated = [newOrder, ...prev.slice(0, 3)];
+          return updated.map((o, idx) => ({
+            ...o,
+            time: idx === 0 ? "Just now" : `${idx * 2} min ago`,
+          }));
+        });
 
-      // Update counters
-      setRevenue((prev) => prev + randomAmount);
-      setOrdersCount((prev) => prev + 1);
-      
-      // Slightly fluctuate ROAS around 8.76x
-      setRoas((prev) => {
-        const diff = (Math.random() * 0.4 - 0.2);
-        const next = Number((prev + diff).toFixed(2));
-        return next > 6 ? (next < 10 ? next : 8.76) : 7.2;
-      });
+        setRevenue((prev) => prev + randomAmount);
+        setOrdersCount((prev) => prev + 1);
+      } else {
+        // Simulate speed optimization log
+        const randomActionObj = ACTIONS[Math.floor(Math.random() * ACTIONS.length)];
+        
+        const newLog: SpeedLog = {
+          id: Date.now().toString(),
+          brand: randomBrand,
+          action: randomActionObj.text,
+          time: "Just now",
+          metric: randomActionObj.metric,
+        };
+
+        setSpeedLogs((prev) => {
+          const updated = [newLog, ...prev.slice(0, 3)];
+          return updated.map((l, idx) => ({
+            ...l,
+            time: idx === 0 ? "Just now" : `${idx * 3} min ago`,
+          }));
+        });
+
+        // Fluctuate speed score around 96-99
+        setSpeedScore((prev) => {
+          const delta = Math.random() > 0.5 ? 1 : -1;
+          const next = prev + delta;
+          return next >= 95 && next <= 100 ? next : 97;
+        });
+      }
     }, 4500);
 
     return () => clearInterval(interval);
@@ -98,7 +117,7 @@ export default function AnimatedDashboard() {
       <div className="absolute -inset-2 rounded-3xl bg-[#00AF56]/[0.08] blur-xl opacity-80 pointer-events-none" />
 
       {/* Main glass frame */}
-      <div className="relative bg-[#181818] border border-white/[0.08] rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+      <div className="relative bg-[#0d0d0f]/90 backdrop-blur-md border border-white/[0.08] rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
         
         {/* Dashboard Header Bar */}
         <div className="px-6 py-4 bg-[#111111] border-b border-white/[0.06] flex items-center justify-between">
@@ -107,7 +126,7 @@ export default function AnimatedDashboard() {
             <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
             <span className="w-2.5 h-2.5 rounded-full bg-green-500/80" />
             <span className="text-[11px] text-[#8C8C8C] font-mono ml-2 uppercase tracking-widest">
-              Live Scale Engine v2.4
+              Live Shopify Engine
             </span>
           </div>
           
@@ -121,17 +140,17 @@ export default function AnimatedDashboard() {
                   : "text-[#8C8C8C] hover:text-white"
               }`}
             >
-              Shopify Analytics
+              Sales Analytics
             </button>
             <button
-              onClick={() => setActiveTab("ads")}
+              onClick={() => setActiveTab("speed")}
               className={`px-3 py-1 text-xs font-semibold rounded-md transition-all ${
-                activeTab === "ads"
+                activeTab === "speed"
                   ? "bg-[#181818] text-white"
                   : "text-[#8C8C8C] hover:text-white"
               }`}
             >
-              Paid Channels
+              Speed & Theme Logs
             </button>
           </div>
         </div>
@@ -149,8 +168,8 @@ export default function AnimatedDashboard() {
                 className="flex flex-col gap-6"
               >
                 {/* Stats Widgets */}
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                  <div className="p-4 rounded-xl bg-[#111111] border border-white/[0.05]">
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 text-left">
+                  <div className="p-4 rounded-xl bg-[#0b0b0c] border border-white/[0.05]">
                     <div className="flex items-center justify-between text-[#8C8C8C] mb-1.5">
                       <span className="text-[11px] font-medium uppercase tracking-wider">Revenue</span>
                       <TrendingUp className="w-3.5 h-3.5 text-[#00AF56]" />
@@ -163,7 +182,7 @@ export default function AnimatedDashboard() {
                     </div>
                   </div>
 
-                  <div className="p-4 rounded-xl bg-[#111111] border border-white/[0.05]">
+                  <div className="p-4 rounded-xl bg-[#0b0b0c] border border-white/[0.05]">
                     <div className="flex items-center justify-between text-[#8C8C8C] mb-1.5">
                       <span className="text-[11px] font-medium uppercase tracking-wider">Orders</span>
                       <ShoppingBag className="w-3.5 h-3.5 text-[#00AF56]" />
@@ -176,7 +195,7 @@ export default function AnimatedDashboard() {
                     </div>
                   </div>
 
-                  <div className="p-4 rounded-xl bg-[#111111] border border-white/[0.05] col-span-2 sm:col-span-1">
+                  <div className="p-4 rounded-xl bg-[#0b0b0c] border border-white/[0.05] col-span-2 sm:col-span-1">
                     <div className="flex items-center justify-between text-[#8C8C8C] mb-1.5">
                       <span className="text-[11px] font-medium uppercase tracking-wider">Conv. Rate</span>
                       <Target className="w-3.5 h-3.5 text-[#00AF56]" />
@@ -191,9 +210,9 @@ export default function AnimatedDashboard() {
                 </div>
 
                 {/* Animated Graph */}
-                <div className="p-4 rounded-xl bg-[#111111] border border-white/[0.05]">
+                <div className="p-4 rounded-xl bg-[#0b0b0c] border border-white/[0.05] text-left">
                   <div className="flex justify-between items-center mb-4">
-                    <span className="text-xs font-semibold text-white">Conversion Curve & Scaling Trend</span>
+                    <span className="text-xs font-semibold text-white">Conversion Curve & Speed Scaling Trend</span>
                     <span className="text-[10px] text-[#8C8C8C] font-mono">Real-time update</span>
                   </div>
                   
@@ -234,7 +253,7 @@ export default function AnimatedDashboard() {
                 </div>
 
                 {/* Live Order Feeds */}
-                <div className="flex flex-col gap-2.5">
+                <div className="flex flex-col gap-2.5 text-left">
                   <span className="text-xs font-semibold text-white">Live Transactions Stream</span>
                   <div className="flex flex-col gap-2 overflow-hidden h-[164px]">
                     <AnimatePresence initial={false}>
@@ -245,22 +264,12 @@ export default function AnimatedDashboard() {
                           animate={{ opacity: 1, y: 0, height: "auto" }}
                           exit={{ opacity: 0, scale: 0.95 }}
                           transition={{ type: "spring", stiffness: 500, damping: 30 }}
-                          className="px-4 py-3 rounded-xl bg-[#111111] border border-white/[0.04] flex items-center justify-between text-xs overflow-hidden"
+                          className="px-4 py-3 rounded-xl bg-[#0b0b0c] border border-white/[0.04] flex items-center justify-between text-xs overflow-hidden"
                         >
                           <div className="flex items-center gap-2.5">
-                            {order.channel === "Meta" ? (
-                              <span className="w-6 h-6 rounded-lg bg-blue-600/10 flex items-center justify-center text-blue-400">
-                                <Facebook className="w-3.5 h-3.5 fill-current" />
-                              </span>
-                            ) : order.channel === "Google" ? (
-                              <span className="w-6 h-6 rounded-lg bg-red-600/10 flex items-center justify-center text-red-400">
-                                <Chrome className="w-3.5 h-3.5" />
-                              </span>
-                            ) : (
-                              <span className="w-6 h-6 rounded-lg bg-[#00AF56]/10 flex items-center justify-center text-[#00AF56]">
-                                <ShoppingBag className="w-3.5 h-3.5" />
-                              </span>
-                            )}
+                            <span className="w-6 h-6 rounded-lg bg-[#00AF56]/10 flex items-center justify-center text-[#00AF56]">
+                              <ShoppingBag className="w-3.5 h-3.5" />
+                            </span>
                             <div>
                               <p className="font-semibold text-white">{order.brand}</p>
                               <p className="text-[10px] text-[#8C8C8C]">{order.time} via {order.channel}</p>
@@ -280,7 +289,7 @@ export default function AnimatedDashboard() {
               </motion.div>
             ) : (
               <motion.div
-                key="ads-panel"
+                key="speed-panel"
                 initial={{ opacity: 0, x: 10 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -10 }}
@@ -288,88 +297,96 @@ export default function AnimatedDashboard() {
                 className="flex flex-col gap-6"
               >
                 {/* Meta and Google ROAS Cards */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {/* Meta Ads Card */}
-                  <div className="p-4 rounded-xl bg-blue-600/[0.03] border border-blue-500/20 hover:border-blue-500/40 transition-colors">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
+                  {/* Speed Score Card */}
+                  <div className="p-4 rounded-xl bg-[#00AF56]/[0.02] border border-[#00AF56]/20 hover:border-[#00AF56]/40 transition-colors">
                     <div className="flex items-center justify-between mb-3">
                       <div className="flex items-center gap-2 text-[#D7D7D7]">
-                        <Facebook className="w-4.5 h-4.5 text-blue-500 fill-current" />
-                        <span className="text-xs font-semibold uppercase tracking-wider">Meta Ads Scale</span>
+                        <Zap className="w-4.5 h-4.5 text-[#00AF56]" />
+                        <span className="text-xs font-semibold uppercase tracking-wider">PageSpeed Score</span>
                       </div>
-                      <span className="text-[9px] bg-blue-500/20 text-blue-300 font-bold px-2 py-0.5 rounded-full">ACTIVE</span>
+                      <span className="text-[9px] bg-[#00AF56]/25 text-[#00AF56] font-bold px-2 py-0.5 rounded-full">OPTIMIZED</span>
                     </div>
                     <div className="flex justify-between items-baseline gap-2">
                       <div>
-                        <p className="text-[10px] text-[#8C8C8C]">Ad Spend (Monthly)</p>
-                        <p className="text-lg font-bold text-white font-mono">₹4.2L</p>
+                        <p className="text-[10px] text-[#8C8C8C]">Avg Mobile Score</p>
+                        <p className="text-lg font-bold text-white font-mono">{speedScore} / 100</p>
                       </div>
                       <div className="text-right">
-                        <p className="text-[10px] text-[#8C8C8C]">Generated Revenue</p>
-                        <p className="text-lg font-bold text-[#00AF56] font-mono">₹38.8L</p>
+                        <p className="text-[10px] text-[#8C8C8C]">Load Time (Avg)</p>
+                        <p className="text-lg font-bold text-[#00AF56] font-mono">1.3s</p>
                       </div>
                     </div>
                     <div className="mt-4 pt-3 border-t border-white/[0.05] flex justify-between items-center text-xs">
-                      <span className="text-[#8C8C8C]">ROAS</span>
-                      <span className="font-mono font-bold text-white text-base">9.24x</span>
+                      <span className="text-[#8C8C8C]">Performance Level</span>
+                      <span className="font-mono font-bold text-white text-base">Excellent</span>
                     </div>
                   </div>
 
-                  {/* Google Ads Card */}
-                  <div className="p-4 rounded-xl bg-red-600/[0.03] border border-red-500/20 hover:border-red-500/40 transition-colors">
+                  {/* Interactivity Card */}
+                  <div className="p-4 rounded-xl bg-emerald-500/[0.02] border border-emerald-500/20 hover:border-emerald-500/40 transition-colors">
                     <div className="flex items-center justify-between mb-3">
                       <div className="flex items-center gap-2 text-[#D7D7D7]">
-                        <Chrome className="w-4.5 h-4.5 text-red-500" />
-                        <span className="text-xs font-semibold uppercase tracking-wider">Google Ads PMax</span>
+                        <Target className="w-4.5 h-4.5 text-emerald-400" />
+                        <span className="text-xs font-semibold uppercase tracking-wider">Core Web Vitals</span>
                       </div>
-                      <span className="text-[9px] bg-red-500/20 text-red-300 font-bold px-2 py-0.5 rounded-full">ACTIVE</span>
+                      <span className="text-[9px] bg-emerald-500/20 text-emerald-300 font-bold px-2 py-0.5 rounded-full">PASSED</span>
                     </div>
                     <div className="flex justify-between items-baseline gap-2">
                       <div>
-                        <p className="text-[10px] text-[#8C8C8C]">Ad Spend (Monthly)</p>
-                        <p className="text-lg font-bold text-white font-mono">₹2.8L</p>
+                        <p className="text-[10px] text-[#8C8C8C]">FID Target</p>
+                        <p className="text-lg font-bold text-white font-mono">&lt; 15ms</p>
                       </div>
                       <div className="text-right">
-                        <p className="text-[10px] text-[#8C8C8C]">Generated Revenue</p>
-                        <p className="text-lg font-bold text-[#00AF56] font-mono">₹22.6L</p>
+                        <p className="text-[10px] text-[#8C8C8C]">LCP Metric</p>
+                        <p className="text-lg font-bold text-[#00AF56] font-mono">1.1s</p>
                       </div>
                     </div>
                     <div className="mt-4 pt-3 border-t border-white/[0.05] flex justify-between items-center text-xs">
-                      <span className="text-[#8C8C8C]">ROAS</span>
-                      <span className="font-mono font-bold text-white text-base">8.07x</span>
+                      <span className="text-[#8C8C8C]">Blocking Time (TBT)</span>
+                      <span className="font-mono font-bold text-white text-base">35ms</span>
                     </div>
                   </div>
                 </div>
 
                 {/* Blended Metrics Performance Overview */}
-                <div className="p-5 rounded-xl bg-[#111111] border border-white/[0.05] flex flex-col gap-4">
+                <div className="p-5 rounded-xl bg-[#0b0b0c] border border-white/[0.05] flex flex-col gap-4 text-left">
                   <div className="flex items-center justify-between border-b border-white/[0.06] pb-3">
-                    <span className="text-xs font-semibold text-white uppercase tracking-wider">Blended Performance Overview</span>
-                    <span className="text-xs text-[#00AF56] font-semibold font-mono">ROAS: {roas}x</span>
+                    <span className="text-xs font-semibold text-white uppercase tracking-wider">Store Optimization Log</span>
+                    <span className="text-xs text-[#00AF56] font-semibold font-mono">Active Monitoring</span>
                   </div>
                   
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="flex flex-col gap-0.5">
-                      <span className="text-[10px] text-[#8C8C8C]">Total Ad Budget Managed</span>
-                      <span className="text-base font-bold text-white font-mono">₹7,00,000</span>
-                    </div>
-                    <div className="flex flex-col gap-0.5 text-right">
-                      <span className="text-[10px] text-[#8C8C8C]">Overall Generated Sales</span>
-                      <span className="text-base font-bold text-[#00AF56] font-mono">₹61,40,000</span>
-                    </div>
-                    <div className="flex flex-col gap-0.5">
-                      <span className="text-[10px] text-[#8C8C8C]">Avg. Blended CPA</span>
-                      <span className="text-base font-bold text-white font-mono">₹380 <span className="text-xs text-[#00AF56] font-normal">-18%</span></span>
-                    </div>
-                    <div className="flex flex-col gap-0.5 text-right">
-                      <span className="text-[10px] text-[#8C8C8C]">Avg. Blended CTR</span>
-                      <span className="text-base font-bold text-white font-mono">3.46%</span>
-                    </div>
+                  <div className="flex flex-col gap-3">
+                    <AnimatePresence initial={false}>
+                      {speedLogs.map((log) => (
+                        <motion.div
+                          key={log.id}
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: "auto" }}
+                          exit={{ opacity: 0 }}
+                          className="flex items-center justify-between text-xs"
+                        >
+                          <div className="flex items-center gap-2">
+                            <span className="w-4 h-4 rounded bg-[#00AF56]/15 text-[#00AF56] flex items-center justify-center text-[9px] font-bold">
+                              ✓
+                            </span>
+                            <div>
+                              <span className="font-semibold text-white block">{log.brand}</span>
+                              <span className="text-[10px] text-[#8C8C8C]">{log.action}</span>
+                            </div>
+                          </div>
+                          <span className="font-mono text-[#00AF56] text-[10px] bg-[#00AF56]/10 px-2 py-0.5 rounded border border-[#00AF56]/20 font-bold shrink-0">
+                            {log.metric}
+                          </span>
+                        </motion.div>
+                      ))}
+                    </AnimatePresence>
                   </div>
                 </div>
 
                 {/* Micro animation callout */}
                 <div className="text-center text-[10px] text-[#8C8C8C]">
-                  📊 Integrated dashboard simulating live performance marketing data for ecommerce brands scaling above ₹50L/mo.
+                  📊 Integrated engine simulating real-time speed auditing and rendering parameters for optimized Shopify storefronts.
                 </div>
               </motion.div>
             )}

@@ -89,7 +89,7 @@ export default function Navbar() {
               href="/contact"
               className="relative inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider text-black bg-[#00AF56] overflow-hidden group transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,175,86,0.4)] hover:scale-[1.02]"
             >
-              <span>Book Strategy Call</span>
+              <span>Get Free Consultation</span>
               <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </Link>
           </div>
@@ -159,7 +159,7 @@ export default function Navbar() {
                 href="/contact"
                 className="w-full flex items-center justify-center gap-2 py-4 rounded-xl text-sm font-semibold uppercase tracking-wider text-black bg-[#00AF56] text-center"
               >
-                <span>Book Strategy Call</span>
+                <span>Get Free Consultation</span>
                 <ArrowUpRight className="w-4.5 h-4.5" />
               </Link>
               <div className="text-center text-xs text-[#8C8C8C] flex items-center justify-center gap-1.5">

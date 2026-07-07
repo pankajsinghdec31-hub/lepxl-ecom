@@ -11,12 +11,12 @@ export default function EnquiryBox() {
     email: "",
     phone: "",
     brandName: "",
-    currentPlatform: "",
     projectCategory: "",
+    platform: "Shopify",
+    productsCount: "",
     timeline: "",
     budgetRange: "",
-    projectDetails: "",
-    hearAboutUs: ""
+    projectDetails: ""
   });
 
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -26,19 +26,19 @@ export default function EnquiryBox() {
   const validateStep = (currentStep: number) => {
     const newErrors: Record<string, string> = {};
     if (currentStep === 1) {
-      if (!formData.name.trim()) newErrors.name = "Name is required";
+      if (!formData.name.trim()) newErrors.name = "Full Name is required";
       if (!formData.email.trim()) {
-        newErrors.email = "Email is required";
+        newErrors.email = "Business Email is required";
       } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
         newErrors.email = "Please enter a valid email";
       }
       if (!formData.phone.trim()) newErrors.phone = "Phone number is required";
     } else if (currentStep === 2) {
-      if (!formData.brandName.trim()) newErrors.brandName = "Brand name is required";
-      if (!formData.projectCategory) newErrors.projectCategory = "Category is required";
+      if (!formData.projectCategory) newErrors.projectCategory = "Please select what you need";
+      if (!formData.productsCount) newErrors.productsCount = "Please select the number of products";
     } else if (currentStep === 3) {
-      if (!formData.timeline) newErrors.timeline = "Timeline is required";
-      if (!formData.budgetRange) newErrors.budgetRange = "Budget is required";
+      if (!formData.timeline) newErrors.timeline = "Please select a timeline";
+      if (!formData.budgetRange) newErrors.budgetRange = "Please select your budget";
     }
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -73,12 +73,12 @@ export default function EnquiryBox() {
       email: "",
       phone: "",
       brandName: "",
-      currentPlatform: "",
       projectCategory: "",
+      platform: "Shopify",
+      productsCount: "",
       timeline: "",
       budgetRange: "",
-      projectDetails: "",
-      hearAboutUs: ""
+      projectDetails: ""
     });
     setStep(1);
     setSubmitted(false);
@@ -99,18 +99,18 @@ export default function EnquiryBox() {
     } transition-all appearance-none cursor-pointer pr-10`;
 
   return (
-    <div className="w-full p-6 sm:p-8 rounded-3xl bg-[#141414] border border-white/[0.08] shadow-2xl relative overflow-hidden flex flex-col justify-center">
+    <div className="w-full p-6 sm:p-8 rounded-3xl bg-[#141414]/90 backdrop-blur-md border border-white/[0.08] shadow-2xl relative overflow-hidden flex flex-col justify-center">
       {/* Absolute glow backgrounds */}
       <div className="absolute top-0 right-0 w-32 h-32 bg-[#00AF56]/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-32 h-32 bg-indigo-500/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-32 h-32 bg-[#00AF56]/2 rounded-full blur-3xl pointer-events-none" />
 
       <AnimatePresence mode="wait">
         {!submitted ? (
           <form onSubmit={handleSubmit} className="relative z-10 flex flex-col text-left">
             {/* Header */}
             <div className="mb-6">
-              <h3 className="text-xl font-bold text-white tracking-tight">Get Migration Quote</h3>
-              <p className="text-xs text-[#8C8C8C] mt-1">Free BigCommerce migration assessment</p>
+              <h3 className="text-xl font-bold text-white tracking-tight">Tell Us About Your Project</h3>
+              <p className="text-xs text-[#8C8C8C] mt-1">Free Shopify strategy assessment</p>
             </div>
 
             {/* Steps Progress Tracker */}
@@ -192,7 +192,7 @@ export default function EnquiryBox() {
                   >
                     {/* Name Field */}
                     <div className="flex flex-col gap-1.5">
-                      <label className="text-[10px] text-[#8C8C8C] uppercase tracking-wider font-semibold">Your Name *</label>
+                      <label className="text-[10px] text-[#8C8C8C] uppercase tracking-wider font-semibold">Full Name *</label>
                       <input
                         type="text"
                         placeholder="e.g. Pankaj Singh"
@@ -208,7 +208,7 @@ export default function EnquiryBox() {
 
                     {/* Email Field */}
                     <div className="flex flex-col gap-1.5">
-                      <label className="text-[10px] text-[#8C8C8C] uppercase tracking-wider font-semibold">Email Address *</label>
+                      <label className="text-[10px] text-[#8C8C8C] uppercase tracking-wider font-semibold">Business Email *</label>
                       <input
                         type="email"
                         placeholder="e.g. growth@salepxl.com"
@@ -224,7 +224,7 @@ export default function EnquiryBox() {
 
                     {/* Phone Field */}
                     <div className="flex flex-col gap-1.5">
-                      <label className="text-[10px] text-[#8C8C8C] uppercase tracking-wider font-semibold">Phone Number (WhatsApp) *</label>
+                      <label className="text-[10px] text-[#8C8C8C] uppercase tracking-wider font-semibold">Phone Number *</label>
                       <input
                         type="tel"
                         placeholder="e.g. +91 9917780656"
@@ -236,6 +236,18 @@ export default function EnquiryBox() {
                         className={inputClasses(!!errors.phone)}
                       />
                       {errors.phone && <span className="text-[10px] text-red-500 font-medium">{errors.phone}</span>}
+                    </div>
+
+                    {/* Brand Name Field */}
+                    <div className="flex flex-col gap-1.5">
+                      <label className="text-[10px] text-[#8C8C8C] uppercase tracking-wider font-semibold">Brand Name (Optional)</label>
+                      <input
+                        type="text"
+                        placeholder="e.g. The Wheels Co"
+                        value={formData.brandName}
+                        onChange={(e) => setFormData({ ...formData, brandName: e.target.value })}
+                        className={inputClasses(false)}
+                      />
                     </div>
                   </motion.div>
                 )}
@@ -249,46 +261,9 @@ export default function EnquiryBox() {
                     transition={{ duration: 0.15 }}
                     className="flex flex-col gap-4"
                   >
-                    {/* Brand Name Field */}
+                    {/* What do you need? */}
                     <div className="flex flex-col gap-1.5">
-                      <label className="text-[10px] text-[#8C8C8C] uppercase tracking-wider font-semibold">Brand / Shop Name *</label>
-                      <input
-                        type="text"
-                        placeholder="e.g. The Wheels Co"
-                        value={formData.brandName}
-                        onChange={(e) => {
-                          setFormData({ ...formData, brandName: e.target.value });
-                          if (errors.brandName) setErrors({ ...errors, brandName: "" });
-                        }}
-                        className={inputClasses(!!errors.brandName)}
-                      />
-                      {errors.brandName && <span className="text-[10px] text-red-500 font-medium">{errors.brandName}</span>}
-                    </div>
-
-                    {/* Current Platform Field */}
-                    <div className="flex flex-col gap-1.5">
-                      <label className="text-[10px] text-[#8C8C8C] uppercase tracking-wider font-semibold">Current Platform</label>
-                      <div className="relative">
-                        <select
-                          value={formData.currentPlatform}
-                          onChange={(e) => setFormData({ ...formData, currentPlatform: e.target.value })}
-                          className={selectClasses(false)}
-                        >
-                          <option value="">Select Platform</option>
-                          <option value="bigcommerce">BigCommerce</option>
-                          <option value="woocommerce">WooCommerce</option>
-                          <option value="magento">Magento</option>
-                          <option value="custom">Custom HTML/JS</option>
-                          <option value="shopify">Shopify (Optimizing Existing)</option>
-                          <option value="none">None / New Brand</option>
-                        </select>
-                        <ChevronDown className="absolute right-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#8C8C8C] pointer-events-none" />
-                      </div>
-                    </div>
-
-                    {/* Project Category Field */}
-                    <div className="flex flex-col gap-1.5">
-                      <label className="text-[10px] text-[#8C8C8C] uppercase tracking-wider font-semibold">Project Category *</label>
+                      <label className="text-[10px] text-[#8C8C8C] uppercase tracking-wider font-semibold">What do you need? *</label>
                       <div className="relative">
                         <select
                           value={formData.projectCategory}
@@ -298,15 +273,51 @@ export default function EnquiryBox() {
                           }}
                           className={selectClasses(!!errors.projectCategory)}
                         >
-                          <option value="">Select Category</option>
-                          <option value="migration">Shopify Migration</option>
-                          <option value="new-store">New Store Build</option>
-                          <option value="cro-revamp">CRO & Speed Optimization</option>
-                          <option value="custom-integrations">Custom App & Integrations</option>
+                          <option value="">Select Option</option>
+                          <option value="New Shopify Store">New Shopify Store</option>
+                          <option value="Shopify Store Redesign">Shopify Store Redesign</option>
+                          <option value="CRO Optimization">CRO Optimization</option>
+                          <option value="Dropshipping Store">Dropshipping Store</option>
+                          <option value="Custom Shopify Development">Custom Shopify Development</option>
                         </select>
                         <ChevronDown className="absolute right-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#8C8C8C] pointer-events-none" />
                       </div>
                       {errors.projectCategory && <span className="text-[10px] text-red-500 font-medium">{errors.projectCategory}</span>}
+                    </div>
+
+                    {/* Platform Field */}
+                    <div className="flex flex-col gap-1.5">
+                      <label className="text-[10px] text-[#8C8C8C] uppercase tracking-wider font-semibold">Platform</label>
+                      <input
+                        type="text"
+                        value={formData.platform}
+                        readOnly
+                        disabled
+                        className="w-full bg-[#111111]/50 border border-white/[0.05] text-[#8C8C8C] text-xs rounded-xl px-4 py-3 cursor-not-allowed select-none"
+                      />
+                    </div>
+
+                    {/* Number of Products */}
+                    <div className="flex flex-col gap-1.5">
+                      <label className="text-[10px] text-[#8C8C8C] uppercase tracking-wider font-semibold">Number of Products *</label>
+                      <div className="relative">
+                        <select
+                          value={formData.productsCount}
+                          onChange={(e) => {
+                            setFormData({ ...formData, productsCount: e.target.value });
+                            if (errors.productsCount) setErrors({ ...errors, productsCount: "" });
+                          }}
+                          className={selectClasses(!!errors.productsCount)}
+                        >
+                          <option value="">Select Range</option>
+                          <option value="1–50">1–50</option>
+                          <option value="51–200">51–200</option>
+                          <option value="201–500">201–500</option>
+                          <option value="500+">500+</option>
+                        </select>
+                        <ChevronDown className="absolute right-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#8C8C8C] pointer-events-none" />
+                      </div>
+                      {errors.productsCount && <span className="text-[10px] text-red-500 font-medium">{errors.productsCount}</span>}
                     </div>
                   </motion.div>
                 )}
@@ -322,7 +333,7 @@ export default function EnquiryBox() {
                   >
                     {/* Timeline Field */}
                     <div className="flex flex-col gap-1.5">
-                      <label className="text-[10px] text-[#8C8C8C] uppercase tracking-wider font-semibold">Timeline *</label>
+                      <label className="text-[10px] text-[#8C8C8C] uppercase tracking-wider font-semibold">When do you want to start? *</label>
                       <div className="relative">
                         <select
                           value={formData.timeline}
@@ -332,20 +343,21 @@ export default function EnquiryBox() {
                           }}
                           className={selectClasses(!!errors.timeline)}
                         >
-                          <option value="">When do you want to start?</option>
-                          <option value="immediately">Immediately</option>
-                          <option value="1-2-weeks">In 1-2 weeks</option>
-                          <option value="1-month">In 1 month</option>
-                          <option value="exploring">Just exploring options</option>
+                          <option value="">Select Timeline</option>
+                          <option value="ASAP">ASAP</option>
+                          <option value="Within 1 Week">Within 1 Week</option>
+                          <option value="Within 2 Weeks">Within 2 Weeks</option>
+                          <option value="Within 1 Month">Within 1 Month</option>
+                          <option value="Just Exploring">Just Exploring</option>
                         </select>
                         <ChevronDown className="absolute right-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#8C8C8C] pointer-events-none" />
                       </div>
                       {errors.timeline && <span className="text-[10px] text-red-500 font-medium">{errors.timeline}</span>}
                     </div>
 
-                    {/* Budget Range Field */}
+                    {/* Budget Field */}
                     <div className="flex flex-col gap-1.5">
-                      <label className="text-[10px] text-[#8C8C8C] uppercase tracking-wider font-semibold">Budget Range *</label>
+                      <label className="text-[10px] text-[#8C8C8C] uppercase tracking-wider font-semibold">Budget *</label>
                       <div className="relative">
                         <select
                           value={formData.budgetRange}
@@ -355,11 +367,10 @@ export default function EnquiryBox() {
                           }}
                           className={selectClasses(!!errors.budgetRange)}
                         >
-                          <option value="">Select your budget</option>
-                          <option value="under-1500">Under $1,500 (Under ₹1.2L)</option>
-                          <option value="1500-3500">$1,500 - $3,500 (₹1.2L - ₹3L)</option>
-                          <option value="3500-7500">$3,500 - $7,500 (₹3L - ₹6L)</option>
-                          <option value="7500-plus">$7,500+ (₹6L+)</option>
+                          <option value="">Select Budget Range</option>
+                          <option value="Under ₹25,000">Under ₹25,000</option>
+                          <option value="₹25,000–₹50,000">₹25,000–₹50,000</option>
+                          <option value="Above ₹50,000">Above ₹50,000</option>
                         </select>
                         <ChevronDown className="absolute right-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#8C8C8C] pointer-events-none" />
                       </div>
@@ -368,34 +379,14 @@ export default function EnquiryBox() {
 
                     {/* Project Details Textarea */}
                     <div className="flex flex-col gap-1.5">
-                      <label className="text-[10px] text-[#8C8C8C] uppercase tracking-wider font-semibold">Tell us more about your project</label>
+                      <label className="text-[10px] text-[#8C8C8C] uppercase tracking-wider font-semibold">Project details</label>
                       <textarea
-                        rows={2}
-                        placeholder="Current challenges, goals, specific requirements..."
+                        rows={3}
+                        placeholder="Tell us about your business, products, design preferences, competitors, or any custom functionality you need."
                         value={formData.projectDetails}
                         onChange={(e) => setFormData({ ...formData, projectDetails: e.target.value })}
                         className="w-full bg-[#111111] border border-white/[0.08] focus:border-[#00AF56] text-white text-xs rounded-xl px-4 py-3 focus:outline-none focus:ring-1 focus:ring-[#00AF56]/20 transition-all placeholder:text-[#4A4A4A] resize-none"
                       />
-                    </div>
-
-                    {/* How did you hear about us select */}
-                    <div className="flex flex-col gap-1.5">
-                      <label className="text-[10px] text-[#8C8C8C] uppercase tracking-wider font-semibold">How did you hear about us?</label>
-                      <div className="relative">
-                        <select
-                          value={formData.hearAboutUs}
-                          onChange={(e) => setFormData({ ...formData, hearAboutUs: e.target.value })}
-                          className={selectClasses(false)}
-                        >
-                          <option value="">Select</option>
-                          <option value="google">Google Search</option>
-                          <option value="instagram">Meta / Instagram Ads</option>
-                          <option value="linkedin">LinkedIn</option>
-                          <option value="referral">Word of Mouth / Referral</option>
-                          <option value="other">Other</option>
-                        </select>
-                        <ChevronDown className="absolute right-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#8C8C8C] pointer-events-none" />
-                      </div>
                     </div>
                   </motion.div>
                 )}
@@ -433,9 +424,7 @@ export default function EnquiryBox() {
                   {isSubmitting ? (
                     <span>Submitting...</span>
                   ) : (
-                    <>
-                      <span>Get Free Consultation</span>
-                    </>
+                    <span>Get Free Consultation</span>
                   )}
                 </button>
               )}
@@ -454,9 +443,9 @@ export default function EnquiryBox() {
               <Check className="w-7 h-7" />
             </span>
             <div className="flex flex-col gap-2">
-              <h3 className="text-xl font-bold text-white">Migration Quote Request Queued</h3>
+              <h3 className="text-xl font-bold text-white">Project Details Submitted</h3>
               <p className="text-xs text-[#8C8C8C] max-w-sm mx-auto leading-relaxed">
-                Thank you, <span className="text-white font-semibold">{formData.name}</span>. We will analyze your brand parameters for <span className="text-white font-semibold">{formData.brandName}</span> and design a custom Shopify migration plan for you. We will contact you within 12 hours.
+                Thank you, <span className="text-white font-semibold">{formData.name}</span>. We have received your project details for <span className="text-white font-semibold">{formData.brandName || "your brand"}</span>. A Shopify strategist from SalePixel will review your request and get back to you within 12 hours.
               </p>
             </div>
             <button

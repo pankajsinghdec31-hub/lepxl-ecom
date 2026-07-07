@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { Mail, Phone, MapPin, ArrowRight, ShieldCheck } from "lucide-react";
-import { NAV_LINKS } from "./Navbar";
 
 export default function Footer() {
   const [email, setEmail] = useState("");
@@ -36,7 +35,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-[#8C8C8C] text-sm leading-relaxed max-w-xs">
-              We scale Shopify brands through high-converting store experiences and data-driven performance marketing.
+              We help businesses launch, redesign, and optimize Shopify stores that are beautiful, trustworthy, and conversion-focused.
             </p>
             <div className="flex flex-col gap-3 text-xs text-[#8C8C8C]">
               <div className="flex items-center gap-2">
@@ -63,39 +62,20 @@ export default function Footer() {
             <h3 className="text-white text-sm font-semibold tracking-wider uppercase mb-6">
               Quick Links
             </h3>
-            <ul className="flex flex-col gap-3.5 mb-6">
-              {NAV_LINKS.map((link) => (
+            <ul className="flex flex-col gap-3.5 text-sm text-[#8C8C8C]">
+              {[
+                { name: "Home", href: "/" },
+                { name: "Services", href: "/services" },
+                { name: "Portfolio", href: "/portfolio" },
+                { name: "About", href: "/about" },
+                { name: "Contact", href: "/contact" }
+              ].map((link) => (
                 <li key={link.name}>
-                  <Link
-                    href={link.href}
-                    className="text-[#8C8C8C] hover:text-white text-sm transition-colors duration-200"
-                  >
+                  <Link href={link.href} className="hover:text-white transition-colors">
                     {link.name}
                   </Link>
                 </li>
               ))}
-            </ul>
-
-            <h3 className="text-white text-xs font-semibold tracking-wider uppercase mb-3">
-              Growth Tools
-            </h3>
-            <ul className="flex flex-col gap-2.5">
-              <li>
-                <Link
-                  href="/shopify-audit"
-                  className="text-[#00AF56] hover:text-white text-xs font-medium transition-colors"
-                >
-                  Free CRO Audit
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/shopify-launch-calculator"
-                  className="text-[#00AF56] hover:text-white text-xs font-medium transition-colors"
-                >
-                  Shopify Launch Calculator
-                </Link>
-              </li>
             </ul>
           </div>
 
@@ -105,31 +85,18 @@ export default function Footer() {
               Services
             </h3>
             <ul className="flex flex-col gap-3.5 text-sm text-[#8C8C8C]">
-              <li>
-                <Link href="/services#shopify-dev" className="hover:text-white transition-colors">
-                  Shopify Development
-                </Link>
-              </li>
-              <li>
-                <Link href="/services#shopify-cro" className="hover:text-white transition-colors">
-                  Shopify CRO Optimization
-                </Link>
-              </li>
-              <li>
-                <Link href="/services#meta-ads" className="hover:text-white transition-colors">
-                  Meta Ads Scaling
-                </Link>
-              </li>
-              <li>
-                <Link href="/services#google-ads" className="hover:text-white transition-colors">
-                  Google Ads (Search & PMax)
-                </Link>
-              </li>
-              <li>
-                <Link href="/services#performance" className="hover:text-white transition-colors">
-                  Performance Marketing
-                </Link>
-              </li>
+              {[
+                { name: "Shopify Development", href: "/services" },
+                { name: "Shopify CRO Optimization", href: "/services" },
+                { name: "Dropshipping Store", href: "/services" },
+                { name: "Custom Shopify Development", href: "/services" }
+              ].map((link) => (
+                <li key={link.name}>
+                  <Link href={link.href} className="hover:text-white transition-colors">
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 

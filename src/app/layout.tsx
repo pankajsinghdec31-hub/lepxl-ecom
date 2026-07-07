@@ -18,28 +18,27 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "SalePXL | Shopify Growth & Performance Marketing Agency",
+  title: "SalePixel | Premium Shopify Design & Development Agency",
   description:
-    "SalePXL helps Shopify brands scale through high-converting store experiences, Meta Ads, Google Ads, CRO, and Retention marketing. Founded by Pankaj Singh (10+ Years Experience).",
+    "SalePixel specializes in custom Shopify store design, development, store redesigns, and conversion rate optimization (CRO) for D2C brands.",
   keywords: [
     "Shopify Agency",
-    "Shopify Growth",
-    "Performance Marketing Agency",
-    "Meta Ads Expert",
-    "Google Ads Specialist",
-    "Conversion Rate Optimization",
+    "Shopify Design",
+    "Shopify Development",
+    "Shopify Store Redesign",
+    "Custom Shopify Development",
     "Shopify CRO",
-    "ECommerce Scaling India",
+    "Dropshipping Shopify Store",
   ],
   authors: [{ name: "Pankaj Singh" }],
-  creator: "SALEPXL",
+  creator: "SalePixel",
   openGraph: {
-    title: "SalePXL | Shopify Growth & Performance Marketing Agency",
+    title: "SalePixel | Premium Shopify Design & Development Agency",
     description:
-      "Scale your Shopify brand with high-converting websites and performance marketing. 10+ years scaling eCommerce.",
+      "Beautiful, trustworthy, and conversion-focused Shopify stores designed and engineered for growing brands.",
     type: "website",
     locale: "en_US",
-    siteName: "SalePXL",
+    siteName: "SalePixel",
   },
   metadataBase: new URL("https://salepxl.com"),
   verification: {

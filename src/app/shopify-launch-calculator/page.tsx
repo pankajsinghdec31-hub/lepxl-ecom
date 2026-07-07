@@ -56,7 +56,7 @@ export default function ShopifyLaunchCalculator() {
     <div className="relative min-h-screen bg-[#050505] text-[#D7D7D7] pb-24 overflow-hidden">
       {/* Decorative Blob Backgrounds */}
       <div className="absolute top-[-5%] right-[-10%] w-[45%] h-[400px] rounded-full bg-[#00AF56]/10 blur-[130px] pointer-events-none animate-pulse" />
-      <div className="absolute top-[35%] left-[-10%] w-[40%] h-[450px] rounded-full bg-indigo-500/5 blur-[120px] pointer-events-none" />
+      <div className="absolute top-[35%] left-[-10%] w-[40%] h-[450px] rounded-full bg-emerald-500/5 blur-[120px] pointer-events-none" />
       <div className="absolute bottom-[5%] right-[5%] w-[35%] h-[400px] rounded-full bg-[#00AF56]/5 blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -147,7 +147,7 @@ export default function ShopifyLaunchCalculator() {
 
             {/* Explanatory Note */}
             <div className="p-4 rounded-xl bg-black/40 border border-white/[0.03] text-xs text-[#8C8C8C] leading-relaxed">
-              💡 **Conversion Matters:** In dropshipping, buying traffic is expensive. A conversion increase from **1.0%** to **3.0%** triples your orders without needing a single additional rupee of advertising budget.
+              💡 **Conversion Matters:** In eCommerce, acquiring traffic is expensive. A conversion increase from **1.0%** to **3.0%** triples your orders without needing any additional customer acquisition budget.
             </div>
           </div>
 
@@ -166,10 +166,10 @@ export default function ShopifyLaunchCalculator() {
                   Collect <span className="text-[#00AF56] font-mono">{formatCurrency(revenueDifference)}</span> Extra Revenue
                 </h2>
                 <p className="text-sm text-white/70 font-semibold mt-1">
-                  Without increasing traffic or ad costs.
+                  Without increasing traffic or acquisition costs.
                 </p>
                 <p className="text-xs text-[#8C8C8C] leading-relaxed mt-2 max-w-xl">
-                  By upgrading to a conversion-optimized SalePXL layout, your storefront captures **+{ordersDifference} additional sales** from the same **{traffic.toLocaleString()}** visitors.
+                  By upgrading to a conversion-optimized SalePixel layout, your storefront captures **+{ordersDifference} additional sales** from the same **{traffic.toLocaleString()}** visitors.
                 </p>
               </div>
 
@@ -361,13 +361,13 @@ export default function ShopifyLaunchCalculator() {
         {/* FOMO HEADER SECTION */}
         <section className="py-16 border-t border-white/[0.08] text-center max-w-4xl mx-auto flex flex-col gap-4">
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
-            Don't Spend More On Ads. <br />
+            Don't Spend More On Traffic. <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-[#00AF56]">
-              Convert More Of The Traffic You Already Have.
+              Convert More Of The Visitors You Already Have.
             </span>
           </h2>
           <p className="text-[#8C8C8C] text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
-            Most businesses try to solve poor sales by increasing ad spend. Winning brands improve conversion first. Better stores make every advertising dollar work harder.
+            Most businesses try to solve poor sales by increasing traffic acquisition spend. Winning brands improve conversion first. Better stores make every visitor count.
           </p>
         </section>
 
@@ -377,11 +377,11 @@ export default function ShopifyLaunchCalculator() {
           
           <div className="flex flex-col gap-6 relative z-10">
             <h3 className="text-2xl sm:text-3xl font-extrabold text-white">
-              Ready To Build A Shopify Store That Converts?
+              Ready to Build a Shopify Store That Converts?
             </h3>
             
             <p className="text-sm text-[#8C8C8C] max-w-xl mx-auto leading-relaxed">
-              Don't guess on your storefront designs. Get a conversion-optimized store engineered from the ground up to scale meta/google campaigns.
+              Don't guess on your storefront designs. Get a conversion-optimized store engineered from the ground up to convert visitors.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-2">
@@ -389,22 +389,25 @@ export default function ShopifyLaunchCalculator() {
                 href="/contact"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-sm font-semibold uppercase tracking-wider text-black bg-[#00AF56] hover:bg-[#00AF56]/90 transition-all text-center font-bold"
               >
-                <span>Book Free Strategy Call</span>
+                <span>Get Free Consultation</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
-              <Link
-                href="/shopify-audit"
+              <a
+                href="https://wa.me/919917780656"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-sm font-semibold uppercase tracking-wider text-white bg-transparent border border-white/[0.08] hover:border-white/20 transition-all text-center hover:bg-white/[0.02]"
               >
-                <span>Get Free Growth Audit</span>
-              </Link>
+                <Phone className="w-4 h-4 text-[#00AF56]" />
+                <span>Chat on WhatsApp</span>
+              </a>
             </div>
 
             {/* Direct contact details */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-6 pt-6 border-t border-white/[0.04] text-xs text-[#8C8C8C]">
               <div className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-[#00AF56]" />
-                <span>Call/WhatsApp: <a href="tel:+919917780656" className="text-white hover:text-[#00AF56] font-bold font-mono">+91 9917780656</a></span>
+                <span>WhatsApp: <a href="https://wa.me/919917780656" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#00AF56] font-bold font-mono">+91 9917780656</a></span>
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-[#00AF56]" />
