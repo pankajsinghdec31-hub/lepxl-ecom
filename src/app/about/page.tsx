@@ -76,21 +76,21 @@ export default function AboutPage() {
             </h2>
             
             <p className="text-sm sm:text-base text-[#D7D7D7] leading-relaxed">
-              With more than a decade of professional experience scaling eCommerce brands, Pankaj Singh established SalePXL to resolve the core efficiency drop in paid acquisition campaigns. Pankaj's core framework blends UI/UX speed optimization, customer buying psychology, and data attribution models.
+              With more than a decade of professional experience engineering eCommerce storefronts, Pankaj Singh established SalePXL to build high-converting, lightning-fast Shopify stores. Pankaj's core framework blends custom UI/UX design, conversion rate optimization (CRO) principles, and advanced speed performance engineering.
             </p>
 
             <p className="text-xs sm:text-sm text-[#8C8C8C] leading-relaxed">
-              Based in Dehradun, Uttarakhand, India, Pankaj acts as a strategic performance consultant to high-growth brands. He handles Meta Ads algorithms, Google Search structures, Performance Max campaign scaling, and custom Liquid script optimizations.
+              Based in Dehradun, Uttarakhand, India, Pankaj acts as a strategic technical architect to high-growth brands. He handles custom Shopify Liquid builds, platform migrations, custom API integrations, and under-the-hood speed optimizations.
             </p>
 
             {/* Checklist of Core Capabilities */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
               {[
                 "10+ Years Experience in ECommerce Strategy",
-                "Certified Meta Performance Buying Expert",
+                "Custom Shopify Theme Development",
                 "Advanced Shopify Liquid Optimization",
-                "Google Performance Max & Search Specialist",
-                "Data Attribution & Server-Side Tracking Architect",
+                "Shopify Speed & Performance Tuning",
+                "API & ERP App Integration Architect",
                 "Government Certified MSME Partner"
               ].map((cap, index) => (
                 <div key={index} className="flex items-center gap-2 text-xs">
