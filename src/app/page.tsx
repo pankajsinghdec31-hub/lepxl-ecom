@@ -31,7 +31,7 @@ import {
   ShoppingBag
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import AnimatedDashboard from "@/components/AnimatedDashboard";
+import EnquiryBox from "@/components/EnquiryBox";
 import InteractiveFunnel from "@/components/InteractiveFunnel";
 import ROICalculator from "@/components/ROICalculator";
 import ABTestingSimulator from "@/components/ABTestingSimulator";
@@ -598,7 +598,7 @@ export default function HomePage() {
 
           {/* Right Column Interactive Dashboard */}
           <div className="lg:col-span-5 relative">
-            <AnimatedDashboard />
+            <EnquiryBox />
           </div>
         </div>
       </section>
