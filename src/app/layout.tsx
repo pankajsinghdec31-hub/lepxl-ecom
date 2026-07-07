@@ -41,6 +41,11 @@ export const metadata: Metadata = {
     siteName: "SalePXL",
   },
   metadataBase: new URL("https://salepxl.com"),
+  verification: {
+    other: {
+      "facebook-domain-verification": "f7ap0qjveg1bmvgyntcvvtut3ytdi0",
+    },
+  },
 };
 
 export default function RootLayout({
