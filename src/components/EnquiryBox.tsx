@@ -302,7 +302,7 @@ export default function EnquiryBox() {
                           <option value="migration">Shopify Migration</option>
                           <option value="new-store">New Store Build</option>
                           <option value="cro-revamp">CRO & Speed Optimization</option>
-                          <option value="performance-marketing">Performance Marketing</option>
+                          <option value="custom-integrations">Custom App & Integrations</option>
                         </select>
                         <ChevronDown className="absolute right-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#8C8C8C] pointer-events-none" />
                       </div>

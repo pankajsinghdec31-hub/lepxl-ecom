@@ -56,13 +56,13 @@ interface ServiceItem {
   bullets: string[];
 }
 
-const DEV_SERVICES: ServiceItem[] = [
+const SERVICES: ServiceItem[] = [
   {
     title: "Shopify Store Development",
     desc: "Bespoke storefront development leveraging clean architectures, speed optimized Liquid files, and modern checkout modules.",
     icon: Layers,
     metric: "Sub-2.0s Core Web Vitals",
-    bullets: ["Bespoke Liquid & Headless builds", "Optimized theme configuration", "Streamlined checkout structures"]
+    bullets: ["Bespoke Liquid & custom builds", "Optimized theme configuration", "Streamlined checkout structures"]
   },
   {
     title: "Product Page Optimization",
@@ -72,73 +72,32 @@ const DEV_SERVICES: ServiceItem[] = [
     bullets: ["Value proposition placement", "Mobile-optimized image grids", "Clear visual sizing/selector drawers"]
   },
   {
-    title: "Custom Landing Pages",
-    desc: "High-performance, single-focus landing pages designed to transition paid traffic from ad creative hooks directly into purchases.",
+    title: "Shopify Store Migrations",
+    desc: "Seamless migration of products, collections, customers, SEO paths, and design assets from BigCommerce, WooCommerce, or custom platforms.",
     icon: Zap,
-    metric: "4.86%+ Average Conversion Rate",
-    bullets: ["Zero-clutter product hooks", "Fast loading serverless assets", "A/B copy and structure testing"]
+    metric: "Zero SEO Traffic Loss",
+    bullets: ["Seamless data & catalog migration", "Exact 301 URL redirect mapping", "Preserved organic search rankings"]
   },
   {
-    title: "AI Marketing Integration",
-    desc: "Deploying automated customer recommendation flows, personalized sizing assistants, and smart search integrations.",
-    icon: Bot,
-    metric: "Avg. +15% Upsell AOV",
-    bullets: ["Sizing/Style recommendation widgets", "Dynamic collection search", "Conversational support triggers"]
-  }
-];
-
-const ADS_SERVICES: ServiceItem[] = [
-  {
-    title: "Meta Ads Scaling",
-    desc: "Managing high-budget Facebook and Instagram acquisition campaigns using rigorous audience segmentation and creative test arrays.",
-    icon: Facebook,
-    metric: "₹20Cr+ Managed Spend",
-    bullets: ["Creative testing methodologies", "CAPI setup & catalog syncs", "Lookalike & interest scaling models"]
+    title: "Speed & Performance Tuning",
+    desc: "Under-the-hood optimization, code splitting, asset loading strategy, and script management to reach sub-2.0 second page loads.",
+    icon: CheckCircle2,
+    metric: "Consistently 90+ Score",
+    bullets: ["Image compression & lazy-loading", "JavaScript & CSS minification", "App asset loading optimization"]
   },
-  {
-    title: "Google Ads (Search & PMax)",
-    desc: "Capturing high-intent search traffic and scaling digital footprint through Google Shopping and Performance Max campaigns.",
-    icon: Chrome,
-    metric: "8.76x Blended ROAS",
-    bullets: ["Strategic search term bidding", "Asset group optimization", "Negative keyword tuning"]
-  },
-  {
-    title: "Creative Strategy & Hooks",
-    desc: "Scripting and producing raw static assets, UGC hook concepts, and dynamic animations engineered to break user scrolling.",
-    icon: TrendingUp,
-    metric: "Avg. +42% CTR Boost",
-    bullets: ["Scroll-stopping visual hook testing", "UGC brief formulation", "Conversion-oriented layout assets"]
-  },
-  {
-    title: "Performance Marketing",
-    desc: "Cross-channel paid budget management dynamically routing budgets to the highest-performing acquisition pathways.",
-    icon: Search,
-    metric: "ROAS-driven scaling",
-    bullets: ["Cross-channel allocation logic", "Attribution audit checkups", "Continuous scale optimization"]
-  }
-];
-
-const RETENTION_SERVICES: ServiceItem[] = [
   {
     title: "Conversion Rate Optimization (CRO)",
-    desc: "Rigorous diagnostic audits checking user session hot-maps, finding checkout leak points, and executing A/B test patterns.",
+    desc: "Rigorous diagnostic audits checking user session hot-maps, finding checkout leak points, and executing high-converting layout structures.",
     icon: ShieldCheck,
     metric: "Avg. 2x Conversion Scale",
-    bullets: ["Friction points mapping", "A/B layout testing structure", "Add-to-cart conversion tuning"]
+    bullets: ["Friction points mapping", "Add-to-cart conversion tuning", "Optimized cart drawer modules"]
   },
   {
-    title: "Email & Retention Marketing",
-    desc: "Automating customer lifecycle sequences: post-purchase flows, win-backs, and cart abandonment triggers to scale LTV.",
-    icon: Mail,
-    metric: "30% Net Store Sales",
-    bullets: ["Bespoke cart drawer triggers", "Automated customer segmentation", "SMS & newsletter setups"]
-  },
-  {
-    title: "Advanced ECommerce Analytics",
-    desc: "Constructing transparent server-side reporting pipelines to verify true customer acquisition cost and blended margins.",
-    icon: BarChart3,
-    metric: "100% Margin Clarity",
-    bullets: ["Profit & loss dashboards", "Pixel/API verification", "Weekly performance audits"]
+    title: "App & Custom Integrations",
+    desc: "Connecting custom inventory ERPs, logistics/shipping APIs, CRM platforms, subscriptions, and custom features into your store.",
+    icon: Bot,
+    metric: "100% API Sync Rate",
+    bullets: ["Bespoke API integrations", "ERP & warehouse connections", "Third-party subscription setups"]
   }
 ];
 
@@ -149,7 +108,7 @@ export default function ServicesPage() {
       <div className="absolute top-[20%] right-[-10%] w-[40%] h-[500px] rounded-full bg-[#00AF56]/[0.02] blur-[150px] pointer-events-none" />
       <div className="absolute bottom-[20%] left-[-10%] w-[40%] h-[500px] rounded-full bg-[#00AF56]/[0.02] blur-[150px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto flex flex-col gap-24">
+      <div className="max-w-7xl mx-auto flex flex-col gap-20">
         
         {/* Page Header */}
         <div className="text-center max-w-3xl mx-auto flex flex-col gap-4">
@@ -157,106 +116,17 @@ export default function ServicesPage() {
             Services & Capabilities
           </span>
           <h1 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
-            How We Scale Shopify Brands
+            Shopify Storefront Engineering
           </h1>
           <p className="text-[#8C8C8C] text-sm sm:text-base leading-relaxed">
-            We provide a unified growth engine. By joining web optimization and high-intent customer acquisition campaigns, we ensure that every single advertising rupee performs at maximum capacity.
+            We build custom, speed-optimized Shopify storefronts and engineer high-converting purchase paths. No pre-made templates—just custom high-performance e-commerce engineering.
           </p>
         </div>
 
-        {/* Section 1: Dev Services */}
+        {/* Section 1: Services Grid */}
         <div className="flex flex-col gap-8">
-          <div className="border-b border-white/[0.08] pb-4">
-            <span className="text-[10px] text-[#8C8C8C] font-mono uppercase tracking-widest">Phase 1: Build the Destination</span>
-            <h2 className="text-2xl font-bold text-white mt-1">ECommerce Development & Design</h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {DEV_SERVICES.map((srv, idx) => {
-              const IconComp = srv.icon;
-              return (
-                <div
-                  key={idx}
-                  className="p-8 rounded-3xl bg-[#181818] border border-white/[0.05] flex flex-col justify-between gap-6 hover:border-[#00AF56]/20 transition-all duration-300"
-                >
-                  <div className="flex flex-col gap-4">
-                    <div className="flex items-center gap-4">
-                      <span className="w-10 h-10 rounded-xl bg-[#00AF56]/10 text-[#00AF56] flex items-center justify-center">
-                        <IconComp className="w-5 h-5" />
-                      </span>
-                      <h3 className="text-lg font-bold text-white">{srv.title}</h3>
-                    </div>
-                    <p className="text-sm text-[#8C8C8C] leading-relaxed">{srv.desc}</p>
-                    <ul className="flex flex-col gap-2.5 mt-2">
-                      {srv.bullets.map((bullet, bidx) => (
-                        <li key={bidx} className="flex items-center gap-2 text-xs text-[#D7D7D7]">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-[#00AF56]" />
-                          <span>{bullet}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div className="pt-4 border-t border-white/[0.04] flex justify-between items-center text-xs">
-                    <span className="text-[#8C8C8C] uppercase tracking-wider font-mono">Performance Metric</span>
-                    <span className="font-bold text-[#00AF56] font-mono">{srv.metric}</span>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Section 2: Acquisition Services */}
-        <div className="flex flex-col gap-8">
-          <div className="border-b border-white/[0.08] pb-4">
-            <span className="text-[10px] text-[#8C8C8C] font-mono uppercase tracking-widest">Phase 2: Scale the Volume</span>
-            <h2 className="text-2xl font-bold text-white mt-1">Paid Acquisition & Performance</h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {ADS_SERVICES.map((srv, idx) => {
-              const IconComp = srv.icon;
-              return (
-                <div
-                  key={idx}
-                  className="p-8 rounded-3xl bg-[#181818] border border-white/[0.05] flex flex-col justify-between gap-6 hover:border-[#00AF56]/20 transition-all duration-300"
-                >
-                  <div className="flex flex-col gap-4">
-                    <div className="flex items-center gap-4">
-                      <span className="w-10 h-10 rounded-xl bg-[#00AF56]/10 text-[#00AF56] flex items-center justify-center">
-                        <IconComp className="w-5 h-5" />
-                      </span>
-                      <h3 className="text-lg font-bold text-white">{srv.title}</h3>
-                    </div>
-                    <p className="text-sm text-[#8C8C8C] leading-relaxed">{srv.desc}</p>
-                    <ul className="flex flex-col gap-2.5 mt-2">
-                      {srv.bullets.map((bullet, bidx) => (
-                        <li key={bidx} className="flex items-center gap-2 text-xs text-[#D7D7D7]">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-[#00AF56]" />
-                          <span>{bullet}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div className="pt-4 border-t border-white/[0.04] flex justify-between items-center text-xs">
-                    <span className="text-[#8C8C8C] uppercase tracking-wider font-mono">Performance Metric</span>
-                    <span className="font-bold text-[#00AF56] font-mono">{srv.metric}</span>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Section 3: Retention Services */}
-        <div className="flex flex-col gap-8">
-          <div className="border-b border-white/[0.08] pb-4">
-            <span className="text-[10px] text-[#8C8C8C] font-mono uppercase tracking-widest">Phase 3: Maximize Lifetime Value</span>
-            <h2 className="text-2xl font-bold text-white mt-1">Retention & CRO Optimizations</h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {RETENTION_SERVICES.map((srv, idx) => {
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {SERVICES.map((srv, idx) => {
               const IconComp = srv.icon;
               return (
                 <div
@@ -293,16 +163,16 @@ export default function ServicesPage() {
         {/* Final call to action section */}
         <div className="p-8 md:p-12 rounded-3xl bg-[#111111] border border-white/[0.08] text-center flex flex-col gap-6 items-center">
           <h2 className="text-xl md:text-2xl font-bold text-white max-w-xl">
-            Ready to implement a unified Shopify growth architecture?
+            Ready to build or migrate your Shopify store?
           </h2>
           <p className="text-xs text-[#8C8C8C] max-w-lg leading-relaxed">
-            Schedule a session to analyze your checkout parameters, identify landing page gaps, and align budget structures.
+            Schedule a session to analyze your platform requirements, speed bottlenecks, and outline a step-by-step launch roadmap.
           </p>
           <Link
             href="/contact"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-xs font-semibold uppercase tracking-wider text-black bg-[#00AF56] hover:bg-[#00AF56]/90 transition-all hover:shadow-[0_0_20px_rgba(0,175,86,0.3)]"
           >
-            <span>Book Free Discovery Call</span>
+            <span>Book Free Strategy Call</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>

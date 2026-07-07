@@ -39,24 +39,24 @@ import ABTestingSimulator from "@/components/ABTestingSimulator";
 // FAQ Items
 const FAQ_ITEMS = [
   {
-    q: "What makes SalePXL different from other digital ad agencies?",
-    a: "Unlike generic agencies that focus only on running ads, SalePXL is a Shopify Growth Partner. We address both traffic AND conversion. We optimize your website speed, design, trust signals, and user experience (CRO) before scaling traffic with Meta and Google Ads. This reduces your Cost Per Acquisition (CPA) and maximizes your Return on Ad Spend (ROAS)."
+    q: "What makes SalePXL different from standard Shopify agencies?",
+    a: "Unlike generic agencies that rely on sluggish pre-made templates and heavy apps, SalePXL builds custom, high-converting, and speed-optimized Shopify storefronts. We focus heavily on clean code, conversion rate optimization (CRO) principles, and custom layout engineering to turn visitors into buyers."
   },
   {
     q: "Do you design Shopify stores from scratch or optimize existing ones?",
     a: "We do both. We can build custom, high-converting Shopify stores from scratch using clean code and conversion psychology. We also perform deep CRO audits and redesign existing Shopify storefronts to unlock immediate gains in conversion rates, speed, and mobile responsiveness."
   },
   {
-    q: "What ad budgets do you typically work with?",
-    a: "We work with brands scaling from initial traction to high-growth phases. While we manage campaigns starting at modest budgets (e.g. ₹20,000/mo for pilot testing), our framework is engineered for brands scaling past ₹2 Lakhs to ₹10 Lakhs+ in monthly ad spend who want to maximize their ROAS efficiently."
+    q: "Do you handle migrations from platforms like BigCommerce or WooCommerce?",
+    a: "Yes! We specialize in platform migrations. We transfer all your products, collections, customers, orders, pages, and metadata seamlessly. Most importantly, we set up exact 301 URL redirects to ensure zero loss in your search rankings (SEO) and organic traffic."
   },
   {
-    q: "Do you handle the creative production (images/videos) for Meta Ads?",
-    a: "Yes! We formulate the creative strategy, scripting, and visual hooks. Creative is the single most important lever in modern advertising, so we work closely with your brand to produce high-performing static graphics, dynamic motion design, and high-converting UGC (User Generated Content) video ads."
+    q: "Will my Shopify store be mobile-responsive and fast?",
+    a: "Absolutely. Mobile traffic accounts for 80%+ of e-commerce visits. We design with a mobile-first philosophy, utilizing image lazy-loading, code splitting, and minimized app dependencies. Our stores consistently score 90+ on Google PageSpeed Insights."
   },
   {
-    q: "What is the typical timeframe to see performance scaling results?",
-    a: "Website optimization and store development usually take 2 to 4 weeks depending on complexity. Once campaigns launch, we typically see positive leading indicators (lower cost-per-click, improved add-to-cart rates) in the first 7-14 days, followed by sustained, profitable scaling within 30-60 days."
+    q: "How long does it typically take to launch or migrate a store?",
+    a: "A custom Shopify store build or migration project typically takes 2 to 4 weeks depending on the catalog size, complex integrations (like ERPs or custom logistics APIs), and custom design details."
   },
   {
     q: "How does your Conversion Rate Optimization (CRO) process work?",
@@ -68,29 +68,29 @@ const FAQ_ITEMS = [
   },
   {
     q: "How do we get started with SalePXL?",
-    a: "The first step is booking a free 30-minute Shopify Growth Strategy Call. We will audit your current storefront, analyze your traffic channels, and give you a step-by-step roadmap to scale your brand. Click any 'Book Strategy Call' button to pick a date."
+    a: "The first step is booking a free 30-minute Shopify Strategy Call. We will audit your current storefront, analyze your migration requirements, and give you a step-by-step roadmap to build your new store. Click any 'Book Strategy Call' button to pick a date."
   }
 ];
 
 // Testimonials Slider Data
 const TESTIMONIALS = [
   {
-    quote: "SalePXL rebuilt our storefront and took our conversion rate from 1.1% to 4.2%. Combined with their Meta Ads scaling, our monthly revenue grew by 5x in just 90 days. Their focus on the website experience is what other agencies lack.",
+    quote: "SalePXL rebuilt our storefront and took our conversion rate from 1.1% to 4.2%. Our monthly revenue grew by 5x in just 90 days. Their focus on custom speed and mobile user experience is what other agencies lack.",
     author: "Rohan Malhotra",
     role: "Founder, The Wheels Co",
     growth: "+410% Revenue Growth"
   },
   {
-    quote: "Managing ₹5 Lakhs in monthly ad spend was giving us a 2.1x ROAS. Pankaj and the SalePXL team stepped in, optimized our landing pages, and restructured our Google PMax campaigns. We are now running at an 8.7x ROAS.",
+    quote: "We migrated our store from BigCommerce to a custom Shopify setup with SalePXL. The checkout conversion rate improved instantly, and our page speeds dropped to under 1.5 seconds. They are true Shopify experts.",
     author: "Sneha Sharma",
     role: "ECommerce Director, Glyters",
-    growth: "8.76x Scale ROAS"
+    growth: "+150% Sales Boost"
   },
   {
     quote: "Our store load speed went from 6.8 seconds to 1.9 seconds after the rebuild. The instant impact on our customer trust and add-to-cart rate was incredible. They are truly Shopify experts.",
     author: "Vipul Shah",
     role: "Marketing Head, Ratan Rashi",
-    growth: "-42% CPA Reduction"
+    growth: "+310% Conversion Rate"
   }
 ];
 
@@ -98,7 +98,7 @@ const TESTIMONIALS = [
 const TRUST_STATS = [
   { label: "Experience", value: "10+ Years" },
   { label: "Brands Scaled", value: "100+ Brands" },
-  { label: "Ad Spend Managed", value: "₹20Cr+" },
+  { label: "Average Speed", value: "Sub-2.0s" },
   { label: "Revenue Generated", value: "Millions" },
   { label: "MSME Registered", value: "Udyam Certified" }
 ];
@@ -560,11 +560,11 @@ export default function HomePage() {
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-[#D7D7D7] to-[#00AF56]">
                 High-Converting Stores
               </span>{" "}
-              & Performance Marketing
+              & Custom Migrations
             </h1>
 
             <p className="text-[#D7D7D7] text-base sm:text-lg leading-relaxed max-w-xl">
-              We help eCommerce brands scale revenue through premium Shopify development, CRO optimization, Meta Ads, and Google Ads management. No vanity metrics—just pure profitable scaling.
+              We help eCommerce brands scale revenue through premium Shopify development, migrations, speed-optimized storefronts, and conversion audits. No templates—just custom engineering.
             </p>
 
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
@@ -630,7 +630,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto flex flex-col gap-12 text-center items-center">
           <div className="max-w-3xl flex flex-col gap-4">
             <span className="text-xs text-[#00AF56] font-mono uppercase tracking-widest font-bold">
-              ROAS Calculator
+              Conversion ROI Calculator
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
               See How Much Revenue <br />
@@ -639,7 +639,7 @@ export default function HomePage() {
               </span>
             </h2>
             <p className="text-[#8C8C8C] text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
-              When conversion rates spike, customer acquisition cost falls exponentially. Use our interactive ROI calculator to estimate the scale potential of your brand.
+              When storefront load speeds drop and mobile UX is optimized, your conversion rate spikes, increasing revenue without spending a single rupee more on traffic.
             </p>
           </div>
           
@@ -656,14 +656,14 @@ export default function HomePage() {
               The SalePXL Core Philosophy
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
-              Traffic Brings Visitors. <br />
+              Designs Bring Visitors. <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-[#00AF56]">
-                Your Store Creates Trust.
+                Performance Creates Trust.
               </span>{" "}
               Trust Creates Sales.
             </h2>
             <p className="text-[#8C8C8C] text-sm sm:text-base leading-relaxed mt-2">
-              Most ad agencies focus solely on launching campaigns. If your website is slow, lacks conversion UX, or looks generic, you are burning your ad spend. We optimize the destination first, then scale the traffic.
+              If your Shopify store is slow, hard to navigate, or built on generic pre-made themes, visitors bounce before buying. We design custom high-performing checkout funnels and layout architectures to convert clicks into sales.
             </p>
           </div>
 
@@ -682,11 +682,11 @@ export default function HomePage() {
                 Services & Capabilities
               </span>
               <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-                Engineered for Conversion. Optimized for Scale.
+                Engineered for Conversion. Optimized for Performance.
               </h2>
             </div>
             <p className="text-[#8C8C8C] text-sm md:max-w-sm leading-relaxed">
-              We provide full-stack Shopify solutions that combine high-end UI design with rigorous mathematical testing and media buying frameworks.
+              We provide full-stack Shopify solutions that combine custom UI/UX design with clean code architectures, lightning-fast speeds, and seamless migrations.
             </p>
           </div>
 
@@ -704,24 +704,24 @@ export default function HomePage() {
                 metrics: "Avg. +40% CR Boost"
               },
               {
-                title: "Meta Ads Performance Scaling",
-                desc: "Rigorous media buying structures on Facebook & Instagram utilizing high-frequency asset testing and conversion APIs.",
-                metrics: "₹20Cr+ Managed Spend"
+                title: "Shopify Store Migrations",
+                desc: "Seamless migration of products, collections, customers, SEO paths, and design assets from BigCommerce, WooCommerce, or custom platforms.",
+                metrics: "Zero SEO Traffic Loss"
               },
               {
-                title: "Google Ads (Search & PMax)",
-                desc: "Capturing high-intent customer search queries and scaling product listing reach through advanced Google Performance Max campaigns.",
-                metrics: "8.76x ROAS Case Study"
+                title: "Speed & Performance Tuning",
+                desc: "Under-the-hood optimization, code splitting, asset loading strategy, and script management to reach sub-2.0 second page loads.",
+                metrics: "Consistently 90+ Score"
               },
               {
                 title: "Custom Landing Pages",
-                desc: "Building highly relevant, product-focused landing pages mapped directly to paid ad creatives to keep CPA as low as possible.",
+                desc: "Designing and engineering tailored, product-focused promotional landing pages for catalog launches and marketing events.",
                 metrics: "Sub-1.5s Load Velocity"
               },
               {
-                title: "Email & Retention Marketing",
-                desc: "Designing personalized lifecycle sequences, cart abandonment recovery flows, and SMS marketing tactics to maximize LTV.",
-                metrics: "30% Revenue from Flows"
+                title: "App & Custom Integrations",
+                desc: "Connecting custom inventory ERPs, logistics APIs, CRM platforms, subscriptions, and custom features into your store.",
+                metrics: "100% API Sync Rate"
               }
             ].map((srv, idx) => (
               <div
