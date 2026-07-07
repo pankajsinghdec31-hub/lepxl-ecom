@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Check, ArrowRight, ChevronLeft, Calendar, DollarSign, Compass, MessageSquare, ChevronDown } from "lucide-react";
+import { Check, ArrowRight, ChevronLeft, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function EnquiryBox() {
