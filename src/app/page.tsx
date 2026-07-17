@@ -395,7 +395,7 @@ export default function HomePage() {
       <div className="absolute bottom-[8%] right-[5%] w-[35%] h-[450px] rounded-full bg-[#051517]/50 blur-[130px] pointer-events-none" />
 
       {/* 1. SHOPIFY-STYLE HERO — full bleed video, text bottom-left */}
-      <section className="relative w-full h-screen overflow-hidden">
+      <section className="relative w-full h-[100dvh] min-h-[580px] overflow-hidden">
 
         {/* ── FULL-BLEED VIDEO BACKGROUND ── */}
         <video
@@ -411,77 +411,75 @@ export default function HomePage() {
           {/* Backup test videos */}
           <source src="/hero-video.mp4" type="video/mp4" />
           <source src="https://vjs.zencdn.net/v/oceans.mp4" type="video/mp4" />
-
         </video>
-
 
         {/* ── OVERLAYS ── */}
         {/* Left-side darkening so text is always readable */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-black/10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/45 to-black/10" />
         {/* Bottom darkening */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
         {/* Bottom page blend */}
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#02090a] to-transparent" />
 
         {/* ── HERO CONTENT — anchored bottom-left like Shopify ── */}
-        <div className="absolute bottom-0 left-0 right-0 px-6 sm:px-12 lg:px-20 pb-16 sm:pb-20 z-10">
-
-          {/* Agency badge */}
-          <div className="mb-5 animate-fade-blur">
-            <span className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-widest uppercase px-3.5 py-1.5 rounded-full border border-white/20 bg-white/[0.06] text-white/80 backdrop-blur-sm">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#36F4A4] animate-pulse" />
-              India's #1 Shopify Agency
-            </span>
-          </div>
-
-          {/* Giant headline */}
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-black text-white leading-[1.0] tracking-tight max-w-3xl animate-fade-blur" style={{ animationDelay: "0.05s" }}>
-            We Build<br />
-            Shopify Stores<br />
-            <span className="text-[#36F4A4]">That Sell.</span>
-          </h1>
-
-          {/* Sub-copy */}
-          <p className="mt-5 text-white/75 text-base sm:text-lg leading-relaxed max-w-lg animate-fade-blur" style={{ animationDelay: "0.1s" }}>
-            Sub-1.2s load speeds, custom-coded logic and<br className="hidden sm:block" />
-            high-converting checkouts for D2C brands.
-          </p>
-
-          {/* CTA buttons — Shopify pill style, both open modal */}
-          <div className="mt-8 flex flex-wrap gap-4 animate-fade-blur" style={{ animationDelay: "0.15s" }}>
-            <button
-              onClick={() => setShowFormModal(true)}
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white text-black text-sm font-bold hover:bg-white/90 transition-all duration-200 hover:scale-[1.02]"
-            >
-              Start Your Project
-            </button>
-            <button
-              onClick={() => setShowFormModal(true)}
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border-2 border-white/60 text-white text-sm font-semibold hover:bg-white/10 hover:border-white transition-all duration-200 backdrop-blur-sm"
-            >
-              {/* Play circle icon inline */}
-              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <circle cx="12" cy="12" r="10" />
-                <polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none" />
-              </svg>
-              Why SalePXL?
-            </button>
-          </div>
-
-          {/* Trust strip */}
-          <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 animate-fade-blur" style={{ animationDelay: "0.2s" }}>
-            <div className="flex items-center gap-2">
-              <div className="flex -space-x-2">
-                {["SB","WE","SZ","AK"].map((t, i) => (
-                  <span key={i} className="w-6 h-6 rounded-full bg-[#1a3a2a] border-2 border-[#02090a] flex items-center justify-center text-[8px] font-bold text-[#36F4A4]">{t}</span>
-                ))}
-              </div>
-              <span className="text-white/60 text-xs">Trusted by <strong className="text-white">800+ brands</strong></span>
+        <div className="absolute bottom-0 left-0 right-0 pb-8 sm:pb-20 z-10">
+          <div className="max-w-7xl mx-auto px-5 sm:px-12 lg:px-20">
+            {/* Agency badge */}
+            <div className="mb-3 sm:mb-4 animate-fade-blur">
+              <span className="inline-flex items-center gap-2 text-[10px] sm:text-[11px] font-semibold tracking-widest uppercase px-3.5 py-1.5 rounded-full border border-white/20 bg-white/[0.06] text-white/80 backdrop-blur-sm">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#36F4A4] animate-pulse" />
+                India's #1 Shopify Agency
+              </span>
             </div>
-            <span className="text-white/20 hidden sm:block">|</span>
-            <span className="text-white/60 text-xs"><strong className="text-white">100+</strong> stores built</span>
-            <span className="text-white/20 hidden sm:block">|</span>
-            <span className="text-white/60 text-xs"><strong className="text-white">Sub-1.2s</strong> avg load speed</span>
+
+            {/* Giant headline */}
+            <h1 className="text-3xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-normal text-white leading-[1.05] sm:leading-[1.0] tracking-tight max-w-3xl animate-fade-blur" style={{ animationDelay: "0.05s" }}>
+              We Build Shopify Stores<br />
+              <span className="text-[#36F4A4]">That Sell.</span>
+            </h1>
+
+            {/* Sub-copy */}
+            <p className="mt-3 sm:mt-4 text-white/75 text-sm sm:text-lg leading-relaxed max-w-lg animate-fade-blur" style={{ animationDelay: "0.1s" }}>
+              Sub-1.2s load speeds, custom-coded logic and<br className="hidden sm:block" />
+              high-converting checkouts for D2C brands.
+            </p>
+
+            {/* CTA buttons — Inline pills on mobile, left-aligned, matching Shopify auto-width layout */}
+            <div className="mt-5 sm:mt-7 flex flex-row flex-wrap items-center justify-start gap-3 animate-fade-blur" style={{ animationDelay: "0.15s" }}>
+              <button
+                onClick={() => setShowFormModal(true)}
+                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 sm:px-7 sm:py-3.5 rounded-full bg-white text-black text-xs sm:text-sm font-bold hover:bg-white/90 transition-all duration-200 hover:scale-[1.01]"
+              >
+                Start Now
+              </button>
+              <button
+                onClick={() => setShowFormModal(true)}
+                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 sm:px-7 sm:py-3.5 rounded-full border border-white/40 text-white text-xs sm:text-sm font-semibold hover:bg-white/10 hover:border-white transition-all duration-200 backdrop-blur-sm"
+              >
+                {/* Play circle icon inline */}
+                <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <circle cx="12" cy="12" r="10" />
+                  <polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none" />
+                </svg>
+                <span>Why SalePXL?</span>
+              </button>
+            </div>
+
+            {/* Trust strip */}
+            <div className="mt-5 sm:mt-7 flex flex-wrap items-center gap-x-5 gap-y-2 animate-fade-blur" style={{ animationDelay: "0.2s" }}>
+              <div className="flex items-center gap-2">
+                <div className="flex -space-x-1.5">
+                  {["SB","WE","SZ","AK"].map((t, i) => (
+                    <span key={i} className="w-5.5 h-5.5 rounded-full bg-[#1a3a2a] border border-[#02090a] flex items-center justify-center text-[7px] font-bold text-[#36F4A4]">{t}</span>
+                  ))}
+                </div>
+                <span className="text-white/60 text-xs">Trusted by <strong className="text-white">800+ brands</strong></span>
+              </div>
+              <span className="text-white/20 hidden sm:block">|</span>
+              <span className="text-white/60 text-xs"><strong className="text-white">100+</strong> stores built</span>
+              <span className="text-white/20 hidden sm:block">|</span>
+              <span className="text-white/60 text-xs"><strong className="text-white">Sub-1.2s</strong> avg speed</span>
+            </div>
           </div>
         </div>
       </section>

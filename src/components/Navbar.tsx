@@ -38,6 +38,18 @@ export default function Navbar() {
     setIsMobileMenuOpen(false);
   }, [pathname]);
 
+  // Dynamically toggle body class for the homepage layout
+  useEffect(() => {
+    if (pathname === "/") {
+      document.body.classList.add("home-page");
+    } else {
+      document.body.classList.remove("home-page");
+    }
+    return () => {
+      document.body.classList.remove("home-page");
+    };
+  }, [pathname]);
+
   return (
     <>
       <header
@@ -67,7 +79,7 @@ export default function Navbar() {
                   key={link.name}
                   href={link.href}
                   className={`text-sm font-medium transition-colors relative py-2 ${
-                    isActive ? "text-primary" : "text-[#8e8e93] hover:text-white"
+                    isActive ? "text-primary" : "text-white hover:text-primary"
                   }`}
                 >
                   {link.name}
@@ -84,20 +96,27 @@ export default function Navbar() {
           </nav>
  
           {/* CTA Button */}
-          <div className="hidden md:flex items-center gap-4">
+          <div className="hidden md:flex items-center gap-6">
+            <Link
+              href="https://wa.me/919917780656"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-medium text-[#8e8e93] hover:text-white transition-colors"
+            >
+              WhatsApp Us
+            </Link>
             <Link
               href="/contact"
-              className="relative inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider text-white bg-primary overflow-hidden group transition-all duration-300 hover:bg-[#2a6350] hover:shadow-[0_8px_24px_rgba(16,185,129,0.25)] hover:scale-[1.02]"
+              className="inline-flex items-center justify-center px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider text-black bg-white transition-all duration-200 hover:bg-white/90 hover:scale-[1.02] shadow-[0_4px_12px_rgba(255,255,255,0.1)]"
             >
-              <span>Get Free Consultation</span>
-              <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              <span>Start Now</span>
             </Link>
           </div>
  
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 text-[#8e8e93] hover:text-white transition-colors"
+            className="md:hidden p-2 text-white hover:text-primary transition-colors"
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -128,7 +147,7 @@ export default function Navbar() {
                     <Link
                       href={link.href}
                       className={`text-xl font-medium block py-2 ${
-                        isActive ? "text-primary" : "text-[#8e8e93] hover:text-white"
+                        isActive ? "text-primary" : "text-white hover:text-primary"
                       }`}
                     >
                       {link.name}
@@ -154,15 +173,22 @@ export default function Navbar() {
               </div>
             </div>
  
-            <div className="flex flex-col gap-6 pb-12">
+            <div className="flex flex-col gap-4 pb-12">
               <Link
                 href="/contact"
-                className="w-full flex items-center justify-center gap-2 py-4 rounded-xl text-sm font-semibold uppercase tracking-wider text-white bg-primary text-center hover:bg-[#2a6350]"
+                className="w-full flex items-center justify-center gap-2 py-4 rounded-xl text-sm font-bold uppercase tracking-wider text-black bg-white text-center hover:bg-white/90 transition-all duration-200 shadow-[0_4px_12px_rgba(255,255,255,0.1)]"
               >
-                <span>Get Free Consultation</span>
-                <ArrowUpRight className="w-4.5 h-4.5" />
+                <span>Start Now</span>
               </Link>
-              <div className="text-center text-xs text-[#8e8e93] flex items-center justify-center gap-1.5">
+              <Link
+                href="https://wa.me/919917780656"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full flex items-center justify-center gap-2 py-4 rounded-xl text-sm font-semibold uppercase tracking-wider text-white border border-white/20 text-center hover:bg-white/5 transition-all duration-200"
+              >
+                <span>WhatsApp Us</span>
+              </Link>
+              <div className="text-center text-xs text-[#8e8e93] flex items-center justify-center gap-1.5 mt-2">
                 <CheckCircle2 className="w-3.5 h-3.5 text-primary" />
                 <span>Government Registered MSME</span>
               </div>

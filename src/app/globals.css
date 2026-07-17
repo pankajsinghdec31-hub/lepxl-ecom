@@ -6,7 +6,8 @@
 }
 
 @theme {
-  --font-sans: 'Plus Jakarta Sans', sans-serif;
+  --font-sans: "Neue Haas Grotesk", Helvetica, Arial, sans-serif;
+  --font-grotesk: "Neue Haas Grotesk", Helvetica, Arial, sans-serif;
   --font-mono: 'Geist Mono', monospace;
   --color-primary: #36F4A4;
   --color-brand-green: #36F4A4;
@@ -229,7 +230,9 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 /* Reset main padding-top on pages with a full-screen hero section */
-main:has(section.h-screen) {
+main:has(section.h-screen),
+main:has(section.h-\[100dvh\]),
+body.home-page main {
   padding-top: 0 !important;
 }
 
