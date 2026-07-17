@@ -341,9 +341,120 @@ const CAROUSEL_ITEMS = [
   }
 ];
 
+const TAB_DATA = [
+  {
+    title: "Sell everywhere people shop.",
+    cards: [
+      {
+        type: "link",
+        label: "Online Store",
+        href: "https://www.houseplant.com/",
+        image: "https://cdn.shopify.com/b/shopify-brochure2-assets/bfbeae3284961d8d0602881269009777.jpg",
+        alt: "Image of Houseplant website selling home goods"
+      },
+      {
+        type: "link",
+        label: "Ethical Apparel",
+        href: "https://kotn.com/",
+        image: "https://cdn.shopify.com/b/shopify-brochure2-assets/64afe05abfb257e356a4a98854665b75.png",
+        alt: "Image of Kotn website selling ethically made essentials",
+        subTitle: "THE SS26 COLLECTION"
+      },
+      {
+        type: "video",
+        label: "POS & Retail",
+        image: "https://cdn.shopify.com/b/shopify-brochure2-assets/4a9828c3264de541545637026e9de272.jpg",
+        video: "https://cdn.shopify.com/b/shopify-brochure2-assets/4ea4c67da04aea216ee972ec1b9bfb08.mp4",
+        alt: "Why we build Shopify preview poster"
+      }
+    ]
+  },
+  {
+    title: "Online and in person.",
+    cards: [
+      {
+        type: "link",
+        label: "Drinkware & Gear",
+        href: "https://www.stanley1913.com/",
+        image: "https://cdn.shopify.com/b/shopify-brochure2-assets/460f664bed3c41d8f289786f3acfd3c8.jpg",
+        alt: "Image of Stanley website selling drinkware and gear"
+      },
+      {
+        type: "link",
+        label: "Premium Luggage",
+        href: "https://monos.com/",
+        image: "https://cdn.shopify.com/b/shopify-brochure2-assets/82299140d19921a76d556ca8b3b77906.jpg",
+        alt: "Image of Monos website selling luggage and travel accessories"
+      },
+      {
+        type: "link",
+        label: "Pottery & Ceramics",
+        href: "https://eastfork.com/",
+        image: "https://cdn.shopify.com/b/shopify-brochure2-assets/a6899266ed2cbd8bc42cdba617224792.jpg",
+        alt: "Image of East Fork website selling pottery and ceramics"
+      }
+    ]
+  },
+  {
+    title: "Across AI and on social.",
+    cards: [
+      {
+        type: "link",
+        label: "Beauty & Skincare",
+        href: "https://www.glossier.com/",
+        image: "https://cdn.shopify.com/b/shopify-brochure2-assets/4f34cdb8ec9c120b80b8be143d0791d7.jpg",
+        alt: "Image of Glossier website selling beauty products"
+      },
+      {
+        type: "link",
+        label: "Cycling Apparel",
+        href: "https://www.ornotbike.com/",
+        image: "https://cdn.shopify.com/b/shopify-brochure2-assets/a011f79527438e06c77694dc9e48f9b2.jpg",
+        alt: "Image of Ornot website selling cycling apparel"
+      },
+      {
+        type: "link",
+        label: "Shoes & Accessories",
+        href: "https://www.stevemadden.com/",
+        image: "https://cdn.shopify.com/b/shopify-brochure2-assets/67e4b3ae607f6a12adb615c0ec0af3b4.jpg",
+        alt: "Image of Steve Madden website selling shoes and accessories"
+      }
+    ]
+  },
+  {
+    title: "Locally and globally.",
+    cards: [
+      {
+        type: "link",
+        label: "International Sales",
+        href: "https://www.shopify.com/in/international",
+        image: "https://cdn.shopify.com/b/shopify-brochure2-assets/600a7b9e8074695ddb32d366f72d93d4.png?originalWidth=2724",
+        alt: "Sell across borders map"
+      },
+      {
+        type: "link",
+        label: "Multi-Currency Checkout",
+        href: "https://www.shopify.com/in/checkout",
+        image: "https://cdn.shopify.com/b/shopify-brochure2-assets/cc13b65e22ffbe0fe3535162fd873760.png?originalWidth=859",
+        alt: "Checkout currencies list"
+      },
+      {
+        type: "link",
+        label: "Global Markets",
+        href: "https://www.shopify.com/in/international",
+        image: "https://cdn.shopify.com/b/shopify-brochure2-assets/34c79ed6726fca9045a7e6549b56a204.jpg?originalWidth=812",
+        alt: "Global market model image"
+      }
+    ]
+  }
+];
+
 export default function HomePage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [showFormModal, setShowFormModal] = useState(false);
+  const [hoveredCard3, setHoveredCard3] = useState(false);
+  const [playVideoModal, setPlayVideoModal] = useState(false);
+  const [activeTab, setActiveTab] = useState(0);
 
   // Typewriter effect state for hero headline dynamic text
   const words = ["Sell.", "Scale.", "Convert."];
@@ -525,6 +636,177 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+
+      {/* ── OMNICHANNEL / SELL EVERYWHERE SECTION ── */}
+      <section className="py-24 relative z-10 overflow-hidden bg-bg-dark border-b border-white/[0.05]">
+        <div className="max-w-7xl mx-auto px-5 sm:px-12 lg:px-20">
+          
+          {/* Main big headline / Interactive Tabs */}
+          <div className="max-w-5xl text-left mb-16">
+            <h2 className="text-3xl sm:text-5xl md:text-[3.25rem] font-normal leading-[1.2] tracking-tight font-grotesk select-none flex flex-wrap gap-x-4 gap-y-3">
+              {[
+                "Sell everywhere people shop.",
+                "Online and in person.",
+                "Across AI and on social.",
+                "Locally and globally."
+              ].map((text, idx) => {
+                const isActive = activeTab === idx;
+                return (
+                  <span
+                    key={idx}
+                    onClick={() => setActiveTab(idx)}
+                    className={`cursor-pointer transition-colors duration-300 inline-block ${
+                      isActive 
+                        ? "text-white" 
+                        : "text-white/30 hover:text-[#36F4A4]"
+                    }`}
+                  >
+                    {text}
+                  </span>
+                );
+              })}
+            </h2>
+          </div>
+
+          {/* Cards grid with Framer Motion transitions */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeTab}
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -15 }}
+              transition={{ duration: 0.35, ease: "easeInOut" }}
+              className="grid grid-cols-1 md:grid-cols-3 gap-6"
+            >
+              {TAB_DATA[activeTab].cards.map((card, idx) => {
+                if (card.type === "video") {
+                  return (
+                    <div 
+                      key={idx}
+                      onMouseEnter={() => setHoveredCard3(true)}
+                      onMouseLeave={() => setHoveredCard3(false)}
+                      className="relative h-[450px] sm:h-[520px] rounded-2xl overflow-hidden group border border-white/5 bg-[#0a0b0d] transition-all duration-500 hover:scale-[1.015] hover:shadow-2xl hover:shadow-black/50 cursor-pointer"
+                    >
+                      {/* Background poster image */}
+                      <img 
+                        src={card.image} 
+                        alt={card.alt}
+                        loading="lazy"
+                        className={`w-full h-full object-cover transition-all duration-700 group-hover:scale-103 ${hoveredCard3 ? "opacity-0" : "opacity-100"}`}
+                      />
+
+                      {/* Video playing inline on hover */}
+                      <video
+                        src={card.video}
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${hoveredCard3 ? "opacity-100 scale-103" : "opacity-0 pointer-events-none"}`}
+                      />
+
+                      {/* Vignette overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+
+                      {/* Small top-left branding badge */}
+                      <span className="absolute top-4 left-4 bg-black/60 text-white text-[10px] font-semibold uppercase tracking-wider px-3 py-1 rounded-full border border-white/10 backdrop-blur-sm z-10">
+                        {card.label}
+                      </span>
+
+                      {/* Floating button at bottom-right */}
+                      <div className="absolute bottom-6 right-6 z-20">
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setPlayVideoModal(true);
+                          }}
+                          className="inline-flex items-center justify-center gap-2 px-4 py-2.5 sm:px-5 sm:py-3 rounded-full bg-black/70 hover:bg-white text-white hover:text-black text-xs sm:text-sm font-semibold tracking-wide backdrop-blur-md border border-white/20 hover:border-white transition-all duration-300 shadow-lg cursor-pointer"
+                        >
+                          <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z" />
+                          </svg>
+                          <span>Why we build Shopify</span>
+                        </button>
+                      </div>
+                    </div>
+                  );
+                }
+
+                // Normal link card
+                return (
+                  <a 
+                    key={idx}
+                    href={card.href} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="relative block h-[450px] sm:h-[520px] rounded-2xl overflow-hidden group border border-white/5 bg-[#0a0b0d] transition-all duration-500 hover:scale-[1.015] hover:shadow-2xl hover:shadow-black/50"
+                  >
+                    {/* Image filling the card */}
+                    <img 
+                      src={card.image} 
+                      alt={card.alt}
+                      loading="lazy"
+                      className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                    />
+                    {/* Subtle overlay on hover */}
+                    <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                    
+                    {/* Optional subTitle & Explore link overlay for cards like Kotn */}
+                    {card.subTitle ? (
+                      <>
+                        <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-black/80 via-black/35 to-transparent pointer-events-none" />
+                        <div className="absolute bottom-6 left-6 right-6 text-left flex flex-col gap-2 z-10">
+                          <span className="text-white font-normal text-lg tracking-tight leading-tight">
+                            {card.subTitle}
+                          </span>
+                          <span className="inline-flex items-center gap-1.5 text-xs font-bold tracking-widest text-[#36F4A4] uppercase">
+                            <span>Explore Now</span>
+                            <svg className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                            </svg>
+                          </span>
+                        </div>
+                      </>
+                    ) : null}
+
+                    {/* Small top-left branding badge */}
+                    <span className="absolute top-4 left-4 bg-black/60 text-white text-[10px] font-semibold uppercase tracking-wider px-3 py-1 rounded-full border border-white/10 backdrop-blur-sm z-10">
+                      {card.label}
+                    </span>
+                  </a>
+                );
+              })}
+            </motion.div>
+          </AnimatePresence>
+
+        </div>
+      </section>
+
+      {/* ── VIDEO PLAYER MODAL ── */}
+      {playVideoModal && (
+        <div className="fixed inset-0 z-[1000] flex items-center justify-center bg-black/90 backdrop-blur-md animate-fade-blur" role="dialog" aria-modal="true">
+          <button 
+            onClick={() => setPlayVideoModal(false)}
+            className="absolute top-6 right-6 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-all cursor-pointer z-50"
+            aria-label="Close video player"
+          >
+            <svg width="20" height="20" viewBox="0 0 14 14" fill="none">
+              <path d="M1 1l12 12M13 1L1 13" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"/>
+            </svg>
+          </button>
+          
+          <div className="w-full max-w-5xl px-4 aspect-video">
+            <video
+              src="https://cdn.shopify.com/b/shopify-brochure2-assets/4ea4c67da04aea216ee972ec1b9bfb08.mp4"
+              controls
+              autoPlay
+              playsInline
+              className="w-full h-full rounded-2xl shadow-2xl border border-white/10 bg-black"
+            />
+          </div>
+        </div>
+      )}
 
 
       {/* ── FORM MODAL — works on all screen sizes ── */}
