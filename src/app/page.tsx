@@ -517,6 +517,13 @@ export default function HomePage() {
         .marquee-pause:hover .marquee-content-reverse {
           animation-play-state: paused;
         }
+        .scrollbar-none::-webkit-scrollbar {
+          display: none;
+        }
+        .scrollbar-none {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
       `}} />
       {/* FLOATING NEON BACKDROP DECORATIONS */}
       <div className="absolute top-[-5%] left-[-5%] w-[45%] h-[400px] rounded-full bg-[#36F4A4]/[0.02] blur-[130px] animate-blob-slow-1 pointer-events-none" />
@@ -651,7 +658,7 @@ export default function HomePage() {
             </h2>
           </div>
 
-          {/* Cards grid with Framer Motion transitions */}
+          {/* Cards grid / Carousel with Framer Motion transitions */}
           <AnimatePresence mode="wait">
             <motion.div
               key={activeTab}
@@ -659,7 +666,7 @@ export default function HomePage() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -15 }}
               transition={{ duration: 0.35, ease: "easeInOut" }}
-              className="grid grid-cols-1 md:grid-cols-3 gap-6"
+              className="flex overflow-x-auto md:grid md:grid-cols-3 gap-6 snap-x snap-mandatory scrollbar-none pb-4 md:pb-0"
             >
               {TAB_DATA[activeTab].cards.map((card, idx) => {
                 if (card.type === "video") {
@@ -668,7 +675,7 @@ export default function HomePage() {
                       key={idx}
                       onMouseEnter={() => setHoveredCard3(true)}
                       onMouseLeave={() => setHoveredCard3(false)}
-                      className="relative h-[450px] sm:h-[520px] rounded-2xl overflow-hidden group border border-white/5 bg-[#0a0b0d] transition-all duration-500 hover:scale-[1.015] hover:shadow-2xl hover:shadow-black/50 cursor-pointer"
+                      className="relative h-[450px] sm:h-[520px] rounded-2xl overflow-hidden group border border-white/5 bg-[#0a0b0d] transition-all duration-500 hover:scale-[1.015] hover:shadow-2xl hover:shadow-black/50 cursor-pointer snap-start shrink-0 w-[85vw] sm:w-[360px] md:w-auto"
                     >
                       {/* Background poster image */}
                       <img 
@@ -722,7 +729,7 @@ export default function HomePage() {
                     href={card.href} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="relative block h-[450px] sm:h-[520px] rounded-2xl overflow-hidden group border border-white/5 bg-[#0a0b0d] transition-all duration-500 hover:scale-[1.015] hover:shadow-2xl hover:shadow-black/50"
+                    className="relative block h-[450px] sm:h-[520px] rounded-2xl overflow-hidden group border border-white/5 bg-[#0a0b0d] transition-all duration-500 hover:scale-[1.015] hover:shadow-2xl hover:shadow-black/50 snap-start shrink-0 w-[85vw] sm:w-[360px] md:w-auto"
                   >
                     {/* Image filling the card */}
                     <img 
