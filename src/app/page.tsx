@@ -423,39 +423,14 @@ const TAB_DATA = [
   }
 ];
 
-interface CoreApp {
-  name: string;
-  bg: string;
-  color: string;
-  viewBox?: string;
-  fill?: string;
-  path: string;
-}
-
-const CORE_APPS: CoreApp[] = [
-  { name: "Shopify", bg: "bg-[#95BF47]", color: "#95BF47", viewBox: "0 0 34 37", fill: "fill-white", path: "M28.45 10.98c-.46-1.22-1.55-2.02-2.82-2.12l-5.68-.42L18.42 2.3c-.34-1.29-1.4-2.19-2.7-2.31-1.3-.12-2.51.58-3.04 1.8L8.14 11.23l-3.32-.25c-1.32-.1-2.52.56-3.08 1.77l-1.56 3.4a2.95 2.95 0 00.17 2.98c.57.88 1.57 1.41 2.65 1.41h26.79c1.08 0 2.08-.53 2.65-1.41a2.95 2.95 0 00.17-2.98l-4.16-9.17z M15.72 1.02c-2.48 0-4.48 2-4.48 4.48v3.36h8.96V5.5c0-2.48-2-4.48-4.48-4.48z M6.16 36.5h19.04c2.41 0 4.37-1.96 4.37-4.37V14.18H1.79v17.95c0 2.41 1.96 4.37 4.37 4.37z M13.62 19.5c0-1.2.98-2.18 2.18-2.18 1.2 0 2.18.98 2.18 2.18v4.8c0 1.2-.98 2.18-2.18 2.18-1.2 0-2.18-.98-2.18-2.18v-4.8z" },
-  { name: "Meta", bg: "bg-[#0064E0]", color: "#0064E0", fill: "fill-white", path: "M17 7c-1.8 0-3.3 1-4.2 2.5C11.9 8 10.4 7 8.6 7 5.5 7 3 9.5 3 12.6s2.5 5.6 5.6 5.6c1.8 0 3.3-1 4.2-2.5.9 1.5 2.4 2.5 4.2 2.5 3.1 0 5.6-2.5 5.6-5.6S20.1 7 17 7zm-8.4 9.2c-2 0-3.6-1.6-3.6-3.6s1.6-3.6 3.6-3.6 3.6 1.6 3.6 3.6-1.6 3.6-3.6 3.6zm8.4 0c-2 0-3.6-1.6-3.6-3.6s1.6-3.6 3.6-3.6 3.6 1.6 3.6 3.6-1.6 3.6-3.6 3.6z" },
-  { name: "TikTok", bg: "bg-black", color: "#FE2C55", fill: "fill-white", path: "M12.5 2v10.5a3.5 3.5 0 1 1-3.5-3.5h1V6a6.5 6.5 0 1 0 6 6.5V6a5.5 5.5 0 0 1-3.5-4h-2.5z" },
-  { name: "Google", bg: "bg-white", color: "#EA4335", path: "M12.24 10.285V14.4h6.887c-.648 2.41-2.519 4.12-5.136 4.12A5.72 5.72 0 0 1 8.28 12.8a5.72 5.72 0 0 1 5.71-5.72c2.47 0 4.41 1.487 5.25 3.525l3.86-1.5c-1.425-3.488-4.838-5.9-8.86-5.9C8.38 3.2 4 7.58 4 12.8s4.38 9.6 9.75 9.6c5.58 0 9.87-3.93 9.87-9.8 0-.665-.08-1.285-.2-1.83H12.24z" },
-  { name: "Pinterest", bg: "bg-white", color: "#BD081C", fill: "fill-[#BD081C]", path: "M12 2C6.48 2 2 6.48 2 12c0 4.17 2.56 7.75 6.2 9.25-.1-.78-.19-1.98.04-2.84l1.64-6.93s-.42-.84-.42-2.07c0-1.94 1.13-3.39 2.53-3.39 1.19 0 1.77.9 1.77 1.97 0 1.2-.76 2.99-1.16 4.65-.33 1.39.7 2.52 2.07 2.52 2.48 0 4.39-2.62 4.39-6.4 0-3.35-2.4-5.69-5.84-5.69-3.98 0-6.32 2.98-6.32 6.07 0 1.2.46 2.49 1.04 3.19.11.14.13.26.1.39l-.39 1.58c-.06.26-.2.32-.46.2-1.72-.8-2.8-3.32-2.8-5.34 0-4.35 3.16-8.35 9.12-8.35 4.79 0 8.5 3.41 8.5 7.97 0 4.76-3 8.59-7.16 8.59-1.4 0-2.72-.73-3.17-1.59l-.86 3.29c-.31 1.2-1.15 2.7-1.72 3.62C9.44 21.78 10.69 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2z" },
-  { name: "Snapchat", bg: "bg-[#FFFC00]", color: "#FFFC00", fill: "fill-black", path: "M12 2c-3.15 0-5.62 2.4-5.62 5.56 0 1.02.26 1.86.73 2.52-.44.25-.79.74-.79 1.34 0 .96.88 1.48 2.05 1.54.1.28.32.74.88 1.02-.97.26-2.58.83-2.58 2.37 0 1.53 1.56 1.9 3.82 1.9s3.82-.37 3.82-1.9c0-1.54-1.61-2.11-2.58-2.37.56-.28.78-.74.88-1.02 1.17-.06 2.05-.58 2.05-1.54 0-.6-.35-1.09-.79-1.34.47-.66.73-1.5.73-2.52 0-3.16-2.47-5.56-5.62-5.56z" },
-  { name: "Spotify", bg: "bg-[#191414]", color: "#1DB954", fill: "fill-[#1DB954]", path: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.58 14.42c-.18.29-.56.38-.85.2-2.34-1.43-5.3-1.75-8.77-.96-.33.07-.66-.14-.73-.47-.07-.33.14-.66.47-.73 3.8-.87 7.08-.51 9.7.1.29.18.38.56.2.85zm1.22-2.73c-.22.36-.69.48-1.05.26-2.68-1.65-6.78-2.13-9.95-1.17-.4.12-.82-.1-.94-.5-.12-.4.1-.82.5-.94 3.63-1.1 8.15-.57 11.18 1.29.36.22.48.69.26 1.05zm.1-2.82C14.73 8.84 9.5 8.67 6.46 9.59c-.48.15-.99-.12-1.14-.6-.15-.48.12-.99.6-1.14 3.51-1.07 9.27-.88 12.98 1.32.44.26.58.82.32 1.26-.26.44-.82.58-1.26.32z" },
-  { name: "Canva", bg: "bg-[#00C4CC]", color: "#00C4CC", fill: "fill-white", path: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm3 6.5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5.67-1.5 1.5-1.5zm-6 0c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5.67-1.5 1.5-1.5zm3 9.5c-2.33 0-4.31-1.46-5.1-3.5h10.2c-.79 2.04-2.77 3.5-5.1 3.5z" },
-  { name: "Klaviyo", bg: "bg-white", color: "#FE5C5C", fill: "fill-[#FE5C5C]", path: "M19.5 12c0 4.14-3.36 7.5-7.5 7.5S4.5 16.14 4.5 12 7.86 4.5 12 4.5s7.5 3.36 7.5 7.5zM12 7.5l-3.5 3.5h2v5.5h3v-5.5h2z" },
-  { name: "Mailchimp", bg: "bg-[#FFE01B]", color: "#FFE01B", fill: "fill-black", path: "M12 2c5.52 0 10 4.48 10 10s-4.48 10-10 10S2 17.52 2 12s4.48-10 10-10zm2 8c.55 0 1-.45 1-1s-.45-1-1-1-1 .45-1 1 .45 1 1 1zm-4 0c.55 0 1-.45 1-1s-.45-1-1-1-1 .45-1 1 .45 1 1 1zm2 6c2.5 0 4-1.5 4-3H8c0 1.5 1.5 3 4 3z" },
-  { name: "Stripe", bg: "bg-[#635BFF]", color: "#635BFF", fill: "fill-white", path: "M20 10h-5.5V8.5h5.5V7h-5.5C13 7 11.5 8.5 11.5 10c0 1.5 1.5 3 3 3h5.5v1.5h-5.5V16h5.5C21.5 16 23 14.5 23 13c0-1.5-1.5-3-3-3z M12.5 10c0-1.5 1.5-3 3-3V13c-1.5 0-3-1.5-3-3z" },
-  { name: "PayPal", bg: "bg-[#003087]", color: "#003087", fill: "fill-white", path: "M20.06 7.21c-.4-2.12-2.18-3.71-4.45-3.71H8.05c-.6 0-1.12.42-1.24 1.01L4.1 18.06c-.08.43.25.82.68.82h3.29c.47 0 .88-.33.98-.79l1.01-4.74h2.78c3.19 0 5.68-1.59 6.38-4.74.33-1.47.16-2.73-.5-3.4z" },
-  { name: "Klarna", bg: "bg-[#FFB3C7]", color: "#FFB3C7", fill: "fill-black", path: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 14H9v-2h4c1.1 0 2-.9 2-2s-.9-2-2-2H9V6h4c2.2 0 4 1.8 4 4s-1.8 4-4 4z" },
-  { name: "QuickBooks", bg: "bg-[#2CA01C]", color: "#2CA01C", fill: "fill-white", path: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15v-4H9V9h2V5h2v4h2v4h-2v4h-2z" }
-];
-
-const APP_ICONS = Array.from({ length: 56 }).map((_, idx) => {
-  const core = CORE_APPS[idx % CORE_APPS.length];
-  return {
-    ...core,
-    highlight: idx % 3 === 0
-  };
-});
+const APP_ICONS = [
+  ...LOGO_ROW_1,
+  ...LOGO_ROW_2
+].slice(0, 56).map((logo, idx) => ({
+  name: logo.alt,
+  src: logo.src,
+  highlight: idx % 3 === 0
+}));
 
 export default function HomePage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -834,22 +809,22 @@ export default function HomePage() {
                 {APP_ICONS.map((app, idx) => (
                   <div
                     key={idx}
-                    className={`aspect-square rounded-2xl flex items-center justify-center p-3.5 sm:p-4 transition-all duration-300 hover:scale-115 hover:rotate-[2deg] hover:z-30 cursor-pointer shadow-lg group ${app.bg} ${
+                    className={`aspect-square rounded-2xl flex items-center justify-center p-2.5 transition-all duration-300 hover:scale-115 hover:rotate-[2deg] hover:z-30 cursor-pointer shadow-lg bg-white border border-white/10 ${
                       app.highlight 
-                        ? "opacity-100 hover:shadow-2xl hover:shadow-white/20" 
-                        : "opacity-35 hover:opacity-100 hover:shadow-2xl"
+                        ? "opacity-100 hover:shadow-2xl hover:shadow-[#36F4A4]/20" 
+                        : "opacity-35 hover:opacity-100 hover:shadow-2xl hover:shadow-white/15"
                     }`}
                     style={{
                       transitionDelay: `${(idx % 8) * 15}ms`
                     }}
                     title={app.name}
                   >
-                    <svg 
-                      viewBox={app.viewBox || "0 0 24 24"} 
-                      className={`w-full h-full ${app.fill || "fill-current"}`}
-                    >
-                      <path d={app.path} />
-                    </svg>
+                    <img 
+                      src={app.src} 
+                      alt={app.name}
+                      loading="lazy"
+                      className="max-h-[80%] max-w-[80%] object-contain select-none pointer-events-none"
+                    />
                   </div>
                 ))}
               </div>
