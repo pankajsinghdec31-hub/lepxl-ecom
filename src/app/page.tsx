@@ -22,13 +22,14 @@ import {
   Sparkles,
   Laptop,
   CheckCircle2,
-  Activity
+  Activity,
+  ThumbsUp,
+  Share2
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import EnquiryBox from "@/components/EnquiryBox";
 import InteractiveFunnel from "@/components/InteractiveFunnel";
-import ROICalculator from "@/components/ROICalculator";
-import ABTestingSimulator from "@/components/ABTestingSimulator";
+
 import AnimatedDashboard from "@/components/AnimatedDashboard";
 import SkincarePDP from "@/components/SkincarePDP";
 import StartProjectForm from "@/components/StartProjectForm";
@@ -61,31 +62,82 @@ const FAQ_ITEMS = [
   }
 ];
 
-// Testimonials
-const TESTIMONIALS = [
+// Google Reviews data for scrolling marquee
+const GOOGLE_REVIEWS_ROW1 = [
   {
-    quote: "SalePXL rebuilt our store and grew our conversion rate from 1.1% to 4.2% in 90 days. Their speed optimization is unmatched.",
-    author: "Rohan Malhotra",
-    role: "Founder, The Wheels Co",
-    growth: "+410% Revenue Growth",
-    avatar: "RM",
-    stars: 5
+    name: "Monica Fernandes",
+    avatarColor: "bg-amber-600",
+    avatarText: "MF",
+    metadata: "Local Guide · 28 reviews · 10 photos",
+    stars: 5,
+    timeAgo: "2 months ago",
+    text: "We run 50+ A/B tests a quarter with their CRO retainer. Every test teaches us something about our customers. They run experiments rigorously and never call winners early. Real CRO done right."
   },
   {
-    quote: "We migrated to a custom Shopify setup with SalePXL. Checkout conversions improved instantly and page load dropped under 1.5 seconds.",
-    author: "Sneha Sharma",
-    role: "ECommerce Director, Glyters",
-    growth: "+150% Sales Boost",
-    avatar: "SS",
-    stars: 5
+    name: "James Park",
+    avatarColor: "bg-rose-600",
+    avatarText: "JP",
+    metadata: "Local Guide · 13 reviews · 5 photos",
+    stars: 5,
+    timeAgo: "5 months ago",
+    text: "The gamified cart drawer increased our AOV by 35%. Customers actually engage with the cart now — adding qualifying products to unlock free shipping. Beautifully built and never breaks."
   },
   {
-    quote: "Our store load went from 6.8s to 1.9s. The conversion lift was immediate. Truly elite Shopify engineering.",
-    author: "Vipul Shah",
-    role: "Marketing Head, Ratan Rashi",
-    growth: "+310% Conversion Rate",
-    avatar: "VS",
-    stars: 5
+    name: "Deepak Nair",
+    avatarColor: "bg-blue-600",
+    avatarText: "DN",
+    metadata: "Local Guide · 36 reviews · 18 photos",
+    stars: 5,
+    timeAgo: "7 months ago",
+    text: "SalePXL understands Shopify at a code level. They've solved problems for us that other agencies said weren't possible — custom Liquid logic, Storefront API hacks, Shopify Functions. Engineering excellence."
+  },
+  {
+    name: "Malay Trivedi",
+    avatarColor: "bg-sky-500",
+    avatarText: "MT",
+    metadata: "Local Guide · 18 reviews",
+    stars: 5,
+    timeAgo: "2 weeks ago",
+    text: "SalePXL completely transformed our store. Conversion rate doubled in a month. Krish and team are highly technical, and actually understand e-commerce revenue. Best agency in India hands down."
+  }
+];
+
+const GOOGLE_REVIEWS_ROW2 = [
+  {
+    name: "Chris Hanson",
+    avatarColor: "bg-purple-600",
+    avatarText: "CH",
+    metadata: "Local Guide · 17 reviews · 6 photos",
+    stars: 5,
+    timeAgo: "4 months ago",
+    text: "Shopify integration now syncs perfectly with our ERP software. Inventory is a breeze across 4 retail outlets and the e-commerce site. Real-time updates prevent oversells."
+  },
+  {
+    name: "Sneha Rao",
+    avatarColor: "bg-red-500",
+    avatarText: "SR",
+    metadata: "Local Guide · 21 reviews · 9 photos",
+    stars: 5,
+    timeAgo: "3 months ago",
+    text: "ChatGPT-powered concierge handles 60% of customer queries automatically — sizing, returns, product recommendations. Customer support team can now focus on actual issues. Incredible build."
+  },
+  {
+    name: "Mark Donovan",
+    avatarColor: "bg-indigo-600",
+    avatarText: "MD",
+    metadata: "Local Guide · 44 reviews · 20 photos",
+    stars: 5,
+    timeAgo: "8 months ago",
+    text: "Best agency partner we've had across 12 years of running e-commerce brands. They are like an extension of our internal team — proactive, accountable, and technically world-class."
+  },
+  {
+    name: "Alisha Kapoor",
+    avatarColor: "bg-emerald-600",
+    avatarText: "AK",
+    metadata: "Local Guide · 32 reviews · 13 photos",
+    stars: 5,
+    timeAgo: "6 months ago",
+    text: "Five stores built with SalePXL and counting. Consistent quality every single time, regardless of project size. They scale operations beautifully and don't drop the ball as their team grows."
   }
 ];
 
@@ -292,16 +344,7 @@ const CAROUSEL_ITEMS = [
 
 export default function HomePage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const [currentTestimonial, setCurrentTestimonial] = useState(0);
-  const [activeTab, setActiveTab] = useState<"speed" | "apps" | "cro">("speed");
   const [galleryTab, setGalleryTab] = useState<"home" | "product" | "collection">("home");
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentTestimonial((prev) => (prev + 1) % TESTIMONIALS.length);
-    }, 6000);
-    return () => clearInterval(timer);
-  }, []);
 
   const toggleFaq = (index: number) => {
     setOpenFaq(openFaq === index ? null : index);
@@ -403,6 +446,67 @@ export default function HomePage() {
           {/* Right Column Lead Form */}
           <div className="lg:col-span-5 relative z-20 w-full animate-fade-blur" style={{ animationDelay: "0.2s" }}>
             <StartProjectForm />
+          </div>
+        </div>
+      </section>
+
+      {/* 6. TRUSTED BY 800+ LEADING BRANDS LOGO SECTION */}
+      <section className="py-12 bg-white relative overflow-hidden z-10">
+        <div className="max-w-7xl mx-auto flex flex-col gap-6 text-center items-center mb-8">
+          <span className="text-[10px] text-neutral-400 font-mono uppercase tracking-widest font-black">
+            Trusted by 800+ Leading Brands
+          </span>
+        </div>
+
+        {/* Row 1 Logos */}
+        <div className="marquee-container mb-6">
+          <div className="marquee-content" style={{ "--marquee-speed": "40s" } as React.CSSProperties}>
+            {LOGO_ROW_1.map((logo, idx) => (
+              <img
+                key={idx}
+                src={logo.src}
+                alt={logo.alt}
+                className="h-8 w-auto object-contain mx-6 opacity-85 hover:opacity-100 transition-opacity duration-300 select-none pointer-events-none"
+                loading="lazy"
+              />
+            ))}
+          </div>
+          <div className="marquee-content" aria-hidden="true" style={{ "--marquee-speed": "40s" } as React.CSSProperties}>
+            {LOGO_ROW_1.map((logo, idx) => (
+              <img
+                key={idx + "-dup"}
+                src={logo.src}
+                alt={logo.alt}
+                className="h-8 w-auto object-contain mx-6 opacity-85 hover:opacity-100 transition-opacity duration-300 select-none pointer-events-none"
+                loading="lazy"
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Row 2 Logos - Reverse */}
+        <div className="marquee-container">
+          <div className="marquee-content-reverse" style={{ "--marquee-speed": "40s" } as React.CSSProperties}>
+            {LOGO_ROW_2.map((logo, idx) => (
+              <img
+                key={idx}
+                src={logo.src}
+                alt={logo.alt}
+                className="h-8 w-auto object-contain mx-6 opacity-85 hover:opacity-100 transition-opacity duration-300 select-none pointer-events-none"
+                loading="lazy"
+              />
+            ))}
+          </div>
+          <div className="marquee-content-reverse" aria-hidden="true" style={{ "--marquee-speed": "40s" } as React.CSSProperties}>
+            {LOGO_ROW_2.map((logo, idx) => (
+              <img
+                key={idx + "-dup"}
+                src={logo.src}
+                alt={logo.alt}
+                className="h-8 w-auto object-contain mx-6 opacity-85 hover:opacity-100 transition-opacity duration-300 select-none pointer-events-none"
+                loading="lazy"
+              />
+            ))}
           </div>
         </div>
       </section>
@@ -598,344 +702,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 5. CAPABILITY SHOWCASE WITH INTERACTIVE TABS */}
-      <section id="capabilities" className="py-24 px-6 bg-[#0c0d10]/40 border-y border-white/[0.05] relative z-10">
-        <div className="max-w-7xl mx-auto flex flex-col gap-12">
-          
-          {/* Section Header */}
-          <div className="text-center max-w-2xl mx-auto flex flex-col gap-4">
-            <span className="text-xs text-brand-lime font-mono uppercase tracking-widest font-bold">
-              Agency Capabilities
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight uppercase font-grotesk">
-              Engineered To Convert
-            </h2>
-            <p className="text-[#8e8e93] text-sm leading-relaxed">
-              We replace unstable third-party apps with custom visual logic, resulting in sub-1.5s mobile loading speeds and dynamic buying options.
-            </p>
 
-            {/* Interactive Capability Tab Triggers */}
-            <div className="flex flex-wrap justify-center gap-3 mt-6 bg-[#16181c]/50 p-2 rounded-2xl border border-white/[0.06] w-max mx-auto">
-              {[
-                { id: "speed", label: "Speed Tuning" },
-                { id: "apps", label: "Custom App Features" },
-                { id: "cro", label: "CRO Simulator" }
-              ].map((tab) => (
-                <button
-                  key={tab.id}
-                  onClick={() => setActiveTab(tab.id as any)}
-                  className={`px-6 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-300 ${
-                    activeTab === tab.id
-                      ? "bg-brand-lime text-black"
-                      : "text-[#8e8e93] hover:text-white"
-                  }`}
-                >
-                  {tab.label}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Dynamic Tab Contents */}
-          <div className="mt-8">
-            <AnimatePresence mode="wait">
-              {activeTab === "speed" && (
-                <motion.div
-                  key="speed-tab"
-                  initial={{ opacity: 0, y: 15 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -15 }}
-                  transition={{ duration: 0.3 }}
-                  className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center"
-                >
-                  <div className="lg:col-span-5 flex flex-col gap-6 text-left">
-                    <span className="text-xs text-brand-lime font-mono uppercase tracking-widest font-bold">01. Architecture</span>
-                    <h3 className="text-3xl font-extrabold text-white tracking-tight font-grotesk">Shopify Speed Optimization</h3>
-                    <p className="text-[#8e8e93] text-sm leading-relaxed">
-                      We audit and rebuild heavy scripts. By implementing lazy-loaded assets, code-deferred scripts, and custom liquid components, we achieve clean scores under 1.5 seconds.
-                    </p>
-                    <div className="flex gap-8 border-t border-white/5 pt-6 mt-2">
-                      <div>
-                        <span className="text-[10px] text-[#8e8e93] uppercase font-mono tracking-wider">Mobile Load Speed</span>
-                        <span className="block text-2xl font-bold text-white font-mono mt-1">98/100</span>
-                      </div>
-                      <div>
-                        <span className="text-[10px] text-[#8e8e93] uppercase font-mono tracking-wider">Conversion Boost</span>
-                        <span className="block text-2xl font-bold text-brand-lime font-mono mt-1">+42% Avg.</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="lg:col-span-7 group">
-                    <div className="w-full aspect-[16/10] rounded-2xl bg-[#16181c] border border-white/[0.08] overflow-hidden shadow-2xl transition-all duration-500 hover:border-brand-lime/30 relative">
-                      <div className="px-4 py-2.5 bg-[#0c0d10]/60 border-b border-white/5 flex items-center justify-between">
-                        <div className="flex items-center gap-1.5">
-                          <span className="w-2 h-2 rounded-full bg-red-500/60" />
-                          <span className="w-2 h-2 rounded-full bg-yellow-500/60" />
-                          <span className="w-2 h-2 rounded-full bg-green-500/60" />
-                        </div>
-                        <span className="text-[9px] text-[#8e8e93] font-mono">boutique.salepxl.com/shop</span>
-                        <span className="w-2 h-2 bg-white/10 rounded-full" />
-                      </div>
-                      <div className="relative w-full h-[calc(100%-37px)] bg-[#050505] p-6 flex flex-col justify-between text-left">
-                        <div className="flex justify-between items-center pb-3 border-b border-white/5">
-                          <span className="text-[10px] font-black text-white font-mono uppercase tracking-wider">LUXE Boutique</span>
-                          <span className="text-[8px] text-[#8e8e93] uppercase tracking-wider font-bold">Cart (0)</span>
-                        </div>
-                        <div className="grid grid-cols-3 gap-4 my-auto">
-                          {[
-                            { title: "Silk Wrap Blouse", price: "₹6,800", img: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=200&q=80" },
-                            { title: "Organza Dress", price: "₹12,500", img: "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=200&q=80" },
-                            { title: "Silk Kurta Kurti", price: "₹8,900", img: "https://images.unsplash.com/photo-1609357518652-6cf0416f0cbe?w=200&q=80" }
-                          ].map((item, i) => (
-                            <div key={i} className="flex flex-col gap-1.5 p-2 rounded-xl bg-white/[0.01] border border-white/5 hover:border-brand-lime/20 transition-all duration-300">
-                              <div className="aspect-[4/5] w-full rounded-lg overflow-hidden relative bg-neutral-900">
-                                <img src={item.img} alt="" className="w-full h-full object-cover" />
-                              </div>
-                              <span className="text-[8px] font-bold text-white truncate">{item.title}</span>
-                              <span className="text-[8px] text-brand-lime font-mono">{item.price}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              )}
-
-              {activeTab === "apps" && (
-                <motion.div
-                  key="apps-tab"
-                  initial={{ opacity: 0, y: 15 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -15 }}
-                  transition={{ duration: 0.3 }}
-                  className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center"
-                >
-                  <div className="lg:col-span-7 group">
-                    <div className="w-full aspect-[16/10] rounded-2xl bg-[#16181c] border border-white/[0.08] overflow-hidden shadow-2xl transition-all duration-500 hover:border-brand-lime/30 relative">
-                      <div className="px-4 py-2.5 bg-[#0c0d10]/60 border-b border-white/5 flex items-center justify-between">
-                        <div className="flex items-center gap-1.5">
-                          <span className="w-2 h-2 rounded-full bg-red-500/60" />
-                          <span className="w-2 h-2 rounded-full bg-yellow-500/60" />
-                          <span className="w-2 h-2 rounded-full bg-green-500/60" />
-                        </div>
-                        <span className="text-[9px] text-[#8e8e93] font-mono">carbon.salepxl.com/products/steering</span>
-                        <span className="w-2 h-2 bg-white/10 rounded-full" />
-                      </div>
-                      <div className="relative w-full h-[calc(100%-37px)] bg-[#0c0c0c] p-6 flex items-start gap-4 text-left">
-                        <div className="flex-1 flex flex-col gap-3">
-                          <div className="aspect-[4/3] w-full rounded-xl bg-white/5 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=300&q=80" alt="" className="w-full h-full object-cover" />
-                          </div>
-                          <h4 className="text-[10px] font-bold text-white">Carbon Steering Wheel</h4>
-                          <span className="text-[10px] text-brand-lime font-mono">₹24,999</span>
-                        </div>
-                        {/* Slide-out cart mock */}
-                        <div className="w-[150px] h-full bg-[#121214] border-l border-white/10 p-3 absolute right-0 top-0 bottom-0 flex flex-col justify-between shadow-2xl z-20">
-                          <div className="flex flex-col gap-3">
-                            <div className="flex justify-between items-center border-b border-white/5 pb-1.5">
-                              <span className="text-[8px] font-bold text-white font-mono">CART (1)</span>
-                            </div>
-                            <div className="flex gap-2 items-center bg-white/[0.02] p-1.5 rounded border border-white/5">
-                              <div className="w-6 h-6 rounded bg-white/10 overflow-hidden shrink-0">
-                                <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=100&q=80" alt="" className="w-full h-full object-cover" />
-                              </div>
-                              <div className="flex-grow min-w-0">
-                                <p className="text-[6px] text-white font-bold truncate">Steering Wheel</p>
-                                <p className="text-[6px] text-brand-lime font-mono">₹24,999</p>
-                              </div>
-                            </div>
-                          </div>
-                          <button className="w-full py-2 bg-brand-lime text-black text-[8px] font-bold uppercase rounded-lg">Checkout</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="lg:col-span-5 flex flex-col gap-6 text-left">
-                    <span className="text-xs text-brand-lime font-mono uppercase tracking-widest font-bold">02. Engagement</span>
-                    <h3 className="text-3xl font-extrabold text-white tracking-tight font-grotesk">Custom Cart & Option Drawers</h3>
-                    <p className="text-[#8e8e93] text-sm leading-relaxed">
-                      We develop custom upsell modules, sticky add-to-carts, product builders, and options drawers directly inside themes. No subscription apps required.
-                    </p>
-                    <div className="flex gap-8 border-t border-white/5 pt-6 mt-2">
-                      <div>
-                        <span className="text-[10px] text-[#8e8e93] uppercase font-mono tracking-wider">AOV Increase</span>
-                        <span className="block text-2xl font-bold text-white font-mono mt-1">+24% Avg.</span>
-                      </div>
-                      <div>
-                        <span className="text-[10px] text-[#8e8e93] uppercase font-mono tracking-wider">App Fees Saved</span>
-                        <span className="block text-2xl font-bold text-brand-lime font-mono mt-1">$450/mo Avg.</span>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              )}
-
-              {activeTab === "cro" && (
-                <motion.div
-                  key="cro-tab"
-                  initial={{ opacity: 0, y: 15 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -15 }}
-                  transition={{ duration: 0.3 }}
-                  className="w-full flex flex-col gap-6"
-                >
-                  <div className="text-left max-w-2xl mb-2">
-                    <span className="text-xs text-brand-lime font-mono uppercase tracking-widest font-bold">03. Optimizations</span>
-                    <h3 className="text-2xl sm:text-3xl font-extrabold text-white mt-1 font-grotesk">A/B Conversion Rate Sandbox</h3>
-                    <p className="text-[#8e8e93] text-sm leading-relaxed mt-2">
-                      Compare layout components directly. Play with the simulator below to toggle optimization points and compare conversion variables.
-                    </p>
-                  </div>
-                  <div className="w-full p-6 rounded-3xl bg-[#16181c] border border-white/[0.06] shadow-xl">
-                    <ABTestingSimulator />
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
-        </div>
-      </section>
-
-      {/* 6. OUR STORE SCALE PROCESS */}
-      <section className="py-24 px-6 bg-bg-dark border-b border-white/[0.05] relative z-10">
-        <div className="max-w-7xl mx-auto flex flex-col gap-16">
-          <div className="text-center max-w-2xl mx-auto flex flex-col gap-4">
-            <span className="text-xs text-brand-lime font-mono uppercase tracking-widest font-bold">
-              Workflow
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight uppercase font-grotesk">
-              Our Store Rebuild Process
-            </h2>
-            <p className="text-[#8e8e93] text-sm">
-              We follow a rigorous, 4-step engineering pipeline to take D2C stores from bloated and slow to optimized scale machines.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              {
-                step: "01",
-                title: "Funnel & Speed Diagnostics",
-                desc: "We run deep profile audits on your storefront scripts and cart checkout flow to identify conversion friction."
-              },
-              {
-                step: "02",
-                title: "Ultra-Premium UI/UX Design",
-                desc: "We design custom layout wireframes tailored for your products, focusing heavily on lightning-fast routine builders and single-tap actions."
-              },
-              {
-                step: "03",
-                title: "Bespoke Clean Code Rebuild",
-                desc: "We write lightweight Shopify OS 2.0 themes or headless Next.js frontends, completely removing unstable app scripts."
-              },
-              {
-                step: "04",
-                title: "Post-Launch A/B Testing",
-                desc: "We continuously A/B test layouts, pricing strategies, and slide drawers to optimize your average order value (AOV)."
-              }
-            ].map((item, idx) => (
-              <div key={idx} className="p-8 rounded-3xl bg-[#16181c] border border-white/[0.06] flex flex-col gap-6 text-left hover:border-brand-lime/10 transition-all duration-300 relative group">
-                <span className="text-5xl font-black text-white/5 group-hover:text-brand-lime/10 transition-colors font-grotesk absolute top-4 right-6 select-none font-bold">
-                  {item.step}
-                </span>
-                <div className="flex flex-col gap-2">
-                  <h4 className="text-base font-bold text-white group-hover:text-brand-lime transition-colors mt-4">{item.title}</h4>
-                  <p className="text-xs text-[#8e8e93] leading-relaxed mt-2">{item.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 7. INTERACTIVE ROI CALCULATOR SECTION */}
-      <section id="roi-calculator" className="py-24 px-6 relative overflow-hidden border-b border-white/[0.05] z-10 bg-[#08090a]">
-        <div className="absolute top-[20%] right-[-10%] w-[350px] h-[350px] rounded-full bg-brand-lime/[0.01] blur-[120px] pointer-events-none" />
-        <div className="absolute bottom-[20%] left-[-10%] w-[350px] h-[350px] rounded-full bg-purple-600/[0.01] blur-[120px] pointer-events-none" />
-
-        <div className="max-w-7xl mx-auto flex flex-col gap-12 text-center items-center">
-          <div className="max-w-3xl flex flex-col gap-4">
-            <span className="text-xs text-brand-lime font-mono uppercase tracking-widest font-bold">
-              ROI Simulator
-            </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight uppercase font-grotesk">
-              Stop Leaking Sales. <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-brand-lime">
-                Unlock Your Store's True Potential
-              </span>
-            </h2>
-            <p className="text-[#8e8e93] text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
-              When page speed increases and mobile friction disappears, conversion rates spike—lifting D2C revenues without increasing ad spend.
-            </p>
-          </div>
-          
-          <div className="w-full max-w-5xl">
-            <ROICalculator />
-          </div>
-        </div>
-      </section>
-
-      {/* 6. TRUSTED BY 800+ LEADING BRANDS LOGO SECTION */}
-      <section className="py-12 bg-white relative overflow-hidden z-10">
-        <div className="max-w-7xl mx-auto flex flex-col gap-6 text-center items-center mb-8">
-          <span className="text-[10px] text-neutral-400 font-mono uppercase tracking-widest font-black">
-            Trusted by 800+ Leading Brands
-          </span>
-        </div>
-
-        {/* Row 1 Logos */}
-        <div className="marquee-container mb-6">
-          <div className="marquee-content" style={{ "--marquee-speed": "40s" } as React.CSSProperties}>
-            {LOGO_ROW_1.map((logo, idx) => (
-              <img
-                key={idx}
-                src={logo.src}
-                alt={logo.alt}
-                className="h-8 w-auto object-contain mx-6 opacity-85 hover:opacity-100 transition-opacity duration-300 select-none pointer-events-none"
-                loading="lazy"
-              />
-            ))}
-          </div>
-          <div className="marquee-content" aria-hidden="true" style={{ "--marquee-speed": "40s" } as React.CSSProperties}>
-            {LOGO_ROW_1.map((logo, idx) => (
-              <img
-                key={idx + "-dup"}
-                src={logo.src}
-                alt={logo.alt}
-                className="h-8 w-auto object-contain mx-6 opacity-85 hover:opacity-100 transition-opacity duration-300 select-none pointer-events-none"
-                loading="lazy"
-              />
-            ))}
-          </div>
-        </div>
-
-        {/* Row 2 Logos - Reverse */}
-        <div className="marquee-container">
-          <div className="marquee-content-reverse" style={{ "--marquee-speed": "40s" } as React.CSSProperties}>
-            {LOGO_ROW_2.map((logo, idx) => (
-              <img
-                key={idx}
-                src={logo.src}
-                alt={logo.alt}
-                className="h-8 w-auto object-contain mx-6 opacity-85 hover:opacity-100 transition-opacity duration-300 select-none pointer-events-none"
-                loading="lazy"
-              />
-            ))}
-          </div>
-          <div className="marquee-content-reverse" aria-hidden="true" style={{ "--marquee-speed": "40s" } as React.CSSProperties}>
-            {LOGO_ROW_2.map((logo, idx) => (
-              <img
-                key={idx + "-dup"}
-                src={logo.src}
-                alt={logo.alt}
-                className="h-8 w-auto object-contain mx-6 opacity-85 hover:opacity-100 transition-opacity duration-300 select-none pointer-events-none"
-                loading="lazy"
-              />
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* 7. SHOPIFY PORTFOLIO MARQUEE SHOWCASE */}
       <section className="py-24 relative overflow-hidden bg-bg-dark border-b border-white/[0.05] z-10">
@@ -1063,76 +830,218 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 10. TESTIMONIALS SLIDER */}
-      <section className="py-24 px-6 relative bg-white/[0.01] z-10">
-        <div className="max-w-4xl mx-auto flex flex-col gap-12 text-center">
-          <div className="flex flex-col gap-4">
-            <span className="text-xs text-brand-lime font-mono uppercase tracking-widest font-bold">
-              Client Feedback
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight font-grotesk uppercase">
-              Audited Case Outcomes
-            </h2>
-          </div>
+      {/* 10. GOOGLE REVIEWS SECTION */}
+      <section className="py-24 relative overflow-hidden bg-bg-dark border-t border-white/[0.05] z-10">
+        <div className="max-w-7xl mx-auto px-6 mb-12 flex flex-col gap-4 text-center">
+          <span className="text-xs text-brand-lime font-mono uppercase tracking-widest font-bold">
+            Google Reviews
+          </span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight uppercase font-grotesk">
+            Trusted by Founders & Teams <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-lime to-white">Worldwide</span>
+          </h2>
+        </div>
 
-          {/* Testimonial slider card */}
-          <div className="relative min-h-[250px] flex items-center justify-center">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={currentTestimonial}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.3 }}
-                className="w-full p-8 md:p-12 rounded-3xl bg-[#16181c] border border-white/[0.06] flex flex-col gap-6 relative text-left shadow-md"
-              >
-                <div className="flex justify-between items-center">
-                  <div className="flex gap-1 text-[#cbf351]">
-                    {[...Array(TESTIMONIALS[currentTestimonial].stars || 5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-current" />
-                    ))}
-                  </div>
-                  <span className="text-5xl font-serif text-[#cbf351] opacity-20 leading-none">“</span>
-                </div>
-                
-                <p className="text-base sm:text-lg text-white italic leading-relaxed relative z-10 font-medium">
-                  {TESTIMONIALS[currentTestimonial].quote}
-                </p>
-
-                <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 mt-6 pt-6 border-t border-white/[0.05]">
+        {/* Row 1 reviews marquee */}
+        <div className="marquee-container marquee-pause mb-6">
+          <div className="marquee-content" style={{ "--marquee-speed": "60s" } as React.CSSProperties}>
+            {GOOGLE_REVIEWS_ROW1.map((review, idx) => (
+              <div key={idx} className="flex-shrink-0 w-[380px] p-6 rounded-2xl bg-[#16181c] border border-white/[0.06] hover:border-brand-lime/20 transition-all duration-300 flex flex-col gap-4 text-left shadow-md">
+                <div className="flex justify-between items-start">
                   <div className="flex items-center gap-3">
-                    <span className="w-10 h-10 rounded-full bg-[#cbf351]/10 border border-[#cbf351]/20 text-[#cbf351] font-mono font-bold text-xs flex items-center justify-center">
-                      {TESTIMONIALS[currentTestimonial].avatar || "SP"}
+                    <span className={`w-10 h-10 rounded-full text-white font-bold text-sm flex items-center justify-center ${review.avatarColor}`}>
+                      {review.avatarText}
                     </span>
-                    <div className="text-left">
-                      <p className="font-bold text-white text-sm">
-                        {TESTIMONIALS[currentTestimonial].author}
-                      </p>
-                      <p className="text-xs text-[#8e8e93]">
-                        {TESTIMONIALS[currentTestimonial].role}
-                      </p>
+                    <div>
+                      <p className="font-bold text-white text-sm">{review.name}</p>
+                      <p className="text-[10px] text-[#8e8e93] font-medium">{review.metadata}</p>
                     </div>
                   </div>
-                  <span className="text-[10px] bg-[#cbf351]/15 border border-[#cbf351]/30 text-[#cbf351] px-4 py-1.5 rounded-full font-bold font-mono text-center self-start sm:self-center">
-                    {TESTIMONIALS[currentTestimonial].growth}
+                  {/* Google 'G' Icon */}
+                  <svg className="w-5 h-5 shrink-0" viewBox="0 0 24 24">
+                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22c-.22-.66-.35-1.36-.35-2.09z"/>
+                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                  </svg>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <div className="flex gap-0.5 text-amber-500">
+                    {[...Array(review.stars)].map((_, i) => (
+                      <Star key={i} className="w-3.5 h-3.5 fill-current" />
+                    ))}
+                  </div>
+                  <span className="text-[#8e8e93] text-xs">•</span>
+                  <span className="text-[#8e8e93] text-[11px] font-medium">{review.timeAgo}</span>
+                </div>
+
+                <p className="text-[#d1d1d6] text-xs leading-relaxed font-normal flex-grow">
+                  {review.text}
+                </p>
+
+                <div className="border-t border-white/[0.05] pt-4 flex gap-4 items-center mt-auto">
+                  <span className="inline-flex items-center gap-1.5 text-[11px] text-[#8e8e93] hover:text-brand-lime transition-colors cursor-pointer">
+                    <ThumbsUp className="w-3.5 h-3.5" />
+                    <span>Helpful</span>
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 text-[11px] text-[#8e8e93] hover:text-brand-lime transition-colors cursor-pointer">
+                    <Share2 className="w-3.5 h-3.5" />
+                    <span>Share</span>
                   </span>
                 </div>
-              </motion.div>
-            </AnimatePresence>
+              </div>
+            ))}
+          </div>
+          <div className="marquee-content" aria-hidden="true" style={{ "--marquee-speed": "60s" } as React.CSSProperties}>
+            {GOOGLE_REVIEWS_ROW1.map((review, idx) => (
+              <div key={idx + "-dup"} className="flex-shrink-0 w-[380px] p-6 rounded-2xl bg-[#16181c] border border-white/[0.06] hover:border-brand-lime/20 transition-all duration-300 flex flex-col gap-4 text-left shadow-md">
+                <div className="flex justify-between items-start">
+                  <div className="flex items-center gap-3">
+                    <span className={`w-10 h-10 rounded-full text-white font-bold text-sm flex items-center justify-center ${review.avatarColor}`}>
+                      {review.avatarText}
+                    </span>
+                    <div>
+                      <p className="font-bold text-white text-sm">{review.name}</p>
+                      <p className="text-[10px] text-[#8e8e93] font-medium">{review.metadata}</p>
+                    </div>
+                  </div>
+                  {/* Google 'G' Icon */}
+                  <svg className="w-5 h-5 shrink-0" viewBox="0 0 24 24">
+                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22c-.22-.66-.35-1.36-.35-2.09z"/>
+                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                  </svg>
+                </div>
 
-            {/* Slider Dots */}
-            <div className="absolute -bottom-8 flex justify-center gap-2.5">
-              {TESTIMONIALS.map((_, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setCurrentTestimonial(idx)}
-                  className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                    currentTestimonial === idx ? "bg-brand-lime w-6" : "bg-white/10"
-                  }`}
-                  aria-label={`Go to slide ${idx + 1}`}
-                />
-              ))}
-            </div>
+                <div className="flex items-center gap-2">
+                  <div className="flex gap-0.5 text-amber-500">
+                    {[...Array(review.stars)].map((_, i) => (
+                      <Star key={i} className="w-3.5 h-3.5 fill-current" />
+                    ))}
+                  </div>
+                  <span className="text-[#8e8e93] text-xs">•</span>
+                  <span className="text-[#8e8e93] text-[11px] font-medium">{review.timeAgo}</span>
+                </div>
+
+                <p className="text-[#d1d1d6] text-xs leading-relaxed font-normal flex-grow">
+                  {review.text}
+                </p>
+
+                <div className="border-t border-white/[0.05] pt-4 flex gap-4 items-center mt-auto">
+                  <span className="inline-flex items-center gap-1.5 text-[11px] text-[#8e8e93] hover:text-brand-lime transition-colors cursor-pointer">
+                    <ThumbsUp className="w-3.5 h-3.5" />
+                    <span>Helpful</span>
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 text-[11px] text-[#8e8e93] hover:text-brand-lime transition-colors cursor-pointer">
+                    <Share2 className="w-3.5 h-3.5" />
+                    <span>Share</span>
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Row 2 reviews marquee - Reverse */}
+        <div className="marquee-container marquee-pause">
+          <div className="marquee-content-reverse" style={{ "--marquee-speed": "60s" } as React.CSSProperties}>
+            {GOOGLE_REVIEWS_ROW2.map((review, idx) => (
+              <div key={idx} className="flex-shrink-0 w-[380px] p-6 rounded-2xl bg-[#16181c] border border-white/[0.06] hover:border-brand-lime/20 transition-all duration-300 flex flex-col gap-4 text-left shadow-md">
+                <div className="flex justify-between items-start">
+                  <div className="flex items-center gap-3">
+                    <span className={`w-10 h-10 rounded-full text-white font-bold text-sm flex items-center justify-center ${review.avatarColor}`}>
+                      {review.avatarText}
+                    </span>
+                    <div>
+                      <p className="font-bold text-white text-sm">{review.name}</p>
+                      <p className="text-[10px] text-[#8e8e93] font-medium">{review.metadata}</p>
+                    </div>
+                  </div>
+                  {/* Google 'G' Icon */}
+                  <svg className="w-5 h-5 shrink-0" viewBox="0 0 24 24">
+                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22c-.22-.66-.35-1.36-.35-2.09z"/>
+                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                  </svg>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <div className="flex gap-0.5 text-amber-500">
+                    {[...Array(review.stars)].map((_, i) => (
+                      <Star key={i} className="w-3.5 h-3.5 fill-current" />
+                    ))}
+                  </div>
+                  <span className="text-[#8e8e93] text-xs">•</span>
+                  <span className="text-[#8e8e93] text-[11px] font-medium">{review.timeAgo}</span>
+                </div>
+
+                <p className="text-[#d1d1d6] text-xs leading-relaxed font-normal flex-grow">
+                  {review.text}
+                </p>
+
+                <div className="border-t border-white/[0.05] pt-4 flex gap-4 items-center mt-auto">
+                  <span className="inline-flex items-center gap-1.5 text-[11px] text-[#8e8e93] hover:text-brand-lime transition-colors cursor-pointer">
+                    <ThumbsUp className="w-3.5 h-3.5" />
+                    <span>Helpful</span>
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 text-[11px] text-[#8e8e93] hover:text-brand-lime transition-colors cursor-pointer">
+                    <Share2 className="w-3.5 h-3.5" />
+                    <span>Share</span>
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="marquee-content-reverse" aria-hidden="true" style={{ "--marquee-speed": "60s" } as React.CSSProperties}>
+            {GOOGLE_REVIEWS_ROW2.map((review, idx) => (
+              <div key={idx + "-dup"} className="flex-shrink-0 w-[380px] p-6 rounded-2xl bg-[#16181c] border border-white/[0.06] hover:border-brand-lime/20 transition-all duration-300 flex flex-col gap-4 text-left shadow-md">
+                <div className="flex justify-between items-start">
+                  <div className="flex items-center gap-3">
+                    <span className={`w-10 h-10 rounded-full text-white font-bold text-sm flex items-center justify-center ${review.avatarColor}`}>
+                      {review.avatarText}
+                    </span>
+                    <div>
+                      <p className="font-bold text-white text-sm">{review.name}</p>
+                      <p className="text-[10px] text-[#8e8e93] font-medium">{review.metadata}</p>
+                    </div>
+                  </div>
+                  {/* Google 'G' Icon */}
+                  <svg className="w-5 h-5 shrink-0" viewBox="0 0 24 24">
+                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22c-.22-.66-.35-1.36-.35-2.09z"/>
+                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                  </svg>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <div className="flex gap-0.5 text-amber-500">
+                    {[...Array(review.stars)].map((_, i) => (
+                      <Star key={i} className="w-3.5 h-3.5 fill-current" />
+                    ))}
+                  </div>
+                  <span className="text-[#8e8e93] text-xs">•</span>
+                  <span className="text-[#8e8e93] text-[11px] font-medium">{review.timeAgo}</span>
+                </div>
+
+                <p className="text-[#d1d1d6] text-xs leading-relaxed font-normal flex-grow">
+                  {review.text}
+                </p>
+
+                <div className="border-t border-white/[0.05] pt-4 flex gap-4 items-center mt-auto">
+                  <span className="inline-flex items-center gap-1.5 text-[11px] text-[#8e8e93] hover:text-brand-lime transition-colors cursor-pointer">
+                    <ThumbsUp className="w-3.5 h-3.5" />
+                    <span>Helpful</span>
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 text-[11px] text-[#8e8e93] hover:text-brand-lime transition-colors cursor-pointer">
+                    <Share2 className="w-3.5 h-3.5" />
+                    <span>Share</span>
+                  </span>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
