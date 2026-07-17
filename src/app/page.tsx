@@ -423,14 +423,33 @@ const TAB_DATA = [
   }
 ];
 
+const TILE_THEMES = [
+  { bg: "bg-white", text: "dark", shadow: "hover:shadow-white/20" },
+  { bg: "bg-[#FFE01B]", text: "dark", shadow: "hover:shadow-yellow-400/20" },
+  { bg: "bg-[#0064E0]", text: "light", shadow: "hover:shadow-blue-600/30" },
+  { bg: "bg-[#FFB3C7]", text: "dark", shadow: "hover:shadow-pink-400/20" },
+  { bg: "bg-[#111827] border-white/10", text: "light", shadow: "hover:shadow-neutral-500/10" },
+  { bg: "bg-[#eef2ff]", text: "dark", shadow: "hover:shadow-indigo-400/20" },
+  { bg: "bg-[#ecfdf5]", text: "dark", shadow: "hover:shadow-emerald-400/20" },
+  { bg: "bg-[#fdf2f8]", text: "dark", shadow: "hover:shadow-pink-300/20" },
+  { bg: "bg-black border-white/10", text: "light", shadow: "hover:shadow-white/15" },
+  { bg: "bg-[#fffbeb]", text: "dark", shadow: "hover:shadow-amber-400/20" }
+];
+
 const APP_ICONS = [
   ...LOGO_ROW_1,
   ...LOGO_ROW_2
-].slice(0, 56).map((logo, idx) => ({
-  name: logo.alt,
-  src: logo.src,
-  highlight: idx % 3 === 0
-}));
+].slice(0, 56).map((logo, idx) => {
+  const theme = TILE_THEMES[idx % TILE_THEMES.length];
+  return {
+    name: logo.alt,
+    src: logo.src,
+    bg: theme.bg,
+    text: theme.text,
+    shadow: theme.shadow,
+    highlight: idx % 3 === 0
+  };
+});
 
 export default function HomePage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -809,10 +828,10 @@ export default function HomePage() {
                 {APP_ICONS.map((app, idx) => (
                   <div
                     key={idx}
-                    className={`aspect-square rounded-2xl flex items-center justify-center p-2.5 transition-all duration-300 hover:scale-115 hover:rotate-[2deg] hover:z-30 cursor-pointer shadow-lg bg-white border border-white/10 ${
+                    className={`aspect-square rounded-2xl flex items-center justify-center p-2.5 transition-all duration-300 hover:scale-115 hover:rotate-[2deg] hover:z-30 cursor-pointer shadow-lg border border-white/5 ${app.bg} ${
                       app.highlight 
-                        ? "opacity-100 hover:shadow-2xl hover:shadow-[#36F4A4]/20" 
-                        : "opacity-35 hover:opacity-100 hover:shadow-2xl hover:shadow-white/15"
+                        ? `opacity-100 hover:shadow-2xl ${app.shadow}` 
+                        : `opacity-35 hover:opacity-100 hover:shadow-2xl ${app.shadow}`
                     }`}
                     style={{
                       transitionDelay: `${(idx % 8) * 15}ms`
@@ -823,7 +842,9 @@ export default function HomePage() {
                       src={app.src} 
                       alt={app.name}
                       loading="lazy"
-                      className="max-h-[80%] max-w-[80%] object-contain select-none pointer-events-none"
+                      className={`max-h-[80%] max-w-[80%] object-contain select-none pointer-events-none transition-all duration-300 ${
+                        app.text === "light" ? "invert brightness-[2.5] contrast-[1.5]" : ""
+                      }`}
                     />
                   </div>
                 ))}
