@@ -619,8 +619,8 @@ export default function HomePage() {
             </div>
 
             {/* Trust strip */}
-            <div className="mt-5 sm:mt-7 flex flex-wrap items-center justify-center sm:justify-start gap-x-5 gap-y-2 animate-fade-blur" style={{ animationDelay: "0.2s" }}>
-              <div className="flex items-center gap-2">
+            <div className="mt-5 sm:mt-7 flex flex-col sm:flex-row flex-wrap items-center justify-center sm:justify-start gap-x-5 gap-y-3 sm:gap-y-2 animate-fade-blur" style={{ animationDelay: "0.2s" }}>
+              <div className="flex items-center gap-2 justify-center">
                 <div className="flex -space-x-1.5">
                   {["SB","WE","SZ","AK"].map((t, i) => (
                     <span key={i} className="w-5.5 h-5.5 rounded-full bg-[#1a3a2a] border border-[#02090a] flex items-center justify-center text-[7px] font-bold text-[#36F4A4]">{t}</span>
@@ -629,9 +629,9 @@ export default function HomePage() {
                 <span className="text-white/60 text-xs">Trusted by <strong className="text-white">800+ brands</strong></span>
               </div>
               <span className="text-white/20 hidden sm:block">|</span>
-              <span className="text-white/60 text-xs"><strong className="text-white">100+</strong> stores built</span>
+              <span className="text-white/60 text-xs text-center"><strong className="text-white">100+</strong> stores built</span>
               <span className="text-white/20 hidden sm:block">|</span>
-              <span className="text-white/60 text-xs"><strong className="text-white">Sub-1.2s</strong> avg speed</span>
+              <span className="text-white/60 text-xs text-center"><strong className="text-white">Sub-1.2s</strong> avg speed</span>
             </div>
           </div>
         </div>
