@@ -432,11 +432,13 @@ export default function HomePage() {
 
   // Typewriter effect state for hero headline dynamic text
   const words = [
-    "convert visitors.",
-    "scale businesses.",
-    "load instantly.",
-    "drive sales.",
-    "stand out."
+    "AI all-star",
+    "household name",
+    "solo-preneur",
+    "category creator",
+    "global empire",
+    "store they line up for",
+    "big thing"
   ];
   const [wordIndex, setWordIndex] = useState(0);
   const [currentText, setCurrentText] = useState("");
@@ -565,23 +567,23 @@ export default function HomePage() {
             <div className="mb-3 sm:mb-4 animate-fade-blur flex justify-start">
               <span className="inline-flex items-center gap-2 text-[10px] sm:text-[11px] font-semibold tracking-widest uppercase px-3.5 py-1.5 rounded-full border border-white/20 bg-white/[0.06] text-white/80 backdrop-blur-sm">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#36F4A4] animate-pulse" />
-                India's #1 Web Development Agency
+                India's #1 Shopify Agency
               </span>
             </div>
 
             {/* Giant headline */}
             <h1 className="text-[2.65rem] xs:text-[3.25rem] sm:text-6xl md:text-7xl lg:text-[5.5rem] font-bold text-white leading-[1.08] sm:leading-[1.0] tracking-tight max-w-3xl animate-fade-blur text-left" style={{ animationDelay: "0.05s" }}>
-              We Build Websites<br />
-              <span className="text-[#36F4A4]">
-                That {currentText}
+              Be the next<br />
+              <span className="text-white">
+                {currentText}
                 <span className="typewriter-cursor" />
               </span>
             </h1>
 
             {/* Sub-copy */}
             <p className="mt-4 sm:mt-5 text-white/80 text-base sm:text-lg leading-relaxed max-w-lg animate-fade-blur text-left" style={{ animationDelay: "0.1s" }}>
-              High-performance website development, custom coding,<br />
-              and ultra-fast loading speeds for modern brands.
+              Dream big and build fast on Shopify.<br />
+              The world's best commerce platform.
             </p>
 
             {/* CTA buttons — Full-width stacked on mobile, auto-width left-aligned on desktop */}
@@ -590,7 +592,7 @@ export default function HomePage() {
                 onClick={() => setShowFormModal(true)}
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3.5 sm:px-7 sm:py-3.5 rounded-full bg-white text-black text-xs sm:text-sm font-bold hover:bg-white/90 transition-all duration-200 hover:scale-[1.01]"
               >
-                Start Project
+                Start for free
               </button>
               <button
                 onClick={() => setShowFormModal(true)}
@@ -601,7 +603,7 @@ export default function HomePage() {
                   <circle cx="12" cy="12" r="10" />
                   <polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none" />
                 </svg>
-                <span>Why SalePXL?</span>
+                <span>Why we build Shopify</span>
               </button>
             </div>
 
@@ -616,7 +618,7 @@ export default function HomePage() {
                 <span className="text-white/60 text-xs">Trusted by <strong className="text-white">800+ brands</strong></span>
               </div>
               <span className="text-white/20">|</span>
-              <span className="text-white/60 text-xs text-center"><strong className="text-white">100+</strong> websites built</span>
+              <span className="text-white/60 text-xs text-center"><strong className="text-white">100+</strong> stores built</span>
               <span className="text-white/20">|</span>
               <span className="text-white/60 text-xs text-center"><strong className="text-white">Sub-1.2s</strong> avg speed</span>
             </div>
