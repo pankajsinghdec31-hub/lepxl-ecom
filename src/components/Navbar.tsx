@@ -62,11 +62,11 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
-            <span className="w-8 h-8 rounded-lg bg-gradient-to-tr from-primary/80 to-primary flex items-center justify-center font-bold text-white text-lg transition-transform duration-300 group-hover:scale-105 shadow-[0_4px_12px_rgba(16,185,129,0.2)]">
+            <span className="w-8 h-8 rounded-lg bg-gradient-to-tr from-[#36F4A4]/80 to-[#36F4A4] flex items-center justify-center font-bold text-black text-lg transition-transform duration-300 group-hover:scale-105 shadow-[0_4px_12px_rgba(54,244,164,0.2)]">
               S
             </span>
             <span className="text-white font-semibold text-xl tracking-tight">
-              Sale<span className="text-primary font-bold">PXL</span>
+              Sale<span className="text-[#36F4A4] font-bold">PXL</span>
             </span>
           </Link>
  
@@ -113,14 +113,22 @@ export default function Navbar() {
             </Link>
           </div>
  
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 text-white hover:text-primary transition-colors"
-            aria-label="Toggle menu"
-          >
-            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          {/* Mobile Menu Button & Link */}
+          <div className="flex md:hidden items-center gap-4">
+            <Link
+              href="/contact"
+              className="text-sm font-semibold text-white hover:text-[#36F4A4] transition-colors underline decoration-white hover:decoration-[#36F4A4] decoration-[1.5px] underline-offset-4"
+            >
+              Get Started
+            </Link>
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="p-2 text-white hover:text-primary transition-colors"
+              aria-label="Toggle menu"
+            >
+              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
       </header>
  

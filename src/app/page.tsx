@@ -343,18 +343,18 @@ const CAROUSEL_ITEMS = [
 
 const TAB_DATA = [
   {
-    title: "Sell everywhere people shop.",
+    title: "Web and mobile.",
     cards: [
       {
         type: "link",
-        label: "Online Store",
+        label: "E-Commerce Web",
         href: "https://www.houseplant.com/",
         image: "https://cdn.shopify.com/b/shopify-brochure2-assets/bfbeae3284961d8d0602881269009777.jpg",
         alt: "Image of Houseplant website selling home goods"
       },
       {
         type: "link",
-        label: "Ethical Apparel",
+        label: "Custom Web App",
         href: "https://kotn.com/",
         image: "https://cdn.shopify.com/b/shopify-brochure2-assets/64afe05abfb257e356a4a98854665b75.png",
         alt: "Image of Kotn website selling ethically made essentials",
@@ -362,62 +362,36 @@ const TAB_DATA = [
       },
       {
         type: "video",
-        label: "POS & Retail",
+        label: "Interactive UI",
         image: "https://cdn.shopify.com/b/shopify-brochure2-assets/4a9828c3264de541545637026e9de272.jpg",
         video: "https://cdn.shopify.com/b/shopify-brochure2-assets/4ea4c67da04aea216ee972ec1b9bfb08.mp4",
-        alt: "Why we build Shopify preview poster"
+        alt: "Why choose SalePXL preview poster"
       }
     ]
   },
   {
-    title: "Online and in person.",
+    title: "Headless and custom.",
     cards: [
       {
         type: "link",
-        label: "Drinkware & Gear",
+        label: "Next.js Frontend",
         href: "https://www.stanley1913.com/",
         image: "https://cdn.shopify.com/b/shopify-brochure2-assets/460f664bed3c41d8f289786f3acfd3c8.jpg",
         alt: "Image of Stanley website selling drinkware and gear"
       },
       {
         type: "link",
-        label: "Premium Luggage",
+        label: "Headless Architecture",
         href: "https://monos.com/",
         image: "https://cdn.shopify.com/b/shopify-brochure2-assets/82299140d19921a76d556ca8b3b77906.jpg",
         alt: "Image of Monos website selling luggage and travel accessories"
       },
       {
         type: "link",
-        label: "Pottery & Ceramics",
+        label: "API Integrations",
         href: "https://eastfork.com/",
         image: "https://cdn.shopify.com/b/shopify-brochure2-assets/a6899266ed2cbd8bc42cdba617224792.jpg",
         alt: "Image of East Fork website selling pottery and ceramics"
-      }
-    ]
-  },
-  {
-    title: "Across AI and on social.",
-    cards: [
-      {
-        type: "link",
-        label: "Beauty & Skincare",
-        href: "https://www.glossier.com/",
-        image: "https://cdn.shopify.com/b/shopify-brochure2-assets/4f34cdb8ec9c120b80b8be143d0791d7.jpg",
-        alt: "Image of Glossier website selling beauty products"
-      },
-      {
-        type: "link",
-        label: "Cycling Apparel",
-        href: "https://www.ornotbike.com/",
-        image: "https://cdn.shopify.com/b/shopify-brochure2-assets/a011f79527438e06c77694dc9e48f9b2.jpg",
-        alt: "Image of Ornot website selling cycling apparel"
-      },
-      {
-        type: "link",
-        label: "Shoes & Accessories",
-        href: "https://www.stevemadden.com/",
-        image: "https://cdn.shopify.com/b/shopify-brochure2-assets/67e4b3ae607f6a12adb615c0ec0af3b4.jpg",
-        alt: "Image of Steve Madden website selling shoes and accessories"
       }
     ]
   },
@@ -426,21 +400,21 @@ const TAB_DATA = [
     cards: [
       {
         type: "link",
-        label: "International Sales",
+        label: "Global Edge CDN",
         href: "https://www.shopify.com/in/international",
         image: "https://cdn.shopify.com/b/shopify-brochure2-assets/600a7b9e8074695ddb32d366f72d93d4.png?originalWidth=2724",
         alt: "Sell across borders map"
       },
       {
         type: "link",
-        label: "Multi-Currency Checkout",
+        label: "Internationalization",
         href: "https://www.shopify.com/in/checkout",
         image: "https://cdn.shopify.com/b/shopify-brochure2-assets/cc13b65e22ffbe0fe3535162fd873760.png?originalWidth=859",
         alt: "Checkout currencies list"
       },
       {
         type: "link",
-        label: "Global Markets",
+        label: "Speed Optimization",
         href: "https://www.shopify.com/in/international",
         image: "https://cdn.shopify.com/b/shopify-brochure2-assets/34c79ed6726fca9045a7e6549b56a204.jpg?originalWidth=812",
         alt: "Global market model image"
@@ -457,7 +431,13 @@ export default function HomePage() {
   const [activeTab, setActiveTab] = useState(0);
 
   // Typewriter effect state for hero headline dynamic text
-  const words = ["Sell.", "Scale.", "Convert."];
+  const words = [
+    "convert visitors.",
+    "scale businesses.",
+    "load instantly.",
+    "drive sales.",
+    "stand out."
+  ];
   const [wordIndex, setWordIndex] = useState(0);
   const [currentText, setCurrentText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
@@ -575,16 +555,16 @@ export default function HomePage() {
         <div className="absolute bottom-0 left-0 right-0 pb-8 sm:pb-20 z-10">
           <div className="max-w-7xl mx-auto px-5 sm:px-12 lg:px-20">
             {/* Agency badge */}
-            <div className="mb-3 sm:mb-4 animate-fade-blur flex justify-center sm:justify-start">
+            <div className="mb-3 sm:mb-4 animate-fade-blur flex justify-start">
               <span className="inline-flex items-center gap-2 text-[10px] sm:text-[11px] font-semibold tracking-widest uppercase px-3.5 py-1.5 rounded-full border border-white/20 bg-white/[0.06] text-white/80 backdrop-blur-sm">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#36F4A4] animate-pulse" />
-                India's #1 Shopify Agency
+                India's #1 Web Development Agency
               </span>
             </div>
 
             {/* Giant headline */}
-            <h1 className="text-3xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-normal text-white leading-[1.05] sm:leading-[1.0] tracking-tight max-w-3xl animate-fade-blur text-center sm:text-left mx-auto sm:mx-0" style={{ animationDelay: "0.05s" }}>
-              We Build Shopify Stores<br />
+            <h1 className="text-[2.65rem] xs:text-[3.25rem] sm:text-6xl md:text-7xl lg:text-[5.5rem] font-bold text-white leading-[1.08] sm:leading-[1.0] tracking-tight max-w-3xl animate-fade-blur text-left" style={{ animationDelay: "0.05s" }}>
+              We Build Websites<br />
               <span className="text-[#36F4A4]">
                 That {currentText}
                 <span className="typewriter-cursor" />
@@ -592,22 +572,22 @@ export default function HomePage() {
             </h1>
 
             {/* Sub-copy */}
-            <p className="mt-3 sm:mt-4 text-white/75 text-sm sm:text-lg leading-relaxed max-w-lg animate-fade-blur text-center sm:text-left mx-auto sm:mx-0" style={{ animationDelay: "0.1s" }}>
-              Sub-1.2s load speeds, custom-coded logic and <br className="hidden sm:block" />
-              high-converting checkouts for D2C brands.
+            <p className="mt-4 sm:mt-5 text-white/80 text-base sm:text-lg leading-relaxed max-w-lg animate-fade-blur text-left" style={{ animationDelay: "0.1s" }}>
+              High-performance website development, custom coding,<br />
+              and ultra-fast loading speeds for modern brands.
             </p>
 
-            {/* CTA buttons — Inline pills on mobile, left-aligned, matching Shopify auto-width layout */}
-            <div className="mt-5 sm:mt-7 flex flex-row flex-wrap items-center justify-center sm:justify-start gap-3 animate-fade-blur" style={{ animationDelay: "0.15s" }}>
+            {/* CTA buttons — Full-width stacked on mobile, auto-width left-aligned on desktop */}
+            <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row items-center justify-start gap-3 w-full sm:w-auto max-w-sm sm:max-w-none animate-fade-blur" style={{ animationDelay: "0.15s" }}>
               <button
                 onClick={() => setShowFormModal(true)}
-                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 sm:px-7 sm:py-3.5 rounded-full bg-white text-black text-xs sm:text-sm font-bold hover:bg-white/90 transition-all duration-200 hover:scale-[1.01]"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3.5 sm:px-7 sm:py-3.5 rounded-full bg-white text-black text-xs sm:text-sm font-bold hover:bg-white/90 transition-all duration-200 hover:scale-[1.01]"
               >
-                Start Now
+                Start Project
               </button>
               <button
                 onClick={() => setShowFormModal(true)}
-                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 sm:px-7 sm:py-3.5 rounded-full border border-white/40 text-white text-xs sm:text-sm font-semibold hover:bg-white/10 hover:border-white transition-all duration-200 backdrop-blur-sm"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3.5 sm:px-7 sm:py-3.5 rounded-full border border-white text-white text-xs sm:text-sm font-semibold hover:bg-white/10 hover:border-white transition-all duration-200 backdrop-blur-sm"
               >
                 {/* Play circle icon inline */}
                 <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -618,8 +598,8 @@ export default function HomePage() {
               </button>
             </div>
 
-            {/* Trust strip */}
-            <div className="mt-5 sm:mt-7 flex flex-col sm:flex-row flex-wrap items-center justify-center sm:justify-start gap-x-5 gap-y-3 sm:gap-y-2 animate-fade-blur" style={{ animationDelay: "0.2s" }}>
+            {/* Trust strip - hidden on mobile, visible from sm up */}
+            <div className="mt-5 sm:mt-7 hidden sm:flex flex-row flex-wrap items-center justify-start gap-x-5 gap-y-2 animate-fade-blur" style={{ animationDelay: "0.2s" }}>
               <div className="flex items-center gap-2 justify-center">
                 <div className="flex -space-x-1.5">
                   {["SB","WE","SZ","AK"].map((t, i) => (
@@ -628,9 +608,9 @@ export default function HomePage() {
                 </div>
                 <span className="text-white/60 text-xs">Trusted by <strong className="text-white">800+ brands</strong></span>
               </div>
-              <span className="text-white/20 hidden sm:block">|</span>
-              <span className="text-white/60 text-xs text-center"><strong className="text-white">100+</strong> stores built</span>
-              <span className="text-white/20 hidden sm:block">|</span>
+              <span className="text-white/20">|</span>
+              <span className="text-white/60 text-xs text-center"><strong className="text-white">100+</strong> websites built</span>
+              <span className="text-white/20">|</span>
               <span className="text-white/60 text-xs text-center"><strong className="text-white">Sub-1.2s</strong> avg speed</span>
             </div>
           </div>
@@ -639,14 +619,16 @@ export default function HomePage() {
 
 
       {/* ── OMNICHANNEL / SELL EVERYWHERE SECTION ── */}
-      <section className="py-24 relative z-10 overflow-hidden bg-bg-dark border-b border-white/[0.05]">
+      <section className="py-24 relative z-10 overflow-hidden bg-bg-dark border-b border-white/[0.05] rounded-t-[32px] md:rounded-t-[48px]">
         <div className="max-w-7xl mx-auto px-5 sm:px-12 lg:px-20">
           
           {/* Main big headline / Interactive Tabs */}
           <div className="max-w-5xl text-left mb-16">
             <h2 className="text-3xl sm:text-5xl md:text-[3.25rem] font-normal leading-[1.2] tracking-tight font-grotesk select-none flex flex-wrap gap-x-4 gap-y-3">
+              <span className="text-white/30 mr-1">
+                Develop everywhere your users are.
+              </span>
               {[
-                "Sell everywhere people shop.",
                 "Online and in person.",
                 "Across AI and on social.",
                 "Locally and globally."
@@ -726,7 +708,7 @@ export default function HomePage() {
                           <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
                             <path d="M8 5v14l11-7z" />
                           </svg>
-                          <span>Why we build Shopify</span>
+                          <span>Why choose SalePXL</span>
                         </button>
                       </div>
                     </div>
