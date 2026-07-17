@@ -1,19 +1,21 @@
 @import "tailwindcss";
 
 :root {
-  --background: #050505;
+  --background: #08090a;
   --foreground: #f5f5f7;
 }
 
 @theme {
-  --font-sans: var(--font-plus-jakarta-sans), sans-serif;
-  --color-primary: #10b981;
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+  --font-mono: 'Geist Mono', monospace;
+  --color-primary: #cbf351;
   --color-brand-green: #10b981;
+  --color-brand-lime: #cbf351;
   --color-brand-black: #000000;
-  --color-bg-dark: #050505;
-  --color-bg-secondary: #0c0c0e;
-  --color-card-bg: #121214;
-  --color-accent-white: #18181b;
+  --color-bg-dark: #08090a;
+  --color-bg-secondary: #0c0d10;
+  --color-card-bg: #121417;
+  --color-accent-white: #1c1e22;
   --color-text-light: #f5f5f7;
   --color-text-muted: #8e8e93;
 }
@@ -63,6 +65,24 @@ body {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.neon-shadow-lime {
+  box-shadow: 0 0 20px rgba(203, 243, 81, 0.2);
+}
+.neon-shadow-lime-lg {
+  box-shadow: 0 0 35px rgba(203, 243, 81, 0.35);
+}
+.neon-shadow-purple {
+  box-shadow: 0 0 25px rgba(124, 58, 237, 0.25);
 }
 
 /* Graph drawing animation */
@@ -156,6 +176,56 @@ input[type="range"]::-webkit-slider-thumb {
   border: 2px solid #050505;
   box-shadow: 0 0 10px rgba(16, 185, 129, 0.4);
   cursor: pointer;
+}
+
+/* Infinite horizontal marquee */
+.marquee-container {
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  gap: 16px;
+  width: 100%;
+}
+
+.marquee-content {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-around;
+  min-width: 100%;
+  gap: 16px;
+  animation: scroll-left var(--marquee-speed, 50s) linear infinite;
+}
+
+.marquee-content-reverse {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-around;
+  min-width: 100%;
+  gap: 16px;
+  animation: scroll-right var(--marquee-speed, 50s) linear infinite;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-100% - 16px));
+  }
+}
+
+@keyframes scroll-right {
+  0% {
+    transform: translateX(calc(-100% - 16px));
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.marquee-pause:hover .marquee-content,
+.marquee-pause:hover .marquee-content-reverse {
+  animation-play-state: paused;
 }
 
 

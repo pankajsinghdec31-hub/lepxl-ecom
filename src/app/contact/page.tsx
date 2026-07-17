@@ -277,10 +277,10 @@ export default function ContactPage() {
                     <label className="text-[10px] text-[#8e8e93] uppercase tracking-wider font-semibold">Estimated Project Budget</label>
                     <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                       {[
-                        { value: "under-1500", label: "Under $1,500", detail: "Under ₹1.2L" },
-                        { value: "1500-3500", label: "$1,500 - $3,500", detail: "₹1.2L - ₹3L" },
-                        { value: "3500-7500", label: "$3,500 - $7,500", detail: "₹3L - ₹6L" },
-                        { value: "7500-plus", label: "$7,500+", detail: "₹6L+" },
+                        { value: "under-1.2L", label: "Under ₹1.2L", detail: "Startups & Audits" },
+                        { value: "1.2L-3L", label: "₹1.2L - ₹3L", detail: "Standard Store Rebuild" },
+                        { value: "3L-6L", label: "₹3L - ₹6L", detail: "Custom Theme & App" },
+                        { value: "6L-plus", label: "₹6L+", detail: "Headless / Enterprise" },
                       ].map((item) => (
                         <button
                           key={item.value}

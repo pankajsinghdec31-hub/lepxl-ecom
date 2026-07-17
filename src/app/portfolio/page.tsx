@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import {
-  ExternalLink,
   Check,
   Laptop,
   Gem,
@@ -243,14 +242,20 @@ function getMockupConfig(name: string, category: string, industry: string): Mock
     image = "/imgi_91_skin-basics.webp";
   } else if (lowerName.includes("swadezi")) {
     image = "/imgi_93_swadezi.webp";
-  } else if (lowerName.includes("humble organic") || lowerName.includes("organic rootz")) {
-    image = "/supplement_mockup.png";
-  } else if (lowerName.includes("rcfyiy")) {
+  } else if (lowerName.includes("wheels")) {
+    image = "/imgi_89_kohkayn-com.webp";
+  } else if (lowerName.includes("ratan") || lowerName.includes("glyters")) {
+    image = "/jewelry_mockup.png";
+  } else if (lowerName.includes("chashma") || lowerName.includes("couch")) {
+    image = "/imgi_91_skin-basics.webp";
+  } else if (lowerName.includes("suvastra") || lowerName.includes("hay clothing") || lowerName.includes("prisachi") || lowerName.includes("rcfyiy")) {
     image = "/apparel_mockup.png";
+  } else if (lowerName.includes("anand") || lowerName.includes("urban dwellings")) {
+    image = "/wellness_mockup.png";
+  } else if (lowerName.includes("nutriblend")) {
+    image = "/supplement_mockup.png";
   } else if (lowerName.includes("brahmras")) {
     image = "/wellness_mockup.png";
-  } else if (lowerName.includes("aura fragrance")) {
-    image = "/jewelry_mockup.png";
   }
 
   if (lowerName.includes("wheels")) {
@@ -585,15 +590,6 @@ export default function PortfolioPage() {
                       <h3 className="text-lg font-bold text-white group-hover:text-primary transition-colors">
                         {proj.name}
                       </h3>
-                      <a
-                        href={proj.url}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="p-1.5 rounded bg-white/[0.04] border border-white/[0.08] text-[#8e8e93] hover:text-white hover:bg-white/[0.08] transition-colors"
-                        title="Visit Website"
-                      >
-                        <ExternalLink className="w-3.5 h-3.5" />
-                      </a>
                     </div>
 
                     <span className="text-[10px] uppercase tracking-wider font-semibold" style={{ color: proj.accentColor }}>
