@@ -395,7 +395,7 @@ export default function HomePage() {
       <div className="absolute bottom-[8%] right-[5%] w-[35%] h-[450px] rounded-full bg-[#051517]/50 blur-[130px] pointer-events-none" />
 
       {/* 1. SHOPIFY-STYLE HERO — full bleed video, text bottom-left */}
-      <section className="relative w-full h-screen overflow-hidden mt-[-96px] pt-[96px]">
+      <section className="relative w-full h-screen overflow-hidden">
 
         {/* ── FULL-BLEED VIDEO BACKGROUND ── */}
         <video
@@ -501,7 +501,7 @@ export default function HomePage() {
           />
 
           {/* Sheet: bottom-sheet on mobile, centered card on desktop */}
-          <div className="relative w-full sm:w-auto sm:max-w-xl max-h-[92vh] overflow-y-auto rounded-t-3xl sm:rounded-3xl bg-[#02090a] border-t sm:border border-[#1a2e32] shadow-2xl animate-fade-blur">
+          <div className="relative w-full sm:w-auto sm:max-w-xl max-h-[92vh] overflow-y-auto rounded-t-3xl sm:rounded-3xl bg-[#02090a]/80 backdrop-blur-2xl border-t sm:border border-white/10 shadow-2xl animate-fade-blur">
             {/* Handle bar (mobile only) */}
             <div className="flex justify-center pt-3 pb-1 sm:hidden">
               <div className="w-10 h-1 rounded-full bg-white/20" />

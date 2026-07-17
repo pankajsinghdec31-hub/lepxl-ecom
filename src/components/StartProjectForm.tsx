@@ -49,18 +49,18 @@ export default function StartProjectForm() {
   };
 
   const inputClass = (hasError: boolean) => 
-    `w-full bg-[#1c1e22]/50 border ${
-      hasError ? "border-red-500/50 focus:border-red-500" : "border-white/[0.08] focus:border-brand-lime"
-    } text-white text-xs rounded-xl pl-9 pr-4 py-2.5 focus:outline-none focus:ring-1 focus:ring-brand-lime/20 transition-all placeholder:text-[#5c5c5c]`;
+    `w-full bg-white/[0.03] backdrop-blur-sm border ${
+      hasError ? "border-red-500/50 focus:border-red-500" : "border-white/10 focus:border-[#36F4A4]"
+    } text-white text-xs rounded-xl pl-9 pr-4 py-2.5 focus:outline-none focus:ring-1 focus:ring-[#36F4A4]/25 transition-all placeholder:text-white/30`;
 
   const selectClass = (hasError: boolean) => 
-    `w-full bg-[#1c1e22]/50 border ${
-      hasError ? "border-red-500/50 focus:border-red-500" : "border-white/[0.08] focus:border-brand-lime"
-    } text-white text-xs rounded-xl pl-9 pr-8 py-2.5 focus:outline-none focus:ring-1 focus:ring-brand-lime/20 transition-all appearance-none cursor-pointer`;
+    `w-full bg-white/[0.03] backdrop-blur-sm border ${
+      hasError ? "border-red-500/50 focus:border-red-500" : "border-white/10 focus:border-[#36F4A4]"
+    } text-white text-xs rounded-xl pl-9 pr-8 py-2.5 focus:outline-none focus:ring-1 focus:ring-[#36F4A4]/25 transition-all appearance-none cursor-pointer`;
 
   return (
-    <div className="w-full bg-[#16181c]/90 border border-white/[0.06] rounded-3xl p-6 shadow-2xl relative overflow-hidden text-left">
-      <div className="absolute top-0 right-0 w-32 h-32 bg-brand-lime/[0.02] rounded-full blur-3xl pointer-events-none" />
+    <div className="w-full text-left relative">
+
 
       <AnimatePresence mode="wait">
         {!submitted ? (
@@ -224,15 +224,15 @@ export default function StartProjectForm() {
 
             {/* Custom Brief Box */}
             <div className="flex flex-col gap-1 relative">
-              <label className="text-[9px] text-[#8e8e93] uppercase font-mono tracking-wider font-semibold">About your project or brand</label>
+              <label className="text-[9px] text-[#a1a1aa] uppercase font-mono tracking-wider font-semibold">About your project or brand</label>
               <div className="relative">
-                <FileText className="absolute left-3 top-3 w-3.5 h-3.5 text-[#5c5c5c]" />
+                <FileText className="absolute left-3 top-3 w-3.5 h-3.5 text-white/40" />
                 <textarea
                   rows={2}
                   placeholder="Describe your design styling, custom features, or Shopify goals..."
                   value={formData.projectDetails}
                   onChange={(e) => setFormData({ ...formData, projectDetails: e.target.value })}
-                  className="w-full bg-[#1c1e22]/50 border border-white/[0.08] focus:border-brand-lime text-white text-xs rounded-xl pl-9 pr-4 py-2.5 focus:outline-none focus:ring-1 focus:ring-brand-lime/20 transition-all placeholder:text-[#5c5c5c] resize-none"
+                  className="w-full bg-white/[0.03] border border-white/10 focus:border-[#36F4A4] text-white text-xs rounded-xl pl-9 pr-4 py-2.5 focus:outline-none focus:ring-1 focus:ring-[#36F4A4]/25 transition-all placeholder:text-white/30 resize-none"
                 />
               </div>
             </div>
@@ -240,7 +240,7 @@ export default function StartProjectForm() {
             {/* Submit Button */}
             <button
               type="submit"
-              className="w-full py-3.5 mt-2 rounded-xl text-xs font-bold uppercase tracking-wider text-black bg-brand-lime hover:bg-[#b0dd40] transition-all duration-300 neon-shadow-lime hover:scale-[1.01] flex items-center justify-center gap-2"
+              className="w-full py-3.5 mt-2 rounded-xl text-xs font-bold uppercase tracking-wider text-black bg-[#36F4A4] hover:bg-[#1de896] transition-all duration-300 neon-shadow-lime hover:scale-[1.01] flex items-center justify-center gap-2"
             >
               Submit Lead <Send className="w-3.5 h-3.5" />
             </button>
@@ -251,10 +251,10 @@ export default function StartProjectForm() {
             animate={{ opacity: 1, scale: 1 }}
             className="flex flex-col items-center justify-center py-16 text-center gap-4"
           >
-            <CheckCircle2 className="w-16 h-16 text-brand-lime animate-bounce" />
+            <CheckCircle2 className="w-16 h-16 text-[#36F4A4] animate-bounce" />
             <div className="flex flex-col gap-1.5">
               <h3 className="text-xl font-bold text-white uppercase font-grotesk">Request Received!</h3>
-              <p className="text-xs text-[#8e8e93] max-w-xs leading-relaxed">
+              <p className="text-xs text-[#a1a1aa] max-w-xs leading-relaxed">
                 Thank you for reaching out. We will audit your request details and email you a calendar booking link shortly.
               </p>
             </div>
@@ -262,5 +262,6 @@ export default function StartProjectForm() {
         )}
       </AnimatePresence>
     </div>
+
   );
 }
