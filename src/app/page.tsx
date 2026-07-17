@@ -343,22 +343,22 @@ const CAROUSEL_ITEMS = [
 
 const TAB_DATA = [
   {
-    title: "Web and mobile.",
+    title: "Online and in person.",
     cards: [
       {
         type: "link",
-        label: "E-Commerce Web",
-        href: "https://www.houseplant.com/",
-        image: "https://cdn.shopify.com/b/shopify-brochure2-assets/bfbeae3284961d8d0602881269009777.jpg",
-        alt: "Image of Houseplant website selling home goods"
+        label: "SOBO Beauty",
+        href: "https://sobobeauty.com/",
+        image: "/imgi_80_sobo-beauty.webp",
+        alt: "SOBO Beauty curated cosmetics store design"
       },
       {
         type: "link",
-        label: "Custom Web App",
-        href: "https://kotn.com/",
-        image: "https://cdn.shopify.com/b/shopify-brochure2-assets/64afe05abfb257e356a4a98854665b75.png",
-        alt: "Image of Kotn website selling ethically made essentials",
-        subTitle: "THE SS26 COLLECTION"
+        label: "Swadezi",
+        href: "https://swadezi.com/",
+        image: "/imgi_93_swadezi.webp",
+        alt: "Swadezi ethnic apparel boutique custom theme design",
+        subTitle: "THE DESIGN COLLECTION"
       },
       {
         type: "video",
@@ -370,28 +370,28 @@ const TAB_DATA = [
     ]
   },
   {
-    title: "Headless and custom.",
+    title: "Across AI and on social.",
     cards: [
       {
         type: "link",
-        label: "Next.js Frontend",
-        href: "https://www.stanley1913.com/",
-        image: "https://cdn.shopify.com/b/shopify-brochure2-assets/460f664bed3c41d8f289786f3acfd3c8.jpg",
-        alt: "Image of Stanley website selling drinkware and gear"
+        label: "Kohkayn Basics",
+        href: "https://kohkayn.com/",
+        image: "/imgi_89_kohkayn-com.webp",
+        alt: "Kohkayn Basics apparel store custom Next.js design"
       },
       {
         type: "link",
-        label: "Headless Architecture",
-        href: "https://monos.com/",
-        image: "https://cdn.shopify.com/b/shopify-brochure2-assets/82299140d19921a76d556ca8b3b77906.jpg",
-        alt: "Image of Monos website selling luggage and travel accessories"
+        label: "Well Essentials",
+        href: "https://wellessentials.com/",
+        image: "/imgi_81_well-essentials.webp",
+        alt: "Well Essentials health superfoods speed optimized design"
       },
       {
         type: "link",
-        label: "API Integrations",
-        href: "https://eastfork.com/",
-        image: "https://cdn.shopify.com/b/shopify-brochure2-assets/a6899266ed2cbd8bc42cdba617224792.jpg",
-        alt: "Image of East Fork website selling pottery and ceramics"
+        label: "Amarose Perfumes",
+        href: "https://amarose.com/",
+        image: "/imgi_83_amarose.webp",
+        alt: "Amarose premium scent store UX audit and layout design"
       }
     ]
   },
@@ -400,24 +400,24 @@ const TAB_DATA = [
     cards: [
       {
         type: "link",
-        label: "Global Edge CDN",
-        href: "https://www.shopify.com/in/international",
-        image: "https://cdn.shopify.com/b/shopify-brochure2-assets/600a7b9e8074695ddb32d366f72d93d4.png?originalWidth=2724",
-        alt: "Sell across borders map"
+        label: "Skin Basics",
+        href: "https://skinbasics.com/",
+        image: "/imgi_91_skin-basics.webp",
+        alt: "Skin Basics premium leather goods e-commerce storefront"
       },
       {
         type: "link",
-        label: "Internationalization",
-        href: "https://www.shopify.com/in/checkout",
-        image: "https://cdn.shopify.com/b/shopify-brochure2-assets/cc13b65e22ffbe0fe3535162fd873760.png?originalWidth=859",
-        alt: "Checkout currencies list"
+        label: "Glyters Jewelry",
+        href: "https://www.glyters.com/",
+        image: "/jewelry_mockup.png",
+        alt: "Glyters Fashion Jewelry custom theme development"
       },
       {
         type: "link",
-        label: "Speed Optimization",
-        href: "https://www.shopify.com/in/international",
-        image: "https://cdn.shopify.com/b/shopify-brochure2-assets/34c79ed6726fca9045a7e6549b56a204.jpg?originalWidth=812",
-        alt: "Global market model image"
+        label: "RCFYIY Boutique",
+        href: "https://rcfyiy-uj.myshopify.com/",
+        image: "/apparel_mockup.png",
+        alt: "RCFYIY Fashion Editorial brand storefront build"
       }
     ]
   }
@@ -626,7 +626,7 @@ export default function HomePage() {
           <div className="max-w-5xl text-left mb-16">
             <h2 className="text-3xl sm:text-5xl md:text-[3.25rem] font-normal leading-[1.2] tracking-tight font-grotesk select-none flex flex-wrap gap-x-4 gap-y-3">
               <span className="text-white/30 mr-1">
-                Develop everywhere your users are.
+                Sell everywhere people shop.
               </span>
               {[
                 "Online and in person.",
