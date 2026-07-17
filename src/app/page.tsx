@@ -575,7 +575,7 @@ export default function HomePage() {
         <div className="absolute bottom-0 left-0 right-0 pb-8 sm:pb-20 z-10">
           <div className="max-w-7xl mx-auto px-5 sm:px-12 lg:px-20">
             {/* Agency badge */}
-            <div className="mb-3 sm:mb-4 animate-fade-blur">
+            <div className="mb-3 sm:mb-4 animate-fade-blur flex justify-center sm:justify-start">
               <span className="inline-flex items-center gap-2 text-[10px] sm:text-[11px] font-semibold tracking-widest uppercase px-3.5 py-1.5 rounded-full border border-white/20 bg-white/[0.06] text-white/80 backdrop-blur-sm">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#36F4A4] animate-pulse" />
                 India's #1 Shopify Agency
@@ -583,7 +583,7 @@ export default function HomePage() {
             </div>
 
             {/* Giant headline */}
-            <h1 className="text-3xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-normal text-white leading-[1.05] sm:leading-[1.0] tracking-tight max-w-3xl animate-fade-blur" style={{ animationDelay: "0.05s" }}>
+            <h1 className="text-3xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-normal text-white leading-[1.05] sm:leading-[1.0] tracking-tight max-w-3xl animate-fade-blur text-center sm:text-left mx-auto sm:mx-0" style={{ animationDelay: "0.05s" }}>
               We Build Shopify Stores<br />
               <span className="text-[#36F4A4]">
                 That {currentText}
@@ -592,13 +592,13 @@ export default function HomePage() {
             </h1>
 
             {/* Sub-copy */}
-            <p className="mt-3 sm:mt-4 text-white/75 text-sm sm:text-lg leading-relaxed max-w-lg animate-fade-blur" style={{ animationDelay: "0.1s" }}>
-              Sub-1.2s load speeds, custom-coded logic and<br className="hidden sm:block" />
+            <p className="mt-3 sm:mt-4 text-white/75 text-sm sm:text-lg leading-relaxed max-w-lg animate-fade-blur text-center sm:text-left mx-auto sm:mx-0" style={{ animationDelay: "0.1s" }}>
+              Sub-1.2s load speeds, custom-coded logic and <br className="hidden sm:block" />
               high-converting checkouts for D2C brands.
             </p>
 
             {/* CTA buttons — Inline pills on mobile, left-aligned, matching Shopify auto-width layout */}
-            <div className="mt-5 sm:mt-7 flex flex-row flex-wrap items-center justify-start gap-3 animate-fade-blur" style={{ animationDelay: "0.15s" }}>
+            <div className="mt-5 sm:mt-7 flex flex-row flex-wrap items-center justify-center sm:justify-start gap-3 animate-fade-blur" style={{ animationDelay: "0.15s" }}>
               <button
                 onClick={() => setShowFormModal(true)}
                 className="inline-flex items-center justify-center gap-2 px-5 py-2.5 sm:px-7 sm:py-3.5 rounded-full bg-white text-black text-xs sm:text-sm font-bold hover:bg-white/90 transition-all duration-200 hover:scale-[1.01]"
@@ -619,7 +619,7 @@ export default function HomePage() {
             </div>
 
             {/* Trust strip */}
-            <div className="mt-5 sm:mt-7 flex flex-wrap items-center gap-x-5 gap-y-2 animate-fade-blur" style={{ animationDelay: "0.2s" }}>
+            <div className="mt-5 sm:mt-7 flex flex-wrap items-center justify-center sm:justify-start gap-x-5 gap-y-2 animate-fade-blur" style={{ animationDelay: "0.2s" }}>
               <div className="flex items-center gap-2">
                 <div className="flex -space-x-1.5">
                   {["SB","WE","SZ","AK"].map((t, i) => (
