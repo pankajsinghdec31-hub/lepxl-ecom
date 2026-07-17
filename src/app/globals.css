@@ -236,3 +236,18 @@ body.home-page main {
   padding-top: 0 !important;
 }
 
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.typewriter-cursor {
+  display: inline-block;
+  width: 3px;
+  height: 0.85em;
+  background-color: #36F4A4;
+  margin-left: 4px;
+  vertical-align: baseline;
+  animation: cursor-blink 0.8s step-end infinite;
+}
+

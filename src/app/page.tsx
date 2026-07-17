@@ -345,6 +345,45 @@ export default function HomePage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [showFormModal, setShowFormModal] = useState(false);
 
+  // Typewriter effect state for hero headline dynamic text
+  const words = ["Sell.", "Scale.", "Convert."];
+  const [wordIndex, setWordIndex] = useState(0);
+  const [currentText, setCurrentText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [typingSpeed, setTypingSpeed] = useState(120);
+
+  useEffect(() => {
+    const handleType = () => {
+      const fullWord = words[wordIndex];
+      
+      if (!isDeleting) {
+        // Typing
+        setCurrentText(fullWord.substring(0, currentText.length + 1));
+        
+        if (currentText === fullWord) {
+          setTypingSpeed(2200); // Wait 2.2 seconds before starting to erase
+          setIsDeleting(true);
+        } else {
+          setTypingSpeed(100 + Math.random() * 40); // Subtle natural variation
+        }
+      } else {
+        // Erasing
+        setCurrentText(fullWord.substring(0, currentText.length - 1));
+        
+        if (currentText === "") {
+          setIsDeleting(false);
+          setWordIndex((prev) => (prev + 1) % words.length);
+          setTypingSpeed(350); // Pause before next word
+        } else {
+          setTypingSpeed(60); // Faster erasing speed
+        }
+      }
+    };
+
+    const timer = setTimeout(handleType, typingSpeed);
+    return () => clearTimeout(timer);
+  }, [currentText, isDeleting, wordIndex, typingSpeed]);
+
   const toggleFaq = (index: number) => {
     setOpenFaq(openFaq === index ? null : index);
   };
@@ -435,7 +474,10 @@ export default function HomePage() {
             {/* Giant headline */}
             <h1 className="text-3xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-normal text-white leading-[1.05] sm:leading-[1.0] tracking-tight max-w-3xl animate-fade-blur" style={{ animationDelay: "0.05s" }}>
               We Build Shopify Stores<br />
-              <span className="text-[#36F4A4]">That Sell.</span>
+              <span className="text-[#36F4A4]">
+                That {currentText}
+                <span className="typewriter-cursor" />
+              </span>
             </h1>
 
             {/* Sub-copy */}
