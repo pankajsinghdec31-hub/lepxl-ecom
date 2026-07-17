@@ -31,7 +31,6 @@ import EnquiryBox from "@/components/EnquiryBox";
 import InteractiveFunnel from "@/components/InteractiveFunnel";
 
 import AnimatedDashboard from "@/components/AnimatedDashboard";
-import SkincarePDP from "@/components/SkincarePDP";
 import StartProjectForm from "@/components/StartProjectForm";
 
 // FAQ Items
@@ -344,7 +343,7 @@ const CAROUSEL_ITEMS = [
 
 export default function HomePage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const [galleryTab, setGalleryTab] = useState<"home" | "product" | "collection">("home");
+  const [showFormModal, setShowFormModal] = useState(false);
 
   const toggleFaq = (index: number) => {
     setOpenFaq(openFaq === index ? null : index);
@@ -390,65 +389,146 @@ export default function HomePage() {
         }
       `}} />
       {/* FLOATING NEON BACKDROP DECORATIONS */}
-      <div className="absolute top-[-5%] left-[-5%] w-[45%] h-[400px] rounded-full bg-primary/3 blur-[130px] animate-blob-slow-1 pointer-events-none" />
-      <div className="absolute top-[15%] right-[-5%] w-[40%] h-[500px] rounded-full bg-purple-600/3 blur-[150px] pointer-events-none" />
-      <div className="absolute top-[50%] left-[5%] w-[35%] h-[400px] rounded-full bg-primary/2 blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-[8%] right-[5%] w-[35%] h-[450px] rounded-full bg-purple-600/3 blur-[130px] pointer-events-none" />
+      <div className="absolute top-[-5%] left-[-5%] w-[45%] h-[400px] rounded-full bg-[#36F4A4]/[0.02] blur-[130px] animate-blob-slow-1 pointer-events-none" />
+      <div className="absolute top-[15%] right-[-5%] w-[40%] h-[500px] rounded-full bg-[#051517]/60 blur-[150px] pointer-events-none" />
+      <div className="absolute top-[50%] left-[5%] w-[35%] h-[400px] rounded-full bg-[#36F4A4]/[0.015] blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-[8%] right-[5%] w-[35%] h-[450px] rounded-full bg-[#051517]/50 blur-[130px] pointer-events-none" />
 
-      {/* 1. PREMIUM HERO SECTION */}
-      <section className="relative min-h-[85vh] flex items-center pt-8 pb-16 px-6 z-10">
-        <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          
-          {/* Left Column Copy */}
-          <div className="lg:col-span-7 flex flex-col gap-6 text-left animate-fade-blur">
-            <h1 className="text-4xl sm:text-5xl lg:text-6.5xl font-black tracking-tight text-white leading-none">
-              We Engineer <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-brand-lime font-grotesk uppercase">
-                Shopify Stores
-              </span> <br />
-              That Convert.
-            </h1>
+      {/* 1. SHOPIFY-STYLE HERO — full bleed video, text bottom-left */}
+      <section className="relative w-full h-screen overflow-hidden mt-[-96px] pt-[96px]">
 
-            <p className="text-[#8e8e93] text-base sm:text-lg leading-relaxed max-w-xl">
-              Sub-1.2s mobile loading speeds, custom app logic, and high-converting checkouts designed for scaling D2C brands. We replace heavy apps with clean, native code.
-            </p>
+        {/* ── FULL-BLEED VIDEO BACKGROUND ── */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          {/* Local user video */}
+          <source src="/download (3).mp4" type="video/mp4" />
+          {/* Backup test videos */}
+          <source src="/hero-video.mp4" type="video/mp4" />
+          <source src="https://vjs.zencdn.net/v/oceans.mp4" type="video/mp4" />
 
-            {/* CTAs */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mt-2">
-              <a
-                href="#audit"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-sm font-bold uppercase tracking-wider text-black bg-brand-lime hover:bg-[#b0dd40] transition-all duration-300 neon-shadow-lime hover:scale-[1.02] text-center"
-              >
-                <span>Start Free CRO Audit</span>
-                <ArrowRight className="w-4 h-4" />
-              </a>
-              <Link
-                href="/portfolio"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-sm font-semibold uppercase tracking-wider text-white bg-transparent border border-white/[0.08] hover:border-white/20 transition-all duration-300 text-center hover:bg-white/[0.02]"
-              >
-                <span>View Case Studies</span>
-              </Link>
-            </div>
+        </video>
 
-            {/* Credibility Indicator */}
-            <div className="pt-6 border-t border-white/[0.05] flex items-center gap-6 mt-4">
-              <div className="flex -space-x-3">
-                <span className="w-9 h-9 rounded-full bg-[#16181c] border-2 border-[#0a0b0d] flex items-center justify-center text-[10px] font-bold text-[#8e8e93]">SB</span>
-                <span className="w-9 h-9 rounded-full bg-[#16181c] border-2 border-[#0a0b0d] flex items-center justify-center text-[10px] font-bold text-[#8e8e93]">WE</span>
-                <span className="w-9 h-9 rounded-full bg-[#16181c] border-2 border-[#0a0b0d] flex items-center justify-center text-[10px] font-bold text-[#8e8e93]">SZ</span>
-              </div>
-              <p className="text-xs text-[#8e8e93] leading-relaxed">
-                Trusted by <span className="text-white font-semibold">100+ brands</span> to build, redesign, and speed-tune storefronts.
-              </p>
-            </div>
+
+        {/* ── OVERLAYS ── */}
+        {/* Left-side darkening so text is always readable */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-black/10" />
+        {/* Bottom darkening */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+        {/* Bottom page blend */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#02090a] to-transparent" />
+
+        {/* ── HERO CONTENT — anchored bottom-left like Shopify ── */}
+        <div className="absolute bottom-0 left-0 right-0 px-6 sm:px-12 lg:px-20 pb-16 sm:pb-20 z-10">
+
+          {/* Agency badge */}
+          <div className="mb-5 animate-fade-blur">
+            <span className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-widest uppercase px-3.5 py-1.5 rounded-full border border-white/20 bg-white/[0.06] text-white/80 backdrop-blur-sm">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#36F4A4] animate-pulse" />
+              India's #1 Shopify Agency
+            </span>
           </div>
 
-          {/* Right Column Lead Form */}
-          <div className="lg:col-span-5 relative z-20 w-full animate-fade-blur" style={{ animationDelay: "0.2s" }}>
-            <StartProjectForm />
+          {/* Giant headline */}
+          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-black text-white leading-[1.0] tracking-tight max-w-3xl animate-fade-blur" style={{ animationDelay: "0.05s" }}>
+            We Build<br />
+            Shopify Stores<br />
+            <span className="text-[#36F4A4]">That Sell.</span>
+          </h1>
+
+          {/* Sub-copy */}
+          <p className="mt-5 text-white/75 text-base sm:text-lg leading-relaxed max-w-lg animate-fade-blur" style={{ animationDelay: "0.1s" }}>
+            Sub-1.2s load speeds, custom-coded logic and<br className="hidden sm:block" />
+            high-converting checkouts for D2C brands.
+          </p>
+
+          {/* CTA buttons — Shopify pill style, both open modal */}
+          <div className="mt-8 flex flex-wrap gap-4 animate-fade-blur" style={{ animationDelay: "0.15s" }}>
+            <button
+              onClick={() => setShowFormModal(true)}
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white text-black text-sm font-bold hover:bg-white/90 transition-all duration-200 hover:scale-[1.02]"
+            >
+              Start Your Project
+            </button>
+            <button
+              onClick={() => setShowFormModal(true)}
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border-2 border-white/60 text-white text-sm font-semibold hover:bg-white/10 hover:border-white transition-all duration-200 backdrop-blur-sm"
+            >
+              {/* Play circle icon inline */}
+              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <circle cx="12" cy="12" r="10" />
+                <polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none" />
+              </svg>
+              Why SalePXL?
+            </button>
+          </div>
+
+          {/* Trust strip */}
+          <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 animate-fade-blur" style={{ animationDelay: "0.2s" }}>
+            <div className="flex items-center gap-2">
+              <div className="flex -space-x-2">
+                {["SB","WE","SZ","AK"].map((t, i) => (
+                  <span key={i} className="w-6 h-6 rounded-full bg-[#1a3a2a] border-2 border-[#02090a] flex items-center justify-center text-[8px] font-bold text-[#36F4A4]">{t}</span>
+                ))}
+              </div>
+              <span className="text-white/60 text-xs">Trusted by <strong className="text-white">800+ brands</strong></span>
+            </div>
+            <span className="text-white/20 hidden sm:block">|</span>
+            <span className="text-white/60 text-xs"><strong className="text-white">100+</strong> stores built</span>
+            <span className="text-white/20 hidden sm:block">|</span>
+            <span className="text-white/60 text-xs"><strong className="text-white">Sub-1.2s</strong> avg load speed</span>
           </div>
         </div>
       </section>
+
+
+      {/* ── FORM MODAL — works on all screen sizes ── */}
+      {showFormModal && (
+        <div
+          className="fixed inset-0 z-[999] flex items-end sm:items-center justify-center"
+          role="dialog"
+          aria-modal="true"
+        >
+          {/* Backdrop */}
+          <div
+            className="absolute inset-0 bg-black/75 backdrop-blur-sm"
+            onClick={() => setShowFormModal(false)}
+          />
+
+          {/* Sheet: bottom-sheet on mobile, centered card on desktop */}
+          <div className="relative w-full sm:w-auto sm:max-w-xl max-h-[92vh] overflow-y-auto rounded-t-3xl sm:rounded-3xl bg-[#02090a] border-t sm:border border-[#1a2e32] shadow-2xl animate-fade-blur">
+            {/* Handle bar (mobile only) */}
+            <div className="flex justify-center pt-3 pb-1 sm:hidden">
+              <div className="w-10 h-1 rounded-full bg-white/20" />
+            </div>
+
+            {/* Header row */}
+            <div className="flex items-center justify-between px-5 pt-4 pb-2">
+              <span className="text-xs text-[#a1a1aa] font-mono uppercase tracking-wider">Start Your Project</span>
+              <button
+                onClick={() => setShowFormModal(false)}
+                className="w-8 h-8 rounded-full bg-white/[0.06] flex items-center justify-center text-[#a1a1aa] hover:text-white hover:bg-white/10 transition-all"
+                aria-label="Close"
+              >
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <path d="M1 1l12 12M13 1L1 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                </svg>
+              </button>
+            </div>
+
+            {/* Form */}
+            <div className="px-3 pb-8 pt-1">
+              <StartProjectForm />
+            </div>
+          </div>
+        </div>
+      )}
+
 
       {/* 6. TRUSTED BY 800+ LEADING BRANDS LOGO SECTION */}
       <section className="py-12 bg-white relative overflow-hidden z-10">
@@ -520,7 +600,7 @@ export default function HomePage() {
                 <span className="text-xl sm:text-2xl font-bold font-mono text-white">
                   {stat.value}
                 </span>
-                <span className="text-[10px] text-[#8e8e93] uppercase tracking-wider font-bold">
+                <span className="text-[10px] text-[#a1a1aa] uppercase tracking-wider font-bold">
                   {stat.label}
                 </span>
               </div>
@@ -540,7 +620,7 @@ export default function HomePage() {
           <ul className="flex gap-5 min-w-0 *:flex-[0_0_19.5rem] md:*:flex-[0_0_24rem] xl:*:flex-[0_0_28rem] pb-4">
             {CAROUSEL_ITEMS.map((item, idx) => (
               <li key={idx}>
-                <div className="group grid rounded-2xl gap-3 transition hover:text-brand-lime relative p-4 bg-[#16181c] border border-white/[0.06] hover:border-brand-lime/30 transition-all duration-300">
+                <div className="group grid rounded-2xl gap-3 transition hover:text-brand-lime relative p-4 bg-[#051517] border border-[#1a2e32] hover:border-brand-lime/30 transition-all duration-300">
                   <a href={item.link} className="absolute inset-0 z-10">
                     <span className="sr-only">Open {item.title}</span>
                   </a>
@@ -565,7 +645,7 @@ export default function HomePage() {
                     <h3 className="uppercase font-grotesk truncate text-sm font-bold text-white group-hover:text-brand-lime transition-colors">
                       {item.title}
                     </h3>
-                    <p className="text-[#8e8e93] text-xs truncate">
+                    <p className="text-[#a1a1aa] text-xs truncate">
                       {item.subtitle}
                     </p>
                   </div>
@@ -573,132 +653,6 @@ export default function HomePage() {
               </li>
             ))}
           </ul>
-        </div>
-      </section>
-
-      {/* 4. PREMIUM STOREFRONT GALLERIES */}
-      <section className="py-24 px-6 bg-[#08090a] relative z-10 border-t border-white/[0.05]">
-        <div className="max-w-7xl mx-auto flex flex-col gap-12">
-          
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-white/[0.05] pb-8">
-            <div className="flex flex-col gap-3 text-left">
-              <span className="text-xs text-brand-lime font-mono uppercase tracking-widest font-bold">
-                Design Portfolio
-              </span>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight uppercase font-grotesk">
-                Bespoke Storefront Galleries
-              </h2>
-              <p className="text-[#8e8e93] text-sm max-w-xl">
-                Explore our high-fidelity layout components built specifically for Shopify. We design with a visual-first approach focusing on UX clarity.
-              </p>
-            </div>
-
-            {/* Gallery Tabs */}
-            <div className="flex bg-[#16181c] p-1.5 rounded-xl border border-white/[0.06] w-max md:self-end">
-              {[
-                { id: "home", label: "Homepages" },
-                { id: "product", label: "Product Pages" },
-                { id: "collection", label: "Collections" }
-              ].map((tab) => (
-                <button
-                  key={tab.id}
-                  onClick={() => setGalleryTab(tab.id as any)}
-                  className={`px-5 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all duration-300 ${
-                    galleryTab === tab.id
-                      ? "bg-brand-lime text-black"
-                      : "text-[#8e8e93] hover:text-white"
-                  }`}
-                >
-                  {tab.label}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Gallery Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {galleryTab === "home" && [
-              {
-                title: "Discover Pilgrim Jeju Secrets Splash",
-                tag: "Beauty & Routine Splash",
-                metric: "+42% Mobile CTR",
-                image: "/wellness_mockup.png",
-                desc: "High-impact editorial storytelling hero connecting customers with JeJu island volcanic skincare ingredients."
-              },
-              {
-                title: "Cosmix Wellness Find Your Mix Grid",
-                tag: "Wellness Editorial Catalog",
-                metric: "5.4% Checkout Conv",
-                image: "/supplement_mockup.png",
-                desc: "Nature-inspired, clean grid layouts guiding customers to personalized organic protein superfoods."
-              },
-              {
-                title: "The Wheels Co Premium Hero",
-                tag: "Luxury Dark Automotive",
-                metric: "1.2s Load Speed",
-                image: "/apparel_mockup.png",
-                desc: "Bold high-contrast layout showing luxury carbon automotive steering wheels with full interactive overlays."
-              }
-            ].map((item, idx) => (
-              <div key={idx} className="group flex flex-col gap-4 text-left">
-                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-white/[0.02] border border-white/[0.06] group-hover:border-brand-lime/20 transition-all duration-500 shadow-md">
-                  <img src={item.image} alt={item.title} className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" />
-                  <span className="absolute top-4 right-4 bg-black/80 text-brand-lime font-mono text-[9px] font-bold py-1 px-2.5 rounded-full border border-brand-lime/20 backdrop-blur-sm shadow-lg">
-                    {item.metric}
-                  </span>
-                </div>
-                <div className="flex flex-col gap-1">
-                  <span className="text-[10px] text-[#8e8e93] font-mono uppercase tracking-wider">{item.tag}</span>
-                  <h4 className="text-sm font-bold text-white group-hover:text-brand-lime transition-colors">{item.title}</h4>
-                  <p className="text-xs text-[#7a7a7a] mt-0.5 leading-relaxed">{item.desc}</p>
-                </div>
-              </div>
-            ))}
-
-            {galleryTab === "product" && (
-              <div className="col-span-1 md:col-span-2 lg:col-span-3 w-full">
-                <SkincarePDP />
-              </div>
-            )}
-
-            {galleryTab === "collection" && [
-              {
-                title: "Ultra-Fast Filter & Facet Drawer",
-                tag: "Responsive Navigation",
-                metric: "Sub-0.4s Query Speeds",
-                image: "/wellness_mockup.png",
-                desc: "Shopify Search & Discovery API integration mapping collections without reloading the storefront."
-              },
-              {
-                title: "Single-Tap ATC Collection Cards",
-                tag: "Quick Buy Integration",
-                metric: "+24% Collection ATC",
-                image: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExejA3c2s2OTMxbnNxNXF4YW5tcTRkZ3FmZXkyYjFidGFpdTgzczYydyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/26EOCf4GvA6p9w8kE/giphy.gif",
-                desc: "Visual swatches and size grid overlaid directly on catalog grids for fast purchasing flows."
-              },
-              {
-                title: "Organic Cosmix Mix Finder Bar",
-                tag: "Custom Discovery",
-                metric: "+15% Product Discovery",
-                image: "/supplement_mockup.png",
-                desc: "Sticky navigation banner matching customer health symptoms to relevant collection pages instantly."
-              }
-            ].map((item, idx) => (
-              <div key={idx} className="group flex flex-col gap-4 text-left">
-                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-white/[0.02] border border-white/[0.06] group-hover:border-brand-lime/20 transition-all duration-500 shadow-md">
-                  <img src={item.image} alt={item.title} className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" />
-                  <span className="absolute top-4 right-4 bg-black/80 text-brand-lime font-mono text-[9px] font-bold py-1 px-2.5 rounded-full border border-brand-lime/20 backdrop-blur-sm shadow-lg">
-                    {item.metric}
-                  </span>
-                </div>
-                <div className="flex flex-col gap-1">
-                  <span className="text-[10px] text-[#8e8e93] font-mono uppercase tracking-wider">{item.tag}</span>
-                  <h4 className="text-sm font-bold text-white group-hover:text-brand-lime transition-colors">{item.title}</h4>
-                  <p className="text-xs text-[#7a7a7a] mt-0.5 leading-relaxed">{item.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -719,14 +673,14 @@ export default function HomePage() {
         <div className="marquee-container marquee-pause mb-6">
           <div className="marquee-content" style={{ "--marquee-speed": "45s" } as React.CSSProperties}>
             {PORTFOLIO_IMAGES_ROW1.map((img, idx) => (
-              <div key={idx} className="flex-shrink-0 w-[280px] rounded-2xl overflow-hidden border border-white/[0.06] hover:border-brand-lime/30 transition-all duration-300">
+              <div key={idx} className="flex-shrink-0 w-[280px] rounded-2xl overflow-hidden border border-[#1a2e32] hover:border-brand-lime/30 transition-all duration-300">
                 <img src={img.src} alt={img.alt} className="w-full display-block object-cover object-top select-none pointer-events-none" />
               </div>
             ))}
           </div>
           <div className="marquee-content" aria-hidden="true" style={{ "--marquee-speed": "45s" } as React.CSSProperties}>
             {PORTFOLIO_IMAGES_ROW1.map((img, idx) => (
-              <div key={idx + "-dup"} className="flex-shrink-0 w-[280px] rounded-2xl overflow-hidden border border-white/[0.06] hover:border-brand-lime/30 transition-all duration-300">
+              <div key={idx + "-dup"} className="flex-shrink-0 w-[280px] rounded-2xl overflow-hidden border border-[#1a2e32] hover:border-brand-lime/30 transition-all duration-300">
                 <img src={img.src} alt={img.alt} className="w-full display-block object-cover object-top select-none pointer-events-none" />
               </div>
             ))}
@@ -737,14 +691,14 @@ export default function HomePage() {
         <div className="marquee-container marquee-pause">
           <div className="marquee-content-reverse" style={{ "--marquee-speed": "45s" } as React.CSSProperties}>
             {PORTFOLIO_IMAGES_ROW2.map((img, idx) => (
-              <div key={idx} className="flex-shrink-0 w-[280px] rounded-2xl overflow-hidden border border-white/[0.06] hover:border-brand-lime/30 transition-all duration-300">
+              <div key={idx} className="flex-shrink-0 w-[280px] rounded-2xl overflow-hidden border border-[#1a2e32] hover:border-brand-lime/30 transition-all duration-300">
                 <img src={img.src} alt={img.alt} className="w-full display-block object-cover object-top select-none pointer-events-none" />
               </div>
             ))}
           </div>
           <div className="marquee-content-reverse" aria-hidden="true" style={{ "--marquee-speed": "45s" } as React.CSSProperties}>
             {PORTFOLIO_IMAGES_ROW2.map((img, idx) => (
-              <div key={idx + "-dup"} className="flex-shrink-0 w-[280px] rounded-2xl overflow-hidden border border-white/[0.06] hover:border-brand-lime/30 transition-all duration-300">
+              <div key={idx + "-dup"} className="flex-shrink-0 w-[280px] rounded-2xl overflow-hidden border border-[#1a2e32] hover:border-brand-lime/30 transition-all duration-300">
                 <img src={img.src} alt={img.alt} className="w-full display-block object-cover object-top select-none pointer-events-none" />
               </div>
             ))}
@@ -760,7 +714,7 @@ export default function HomePage() {
       </section>
 
       {/* 9. BEFORE & AFTER PERFORMANCE COMPARISON */}
-      <section className="py-24 px-6 bg-[#0c0d10]/40 border-y border-white/[0.05] relative z-10">
+      <section className="py-24 px-6 bg-[#02090a]/40 border-y border-white/[0.05] relative z-10">
         <div className="max-w-7xl mx-auto flex flex-col gap-16">
           <div className="text-center max-w-2xl mx-auto flex flex-col gap-4">
             <span className="text-xs text-brand-lime font-mono uppercase tracking-widest font-bold">
@@ -769,14 +723,14 @@ export default function HomePage() {
             <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight uppercase font-grotesk">
               Legacy vs. SalePXL Rebuilds
             </h2>
-            <p className="text-[#8e8e93] text-sm">
+            <p className="text-[#a1a1aa] text-sm">
               We replace sluggish, heavy pre-built templates with optimized custom engines. The difference is measurable.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
             {/* Legacy Store */}
-            <div className="p-8 rounded-3xl bg-[#16181c]/40 border border-red-500/10 flex flex-col gap-6 text-left relative overflow-hidden">
+            <div className="p-8 rounded-3xl bg-[#051517]/40 border border-red-500/10 flex flex-col gap-6 text-left relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-red-500/2 rounded-full blur-3xl pointer-events-none" />
               <div className="flex justify-between items-center border-b border-white/[0.05] pb-4">
                 <h4 className="text-lg font-bold text-white">Traditional App-Heavy Theme</h4>
@@ -794,7 +748,7 @@ export default function HomePage() {
                   { label: "Average Mobile Conversion", val: "1.1% to 1.5%", ok: false }
                 ].map((item, idx) => (
                   <li key={idx} className="flex justify-between items-center text-xs">
-                    <span className="text-[#8e8e93] font-semibold">{item.label}</span>
+                    <span className="text-[#a1a1aa] font-semibold">{item.label}</span>
                     <span className="text-red-400 font-mono font-bold text-right">{item.val}</span>
                   </li>
                 ))}
@@ -802,7 +756,7 @@ export default function HomePage() {
             </div>
 
             {/* SalePXL Optimized Store */}
-            <div className="p-8 rounded-3xl bg-[#16181c]/70 border border-brand-lime/10 flex flex-col gap-6 text-left relative overflow-hidden">
+            <div className="p-8 rounded-3xl bg-[#051517]/70 border border-brand-lime/10 flex flex-col gap-6 text-left relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-brand-lime/5 rounded-full blur-3xl pointer-events-none" />
               <div className="flex justify-between items-center border-b border-white/[0.05] pb-4">
                 <h4 className="text-lg font-bold text-white">SalePXL Custom Engine</h4>
@@ -820,7 +774,7 @@ export default function HomePage() {
                   { label: "Average Mobile Conversion", val: "4.2% to 4.86%", ok: true }
                 ].map((item, idx) => (
                   <li key={idx} className="flex justify-between items-center text-xs">
-                    <span className="text-[#8e8e93] font-semibold">{item.label}</span>
+                    <span className="text-[#a1a1aa] font-semibold">{item.label}</span>
                     <span className="text-brand-lime font-mono font-bold text-right">{item.val}</span>
                   </li>
                 ))}
@@ -845,7 +799,7 @@ export default function HomePage() {
         <div className="marquee-container marquee-pause mb-6">
           <div className="marquee-content" style={{ "--marquee-speed": "60s" } as React.CSSProperties}>
             {GOOGLE_REVIEWS_ROW1.map((review, idx) => (
-              <div key={idx} className="flex-shrink-0 w-[380px] p-6 rounded-2xl bg-[#16181c] border border-white/[0.06] hover:border-brand-lime/20 transition-all duration-300 flex flex-col gap-4 text-left shadow-md">
+              <div key={idx} className="flex-shrink-0 w-[380px] p-6 rounded-2xl bg-[#051517] border border-[#1a2e32] hover:border-brand-lime/20 transition-all duration-300 flex flex-col gap-4 text-left shadow-md">
                 <div className="flex justify-between items-start">
                   <div className="flex items-center gap-3">
                     <span className={`w-10 h-10 rounded-full text-white font-bold text-sm flex items-center justify-center ${review.avatarColor}`}>
@@ -853,7 +807,7 @@ export default function HomePage() {
                     </span>
                     <div>
                       <p className="font-bold text-white text-sm">{review.name}</p>
-                      <p className="text-[10px] text-[#8e8e93] font-medium">{review.metadata}</p>
+                      <p className="text-[10px] text-[#a1a1aa] font-medium">{review.metadata}</p>
                     </div>
                   </div>
                   {/* Google 'G' Icon */}
@@ -871,8 +825,8 @@ export default function HomePage() {
                       <Star key={i} className="w-3.5 h-3.5 fill-current" />
                     ))}
                   </div>
-                  <span className="text-[#8e8e93] text-xs">•</span>
-                  <span className="text-[#8e8e93] text-[11px] font-medium">{review.timeAgo}</span>
+                  <span className="text-[#a1a1aa] text-xs">•</span>
+                  <span className="text-[#a1a1aa] text-[11px] font-medium">{review.timeAgo}</span>
                 </div>
 
                 <p className="text-[#d1d1d6] text-xs leading-relaxed font-normal flex-grow">
@@ -880,11 +834,11 @@ export default function HomePage() {
                 </p>
 
                 <div className="border-t border-white/[0.05] pt-4 flex gap-4 items-center mt-auto">
-                  <span className="inline-flex items-center gap-1.5 text-[11px] text-[#8e8e93] hover:text-brand-lime transition-colors cursor-pointer">
+                  <span className="inline-flex items-center gap-1.5 text-[11px] text-[#a1a1aa] hover:text-brand-lime transition-colors cursor-pointer">
                     <ThumbsUp className="w-3.5 h-3.5" />
                     <span>Helpful</span>
                   </span>
-                  <span className="inline-flex items-center gap-1.5 text-[11px] text-[#8e8e93] hover:text-brand-lime transition-colors cursor-pointer">
+                  <span className="inline-flex items-center gap-1.5 text-[11px] text-[#a1a1aa] hover:text-brand-lime transition-colors cursor-pointer">
                     <Share2 className="w-3.5 h-3.5" />
                     <span>Share</span>
                   </span>
@@ -894,7 +848,7 @@ export default function HomePage() {
           </div>
           <div className="marquee-content" aria-hidden="true" style={{ "--marquee-speed": "60s" } as React.CSSProperties}>
             {GOOGLE_REVIEWS_ROW1.map((review, idx) => (
-              <div key={idx + "-dup"} className="flex-shrink-0 w-[380px] p-6 rounded-2xl bg-[#16181c] border border-white/[0.06] hover:border-brand-lime/20 transition-all duration-300 flex flex-col gap-4 text-left shadow-md">
+              <div key={idx + "-dup"} className="flex-shrink-0 w-[380px] p-6 rounded-2xl bg-[#051517] border border-[#1a2e32] hover:border-brand-lime/20 transition-all duration-300 flex flex-col gap-4 text-left shadow-md">
                 <div className="flex justify-between items-start">
                   <div className="flex items-center gap-3">
                     <span className={`w-10 h-10 rounded-full text-white font-bold text-sm flex items-center justify-center ${review.avatarColor}`}>
@@ -902,7 +856,7 @@ export default function HomePage() {
                     </span>
                     <div>
                       <p className="font-bold text-white text-sm">{review.name}</p>
-                      <p className="text-[10px] text-[#8e8e93] font-medium">{review.metadata}</p>
+                      <p className="text-[10px] text-[#a1a1aa] font-medium">{review.metadata}</p>
                     </div>
                   </div>
                   {/* Google 'G' Icon */}
@@ -920,8 +874,8 @@ export default function HomePage() {
                       <Star key={i} className="w-3.5 h-3.5 fill-current" />
                     ))}
                   </div>
-                  <span className="text-[#8e8e93] text-xs">•</span>
-                  <span className="text-[#8e8e93] text-[11px] font-medium">{review.timeAgo}</span>
+                  <span className="text-[#a1a1aa] text-xs">•</span>
+                  <span className="text-[#a1a1aa] text-[11px] font-medium">{review.timeAgo}</span>
                 </div>
 
                 <p className="text-[#d1d1d6] text-xs leading-relaxed font-normal flex-grow">
@@ -929,11 +883,11 @@ export default function HomePage() {
                 </p>
 
                 <div className="border-t border-white/[0.05] pt-4 flex gap-4 items-center mt-auto">
-                  <span className="inline-flex items-center gap-1.5 text-[11px] text-[#8e8e93] hover:text-brand-lime transition-colors cursor-pointer">
+                  <span className="inline-flex items-center gap-1.5 text-[11px] text-[#a1a1aa] hover:text-brand-lime transition-colors cursor-pointer">
                     <ThumbsUp className="w-3.5 h-3.5" />
                     <span>Helpful</span>
                   </span>
-                  <span className="inline-flex items-center gap-1.5 text-[11px] text-[#8e8e93] hover:text-brand-lime transition-colors cursor-pointer">
+                  <span className="inline-flex items-center gap-1.5 text-[11px] text-[#a1a1aa] hover:text-brand-lime transition-colors cursor-pointer">
                     <Share2 className="w-3.5 h-3.5" />
                     <span>Share</span>
                   </span>
@@ -947,7 +901,7 @@ export default function HomePage() {
         <div className="marquee-container marquee-pause">
           <div className="marquee-content-reverse" style={{ "--marquee-speed": "60s" } as React.CSSProperties}>
             {GOOGLE_REVIEWS_ROW2.map((review, idx) => (
-              <div key={idx} className="flex-shrink-0 w-[380px] p-6 rounded-2xl bg-[#16181c] border border-white/[0.06] hover:border-brand-lime/20 transition-all duration-300 flex flex-col gap-4 text-left shadow-md">
+              <div key={idx} className="flex-shrink-0 w-[380px] p-6 rounded-2xl bg-[#051517] border border-[#1a2e32] hover:border-brand-lime/20 transition-all duration-300 flex flex-col gap-4 text-left shadow-md">
                 <div className="flex justify-between items-start">
                   <div className="flex items-center gap-3">
                     <span className={`w-10 h-10 rounded-full text-white font-bold text-sm flex items-center justify-center ${review.avatarColor}`}>
@@ -955,7 +909,7 @@ export default function HomePage() {
                     </span>
                     <div>
                       <p className="font-bold text-white text-sm">{review.name}</p>
-                      <p className="text-[10px] text-[#8e8e93] font-medium">{review.metadata}</p>
+                      <p className="text-[10px] text-[#a1a1aa] font-medium">{review.metadata}</p>
                     </div>
                   </div>
                   {/* Google 'G' Icon */}
@@ -973,8 +927,8 @@ export default function HomePage() {
                       <Star key={i} className="w-3.5 h-3.5 fill-current" />
                     ))}
                   </div>
-                  <span className="text-[#8e8e93] text-xs">•</span>
-                  <span className="text-[#8e8e93] text-[11px] font-medium">{review.timeAgo}</span>
+                  <span className="text-[#a1a1aa] text-xs">•</span>
+                  <span className="text-[#a1a1aa] text-[11px] font-medium">{review.timeAgo}</span>
                 </div>
 
                 <p className="text-[#d1d1d6] text-xs leading-relaxed font-normal flex-grow">
@@ -982,11 +936,11 @@ export default function HomePage() {
                 </p>
 
                 <div className="border-t border-white/[0.05] pt-4 flex gap-4 items-center mt-auto">
-                  <span className="inline-flex items-center gap-1.5 text-[11px] text-[#8e8e93] hover:text-brand-lime transition-colors cursor-pointer">
+                  <span className="inline-flex items-center gap-1.5 text-[11px] text-[#a1a1aa] hover:text-brand-lime transition-colors cursor-pointer">
                     <ThumbsUp className="w-3.5 h-3.5" />
                     <span>Helpful</span>
                   </span>
-                  <span className="inline-flex items-center gap-1.5 text-[11px] text-[#8e8e93] hover:text-brand-lime transition-colors cursor-pointer">
+                  <span className="inline-flex items-center gap-1.5 text-[11px] text-[#a1a1aa] hover:text-brand-lime transition-colors cursor-pointer">
                     <Share2 className="w-3.5 h-3.5" />
                     <span>Share</span>
                   </span>
@@ -996,7 +950,7 @@ export default function HomePage() {
           </div>
           <div className="marquee-content-reverse" aria-hidden="true" style={{ "--marquee-speed": "60s" } as React.CSSProperties}>
             {GOOGLE_REVIEWS_ROW2.map((review, idx) => (
-              <div key={idx + "-dup"} className="flex-shrink-0 w-[380px] p-6 rounded-2xl bg-[#16181c] border border-white/[0.06] hover:border-brand-lime/20 transition-all duration-300 flex flex-col gap-4 text-left shadow-md">
+              <div key={idx + "-dup"} className="flex-shrink-0 w-[380px] p-6 rounded-2xl bg-[#051517] border border-[#1a2e32] hover:border-brand-lime/20 transition-all duration-300 flex flex-col gap-4 text-left shadow-md">
                 <div className="flex justify-between items-start">
                   <div className="flex items-center gap-3">
                     <span className={`w-10 h-10 rounded-full text-white font-bold text-sm flex items-center justify-center ${review.avatarColor}`}>
@@ -1004,7 +958,7 @@ export default function HomePage() {
                     </span>
                     <div>
                       <p className="font-bold text-white text-sm">{review.name}</p>
-                      <p className="text-[10px] text-[#8e8e93] font-medium">{review.metadata}</p>
+                      <p className="text-[10px] text-[#a1a1aa] font-medium">{review.metadata}</p>
                     </div>
                   </div>
                   {/* Google 'G' Icon */}
@@ -1022,8 +976,8 @@ export default function HomePage() {
                       <Star key={i} className="w-3.5 h-3.5 fill-current" />
                     ))}
                   </div>
-                  <span className="text-[#8e8e93] text-xs">•</span>
-                  <span className="text-[#8e8e93] text-[11px] font-medium">{review.timeAgo}</span>
+                  <span className="text-[#a1a1aa] text-xs">•</span>
+                  <span className="text-[#a1a1aa] text-[11px] font-medium">{review.timeAgo}</span>
                 </div>
 
                 <p className="text-[#d1d1d6] text-xs leading-relaxed font-normal flex-grow">
@@ -1031,11 +985,11 @@ export default function HomePage() {
                 </p>
 
                 <div className="border-t border-white/[0.05] pt-4 flex gap-4 items-center mt-auto">
-                  <span className="inline-flex items-center gap-1.5 text-[11px] text-[#8e8e93] hover:text-brand-lime transition-colors cursor-pointer">
+                  <span className="inline-flex items-center gap-1.5 text-[11px] text-[#a1a1aa] hover:text-brand-lime transition-colors cursor-pointer">
                     <ThumbsUp className="w-3.5 h-3.5" />
                     <span>Helpful</span>
                   </span>
-                  <span className="inline-flex items-center gap-1.5 text-[11px] text-[#8e8e93] hover:text-brand-lime transition-colors cursor-pointer">
+                  <span className="inline-flex items-center gap-1.5 text-[11px] text-[#a1a1aa] hover:text-brand-lime transition-colors cursor-pointer">
                     <Share2 className="w-3.5 h-3.5" />
                     <span>Share</span>
                   </span>
@@ -1065,7 +1019,7 @@ export default function HomePage() {
               return (
                 <div
                   key={index}
-                  className="rounded-2xl bg-[#16181c]/40 border border-white/[0.06] overflow-hidden transition-all duration-300 hover:border-brand-lime/20"
+                  className="rounded-2xl bg-[#051517]/40 border border-[#1a2e32] overflow-hidden transition-all duration-300 hover:border-brand-lime/20"
                 >
                   <button
                     onClick={() => toggleFaq(index)}
@@ -1076,7 +1030,7 @@ export default function HomePage() {
                       <span className="text-sm sm:text-base font-semibold">{faq.q}</span>
                     </div>
                     <ChevronDown
-                      className={`w-4 h-4 text-[#8e8e93] shrink-0 transition-transform duration-300 ${
+                      className={`w-4 h-4 text-[#a1a1aa] shrink-0 transition-transform duration-300 ${
                         isOpen ? "transform rotate-180 text-brand-lime" : ""
                       }`}
                     />
@@ -1091,7 +1045,7 @@ export default function HomePage() {
                         transition={{ duration: 0.2 }}
                         className="overflow-hidden"
                       >
-                        <div className="px-6 pb-6 pt-2 text-xs sm:text-sm text-[#8e8e93] leading-relaxed border-t border-white/[0.03]">
+                        <div className="px-6 pb-6 pt-2 text-xs sm:text-sm text-[#a1a1aa] leading-relaxed border-t border-white/[0.03]">
                           {faq.a}
                         </div>
                       </motion.div>
@@ -1108,7 +1062,7 @@ export default function HomePage() {
       <section id="audit" className="py-24 px-6 relative overflow-hidden text-center bg-black border-t border-white/[0.05] z-10">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-brand-lime/[0.01] rounded-full blur-[100px] pointer-events-none" />
 
-        <div className="max-w-4xl mx-auto relative z-10 flex flex-col gap-8 items-center p-12 rounded-3xl bg-[#16181c]/50 border border-brand-lime/20 neon-shadow-lime">
+        <div className="max-w-4xl mx-auto relative z-10 flex flex-col gap-8 items-center p-12 rounded-3xl bg-[#051517]/50 border border-brand-lime/20 neon-shadow-lime">
           <span className="text-xs text-brand-lime font-mono uppercase tracking-widest font-bold">
             Accelerate Growth
           </span>
@@ -1117,14 +1071,14 @@ export default function HomePage() {
             Ready to Build Your Shopify Store?
           </h2>
 
-          <p className="text-[#8e8e93] text-sm sm:text-base leading-relaxed max-w-lg">
+          <p className="text-[#a1a1aa] text-sm sm:text-base leading-relaxed max-w-lg">
             Let's construct a lightning-fast, high-converting checkout experience custom designed for your brand. Get a free audit and consultation today.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto mt-2">
             <Link
               href="/contact"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-sm font-bold uppercase tracking-wider text-black bg-brand-lime hover:bg-[#b0dd40] transition-all duration-300 text-center"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-sm font-bold uppercase tracking-wider text-black bg-brand-lime hover:bg-[#1de896] transition-all duration-300 text-center"
             >
               <span>Get Free Consultation</span>
               <ArrowRight className="w-4 h-4" />
@@ -1141,7 +1095,7 @@ export default function HomePage() {
             </a>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-8 text-xs text-[#8e8e93] pt-6 border-t border-white/[0.08] w-full max-w-lg">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-8 text-xs text-[#a1a1aa] pt-6 border-t border-white/[0.08] w-full max-w-lg">
             <div className="flex items-center gap-2">
               <MapPin className="w-4 h-4 text-brand-lime" />
               <span>Dehradun, Uttarakhand, India</span>
