@@ -3,24 +3,13 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import {
-  TrendingUp,
-  Sparkles,
-  ArrowUpRight,
-  Percent,
   CheckCircle2,
   XCircle,
-  HelpCircle,
   ArrowRight,
   Sparkle,
-  DollarSign,
-  Users,
-  ShoppingBag,
-  Globe,
   Settings,
   Phone,
-  Mail,
-  Zap,
-  ChevronRight
+  Mail
 } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -53,7 +42,7 @@ export default function ShopifyLaunchCalculator() {
   };
 
   return (
-    <div className="relative min-h-screen bg-bg-dark text-[#1a1a1a] pb-24 overflow-hidden">
+    <div className="relative min-h-screen bg-bg-dark text-white pb-24 overflow-hidden text-left">
       {/* Decorative Blob Backgrounds */}
       <div className="absolute top-[-5%] right-[-10%] w-[45%] h-[400px] rounded-full bg-primary/[0.04] blur-[130px] pointer-events-none animate-pulse" />
       <div className="absolute top-[35%] left-[-10%] w-[40%] h-[450px] rounded-full bg-emerald-500/5 blur-[120px] pointer-events-none" />
@@ -70,14 +59,14 @@ export default function ShopifyLaunchCalculator() {
             </span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-[#1a1a1a] leading-tight">
+          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
             Launch ROI <br className="sm:hidden" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1a1a1a] via-[#1a1a1a] to-primary">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-primary">
               Simulator
             </span>
           </h1>
 
-          <p className="text-[#4a4a4a] text-base leading-relaxed">
+          <p className="text-[#8e8e93] text-base leading-relaxed">
             Starting a dropshipping business or launching a D2C store? Compare how a basic storefront stacks up against a conversion-engineered Shopify layout designed by SalePXL.
           </p>
         </div>
@@ -86,9 +75,9 @@ export default function ShopifyLaunchCalculator() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-16">
           
           {/* LEFT: SLIDERS & CONTROLS */}
-          <div className="lg:col-span-5 flex flex-col gap-6 p-6 sm:p-8 rounded-3xl bg-white border border-black/[0.05] shadow-sm text-left">
-            <div className="flex items-center justify-between pb-4 border-b border-black/[0.05]">
-              <h2 className="text-lg font-bold text-[#1a1a1a] flex items-center gap-2">
+          <div className="lg:col-span-5 flex flex-col gap-6 p-6 sm:p-8 rounded-3xl glass-card shadow-sm text-left">
+            <div className="flex items-center justify-between pb-4 border-b border-white/[0.05]">
+              <h2 className="text-lg font-bold text-white flex items-center gap-2 text-left">
                 <Settings className="w-5 h-5 text-primary" />
                 Store Parameters
               </h2>
@@ -100,8 +89,8 @@ export default function ShopifyLaunchCalculator() {
             {/* Input 1: Monthly Traffic */}
             <div className="flex flex-col gap-3">
               <div className="flex justify-between items-center text-xs">
-                <span className="text-[#4a4a4a] font-semibold">Projected Monthly Traffic</span>
-                <span className="text-[#1a1a1a] font-mono font-bold bg-black/[0.03] border border-black/[0.05] px-2.5 py-1 rounded-lg text-sm">
+                <span className="text-[#8e8e93] font-semibold">Projected Monthly Traffic</span>
+                <span className="text-white font-mono font-bold bg-white/[0.04] border border-white/[0.08] px-2.5 py-1 rounded-lg text-sm">
                   {traffic.toLocaleString("en-IN")} Visitors
                 </span>
               </div>
@@ -112,9 +101,9 @@ export default function ShopifyLaunchCalculator() {
                 step="1000"
                 value={traffic}
                 onChange={(e) => setTraffic(Number(e.target.value))}
-                className="w-full h-1 bg-black/10 rounded-lg appearance-none cursor-pointer accent-primary"
+                className="w-full h-1 bg-white/10 rounded-lg appearance-none cursor-pointer accent-primary"
               />
-              <div className="flex justify-between text-[10px] text-[#4a4a4a] font-mono">
+              <div className="flex justify-between text-[10px] text-[#8e8e93] font-mono">
                 <span>1,000</span>
                 <span>100,000</span>
                 <span>200,000+</span>
@@ -124,8 +113,8 @@ export default function ShopifyLaunchCalculator() {
             {/* Input 2: Average Order Value */}
             <div className="flex flex-col gap-3">
               <div className="flex justify-between items-center text-xs">
-                <span className="text-[#4a4a4a] font-semibold">Average Order Value (AOV)</span>
-                <span className="text-[#1a1a1a] font-mono font-bold bg-black/[0.03] border border-black/[0.05] px-2.5 py-1 rounded-lg text-sm">
+                <span className="text-[#8e8e93] font-semibold">Average Order Value (AOV)</span>
+                <span className="text-white font-mono font-bold bg-white/[0.04] border border-white/[0.08] px-2.5 py-1 rounded-lg text-sm">
                   ₹{aov.toLocaleString("en-IN")}
                 </span>
               </div>
@@ -136,9 +125,9 @@ export default function ShopifyLaunchCalculator() {
                 step="100"
                 value={aov}
                 onChange={(e) => setAov(Number(e.target.value))}
-                className="w-full h-1 bg-black/10 rounded-lg appearance-none cursor-pointer accent-primary"
+                className="w-full h-1 bg-white/10 rounded-lg appearance-none cursor-pointer accent-primary"
               />
-              <div className="flex justify-between text-[10px] text-[#4a4a4a] font-mono">
+              <div className="flex justify-between text-[10px] text-[#8e8e93] font-mono">
                 <span>₹500</span>
                 <span>₹5,000</span>
                 <span>₹10,000+</span>
@@ -146,7 +135,7 @@ export default function ShopifyLaunchCalculator() {
             </div>
 
             {/* Explanatory Note */}
-            <div className="p-4 rounded-xl bg-bg-secondary border border-black/[0.05] text-xs text-[#4a4a4a] leading-relaxed">
+            <div className="p-4 rounded-xl bg-white/[0.01] border border-white/[0.05] text-xs text-[#8e8e93] leading-relaxed">
               💡 **Conversion Matters:** In eCommerce, acquiring traffic is expensive. A conversion increase from **1.0%** to **3.0%** triples your orders without needing any additional customer acquisition budget.
             </div>
           </div>
@@ -158,29 +147,29 @@ export default function ShopifyLaunchCalculator() {
             <div className="p-8 rounded-3xl bg-primary/5 border border-primary/15 text-left relative overflow-hidden shadow-sm">
               <div className="absolute top-0 right-0 w-36 h-36 bg-primary/10 rounded-full blur-2xl pointer-events-none" />
               
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-2 text-left">
                 <span className="text-xs text-primary font-mono uppercase tracking-widest font-bold">
                   Scale Gain Differential
                 </span>
-                <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1a1a1a] tracking-tight leading-tight">
+                <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
                   Collect <span className="text-primary font-mono">{formatCurrency(revenueDifference)}</span> Extra Revenue
                 </h2>
-                <p className="text-sm text-[#1a1a1a] font-semibold mt-1">
+                <p className="text-sm text-white font-semibold mt-1">
                   Without increasing traffic or acquisition costs.
                 </p>
-                <p className="text-xs text-[#4a4a4a] leading-relaxed mt-2 max-w-xl">
+                <p className="text-xs text-[#8e8e93] leading-relaxed mt-2 max-w-xl">
                   By upgrading to a conversion-optimized SalePixel layout, your storefront captures **+{ordersDifference} additional sales** from the same **{traffic.toLocaleString()}** visitors.
                 </p>
               </div>
 
               {/* Mini visual summary of difference */}
-              <div className="grid grid-cols-2 gap-4 mt-6 pt-6 border-t border-black/[0.08]">
+              <div className="grid grid-cols-2 gap-4 mt-6 pt-6 border-t border-white/[0.08] text-left">
                 <div>
-                  <span className="text-[10px] text-[#4a4a4a] uppercase tracking-wider font-semibold">Extra Orders</span>
-                  <span className="block text-xl font-bold font-mono text-[#1a1a1a] mt-1">+{ordersDifference} Orders</span>
+                  <span className="text-[10px] text-[#8e8e93] uppercase tracking-wider font-semibold">Extra Orders</span>
+                  <span className="block text-xl font-bold font-mono text-white mt-1">+{ordersDifference} Orders</span>
                 </div>
                 <div>
-                  <span className="text-[10px] text-[#4a4a4a] uppercase tracking-wider font-semibold">Revenue Lift</span>
+                  <span className="text-[10px] text-[#8e8e93] uppercase tracking-wider font-semibold">Revenue Lift</span>
                   <span className="block text-xl font-bold font-mono text-primary mt-1">+200.0% Increase</span>
                 </div>
               </div>
@@ -190,38 +179,38 @@ export default function ShopifyLaunchCalculator() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               
               {/* Basic Store Box */}
-              <div className="p-6 rounded-2xl bg-bg-secondary border border-black/[0.05] text-left flex flex-col justify-between min-h-[220px]">
+              <div className="p-6 rounded-2xl bg-white/[0.01] border border-white/[0.05] text-left flex flex-col justify-between min-h-[220px]">
                 <div className="flex flex-col gap-3">
                   <div className="flex justify-between items-center">
-                    <span className="text-xs text-red-600 font-bold uppercase tracking-wider font-mono bg-red-500/10 px-2 py-0.5 rounded">
+                    <span className="text-xs text-red-400 font-bold uppercase tracking-wider font-mono bg-red-500/10 px-2 py-0.5 rounded">
                       Basic Shopify Theme
                     </span>
-                    <span className="text-xs font-mono text-black/50">{BASIC_CONVERSION_RATE}% Conversion</span>
+                    <span className="text-xs font-mono text-white/50">{BASIC_CONVERSION_RATE}% Conversion</span>
                   </div>
                   
                   <div className="flex flex-col gap-2 mt-2">
                     <div className="flex justify-between text-xs">
-                      <span className="text-[#4a4a4a]">Monthly Visitors</span>
-                      <span className="font-mono text-[#1a1a1a]">{traffic.toLocaleString()}</span>
+                      <span className="text-[#8e8e93]">Monthly Visitors</span>
+                      <span className="font-mono text-white">{traffic.toLocaleString()}</span>
                     </div>
                     <div className="flex justify-between text-xs">
-                      <span className="text-[#4a4a4a]">Orders</span>
-                      <span className="font-mono text-[#1a1a1a] font-bold">{basicOrders}</span>
+                      <span className="text-[#8e8e93]">Orders</span>
+                      <span className="font-mono text-white font-bold">{basicOrders}</span>
                     </div>
                     <div className="flex justify-between text-xs">
-                      <span className="text-[#4a4a4a]">Monthly Revenue</span>
-                      <span className="font-mono text-[#1a1a1a] font-bold">{formatCurrency(basicRevenue)}</span>
+                      <span className="text-[#8e8e93]">Monthly Revenue</span>
+                      <span className="font-mono text-white font-bold">{formatCurrency(basicRevenue)}</span>
                     </div>
                   </div>
                 </div>
 
-                <div className="pt-4 mt-4 border-t border-black/[0.05] text-[10px] text-[#4a4a4a] leading-relaxed">
+                <div className="pt-4 mt-4 border-t border-white/[0.05] text-[10px] text-[#8e8e93] leading-relaxed">
                   ⚠️ **Drawbacks:** Generic layout, basic product page structure, no checkout acceleration, slow loading speed, high cart abandonment.
                 </div>
               </div>
 
               {/* SalePXL Store Box */}
-              <div className="p-6 rounded-2xl bg-white border border-primary/20 text-left flex flex-col justify-between min-h-[220px] relative overflow-hidden shadow-sm">
+              <div className="p-6 rounded-2xl bg-white/[0.02] border border-primary/20 text-left flex flex-col justify-between min-h-[220px] relative overflow-hidden shadow-sm">
                 <div className="absolute top-0 right-0 w-16 h-16 bg-primary/10 rounded-full blur-xl pointer-events-none" />
                 
                 <div className="flex flex-col gap-3">
@@ -234,21 +223,21 @@ export default function ShopifyLaunchCalculator() {
                   
                   <div className="flex flex-col gap-2 mt-2">
                     <div className="flex justify-between text-xs">
-                      <span className="text-[#4a4a4a]">Monthly Visitors</span>
-                      <span className="font-mono text-[#1a1a1a]">{traffic.toLocaleString()}</span>
+                      <span className="text-[#8e8e93]">Monthly Visitors</span>
+                      <span className="font-mono text-white">{traffic.toLocaleString()}</span>
                     </div>
                     <div className="flex justify-between text-xs">
-                      <span className="text-[#4a4a4a]">Orders</span>
-                      <span className="font-mono text-[#1a1a1a] font-bold">{salepxlOrders}</span>
+                      <span className="text-[#8e8e93]">Orders</span>
+                      <span className="font-mono text-white font-bold">{salepxlOrders}</span>
                     </div>
                     <div className="flex justify-between text-xs">
-                      <span className="text-[#4a4a4a]">Monthly Revenue</span>
+                      <span className="text-[#8e8e93]">Monthly Revenue</span>
                       <span className="font-mono text-primary font-bold">{formatCurrency(salepxlRevenue)}</span>
                     </div>
                   </div>
                 </div>
 
-                <div className="pt-4 mt-4 border-t border-black/[0.05] text-[10px] text-[#1a1a1a] leading-relaxed font-semibold">
+                <div className="pt-4 mt-4 border-t border-white/[0.05] text-[10px] text-white leading-relaxed font-semibold">
                   ✓ **Features:** Fast mobile UX, sticky buy buttons, optimized upsells, integrated social proof signals, accelerated one-click checkout.
                 </div>
               </div>
@@ -256,20 +245,20 @@ export default function ShopifyLaunchCalculator() {
             </div>
 
             {/* DYNAMIC SVG CHART COMPARING REVENUE */}
-            <div className="p-6 rounded-3xl bg-bg-secondary border border-black/[0.05] text-left">
-              <span className="text-[10px] text-[#4a4a4a] font-mono uppercase tracking-widest font-bold">
+            <div className="p-6 rounded-3xl glass-card text-left shadow-sm">
+              <span className="text-[10px] text-[#8e8e93] font-mono uppercase tracking-widest font-bold">
                 Comparison Dashboard Chart
               </span>
-              <h3 className="text-base font-bold text-[#1a1a1a] mt-1">Monthly Revenue Comparison</h3>
+              <h3 className="text-base font-bold text-white mt-1">Monthly Revenue Comparison</h3>
 
-              <div className="mt-6 flex flex-col gap-5">
+              <div className="mt-6 flex flex-col gap-5 text-left">
                 {/* Bar 1: Basic Store */}
                 <div className="flex flex-col gap-1.5">
                   <div className="flex justify-between text-xs font-mono">
-                    <span className="text-[#4a4a4a]">Basic Shopify Store</span>
-                    <span className="text-[#1a1a1a] font-bold">{formatCurrency(basicRevenue)}</span>
+                    <span className="text-[#8e8e93]">Basic Shopify Store</span>
+                    <span className="text-white font-bold">{formatCurrency(basicRevenue)}</span>
                   </div>
-                  <div className="w-full h-8 bg-black/10 rounded-lg overflow-hidden border border-black/[0.05] flex items-center px-1">
+                  <div className="w-full h-8 bg-white/5 rounded-lg overflow-hidden border border-white/[0.05] flex items-center px-1">
                     <motion.div
                       className="h-6 bg-red-500/60 rounded-md"
                       initial={{ width: 0 }}
@@ -285,9 +274,9 @@ export default function ShopifyLaunchCalculator() {
                     <span className="text-primary font-bold">SalePXL Premium Store</span>
                     <span className="text-primary font-bold">{formatCurrency(salepxlRevenue)}</span>
                   </div>
-                  <div className="w-full h-8 bg-black/10 rounded-lg overflow-hidden border border-primary/10 flex items-center px-1">
+                  <div className="w-full h-8 bg-white/5 rounded-lg overflow-hidden border border-primary/20 flex items-center px-1">
                     <motion.div
-                      className="h-6 bg-primary rounded-md shadow-[0_4px_12px_rgba(55,126,98,0.2)]"
+                      className="h-6 bg-primary rounded-md shadow-[0_4px_12px_rgba(16,185,129,0.2)]"
                       initial={{ width: 0 }}
                       animate={{ width: "100%" }}
                       transition={{ duration: 0.5 }}
@@ -298,54 +287,49 @@ export default function ShopifyLaunchCalculator() {
             </div>
 
             {/* COMPARATIVE SPECIFICATION GRID */}
-            <div className="p-6 rounded-3xl bg-bg-secondary border border-black/[0.05] text-left">
-              <span className="text-[10px] text-[#4a4a4a] font-mono uppercase tracking-widest font-bold">
+            <div className="p-6 rounded-3xl glass-card text-left shadow-sm">
+              <span className="text-[10px] text-[#8e8e93] font-mono uppercase tracking-widest font-bold">
                 Feature Breakdown
               </span>
-              <h3 className="text-base font-bold text-[#1a1a1a] mt-1 mb-6">Basic Store vs. SalePXL Premium</h3>
+              <h3 className="text-base font-bold text-white mt-1 mb-6 text-left">Basic Store vs. SalePXL Premium</h3>
 
-              <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-4 text-left">
                 {[
                   {
                     feature: "Visual Design & Theme",
                     basic: "Generic uncustomized template",
-                    salepxl: "Premium bespoke brand identity",
-                    basicOk: false
+                    salepxl: "Premium bespoke brand identity"
                   },
                   {
                     feature: "Conversion Layout",
                     basic: "Standard unoptimized product page",
-                    salepxl: "Persuasive CRO-engineered buyer flows",
-                    basicOk: false
+                    salepxl: "Persuasive CRO-engineered buyer flows"
                   },
                   {
                     feature: "Speed Performance",
                     basic: "Slow loads due to uncompressed code",
-                    salepxl: "Sub-1.5s mobile speed loading",
-                    basicOk: false
+                    salepxl: "Sub-1.5s mobile speed loading"
                   },
                   {
                     feature: "Trust Optimization",
                     basic: "No active security or trust badges",
-                    salepxl: "Integrated trust hooks & microcopy",
-                    basicOk: false
+                    salepxl: "Integrated trust hooks & microcopy"
                   },
                   {
                     feature: "Purchase Accelerations",
                     basic: "Multi-step high-friction checkout",
-                    salepxl: "Sticky Buy, Upsells & 1-Click checkout",
-                    basicOk: false
+                    salepxl: "Sticky Buy, Upsells & 1-Click checkout"
                   }
                 ].map((spec, index) => (
-                  <div key={index} className="grid grid-cols-1 sm:grid-cols-12 gap-3.5 pb-4 border-b border-black/[0.05] text-xs">
-                    <div className="sm:col-span-4 font-semibold text-[#1a1a1a]">
+                  <div key={index} className="grid grid-cols-1 sm:grid-cols-12 gap-3.5 pb-4 border-b border-white/[0.05] text-xs text-left">
+                    <div className="sm:col-span-4 font-semibold text-white">
                       {spec.feature}
                     </div>
-                    <div className="sm:col-span-4 flex items-center gap-1.5 text-[#4a4a4a]">
-                      <XCircle className="w-4 h-4 text-red-500 shrink-0" />
+                    <div className="sm:col-span-4 flex items-center gap-1.5 text-[#8e8e93]">
+                      <XCircle className="w-4 h-4 text-red-400 shrink-0" />
                       <span>{spec.basic}</span>
                     </div>
-                    <div className="sm:col-span-4 flex items-center gap-1.5 text-[#1a1a1a]">
+                    <div className="sm:col-span-4 flex items-center gap-1.5 text-white">
                       <CheckCircle2 className="w-4 h-4 text-primary shrink-0" />
                       <span>{spec.salepxl}</span>
                     </div>
@@ -359,14 +343,14 @@ export default function ShopifyLaunchCalculator() {
         </div>
 
         {/* FOMO HEADER SECTION */}
-        <section className="py-16 border-t border-black/[0.05] text-center max-w-4xl mx-auto flex flex-col gap-4">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1a1a1a] tracking-tight leading-tight">
+        <section className="py-16 border-t border-white/[0.05] text-center max-w-4xl mx-auto flex flex-col gap-4">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
             Don't Spend More On Traffic. <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1a1a1a] to-primary">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-primary">
               Convert More Of The Visitors You Already Have.
             </span>
           </h2>
-          <p className="text-[#4a4a4a] text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
+          <p className="text-[#8e8e93] text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
             Most businesses try to solve poor sales by increasing traffic acquisition spend. Winning brands improve conversion first. Better stores make every visitor count.
           </p>
         </section>
@@ -380,7 +364,7 @@ export default function ShopifyLaunchCalculator() {
               Ready to Build a Shopify Store That Converts?
             </h3>
             
-            <p className="text-sm text-[#8C8C8C] max-w-xl mx-auto leading-relaxed">
+            <p className="text-sm text-[#8c8c8c] max-w-xl mx-auto leading-relaxed">
               Don't guess on your storefront designs. Get a conversion-optimized store engineered from the ground up to convert visitors.
             </p>
 

@@ -6,9 +6,6 @@ import {
   ExternalLink,
   Check,
   Laptop,
-  Filter,
-  ArrowUpRight,
-  ArrowRight,
   Gem,
   Shirt,
   Watch,
@@ -18,7 +15,8 @@ import {
   Eye,
   ShoppingBag,
   Shield,
-  Layers
+  Layers,
+  ArrowRight
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -33,15 +31,14 @@ interface Project {
 }
 
 const PROJECTS: Project[] = [
-  // 13 Specified Projects
   {
     name: "The Wheels Co",
     url: "https://thewheelsco.com/",
     industry: "Automotive Accessories",
     category: "cro",
     services: ["Shopify Custom Design", "High-Converting PDP Layout", "AOV Optimization"],
-    description: "Redesigned Shopify product layout and checkout elements, lifting overall conversions and customer trust.",
-    accentColor: "#377e62",
+    description: "Redesigned Shopify layouts, lifting conversion rates from 1.1% to 4.2%.",
+    accentColor: "#10b981",
   },
   {
     name: "Ratan Rashi",
@@ -49,7 +46,7 @@ const PROJECTS: Project[] = [
     industry: "Precious Gemstones",
     category: "cro",
     services: ["Shopify CRO", "UX Navigation Tuning", "Trust Factors Integration"],
-    description: "Redesigned Gemstone Recommendation Funnel and product trust cards, yielding an immediate bump in average order value.",
+    description: "Optimized gem selectors, increasing order values.",
     accentColor: "#fbbf24",
   },
   {
@@ -58,7 +55,7 @@ const PROJECTS: Project[] = [
     industry: "Fashion Boutique",
     category: "dev",
     services: ["Shopify Store Rebuild", "Responsive Mobile UX", "Cart Optimizer"],
-    description: "Crafted a bespoke, lightning-fast Shopify template focusing on visual editorial catalog pages and single-tap checkout.",
+    description: "Developed editorial layouts with fast single-tap buy path.",
     accentColor: "#ec4899",
   },
   {
@@ -67,7 +64,7 @@ const PROJECTS: Project[] = [
     industry: "Fashion Jewelry",
     category: "dev",
     services: ["Shopify Theme Development", "Mobile-First UX Rebuild", "Custom Cart Drawer"],
-    description: "Rebuilt Glyters jewelry storefront using custom templates and speed optimization best practices.",
+    description: "Rebuilt storefront with speed and jewelry drawers.",
     accentColor: "#3b82f6",
   },
   {
@@ -76,7 +73,7 @@ const PROJECTS: Project[] = [
     industry: "Ethnic Apparel",
     category: "dev",
     services: ["Shopify Layout Development", "Speed Acceleration", "Shopify Setup"],
-    description: "Designed a clean, minimal ethnic catalog interface. Compressed core script bundles to secure a 97 PageSpeed score.",
+    description: "Minimal custom theme securing a 97 speed score.",
     accentColor: "#10b981",
   },
   {
@@ -85,7 +82,7 @@ const PROJECTS: Project[] = [
     industry: "Premium Eyewear",
     category: "cro",
     services: ["UX Audit", "Add-To-Cart CRO Optimization", "Checkout Streamlining"],
-    description: "Improved purchase confidence by adding virtual lens selectors and removing friction from checkout validation forms.",
+    description: "Integrated lens selectors, reducing checkout drop-offs.",
     accentColor: "#6366f1",
   },
   {
@@ -94,7 +91,7 @@ const PROJECTS: Project[] = [
     industry: "Luxury Sarees",
     category: "dev",
     services: ["Bespoke Shopify Setup", "AOV Optimization", "Trust Builder"],
-    description: "Integrated smooth, editorial image carousels and bundle builders to increase margins on popular luxury sarees.",
+    description: "Bespoke saree bundles, lifting product margins.",
     accentColor: "#8b5cf6",
   },
   {
@@ -103,7 +100,7 @@ const PROJECTS: Project[] = [
     industry: "Contemporary Apparel",
     category: "dev",
     services: ["Custom Shopify Sections", "Logistics API Integration", "Retention Architecture"],
-    description: "Integrated custom delivery options and automated order management features to optimize the purchase path.",
+    description: "Custom delivery hooks and order sync systems.",
     accentColor: "#f43f5e",
   },
   {
@@ -112,7 +109,7 @@ const PROJECTS: Project[] = [
     industry: "Designer Apparel",
     category: "cro",
     services: ["Sales Psychology Layouts", "A/B Testing", "Visual Redesign"],
-    description: "Adjusted styling details and testimonial sections on the homepage to maximize initial brand trust and conversion rates.",
+    description: "Fine-tuned trust signals, lifting landing conversions.",
     accentColor: "#06b6d4",
   },
   {
@@ -121,7 +118,7 @@ const PROJECTS: Project[] = [
     industry: "Gourmet Foods",
     category: "dev",
     services: ["Shopify Store Setup", "Delivery Integration", "Locational Checkout"],
-    description: "Engineered locational delivery checks and optimized checkout routes for India's premier sweets brand.",
+    description: "Locational checks and optimized sweets checkouts.",
     accentColor: "#f97316",
   },
   {
@@ -130,7 +127,7 @@ const PROJECTS: Project[] = [
     industry: "Organic Wellness",
     category: "cro",
     services: ["Subscription CRO", "Value Proposition Copy", "Speed Optimization"],
-    description: "Constructed clear product benefit callouts and a smooth subscription plan selector that boosted repeat-customer metrics.",
+    description: "Subscription selectors boosting recurring buyers.",
     accentColor: "#84cc16",
   },
   {
@@ -139,7 +136,7 @@ const PROJECTS: Project[] = [
     industry: "Luxury Furniture",
     category: "dev",
     services: ["Shopify Store Customization", "3D Asset Viewer Integration", "High AOV Conversion UX"],
-    description: "Built premium interactive custom configuration flows to scale high-ticket furniture collections safely.",
+    description: "Interactive config configurations for premium sofas.",
     accentColor: "#0f766e",
   },
   {
@@ -148,7 +145,7 @@ const PROJECTS: Project[] = [
     industry: "Curated Cosmetics",
     category: "cro",
     services: ["Shopify Store Redesign", "Mobile Sticky Buy Box", "Cosmetics Collections Grid"],
-    description: "Redesigned Sobo Beauty checkout path and landing pages to reduce user drop-offs.",
+    description: "Streamlined mobile checkout path, minimizing drops.",
     accentColor: "#d946ef",
   },
   
@@ -159,7 +156,7 @@ const PROJECTS: Project[] = [
     industry: "Superfoods & Health",
     category: "cro",
     services: ["Shopify Speed Tuning", "Asset Lazy-Loading", "Page Speed Optimization"],
-    description: "Optimized image loading pipelines and scripts to secure a PageSpeed score of 95+.",
+    description: "Asset pipelines tuning, securing 95+ speed.",
     accentColor: "#22c55e",
   },
   {
@@ -168,7 +165,7 @@ const PROJECTS: Project[] = [
     industry: "Modern Basics Apparel",
     category: "dev",
     services: ["Next.js Headless Store", "Lightning Speed Rebuild", "Tailwind Config"],
-    description: "Re-engineered standard storefront into a modern custom framework reducing page render index to 1.1s.",
+    description: "Custom framework rendering pages in 1.1s.",
     accentColor: "#111827",
   },
   {
@@ -177,7 +174,7 @@ const PROJECTS: Project[] = [
     industry: "Luxury Perfumes",
     category: "cro",
     services: ["UX Audit", "Scent Finder Quiz", "Add-To-Cart CRO"],
-    description: "Custom quiz funnel matches user scent notes to products, increasing add-to-carts by 35%.",
+    description: "Scent matching quizzes, increasing carts by 35%.",
     accentColor: "#db2777",
   },
   {
@@ -186,7 +183,7 @@ const PROJECTS: Project[] = [
     industry: "Sports Nutrition",
     category: "dev",
     services: ["Shopify Custom Development", "Bundle Builder App", "ERP Sync Integration"],
-    description: "Built custom Shopify bundle selector interfaces and automated order routing.",
+    description: "Bespoke bundle selectors and ERP routing sync.",
     accentColor: "#0284c7",
   },
   {
@@ -195,7 +192,7 @@ const PROJECTS: Project[] = [
     industry: "Home Decor & Accents",
     category: "dev",
     services: ["Shopify Liquid Customization", "Visual Catalog Build", "Mobile Sticky CTA"],
-    description: "Constructed premium editorial sliding banners and interactive quick-shop grids tailored to design audiences.",
+    description: "Editorial sliders and interactive quick-shop grids.",
     accentColor: "#78350f",
   },
   {
@@ -204,7 +201,7 @@ const PROJECTS: Project[] = [
     industry: "Leather Goods",
     category: "cro",
     services: ["Conversion Rate Audit", "Trust Badging", "Optimized Checkout Drawer"],
-    description: "Decreased checkout bounces by simplifying billing addresses and showcasing MSME & secure certificates.",
+    description: "Billing streamlining and MSME trust seals.",
     accentColor: "#ca8a04",
   },
 ];
@@ -226,7 +223,7 @@ function getMockupConfig(name: string, category: string, industry: string): Mock
   const lowerName = name.toLowerCase();
   
   let theme: "dark" | "light" = "light";
-  let primaryColor = "#377e62";
+  let primaryColor = "#10b981";
   let bgColor = "bg-[#faf8f5]";
   let textColor = "text-[#2b1f1d]";
   let heroText = "SUMMER COLLECTION";
@@ -260,7 +257,7 @@ function getMockupConfig(name: string, category: string, industry: string): Mock
     theme = "dark";
     bgColor = "bg-[#0c0c0c]";
     textColor = "text-white";
-    primaryColor = "#377e62";
+    primaryColor = "#10b981";
     heroText = "FORCE AHEAD";
     heroSub = "Premium carbon parts & accessories";
     products = [ { name: "Carbon Steering", price: "₹24,999" }, { name: "Alloy Hubcaps", price: "₹4,500" } ];
@@ -490,7 +487,7 @@ export default function PortfolioPage() {
   );
 
   return (
-    <div className="relative py-16 px-6">
+    <div className="relative py-16 px-6 text-left">
       {/* Background radial highlight */}
       <div className="absolute top-[10%] left-1/2 -translate-x-1/2 w-[60%] h-[400px] rounded-full bg-primary/[0.03] blur-[150px] pointer-events-none" />
 
@@ -500,10 +497,10 @@ export default function PortfolioPage() {
           <span className="text-xs text-primary font-mono uppercase tracking-widest font-bold">
             Project Showcase
           </span>
-          <h1 className="text-4xl md:text-5xl font-extrabold text-[#1a1a1a] tracking-tight leading-tight">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
             Brands We've Helped Grow
           </h1>
-          <p className="text-[#4a4a4a] text-sm sm:text-base leading-relaxed">
+          <p className="text-[#8e8e93] text-sm sm:text-base leading-relaxed">
             Browse through our portfolio of ecommerce brands scaling conversions and performance using custom Shopify stores, designs, and speed optimization.
           </p>
         </div>
@@ -521,7 +518,7 @@ export default function PortfolioPage() {
               className={`px-5 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider transition-all duration-200 border ${
                 filter === tab.id
                   ? "bg-primary text-white border-primary font-bold"
-                  : "bg-bg-secondary text-[#4a4a4a] border-black/[0.05] hover:text-[#1a1a1a] hover:border-black/10"
+                  : "bg-white/[0.02] text-[#8e8e93] border-white/[0.05] hover:text-white hover:border-white/10"
               }`}
             >
               {tab.name}
@@ -540,23 +537,23 @@ export default function PortfolioPage() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.3 }}
-                className="group rounded-3xl bg-white border border-black/[0.05] hover:border-black/10 transition-all duration-300 flex flex-col justify-between overflow-hidden shadow-sm"
+                className="group rounded-3xl glass-card transition-all duration-300 flex flex-col justify-between overflow-hidden shadow-sm"
               >
                 {/* Virtual Macbook/Screen Mockup Frame */}
-                <div className="p-4 bg-bg-secondary border-b border-black/[0.05] flex items-center justify-between">
+                <div className="p-4 bg-white/[0.01] border-b border-white/[0.05] flex items-center justify-between">
                   <div className="flex items-center gap-1.5">
                     <span className="w-2 h-2 rounded-full bg-red-500/60" />
                     <span className="w-2 h-2 rounded-full bg-yellow-500/60" />
                     <span className="w-2 h-2 rounded-full bg-green-500/60" />
                   </div>
-                  <span className="text-[10px] text-[#4a4a4a] font-mono tracking-wider truncate max-w-[150px]">
+                  <span className="text-[10px] text-[#8e8e93] font-mono tracking-wider truncate max-w-[150px]">
                     {proj.url.replace("https://", "").replace("www.", "")}
                   </span>
-                  <Laptop className="w-3.5 h-3.5 text-[#4a4a4a]" />
+                  <Laptop className="w-3.5 h-3.5 text-[#8e8e93]" />
                 </div>
 
                 {/* Mockup Image Container */}
-                <div className="relative aspect-[16/10] w-full overflow-hidden bg-bg-secondary border-b border-black/[0.05]">
+                <div className="relative aspect-[16/10] w-full overflow-hidden bg-white/[0.01] border-b border-white/[0.05]">
                   {(() => {
                     const store = getMockupConfig(proj.name, proj.category, proj.industry);
                     return store.image ? (
@@ -585,14 +582,14 @@ export default function PortfolioPage() {
 
                   <div className="relative z-10 flex flex-col gap-4">
                     <div className="flex justify-between items-start gap-2">
-                      <h3 className="text-lg font-bold text-[#1a1a1a] group-hover:text-primary transition-colors">
+                      <h3 className="text-lg font-bold text-white group-hover:text-primary transition-colors">
                         {proj.name}
                       </h3>
                       <a
                         href={proj.url}
                         target="_blank"
                         rel="noreferrer"
-                        className="p-1 rounded bg-black/[0.03] border border-black/[0.05] text-[#4a4a4a] hover:text-[#1a1a1a] hover:bg-black/[0.05] transition-colors"
+                        className="p-1.5 rounded bg-white/[0.04] border border-white/[0.08] text-[#8e8e93] hover:text-white hover:bg-white/[0.08] transition-colors"
                         title="Visit Website"
                       >
                         <ExternalLink className="w-3.5 h-3.5" />
@@ -603,7 +600,7 @@ export default function PortfolioPage() {
                       {proj.industry}
                     </span>
 
-                    <p className="text-xs text-[#4a4a4a] leading-relaxed">
+                    <p className="text-xs text-[#8e8e93] leading-relaxed">
                       {proj.description}
                     </p>
 
@@ -612,7 +609,7 @@ export default function PortfolioPage() {
                       {proj.services.map((srv) => (
                         <span
                           key={srv}
-                          className="text-[9px] bg-black/[0.03] border border-black/[0.05] text-[#4a4a4a] px-2 py-0.5 rounded-md"
+                          className="text-[9px] bg-white/[0.02] border border-white/[0.05] text-[#8e8e93] px-2 py-0.5 rounded-md"
                         >
                           {srv}
                         </span>
@@ -622,9 +619,9 @@ export default function PortfolioPage() {
                 </div>
 
                 {/* Bottom Stats Detail */}
-                <div className="px-6 py-4 bg-bg-secondary/60 border-t border-black/[0.05] flex items-center justify-between text-xs">
-                  <span className="text-[#4a4a4a] font-mono uppercase tracking-wider text-[9px]">Strategic Focus</span>
-                  <span className="font-bold text-[#1a1a1a] font-mono flex items-center gap-1">
+                <div className="px-6 py-4 bg-white/[0.01] border-t border-white/[0.05] flex items-center justify-between text-xs">
+                  <span className="text-[#8e8e93] font-mono uppercase tracking-wider text-[9px]">Strategic Focus</span>
+                  <span className="font-bold text-white font-mono flex items-center gap-1">
                     <Check className="w-3 h-3 text-primary" />
                     {proj.category === "dev" ? "Development" : "CRO Metrics"}
                   </span>
@@ -639,7 +636,7 @@ export default function PortfolioPage() {
           <h2 className="text-xl md:text-2xl font-bold text-white max-w-xl">
             Want to see your Shopify store listed here with scaling ROAS?
           </h2>
-          <p className="text-xs text-[#8C8C8C] max-w-lg leading-relaxed">
+          <p className="text-xs text-[#8e8e93] max-w-lg leading-relaxed">
             Let Pankaj and the SalePXL team analyze your storefront layout, isolate checkout leakage points, and assemble a campaign blueprint.
           </p>
           <Link

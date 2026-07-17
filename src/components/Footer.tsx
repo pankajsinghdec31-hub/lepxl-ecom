@@ -35,7 +35,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-[#8C8C8C] text-sm leading-relaxed max-w-xs">
-              We help businesses launch, redesign, and optimize Shopify stores that are beautiful, trustworthy, and conversion-focused.
+              Conversion-engineered Shopify storefronts for high-growth D2C brands.
             </p>
             <div className="flex flex-col gap-3 text-xs text-[#8C8C8C]">
               <div className="flex items-center gap-2">
@@ -107,7 +107,7 @@ export default function Footer() {
                 Scale Your Brand
               </h3>
               <p className="text-[#8C8C8C] text-xs leading-relaxed mb-4">
-                Get high-converting eCommerce strategies delivered directly to your inbox.
+                eCommerce insights. Zero spam.
               </p>
               <form onSubmit={handleSubmit} className="relative flex items-center">
                 <input

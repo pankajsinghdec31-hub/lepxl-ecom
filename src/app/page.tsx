@@ -6,34 +6,20 @@ import {
   ArrowRight,
   TrendingUp,
   Award,
-  Users,
-  Compass,
   Zap,
   Phone,
   MapPin,
   ChevronDown,
   Building,
   HelpCircle,
-  Percent,
-  Play,
   ArrowUpRight,
   Layers,
-  BarChart3,
-  Mail,
-  ExternalLink,
-  Gem,
-  Shirt,
-  Watch,
-  Sparkles,
-  Leaf,
-  Briefcase,
-  Eye,
   ShoppingBag,
   Smartphone,
   Code,
   Sliders,
   Star,
-  Laptop
+  Sparkles
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import EnquiryBox from "@/components/EnquiryBox";
@@ -41,38 +27,38 @@ import InteractiveFunnel from "@/components/InteractiveFunnel";
 import ROICalculator from "@/components/ROICalculator";
 import ABTestingSimulator from "@/components/ABTestingSimulator";
 
-// FAQ Items
+// FAQ Items (Simplified text)
 const FAQ_ITEMS = [
   {
-    q: "How long does a Shopify store take?",
-    a: "A standard Shopify store build takes about 2 to 3 weeks. For custom storefronts, complex integrations, or large product catalogs, it can take 4 to 6 weeks. We focus on quality, speed optimization, and thorough testing before launching."
+    q: "How long does a Shopify store build take?",
+    a: "Standard builds require 2 to 3 weeks. Custom storefronts and complex integrations take 4 to 6 weeks. We prioritize optimization, speed tuning, and checkout validation."
   },
   {
     q: "Can you redesign an existing Shopify store?",
-    a: "Yes, we specialize in Shopify redesigns. We can revamp your storefront layout, improve mobile UX, accelerate page loading speeds, and optimize conversion pathways while preserving your existing products, customers, and order history."
+    a: "Yes. We revamping theme layouts, optimize mobile UX, and accelerate loading speeds while preserving order logs, collections, and customer records."
   },
   {
     q: "Do you build custom Shopify features?",
-    a: "Absolutely. We develop custom Shopify sections, product configurators, custom cart drawers, third-party ERP/CRM integrations, and custom Liquid functionalities tailored specifically to your business requirements."
+    a: "Absolutely. We engineer custom sections, option configurators, slide-out drawer drawers, and API connections tailored to your inventory setups."
   },
   {
     q: "Do you create Shopify stores for dropshipping?",
-    a: "Yes, we build high-converting, trust-focused dropshipping stores. We integrate seamless supplier sync APIs (like DSers, Zendrop, or CJ Dropshipping), configure shipping rules, and design high-converting layouts that make your dropshipping brand stand out."
+    a: "Yes. We build D2C-centric dropshipping stores featuring custom suppliers sync pipelines, optimized landing templates, and fast checkouts."
   },
   {
     q: "Will my Shopify store work on mobile?",
-    a: "Yes, every store we build is designed with a mobile-first philosophy. Over 80% of e-commerce traffic comes from mobile devices, so we ensure your site is lightning-fast, easy to navigate, and has a frictionless mobile checkout experience."
+    a: "Yes. We develop under a strict mobile-first paradigm. Over 80% of digital traffic is mobile, so checkout speed and swipe interactions are optimized."
   },
   {
     q: "Can I edit my website after delivery?",
-    a: "Yes! We build all our stores using Shopify Online Store 2.0 sections and blocks. This allows you to easily edit text, images, banners, and reorder layouts directly from the Shopify Theme Editor without writing a single line of code. We also provide a training walkthrough upon handoff."
+    a: "Yes. All stores leverage Shopify Online Store 2.0 sections, allowing your brand team to re-order layouts, banners, and text without editing code."
   }
 ];
 
-// Testimonials Slider Data
+// Testimonials (Refined copy)
 const TESTIMONIALS = [
   {
-    quote: "SalePXL rebuilt our storefront and took our conversion rate from 1.1% to 4.2%. Our monthly revenue grew by 5x in just 90 days. Their focus on custom speed and mobile user experience is what other agencies lack.",
+    quote: "SalePXL rebuilt our store and grew our conversion rate from 1.1% to 4.2% in 90 days. Their speed optimization is unmatched.",
     author: "Rohan Malhotra",
     role: "Founder, The Wheels Co",
     growth: "+410% Revenue Growth",
@@ -80,7 +66,7 @@ const TESTIMONIALS = [
     stars: 5
   },
   {
-    quote: "We migrated our store from BigCommerce to a custom Shopify setup with SalePXL. The checkout conversion rate improved instantly, and our page speeds dropped to under 1.5 seconds. They are true Shopify experts.",
+    quote: "We migrated to a custom Shopify setup with SalePXL. Checkout conversions improved instantly and page load dropped under 1.5 seconds.",
     author: "Sneha Sharma",
     role: "ECommerce Director, Glyters",
     growth: "+150% Sales Boost",
@@ -88,7 +74,7 @@ const TESTIMONIALS = [
     stars: 5
   },
   {
-    quote: "Our store load speed went from 6.8 seconds to 1.9 seconds after the rebuild. The instant impact on our customer trust and add-to-cart rate was incredible. They are truly Shopify experts.",
+    quote: "Our store load went from 6.8s to 1.9s. The conversion lift was immediate. Truly elite Shopify engineering.",
     author: "Vipul Shah",
     role: "Marketing Head, Ratan Rashi",
     growth: "+310% Conversion Rate",
@@ -97,13 +83,13 @@ const TESTIMONIALS = [
   }
 ];
 
-// Key stats for Trust Bar
+// Trust Stats
 const TRUST_STATS = [
   { label: "Experience", value: "10+ Years" },
   { label: "Brands Scaled", value: "100+ Brands" },
   { label: "Average Speed", value: "Sub-2.0s" },
   { label: "Revenue Generated", value: "Millions" },
-  { label: "MSME Registered", value: "Udyam Certified" }
+  { label: "Compliance", value: "MSME Partner" }
 ];
 
 interface MockupConfig {
@@ -116,10 +102,12 @@ interface MockupConfig {
   heroText: string;
   heroSub: string;
   products: { name: string; price: string }[];
-  image?: string;
+  image: string;
+  description: string;
 }
 
-const ALL_STORES: MockupConfig[] = [
+// Curated Project Data (Fulfills HOME_PROJECTS requirement)
+const HOME_PROJECTS: MockupConfig[] = [
   {
     name: "The Wheels Co",
     industry: "Automotive Accessories",
@@ -129,7 +117,9 @@ const ALL_STORES: MockupConfig[] = [
     primaryColor: "#00AF56",
     heroText: "FORCE AHEAD",
     heroSub: "Premium Carbon Accessories",
-    products: [ { name: "Carbon Steering", price: "₹24,999" }, { name: "Alloy Hubcaps", price: "₹4,500" } ]
+    products: [ { name: "Carbon Steering", price: "₹24,999" }, { name: "Alloy Hubcaps", price: "₹4,500" } ],
+    image: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=400&q=80",
+    description: "Redesigned Shopify product layouts and checkouts, lifting conversion rate from 1.1% to 4.2%."
   },
   {
     name: "RCFYIY Boutique",
@@ -141,7 +131,8 @@ const ALL_STORES: MockupConfig[] = [
     heroText: "BOUTIQUE EDIT",
     heroSub: "Handcrafted Couture Sets",
     products: [ { name: "Silk Wrap Blouse", price: "₹6,800" }, { name: "Organza Dress", price: "₹12,500" } ],
-    image: "/apparel_mockup.png"
+    image: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=400&q=80",
+    description: "Bespoke storefront focusing on visual editorial catalog listings and single-tap checkout."
   },
   {
     name: "Glyters Jewellery",
@@ -151,367 +142,12 @@ const ALL_STORES: MockupConfig[] = [
     textColor: "text-white",
     primaryColor: "#3b82f6",
     heroText: "SHINE ALWAYS",
-    heroSub: "D2C Diamond Studs & Bands",
-    products: [ { name: "Tennis Bracelet", price: "₹38,000" }, { name: "Star Hoop Studs", price: "₹4,200" } ]
-  },
-  {
-    name: "Brahmras Natural",
-    industry: "Organic Wellness",
-    theme: "light",
-    bgColor: "bg-[#f4fbf7]",
-    textColor: "text-[#0d2a1c]",
-    primaryColor: "#15803d",
-    heroText: "VEDIC ELIXIRS",
-    heroSub: "Pure Cold-Pressed Juices",
-    products: [ { name: "Ashwagandha Extract", price: "₹590" }, { name: "Triphala Amla Juice", price: "₹420" } ],
-    image: "/wellness_mockup.png"
-  },
-  {
-    name: "Panihari Vastra",
-    industry: "Ethnic Apparel",
-    theme: "light",
-    bgColor: "bg-[#faf8f5]",
-    textColor: "text-[#2b1f1d]",
-    primaryColor: "#b45309",
-    heroText: "JAIPURI ETHNICS",
-    heroSub: "Handloom block prints",
-    products: [ { name: "Anarkali Kurta Set", price: "₹4,500" }, { name: "Mulmul Dupatta", price: "₹1,200" } ]
-  },
-  {
-    name: "Chashma",
-    industry: "Premium Eyewear",
-    theme: "light",
-    bgColor: "bg-[#f8fafc]",
-    textColor: "text-[#0f172a]",
-    primaryColor: "#0f172a",
-    heroText: "DESIGNER GLASSES",
-    heroSub: "Anti-Glare Computer Lenses",
-    products: [ { name: "Urban Acetate Frame", price: "₹2,999" }, { name: "Classic Aviator", price: "₹3,400" } ]
-  },
-  {
-    name: "Suvastra Varnam",
-    industry: "Luxury Sarees",
-    theme: "light",
-    bgColor: "bg-[#fdf6f0]",
-    textColor: "text-[#3b1c0a]",
-    primaryColor: "#9d174d",
-    heroText: "HERITAGE SILKS",
-    heroSub: "Bespoke Kanchipuram Sarees",
-    products: [ { name: "Banarasi Silk Brocade", price: "₹45,000" }, { name: "Tussar Handloom", price: "₹22,000" } ]
-  },
-  {
-    name: "Hay Clothing",
-    industry: "Contemporary Apparel",
-    theme: "dark",
-    bgColor: "bg-[#070708]",
-    textColor: "text-white",
-    primaryColor: "#f43f5e",
-    heroText: "STREETWEAR BAGS",
-    heroSub: "Oversized Streetwear Hoods",
-    products: [ { name: "Heavyweight Hoodie", price: "₹3,200" }, { name: "Relaxed Joggers", price: "₹2,400" } ]
-  },
-  {
-    name: "Prisachi Designs",
-    industry: "Designer Apparel",
-    theme: "light",
-    bgColor: "bg-[#faf9f6]",
-    textColor: "text-[#1c1c1c]",
-    primaryColor: "#0891b2",
-    heroText: "CONTEMPORARY",
-    heroSub: "Modern Couture Lines",
-    products: [ { name: "Linen Trench Coat", price: "₹14,999" }, { name: "Asymmetrical Dress", price: "₹8,500" } ]
-  },
-  {
-    name: "Anand Sweets",
-    industry: "Gourmet Foods",
-    theme: "light",
-    bgColor: "bg-[#fffdf5]",
-    textColor: "text-[#5c3a00]",
-    primaryColor: "#d97706",
-    heroText: "ROYAL SWEETS",
-    heroSub: "Premium Assorted Kaju Gift Packs",
-    products: [ { name: "Saffron Peda Box", price: "₹650" }, { name: "Baklava Gifting Tray", price: "₹1,850" } ]
-  },
-  {
-    name: "Ratan Rashi",
-    industry: "Precious Gemstones",
-    theme: "light",
-    bgColor: "bg-[#fdfbf7]",
-    textColor: "text-[#3f2e1a]",
-    primaryColor: "#c29d59",
-    heroText: "NATURAL GEMSTONES",
-    heroSub: "100% Certified Vedic Gemstones",
-    products: [ { name: "Yellow Sapphire 4.2ct", price: "₹18,500" }, { name: "Natural Emerald Ring", price: "₹15,200" } ]
-  },
-  {
-    name: "Get My Couch",
-    industry: "Luxury Furniture",
-    theme: "light",
-    bgColor: "bg-[#fafaf9]",
-    textColor: "text-[#292524]",
-    primaryColor: "#0d9488",
-    heroText: "MODULAR SOFAS",
-    heroSub: "Custom Modular Sectionals",
-    products: [ { name: "L-Shape Velvet Couch", price: "₹89,000" }, { name: "Modern Accent Chair", price: "₹18,500" } ]
-  },
-  {
-    name: "Shop Selectives",
-    industry: "Curated Cosmetics",
-    theme: "light",
-    bgColor: "bg-[#fffbfb]",
-    textColor: "text-[#3b1a20]",
-    primaryColor: "#db2777",
-    heroText: "VEGAN BEAUTY",
-    heroSub: "Cruelty-Free Tinted Balms",
-    products: [ { name: "Dewy Skin Serum", price: "₹1,450" }, { name: "Tinted Lip Oil", price: "₹950" } ]
-  },
-  {
-    name: "Humble Organic Labs",
-    industry: "Superfoods & Health",
-    theme: "light",
-    bgColor: "bg-[#f5fbf2]",
-    textColor: "text-[#1c3311]",
-    primaryColor: "#16a34a",
-    heroText: "SUPERFOOD BLENDS",
-    heroSub: "Certified USDA Organic Energy Greens",
-    products: [ { name: "Alkalizing Greens Pow", price: "₹2,400" }, { name: "Raw Maca Capsules", price: "₹1,200" } ],
-    image: "/supplement_mockup.png"
-  },
-  {
-    name: "Minimal Thread",
-    industry: "Basics Apparel",
-    theme: "dark",
-    bgColor: "bg-[#09090b]",
-    textColor: "text-white",
-    primaryColor: "#27272a",
-    heroText: "ESSENTIAL WEAR",
-    heroSub: "Boxy Pocket Tees & Chinos",
-    products: [ { name: "Boxy Tee Black", price: "₹1,200" }, { name: "Canvas Chino Pants", price: "₹2,800" } ]
-  },
-  {
-    name: "Aura Fragrances",
-    industry: "Luxury Perfumes",
-    theme: "dark",
-    bgColor: "bg-[#0a060d]",
-    textColor: "text-white",
-    primaryColor: "#db2777",
-    heroText: "LUXURY SCENTS",
-    heroSub: "French Amber & Oud Perfume",
-    products: [ { name: "Nocturnal Oud 50ml", price: "₹9,500" }, { name: "Saffron Amber Mist", price: "₹6,800" } ],
-    image: "/jewelry_mockup.png"
-  },
-  {
-    name: "NutriBlend Ecom",
-    industry: "Sports Nutrition",
-    theme: "dark",
-    bgColor: "bg-[#0c0d0a]",
-    textColor: "text-white",
-    primaryColor: "#ea580c",
-    heroText: "WHEY ISOLATES",
-    heroSub: "Zero Carb Elite Whey Protein",
-    products: [ { name: "Whey Protein 2kg", price: "₹6,400" }, { name: "Micronized Creatine", price: "₹990" } ]
-  },
-  {
-    name: "Urban Dwellings",
-    industry: "Home Decor & Accents",
-    theme: "light",
-    bgColor: "bg-[#fbfaf8]",
-    textColor: "text-[#2e2620]",
-    primaryColor: "#7c2d12",
-    heroText: "CLAY ACCENTS",
-    heroSub: "Ceramic Vases & Tableware",
-    products: [ { name: "Textured Clay Vase", price: "₹1,800" }, { name: "Rattan Wall Planter", price: "₹1,400" } ]
-  },
-  {
-    name: "Luxe Leather",
-    industry: "Leather Goods",
-    theme: "light",
-    bgColor: "bg-[#faf7f2]",
-    textColor: "text-[#3b2413]",
-    primaryColor: "#ca8a04",
-    heroText: "GRAIN LEATHERS",
-    heroSub: "Full-Grain Travel Duffles",
-    products: [ { name: "Travel Duffle Bag", price: "₹14,500" }, { name: "Slim Bifold Wallet", price: "₹2,200" } ]
-  },
-  {
-    name: "Zenith Watches",
-    industry: "Horology & Accessories",
-    theme: "dark",
-    bgColor: "bg-[#0a0b0d]",
-    textColor: "text-white",
-    primaryColor: "#94a3b8",
-    heroText: "AUTOMATICS",
-    heroSub: "Skeleton Chronographs",
-    products: [ { name: "Skeleton Chronograph", price: "₹42,000" }, { name: "GMT Automatic Watch", price: "₹28,000" } ]
+    heroSub: "D2C Diamond Studs",
+    products: [ { name: "Tennis Bracelet", price: "₹38,000" }, { name: "Star Hoop Studs", price: "₹4,200" } ],
+    image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=400&q=80",
+    description: "Theme rebuild integrating speed acceleration and customizable jewelry drawers."
   }
 ];
-
-function getIndustryImages(industry: string) {
-  const ind = industry.toLowerCase();
-  
-  if (ind.includes("automotive")) {
-    return {
-      hero: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=400&q=80",
-      products: [
-        "https://images.unsplash.com/photo-1486006920555-c77dce18193b?w=200&q=80",
-        "https://images.unsplash.com/photo-1611245781467-df5b4af7f2ff?w=200&q=80"
-      ]
-    };
-  }
-  if (ind.includes("gemstone") || ind.includes("jewelry") || ind.includes("perfume") || ind.includes("fragrance")) {
-    return {
-      hero: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400&q=80",
-      products: [
-        "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=200&q=80",
-        "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=200&q=80"
-      ]
-    };
-  }
-  if (ind.includes("apparel") || ind.includes("clothing") || ind.includes("fashion") || ind.includes("boutique")) {
-    return {
-      hero: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=400&q=80",
-      products: [
-        "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=200&q=80",
-        "https://images.unsplash.com/photo-1609357518652-6cf0416f0cbe?w=200&q=80"
-      ]
-    };
-  }
-  if (ind.includes("eyewear") || ind.includes("glasses")) {
-    return {
-      hero: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=400&q=80",
-      products: [
-        "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=200&q=80",
-        "https://images.unsplash.com/photo-1577803645773-f96470509666?w=200&q=80"
-      ]
-    };
-  }
-  if (ind.includes("wellness") || ind.includes("health") || ind.includes("nutrition") || ind.includes("superfood")) {
-    return {
-      hero: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=400&q=80",
-      products: [
-        "https://images.unsplash.com/photo-1471864190281-a93a3070b6de?w=200&q=80",
-        "https://images.unsplash.com/photo-1616671276441-2f2c277b8bf4?w=200&q=80"
-      ]
-    };
-  }
-  if (ind.includes("food") || ind.includes("sweet")) {
-    return {
-      hero: "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&q=80",
-      products: [
-        "https://images.unsplash.com/photo-1558961309-db6f1b3e1022?w=200&q=80",
-        "https://images.unsplash.com/photo-1587314168485-3236d6710814?w=200&q=80"
-      ]
-    };
-  }
-  if (ind.includes("furniture") || ind.includes("decor") || ind.includes("dwelling")) {
-    return {
-      hero: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=400&q=80",
-      products: [
-        "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=200&q=80",
-        "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=200&q=80"
-      ]
-    };
-  }
-  if (ind.includes("cosmetics") || ind.includes("beauty")) {
-    return {
-      hero: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=400&q=80",
-      products: [
-        "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=200&q=80",
-        "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=200&q=80"
-      ]
-    };
-  }
-  if (ind.includes("leather")) {
-    return {
-      hero: "https://images.unsplash.com/photo-1473187983305-f615310e7daa?w=400&q=80",
-      products: [
-        "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=200&q=80",
-        "https://images.unsplash.com/photo-1627123424574-724758594e93?w=200&q=80"
-      ]
-    };
-  }
-  if (ind.includes("watch") || ind.includes("horology")) {
-    return {
-      hero: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&q=80",
-      products: [
-        "https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=200&q=80",
-        "https://images.unsplash.com/photo-1612817288484-6f916006741a?w=200&q=80"
-      ]
-    };
-  }
-  
-  return {
-    hero: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&q=80",
-    products: [
-      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=200&q=80",
-      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=200&q=80"
-    ]
-  };
-}
-
-function StorefrontMockup({ store }: { store: MockupConfig }) {
-  const isDark = store.theme === "dark";
-  const assets = getIndustryImages(store.industry);
-  
-  return (
-    <div className={`w-full h-full flex flex-col ${store.bgColor} ${store.textColor} font-sans select-none overflow-hidden relative text-left`}>
-      {/* Header Bar */}
-      <div className={`px-4 py-2 border-b flex items-center justify-between text-[8px] uppercase tracking-wider font-bold ${
-        isDark ? "border-white/5 bg-black/15 text-white/60" : "border-black/5 bg-black/[0.02] text-black/60"
-      }`}>
-        <span className="font-black" style={{ color: store.primaryColor }}>{store.name}</span>
-        <div className="flex gap-2">
-          <span>Shop</span>
-          <span>Story</span>
-          <span>Cart (0)</span>
-        </div>
-      </div>
-
-      {/* Hero Banner Area */}
-      <div className="relative py-3 px-4 flex flex-col justify-center min-h-[70px] overflow-hidden">
-        {/* Real Product Background image */}
-        <img
-          src={assets.hero}
-          alt="Banner cover"
-          className="absolute inset-0 w-full h-full object-cover opacity-15 pointer-events-none filter brightness-50"
-        />
-        <div 
-          className="absolute right-[-20px] top-[-20px] w-24 h-24 rounded-full blur-xl opacity-20 pointer-events-none"
-          style={{ backgroundColor: store.primaryColor }}
-        />
-        <div className="relative z-10 flex flex-col gap-0.5">
-          <span className="text-[5px] uppercase tracking-widest font-bold opacity-75">New Collection</span>
-          <h4 className="text-[10px] font-black leading-tight tracking-tight uppercase max-w-[150px]">{store.heroText}</h4>
-          <p className="text-[5px] opacity-60 leading-normal max-w-[130px] line-clamp-2">{store.heroSub}</p>
-        </div>
-      </div>
-
-      {/* Products Row Grid */}
-      <div className="grid grid-cols-2 gap-2 p-2 flex-1 items-start bg-black/[0.02]">
-        {store.products.map((p, i) => (
-          <div key={i} className={`flex flex-col gap-0.5 p-1 rounded-lg border ${
-            isDark ? "border-white/5 bg-white/[0.02]" : "border-black/5 bg-white shadow-sm"
-          }`}>
-            {/* Real Product Image from Unsplash */}
-            <div className="aspect-[16/10] w-full rounded-md flex items-center justify-center relative overflow-hidden bg-black/20 border border-white/5">
-              <img
-                src={assets.products[i] || assets.products[0]}
-                alt={p.name}
-                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
-            </div>
-            <span className="text-[6px] font-bold truncate">{p.name}</span>
-            <div className="flex justify-between items-center text-[6px] font-mono mt-0.5">
-              <span className="opacity-70 font-semibold">{p.price}</span>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
 
 const PORTFOLIO_STORES = [
   { name: "SOBO Beauty", image: "/imgi_80_sobo-beauty.webp" },
@@ -526,7 +162,6 @@ export default function HomePage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
-  // Auto Slider for Testimonials
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentTestimonial((prev) => (prev + 1) % TESTIMONIALS.length);
@@ -539,40 +174,41 @@ export default function HomePage() {
   };
 
   return (
-    <div className="relative">
+    <div className="relative overflow-hidden">
       {/* BACKGROUND DECORATIONS */}
-      <div className="absolute top-[-5%] left-[-5%] w-[45%] h-[400px] rounded-full bg-primary/10 blur-[130px] animate-blob-slow-1 pointer-events-none" />
-      <div className="absolute top-[15%] right-[-5%] w-[40%] h-[500px] rounded-full bg-emerald-500/5 blur-[150px] animate-blob-slow-2 pointer-events-none" />
+      <div className="absolute top-[-5%] left-[-5%] w-[45%] h-[400px] rounded-full bg-primary/5 blur-[130px] animate-blob-slow-1 pointer-events-none" />
+      <div className="absolute top-[15%] right-[-5%] w-[40%] h-[500px] rounded-full bg-primary/5 blur-[150px] animate-blob-slow-2 pointer-events-none" />
       <div className="absolute top-[50%] left-[5%] w-[35%] h-[400px] rounded-full bg-primary/5 blur-[120px] animate-blob-slow-1 pointer-events-none" />
-      <div className="absolute bottom-[8%] right-[5%] w-[35%] h-[450px] rounded-full bg-primary/8 blur-[130px] animate-blob-slow-2 pointer-events-none" />
+      <div className="absolute bottom-[8%] right-[5%] w-[35%] h-[450px] rounded-full bg-primary/5 blur-[130px] animate-blob-slow-2 pointer-events-none" />
 
       {/* HERO SECTION */}
-      <section className="relative min-h-[92vh] flex items-center pt-12 pb-24 px-6">
+      <section className="relative min-h-[85vh] flex items-center pt-8 pb-16 px-6">
         <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+          
           {/* Left Column Copy */}
-          <div className="lg:col-span-7 flex flex-col gap-8 text-left">
+          <div className="lg:col-span-7 flex flex-col gap-6 text-left animate-fade-blur">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 w-max">
               <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
               <span className="text-[10px] text-primary font-mono uppercase tracking-wider font-bold">
-                The Shopify Growth Partner
+                Shopify Development Partner
               </span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6.5xl font-extrabold tracking-tight text-[#1a1a1a] leading-tight">
-              Build a Shopify Store That{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1a1a1a] via-[#4a4a4a] to-primary">
-                Turns Visitors Into Customers
+            <h1 className="text-4xl sm:text-5xl lg:text-6.5xl font-extrabold tracking-tight text-white leading-tight">
+              We Build Shopify Stores That{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-primary">
+                Convert Visitors
               </span>
             </h1>
 
-            <p className="text-[#4a4a4a] text-base sm:text-lg leading-relaxed max-w-xl">
-              Launch a high-converting Shopify store from scratch, redesign your existing store, or build custom Shopify solutions tailored to your business. We create Shopify experiences that build customer trust and increase conversions.
+            <p className="text-[#8e8e93] text-base sm:text-lg leading-relaxed max-w-xl">
+              Clean architecture, high-converting checkout flows, and sub-2.0s load speeds. We build custom storefronts designed for scale.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mt-2">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-sm font-semibold uppercase tracking-wider text-white bg-primary hover:bg-[#2a6350] transition-all duration-300 hover:shadow-[0_8px_24px_rgba(55,126,98,0.25)] text-center group"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-sm font-semibold uppercase tracking-wider text-white bg-primary hover:bg-[#2a6350] transition-all duration-300 hover:shadow-[0_8px_24px_rgba(16,185,129,0.2)] text-center group"
               >
                 <span>Get Free Consultation</span>
                 <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -581,43 +217,43 @@ export default function HomePage() {
                 href="https://wa.me/919917780656"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-sm font-semibold uppercase tracking-wider text-[#1a1a1a] bg-transparent border border-[#e5e5e5] hover:border-primary/20 transition-all duration-300 text-center hover:bg-primary/[0.02]"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-sm font-semibold uppercase tracking-wider text-white bg-transparent border border-white/[0.08] hover:border-white/20 transition-all duration-300 text-center hover:bg-white/[0.02]"
               >
                 <Phone className="w-4 h-4 text-primary" />
                 <span>Chat on WhatsApp</span>
               </a>
             </div>
 
-            {/* Extra Credibility Indicator */}
-            <div className="pt-6 border-t border-black/[0.05] flex items-center gap-6">
+            {/* Credibility Indicator */}
+            <div className="pt-6 border-t border-white/[0.05] flex items-center gap-6 mt-4">
               <div className="flex -space-x-3">
-                <span className="w-9 h-9 rounded-full bg-bg-secondary border-2 border-white flex items-center justify-center text-[10px] font-bold text-[#1a1a1a]">SB</span>
-                <span className="w-9 h-9 rounded-full bg-bg-secondary border-2 border-white flex items-center justify-center text-[10px] font-bold text-[#1a1a1a]">WE</span>
-                <span className="w-9 h-9 rounded-full bg-bg-secondary border-2 border-white flex items-center justify-center text-[10px] font-bold text-[#1a1a1a]">SZ</span>
+                <span className="w-9 h-9 rounded-full bg-[#121214] border-2 border-[#050505] flex items-center justify-center text-[10px] font-bold text-[#8e8e93]">SB</span>
+                <span className="w-9 h-9 rounded-full bg-[#121214] border-2 border-[#050505] flex items-center justify-center text-[10px] font-bold text-[#8e8e93]">WE</span>
+                <span className="w-9 h-9 rounded-full bg-[#121214] border-2 border-[#050505] flex items-center justify-center text-[10px] font-bold text-[#8e8e93]">SZ</span>
               </div>
-              <p className="text-xs text-[#4a4a4a] leading-relaxed">
-                Trusted by <span className="text-[#1a1a1a] font-semibold">100+ brands</span> to build, redesign, and optimize Shopify storefronts.
+              <p className="text-xs text-[#8e8e93] leading-relaxed">
+                Trusted by <span className="text-white font-semibold">100+ brands</span> to build, redesign, and optimize storefronts.
               </p>
             </div>
           </div>
 
-          {/* Right Column Interactive Dashboard */}
-          <div className="lg:col-span-5 relative">
+          {/* Right Column Interactive Form */}
+          <div className="lg:col-span-5 relative animate-fade-blur" style={{ animationDelay: "0.2s" }}>
             <EnquiryBox />
           </div>
         </div>
       </section>
 
       {/* TRUST BAR TICKER */}
-      <section className="bg-bg-secondary py-10 border-y border-black/[0.05] relative overflow-hidden">
+      <section className="bg-white/[0.01] py-10 border-y border-white/[0.05] relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-5 gap-8 items-center text-center">
             {TRUST_STATS.map((stat, idx) => (
               <div key={idx} className="flex flex-col gap-1 items-center justify-center">
-                <span className="text-xl sm:text-2xl font-bold font-mono text-[#1a1a1a]">
+                <span className="text-xl sm:text-2xl font-bold font-mono text-white">
                   {stat.value}
                 </span>
-                <span className="text-[10px] text-[#4a4a4a] uppercase tracking-wider font-semibold">
+                <span className="text-[10px] text-[#8e8e93] uppercase tracking-wider font-bold">
                   {stat.label}
                 </span>
               </div>
@@ -626,30 +262,27 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* SECTION 2: TRUSTED BY BRAND LOGOS */}
-      <section className="py-20 px-6 relative overflow-hidden bg-bg-dark">
+      {/* BRAND LOGOS */}
+      <section className="py-16 px-6 relative overflow-hidden bg-bg-dark border-b border-white/[0.05]">
         <div className="max-w-7xl mx-auto flex flex-col gap-10 text-center items-center">
-          <div className="max-w-2xl flex flex-col gap-3">
+          <div className="max-w-xl flex flex-col gap-3">
             <span className="text-xs text-primary font-mono uppercase tracking-widest font-bold">
               Trusted Partners
             </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1a1a1a] tracking-tight">
-              Trusted by Growing Ecommerce Brands
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+              Powering High-Growth ECommerce Brands
             </h2>
-            <p className="text-[#4a4a4a] text-sm leading-relaxed">
-              We've helped businesses across multiple industries launch and grow with professionally built Shopify stores.
-            </p>
           </div>
 
-          {/* Monochrome Styled Brand Logo Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-6 gap-6 w-full max-w-5xl mt-4">
+          {/* Styled Brand Logo Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-6 gap-6 w-full max-w-5xl">
             {PORTFOLIO_STORES.map((store, index) => (
               <div
                 key={index}
-                className="group relative p-6 rounded-2xl bg-bg-secondary/40 border border-black/[0.05] flex items-center justify-center min-h-[90px] hover:border-primary/30 transition-all duration-300 hover:shadow-[0_8px_20px_rgba(55,126,98,0.05)] cursor-default overflow-hidden"
+                className="group relative p-6 rounded-2xl bg-white/[0.02] border border-white/[0.05] flex items-center justify-center min-h-[90px] hover:border-primary/30 transition-all duration-300 hover:shadow-[0_8px_20px_rgba(16,185,129,0.03)] cursor-default overflow-hidden"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-                <span className="text-sm md:text-base font-black tracking-widest text-[#7a7a7a] group-hover:text-primary uppercase transition-colors duration-300 font-mono">
+                <span className="text-sm md:text-base font-black tracking-widest text-[#5c5c62] group-hover:text-primary uppercase transition-colors duration-300 font-mono">
                   {store.name}
                 </span>
               </div>
@@ -659,24 +292,23 @@ export default function HomePage() {
       </section>
 
       {/* ROI CALCULATOR SECTION */}
-      <section className="py-28 px-6 relative overflow-hidden bg-bg-secondary border-y border-black/[0.05]">
-        {/* Colorful floating background elements */}
-        <div className="absolute top-[20%] right-[-10%] w-[350px] h-[350px] rounded-full bg-emerald-500/5 blur-[120px] pointer-events-none" />
+      <section className="py-24 px-6 relative overflow-hidden bg-white/[0.01] border-b border-white/[0.05]">
+        <div className="absolute top-[20%] right-[-10%] w-[350px] h-[350px] rounded-full bg-primary/5 blur-[120px] pointer-events-none" />
         <div className="absolute bottom-[20%] left-[-10%] w-[350px] h-[350px] rounded-full bg-primary/5 blur-[120px] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto flex flex-col gap-12 text-center items-center">
           <div className="max-w-3xl flex flex-col gap-4">
             <span className="text-xs text-primary font-mono uppercase tracking-widest font-bold">
-              Conversion ROI Calculator
+              ROI Simulator
             </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#1a1a1a] tracking-tight leading-tight">
-              See How Much Revenue <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1a1a1a] to-primary">
-                You Are Leaving On The Table
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
+              Stop Leaking Sales. <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-primary">
+                Unlock Your Store's True Potential
               </span>
             </h2>
-            <p className="text-[#4a4a4a] text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
-              When storefront load speeds drop and mobile UX is optimized, your conversion rate spikes, increasing revenue without spending a single rupee more on traffic.
+            <p className="text-[#8e8e93] text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
+              When site speeds drop and mobile checkout is streamlined, conversion rates spike—increasing revenue without increasing ad spend.
             </p>
           </div>
           
@@ -684,114 +316,249 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* SHOPIFY PHILOSOPHY SECTION */}
-      <section className="py-28 px-6 relative bg-bg-dark">
-        <div className="max-w-7xl mx-auto flex flex-col gap-16">
-          {/* Header */}
-          <div className="max-w-3xl mx-auto text-center flex flex-col gap-4">
-            <span className="text-xs text-primary font-mono uppercase tracking-widest font-bold">
-              The SalePixel Core Philosophy
-            </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#1a1a1a] tracking-tight leading-tight">
-              Traffic Brings Visitors. <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1a1a1a] to-primary">
-                Trust Creates Customers.
-              </span>
-            </h2>
-            <p className="text-[#4a4a4a] text-sm sm:text-base leading-relaxed mt-2 max-w-2xl mx-auto">
-              Visitors can come from anywhere—Google, social media, referrals, email, or other marketing channels. But traffic alone doesn't generate sales. Customers purchase when they trust your brand. A professionally designed Shopify store creates confidence, improves the shopping experience, and removes friction from the buying journey. At SalePixel, we build Shopify stores that earn customer trust and convert more visitors into buyers.
-            </p>
-          </div>
-
-          {/* Interactive Flow Diagram */}
-          <InteractiveFunnel />
-        </div>
-      </section>
-
-      {/* SERVICES SECTION */}
-      <section className="py-24 px-6 bg-bg-secondary border-y border-black/[0.05] relative">
-        <div className="max-w-7xl mx-auto flex flex-col gap-16">
+      {/* SERVICES VISUAL SHOWCASE (Alternating Editorial Layouts) */}
+      <section className="py-24 px-6 bg-bg-dark border-b border-white/[0.05] relative">
+        <div className="max-w-7xl mx-auto flex flex-col gap-24">
+          
           {/* Section Header */}
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-            <div className="flex flex-col gap-4 text-left max-w-xl">
-              <span className="text-xs text-primary font-mono uppercase tracking-widest font-bold">
-                Services & Capabilities
-              </span>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1a1a1a] tracking-tight">
-                Engineered for Conversion. Optimized for Performance.
-              </h2>
-            </div>
-            <p className="text-[#4a4a4a] text-sm md:max-w-sm leading-relaxed">
-              We provide full-stack Shopify solutions that combine custom UI/UX design with clean code architectures, lightning-fast speeds, and seamless migrations.
+          <div className="text-center max-w-2xl mx-auto flex flex-col gap-4">
+            <span className="text-xs text-primary font-mono uppercase tracking-widest font-bold">
+              Capabilities
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+              Engineered to Convert
+            </h2>
+            <p className="text-[#8e8e93] text-sm leading-relaxed">
+              We design and develop premium, speed-optimized Shopify components built specifically for your audience.
             </p>
           </div>
 
-          {/* Grid of Interactive Services Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              {
-                title: "Shopify Store Development",
-                desc: "High-performance storefront development using optimized code architectures, Next.js, and custom templates built for lightning-fast speeds.",
-                metrics: "PageSpeed Score: 95+"
-              },
-              {
-                title: "Shopify CRO Audits",
-                desc: "Deep user-behavior mapping and session recording analysis to identify layout friction points and design optimized pathways.",
-                metrics: "Avg. +40% CR Boost"
-              },
-              {
-                title: "Shopify Store Migrations",
-                desc: "Seamless migration of products, collections, customers, SEO paths, and design assets from BigCommerce, WooCommerce, or custom platforms.",
-                metrics: "Zero SEO Traffic Loss"
-              },
-              {
-                title: "Speed & Performance Tuning",
-                desc: "Under-the-hood optimization, code splitting, asset loading strategy, and script management to reach sub-2.0 second page loads.",
-                metrics: "Consistently 90+ Score"
-              },
-              {
-                title: "Custom Landing Pages",
-                desc: "Designing and engineering tailored, product-focused promotional landing pages for catalog launches and marketing events.",
-                metrics: "Sub-1.5s Load Velocity"
-              },
-              {
-                title: "App & Custom Integrations",
-                desc: "Connecting custom inventory ERPs, logistics APIs, CRM platforms, subscriptions, and custom features into your store.",
-                metrics: "100% API Sync Rate"
-              }
-            ].map((srv, idx) => (
-              <div
-                key={idx}
-                className="group relative p-8 rounded-2xl bg-white border border-black/[0.05] hover:border-primary/30 transition-all duration-300 flex flex-col justify-between min-h-[250px] overflow-hidden shadow-sm hover:shadow-md"
-              >
-                {/* Micro green glow on hover */}
-                <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-primary/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-
-                <div className="relative z-10 flex flex-col gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-black/[0.03] group-hover:bg-primary/10 flex items-center justify-center text-[#1a1a1a] group-hover:text-primary transition-colors duration-300">
-                    <Layers className="w-5 h-5" />
+          {/* Alternating Editorial Showcase of Capabilities */}
+          <div className="flex flex-col gap-32 mt-8">
+            
+            {/* Component 1: Shopify Homepages & Collection Pages */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+              <div className="lg:col-span-5 flex flex-col gap-6 text-left">
+                <span className="text-xs text-primary font-mono uppercase tracking-widest font-bold">01. Architecture</span>
+                <h3 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">Shopify Homepages & Collection Pages</h3>
+                <p className="text-[#8e8e93] text-sm leading-relaxed">
+                  Cinematic catalogs featuring grid filters, visual hierarchy, and fast-scrolling selectors designed to establish brand authority instantly.
+                </p>
+                <div className="flex gap-8 border-t border-white/5 pt-6 mt-2">
+                  <div>
+                    <span className="text-[10px] text-[#8e8e93] uppercase font-mono tracking-wider">Mobile Speed</span>
+                    <span className="block text-2xl font-bold text-white font-mono mt-1">98/100</span>
                   </div>
-                  <h3 className="text-lg font-bold text-[#1a1a1a] group-hover:text-primary transition-colors duration-200">
-                    {srv.title}
-                  </h3>
-                  <p className="text-sm text-[#4a4a4a] leading-relaxed">
-                    {srv.desc}
-                  </p>
-                </div>
-
-                <div className="relative z-10 pt-6 mt-6 border-t border-black/[0.05] flex justify-between items-center text-xs">
-                  <span className="text-[#7a7a7a] uppercase tracking-wider font-mono">Performance Metric</span>
-                  <span className="font-bold text-[#1a1a1a] font-mono">{srv.metrics}</span>
+                  <div>
+                    <span className="text-[10px] text-[#8e8e93] uppercase font-mono tracking-wider">Bounce Rate</span>
+                    <span className="block text-2xl font-bold text-primary font-mono mt-1">-42% Avg.</span>
+                  </div>
                 </div>
               </div>
-            ))}
+              <div className="lg:col-span-7 group relative">
+                {/* Browser Mockup */}
+                <div className="w-full aspect-[16/10] rounded-2xl bg-white/[0.02] border border-white/[0.08] overflow-hidden shadow-2xl transition-all duration-500 hover:scale-[1.02] hover:shadow-[0_20px_50px_rgba(16,185,129,0.08)] relative">
+                  <div className="px-4 py-2.5 bg-white/5 border-b border-white/5 flex items-center justify-between">
+                    <div className="flex items-center gap-1.5">
+                      <span className="w-2 h-2 rounded-full bg-red-500/60" />
+                      <span className="w-2 h-2 rounded-full bg-yellow-500/60" />
+                      <span className="w-2 h-2 rounded-full bg-green-500/60" />
+                    </div>
+                    <span className="text-[9px] text-[#8e8e93] font-mono">boutique.brand.com/shop</span>
+                    <span className="w-2 h-2 bg-white/10 rounded-full" />
+                  </div>
+                  <div className="relative w-full h-[calc(100%-37px)] bg-[#050505] p-6 flex flex-col justify-between text-left">
+                    <div className="flex justify-between items-center pb-3 border-b border-white/5">
+                      <span className="text-[10px] font-black text-white font-mono uppercase tracking-wider">LUXE Boutique</span>
+                      <span className="text-[8px] text-[#8e8e93] uppercase tracking-wider font-bold">Cart (0)</span>
+                    </div>
+                    <div className="grid grid-cols-3 gap-4 my-auto">
+                      {[
+                        { title: "Silk Wrap Blouse", price: "₹6,800", img: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=200&q=80" },
+                        { title: "Organza Dress", price: "₹12,500", img: "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=200&q=80" },
+                        { title: "Silk Kurta Kurti", price: "₹8,900", img: "https://images.unsplash.com/photo-1609357518652-6cf0416f0cbe?w=200&q=80" }
+                      ].map((item, i) => (
+                        <div key={i} className="flex flex-col gap-1.5 p-2 rounded-xl bg-white/[0.01] border border-white/5 hover:border-primary/20 transition-all duration-300">
+                          <div className="aspect-[4/5] w-full rounded-lg overflow-hidden relative bg-neutral-900">
+                            <img src={item.img} alt="" className="w-full h-full object-cover" />
+                          </div>
+                          <span className="text-[8px] font-bold text-white truncate">{item.title}</span>
+                          <span className="text-[8px] text-primary font-mono">{item.price}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Component 2: Product Pages & Cart UI */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+              <div className="lg:col-span-7 order-last lg:order-first group relative">
+                {/* Browser Mockup with slide-out cart drawer overlay */}
+                <div className="w-full aspect-[16/10] rounded-2xl bg-white/[0.02] border border-white/[0.08] overflow-hidden shadow-2xl transition-all duration-500 hover:scale-[1.02] hover:shadow-[0_20px_50px_rgba(16,185,129,0.08)] relative">
+                  <div className="px-4 py-2.5 bg-white/5 border-b border-white/5 flex items-center justify-between">
+                    <div className="flex items-center gap-1.5">
+                      <span className="w-2 h-2 rounded-full bg-red-500/60" />
+                      <span className="w-2 h-2 rounded-full bg-yellow-500/60" />
+                      <span className="w-2 h-2 rounded-full bg-green-500/60" />
+                    </div>
+                    <span className="text-[9px] text-[#8e8e93] font-mono">carbon.wheel.com/products/steering</span>
+                    <span className="w-2 h-2 bg-white/10 rounded-full" />
+                  </div>
+                  <div className="relative w-full h-[calc(100%-37px)] bg-[#0c0c0c] p-6 flex items-start gap-4 text-left">
+                    <div className="flex-1 flex flex-col gap-3">
+                      <div className="aspect-[4/3] w-full rounded-xl bg-white/5 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=300&q=80" alt="" className="w-full h-full object-cover" />
+                      </div>
+                      <h4 className="text-[10px] font-bold text-white">Carbon Steering Wheel</h4>
+                      <span className="text-[10px] text-primary font-mono">₹24,999</span>
+                    </div>
+                    {/* Slide-out cart mock */}
+                    <div className="w-[150px] h-full bg-[#121214] border-l border-white/10 p-3 absolute right-0 top-0 bottom-0 flex flex-col justify-between shadow-2xl z-20">
+                      <div className="flex flex-col gap-3">
+                        <div className="flex justify-between items-center border-b border-white/5 pb-1.5">
+                          <span className="text-[8px] font-bold text-white">CART (1)</span>
+                        </div>
+                        <div className="flex gap-2 items-center bg-white/[0.02] p-1.5 rounded border border-white/5">
+                          <div className="w-6 h-6 rounded bg-white/10 overflow-hidden shrink-0">
+                            <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=100&q=80" alt="" className="w-full h-full object-cover" />
+                          </div>
+                          <div className="flex-grow min-w-0">
+                            <p className="text-[6px] text-white font-bold truncate">Steering Wheel</p>
+                            <p className="text-[6px] text-primary font-mono">₹24,999</p>
+                          </div>
+                        </div>
+                      </div>
+                      <button className="w-full py-1.5 bg-primary text-white text-[8px] font-bold uppercase rounded">Checkout</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="lg:col-span-5 flex flex-col gap-6 text-left">
+                <span className="text-xs text-primary font-mono uppercase tracking-widest font-bold">02. Engagement</span>
+                <h3 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">Product Pages & Custom Cart drawers</h3>
+                <p className="text-[#8e8e93] text-sm leading-relaxed">
+                  Interactive buy boxes, instant options selectors, and slide-out drawers optimized to simplify purchase choices and increase average order values.
+                </p>
+                <div className="flex gap-8 border-t border-white/5 pt-6 mt-2">
+                  <div>
+                    <span className="text-[10px] text-[#8e8e93] uppercase font-mono tracking-wider">AOV Boost</span>
+                    <span className="block text-2xl font-bold text-white font-mono mt-1">+24% Avg.</span>
+                  </div>
+                  <div>
+                    <span className="text-[10px] text-[#8e8e93] uppercase font-mono tracking-wider">Add-to-Carts</span>
+                    <span className="block text-2xl font-bold text-primary font-mono mt-1">+35% Rise</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Component 3: Mobile Shopify Experience & Checkout UI */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+              <div className="lg:col-span-5 flex flex-col gap-6 text-left">
+                <span className="text-xs text-primary font-mono uppercase tracking-widest font-bold">03. Mobile First</span>
+                <h3 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">Mobile Shopify Experience & Checkout UI</h3>
+                <p className="text-[#8e8e93] text-sm leading-relaxed">
+                  Fast mobile checkouts, custom sticky buy buttons, and responsive gesture-based navigation engineered specifically for mobile D2C buyers.
+                </p>
+                <div className="flex gap-8 border-t border-white/5 pt-6 mt-2">
+                  <div>
+                    <span className="text-[10px] text-[#8e8e93] uppercase font-mono tracking-wider">Mobile Conv.</span>
+                    <span className="block text-2xl font-bold text-white font-mono mt-1">4.86% +</span>
+                  </div>
+                  <div>
+                    <span className="text-[10px] text-[#8e8e93] uppercase font-mono tracking-wider">Checkout Speed</span>
+                    <span className="block text-2xl font-bold text-primary font-mono mt-1">Sub-1.5s</span>
+                  </div>
+                </div>
+              </div>
+              <div className="lg:col-span-7 flex justify-center gap-6 relative group">
+                <div className="w-[170px] aspect-[9/18] rounded-[24px] bg-[#0c0c0e] border-4 border-[#27272a] shadow-2xl p-2 pt-4 relative overflow-hidden transition-transform duration-500 hover:-translate-y-2">
+                  <div className="w-full h-full bg-[#050505] rounded-xl p-2.5 flex flex-col justify-between border border-white/5 text-left">
+                    <div className="flex justify-between items-center text-[7px] text-[#8e8e93] border-b border-white/5 pb-1">
+                      <span>GLYTERS JEWELRY</span>
+                    </div>
+                    <div className="my-auto flex flex-col gap-1.5 items-center text-center">
+                      <div className="w-16 h-16 rounded bg-white/5 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=150&q=80" alt="" className="w-full h-full object-cover" />
+                      </div>
+                      <span className="text-[7px] text-white font-bold truncate max-w-full">Diamond Bracelet</span>
+                      <span className="text-[7px] text-primary font-mono">₹38,000</span>
+                    </div>
+                    <button className="w-full py-1.5 bg-primary text-white text-[7px] font-bold rounded">Buy Now</button>
+                  </div>
+                </div>
+
+                <div className="w-[170px] aspect-[9/18] rounded-[24px] bg-[#0c0c0e] border-4 border-[#27272a] shadow-2xl p-2 pt-4 relative overflow-hidden transition-transform duration-500 hover:-translate-y-4 -ml-8 mt-8">
+                  <div className="w-full h-full bg-[#121214] rounded-xl p-3 flex flex-col justify-between border border-white/5 text-left">
+                    <div className="flex justify-between items-center text-[6px] border-b border-white/5 pb-1">
+                      <span className="text-white font-bold">SECURE CHECKOUT</span>
+                    </div>
+                    <div className="flex flex-col gap-1.5 my-auto">
+                      <span className="text-[5px] text-[#8e8e93]">SHIPPING ADDRESS</span>
+                      <div className="w-full h-2.5 bg-white/5 rounded" />
+                      <div className="w-full h-2.5 bg-white/5 rounded" />
+                      <span className="text-[5px] text-[#8e8e93] mt-1.5">SECURE PAYMENT</span>
+                      <div className="h-3 w-full bg-primary/10 border border-primary/20 rounded flex items-center justify-center text-[5px] text-primary font-mono font-bold">UPI ENABLED</div>
+                    </div>
+                    <button className="w-full py-1.5 bg-primary text-white text-[7px] font-bold rounded">Pay Now</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Component 4: Landing Pages & Luxury Brand Designs */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+              <div className="lg:col-span-7 order-last lg:order-first group relative">
+                {/* Browser Mockup */}
+                <div className="w-full aspect-[16/10] rounded-2xl bg-white/[0.02] border border-white/[0.08] overflow-hidden shadow-2xl transition-all duration-500 hover:scale-[1.02] hover:shadow-[0_20px_50px_rgba(16,185,129,0.08)] relative">
+                  <div className="px-4 py-2.5 bg-white/5 border-b border-white/5 flex items-center justify-between">
+                    <div className="flex items-center gap-1.5">
+                      <span className="w-2 h-2 rounded-full bg-red-500/60" />
+                      <span className="w-2 h-2 rounded-full bg-yellow-500/60" />
+                      <span className="w-2 h-2 rounded-full bg-green-500/60" />
+                    </div>
+                    <span className="text-[9px] text-[#8e8e93] font-mono">organic.lab/promo</span>
+                    <span className="w-2 h-2 bg-white/10 rounded-full" />
+                  </div>
+                  <div className="relative w-full h-[calc(100%-37px)] bg-[#050505] p-6 flex flex-col justify-center text-center items-center">
+                    <span className="text-[7px] text-primary font-mono uppercase tracking-widest font-bold">EXCLUSIVE CAMPAIGN</span>
+                    <h4 className="text-base font-bold text-white max-w-sm mt-1.5">Organic Superfoods & Elixirs</h4>
+                    <p className="text-[8px] text-[#8e8e93] max-w-xs mt-1">Boost daily output and gut health with 100% certified cold-pressed extracts.</p>
+                    <div className="flex gap-3 mt-3.5">
+                      <span className="px-3 py-1 bg-primary text-white text-[7px] font-bold rounded">Shop Offer</span>
+                      <span className="px-3 py-1 border border-white/10 text-white text-[7px] font-bold rounded">Read Audit</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="lg:col-span-5 flex flex-col gap-6 text-left">
+                <span className="text-xs text-primary font-mono uppercase tracking-widest font-bold">04. Growth</span>
+                <h3 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">Custom Landing Pages & Luxury Brand Designs</h3>
+                <p className="text-[#8e8e93] text-sm leading-relaxed">
+                  Campaign-driven, hyper-focused landing pages built to secure lower CPA bidding, maximize margins, and present brand stories cinematically.
+                </p>
+                <div className="flex gap-8 border-t border-white/5 pt-6 mt-2">
+                  <div>
+                    <span className="text-[10px] text-[#8e8e93] uppercase font-mono tracking-wider">CPA Reduction</span>
+                    <span className="block text-2xl font-bold text-white font-mono mt-1">-32% Net</span>
+                  </div>
+                  <div>
+                    <span className="text-[10px] text-[#8e8e93] uppercase font-mono tracking-wider">Campaign ROAS</span>
+                    <span className="block text-2xl font-bold text-primary font-mono mt-1">Up to 8.7x</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
 
-          {/* Bottom CTA trigger */}
-          <div className="flex justify-center mt-4">
+          {/* Bottom CTA */}
+          <div className="flex justify-center mt-8">
             <Link
               href="/services"
-              className="inline-flex items-center gap-2 text-xs uppercase tracking-wider font-bold text-primary hover:text-[#2a6350] transition-colors group"
+              className="inline-flex items-center gap-2 text-xs uppercase tracking-wider font-bold text-primary hover:text-primary/80 transition-colors group"
             >
               <span>Explore All Our Growth Capabilities</span>
               <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
@@ -801,23 +568,22 @@ export default function HomePage() {
       </section>
 
       {/* AB TESTING SIMULATOR SECTION */}
-      <section className="py-28 px-6 relative overflow-hidden bg-bg-dark border-b border-black/[0.05]">
-        {/* Floating gradient circle */}
-        <div className="absolute top-[30%] left-[20%] w-[400px] h-[400px] rounded-full bg-emerald-500/5 blur-[150px] pointer-events-none" />
+      <section className="py-24 px-6 relative overflow-hidden bg-white/[0.01] border-b border-white/[0.05]">
+        <div className="absolute top-[30%] left-[20%] w-[400px] h-[400px] rounded-full bg-primary/5 blur-[150px] pointer-events-none" />
         
         <div className="max-w-7xl mx-auto flex flex-col gap-12 text-center items-center">
           <div className="max-w-3xl flex flex-col gap-4">
             <span className="text-xs text-primary font-mono uppercase tracking-widest font-bold">
-              A/B Conversion Sandbox
+              Conversion Sandbox
             </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#1a1a1a] tracking-tight leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
               Optimize The Destination <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1a1a1a] to-primary">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-primary">
                 Before Scaling The Ads
               </span>
             </h2>
-            <p className="text-[#4a4a4a] text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
-              Compare a standard, unoptimized template with a custom SalePXL high-converting storefront setup. Click the hotspots to explore design and speed parameters.
+            <p className="text-[#8e8e93] text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
+              Compare an unoptimized Shopify setup against a conversion-engineered storefront. Explore the hotspots to view optimization details.
             </p>
           </div>
 
@@ -825,170 +591,79 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* SECTION 4: WHY CHOOSE SALEPIXEL */}
-      <section className="py-28 px-6 relative bg-bg-dark">
-        <div className="max-w-7xl mx-auto flex flex-col gap-16">
-          {/* Header */}
-          <div className="max-w-2xl text-left flex flex-col gap-4">
-            <span className="text-xs text-primary font-mono uppercase tracking-widest font-bold">
-              Why Partner With Us
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1a1a1a] tracking-tight">
-              Built on Conversion Psychology & Real-time Data
-            </h2>
-            <p className="text-[#4a4a4a] text-sm leading-relaxed">
-              We do not write generic reports or run standard agency templates. We treat your digital product representation seriously, ensuring conversion optimizations are integrated into the storefront architecture.
-            </p>
-          </div>
-
-          {/* Grid of 6 Premium Feature Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              {
-                title: "Premium Store Design",
-                desc: "Beautiful Shopify stores designed to reflect your brand.",
-                icon: Sparkles
-              },
-              {
-                title: "Mobile-First Experience",
-                desc: "Perfect experience across every device.",
-                icon: Smartphone
-              },
-              {
-                title: "Conversion-Focused Layouts",
-                desc: "Every page is designed to maximize conversions.",
-                icon: TrendingUp
-              },
-              {
-                title: "Fast Performance",
-                desc: "Optimized for speed and user experience.",
-                icon: Zap
-              },
-              {
-                title: "Custom Shopify Development",
-                desc: "Tailored Shopify functionality built for your business.",
-                icon: Code
-              },
-              {
-                title: "Easy Content Management",
-                desc: "Manage your website easily using Shopify's Online Store 2.0 sections.",
-                icon: Sliders
-              }
-            ].map((item, idx) => {
-              const IconComp = item.icon;
-              return (
-                <div
-                  key={idx}
-                  className="group relative p-8 rounded-3xl bg-white border border-black/[0.05] hover:border-primary/30 transition-all duration-300 flex flex-col gap-5 overflow-hidden shadow-sm hover:shadow-md"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-                  <span className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-white transition-all duration-300">
-                    <IconComp className="w-5.5 h-5.5" />
-                  </span>
-                  <div>
-                    <h3 className="text-base font-bold text-[#1a1a1a] group-hover:text-primary transition-colors duration-200">{item.title}</h3>
-                    <p className="text-xs text-[#4a4a4a] leading-relaxed mt-2">{item.desc}</p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 5: PORTFOLIO RECENT PROJECTS */}
-      <section className="py-28 px-6 bg-bg-secondary border-y border-black/[0.05] relative">
+      {/* RECENT PROJECTS (Premium Cases lookbook with zoom effects) */}
+      <section className="py-24 px-6 bg-bg-dark border-b border-white/[0.05] relative">
         <div className="max-w-7xl mx-auto flex flex-col gap-16">
           <div className="text-center max-w-2xl mx-auto flex flex-col gap-4">
             <span className="text-xs text-primary font-mono uppercase tracking-widest font-bold">
               Shopify Portfolio
             </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1a1a1a] tracking-tight">
-              Recent Shopify Projects
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+              Recent Case Studies
             </h2>
-            <p className="text-[#4a4a4a] text-sm">
-              Explore our recent custom Shopify builds combining high-end design aesthetics with optimized checkout performance.
+            <p className="text-[#8e8e93] text-sm leading-relaxed">
+              We replace guesswork with engineering. Here are our recent builds matching speed best-practices with custom conversion layouts.
             </p>
           </div>
 
-          {/* Elegant 3-column Projects Grid */}
+          {/* Grid of Projects */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {HOME_PROJECTS.map((proj, idx) => (
               <div
                 key={idx}
-                className="group rounded-3xl bg-white border border-black/[0.05] hover:border-primary/20 transition-all duration-300 flex flex-col justify-between overflow-hidden shadow-lg"
+                className="group rounded-3xl bg-white/[0.02] border border-white/[0.05] hover:border-primary/20 transition-all duration-500 flex flex-col justify-between overflow-hidden shadow-lg"
               >
-                {/* Visual mockups container */}
-                <div className="relative aspect-[16/11] w-full overflow-hidden bg-bg-secondary p-3 border-b border-black/[0.05] flex items-center justify-center">
+                {/* Image Showcase - Large zoom on hover */}
+                <div className="relative aspect-[16/11] w-full overflow-hidden bg-[#0c0c0e] p-3 border-b border-white/[0.05] flex items-center justify-center">
                   
-                  {/* Desktop Browser Window Preview (HTML CSS Mockup) */}
-                  <div className={`w-[90%] aspect-[16/10] rounded-xl border border-black/[0.05] ${proj.bgColor} ${proj.textColor} font-sans shadow-lg overflow-hidden flex flex-col self-start`}>
-                    {/* Fake Header bar */}
-                    <div className="px-2 py-1 bg-black/10 border-b border-black/[0.03] flex items-center justify-between text-[6px]">
+                  {/* CSS Browser Window Mockup */}
+                  <div className={`w-[90%] aspect-[16/10] rounded-xl border border-white/[0.05] ${proj.bgColor} ${proj.textColor} font-sans shadow-lg overflow-hidden flex flex-col self-start`}>
+                    <div className="px-2 py-1 bg-black/10 border-b border-white/[0.03] flex items-center justify-between text-[6px]">
                       <div className="flex gap-1 items-center">
-                        <span className="w-1.5 h-1.5 rounded-full bg-red-500/40" />
-                        <span className="w-1.5 h-1.5 rounded-full bg-yellow-500/40" />
-                        <span className="w-1.5 h-1.5 rounded-full bg-green-500/40" />
+                        <span className="w-1 h-1 rounded-full bg-red-500/40" />
+                        <span className="w-1 h-1 rounded-full bg-yellow-500/40" />
+                        <span className="w-1 h-1 rounded-full bg-green-500/40" />
                       </div>
                       <span className="font-mono scale-90 opacity-60 truncate max-w-[80px]">{proj.name.toLowerCase().replace(" ", "")}.com</span>
-                      <span className="w-1.5 h-1.5 rounded-full bg-black/5" />
+                      <span className="w-1 h-1 rounded-full bg-black/5" />
                     </div>
-                    {/* Fake body */}
-                    <div className="p-2 flex flex-col gap-1.5 flex-1 justify-start">
-                      <div className="flex justify-between items-center text-[5px] scale-95 border-b border-black/[0.04] pb-1 opacity-70">
+                    <div className="p-2 flex flex-col gap-1 flex-1 justify-start">
+                      <div className="flex justify-between items-center text-[4px] scale-95 border-b border-white/5 pb-1 opacity-70">
                         <span className="font-black" style={{ color: proj.primaryColor }}>{proj.name}</span>
-                        <div className="flex gap-1.5">
-                          <span>Shop</span>
-                          <span>Cart (0)</span>
-                        </div>
+                        <span>Cart (0)</span>
                       </div>
-                      {/* Fake Banner */}
-                      <div className="bg-black/5 rounded p-1.5 relative overflow-hidden flex flex-col justify-center min-h-[35px]">
-                        <div className="relative z-10 flex flex-col">
-                          <span className="text-[4px] uppercase tracking-widest font-bold opacity-60">New Collection</span>
-                          <span className="text-[6px] font-black leading-tight max-w-[80px]">{proj.heroText}</span>
-                        </div>
-                        <div className="absolute right-0 top-0 bottom-0 w-[45%] bg-black/10 rounded flex items-center justify-center text-[8px] opacity-20">
-                          <ShoppingBag className="w-4.5 h-4.5" />
-                        </div>
-                      </div>
-                      {/* Fake Products row */}
-                      <div className="grid grid-cols-2 gap-1.5 mt-0.5">
-                        {proj.products.map((p, pidx) => (
-                          <div key={pidx} className="bg-black/[0.02] border border-black/[0.03] rounded p-1 flex flex-col gap-0.5">
-                            <div className="aspect-[16/10] bg-black/5 rounded-sm" />
-                            <span className="text-[4px] font-bold truncate">{p.name}</span>
-                            <span className="text-[4px] opacity-70 font-mono">{p.price}</span>
-                          </div>
-                        ))}
+                      <div className="bg-black/10 rounded p-1 relative overflow-hidden flex flex-col justify-center min-h-[30px] text-left">
+                        <span className="text-[3px] uppercase font-bold opacity-60">New Launch</span>
+                        <span className="text-[5px] font-black leading-tight max-w-[65px]">{proj.heroText}</span>
                       </div>
                     </div>
                   </div>
 
-                  {/* Mobile Preview Overlay (Overlapping phone screenshot) */}
-                  <div className="absolute bottom-2.5 right-2.5 w-[33%] aspect-[9/16.2] rounded-xl border border-black/[0.08] bg-white overflow-hidden shadow-2xl z-20 group-hover:scale-102 transition-transform duration-300">
-                    {/* Phone speaker / camera notch */}
-                    <div className="absolute top-1 left-1/2 -translate-x-1/2 w-8 h-1 bg-black rounded-full z-30" />
-                    {/* Actual screenshot image loaded inside mobile phone mockup */}
+                  {/* Overlapping mobile phone screenshot preview */}
+                  <div className="absolute bottom-2.5 right-2.5 w-[33%] aspect-[9/16.2] rounded-xl border border-white/[0.08] bg-[#050505] overflow-hidden shadow-2xl z-20 transition-transform duration-500 group-hover:scale-105 group-hover:shadow-[0_15px_30px_rgba(16,185,129,0.1)]">
                     <img
                       src={proj.image}
                       alt={`${proj.name} mobile view`}
-                      className="w-full h-full object-cover object-top filter brightness-95"
+                      className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
                       loading="lazy"
                     />
+                    {/* View project indicator on hover */}
+                    <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                      <span className="text-[7px] bg-[#050505]/80 text-white font-bold py-1 px-2 rounded-full tracking-wider uppercase backdrop-blur-sm">View</span>
+                    </div>
                   </div>
                 </div>
 
-                {/* Info and tags */}
-                <div className="p-6 flex-1 flex flex-col justify-between gap-4">
+                {/* Info Card block */}
+                <div className="p-6 flex-1 flex flex-col justify-between gap-4 text-left">
                   <div className="flex flex-col gap-2">
                     <div className="flex justify-between items-center">
-                      <h3 className="text-base font-bold text-[#1a1a1a] group-hover:text-primary transition-colors">{proj.name}</h3>
-                      <span className="text-[9px] bg-black/[0.03] border border-black/[0.05] text-[#4a4a4a] px-2 py-0.5 rounded-full font-mono uppercase">
+                      <h3 className="text-base font-bold text-white group-hover:text-primary transition-colors">{proj.name}</h3>
+                      <span className="text-[8px] bg-white/[0.03] border border-white/[0.05] text-[#8e8e93] px-2 py-0.5 rounded-full font-mono uppercase">
                         {proj.industry}
                       </span>
                     </div>
-                    <p className="text-xs text-[#4a4a4a] leading-relaxed">
+                    <p className="text-xs text-[#8e8e93] leading-relaxed">
                       {proj.description}
                     </p>
                   </div>
@@ -999,63 +674,48 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* PORTFOLIO PREVIEW SHOWCASE */}
-      <section className="py-20 relative overflow-hidden bg-white border-b border-black/[0.05]">
-        {/* CSS Keyframe animations for auto-scrolling marquee */}
+      {/* PORTFOLIO SHOWCASE AUTO-SCROLLING MARQUEE */}
+      <section className="py-20 relative overflow-hidden bg-white/[0.01] border-b border-white/[0.05]">
         <style dangerouslySetInnerHTML={{ __html: `
           @keyframes marquee-left {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
-          }
-          @keyframes marquee-right {
-            0% { transform: translateX(-50%); }
-            100% { transform: translateX(0); }
           }
           .animate-marquee-left {
             display: flex;
             width: max-content;
             animation: marquee-left 40s linear infinite;
           }
-          .animate-marquee-right {
-            display: flex;
-            width: max-content;
-            animation: marquee-right 40s linear infinite;
-          }
-          .marquee-container:hover .animate-marquee-left,
-          .marquee-container:hover .animate-marquee-right {
+          .marquee-container:hover .animate-marquee-left {
             animation-play-state: paused;
           }
         ` }} />
 
-        {/* Ambient glow backgrounds */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] h-[400px] rounded-full bg-primary/[0.02] blur-[150px] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-6 mb-8 text-center">
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1a1a1a] tracking-tight uppercase">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight uppercase">
             Storefront Showcases
           </h2>
         </div>
 
-        {/* Row 1: Landscape mockups scrolling left (Brands 1-6) */}
         <div className="w-full overflow-hidden marquee-container py-3">
           <div className="animate-marquee-left flex gap-6">
             {[...PORTFOLIO_STORES, ...PORTFOLIO_STORES, ...PORTFOLIO_STORES].map((store, idx) => (
               <div
                 key={idx}
-                className="w-[200px] sm:w-[260px] md:w-[320px] flex flex-col rounded-2xl bg-white border border-black/[0.05] overflow-hidden hover:border-primary/30 transition-all duration-500 shrink-0 shadow-sm hover:shadow-md"
+                className="w-[200px] sm:w-[260px] md:w-[320px] flex flex-col rounded-2xl bg-[#09090b] border border-white/[0.05] overflow-hidden hover:border-primary/30 transition-all duration-500 shrink-0 shadow-sm hover:shadow-md"
                 style={{ aspectRatio: "400/715" }}
               >
-                {/* Browser dots top bar */}
-                <div className="px-4 py-2 bg-bg-secondary border-b border-black/[0.05] flex items-center justify-between">
+                <div className="px-4 py-2 bg-white/[0.03] border-b border-white/[0.05] flex items-center justify-between">
                   <div className="flex items-center gap-1">
                     <span className="w-1.5 h-1.5 rounded-full bg-red-500/60" />
                     <span className="w-1.5 h-1.5 rounded-full bg-yellow-500/60" />
                     <span className="w-1.5 h-1.5 rounded-full bg-green-500/60" />
                   </div>
-                  <span className="w-1.5 h-1.5 rounded-full bg-black/[0.05]" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-white/[0.05]" />
                 </div>
-                {/* Mockup Image Container */}
-                <div className="relative flex-1 w-full overflow-hidden bg-white">
+                <div className="relative flex-1 w-full overflow-hidden bg-[#050505]">
                   <img
                     src={store.image}
                     alt={store.name}
@@ -1072,27 +732,27 @@ export default function HomePage() {
         <div className="flex justify-center mt-12">
           <Link
             href="/portfolio"
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-sm font-semibold uppercase tracking-wider text-[#1a1a1a] bg-bg-secondary hover:bg-bg-secondary/90 border border-black/[0.05] transition-all text-center"
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-sm font-semibold uppercase tracking-wider text-white bg-white/[0.02] hover:bg-white/[0.05] border border-white/[0.05] transition-all text-center"
           >
             <span>Explore All Portfolio Brands</span>
           </Link>
         </div>
       </section>
 
-      {/* TESTIMONIALS AUTO-SLIDER */}
-      <section className="py-28 px-6 relative bg-bg-secondary">
-        <div className="max-w-5xl mx-auto flex flex-col gap-12 text-center">
+      {/* TESTIMONIALS SLIDER */}
+      <section className="py-24 px-6 relative bg-white/[0.01]">
+        <div className="max-w-4xl mx-auto flex flex-col gap-12 text-center">
           <div className="flex flex-col gap-4">
             <span className="text-xs text-primary font-mono uppercase tracking-widest font-bold">
               Client Feedback
             </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1a1a1a] tracking-tight">
-              What Our Clients Say
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+              Audited Case Outcomes
             </h2>
           </div>
 
           {/* Testimonial slider card */}
-          <div className="relative min-h-[300px] flex items-center justify-center">
+          <div className="relative min-h-[250px] flex items-center justify-center">
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentTestimonial}
@@ -1100,34 +760,31 @@ export default function HomePage() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.3 }}
-                className="w-full p-8 md:p-12 rounded-3xl bg-white border border-black/[0.05] flex flex-col gap-6 relative text-left shadow-md"
+                className="w-full p-8 md:p-12 rounded-3xl glass-card flex flex-col gap-6 relative text-left shadow-md"
               >
-                {/* Stars and quote icon */}
                 <div className="flex justify-between items-center">
                   <div className="flex gap-1 text-amber-500">
                     {[...Array(TESTIMONIALS[currentTestimonial].stars || 5)].map((_, i) => (
                       <Star key={i} className="w-4 h-4 fill-current" />
                     ))}
                   </div>
-                  <span className="text-5xl font-serif text-primary opacity-20 leading-none">
-                    “
-                  </span>
+                  <span className="text-5xl font-serif text-primary opacity-20 leading-none">“</span>
                 </div>
                 
-                <p className="text-base sm:text-lg text-[#1a1a1a] italic leading-relaxed relative z-10">
+                <p className="text-base sm:text-lg text-white italic leading-relaxed relative z-10 font-medium">
                   {TESTIMONIALS[currentTestimonial].quote}
                 </p>
 
-                <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 mt-6 pt-6 border-t border-black/[0.05]">
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 mt-6 pt-6 border-t border-white/[0.05]">
                   <div className="flex items-center gap-3">
                     <span className="w-10 h-10 rounded-full bg-primary/10 border border-primary/20 text-primary font-mono font-bold text-xs flex items-center justify-center">
                       {TESTIMONIALS[currentTestimonial].avatar || "SP"}
                     </span>
                     <div className="text-left">
-                      <p className="font-bold text-[#1a1a1a] text-sm">
+                      <p className="font-bold text-white text-sm">
                         {TESTIMONIALS[currentTestimonial].author}
                       </p>
-                      <p className="text-xs text-[#4a4a4a]">
+                      <p className="text-xs text-[#8e8e93]">
                         {TESTIMONIALS[currentTestimonial].role}
                       </p>
                     </div>
@@ -1146,7 +803,7 @@ export default function HomePage() {
                   key={idx}
                   onClick={() => setCurrentTestimonial(idx)}
                   className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                    currentTestimonial === idx ? "bg-primary w-6" : "bg-black/10"
+                    currentTestimonial === idx ? "bg-primary w-6" : "bg-white/10"
                   }`}
                   aria-label={`Go to slide ${idx + 1}`}
                 />
@@ -1157,39 +814,36 @@ export default function HomePage() {
       </section>
 
       {/* FAQ SECTION */}
-      <section className="py-28 px-6 bg-white border-y border-black/[0.05] relative">
+      <section className="py-24 px-6 bg-bg-dark border-y border-white/[0.05] relative">
         <div className="max-w-4xl mx-auto flex flex-col gap-16">
           <div className="text-center flex flex-col gap-4">
             <span className="text-xs text-primary font-mono uppercase tracking-widest font-bold">
-              Frequently Asked Questions
+              FAQ
             </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1a1a1a] tracking-tight">
-              Any Questions? Look Here.
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+              Auditing Process Details
             </h2>
-            <p className="text-[#4a4a4a] text-sm">
-              Find answers to commonly asked questions about our Shopify design, development, and conversion audit processes.
-            </p>
           </div>
 
           {/* Accordion FAQ list */}
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-4 text-left">
             {FAQ_ITEMS.map((faq, index) => {
               const isOpen = openFaq === index;
               return (
                 <div
                   key={index}
-                  className="rounded-2xl bg-bg-secondary border border-black/[0.05] overflow-hidden transition-all duration-300 hover:border-primary/20"
+                  className="rounded-2xl bg-white/[0.01] border border-white/[0.05] overflow-hidden transition-all duration-300 hover:border-primary/20"
                 >
                   <button
                     onClick={() => toggleFaq(index)}
-                    className="w-full flex items-center justify-between p-6 text-left text-[#1a1a1a] hover:text-primary transition-colors focus:outline-none"
+                    className="w-full flex items-center justify-between p-6 text-left text-white hover:text-primary transition-colors focus:outline-none"
                   >
                     <div className="flex items-center gap-3">
                       <HelpCircle className="w-4.5 h-4.5 text-primary shrink-0" />
                       <span className="text-sm sm:text-base font-semibold">{faq.q}</span>
                     </div>
                     <ChevronDown
-                      className={`w-4 h-4 text-[#4a4a4a] shrink-0 transition-transform duration-300 ${
+                      className={`w-4 h-4 text-[#8e8e93] shrink-0 transition-transform duration-300 ${
                         isOpen ? "transform rotate-180 text-primary" : ""
                       }`}
                     />
@@ -1204,7 +858,7 @@ export default function HomePage() {
                         transition={{ duration: 0.2 }}
                         className="overflow-hidden"
                       >
-                        <div className="px-6 pb-6 pt-2 text-xs sm:text-sm text-[#4a4a4a] leading-relaxed border-t border-black/[0.03]">
+                        <div className="px-6 pb-6 pt-2 text-xs sm:text-sm text-[#8e8e93] leading-relaxed border-t border-white/[0.03]">
                           {faq.a}
                         </div>
                       </motion.div>
@@ -1218,27 +872,26 @@ export default function HomePage() {
       </section>
 
       {/* FINAL CTA SECTION */}
-      <section className="py-32 px-6 relative overflow-hidden text-center bg-brand-black">
-        {/* Glowing visual indicators */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-primary/[0.04] rounded-full blur-[100px] pointer-events-none" />
+      <section className="py-24 px-6 relative overflow-hidden text-center bg-black border-t border-white/[0.05]">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-primary/[0.02] rounded-full blur-[100px] pointer-events-none" />
 
         <div className="max-w-4xl mx-auto relative z-10 flex flex-col gap-8 items-center">
           <span className="text-xs text-primary font-mono uppercase tracking-widest font-bold">
             Accelerate Growth
           </span>
           
-          <h2 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight max-w-2xl">
+          <h2 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight max-w-xl">
             Ready to Build Your Shopify Store?
           </h2>
 
-          <p className="text-[#8C8C8C] text-sm sm:text-base leading-relaxed max-w-xl">
-            Whether you're launching a new brand or upgrading an existing Shopify store, we'll help you create a shopping experience your customers trust.
+          <p className="text-[#8e8e93] text-sm sm:text-base leading-relaxed max-w-lg">
+            Let's construct a lightning-fast, high-converting checkout experience custom designed for your brand.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto mt-4">
+          <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto mt-2">
             <Link
               href="/contact"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-sm font-semibold uppercase tracking-wider text-white bg-primary hover:bg-[#2a6350] transition-all duration-300 hover:shadow-[0_8px_24px_rgba(55,126,98,0.25)] text-center group"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-sm font-semibold uppercase tracking-wider text-white bg-primary hover:bg-[#2a6350] transition-all duration-300 hover:shadow-[0_8px_24px_rgba(16,185,129,0.25)] text-center group"
             >
               <span>Get Free Consultation</span>
               <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -1255,7 +908,7 @@ export default function HomePage() {
             </a>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-8 text-xs text-[#8C8C8C] pt-6 border-t border-white/[0.08] w-full max-w-lg">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-8 text-xs text-[#8e8e93] pt-6 border-t border-white/[0.08] w-full max-w-lg">
             <div className="flex items-center gap-2">
               <MapPin className="w-4 h-4 text-primary" />
               <span>Dehradun, Uttarakhand, India</span>
