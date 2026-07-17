@@ -541,38 +541,38 @@ export default function HomePage() {
   return (
     <div className="relative">
       {/* BACKGROUND DECORATIONS */}
-      <div className="absolute top-[-5%] left-[-5%] w-[45%] h-[400px] rounded-full bg-[#00AF56]/10 blur-[130px] animate-blob-slow-1 pointer-events-none" />
+      <div className="absolute top-[-5%] left-[-5%] w-[45%] h-[400px] rounded-full bg-primary/10 blur-[130px] animate-blob-slow-1 pointer-events-none" />
       <div className="absolute top-[15%] right-[-5%] w-[40%] h-[500px] rounded-full bg-emerald-500/5 blur-[150px] animate-blob-slow-2 pointer-events-none" />
-      <div className="absolute top-[50%] left-[5%] w-[35%] h-[400px] rounded-full bg-[#00AF56]/5 blur-[120px] animate-blob-slow-1 pointer-events-none" />
-      <div className="absolute bottom-[8%] right-[5%] w-[35%] h-[450px] rounded-full bg-[#00AF56]/8 blur-[130px] animate-blob-slow-2 pointer-events-none" />
+      <div className="absolute top-[50%] left-[5%] w-[35%] h-[400px] rounded-full bg-primary/5 blur-[120px] animate-blob-slow-1 pointer-events-none" />
+      <div className="absolute bottom-[8%] right-[5%] w-[35%] h-[450px] rounded-full bg-primary/8 blur-[130px] animate-blob-slow-2 pointer-events-none" />
 
       {/* HERO SECTION */}
       <section className="relative min-h-[92vh] flex items-center pt-12 pb-24 px-6">
         <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
           {/* Left Column Copy */}
           <div className="lg:col-span-7 flex flex-col gap-8 text-left">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00AF56]/10 border border-[#00AF56]/20 w-max">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#00AF56] animate-pulse" />
-              <span className="text-[10px] text-[#00AF56] font-mono uppercase tracking-wider font-bold">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 w-max">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+              <span className="text-[10px] text-primary font-mono uppercase tracking-wider font-bold">
                 The Shopify Growth Partner
               </span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6.5xl font-extrabold tracking-tight text-white leading-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-6.5xl font-extrabold tracking-tight text-[#1a1a1a] leading-tight">
               Build a Shopify Store That{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-[#E0E0E0] to-[#00AF56]">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1a1a1a] via-[#4a4a4a] to-primary">
                 Turns Visitors Into Customers
               </span>
             </h1>
 
-            <p className="text-[#9C9C9C] text-base sm:text-lg leading-relaxed max-w-xl">
+            <p className="text-[#4a4a4a] text-base sm:text-lg leading-relaxed max-w-xl">
               Launch a high-converting Shopify store from scratch, redesign your existing store, or build custom Shopify solutions tailored to your business. We create Shopify experiences that build customer trust and increase conversions.
             </p>
 
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-sm font-semibold uppercase tracking-wider text-black bg-[#00AF56] hover:bg-[#00AF56]/90 transition-all duration-300 hover:shadow-[0_0_25px_rgba(0,175,86,0.35)] text-center group"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-sm font-semibold uppercase tracking-wider text-white bg-primary hover:bg-[#2a6350] transition-all duration-300 hover:shadow-[0_8px_24px_rgba(55,126,98,0.25)] text-center group"
               >
                 <span>Get Free Consultation</span>
                 <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -581,22 +581,22 @@ export default function HomePage() {
                 href="https://wa.me/919917780656"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-sm font-semibold uppercase tracking-wider text-white bg-transparent border border-white/[0.08] hover:border-white/20 transition-all duration-300 text-center hover:bg-white/[0.02]"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-sm font-semibold uppercase tracking-wider text-[#1a1a1a] bg-transparent border border-[#e5e5e5] hover:border-primary/20 transition-all duration-300 text-center hover:bg-primary/[0.02]"
               >
-                <Phone className="w-4 h-4 text-[#00AF56]" />
+                <Phone className="w-4 h-4 text-primary" />
                 <span>Chat on WhatsApp</span>
               </a>
             </div>
 
             {/* Extra Credibility Indicator */}
-            <div className="pt-6 border-t border-white/[0.06] flex items-center gap-6">
+            <div className="pt-6 border-t border-black/[0.05] flex items-center gap-6">
               <div className="flex -space-x-3">
-                <span className="w-9 h-9 rounded-full bg-[#181818] border-2 border-[#050505] flex items-center justify-center text-[10px] font-bold text-white">SB</span>
-                <span className="w-9 h-9 rounded-full bg-[#181818] border-2 border-[#050505] flex items-center justify-center text-[10px] font-bold text-white">WE</span>
-                <span className="w-9 h-9 rounded-full bg-[#181818] border-2 border-[#050505] flex items-center justify-center text-[10px] font-bold text-white">SZ</span>
+                <span className="w-9 h-9 rounded-full bg-bg-secondary border-2 border-white flex items-center justify-center text-[10px] font-bold text-[#1a1a1a]">SB</span>
+                <span className="w-9 h-9 rounded-full bg-bg-secondary border-2 border-white flex items-center justify-center text-[10px] font-bold text-[#1a1a1a]">WE</span>
+                <span className="w-9 h-9 rounded-full bg-bg-secondary border-2 border-white flex items-center justify-center text-[10px] font-bold text-[#1a1a1a]">SZ</span>
               </div>
-              <p className="text-xs text-[#8C8C8C] leading-relaxed">
-                Trusted by <span className="text-white font-semibold">100+ brands</span> to build, redesign, and optimize Shopify storefronts.
+              <p className="text-xs text-[#4a4a4a] leading-relaxed">
+                Trusted by <span className="text-[#1a1a1a] font-semibold">100+ brands</span> to build, redesign, and optimize Shopify storefronts.
               </p>
             </div>
           </div>
@@ -609,15 +609,15 @@ export default function HomePage() {
       </section>
 
       {/* TRUST BAR TICKER */}
-      <section className="bg-[#0b0b0c] py-10 border-y border-white/[0.06] relative overflow-hidden">
+      <section className="bg-bg-secondary py-10 border-y border-black/[0.05] relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-5 gap-8 items-center text-center">
             {TRUST_STATS.map((stat, idx) => (
               <div key={idx} className="flex flex-col gap-1 items-center justify-center">
-                <span className="text-xl sm:text-2xl font-bold font-mono text-white">
+                <span className="text-xl sm:text-2xl font-bold font-mono text-[#1a1a1a]">
                   {stat.value}
                 </span>
-                <span className="text-[10px] text-[#8C8C8C] uppercase tracking-wider font-semibold">
+                <span className="text-[10px] text-[#4a4a4a] uppercase tracking-wider font-semibold">
                   {stat.label}
                 </span>
               </div>
@@ -627,16 +627,16 @@ export default function HomePage() {
       </section>
 
       {/* SECTION 2: TRUSTED BY BRAND LOGOS */}
-      <section className="py-20 px-6 relative overflow-hidden bg-[#050505]">
+      <section className="py-20 px-6 relative overflow-hidden bg-bg-dark">
         <div className="max-w-7xl mx-auto flex flex-col gap-10 text-center items-center">
           <div className="max-w-2xl flex flex-col gap-3">
-            <span className="text-xs text-[#00AF56] font-mono uppercase tracking-widest font-bold">
+            <span className="text-xs text-primary font-mono uppercase tracking-widest font-bold">
               Trusted Partners
             </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1a1a1a] tracking-tight">
               Trusted by Growing Ecommerce Brands
             </h2>
-            <p className="text-[#8C8C8C] text-sm leading-relaxed">
+            <p className="text-[#4a4a4a] text-sm leading-relaxed">
               We've helped businesses across multiple industries launch and grow with professionally built Shopify stores.
             </p>
           </div>
@@ -646,10 +646,10 @@ export default function HomePage() {
             {PORTFOLIO_STORES.map((store, index) => (
               <div
                 key={index}
-                className="group relative p-6 rounded-2xl bg-[#0d0d0f]/40 border border-white/[0.04] flex items-center justify-center min-h-[90px] hover:border-[#00AF56]/30 transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,175,86,0.05)] cursor-default overflow-hidden"
+                className="group relative p-6 rounded-2xl bg-bg-secondary/40 border border-black/[0.05] flex items-center justify-center min-h-[90px] hover:border-primary/30 transition-all duration-300 hover:shadow-[0_8px_20px_rgba(55,126,98,0.05)] cursor-default overflow-hidden"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-[#00AF56]/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-                <span className="text-sm md:text-base font-black tracking-widest text-[#8C8C8C] group-hover:text-white uppercase transition-colors duration-300 font-mono">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                <span className="text-sm md:text-base font-black tracking-widest text-[#7a7a7a] group-hover:text-primary uppercase transition-colors duration-300 font-mono">
                   {store.name}
                 </span>
               </div>
@@ -659,23 +659,23 @@ export default function HomePage() {
       </section>
 
       {/* ROI CALCULATOR SECTION */}
-      <section className="py-28 px-6 relative overflow-hidden bg-[#0b0b0c] border-y border-white/[0.06]">
+      <section className="py-28 px-6 relative overflow-hidden bg-bg-secondary border-y border-black/[0.05]">
         {/* Colorful floating background elements */}
         <div className="absolute top-[20%] right-[-10%] w-[350px] h-[350px] rounded-full bg-emerald-500/5 blur-[120px] pointer-events-none" />
-        <div className="absolute bottom-[20%] left-[-10%] w-[350px] h-[350px] rounded-full bg-[#00AF56]/5 blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-[20%] left-[-10%] w-[350px] h-[350px] rounded-full bg-primary/5 blur-[120px] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto flex flex-col gap-12 text-center items-center">
           <div className="max-w-3xl flex flex-col gap-4">
-            <span className="text-xs text-[#00AF56] font-mono uppercase tracking-widest font-bold">
+            <span className="text-xs text-primary font-mono uppercase tracking-widest font-bold">
               Conversion ROI Calculator
             </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#1a1a1a] tracking-tight leading-tight">
               See How Much Revenue <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-[#00AF56]">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1a1a1a] to-primary">
                 You Are Leaving On The Table
               </span>
             </h2>
-            <p className="text-[#8C8C8C] text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+            <p className="text-[#4a4a4a] text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
               When storefront load speeds drop and mobile UX is optimized, your conversion rate spikes, increasing revenue without spending a single rupee more on traffic.
             </p>
           </div>
@@ -685,20 +685,20 @@ export default function HomePage() {
       </section>
 
       {/* SHOPIFY PHILOSOPHY SECTION */}
-      <section className="py-28 px-6 relative bg-[#050505]">
+      <section className="py-28 px-6 relative bg-bg-dark">
         <div className="max-w-7xl mx-auto flex flex-col gap-16">
           {/* Header */}
           <div className="max-w-3xl mx-auto text-center flex flex-col gap-4">
-            <span className="text-xs text-[#00AF56] font-mono uppercase tracking-widest font-bold">
+            <span className="text-xs text-primary font-mono uppercase tracking-widest font-bold">
               The SalePixel Core Philosophy
             </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#1a1a1a] tracking-tight leading-tight">
               Traffic Brings Visitors. <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-[#00AF56]">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1a1a1a] to-primary">
                 Trust Creates Customers.
               </span>
             </h2>
-            <p className="text-[#8C8C8C] text-sm sm:text-base leading-relaxed mt-2 max-w-2xl mx-auto">
+            <p className="text-[#4a4a4a] text-sm sm:text-base leading-relaxed mt-2 max-w-2xl mx-auto">
               Visitors can come from anywhere—Google, social media, referrals, email, or other marketing channels. But traffic alone doesn't generate sales. Customers purchase when they trust your brand. A professionally designed Shopify store creates confidence, improves the shopping experience, and removes friction from the buying journey. At SalePixel, we build Shopify stores that earn customer trust and convert more visitors into buyers.
             </p>
           </div>
@@ -709,19 +709,19 @@ export default function HomePage() {
       </section>
 
       {/* SERVICES SECTION */}
-      <section className="py-24 px-6 bg-[#111111] border-y border-white/[0.08] relative">
+      <section className="py-24 px-6 bg-bg-secondary border-y border-black/[0.05] relative">
         <div className="max-w-7xl mx-auto flex flex-col gap-16">
           {/* Section Header */}
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div className="flex flex-col gap-4 text-left max-w-xl">
-              <span className="text-xs text-[#00AF56] font-mono uppercase tracking-widest font-bold">
+              <span className="text-xs text-primary font-mono uppercase tracking-widest font-bold">
                 Services & Capabilities
               </span>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1a1a1a] tracking-tight">
                 Engineered for Conversion. Optimized for Performance.
               </h2>
             </div>
-            <p className="text-[#8C8C8C] text-sm md:max-w-sm leading-relaxed">
+            <p className="text-[#4a4a4a] text-sm md:max-w-sm leading-relaxed">
               We provide full-stack Shopify solutions that combine custom UI/UX design with clean code architectures, lightning-fast speeds, and seamless migrations.
             </p>
           </div>
@@ -762,26 +762,26 @@ export default function HomePage() {
             ].map((srv, idx) => (
               <div
                 key={idx}
-                className="group relative p-8 rounded-2xl bg-[#181818] border border-white/[0.05] hover:border-[#00AF56]/30 transition-all duration-300 flex flex-col justify-between min-h-[250px] overflow-hidden"
+                className="group relative p-8 rounded-2xl bg-white border border-black/[0.05] hover:border-primary/30 transition-all duration-300 flex flex-col justify-between min-h-[250px] overflow-hidden shadow-sm hover:shadow-md"
               >
                 {/* Micro green glow on hover */}
-                <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-[#00AF56]/15 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-primary/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
 
                 <div className="relative z-10 flex flex-col gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-white/[0.04] group-hover:bg-[#00AF56]/10 flex items-center justify-center text-white group-hover:text-[#00AF56] transition-colors duration-300">
+                  <div className="w-10 h-10 rounded-xl bg-black/[0.03] group-hover:bg-primary/10 flex items-center justify-center text-[#1a1a1a] group-hover:text-primary transition-colors duration-300">
                     <Layers className="w-5 h-5" />
                   </div>
-                  <h3 className="text-lg font-bold text-white group-hover:text-[#00AF56] transition-colors duration-200">
+                  <h3 className="text-lg font-bold text-[#1a1a1a] group-hover:text-primary transition-colors duration-200">
                     {srv.title}
                   </h3>
-                  <p className="text-sm text-[#8C8C8C] leading-relaxed">
+                  <p className="text-sm text-[#4a4a4a] leading-relaxed">
                     {srv.desc}
                   </p>
                 </div>
 
-                <div className="relative z-10 pt-6 mt-6 border-t border-white/[0.05] flex justify-between items-center text-xs">
-                  <span className="text-[#8C8C8C] uppercase tracking-wider font-mono">Performance Metric</span>
-                  <span className="font-bold text-white font-mono">{srv.metrics}</span>
+                <div className="relative z-10 pt-6 mt-6 border-t border-black/[0.05] flex justify-between items-center text-xs">
+                  <span className="text-[#7a7a7a] uppercase tracking-wider font-mono">Performance Metric</span>
+                  <span className="font-bold text-[#1a1a1a] font-mono">{srv.metrics}</span>
                 </div>
               </div>
             ))}
@@ -791,7 +791,7 @@ export default function HomePage() {
           <div className="flex justify-center mt-4">
             <Link
               href="/services"
-              className="inline-flex items-center gap-2 text-xs uppercase tracking-wider font-bold text-white hover:text-[#00AF56] transition-colors group"
+              className="inline-flex items-center gap-2 text-xs uppercase tracking-wider font-bold text-primary hover:text-[#2a6350] transition-colors group"
             >
               <span>Explore All Our Growth Capabilities</span>
               <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
@@ -801,22 +801,22 @@ export default function HomePage() {
       </section>
 
       {/* AB TESTING SIMULATOR SECTION */}
-      <section className="py-28 px-6 relative overflow-hidden bg-[#050505] border-b border-white/[0.06]">
+      <section className="py-28 px-6 relative overflow-hidden bg-bg-dark border-b border-black/[0.05]">
         {/* Floating gradient circle */}
         <div className="absolute top-[30%] left-[20%] w-[400px] h-[400px] rounded-full bg-emerald-500/5 blur-[150px] pointer-events-none" />
         
         <div className="max-w-7xl mx-auto flex flex-col gap-12 text-center items-center">
           <div className="max-w-3xl flex flex-col gap-4">
-            <span className="text-xs text-[#00AF56] font-mono uppercase tracking-widest font-bold">
+            <span className="text-xs text-primary font-mono uppercase tracking-widest font-bold">
               A/B Conversion Sandbox
             </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#1a1a1a] tracking-tight leading-tight">
               Optimize The Destination <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-[#00AF56]">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1a1a1a] to-primary">
                 Before Scaling The Ads
               </span>
             </h2>
-            <p className="text-[#8C8C8C] text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+            <p className="text-[#4a4a4a] text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
               Compare a standard, unoptimized template with a custom SalePXL high-converting storefront setup. Click the hotspots to explore design and speed parameters.
             </p>
           </div>
@@ -826,17 +826,17 @@ export default function HomePage() {
       </section>
 
       {/* SECTION 4: WHY CHOOSE SALEPIXEL */}
-      <section className="py-28 px-6 relative bg-[#050505]">
+      <section className="py-28 px-6 relative bg-bg-dark">
         <div className="max-w-7xl mx-auto flex flex-col gap-16">
           {/* Header */}
           <div className="max-w-2xl text-left flex flex-col gap-4">
-            <span className="text-xs text-[#00AF56] font-mono uppercase tracking-widest font-bold">
+            <span className="text-xs text-primary font-mono uppercase tracking-widest font-bold">
               Why Partner With Us
             </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1a1a1a] tracking-tight">
               Built on Conversion Psychology & Real-time Data
             </h2>
-            <p className="text-[#8C8C8C] text-sm leading-relaxed">
+            <p className="text-[#4a4a4a] text-sm leading-relaxed">
               We do not write generic reports or run standard agency templates. We treat your digital product representation seriously, ensuring conversion optimizations are integrated into the storefront architecture.
             </p>
           </div>
@@ -879,15 +879,15 @@ export default function HomePage() {
               return (
                 <div
                   key={idx}
-                  className="group relative p-8 rounded-3xl bg-[#0d0d0f]/80 border border-white/[0.05] hover:border-[#00AF56]/30 transition-all duration-300 flex flex-col gap-5 overflow-hidden shadow-sm"
+                  className="group relative p-8 rounded-3xl bg-white border border-black/[0.05] hover:border-primary/30 transition-all duration-300 flex flex-col gap-5 overflow-hidden shadow-sm hover:shadow-md"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#00AF56]/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-                  <span className="w-12 h-12 rounded-xl bg-[#00AF56]/10 text-[#00AF56] flex items-center justify-center shrink-0 group-hover:bg-[#00AF56] group-hover:text-black transition-all duration-300">
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                  <span className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-white transition-all duration-300">
                     <IconComp className="w-5.5 h-5.5" />
                   </span>
                   <div>
-                    <h3 className="text-base font-bold text-white group-hover:text-[#00AF56] transition-colors duration-200">{item.title}</h3>
-                    <p className="text-xs text-[#8C8C8C] leading-relaxed mt-2">{item.desc}</p>
+                    <h3 className="text-base font-bold text-[#1a1a1a] group-hover:text-primary transition-colors duration-200">{item.title}</h3>
+                    <p className="text-xs text-[#4a4a4a] leading-relaxed mt-2">{item.desc}</p>
                   </div>
                 </div>
               );
@@ -897,16 +897,16 @@ export default function HomePage() {
       </section>
 
       {/* SECTION 5: PORTFOLIO RECENT PROJECTS */}
-      <section className="py-28 px-6 bg-[#0b0b0c] border-y border-white/[0.06] relative">
+      <section className="py-28 px-6 bg-bg-secondary border-y border-black/[0.05] relative">
         <div className="max-w-7xl mx-auto flex flex-col gap-16">
           <div className="text-center max-w-2xl mx-auto flex flex-col gap-4">
-            <span className="text-xs text-[#00AF56] font-mono uppercase tracking-widest font-bold">
+            <span className="text-xs text-primary font-mono uppercase tracking-widest font-bold">
               Shopify Portfolio
             </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1a1a1a] tracking-tight">
               Recent Shopify Projects
             </h2>
-            <p className="text-[#8C8C8C] text-sm">
+            <p className="text-[#4a4a4a] text-sm">
               Explore our recent custom Shopify builds combining high-end design aesthetics with optimized checkout performance.
             </p>
           </div>
@@ -916,13 +916,13 @@ export default function HomePage() {
             {HOME_PROJECTS.map((proj, idx) => (
               <div
                 key={idx}
-                className="group rounded-3xl bg-[#0d0d0f]/80 border border-white/[0.05] hover:border-[#00AF56]/20 transition-all duration-300 flex flex-col justify-between overflow-hidden shadow-lg"
+                className="group rounded-3xl bg-white border border-black/[0.05] hover:border-primary/20 transition-all duration-300 flex flex-col justify-between overflow-hidden shadow-lg"
               >
                 {/* Visual mockups container */}
-                <div className="relative aspect-[16/11] w-full overflow-hidden bg-[#050505] p-3 border-b border-white/[0.04] flex items-center justify-center">
+                <div className="relative aspect-[16/11] w-full overflow-hidden bg-bg-secondary p-3 border-b border-black/[0.05] flex items-center justify-center">
                   
                   {/* Desktop Browser Window Preview (HTML CSS Mockup) */}
-                  <div className={`w-[90%] aspect-[16/10] rounded-xl border border-white/[0.06] ${proj.bgColor} ${proj.textColor} font-sans shadow-lg overflow-hidden flex flex-col self-start`}>
+                  <div className={`w-[90%] aspect-[16/10] rounded-xl border border-black/[0.05] ${proj.bgColor} ${proj.textColor} font-sans shadow-lg overflow-hidden flex flex-col self-start`}>
                     {/* Fake Header bar */}
                     <div className="px-2 py-1 bg-black/10 border-b border-black/[0.03] flex items-center justify-between text-[6px]">
                       <div className="flex gap-1 items-center">
@@ -966,7 +966,7 @@ export default function HomePage() {
                   </div>
 
                   {/* Mobile Preview Overlay (Overlapping phone screenshot) */}
-                  <div className="absolute bottom-2.5 right-2.5 w-[33%] aspect-[9/16.2] rounded-xl border border-white/[0.12] bg-[#070708] overflow-hidden shadow-2xl z-20 group-hover:scale-102 transition-transform duration-300">
+                  <div className="absolute bottom-2.5 right-2.5 w-[33%] aspect-[9/16.2] rounded-xl border border-black/[0.08] bg-white overflow-hidden shadow-2xl z-20 group-hover:scale-102 transition-transform duration-300">
                     {/* Phone speaker / camera notch */}
                     <div className="absolute top-1 left-1/2 -translate-x-1/2 w-8 h-1 bg-black rounded-full z-30" />
                     {/* Actual screenshot image loaded inside mobile phone mockup */}
@@ -983,12 +983,12 @@ export default function HomePage() {
                 <div className="p-6 flex-1 flex flex-col justify-between gap-4">
                   <div className="flex flex-col gap-2">
                     <div className="flex justify-between items-center">
-                      <h3 className="text-base font-bold text-white group-hover:text-[#00AF56] transition-colors">{proj.name}</h3>
-                      <span className="text-[9px] bg-white/[0.04] border border-white/[0.06] text-[#8C8C8C] px-2 py-0.5 rounded-full font-mono uppercase">
+                      <h3 className="text-base font-bold text-[#1a1a1a] group-hover:text-primary transition-colors">{proj.name}</h3>
+                      <span className="text-[9px] bg-black/[0.03] border border-black/[0.05] text-[#4a4a4a] px-2 py-0.5 rounded-full font-mono uppercase">
                         {proj.industry}
                       </span>
                     </div>
-                    <p className="text-xs text-[#8C8C8C] leading-relaxed">
+                    <p className="text-xs text-[#4a4a4a] leading-relaxed">
                       {proj.description}
                     </p>
                   </div>
@@ -1000,7 +1000,7 @@ export default function HomePage() {
       </section>
 
       {/* PORTFOLIO PREVIEW SHOWCASE */}
-      <section className="py-20 relative overflow-hidden bg-[#050505] border-b border-white/[0.06]">
+      <section className="py-20 relative overflow-hidden bg-white border-b border-black/[0.05]">
         {/* CSS Keyframe animations for auto-scrolling marquee */}
         <style dangerouslySetInnerHTML={{ __html: `
           @keyframes marquee-left {
@@ -1028,10 +1028,10 @@ export default function HomePage() {
         ` }} />
 
         {/* Ambient glow backgrounds */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] h-[400px] rounded-full bg-[#00AF56]/[0.02] blur-[150px] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] h-[400px] rounded-full bg-primary/[0.02] blur-[150px] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-6 mb-8 text-center">
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight uppercase">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1a1a1a] tracking-tight uppercase">
             Storefront Showcases
           </h2>
         </div>
@@ -1042,27 +1042,27 @@ export default function HomePage() {
             {[...PORTFOLIO_STORES, ...PORTFOLIO_STORES, ...PORTFOLIO_STORES].map((store, idx) => (
               <div
                 key={idx}
-                className="w-[200px] sm:w-[260px] md:w-[320px] flex flex-col rounded-2xl bg-[#0d0d0f] border border-white/[0.06] overflow-hidden hover:border-[#00AF56]/30 transition-all duration-500 shrink-0"
+                className="w-[200px] sm:w-[260px] md:w-[320px] flex flex-col rounded-2xl bg-white border border-black/[0.05] overflow-hidden hover:border-primary/30 transition-all duration-500 shrink-0 shadow-sm hover:shadow-md"
                 style={{ aspectRatio: "400/715" }}
               >
                 {/* Browser dots top bar */}
-                <div className="px-4 py-2 bg-[#141416] border-b border-white/[0.04] flex items-center justify-between">
+                <div className="px-4 py-2 bg-bg-secondary border-b border-black/[0.05] flex items-center justify-between">
                   <div className="flex items-center gap-1">
                     <span className="w-1.5 h-1.5 rounded-full bg-red-500/60" />
                     <span className="w-1.5 h-1.5 rounded-full bg-yellow-500/60" />
                     <span className="w-1.5 h-1.5 rounded-full bg-green-500/60" />
                   </div>
-                  <span className="w-1.5 h-1.5 rounded-full bg-white/[0.05]" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-black/[0.05]" />
                 </div>
                 {/* Mockup Image Container */}
-                <div className="relative flex-1 w-full overflow-hidden bg-[#050505]">
+                <div className="relative flex-1 w-full overflow-hidden bg-white">
                   <img
                     src={store.image}
                     alt={store.name}
                     className="w-full h-full object-cover object-top"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
                 </div>
               </div>
             ))}
@@ -1072,7 +1072,7 @@ export default function HomePage() {
         <div className="flex justify-center mt-12">
           <Link
             href="/portfolio"
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-sm font-semibold uppercase tracking-wider text-black bg-white hover:bg-white/90 transition-all text-center"
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-sm font-semibold uppercase tracking-wider text-[#1a1a1a] bg-bg-secondary hover:bg-bg-secondary/90 border border-black/[0.05] transition-all text-center"
           >
             <span>Explore All Portfolio Brands</span>
           </Link>
@@ -1080,13 +1080,13 @@ export default function HomePage() {
       </section>
 
       {/* TESTIMONIALS AUTO-SLIDER */}
-      <section className="py-28 px-6 relative bg-[#050505]">
+      <section className="py-28 px-6 relative bg-bg-secondary">
         <div className="max-w-5xl mx-auto flex flex-col gap-12 text-center">
           <div className="flex flex-col gap-4">
-            <span className="text-xs text-[#00AF56] font-mono uppercase tracking-widest font-bold">
+            <span className="text-xs text-primary font-mono uppercase tracking-widest font-bold">
               Client Feedback
             </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1a1a1a] tracking-tight">
               What Our Clients Say
             </h2>
           </div>
@@ -1100,7 +1100,7 @@ export default function HomePage() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.3 }}
-                className="w-full p-8 md:p-12 rounded-3xl bg-[#0d0d0f]/80 backdrop-blur-md border border-white/[0.06] flex flex-col gap-6 relative text-left shadow-xl"
+                className="w-full p-8 md:p-12 rounded-3xl bg-white border border-black/[0.05] flex flex-col gap-6 relative text-left shadow-md"
               >
                 {/* Stars and quote icon */}
                 <div className="flex justify-between items-center">
@@ -1109,30 +1109,30 @@ export default function HomePage() {
                       <Star key={i} className="w-4 h-4 fill-current" />
                     ))}
                   </div>
-                  <span className="text-5xl font-serif text-[#00AF56] opacity-20 leading-none">
+                  <span className="text-5xl font-serif text-primary opacity-20 leading-none">
                     “
                   </span>
                 </div>
                 
-                <p className="text-base sm:text-lg text-[#D7D7D7] italic leading-relaxed relative z-10">
+                <p className="text-base sm:text-lg text-[#1a1a1a] italic leading-relaxed relative z-10">
                   {TESTIMONIALS[currentTestimonial].quote}
                 </p>
 
-                <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 mt-6 pt-6 border-t border-white/[0.05]">
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 mt-6 pt-6 border-t border-black/[0.05]">
                   <div className="flex items-center gap-3">
-                    <span className="w-10 h-10 rounded-full bg-[#00AF56]/10 border border-[#00AF56]/20 text-[#00AF56] font-mono font-bold text-xs flex items-center justify-center">
+                    <span className="w-10 h-10 rounded-full bg-primary/10 border border-primary/20 text-primary font-mono font-bold text-xs flex items-center justify-center">
                       {TESTIMONIALS[currentTestimonial].avatar || "SP"}
                     </span>
                     <div className="text-left">
-                      <p className="font-bold text-white text-sm">
+                      <p className="font-bold text-[#1a1a1a] text-sm">
                         {TESTIMONIALS[currentTestimonial].author}
                       </p>
-                      <p className="text-xs text-[#8C8C8C]">
+                      <p className="text-xs text-[#4a4a4a]">
                         {TESTIMONIALS[currentTestimonial].role}
                       </p>
                     </div>
                   </div>
-                  <span className="text-[10px] bg-[#00AF56]/15 border border-[#00AF56]/30 text-[#00AF56] px-4 py-1.5 rounded-full font-bold font-mono text-center self-start sm:self-center">
+                  <span className="text-[10px] bg-primary/15 border border-primary/30 text-primary px-4 py-1.5 rounded-full font-bold font-mono text-center self-start sm:self-center">
                     {TESTIMONIALS[currentTestimonial].growth}
                   </span>
                 </div>
@@ -1146,7 +1146,7 @@ export default function HomePage() {
                   key={idx}
                   onClick={() => setCurrentTestimonial(idx)}
                   className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                    currentTestimonial === idx ? "bg-[#00AF56] w-6" : "bg-white/20"
+                    currentTestimonial === idx ? "bg-primary w-6" : "bg-black/10"
                   }`}
                   aria-label={`Go to slide ${idx + 1}`}
                 />
@@ -1157,16 +1157,16 @@ export default function HomePage() {
       </section>
 
       {/* FAQ SECTION */}
-      <section className="py-28 px-6 bg-[#0b0b0c] border-y border-white/[0.06] relative">
+      <section className="py-28 px-6 bg-white border-y border-black/[0.05] relative">
         <div className="max-w-4xl mx-auto flex flex-col gap-16">
           <div className="text-center flex flex-col gap-4">
-            <span className="text-xs text-[#00AF56] font-mono uppercase tracking-widest font-bold">
+            <span className="text-xs text-primary font-mono uppercase tracking-widest font-bold">
               Frequently Asked Questions
             </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1a1a1a] tracking-tight">
               Any Questions? Look Here.
             </h2>
-            <p className="text-[#8C8C8C] text-sm">
+            <p className="text-[#4a4a4a] text-sm">
               Find answers to commonly asked questions about our Shopify design, development, and conversion audit processes.
             </p>
           </div>
@@ -1178,19 +1178,19 @@ export default function HomePage() {
               return (
                 <div
                   key={index}
-                  className="rounded-2xl bg-[#0d0d0f] border border-white/[0.05] overflow-hidden transition-all duration-300 hover:border-white/10"
+                  className="rounded-2xl bg-bg-secondary border border-black/[0.05] overflow-hidden transition-all duration-300 hover:border-primary/20"
                 >
                   <button
                     onClick={() => toggleFaq(index)}
-                    className="w-full flex items-center justify-between p-6 text-left text-white hover:text-[#00AF56] transition-colors focus:outline-none"
+                    className="w-full flex items-center justify-between p-6 text-left text-[#1a1a1a] hover:text-primary transition-colors focus:outline-none"
                   >
                     <div className="flex items-center gap-3">
-                      <HelpCircle className="w-4.5 h-4.5 text-[#00AF56] shrink-0" />
+                      <HelpCircle className="w-4.5 h-4.5 text-primary shrink-0" />
                       <span className="text-sm sm:text-base font-semibold">{faq.q}</span>
                     </div>
                     <ChevronDown
-                      className={`w-4 h-4 text-[#8C8C8C] shrink-0 transition-transform duration-300 ${
-                        isOpen ? "transform rotate-180 text-[#00AF56]" : ""
+                      className={`w-4 h-4 text-[#4a4a4a] shrink-0 transition-transform duration-300 ${
+                        isOpen ? "transform rotate-180 text-primary" : ""
                       }`}
                     />
                   </button>
@@ -1204,7 +1204,7 @@ export default function HomePage() {
                         transition={{ duration: 0.2 }}
                         className="overflow-hidden"
                       >
-                        <div className="px-6 pb-6 pt-2 text-xs sm:text-sm text-[#8C8C8C] leading-relaxed border-t border-white/[0.03]">
+                        <div className="px-6 pb-6 pt-2 text-xs sm:text-sm text-[#4a4a4a] leading-relaxed border-t border-black/[0.03]">
                           {faq.a}
                         </div>
                       </motion.div>
@@ -1218,12 +1218,12 @@ export default function HomePage() {
       </section>
 
       {/* FINAL CTA SECTION */}
-      <section className="py-32 px-6 relative overflow-hidden text-center bg-[#050505]">
+      <section className="py-32 px-6 relative overflow-hidden text-center bg-brand-black">
         {/* Glowing visual indicators */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[#00AF56]/[0.04] rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-primary/[0.04] rounded-full blur-[100px] pointer-events-none" />
 
         <div className="max-w-4xl mx-auto relative z-10 flex flex-col gap-8 items-center">
-          <span className="text-xs text-[#00AF56] font-mono uppercase tracking-widest font-bold">
+          <span className="text-xs text-primary font-mono uppercase tracking-widest font-bold">
             Accelerate Growth
           </span>
           
@@ -1238,7 +1238,7 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto mt-4">
             <Link
               href="/contact"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-sm font-semibold uppercase tracking-wider text-black bg-[#00AF56] hover:bg-[#00AF56]/90 transition-all duration-300 hover:shadow-[0_0_25px_rgba(0,175,86,0.4)] text-center group"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-sm font-semibold uppercase tracking-wider text-white bg-primary hover:bg-[#2a6350] transition-all duration-300 hover:shadow-[0_8px_24px_rgba(55,126,98,0.25)] text-center group"
             >
               <span>Get Free Consultation</span>
               <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -1250,19 +1250,19 @@ export default function HomePage() {
               rel="noopener noreferrer"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-sm font-semibold uppercase tracking-wider text-white bg-transparent border border-white/[0.08] hover:border-white/20 transition-all duration-300 hover:bg-white/[0.02] text-center"
             >
-              <Phone className="w-4 h-4 text-[#00AF56]" />
+              <Phone className="w-4 h-4 text-primary" />
               <span>Chat on WhatsApp</span>
             </a>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-8 text-xs text-[#8C8C8C] pt-6 border-t border-white/[0.05] w-full max-w-lg">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-8 text-xs text-[#8C8C8C] pt-6 border-t border-white/[0.08] w-full max-w-lg">
             <div className="flex items-center gap-2">
-              <MapPin className="w-4 h-4 text-[#00AF56]" />
+              <MapPin className="w-4 h-4 text-primary" />
               <span>Dehradun, Uttarakhand, India</span>
             </div>
             <div className="hidden sm:block text-white/10">|</div>
             <div className="flex items-center gap-2">
-              <Building className="w-4 h-4 text-[#00AF56]" />
+              <Building className="w-4 h-4 text-primary" />
               <span>Registered Enterprise: SALEPXL</span>
             </div>
           </div>

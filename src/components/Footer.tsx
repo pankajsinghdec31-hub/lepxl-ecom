@@ -17,21 +17,21 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#111111] border-t border-white/[0.08] relative overflow-hidden">
+    <footer className="bg-brand-black border-t border-white/[0.08] relative overflow-hidden">
       {/* Background glow */}
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 rounded-full bg-[#00AF56]/[0.03] blur-[120px] pointer-events-none" />
-      <div className="absolute top-1/4 left-10 w-72 h-72 rounded-full bg-[#00AF56]/[0.02] blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 rounded-full bg-primary/[0.03] blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/4 left-10 w-72 h-72 rounded-full bg-primary/[0.02] blur-[100px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 pt-16 pb-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Brand Info */}
           <div className="flex flex-col gap-6">
             <Link href="/" className="flex items-center gap-2 group w-max">
-              <span className="w-8 h-8 rounded-lg bg-gradient-to-tr from-[#00AF56]/80 to-[#00AF56] flex items-center justify-center font-bold text-black text-lg transition-transform duration-300 group-hover:scale-105 shadow-[0_0_15px_rgba(0,175,86,0.3)]">
+              <span className="w-8 h-8 rounded-lg bg-gradient-to-tr from-primary/80 to-primary flex items-center justify-center font-bold text-white text-lg transition-transform duration-300 group-hover:scale-105 shadow-[0_4px_12px_rgba(55,126,98,0.2)]">
                 S
               </span>
               <span className="text-white font-semibold text-xl tracking-tight">
-                Sale<span className="text-[#00AF56] font-bold">PXL</span>
+                Sale<span className="text-primary font-bold">PXL</span>
               </span>
             </Link>
             <p className="text-[#8C8C8C] text-sm leading-relaxed max-w-xs">
@@ -39,19 +39,19 @@ export default function Footer() {
             </p>
             <div className="flex flex-col gap-3 text-xs text-[#8C8C8C]">
               <div className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-[#00AF56]" />
+                <Phone className="w-4 h-4 text-primary" />
                 <a href="tel:+919917780656" className="hover:text-white transition-colors">
                   +91 9917780656
                 </a>
               </div>
               <div className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-[#00AF56]" />
+                <Mail className="w-4 h-4 text-primary" />
                 <a href="mailto:growth@salepxl.com" className="hover:text-white transition-colors">
                   growth@salepxl.com
                 </a>
               </div>
               <div className="flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-[#00AF56]" />
+                <MapPin className="w-4 h-4 text-primary" />
                 <span>Dehradun, Uttarakhand, India</span>
               </div>
             </div>
@@ -116,18 +116,18 @@ export default function Footer() {
                   placeholder="Enter your email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full bg-[#181818] border border-white/[0.08] text-white text-xs rounded-xl px-4 py-3 focus:outline-none focus:border-[#00AF56] transition-colors pr-10"
+                  className="w-full bg-[#181818] border border-white/[0.08] text-white text-xs rounded-xl px-4 py-3 focus:outline-none focus:border-primary transition-colors pr-10"
                 />
                 <button
                   type="submit"
-                  className="absolute right-2 p-1.5 rounded-lg bg-[#00AF56] hover:bg-[#00AF56]/90 transition-colors text-black"
+                  className="absolute right-2 p-1.5 rounded-lg bg-primary hover:bg-[#2a6350] transition-colors text-white"
                   aria-label="Subscribe"
                 >
                   <ArrowRight className="w-4 h-4" />
                 </button>
               </form>
               {subscribed && (
-                <p className="text-[#00AF56] text-xs mt-2 font-medium">
+                <p className="text-primary text-xs mt-2 font-medium">
                   Thanks for subscribing to SalePXL!
                 </p>
               )}
@@ -135,7 +135,7 @@ export default function Footer() {
 
             {/* Registration Details */}
             <div className="p-4 rounded-2xl bg-[#181818] border border-white/[0.05] flex items-start gap-3">
-              <ShieldCheck className="w-5 h-5 text-[#00AF56] shrink-0 mt-0.5" />
+              <ShieldCheck className="w-5 h-5 text-primary shrink-0 mt-0.5" />
               <div className="flex flex-col gap-1">
                 <span className="text-[10px] text-[#8C8C8C] font-semibold uppercase tracking-wider">
                   Government Registered MSME

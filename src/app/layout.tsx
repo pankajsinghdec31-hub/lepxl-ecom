@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Plus_Jakarta_Sans, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const plusJakartaSans = Plus_Jakarta_Sans({
+  variable: "--font-plus-jakarta-sans",
   subsets: ["latin"],
   display: "swap",
 });
@@ -56,9 +56,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} scroll-smooth`}
+      className={`${plusJakartaSans.variable} ${geistMono.variable} scroll-smooth`}
     >
-      <body className="bg-[#050505] text-[#D7D7D7] font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-[#00AF56]/30 selection:text-white">
+      <body className="bg-bg-dark text-text-light font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-primary/20 selection:text-text-light">
         <Navbar />
         <main className="flex-grow pt-24">{children}</main>
         <Footer />

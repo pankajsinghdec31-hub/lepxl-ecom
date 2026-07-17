@@ -105,20 +105,20 @@ export default function ServicesPage() {
   return (
     <div className="relative py-16 px-6">
       {/* Glow backgrounds */}
-      <div className="absolute top-[20%] right-[-10%] w-[40%] h-[500px] rounded-full bg-[#00AF56]/[0.02] blur-[150px] pointer-events-none" />
-      <div className="absolute bottom-[20%] left-[-10%] w-[40%] h-[500px] rounded-full bg-[#00AF56]/[0.02] blur-[150px] pointer-events-none" />
+      <div className="absolute top-[20%] right-[-10%] w-[40%] h-[500px] rounded-full bg-primary/[0.02] blur-[150px] pointer-events-none" />
+      <div className="absolute bottom-[20%] left-[-10%] w-[40%] h-[500px] rounded-full bg-primary/[0.02] blur-[150px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto flex flex-col gap-20">
         
         {/* Page Header */}
         <div className="text-center max-w-3xl mx-auto flex flex-col gap-4">
-          <span className="text-xs text-[#00AF56] font-mono uppercase tracking-widest font-bold">
+          <span className="text-xs text-primary font-mono uppercase tracking-widest font-bold">
             Services & Capabilities
           </span>
-          <h1 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-[#1a1a1a] tracking-tight leading-tight">
             Shopify Storefront Engineering
           </h1>
-          <p className="text-[#8C8C8C] text-sm sm:text-base leading-relaxed">
+          <p className="text-[#4a4a4a] text-sm sm:text-base leading-relaxed">
             We build custom, speed-optimized Shopify storefronts and engineer high-converting purchase paths. No pre-made templates—just custom high-performance e-commerce engineering.
           </p>
         </div>
@@ -131,28 +131,28 @@ export default function ServicesPage() {
               return (
                 <div
                   key={idx}
-                  className="p-8 rounded-3xl bg-[#181818] border border-white/[0.05] flex flex-col justify-between gap-6 hover:border-[#00AF56]/20 transition-all duration-300"
+                  className="p-8 rounded-3xl bg-bg-secondary border border-black/[0.05] flex flex-col justify-between gap-6 hover:border-primary/20 transition-all duration-300 shadow-sm"
                 >
                   <div className="flex flex-col gap-4">
                     <div className="flex items-center gap-4">
-                      <span className="w-10 h-10 rounded-xl bg-[#00AF56]/10 text-[#00AF56] flex items-center justify-center">
+                      <span className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
                         <IconComp className="w-5 h-5" />
                       </span>
-                      <h3 className="text-lg font-bold text-white">{srv.title}</h3>
+                      <h3 className="text-lg font-bold text-[#1a1a1a]">{srv.title}</h3>
                     </div>
-                    <p className="text-sm text-[#8C8C8C] leading-relaxed">{srv.desc}</p>
+                    <p className="text-sm text-[#4a4a4a] leading-relaxed">{srv.desc}</p>
                     <ul className="flex flex-col gap-2.5 mt-2">
                       {srv.bullets.map((bullet, bidx) => (
-                        <li key={bidx} className="flex items-center gap-2 text-xs text-[#D7D7D7]">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-[#00AF56]" />
+                        <li key={bidx} className="flex items-center gap-2 text-xs text-[#1a1a1a]">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-primary" />
                           <span>{bullet}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
-                  <div className="pt-4 border-t border-white/[0.04] flex justify-between items-center text-xs">
-                    <span className="text-[#8C8C8C] uppercase tracking-wider font-mono">Performance Metric</span>
-                    <span className="font-bold text-[#00AF56] font-mono">{srv.metric}</span>
+                  <div className="pt-4 border-t border-black/[0.05] flex justify-between items-center text-xs">
+                    <span className="text-[#4a4a4a] uppercase tracking-wider font-mono">Performance Metric</span>
+                    <span className="font-bold text-primary font-mono">{srv.metric}</span>
                   </div>
                 </div>
               );
@@ -161,7 +161,7 @@ export default function ServicesPage() {
         </div>
 
         {/* Final call to action section */}
-        <div className="p-8 md:p-12 rounded-3xl bg-[#111111] border border-white/[0.08] text-center flex flex-col gap-6 items-center">
+        <div className="p-8 md:p-12 rounded-3xl bg-[#0a0a0a] border border-white/[0.05] text-center flex flex-col gap-6 items-center">
           <h2 className="text-xl md:text-2xl font-bold text-white max-w-xl">
             Ready to build or migrate your Shopify store?
           </h2>
@@ -170,7 +170,7 @@ export default function ServicesPage() {
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-xs font-semibold uppercase tracking-wider text-black bg-[#00AF56] hover:bg-[#00AF56]/90 transition-all hover:shadow-[0_0_20px_rgba(0,175,86,0.3)]"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-xs font-semibold uppercase tracking-wider text-white bg-primary hover:bg-[#2a6350] transition-all hover:shadow-[0_8px_24px_rgba(55,126,98,0.25)]"
           >
             <span>Book Free Strategy Call</span>
             <ArrowRight className="w-4 h-4" />

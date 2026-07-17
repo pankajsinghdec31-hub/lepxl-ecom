@@ -41,7 +41,7 @@ const PROJECTS: Project[] = [
     category: "cro",
     services: ["Shopify Custom Design", "High-Converting PDP Layout", "AOV Optimization"],
     description: "Redesigned Shopify product layout and checkout elements, lifting overall conversions and customer trust.",
-    accentColor: "#00AF56",
+    accentColor: "#377e62",
   },
   {
     name: "Ratan Rashi",
@@ -226,7 +226,7 @@ function getMockupConfig(name: string, category: string, industry: string): Mock
   const lowerName = name.toLowerCase();
   
   let theme: "dark" | "light" = "light";
-  let primaryColor = "#00AF56";
+  let primaryColor = "#377e62";
   let bgColor = "bg-[#faf8f5]";
   let textColor = "text-[#2b1f1d]";
   let heroText = "SUMMER COLLECTION";
@@ -260,7 +260,7 @@ function getMockupConfig(name: string, category: string, industry: string): Mock
     theme = "dark";
     bgColor = "bg-[#0c0c0c]";
     textColor = "text-white";
-    primaryColor = "#00AF56";
+    primaryColor = "#377e62";
     heroText = "FORCE AHEAD";
     heroSub = "Premium carbon parts & accessories";
     products = [ { name: "Carbon Steering", price: "₹24,999" }, { name: "Alloy Hubcaps", price: "₹4,500" } ];
@@ -492,18 +492,18 @@ export default function PortfolioPage() {
   return (
     <div className="relative py-16 px-6">
       {/* Background radial highlight */}
-      <div className="absolute top-[10%] left-1/2 -translate-x-1/2 w-[60%] h-[400px] rounded-full bg-[#00AF56]/[0.03] blur-[150px] pointer-events-none" />
+      <div className="absolute top-[10%] left-1/2 -translate-x-1/2 w-[60%] h-[400px] rounded-full bg-primary/[0.03] blur-[150px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto flex flex-col gap-12">
         {/* Page Header */}
         <div className="text-center max-w-3xl mx-auto flex flex-col gap-4">
-          <span className="text-xs text-[#00AF56] font-mono uppercase tracking-widest font-bold">
+          <span className="text-xs text-primary font-mono uppercase tracking-widest font-bold">
             Project Showcase
           </span>
-          <h1 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-[#1a1a1a] tracking-tight leading-tight">
             Brands We've Helped Grow
           </h1>
-          <p className="text-[#8C8C8C] text-sm sm:text-base leading-relaxed">
+          <p className="text-[#4a4a4a] text-sm sm:text-base leading-relaxed">
             Browse through our portfolio of ecommerce brands scaling conversions and performance using custom Shopify stores, designs, and speed optimization.
           </p>
         </div>
@@ -520,8 +520,8 @@ export default function PortfolioPage() {
               onClick={() => setFilter(tab.id as any)}
               className={`px-5 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider transition-all duration-200 border ${
                 filter === tab.id
-                  ? "bg-[#00AF56] text-black border-[#00AF56] font-bold"
-                  : "bg-[#111111] text-[#8C8C8C] border-white/[0.05] hover:text-white hover:border-white/10"
+                  ? "bg-primary text-white border-primary font-bold"
+                  : "bg-bg-secondary text-[#4a4a4a] border-black/[0.05] hover:text-[#1a1a1a] hover:border-black/10"
               }`}
             >
               {tab.name}
@@ -540,23 +540,23 @@ export default function PortfolioPage() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.3 }}
-                className="group rounded-3xl bg-[#181818] border border-white/[0.06] hover:border-white/10 transition-all duration-300 flex flex-col justify-between overflow-hidden"
+                className="group rounded-3xl bg-white border border-black/[0.05] hover:border-black/10 transition-all duration-300 flex flex-col justify-between overflow-hidden shadow-sm"
               >
                 {/* Virtual Macbook/Screen Mockup Frame */}
-                <div className="p-4 bg-[#111111] border-b border-white/[0.04] flex items-center justify-between">
+                <div className="p-4 bg-bg-secondary border-b border-black/[0.05] flex items-center justify-between">
                   <div className="flex items-center gap-1.5">
                     <span className="w-2 h-2 rounded-full bg-red-500/60" />
                     <span className="w-2 h-2 rounded-full bg-yellow-500/60" />
                     <span className="w-2 h-2 rounded-full bg-green-500/60" />
                   </div>
-                  <span className="text-[10px] text-[#8C8C8C] font-mono tracking-wider truncate max-w-[150px]">
+                  <span className="text-[10px] text-[#4a4a4a] font-mono tracking-wider truncate max-w-[150px]">
                     {proj.url.replace("https://", "").replace("www.", "")}
                   </span>
-                  <Laptop className="w-3.5 h-3.5 text-[#8C8C8C]" />
+                  <Laptop className="w-3.5 h-3.5 text-[#4a4a4a]" />
                 </div>
 
                 {/* Mockup Image Container */}
-                <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#0a0a0a] border-b border-white/[0.04]">
+                <div className="relative aspect-[16/10] w-full overflow-hidden bg-bg-secondary border-b border-black/[0.05]">
                   {(() => {
                     const store = getMockupConfig(proj.name, proj.category, proj.industry);
                     return store.image ? (
@@ -585,14 +585,14 @@ export default function PortfolioPage() {
 
                   <div className="relative z-10 flex flex-col gap-4">
                     <div className="flex justify-between items-start gap-2">
-                      <h3 className="text-lg font-bold text-white group-hover:text-[#00AF56] transition-colors">
+                      <h3 className="text-lg font-bold text-[#1a1a1a] group-hover:text-primary transition-colors">
                         {proj.name}
                       </h3>
                       <a
                         href={proj.url}
                         target="_blank"
                         rel="noreferrer"
-                        className="p-1 rounded bg-white/[0.03] border border-white/[0.06] text-[#8C8C8C] hover:text-white hover:bg-white/[0.06] transition-colors"
+                        className="p-1 rounded bg-black/[0.03] border border-black/[0.05] text-[#4a4a4a] hover:text-[#1a1a1a] hover:bg-black/[0.05] transition-colors"
                         title="Visit Website"
                       >
                         <ExternalLink className="w-3.5 h-3.5" />
@@ -603,7 +603,7 @@ export default function PortfolioPage() {
                       {proj.industry}
                     </span>
 
-                    <p className="text-xs text-[#8C8C8C] leading-relaxed">
+                    <p className="text-xs text-[#4a4a4a] leading-relaxed">
                       {proj.description}
                     </p>
 
@@ -612,7 +612,7 @@ export default function PortfolioPage() {
                       {proj.services.map((srv) => (
                         <span
                           key={srv}
-                          className="text-[9px] bg-white/[0.03] border border-white/[0.06] text-[#D7D7D7] px-2 py-0.5 rounded-md"
+                          className="text-[9px] bg-black/[0.03] border border-black/[0.05] text-[#4a4a4a] px-2 py-0.5 rounded-md"
                         >
                           {srv}
                         </span>
@@ -622,10 +622,10 @@ export default function PortfolioPage() {
                 </div>
 
                 {/* Bottom Stats Detail */}
-                <div className="px-6 py-4 bg-[#111111]/60 border-t border-white/[0.04] flex items-center justify-between text-xs">
-                  <span className="text-[#8C8C8C] font-mono uppercase tracking-wider text-[9px]">Strategic Focus</span>
-                  <span className="font-bold text-white font-mono flex items-center gap-1">
-                    <Check className="w-3 h-3 text-[#00AF56]" />
+                <div className="px-6 py-4 bg-bg-secondary/60 border-t border-black/[0.05] flex items-center justify-between text-xs">
+                  <span className="text-[#4a4a4a] font-mono uppercase tracking-wider text-[9px]">Strategic Focus</span>
+                  <span className="font-bold text-[#1a1a1a] font-mono flex items-center gap-1">
+                    <Check className="w-3 h-3 text-primary" />
                     {proj.category === "dev" ? "Development" : "CRO Metrics"}
                   </span>
                 </div>
@@ -635,7 +635,7 @@ export default function PortfolioPage() {
         </div>
 
         {/* Call to action card footer */}
-        <div className="mt-8 p-8 md:p-12 rounded-3xl bg-[#111111] border border-white/[0.08] text-center flex flex-col gap-6 items-center">
+        <div className="mt-8 p-8 md:p-12 rounded-3xl bg-[#0a0a0a] border border-white/[0.05] text-center flex flex-col gap-6 items-center">
           <h2 className="text-xl md:text-2xl font-bold text-white max-w-xl">
             Want to see your Shopify store listed here with scaling ROAS?
           </h2>
@@ -644,7 +644,7 @@ export default function PortfolioPage() {
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-xs font-semibold uppercase tracking-wider text-black bg-[#00AF56] hover:bg-[#00AF56]/90 transition-all hover:shadow-[0_0_20px_rgba(0,175,86,0.3)]"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-xs font-semibold uppercase tracking-wider text-white bg-primary hover:bg-[#2a6350] transition-all hover:shadow-[0_8px_24px_rgba(55,126,98,0.25)]"
           >
             <span>Book Free Audit Call</span>
             <ArrowRight className="w-4 h-4" />
