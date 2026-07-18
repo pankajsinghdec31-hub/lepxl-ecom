@@ -148,11 +148,9 @@ export default function ShopifyAuditPage() {
             </span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
+          <h1 className="premium-heading text-4xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
             Free Shopify <br className="sm:hidden" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-primary">
-              Growth Audit
-            </span>
+            <span className="premium-highlight text-white">Growth Audit</span>
           </h1>
 
           <p className="text-[#8e8e93] text-base leading-relaxed">
@@ -164,13 +162,13 @@ export default function ShopifyAuditPage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-16">
           
           {/* LEFT SIDE PANEL: CONFIGURATOR FORM */}
-          <div className="lg:col-span-5 flex flex-col gap-6 p-6 sm:p-8 rounded-3xl glass-card shadow-sm relative">
+          <div className="premium-hover-card lg:col-span-5 flex flex-col gap-6 p-6 sm:p-8 rounded-3xl glass-card shadow-sm relative">
             <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full blur-xl pointer-events-none" />
             
             <div className="flex items-center justify-between pb-4 border-b border-white/[0.05]">
               <h2 className="text-lg font-bold text-white flex items-center gap-2">
                 <Settings className="w-5 h-5 text-primary" />
-                Store Metrics Setup
+                Store <span className="light-gradient-text font-normal">Metrics</span> Setup
               </h2>
               <span className="text-[10px] text-[#8e8e93] font-mono bg-white/[0.03] px-2 py-0.5 rounded border border-white/[0.05]">
                 Live Calculation
@@ -574,7 +572,7 @@ export default function ShopifyAuditPage() {
             </div>
 
             {/* CHECKLIST TOGGLES: RED & GREEN INDICATORS */}
-            <div className="p-6 rounded-3xl glass-card text-left flex flex-col gap-4 shadow-sm">
+            <div className="premium-hover-card p-6 rounded-3xl glass-card text-left flex flex-col gap-4 shadow-sm">
               <div className="flex flex-col gap-1 pb-2 border-b border-white/[0.05] text-left">
                 <span className="text-xs text-primary font-mono uppercase tracking-widest font-bold">Interactive Sandbox</span>
                 <h3 className="text-base font-bold text-white">Optimize Your Conversion Setup</h3>
@@ -613,14 +611,14 @@ export default function ShopifyAuditPage() {
             </div>
 
             {/* CTA LEAD GENERATION FORM */}
-            <div id="audit-lead-form" className="p-6 sm:p-8 rounded-3xl bg-[#0a0a0a] border border-white/[0.05] text-left relative overflow-hidden shadow-2xl">
+            <div className="premium-hover-card p-6 sm:p-8 rounded-3xl bg-[#0a0a0a] border border-white/[0.05] text-left relative overflow-hidden shadow-2xl">
               <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full blur-xl pointer-events-none" />
               
               {!formSubmitted ? (
                 <form onSubmit={handleLeadSubmit} className="flex flex-col gap-5 text-left">
                   <div className="flex flex-col gap-1 text-left">
                     <span className="text-xs text-primary font-mono uppercase tracking-widest font-bold">Lock in Projections</span>
-                    <h3 className="text-xl font-bold text-white">Recover Your Lost Revenue</h3>
+                    <h3 className="premium-heading text-xl font-bold text-white">Recover Your Lost <span className="premium-highlight text-white">Revenue</span></h3>
                     <p className="text-xs text-[#8c8c8c] leading-relaxed">
                       We'll compile these calculations, perform a manual deep-dive CRO audit on your Shopify store, and present a custom optimization roadmap.
                     </p>
@@ -674,10 +672,10 @@ export default function ShopifyAuditPage() {
 
                   <button
                     type="submit"
-                    className="w-full flex items-center justify-center gap-2 py-4 rounded-xl text-xs font-bold uppercase tracking-wider text-white bg-primary hover:bg-[#2a6350] transition-all hover:shadow-[0_8px_24px_rgba(55,126,98,0.25)] mt-2 cursor-pointer"
+                    className="w-full btn-primary flex items-center justify-center gap-2 py-4 rounded-xl text-xs font-bold uppercase tracking-wider text-black bg-white shadow-sm mt-2 cursor-pointer"
                   >
                     <span>Request Full Free Shopify Growth Audit</span>
-                    <ArrowRight className="w-4 h-4" />
+                    <ArrowRight className="w-4 h-4 premium-hover-icon" />
                   </button>
                 </form>
               ) : (

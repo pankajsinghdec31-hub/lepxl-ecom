@@ -18,8 +18,8 @@ export default function AboutPage() {
           <span className="text-xs text-primary font-mono uppercase tracking-widest font-bold">
             Company Ledger
           </span>
-          <h1 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
-            About SalePXL
+          <h1 className="premium-heading text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
+            About <span className="premium-highlight text-white">SalePXL</span>
           </h1>
           <p className="text-[#8e8e93] text-sm sm:text-base leading-relaxed">
             We build conversion-centric Shopify storefronts and scale them using paid media bidding models.
@@ -48,14 +48,14 @@ export default function AboutPage() {
 
               {/* Stat Counters */}
               <div className="grid grid-cols-2 gap-4">
-                <div className="p-4 rounded-xl bg-white/[0.01] border border-white/[0.05]">
+                <div className="premium-hover-card p-4 rounded-xl bg-white/[0.01] border border-white/[0.05]">
                   <div className="flex items-center gap-1 text-primary">
                     <Clock className="w-3.5 h-3.5" />
                     <span className="text-xs font-bold font-mono">10+ Years</span>
                   </div>
                   <p className="text-[9px] text-[#8e8e93] uppercase tracking-wider mt-1 font-semibold">Experience</p>
                 </div>
-                <div className="p-4 rounded-xl bg-white/[0.01] border border-white/[0.05]">
+                <div className="premium-hover-card p-4 rounded-xl bg-white/[0.01] border border-white/[0.05]">
                   <div className="flex items-center gap-1 text-primary">
                     <Award className="w-3.5 h-3.5" />
                     <span className="text-xs font-bold font-mono">100+ Brands</span>
@@ -71,8 +71,8 @@ export default function AboutPage() {
             <span className="text-xs text-primary font-mono uppercase tracking-widest font-bold">
               Founder Profile
             </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-              Pankaj Singh
+            <h2 className="premium-heading text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+              Pankaj <span className="premium-highlight text-white"><span className="light-gradient-text font-normal">Singh</span></span>
             </h2>
             
             <p className="text-sm sm:text-base text-white leading-relaxed font-medium">
@@ -105,7 +105,7 @@ export default function AboutPage() {
         {/* Corporate Integrity Section (MSME Registrations details) */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
           {/* Certificate Registration Card */}
-          <div className="p-8 rounded-3xl glass-card flex flex-col justify-between gap-6 shadow-sm">
+          <div className="premium-hover-card p-8 rounded-3xl glass-card flex flex-col justify-between gap-6 shadow-sm">
             <div className="flex flex-col gap-4">
               <span className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
                 <Shield className="w-5 h-5" />
@@ -115,7 +115,7 @@ export default function AboutPage() {
                 <h3 className="text-xl font-bold text-white mt-1">MSME Certified Enterprise</h3>
               </div>
               <p className="text-xs text-[#8e8e93] leading-relaxed">
-                SalePXL is officially registered with the Ministry of Micro, Small and Medium Enterprises, Government of India. We uphold transparent financial auditing and billing structures.
+                SalePXL is officially registered with the Ministry of Micro, Small and Medium Enterprises, Government of India. We Uphold transparent financial auditing and billing structures.
               </p>
             </div>
 
@@ -133,7 +133,7 @@ export default function AboutPage() {
           </div>
 
           {/* Location / Office Details */}
-          <div className="p-8 rounded-3xl glass-card flex flex-col justify-between gap-6 shadow-sm">
+          <div className="premium-hover-card p-8 rounded-3xl glass-card flex flex-col justify-between gap-6 shadow-sm">
             <div className="flex flex-col gap-4">
               <span className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
                 <MapPin className="w-5 h-5" />
@@ -164,16 +164,16 @@ export default function AboutPage() {
         </div>
 
         {/* CTA Banner */}
-        <div className="p-8 md:p-12 rounded-3xl bg-[#0a0a0a] border border-white/[0.05] text-center flex flex-col gap-6 items-center">
-          <h2 className="text-xl md:text-2xl font-bold text-white max-w-xl">
-            Let's design a high-converting store for your brand.
+        <div className="premium-hover-card p-8 md:p-12 rounded-3xl bg-[#0a0a0a] border border-white/[0.05] text-center flex flex-col gap-6 items-center">
+          <h2 className="premium-heading text-xl md:text-2xl font-bold text-white max-w-xl">
+            Let's <span className="light-gradient-text font-normal">design</span> a high-converting store for your <span className="premium-highlight text-white">brand.</span>
           </h2>
           <p className="text-xs text-[#8e8e93] max-w-lg leading-relaxed">
             Schedule a conversation with founder Pankaj Singh to map out budget priorities, speed targets, and scale projections.
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-xs font-semibold uppercase tracking-wider text-white bg-primary hover:bg-[#2a6350] transition-all hover:shadow-[0_8px_24px_rgba(55,126,98,0.25)]"
+            className="btn-primary inline-flex items-center gap-2 px-6 py-3 rounded-xl text-xs font-semibold uppercase tracking-wider text-black bg-white shadow-sm"
           >
             <span>Book Strategy Session</span>
             <ArrowRight className="w-4 h-4" />

@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { Mail, Phone, MapPin, ArrowRight, ShieldCheck } from "lucide-react";
+import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
 
 export default function Footer() {
   const [email, setEmail] = useState("");
@@ -27,31 +27,31 @@ export default function Footer() {
           {/* Brand Info */}
           <div className="flex flex-col gap-6">
             <Link href="/" className="flex items-center gap-2 group w-max">
-              <span className="w-8 h-8 rounded-lg bg-gradient-to-tr from-primary/80 to-primary flex items-center justify-center font-bold text-white text-lg transition-transform duration-300 group-hover:scale-105 shadow-[0_4px_12px_rgba(55,126,98,0.2)]">
+              <span className="w-8 h-8 rounded-full bg-primary flex items-center justify-center font-bold text-black text-sm transition-transform duration-300 group-hover:scale-105 shadow-sm">
                 S
               </span>
               <span className="text-white font-semibold text-xl tracking-tight">
-                Sale<span className="text-primary font-bold">PXL</span>
+                Sale<span className="text-primary">PXL</span>
               </span>
             </Link>
             <p className="text-[#8C8C8C] text-sm leading-relaxed max-w-xs">
               Conversion-engineered Shopify storefronts for high-growth D2C brands.
             </p>
             <div className="flex flex-col gap-3 text-xs text-[#8C8C8C]">
-              <div className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-primary" />
-                <a href="tel:+919917780656" className="hover:text-white transition-colors">
+              <div className="flex items-center gap-2 group">
+                <Phone className="w-4 h-4 text-primary premium-hover-icon" />
+                <a href="tel:+919917780656" className="premium-hover-link">
                   +91 9917780656
                 </a>
               </div>
-              <div className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-primary" />
-                <a href="mailto:growth@salepxl.com" className="hover:text-white transition-colors">
+              <div className="flex items-center gap-2 group">
+                <Mail className="w-4 h-4 text-primary premium-hover-icon" />
+                <a href="mailto:growth@salepxl.com" className="premium-hover-link">
                   growth@salepxl.com
                 </a>
               </div>
-              <div className="flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-primary" />
+              <div className="flex items-center gap-2 group">
+                <MapPin className="w-4 h-4 text-primary premium-hover-icon" />
                 <span>Dehradun, Uttarakhand, India</span>
               </div>
             </div>
@@ -71,7 +71,7 @@ export default function Footer() {
                 { name: "Contact", href: "/contact" }
               ].map((link) => (
                 <li key={link.name}>
-                  <Link href={link.href} className="hover:text-white transition-colors">
+                  <Link href={link.href} className="premium-hover-link inline-block">
                     {link.name}
                   </Link>
                 </li>
@@ -92,7 +92,7 @@ export default function Footer() {
                 { name: "Custom Shopify Development", href: "/services" }
               ].map((link) => (
                 <li key={link.name}>
-                  <Link href={link.href} className="hover:text-white transition-colors">
+                  <Link href={link.href} className="premium-hover-link inline-block">
                     {link.name}
                   </Link>
                 </li>
@@ -116,11 +116,11 @@ export default function Footer() {
                   placeholder="Enter your email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full bg-[#181818] border border-white/[0.08] text-white text-xs rounded-xl px-4 py-3 focus:outline-none focus:border-primary transition-colors pr-10"
+                  className="w-full bg-[#101010] border border-white/[0.08] text-white text-xs rounded-full px-5 py-3 focus:outline-none focus:border-primary transition-colors pr-12 h-12"
                 />
                 <button
                   type="submit"
-                  className="absolute right-2 p-1.5 rounded-lg bg-primary hover:bg-[#2a6350] transition-colors text-white"
+                  className="absolute right-2 p-1.5 rounded-full bg-primary hover:bg-primary-hover transition-all duration-300 text-black w-8 h-8 flex items-center justify-center cursor-pointer"
                   aria-label="Subscribe"
                 >
                   <ArrowRight className="w-4 h-4" />
@@ -132,22 +132,6 @@ export default function Footer() {
                 </p>
               )}
             </div>
-
-            {/* Registration Details */}
-            <div className="p-4 rounded-2xl bg-[#181818] border border-white/[0.05] flex items-start gap-3">
-              <ShieldCheck className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-              <div className="flex flex-col gap-1">
-                <span className="text-[10px] text-[#8C8C8C] font-semibold uppercase tracking-wider">
-                  Government Registered MSME
-                </span>
-                <span className="text-xs text-white font-medium">
-                  SALEPXL
-                </span>
-                <span className="text-[10px] text-[#8C8C8C]">
-                  UDYAM-UK-05-0097916
-                </span>
-              </div>
-            </div>
           </div>
         </div>
 
@@ -157,10 +141,10 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} SalePXL (SALEPXL). All rights reserved.
           </p>
           <div className="flex items-center gap-6 text-xs text-[#8C8C8C]">
-            <Link href="/privacy" className="hover:text-white transition-colors">
+            <Link href="/privacy" className="premium-hover-link">
               Privacy Policy
             </Link>
-            <Link href="/terms" className="hover:text-white transition-colors">
+            <Link href="/terms" className="premium-hover-link">
               Terms of Service
             </Link>
           </div>

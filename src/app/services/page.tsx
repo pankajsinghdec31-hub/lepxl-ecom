@@ -115,11 +115,11 @@ export default function ServicesPage() {
           <span className="text-xs text-primary font-mono uppercase tracking-widest font-bold">
             Services & Capabilities
           </span>
-          <h1 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
-            Shopify Storefront Engineering
+          <h1 className="premium-heading text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
+            Shopify Storefront <span className="premium-highlight text-white">Engineering</span>
           </h1>
           <p className="text-[#8e8e93] text-sm sm:text-base leading-relaxed">
-            We build custom, speed-optimized Shopify storefronts and engineer high-converting purchase paths. No pre-made templates—just custom high-performance e-commerce engineering.
+            Traffic comes from anywhere, but trust comes from your store. We build custom, speed-optimized Shopify storefronts and engineer high-converting purchase paths. No pre-made templates—just custom high-performance e-commerce engineering.
           </p>
         </div>
 
@@ -131,12 +131,12 @@ export default function ServicesPage() {
               return (
                 <div
                   key={idx}
-                  className="p-8 rounded-3xl glass-card flex flex-col justify-between gap-6 hover:border-primary/20 transition-all duration-300 shadow-sm"
+                  className="premium-hover-card p-8 rounded-3xl glass-card flex flex-col justify-between gap-6 transition-all duration-300 shadow-sm"
                 >
                   <div className="flex flex-col gap-4">
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-4 group">
                       <span className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
-                        <IconComp className="w-5 h-5" />
+                        <IconComp className="w-5 h-5 premium-hover-icon" />
                       </span>
                       <h3 className="text-lg font-bold text-white">{srv.title}</h3>
                     </div>
@@ -161,16 +161,16 @@ export default function ServicesPage() {
         </div>
 
         {/* Final call to action section */}
-        <div className="p-8 md:p-12 rounded-3xl bg-[#0a0a0a] border border-white/[0.05] text-center flex flex-col gap-6 items-center">
-          <h2 className="text-xl md:text-2xl font-bold text-white max-w-xl">
-            Ready to build or migrate your Shopify store?
+        <div className="premium-hover-card p-8 md:p-12 rounded-3xl bg-[#0a0a0a] border border-white/[0.05] text-center flex flex-col gap-6 items-center">
+          <h2 className="premium-heading text-xl md:text-2xl font-bold text-white max-w-xl">
+            Ready <span className="light-gradient-text font-normal">to</span> build or migrate your <span className="premium-highlight text-white">Shopify store?</span>
           </h2>
           <p className="text-xs text-[#8e8e93] max-w-lg leading-relaxed">
             Schedule a session to analyze your platform requirements, speed bottlenecks, and outline a step-by-step launch roadmap.
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-xs font-semibold uppercase tracking-wider text-white bg-primary hover:bg-[#2a6350] transition-all hover:shadow-[0_8px_24px_rgba(55,126,98,0.25)]"
+            className="btn-primary inline-flex items-center gap-2 px-6 py-3 rounded-xl text-xs font-semibold uppercase tracking-wider text-black bg-white shadow-sm"
           >
             <span>Book Free Strategy Call</span>
             <ArrowRight className="w-4 h-4" />

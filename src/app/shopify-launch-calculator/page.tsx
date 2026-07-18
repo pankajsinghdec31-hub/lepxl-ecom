@@ -59,11 +59,9 @@ export default function ShopifyLaunchCalculator() {
             </span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
+          <h1 className="premium-heading text-4xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
             Launch ROI <br className="sm:hidden" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-primary">
-              Simulator
-            </span>
+            <span className="premium-highlight text-white">Simulator</span>
           </h1>
 
           <p className="text-[#8e8e93] text-base leading-relaxed">
@@ -75,11 +73,11 @@ export default function ShopifyLaunchCalculator() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-16">
           
           {/* LEFT: SLIDERS & CONTROLS */}
-          <div className="lg:col-span-5 flex flex-col gap-6 p-6 sm:p-8 rounded-3xl glass-card shadow-sm text-left">
+          <div className="premium-hover-card lg:col-span-5 flex flex-col gap-6 p-6 sm:p-8 rounded-3xl glass-card shadow-sm text-left">
             <div className="flex items-center justify-between pb-4 border-b border-white/[0.05]">
               <h2 className="text-lg font-bold text-white flex items-center gap-2 text-left">
                 <Settings className="w-5 h-5 text-primary" />
-                Store Parameters
+                Store <span className="light-gradient-text font-normal">Parameters</span>
               </h2>
               <span className="text-[10px] text-primary font-mono bg-primary/10 px-2 py-0.5 rounded border border-primary/20 font-bold">
                 Live Math
@@ -344,11 +342,9 @@ export default function ShopifyLaunchCalculator() {
 
         {/* FOMO HEADER SECTION */}
         <section className="py-16 border-t border-white/[0.05] text-center max-w-4xl mx-auto flex flex-col gap-4">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
-            Don't Spend More On Traffic. <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-primary">
-              Convert More Of The Visitors You Already Have.
-            </span>
+          <h2 className="premium-heading text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
+            Don't <span className="light-gradient-text font-normal">Spend</span> More On Traffic. <br />
+            <span className="premium-highlight text-white">Convert More Of The Visitors You Already Have.</span>
           </h2>
           <p className="text-[#8e8e93] text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
             Most businesses try to solve poor sales by increasing traffic acquisition spend. Winning brands improve conversion first. Better stores make every visitor count.
@@ -356,12 +352,12 @@ export default function ShopifyLaunchCalculator() {
         </section>
 
         {/* FINAL CTA BOX */}
-        <section className="p-8 sm:p-12 rounded-3xl bg-[#0a0a0a] border border-white/[0.05] text-center max-w-4xl mx-auto relative overflow-hidden">
+        <section className="premium-hover-card p-8 sm:p-12 rounded-3xl bg-[#0a0a0a] border border-white/[0.05] text-center max-w-4xl mx-auto relative overflow-hidden">
           <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-2xl pointer-events-none" />
           
           <div className="flex flex-col gap-6 relative z-10">
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-white">
-              Ready to Build a Shopify Store That Converts?
+            <h3 className="premium-heading text-2xl sm:text-3xl font-extrabold text-white">
+              Ready to Build a <span className="premium-highlight text-white">Shopify Store That Converts?</span>
             </h3>
             
             <p className="text-sm text-[#8c8c8c] max-w-xl mx-auto leading-relaxed">
@@ -371,31 +367,31 @@ export default function ShopifyLaunchCalculator() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-2">
               <Link
                 href="/contact"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-sm font-semibold uppercase tracking-wider text-white bg-primary hover:bg-[#2a6350] transition-all text-center font-bold cursor-pointer"
+                className="w-full sm:w-auto btn-primary inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-sm font-semibold uppercase tracking-wider text-black bg-white shadow-sm font-bold cursor-pointer"
               >
                 <span>Get Free Consultation</span>
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 premium-hover-icon" />
               </Link>
               <a
                 href="https://wa.me/919917780656"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-sm font-semibold uppercase tracking-wider text-white bg-transparent border border-white/[0.08] hover:border-white/20 transition-all text-center hover:bg-white/[0.02]"
+                className="w-full sm:w-auto btn-secondary inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-sm font-semibold uppercase tracking-wider text-white border border-white/[0.08] text-center"
               >
-                <Phone className="w-4 h-4 text-primary" />
+                <Phone className="w-4 h-4 text-primary premium-hover-icon" />
                 <span>Chat on WhatsApp</span>
               </a>
             </div>
 
             {/* Direct contact details */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-6 pt-6 border-t border-white/[0.04] text-xs text-[#8C8C8C]">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-6 pt-6 border-t border-white/[0.04] text-xs text-[#8C8C8C] group">
               <div className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-primary" />
-                <span>WhatsApp: <a href="https://wa.me/919917780656" target="_blank" rel="noopener noreferrer" className="text-white hover:text-primary font-bold font-mono">+91 9917780656</a></span>
+                <Phone className="w-4 h-4 text-primary premium-hover-icon" />
+                <span>WhatsApp: <a href="https://wa.me/919917780656" target="_blank" rel="noopener noreferrer" className="text-white premium-hover-link font-bold font-mono">+91 9917780656</a></span>
               </div>
               <div className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-primary" />
-                <span>Email: <a href="mailto:growth@salepxl.com" className="text-white hover:text-primary font-bold font-mono">growth@salepxl.com</a></span>
+                <Mail className="w-4 h-4 text-primary premium-hover-icon" />
+                <span>Email: <a href="mailto:growth@salepxl.com" className="text-white premium-hover-link font-bold font-mono">growth@salepxl.com</a></span>
               </div>
             </div>
           </div>

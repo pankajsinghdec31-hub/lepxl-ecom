@@ -18,8 +18,8 @@ export default function CaseStudiesPage() {
           <span className="text-xs text-primary font-mono uppercase tracking-widest font-bold">
             Performance Ledger
           </span>
-          <h1 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
-            Case Studies: Speed & CRO Results
+          <h1 className="premium-heading text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
+            Case Studies: <span className="premium-highlight text-white">Speed & CRO Results</span>
           </h1>
           <p className="text-[#8e8e93] text-sm sm:text-base leading-relaxed">
             No theories. We document the exact design architectures, performance metrics, and speed tuning we use to lift conversion rates.
@@ -27,7 +27,7 @@ export default function CaseStudiesPage() {
         </div>
 
         {/* Featured Case Study: ECOM-SCALE */}
-        <div className="rounded-3xl glass-card p-8 md:p-12 flex flex-col gap-12 relative overflow-hidden shadow-sm">
+        <div className="premium-hover-card rounded-3xl glass-card p-8 md:p-12 flex flex-col gap-12 relative overflow-hidden shadow-sm">
           {/* Subtle glow edge */}
           <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-primary/[0.03] blur-[100px] pointer-events-none" />
 
@@ -35,8 +35,8 @@ export default function CaseStudiesPage() {
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 border-b border-white/[0.05] pb-8 relative z-10">
             <div className="flex flex-col gap-2">
               <span className="text-xs text-primary font-mono uppercase tracking-wider font-bold">Featured Case Study</span>
-              <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
-                Shopify Rebuild & Conversion Architecture
+              <h2 className="premium-heading text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
+                Shopify <span className="light-gradient-text font-normal">Rebuild</span> & <span className="premium-highlight text-white">Conversion Architecture</span>
               </h2>
             </div>
             
@@ -48,19 +48,19 @@ export default function CaseStudiesPage() {
 
           {/* Core Metrics Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 relative z-10">
-            <div className="p-6 rounded-2xl bg-white/[0.01] border border-white/[0.05] flex flex-col gap-2">
+            <div className="premium-hover-card p-6 rounded-2xl bg-white/[0.01] border border-white/[0.05] flex flex-col gap-2">
               <span className="text-xs text-[#8e8e93] font-mono uppercase tracking-wider font-semibold">Mobile Page Speed</span>
               <span className="text-3xl font-extrabold text-white font-mono">1.9 Seconds</span>
               <span className="text-[10px] text-[#8e8e93] mt-1">Improved from 6.8s load times</span>
             </div>
 
-            <div className="p-6 rounded-2xl bg-white/[0.01] border border-white/[0.05] flex flex-col gap-2">
+            <div className="premium-hover-card p-6 rounded-2xl bg-white/[0.01] border border-white/[0.05] flex flex-col gap-2">
               <span className="text-xs text-[#8e8e93] font-mono uppercase tracking-wider font-semibold">Conversion Rate</span>
               <span className="text-3xl font-extrabold text-primary font-mono">4.2%</span>
               <span className="text-[10px] text-primary font-medium mt-1">+281% Net conversion lift</span>
             </div>
 
-            <div className="p-6 rounded-2xl bg-white/[0.01] border border-white/[0.05] flex flex-col gap-2">
+            <div className="premium-hover-card p-6 rounded-2xl bg-white/[0.01] border border-white/[0.05] flex flex-col gap-2">
               <span className="text-xs text-[#8e8e93] font-mono uppercase tracking-wider font-semibold">Revenue Growth</span>
               <span className="text-3xl font-extrabold text-white font-mono">+410%</span>
               <span className="text-[10px] text-[#8e8e93] mt-1">Net sales scale in 90 days</span>
@@ -114,7 +114,7 @@ export default function CaseStudiesPage() {
             </div>
 
             {/* Right Column Data Breakdown */}
-            <div className="lg:col-span-5 p-6 rounded-2xl bg-white/[0.01] border border-white/[0.05] flex flex-col justify-between gap-6">
+            <div className="premium-hover-card lg:col-span-5 p-6 rounded-2xl bg-white/[0.01] border border-white/[0.05] flex flex-col justify-between gap-6">
               <div>
                 <h3 className="text-sm font-bold text-white uppercase tracking-wider mb-4 border-b border-white/[0.05] pb-2">
                   Optimization Indicators
@@ -175,16 +175,16 @@ export default function CaseStudiesPage() {
         </div>
 
         {/* Call to action footer section */}
-        <div className="p-8 md:p-12 rounded-3xl bg-[#0a0a0a] border border-white/[0.05] text-center flex flex-col gap-6 items-center">
-          <h2 className="text-xl md:text-2xl font-bold text-white max-w-xl">
-            Want to audit your brand's storefront performance?
+        <div className="premium-hover-card p-8 md:p-12 rounded-3xl bg-[#0a0a0a] border border-white/[0.05] text-center flex flex-col gap-6 items-center">
+          <h2 className="premium-heading text-xl md:text-2xl font-bold text-white max-w-xl">
+            Want <span className="light-gradient-text font-normal">to</span> audit your brand's <span className="premium-highlight text-white">storefront performance?</span>
           </h2>
           <p className="text-xs text-[#8e8e93] max-w-lg leading-relaxed">
             Let Pankaj Singh audit your current checkout funnel and page speed metrics to map out a performance structure tailored to your product catalog.
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-xs font-semibold uppercase tracking-wider text-white bg-primary hover:bg-[#2a6350] transition-all hover:shadow-[0_8px_24px_rgba(55,126,98,0.25)]"
+            className="btn-primary inline-flex items-center gap-2 px-6 py-3 rounded-xl text-xs font-semibold uppercase tracking-wider text-black bg-white shadow-sm"
           >
             <span>Get Free Consultation</span>
             <ArrowRight className="w-4 h-4" />

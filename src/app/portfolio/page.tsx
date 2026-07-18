@@ -15,7 +15,8 @@ import {
   ShoppingBag,
   Shield,
   Layers,
-  ArrowRight
+  ArrowRight,
+  ArrowUpRight
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -502,8 +503,8 @@ export default function PortfolioPage() {
           <span className="text-xs text-primary font-mono uppercase tracking-widest font-bold">
             Project Showcase
           </span>
-          <h1 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
-            Brands We've Helped Grow
+          <h1 className="premium-heading text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
+            Brands We've Helped <span className="premium-highlight text-white">Grow</span>
           </h1>
           <p className="text-[#8e8e93] text-sm sm:text-base leading-relaxed">
             Browse through our portfolio of ecommerce brands scaling conversions and performance using custom Shopify stores, designs, and speed optimization.
@@ -542,7 +543,7 @@ export default function PortfolioPage() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.3 }}
-                className="group rounded-3xl glass-card transition-all duration-300 flex flex-col justify-between overflow-hidden shadow-sm"
+                className="premium-portfolio-card group rounded-3xl flex flex-col justify-between overflow-hidden shadow-sm"
               >
                 {/* Virtual Macbook/Screen Mockup Frame */}
                 <div className="p-4 bg-white/[0.01] border-b border-white/[0.05] flex items-center justify-between">
@@ -558,14 +559,14 @@ export default function PortfolioPage() {
                 </div>
 
                 {/* Mockup Image Container */}
-                <div className="relative aspect-[16/10] w-full overflow-hidden bg-white/[0.01] border-b border-white/[0.05]">
+                <div className="relative aspect-[16/10] w-full overflow-hidden bg-white/[0.01] border-b border-white/[0.05] premium-hover-image-container">
                   {(() => {
                     const store = getMockupConfig(proj.name, proj.category, proj.industry);
                     return store.image ? (
                       <img
                         src={store.image}
                         alt={store.name}
-                        className="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.02]"
+                        className="w-full h-full object-cover object-top premium-hover-image"
                         loading="lazy"
                       />
                     ) : (
@@ -573,6 +574,14 @@ export default function PortfolioPage() {
                     );
                   })()}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+                  
+                  {/* Overlay with View Project */}
+                  <div className="absolute inset-0 bg-black/45 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
+                    <span className="px-4 py-2 rounded-full bg-primary text-black text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+                      View Project
+                      <ArrowUpRight className="w-3.5 h-3.5" />
+                    </span>
+                  </div>
                 </div>
 
                 {/* Main Card Content */}
@@ -628,16 +637,16 @@ export default function PortfolioPage() {
         </div>
 
         {/* Call to action card footer */}
-        <div className="mt-8 p-8 md:p-12 rounded-3xl bg-[#0a0a0a] border border-white/[0.05] text-center flex flex-col gap-6 items-center">
-          <h2 className="text-xl md:text-2xl font-bold text-white max-w-xl">
-            Want to see your Shopify store listed here with scaling ROAS?
+        <div className="premium-hover-card mt-8 p-8 md:p-12 rounded-3xl bg-[#0a0a0a] border border-white/[0.05] text-center flex flex-col gap-6 items-center">
+          <h2 className="premium-heading text-xl md:text-2xl font-bold text-white max-w-xl">
+            Want <span className="light-gradient-text font-normal">to</span> see your Shopify store listed here with scaling <span className="premium-highlight">ROAS?</span>
           </h2>
           <p className="text-xs text-[#8e8e93] max-w-lg leading-relaxed">
             Let Pankaj and the SalePXL team analyze your storefront layout, isolate checkout leakage points, and assemble a campaign blueprint.
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-xs font-semibold uppercase tracking-wider text-white bg-primary hover:bg-[#2a6350] transition-all hover:shadow-[0_8px_24px_rgba(55,126,98,0.25)]"
+            className="btn-primary inline-flex items-center gap-2 px-6 py-3 rounded-xl text-xs font-semibold uppercase tracking-wider text-black bg-white shadow-sm"
           >
             <span>Book Free Audit Call</span>
             <ArrowRight className="w-4 h-4" />

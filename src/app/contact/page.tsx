@@ -54,8 +54,8 @@ export default function ContactPage() {
           <span className="text-xs text-primary font-mono uppercase tracking-widest font-bold">
             Onboarding Queue
           </span>
-          <h1 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
-            Book Your Shopify Strategy Call
+          <h1 className="premium-heading text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
+            Book Your Shopify <span className="premium-highlight text-white">Strategy Call</span>
           </h1>
           <p className="text-[#8e8e93] text-sm sm:text-base leading-relaxed">
             Stop wasting paid budgets sending traffic to low-conversion layouts. We design high-performing Shopify storefronts and optimize product pages to turn clicks into profitable customers.
@@ -68,18 +68,18 @@ export default function ContactPage() {
           {/* Left Column Information Cards */}
           <div className="lg:col-span-5 flex flex-col gap-6 justify-between">
             <div className="flex flex-col gap-6">
-              <h2 className="text-xl font-bold text-white uppercase tracking-wider">
-                Direct Contact Metrics
+              <h2 className="premium-heading text-xl font-bold text-white uppercase tracking-wider">
+                Direct <span className="light-gradient-text font-normal">Contact</span> <span className="premium-highlight text-white">Metrics</span>
               </h2>
               
               {/* Phone card */}
-              <div className="p-6 rounded-2xl glass-card flex items-start gap-4 shadow-sm">
+              <div className="premium-hover-card p-6 rounded-2xl glass-card flex items-start gap-4 shadow-sm group">
                 <span className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0">
-                  <Phone className="w-5 h-5" />
+                  <Phone className="w-5 h-5 premium-hover-icon" />
                 </span>
                 <div className="flex flex-col">
                   <span className="text-[10px] text-[#8e8e93] font-mono uppercase tracking-wider font-semibold">Telephony Hotline</span>
-                  <a href="tel:+919917780656" className="text-white hover:text-primary font-bold text-base mt-0.5 transition-colors">
+                  <a href="tel:+919917780656" className="text-white premium-hover-link font-bold text-base mt-0.5">
                     +91 9917780656
                   </a>
                   <span className="text-xs text-[#8e8e93] mt-1">Available 10 AM - 7 PM IST</span>
@@ -87,13 +87,13 @@ export default function ContactPage() {
               </div>
 
               {/* Email card */}
-              <div className="p-6 rounded-2xl glass-card flex items-start gap-4 shadow-sm">
+              <div className="premium-hover-card p-6 rounded-2xl glass-card flex items-start gap-4 shadow-sm group">
                 <span className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0">
-                  <Mail className="w-5 h-5" />
+                  <Mail className="w-5 h-5 premium-hover-icon" />
                 </span>
                 <div className="flex flex-col">
                   <span className="text-[10px] text-[#8e8e93] font-mono uppercase tracking-wider font-semibold">Electronic Mail</span>
-                  <a href="mailto:growth@salepxl.com" className="text-white hover:text-primary font-bold text-base mt-0.5 transition-colors">
+                  <a href="mailto:growth@salepxl.com" className="text-white premium-hover-link font-bold text-base mt-0.5">
                     growth@salepxl.com
                   </a>
                   <span className="text-xs text-[#8e8e93] mt-1">Response window: Under 12 Hours</span>
@@ -101,9 +101,9 @@ export default function ContactPage() {
               </div>
 
               {/* Office Location */}
-              <div className="p-6 rounded-2xl glass-card flex items-start gap-4 shadow-sm">
+              <div className="premium-hover-card p-6 rounded-2xl glass-card flex items-start gap-4 shadow-sm group">
                 <span className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0">
-                  <MapPin className="w-5 h-5" />
+                  <MapPin className="w-5 h-5 premium-hover-icon" />
                 </span>
                 <div className="flex flex-col">
                   <span className="text-[10px] text-[#8e8e93] font-mono uppercase tracking-wider font-semibold">Physical Hub</span>
@@ -116,9 +116,9 @@ export default function ContactPage() {
             </div>
 
             {/* Corporate registered information widget */}
-            <div className="p-6 rounded-2xl glass-card flex flex-col gap-4 shadow-sm">
+            <div className="premium-hover-card p-6 rounded-2xl glass-card flex flex-col gap-4 shadow-sm group">
               <div className="flex items-center gap-3">
-                <Building className="w-5 h-5 text-primary shrink-0" />
+                <Building className="w-5 h-5 text-primary shrink-0 premium-hover-icon" />
                 <div className="flex flex-col text-left">
                   <span className="text-[9px] text-[#8e8e93] uppercase tracking-wider font-bold">Government Certified MSME</span>
                   <span className="text-xs font-bold text-white">SALEPXL ENTERPRISE</span>
@@ -334,14 +334,14 @@ export default function ContactPage() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full mt-2 inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl text-xs font-semibold uppercase tracking-wider text-white bg-primary hover:bg-[#2a6350] disabled:opacity-50 transition-all font-bold cursor-pointer hover:shadow-[0_8px_24px_rgba(16,185,129,0.15)]"
+                    className="w-full mt-2 btn-primary inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl text-xs font-semibold uppercase tracking-wider text-black bg-white disabled:opacity-50 shadow-sm cursor-pointer"
                   >
                     {isSubmitting ? (
                       <span>Queueing Booking Request...</span>
                     ) : (
                       <>
                         <span>Submit Strategy Request</span>
-                        <ArrowRight className="w-4 h-4" />
+                        <ArrowRight className="w-4 h-4 premium-hover-icon" />
                       </>
                     )}
                   </button>
