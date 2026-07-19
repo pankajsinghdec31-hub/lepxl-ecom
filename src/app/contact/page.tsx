@@ -25,7 +25,7 @@ export default function ContactPage() {
         </div>
 
         {/* Booking Form Card (Renders the unified StartProjectForm) */}
-        <div className="max-w-3xl mx-auto w-full mt-4">
+        <div className="max-w-4xl mx-auto w-full mt-4">
           <div className="p-8 sm:p-14 md:p-16 rounded-3xl bg-gradient-to-b from-[#fafcfc] via-[#f5faf7] to-[#eaf7f2] border border-neutral-200/80 shadow-2xl relative overflow-hidden flex flex-col justify-center">
             <div className="absolute top-0 right-0 w-[200px] h-[200px] bg-emerald-500/[0.02] blur-[80px] pointer-events-none" />
             <StartProjectForm />
