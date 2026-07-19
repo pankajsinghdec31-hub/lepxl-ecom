@@ -6,12 +6,12 @@ import { ArrowRight } from "lucide-react";
 
 export default function AboutPage() {
   return (
-    <div className="relative min-h-screen bg-gradient-to-b from-[#fafcfc] via-[#f5faf7] to-[#eaf7f2] text-neutral-900 pt-44 pb-24 relative overflow-hidden font-sans -mt-24">
+    <div className="relative min-h-screen bg-gradient-to-b from-[#fafcfc] via-[#f5faf7] to-[#eaf7f2] text-neutral-900 pt-36 pb-20 relative overflow-hidden font-sans">
       {/* Subtle background decoration highlight */}
       <div className="absolute top-[10%] left-[-15%] w-[600px] h-[600px] bg-emerald-400/[0.04] rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-[10%] right-[-15%] w-[600px] h-[600px] bg-teal-300/[0.04] rounded-full blur-[140px] pointer-events-none" />
 
-      <div className="max-w-5xl mx-auto px-6 flex flex-col gap-24 relative z-10">
+      <div className="max-w-5xl mx-auto px-6 flex flex-col gap-14 relative z-10">
         
         {/* Editorial Page Header */}
         <section className="flex flex-col gap-6 max-w-3xl text-left">
