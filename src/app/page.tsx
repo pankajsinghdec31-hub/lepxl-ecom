@@ -421,22 +421,22 @@ const PORTFOLIO_CARDS = [
 const BUILD_PROCESS_STEPS = [
   {
     num: "01",
-    title: "Plan Your Store",
-    desc: "Collaborate on structural architecture, design mockups, and layout strategies before writing a single line of code.",
+    title: "Strategy & Planning",
+    desc: "We understand your brand, products, and audience to create a Shopify store built for maximum conversions.",
     desktopImg: "/process_plan_mockup.png",
     mobileImg: "/process_plan_mockup.png"
   },
   {
     num: "02",
-    title: "Build with Shopify Experts",
-    desc: "Get clean custom liquid code, speed-optimized theme configuration, and robust API integrations from certified developers.",
+    title: "Build High-CRO Shopify Stores",
+    desc: "We design and develop lightning-fast, mobile-first Shopify stores with custom Liquid development, premium UX, and conversion-focused layouts.",
     desktopImg: "/experts_desktop.png",
     mobileImg: "/experts_mobile.png"
   },
   {
     num: "03",
-    title: "Increase Sales & Conversions",
-    desc: "Accelerate checkout flows, integrate smart upsell drawers, and maximize average order value with data-driven CRO.",
+    title: "Optimize & Scale",
+    desc: "From CRO improvements and performance optimization to advanced Shopify features, we help your store increase sales and scale profitably.",
     desktopImg: "/process_sales_mockup.png",
     mobileImg: "/process_sales_mockup.png"
   }
