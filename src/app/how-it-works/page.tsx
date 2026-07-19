@@ -224,10 +224,7 @@ export default function HowItWorksPage() {
 
       {/* Hero Header */}
       <section className="relative z-10 max-w-5xl mx-auto px-6 text-center pt-16 pb-24 md:py-32">
-        <span className="inline-flex items-center gap-1.5 text-xs text-emerald-700 font-sans uppercase tracking-widest font-bold bg-emerald-50 border border-emerald-200/50 px-4.5 py-1.5 rounded-full w-max mx-auto shadow-sm">
-          <Sparkles className="w-3.5 h-3.5 text-emerald-500 animate-pulse" />
-          The SALEPXL Process
-        </span>
+
         <h1 className="mt-6 text-4xl sm:text-6xl font-light tracking-tight leading-[1.1] font-grotesk text-neutral-900">
           How We Build Your <br />
           <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent font-normal font-sans">Shopify Store</span>
@@ -795,10 +792,7 @@ export default function HowItWorksPage() {
         {/* Success animation backdrop */}
         <div className="absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] w-[350px] h-[350px] bg-emerald-500/[0.03] rounded-full blur-[80px] pointer-events-none" />
 
-        <div className="inline-flex items-center gap-1.5 text-xs text-emerald-700 font-sans uppercase tracking-widest font-bold bg-emerald-50 border border-emerald-200/50 px-4.5 py-1.5 rounded-full w-max mx-auto shadow-sm">
-          <ShieldCheck className="w-4 h-4 text-emerald-500" />
-          LAUNCH SECURED & DEPLOYED
-        </div>
+
 
         <h2 className="mt-8 text-3xl sm:text-5xl font-light tracking-tight font-grotesk leading-tight text-neutral-900">
           Your Shopify Store is <br />

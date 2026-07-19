@@ -15,9 +15,7 @@ export default function AboutPage() {
         
         {/* Editorial Page Header */}
         <section className="flex flex-col gap-6 max-w-3xl text-left">
-          <span className="text-xs text-emerald-700 font-mono uppercase tracking-[0.2em] font-bold">
-            01 / Agency Manifesto
-          </span>
+
           <h1 className="text-4xl sm:text-6xl font-light tracking-tight leading-[1.1] text-neutral-900 font-grotesk">
             We build high-converting <br />
             <span className="font-normal bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">

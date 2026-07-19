@@ -26,13 +26,12 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Brand Info */}
           <div className="flex flex-col gap-6">
-            <Link href="/" className="flex items-center gap-2 group w-max">
-              <span className="w-8 h-8 rounded-full bg-primary flex items-center justify-center font-bold text-black text-sm transition-transform duration-300 group-hover:scale-105 shadow-sm">
-                S
-              </span>
-              <span className="text-white font-semibold text-xl tracking-tight">
-                Sale<span className="text-primary">PXL</span>
-              </span>
+            <Link href="/" className="flex items-center group w-max select-none">
+              <img 
+                src="/logo.png" 
+                alt="SalePXL Logo" 
+                className="h-9 w-auto object-contain invert hue-rotate-180 transition-transform duration-300 group-hover:scale-[1.02]"
+              />
             </Link>
             <p className="text-[#8C8C8C] text-sm leading-relaxed max-w-xs">
               Conversion-engineered Shopify storefronts for high-growth D2C brands.

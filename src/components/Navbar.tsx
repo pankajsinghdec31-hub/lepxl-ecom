@@ -77,23 +77,14 @@ export default function Navbar() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-1.5 group select-none min-h-[44px]">
-            <span className={`font-bold text-2xl tracking-tight transition-colors ${isContactPage ? "text-black" : "text-white"}`}>
-              SALE<span className="text-primary">PXL</span>
-            </span>
-            <svg 
-              className="w-6 h-6 text-primary shrink-0 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" 
-              viewBox="0 0 24 24" 
-              fill="none" 
-              stroke="currentColor" 
-              strokeWidth="3.5" 
-              strokeLinecap="round" 
-              strokeLinejoin="round"
-            >
-              <path d="M3 18l6-6 4 4 8-8" />
-              <polyline points="17 8 21 8 21 12" />
-            </svg>
+          <Link href="/" className="flex items-center group select-none min-h-[44px]">
+            <img 
+              src="/logo.png" 
+              alt="SalePXL Logo" 
+              className={`h-9 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02] ${
+                isContactPage ? "" : "invert hue-rotate-180"
+              }`}
+            />
           </Link>
  
           {/* Desktop Nav Links */}

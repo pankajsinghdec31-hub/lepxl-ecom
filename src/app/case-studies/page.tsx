@@ -15,10 +15,7 @@ export default function CaseStudiesPage() {
         
         {/* Page Header */}
         <div className="text-center max-w-3xl mx-auto flex flex-col gap-4">
-          <span className="inline-flex items-center gap-1.5 text-xs text-emerald-700 font-semibold uppercase tracking-widest bg-emerald-50 border border-emerald-200/50 px-4 py-1.5 rounded-full w-max mx-auto shadow-sm">
-            <Sparkles className="w-3.5 h-3.5 text-emerald-500 animate-pulse" />
-            Performance Ledger
-          </span>
+
           <h1 className="text-4xl md:text-5xl font-light tracking-tight leading-tight text-neutral-900 font-grotesk">
             Case Studies: <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent font-normal font-sans">Speed & CRO Results</span>
           </h1>

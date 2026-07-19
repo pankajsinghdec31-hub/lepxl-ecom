@@ -297,6 +297,9 @@ const LOGO_ROW_2 = [
 ];
 
 const PORTFOLIO_IMAGES_ROW1 = [
+  { src: "/chomp.jpg", alt: "Chomp Brand" },
+  { src: "/offlimits.jpg", alt: "OffLimits" },
+  { src: "/baboon.jpg", alt: "Baboon to the Moon" },
   { src: "https://jhango-images.b-cdn.net/images/ownly-club.webp", alt: "Ownly Club" },
   { src: "https://jhango-images.b-cdn.net/images/pretty-kitty.webp", alt: "Pretty Kitty" },
   { src: "https://jhango-images.b-cdn.net/images/sobo-beauty.webp", alt: "Sobo Beauty" },
@@ -308,6 +311,8 @@ const PORTFOLIO_IMAGES_ROW1 = [
 ];
 
 const PORTFOLIO_IMAGES_ROW2 = [
+  { src: "/spanx.jpg", alt: "Spanx" },
+  { src: "/glossier.png", alt: "Glossier" },
   { src: "https://jhango-images.b-cdn.net/images/crumbbs-in.webp", alt: "Crumbbs" },
   { src: "https://jhango-images.b-cdn.net/images/floof-and-co.webp", alt: "Floof & Co" },
   { src: "https://jhango-images.b-cdn.net/images/kaayu-world.webp", alt: "Kaayu World" },
@@ -321,6 +326,36 @@ const PORTFOLIO_IMAGES_ROW2 = [
 
 
 const PORTFOLIO_CARDS = [
+  {
+    label: "Chomp Brand",
+    image: "/chomp.jpg",
+    alt: "Designed a premium skateboarding and streetwear collaborative storefront with interactive drop layouts.",
+    category: "Apparel & Skateboarding"
+  },
+  {
+    label: "OffLimits",
+    image: "/offlimits.jpg",
+    alt: "Cereal brand experience featuring custom gamified mechanics and high-impact digital storytelling.",
+    category: "Vegan Cereal"
+  },
+  {
+    label: "Baboon to the Moon",
+    image: "/baboon.jpg",
+    alt: "Modern technical bags store with high-contrast colorways, sticky CTAs, and curated catalog navigation.",
+    category: "Premium Travel Bags"
+  },
+  {
+    label: "Spanx",
+    image: "/spanx.jpg",
+    alt: "Optimized premium apparel collections showcasing fit finders and multi-region storefront synchronization.",
+    category: "Apparel & Shapewear"
+  },
+  {
+    label: "Glossier",
+    image: "/glossier.png",
+    alt: "Aesthetic makeup storefront featuring high-converting skincare routes and intuitive checkout drawers.",
+    category: "Cosmetics & Beauty"
+  },
   {
     label: "SOBO Beauty",
     image: "/imgi_80_sobo-beauty.webp",
@@ -771,6 +806,26 @@ export default function HomePage() {
   };
 
   const scrollRef = useRef<HTMLDivElement>(null);
+  const isHoveringRef = useRef(false);
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+
+    const interval = setInterval(() => {
+      if (isHoveringRef.current) return;
+      const maxScroll = el.scrollWidth - el.clientWidth;
+      if (maxScroll <= 0) return;
+
+      if (el.scrollLeft >= maxScroll - 20) {
+        el.scrollTo({ left: 0, behavior: "smooth" });
+      } else {
+        el.scrollBy({ left: 420, behavior: "smooth" });
+      }
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   const scrollPortfolio = (direction: "left" | "right") => {
     if (scrollRef.current) {
@@ -1033,6 +1088,8 @@ export default function HomePage() {
           {/* Cards grid / Carousel */}
           <div 
             ref={scrollRef}
+            onMouseEnter={() => { isHoveringRef.current = true; }}
+            onMouseLeave={() => { isHoveringRef.current = false; }}
             className="flex overflow-x-auto gap-6 snap-x snap-mandatory scrollbar-none pb-6 scroll-smooth w-full"
           >
             {PORTFOLIO_CARDS.map((card, idx) => {
@@ -1097,43 +1154,27 @@ export default function HomePage() {
         <div className="max-w-[1360px] mx-auto px-6">
           {/* Header */}
           <div className="text-center mb-16 flex flex-col items-center">
-            <span className="inline-flex items-center gap-2 text-[10px] sm:text-[11px] font-semibold tracking-widest uppercase px-3.5 py-1.5 rounded-full border border-white/20 bg-white/[0.06] text-white/80 backdrop-blur-sm mb-4">
-              <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-              Built Ecom Store
-            </span>
+
             <h2 className="premium-heading text-3xl sm:text-4xl lg:text-[2.75rem] font-light text-white tracking-tight font-grotesk mt-2">
               Build. <span className="light-gradient-text font-normal">Launch.</span> <span className="premium-highlight">Scale.</span>
             </h2>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            {/* Left side: Interactive Mockup Cards */}
-            <div className="lg:col-span-5 relative flex justify-center lg:justify-start pl-6 pr-12 pb-12 pt-6 select-none">
-              <div className="relative w-[280px] sm:w-[340px] aspect-[4/5] rounded-[24px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.8)] border border-white/[0.08] bg-[#101010]">
-                {BUILD_PROCESS_STEPS.map((step, idx) => (
-                  <motion.img
-                    key={idx}
-                    src={step.desktopImg}
-                    alt={step.title}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: activeProcessStep === idx ? 0.8 : 0 }}
-                    transition={{ duration: 0.4 }}
-                    className="absolute inset-0 w-full h-full object-contain object-top"
-                  />
-                ))}
-              </div>
-              <div className="absolute bottom-[-10px] right-[10px] sm:right-[-20px] w-[160px] sm:w-[200px] aspect-[9/19] rounded-[24px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.8)] border-[6px] border-[#050505] bg-[#101010]">
-                {BUILD_PROCESS_STEPS.map((step, idx) => (
-                  <motion.img
-                    key={idx}
-                    src={step.mobileImg}
-                    alt={step.title}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: activeProcessStep === idx ? 1 : 0 }}
-                    transition={{ duration: 0.4 }}
-                    className="absolute inset-0 w-full h-full object-contain object-top"
-                  />
-                ))}
+            {/* Left side: Video Browser Card (One Card) */}
+            <div className="lg:col-span-5 relative flex justify-center lg:justify-start select-none w-full">
+              <div className="relative w-full aspect-[4/3] rounded-[24px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.6)]">
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="auto"
+                  className="w-full h-full object-cover"
+                >
+                  <source src="https://cdn.shopify.com/b/shopify-brochure2-assets/297a585daeef11b9368ee3f8f06c6ffd.webm" type="video/webm" />
+                  <source src="/contact-us-page.webm" type="video/webm" />
+                </video>
               </div>
             </div>
 
@@ -1285,10 +1326,7 @@ export default function HomePage() {
           
           {/* Header & Copywriting */}
           <div className="max-w-3xl text-left mb-16 flex flex-col gap-4">
-            <span className="inline-flex items-center gap-2 text-[10px] sm:text-[11px] font-semibold tracking-widest uppercase px-3.5 py-1.5 rounded-full border border-white/20 bg-white/[0.06] text-primary backdrop-blur-sm w-fit">
-              <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-              Growth Engine
-            </span>
+
             <h2 className="premium-heading text-3xl sm:text-4xl lg:text-[2.75rem] font-light text-white tracking-tight leading-[1.1] font-grotesk mt-2">
               Hyper-Optimized.<br />
               <span className="premium-highlight text-white"><span className="light-gradient-text font-normal">Designed</span> to Convert.</span>
@@ -1787,9 +1825,7 @@ export default function HomePage() {
       {/* 7. SHOPIFY PORTFOLIO MARQUEE SHOWCASE */}
       <section className="py-16 md:py-24 lg:py-36 relative overflow-hidden bg-bg-dark border-b border-white/[0.08] z-10">
         <div className="max-w-[1360px] mx-auto px-6 mb-12 flex flex-col gap-4 text-center">
-          <span className="text-xs text-primary font-mono uppercase tracking-widest font-bold">
-            Recent Work
-          </span>
+
           <h2 className="premium-heading text-3xl sm:text-4xl lg:text-[2.75rem] font-light text-white tracking-tight font-grotesk">
             Stores <span className="light-gradient-text font-normal">We've</span> Built & <span className="premium-highlight text-white">Transformed</span>
           </h2>
@@ -1843,9 +1879,7 @@ export default function HomePage() {
       <section className="py-16 md:py-24 lg:py-36 px-6 bg-gradient-to-b from-[#070e17] to-[#04080d] border-y border-white/[0.08] relative z-20 rounded-t-[32px] md:rounded-t-[48px] mt-[-32px] md:mt-[-48px]">
         <div className="max-w-[1360px] mx-auto flex flex-col gap-16 px-6">
           <div className="text-center max-w-2xl mx-auto flex flex-col gap-4">
-            <span className="text-xs text-primary font-mono uppercase tracking-widest font-bold">
-              Engineering Proof
-            </span>
+
             <h2 className="premium-heading text-3xl sm:text-4xl lg:text-[2.75rem] font-light text-white tracking-tight font-grotesk">
               Legacy <span className="light-gradient-text font-normal">vs.</span> <span className="premium-highlight">SalePXL Rebuilds</span>
             </h2>
@@ -1916,10 +1950,7 @@ export default function HomePage() {
           
           {/* Header */}
           <div className="max-w-3xl mx-auto text-center mb-16 flex flex-col items-center gap-4">
-            <span className="inline-flex items-center gap-2 text-[10px] sm:text-[11px] font-semibold tracking-widest uppercase px-3.5 py-1.5 rounded-full border border-white/20 bg-white/[0.06] text-white/80 backdrop-blur-sm">
-              <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-              Google Reviews
-            </span>
+
             <h2 className="premium-heading text-3xl sm:text-4xl lg:text-[2.75rem] font-light text-white tracking-tight leading-[1.1] font-grotesk mt-2">
               Loved <span className="light-gradient-text font-normal">by</span> Founders <span className="premium-highlight text-white">& Teams Worldwide</span>
             </h2>
@@ -1978,11 +2009,7 @@ export default function HomePage() {
                   ))}
                   <div className="absolute inset-0 bg-gradient-to-t from-[#070707] via-transparent to-transparent pointer-events-none" />
 
-                  {/* Star Rating Tag */}
-                  <div className="absolute top-4 left-4 bg-black/60 text-white text-xs font-semibold px-3 py-1.5 rounded-full flex items-center gap-1.5 border border-white/[0.08] backdrop-blur-sm z-10">
-                    <span className="text-amber-500">★</span>
-                    <span>5.0 rating</span>
-                  </div>
+
 
                   {/* Profile overlay at the bottom */}
                   <div className="absolute bottom-6 inset-x-6 flex flex-col gap-3">
@@ -2145,9 +2172,7 @@ export default function HomePage() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/[0.03] rounded-full blur-[130px] pointer-events-none" />
 
         <div className="max-w-[1360px] mx-auto relative z-10 flex flex-col gap-8 items-center">
-          <span className="text-xs text-primary font-mono uppercase tracking-widest font-bold">
-            Accelerate Growth
-          </span>
+
           
           <h2 className="premium-heading text-3xl sm:text-4xl lg:text-[2.75rem] font-light text-white tracking-tight leading-tight max-w-none font-grotesk">
             Ready <span className="light-gradient-text font-normal">to</span> Build Your <span className="premium-highlight">Shopify Store?</span>

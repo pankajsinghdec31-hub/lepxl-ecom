@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "SalePixel | Premium Shopify Design & Development Agency",
   description:
     "SalePixel specializes in custom Shopify store design, development, store redesigns, and conversion rate optimization (CRO) for D2C brands.",
+  icons: {
+    icon: "/favicon.png",
+  },
   keywords: [
     "Shopify Agency",
     "Shopify Design",

@@ -52,12 +52,7 @@ export default function ShopifyLaunchCalculator() {
         
         {/* Header Section */}
         <div className="flex flex-col gap-4 pb-16 text-center max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200/50 w-max mx-auto shadow-sm">
-            <Sparkle className="w-3.5 h-3.5 text-emerald-600" />
-            <span className="text-[10px] text-emerald-700 font-mono uppercase tracking-wider font-bold">
-              Shopify Launch Calculator
-            </span>
-          </div>
+
 
           <h1 className="text-4xl sm:text-5xl font-light tracking-tight text-neutral-900 leading-tight font-grotesk">
             Launch ROI <br className="sm:hidden" />

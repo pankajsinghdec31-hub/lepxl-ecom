@@ -36,6 +36,51 @@ interface Project {
 
 const PROJECTS: Project[] = [
   {
+    name: "Chomp Brand",
+    url: "#",
+    industry: "Apparel & Skateboarding",
+    category: "dev",
+    services: ["Custom Shopify Storefront", "Mobile-First Product Grid", "Interactive Visual Sliders"],
+    description: "Designed a premium skateboarding and streetwear collaborative storefront with interactive drop layouts.",
+    accentColor: "#10b981",
+  },
+  {
+    name: "OffLimits",
+    url: "#",
+    industry: "Vegan & Gluten-Free Cereal",
+    category: "dev",
+    services: ["Shopify Custom Theme", "Interactive Brand Mascot Sections", "AOV Drawer Optimization"],
+    description: "Cereal brand experience featuring custom gamified mechanics and high-impact digital storytelling.",
+    accentColor: "#3b82f6",
+  },
+  {
+    name: "Baboon to the Moon",
+    url: "#",
+    industry: "Premium Travel Bags",
+    category: "cro",
+    services: ["PDP Redesign", "Mobile buying paths", "Interactive Product Showcase"],
+    description: "Modern technical bags store with high-contrast colorways, sticky CTAs, and curated catalog navigation.",
+    accentColor: "#fbbf24",
+  },
+  {
+    name: "Spanx",
+    url: "#",
+    industry: "Apparel & Shapewear",
+    category: "dev",
+    services: ["Bespoke Liquid Configurations", "High-Load Optimization", "Custom Bundle Builders"],
+    description: "Optimized premium apparel collections showcasing fit finders and multi-region storefront synchronization.",
+    accentColor: "#ec4899",
+  },
+  {
+    name: "Glossier",
+    url: "#",
+    industry: "Cosmetics & Beauty",
+    category: "cro",
+    services: ["Skincare PDP Redesign", "A/B Conversion Testing", "Sticky Buy Drawer Integration"],
+    description: "Aesthetic makeup storefront featuring high-converting skincare routes and intuitive checkout drawers.",
+    accentColor: "#8b5cf6",
+  },
+  {
     name: "The Wheels Co",
     url: "https://thewheelsco.com/",
     industry: "Automotive Accessories",
@@ -233,7 +278,17 @@ function getMockupConfig(name: string, category: string, industry: string): Mock
   let products = [ { name: "Best Seller Item", price: "₹2,500" }, { name: "New Arrival Set", price: "₹4,800" } ];
   let image: string | undefined = undefined;
 
-  if (lowerName.includes("sobo")) {
+  if (lowerName.includes("chomp")) {
+    image = "/chomp.jpg";
+  } else if (lowerName.includes("offlimits")) {
+    image = "/offlimits.jpg";
+  } else if (lowerName.includes("baboon")) {
+    image = "/baboon.jpg";
+  } else if (lowerName.includes("spanx")) {
+    image = "/spanx.jpg";
+  } else if (lowerName.includes("glossier")) {
+    image = "/glossier.png";
+  } else if (lowerName.includes("sobo")) {
     image = "/imgi_80_sobo-beauty.webp";
   } else if (lowerName.includes("well essentials") || lowerName.includes("humble")) {
     image = "/imgi_81_well-essentials.webp";
@@ -521,13 +576,10 @@ function PortfolioCard({ proj, heightClass }: { proj: Project; heightClass: stri
       s.toLowerCase().includes("custom liquid")
   );
 
-  return (
-    <Link
-      href={proj.url}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={`relative group overflow-hidden rounded-[24px] border border-neutral-200/60 bg-white/70 w-full shrink-0 flex flex-col justify-between shadow-[0_10px_30px_rgba(0,0,0,0.02)] backdrop-blur-xl transition-all duration-500 hover:border-emerald-500/30 ${heightClass}`}
-    >
+  const hasLink = proj.url && proj.url !== "#" && proj.url !== "";
+
+  const cardContent = (
+    <>
       {/* Mockup screen or image container */}
       <div className="absolute inset-0 w-full h-full overflow-hidden bg-black/5">
         {store.image ? (
@@ -559,12 +611,35 @@ function PortfolioCard({ proj, heightClass }: { proj: Project; heightClass: stri
       </div>
 
       {/* Hover overlay with domain */}
-      <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center z-20 gap-2">
-        <span className="text-white text-sm font-bold tracking-wide flex items-center gap-1.5 group-hover:scale-105 transition-transform duration-300">
-          {proj.url.replace("https://", "").replace("www.", "")}
-          <ArrowUpRight className="w-4 h-4 text-white" strokeWidth={2.5} />
-        </span>
+      {hasLink && (
+        <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center z-20 gap-2">
+          <span className="text-white text-sm font-bold tracking-wide flex items-center gap-1.5 group-hover:scale-105 transition-transform duration-300">
+            {proj.url.replace("https://", "").replace("www.", "")}
+            <ArrowUpRight className="w-4 h-4 text-white" strokeWidth={2.5} />
+          </span>
+        </div>
+      )}
+    </>
+  );
+
+  const containerClasses = `relative group overflow-hidden rounded-[24px] border border-neutral-200/60 bg-white/70 w-full shrink-0 flex flex-col justify-between shadow-[0_10px_30px_rgba(0,0,0,0.02)] backdrop-blur-xl transition-all duration-500 hover:border-emerald-500/30 ${heightClass} ${hasLink ? "" : "cursor-default"}`;
+
+  if (!hasLink) {
+    return (
+      <div className={containerClasses}>
+        {cardContent}
       </div>
+    );
+  }
+
+  return (
+    <Link
+      href={proj.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={containerClasses}
+    >
+      {cardContent}
     </Link>
   );
 }
@@ -902,10 +977,7 @@ export default function PortfolioPage() {
         
         {/* HERO SECTION */}
         <section className="text-center max-w-4xl mx-auto flex flex-col gap-6">
-          <span className="inline-flex items-center gap-1.5 text-xs text-emerald-700 font-semibold uppercase tracking-[0.15em] bg-emerald-50 border border-emerald-200/50 px-4.5 py-1.5 rounded-full w-max mx-auto shadow-sm">
-            <Sparkles className="w-3.5 h-3.5 text-emerald-600 animate-pulse" />
-            Shopify Portfolio
-          </span>
+
           <h1 className="text-4xl md:text-6xl font-light tracking-tight leading-tight text-neutral-900 font-grotesk">
             Build Your Online Store: <br />
             <span className="font-normal bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
