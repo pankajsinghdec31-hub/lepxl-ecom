@@ -1692,7 +1692,7 @@ export default function HomePage() {
           />
 
           {/* Sheet: bottom-sheet on mobile, centered card on desktop */}
-          <div className="relative w-full sm:max-w-4xl max-h-[92vh] overflow-y-auto rounded-t-3xl sm:rounded-3xl bg-gradient-to-b from-[#fafcfc] via-[#f5faf7] to-[#eaf7f2] border-t sm:border border-neutral-200/80 shadow-2xl animate-fade-blur">
+          <div className="relative w-full sm:max-w-2xl max-h-[92vh] overflow-y-auto rounded-t-3xl sm:rounded-3xl bg-gradient-to-b from-[#fafcfc] via-[#f5faf7] to-[#eaf7f2] border-t sm:border border-neutral-200/80 shadow-2xl animate-fade-blur">
             {/* Handle bar (mobile only) */}
             <div className="flex justify-center pt-3 pb-1 sm:hidden">
               <div className="w-10 h-1 rounded-full bg-neutral-300" />

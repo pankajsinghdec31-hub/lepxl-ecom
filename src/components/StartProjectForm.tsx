@@ -67,78 +67,22 @@ export default function StartProjectForm() {
     <div className="w-full text-left relative">
       <AnimatePresence mode="wait">
         {!submitted ? (
-          <form onSubmit={handleSubmit} className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 relative z-10 font-sans">
-            {/* Left Column - Info & Trust (col-span-5) */}
-            <div className="lg:col-span-5 flex flex-col justify-between gap-8">
-              <div>
-                <span className="text-[10px] text-emerald-700 font-sans uppercase tracking-widest font-bold mb-3 block">
-                  Partner with SalePXL
-                </span>
-                <h3 className="text-3xl md:text-[2.65rem] font-light text-neutral-900 tracking-tight leading-[1.1] font-grotesk">
-                  Start <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent font-normal font-sans">Your</span> Project
-                </h3>
-                <p className="text-sm text-neutral-600 leading-relaxed mt-4">
-                  Let's build a high-performance Shopify storefront. Share your project requirements below to receive a free conversion rate audit and schedule a strategy consultation.
-                </p>
-              </div>
-
-              {/* Designer Laptop Illustration Panel */}
-              <div className="my-4 bg-emerald-500/[0.01] border border-neutral-200/50 rounded-2xl p-6 flex flex-col items-center justify-center relative overflow-hidden shadow-inner max-w-sm">
-                {/* Laptop Mockup */}
-                <div className="w-full relative flex flex-col items-center select-none">
-                  {/* Laptop Screen */}
-                  <div className="w-[85%] aspect-[16/10] bg-[#0c0d0e] rounded-t-xl border-t border-x border-neutral-700/80 p-1.5 shadow-2xl relative overflow-hidden">
-                    <video
-                      src="/download (3).mp4"
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      className="w-full h-full object-cover rounded-sm"
-                    />
-                  </div>
-                  {/* Laptop Base */}
-                  <div className="w-[98%] h-1.5 bg-neutral-300 rounded-t-xs border-b border-neutral-400 relative shadow-md" />
-                  <div className="w-[18%] h-0.5 bg-neutral-400 mx-auto rounded-b-xs" />
-                </div>
-              </div>
-
-              {/* Trust Indicators / Badges */}
-              <div className="hidden lg:flex flex-col gap-6 border-t border-neutral-200/60 pt-8 mt-auto">
-                <div className="flex items-start gap-4 text-left">
-                  <div className="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-100/60 flex items-center justify-center text-emerald-600 shrink-0 shadow-sm">
-                    <CheckCircle2 className="w-5 h-5" strokeWidth={1.5} />
-                  </div>
-                  <div>
-                    <h4 className="text-xs font-semibold text-neutral-800 font-grotesk tracking-wide uppercase">Shopify Plus Experts</h4>
-                    <p className="text-xs text-neutral-500 leading-relaxed mt-0.5 font-sans">Certified partners designing custom high-converting storefronts.</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4 text-left">
-                  <div className="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-100/60 flex items-center justify-center text-emerald-600 shrink-0 shadow-sm">
-                    <CheckCircle2 className="w-5 h-5" strokeWidth={1.5} />
-                  </div>
-                  <div>
-                    <h4 className="text-xs font-semibold text-neutral-800 font-grotesk tracking-wide uppercase">Speed-First Philosophy</h4>
-                    <p className="text-xs text-neutral-500 leading-relaxed mt-0.5 font-sans">Optimized performance reaching 90+ Core Web Vitals score.</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4 text-left">
-                  <div className="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-100/60 flex items-center justify-center text-emerald-600 shrink-0 shadow-sm">
-                    <CheckCircle2 className="w-5 h-5" strokeWidth={1.5} />
-                  </div>
-                  <div>
-                    <h4 className="text-xs font-semibold text-neutral-800 font-grotesk tracking-wide uppercase">Conversion Driven UI/UX</h4>
-                    <p className="text-xs text-neutral-500 leading-relaxed mt-0.5 font-sans">Minimizing purchase path friction to maximize sales value.</p>
-                  </div>
-                </div>
-              </div>
+          <form onSubmit={handleSubmit} className="flex flex-col gap-5 sm:gap-6 relative z-10 font-sans w-full max-w-2xl mx-auto">
+            {/* Title & Description moved inside form as a simplified top header */}
+            <div className="text-center mb-4">
+              <span className="text-[10px] text-emerald-700 font-sans uppercase tracking-widest font-bold mb-2 block">
+                Partner with SalePXL
+              </span>
+              <h3 className="text-2xl sm:text-3xl font-light text-neutral-900 tracking-tight leading-[1.1] font-grotesk">
+                Start <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent font-normal font-sans">Your</span> Project
+              </h3>
+              <p className="text-sm text-neutral-600 leading-relaxed mt-2 max-w-lg mx-auto">
+                Let's build a high-performance Shopify storefront. Share your project requirements below to receive a free conversion rate audit and schedule a strategy consultation.
+              </p>
             </div>
 
-            {/* Right Column - Form Fields (col-span-7) */}
-            <div className="lg:col-span-7 flex flex-col gap-5 sm:gap-6">
+            {/* Form Fields Container */}
+            <div className="flex flex-col gap-5 sm:gap-6 w-full">
               {/* Grid for Name & Email */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="flex flex-col relative text-left">
@@ -331,78 +275,9 @@ export default function StartProjectForm() {
             </div>
           </form>
         ) : (
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 relative z-10 font-sans">
-            {/* Left Column Info stays during success */}
-            <div className="lg:col-span-5 flex flex-col justify-between gap-8">
-              <div>
-                <span className="text-[10px] text-emerald-700 font-sans uppercase tracking-widest font-bold mb-3 block">
-                  Partner with SalePXL
-                </span>
-                <h3 className="text-3xl md:text-[2.65rem] font-light text-neutral-900 tracking-tight leading-[1.1] font-grotesk">
-                  Start <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent font-normal font-sans">Your</span> Project
-                </h3>
-                <p className="text-sm text-neutral-600 leading-relaxed mt-4">
-                  Let's build a high-performance Shopify storefront. Share your project requirements below to receive a free conversion rate audit and schedule a strategy consultation.
-                </p>
-              </div>
-
-              {/* Designer Laptop Illustration Panel */}
-              <div className="my-4 bg-emerald-500/[0.01] border border-neutral-200/50 rounded-2xl p-6 flex flex-col items-center justify-center relative overflow-hidden shadow-inner max-w-sm">
-                {/* Laptop Mockup */}
-                <div className="w-full relative flex flex-col items-center select-none">
-                  {/* Laptop Screen */}
-                  <div className="w-[85%] aspect-[16/10] bg-[#0c0d0e] rounded-t-xl border-t border-x border-neutral-700/80 p-1.5 shadow-2xl relative overflow-hidden">
-                    <video
-                      src="/download (3).mp4"
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      className="w-full h-full object-cover rounded-sm"
-                    />
-                  </div>
-                  {/* Laptop Base */}
-                  <div className="w-[98%] h-1.5 bg-neutral-300 rounded-t-xs border-b border-neutral-400 relative shadow-md" />
-                  <div className="w-[18%] h-0.5 bg-neutral-400 mx-auto rounded-b-xs" />
-                </div>
-              </div>
-
-              {/* Trust Indicators / Badges */}
-              <div className="hidden lg:flex flex-col gap-6 border-t border-neutral-200/60 pt-8 mt-auto">
-                <div className="flex items-start gap-4 text-left">
-                  <div className="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-100/60 flex items-center justify-center text-emerald-600 shrink-0 shadow-sm">
-                    <CheckCircle2 className="w-5 h-5" strokeWidth={1.5} />
-                  </div>
-                  <div>
-                    <h4 className="text-xs font-semibold text-neutral-800 font-grotesk tracking-wide uppercase">Shopify Plus Experts</h4>
-                    <p className="text-xs text-neutral-500 leading-relaxed mt-0.5 font-sans">Certified partners designing custom high-converting storefronts.</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4 text-left">
-                  <div className="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-100/60 flex items-center justify-center text-emerald-600 shrink-0 shadow-sm">
-                    <CheckCircle2 className="w-5 h-5" strokeWidth={1.5} />
-                  </div>
-                  <div>
-                    <h4 className="text-xs font-semibold text-neutral-800 font-grotesk tracking-wide uppercase">Speed-First Philosophy</h4>
-                    <p className="text-xs text-neutral-500 leading-relaxed mt-0.5 font-sans">Optimized performance reaching 90+ Core Web Vitals score.</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4 text-left">
-                  <div className="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-100/60 flex items-center justify-center text-emerald-600 shrink-0 shadow-sm">
-                    <CheckCircle2 className="w-5 h-5" strokeWidth={1.5} />
-                  </div>
-                  <div>
-                    <h4 className="text-xs font-semibold text-neutral-800 font-grotesk tracking-wide uppercase">Conversion Driven UI/UX</h4>
-                    <p className="text-xs text-neutral-500 leading-relaxed mt-0.5 font-sans">Minimizing purchase path friction to maximize sales value.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
+          <div className="flex flex-col items-center justify-center relative z-10 font-sans max-w-2xl mx-auto w-full">
             {/* Right Column - Success State */}
-            <div className="lg:col-span-7 flex flex-col items-center justify-center py-16 px-6 text-center gap-6 bg-emerald-500/[0.02] border border-emerald-500/10 shadow-inner rounded-2xl">
+            <div className="w-full flex flex-col items-center justify-center py-16 px-6 text-center gap-6 bg-emerald-500/[0.02] border border-emerald-500/10 shadow-inner rounded-2xl">
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
