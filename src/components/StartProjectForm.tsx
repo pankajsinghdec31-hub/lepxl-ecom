@@ -67,9 +67,9 @@ export default function StartProjectForm() {
     <div className="w-full text-left relative">
       <AnimatePresence mode="wait">
         {!submitted ? (
-          <form onSubmit={handleSubmit} className="flex flex-col gap-5 sm:gap-6 relative z-10 font-sans w-full max-w-3xl mx-auto">
+          <form onSubmit={handleSubmit} className="flex flex-col gap-6 sm:gap-8 relative z-10 font-sans w-full max-w-3xl mx-auto">
             {/* Title & Description moved inside form as a simplified top header */}
-            <div className="text-center mb-4">
+            <div className="text-center mb-8">
               <span className="text-[10px] text-emerald-700 font-sans uppercase tracking-widest font-bold mb-2 block">
                 Partner with SalePXL
               </span>
@@ -82,7 +82,7 @@ export default function StartProjectForm() {
             </div>
 
             {/* Form Fields Container */}
-            <div className="flex flex-col gap-5 sm:gap-6 w-full">
+            <div className="flex flex-col gap-6 sm:gap-8 w-full">
               {/* Grid for Name & Email */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="flex flex-col relative text-left">

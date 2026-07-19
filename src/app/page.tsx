@@ -1710,7 +1710,7 @@ export default function HomePage() {
             </button>
 
             {/* Form */}
-            <div className="p-6 sm:p-10 md:p-12">
+            <div className="p-8 sm:p-14 md:p-16">
               <StartProjectForm />
             </div>
           </div>
