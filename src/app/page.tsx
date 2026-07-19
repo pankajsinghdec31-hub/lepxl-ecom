@@ -1243,10 +1243,10 @@ export default function HomePage() {
             {/* Left side text column */}
             <div className="w-full lg:w-[45%] text-left flex flex-col justify-center">
               <h2 className="premium-heading text-3xl sm:text-4xl lg:text-[2.75rem] font-light text-white leading-[1.1] tracking-tight font-grotesk">
-                Customize <span className="light-gradient-text font-normal">everything</span> with <span className="premium-highlight">apps</span>
+                Customize <span className="light-gradient-text font-normal">everything</span> with <span className="premium-highlight">Shopify Integrations</span>
               </h2>
-              <p className="mt-6 text-white/70 text-lg sm:text-xl font-light leading-relaxed max-w-lg">
-                The Shopify App Store has <a href="https://apps.shopify.com" target="_blank" rel="noopener noreferrer" className="underline text-white hover:text-primary transition-colors font-semibold">21,000+ commerce apps</a> for whatever specialized features your business might need.
+              <p className="mt-6 text-white/70 text-base sm:text-lg font-light leading-relaxed max-w-lg">
+                We install and configure essential Shopify apps for reviews, upsells, bundles, loyalty programs, analytics, WhatsApp automation, email marketing, and store automation to increase sales, boost conversions, and improve customer retention.
               </p>
             </div>
 
