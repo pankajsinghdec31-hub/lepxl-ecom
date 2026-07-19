@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Send, CheckCircle2, ChevronDown, User, Mail, Phone, ShoppingBag, Landmark, Clock, FileText, Camera } from "lucide-react";
+import { Send, CheckCircle2, ChevronDown, User, Mail, Phone, ShoppingBag, Landmark, Clock, FileText, Camera, Link2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function StartProjectForm() {
@@ -14,7 +14,8 @@ export default function StartProjectForm() {
     photoshootAvailable: "",
     budgetRange: "",
     timeline: "",
-    projectDetails: ""
+    projectDetails: "",
+    referenceLink: ""
   });
 
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -43,74 +44,94 @@ export default function StartProjectForm() {
     e.preventDefault();
     if (validate()) {
       setSubmitted(true);
-      // Save data locally in browser context (useful for testing lead logs)
       localStorage.setItem("salepxl_hero_lead", JSON.stringify(formData));
     }
   };
 
   const inputClass = (hasError: boolean) => 
-    `w-full h-[52px] bg-white/[0.02] border ${
+    `w-full h-[52px] bg-white border ${
       hasError 
         ? "border-red-500/30 focus:border-red-500 focus:ring-red-500/15" 
-        : "border-white/10 focus:border-[#22E39A] focus:ring-[#22E39A]/15"
-    } text-white text-sm rounded-xl pl-11 pr-4 transition-all duration-300 outline-none focus:ring-4 placeholder:text-white/25`;
+        : "border-neutral-200/80 focus:border-emerald-500 focus:ring-emerald-500/15"
+    } text-neutral-800 text-sm rounded-xl pl-11 pr-4 transition-all duration-300 outline-none focus:ring-4 placeholder:text-neutral-400`;
 
   const selectClass = (hasError: boolean) => 
-    `w-full h-[52px] bg-white/[0.02] border ${
+    `w-full h-[52px] bg-white border ${
       hasError 
         ? "border-red-500/30 focus:border-red-500 focus:ring-red-500/15" 
-        : "border-white/10 focus:border-[#22E39A] focus:ring-[#22E39A]/15"
-    } text-white text-sm rounded-xl pl-11 pr-10 transition-all duration-300 outline-none focus:ring-4 appearance-none cursor-pointer`;
+        : "border-neutral-200/80 focus:border-emerald-500 focus:ring-emerald-500/15"
+    } text-neutral-800 text-sm rounded-xl pl-11 pr-10 transition-all duration-300 outline-none focus:ring-4 appearance-none cursor-pointer`;
 
 
   return (
     <div className="w-full text-left relative">
       <AnimatePresence mode="wait">
         {!submitted ? (
-          <form onSubmit={handleSubmit} className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 relative z-10">
+          <form onSubmit={handleSubmit} className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 relative z-10 font-sans">
             {/* Left Column - Info & Trust (col-span-5) */}
             <div className="lg:col-span-5 flex flex-col justify-between gap-8">
               <div>
-                <span className="text-[10px] text-[#22E39A] font-mono uppercase tracking-widest font-bold mb-3 block">
+                <span className="text-[10px] text-emerald-700 font-sans uppercase tracking-widest font-bold mb-3 block">
                   Partner with SalePXL
                 </span>
-                <h3 className="text-3xl md:text-[2.65rem] font-light text-white tracking-tight leading-[1.1] font-grotesk">
-                  Start <span className="light-gradient-text font-normal">Your</span> Project
+                <h3 className="text-3xl md:text-[2.65rem] font-light text-neutral-900 tracking-tight leading-[1.1] font-grotesk">
+                  Start <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent font-normal font-sans">Your</span> Project
                 </h3>
-                <p className="text-sm text-white/60 font-light leading-relaxed mt-4">
+                <p className="text-sm text-neutral-600 leading-relaxed mt-4">
                   Let's build a high-performance Shopify storefront. Share your project requirements below to receive a free conversion rate audit and schedule a strategy consultation.
                 </p>
               </div>
 
+              {/* Designer Laptop Illustration Panel */}
+              <div className="my-4 bg-emerald-500/[0.01] border border-neutral-200/50 rounded-2xl p-6 flex flex-col items-center justify-center relative overflow-hidden shadow-inner max-w-sm">
+                {/* Laptop Mockup */}
+                <div className="w-full relative flex flex-col items-center select-none">
+                  {/* Laptop Screen */}
+                  <div className="w-[85%] aspect-[16/10] bg-[#0c0d0e] rounded-t-xl border-t border-x border-neutral-700/80 p-1.5 shadow-2xl relative overflow-hidden">
+                    <video
+                      src="/download (3).mp4"
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="w-full h-full object-cover rounded-sm"
+                    />
+                  </div>
+                  {/* Laptop Base */}
+                  <div className="w-[98%] h-1.5 bg-neutral-300 rounded-t-xs border-b border-neutral-400 relative shadow-md" />
+                  <div className="w-[18%] h-0.5 bg-neutral-400 mx-auto rounded-b-xs" />
+                </div>
+              </div>
+
               {/* Trust Indicators / Badges */}
-              <div className="hidden lg:flex flex-col gap-6 border-t border-white/10 pt-8 mt-auto">
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-white/[0.03] border border-white/10 flex items-center justify-center text-[#22E39A] shrink-0">
+              <div className="hidden lg:flex flex-col gap-6 border-t border-neutral-200/60 pt-8 mt-auto">
+                <div className="flex items-start gap-4 text-left">
+                  <div className="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-100/60 flex items-center justify-center text-emerald-600 shrink-0 shadow-sm">
                     <CheckCircle2 className="w-5 h-5" strokeWidth={1.5} />
                   </div>
                   <div>
-                    <h4 className="text-xs font-semibold text-white font-grotesk tracking-wide uppercase">Shopify Plus Experts</h4>
-                    <p className="text-xs text-white/50 leading-relaxed mt-0.5">Certified partners designing custom high-converting storefronts.</p>
+                    <h4 className="text-xs font-semibold text-neutral-800 font-grotesk tracking-wide uppercase">Shopify Plus Experts</h4>
+                    <p className="text-xs text-neutral-500 leading-relaxed mt-0.5 font-sans">Certified partners designing custom high-converting storefronts.</p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-white/[0.03] border border-white/10 flex items-center justify-center text-[#22E39A] shrink-0">
+                <div className="flex items-start gap-4 text-left">
+                  <div className="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-100/60 flex items-center justify-center text-emerald-600 shrink-0 shadow-sm">
                     <CheckCircle2 className="w-5 h-5" strokeWidth={1.5} />
                   </div>
                   <div>
-                    <h4 className="text-xs font-semibold text-white font-grotesk tracking-wide uppercase">Speed-First Philosophy</h4>
-                    <p className="text-xs text-white/50 leading-relaxed mt-0.5">Optimized performance reaching 90+ Core Web Vitals score.</p>
+                    <h4 className="text-xs font-semibold text-neutral-800 font-grotesk tracking-wide uppercase">Speed-First Philosophy</h4>
+                    <p className="text-xs text-neutral-500 leading-relaxed mt-0.5 font-sans">Optimized performance reaching 90+ Core Web Vitals score.</p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-white/[0.03] border border-white/10 flex items-center justify-center text-[#22E39A] shrink-0">
+                <div className="flex items-start gap-4 text-left">
+                  <div className="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-100/60 flex items-center justify-center text-emerald-600 shrink-0 shadow-sm">
                     <CheckCircle2 className="w-5 h-5" strokeWidth={1.5} />
                   </div>
                   <div>
-                    <h4 className="text-xs font-semibold text-white font-grotesk tracking-wide uppercase">Conversion Driven UI/UX</h4>
-                    <p className="text-xs text-white/50 leading-relaxed mt-0.5">Minimizing purchase path friction to maximize sales value.</p>
+                    <h4 className="text-xs font-semibold text-neutral-800 font-grotesk tracking-wide uppercase">Conversion Driven UI/UX</h4>
+                    <p className="text-xs text-neutral-500 leading-relaxed mt-0.5 font-sans">Minimizing purchase path friction to maximize sales value.</p>
                   </div>
                 </div>
               </div>
@@ -120,8 +141,8 @@ export default function StartProjectForm() {
             <div className="lg:col-span-7 flex flex-col gap-5 sm:gap-6">
               {/* Grid for Name & Email */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="flex flex-col relative">
-                  <label className="text-[10px] text-white/50 uppercase font-mono tracking-wider font-semibold mb-2 block">Your Name *</label>
+                <div className="flex flex-col relative text-left">
+                  <label className="text-[10px] text-neutral-500 uppercase font-sans tracking-wider font-semibold mb-2 block">Your Name *</label>
                   <div className="relative">
                     <input
                       type="text"
@@ -130,13 +151,13 @@ export default function StartProjectForm() {
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       className={`${inputClass(!!errors.name)} peer`}
                     />
-                    <User className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30 transition-colors duration-300 peer-focus:text-[#22E39A] pointer-events-none" strokeWidth={1.75} />
+                    <User className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400 transition-colors duration-300 peer-focus:text-emerald-600 pointer-events-none" strokeWidth={1.75} />
                   </div>
-                  {errors.name && <span className="text-[11px] text-red-400 font-medium mt-1.5 block">{errors.name}</span>}
+                  {errors.name && <span className="text-[11px] text-red-500 font-medium mt-1.5 block">{errors.name}</span>}
                 </div>
 
-                <div className="flex flex-col relative">
-                  <label className="text-[10px] text-white/50 uppercase font-mono tracking-wider font-semibold mb-2 block">Business Email *</label>
+                <div className="flex flex-col relative text-left">
+                  <label className="text-[10px] text-neutral-500 uppercase font-sans tracking-wider font-semibold mb-2 block">Business Email *</label>
                   <div className="relative">
                     <input
                       type="email"
@@ -145,16 +166,16 @@ export default function StartProjectForm() {
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       className={`${inputClass(!!errors.email)} peer`}
                     />
-                    <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30 transition-colors duration-300 peer-focus:text-[#22E39A] pointer-events-none" strokeWidth={1.75} />
+                    <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400 transition-colors duration-300 peer-focus:text-emerald-600 pointer-events-none" strokeWidth={1.75} />
                   </div>
-                  {errors.email && <span className="text-[11px] text-red-400 font-medium mt-1.5 block">{errors.email}</span>}
+                  {errors.email && <span className="text-[11px] text-red-500 font-medium mt-1.5 block">{errors.email}</span>}
                 </div>
               </div>
 
               {/* Grid for Contact & Service */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="flex flex-col relative">
-                  <label className="text-[10px] text-white/50 uppercase font-mono tracking-wider font-semibold mb-2 block">Contact Number *</label>
+                <div className="flex flex-col relative text-left">
+                  <label className="text-[10px] text-neutral-500 uppercase font-sans tracking-wider font-semibold mb-2 block">Contact Number *</label>
                   <div className="relative">
                     <input
                       type="text"
@@ -163,200 +184,236 @@ export default function StartProjectForm() {
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       className={`${inputClass(!!errors.phone)} peer`}
                     />
-                    <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30 transition-colors duration-300 peer-focus:text-[#22E39A] pointer-events-none" strokeWidth={1.75} />
+                    <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400 transition-colors duration-300 peer-focus:text-emerald-600 pointer-events-none" strokeWidth={1.75} />
                   </div>
-                  {errors.phone && <span className="text-[11px] text-red-400 font-medium mt-1.5 block">{errors.phone}</span>}
+                  {errors.phone && <span className="text-[11px] text-red-500 font-medium mt-1.5 block">{errors.phone}</span>}
                 </div>
 
-                <div className="flex flex-col relative">
-                  <label className="text-[10px] text-white/50 uppercase font-mono tracking-wider font-semibold mb-2 block">Select a Service *</label>
+                <div className="flex flex-col relative text-left">
+                  <label className="text-[10px] text-neutral-500 uppercase font-sans tracking-wider font-semibold mb-2 block">Select a Service *</label>
                   <div className="relative">
                     <select
                       value={formData.service}
                       onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                       className={`${selectClass(!!errors.service)} peer`}
                     >
-                      <option value="" className="bg-[#0a0a0a]">Choose Service</option>
-                      <option value="New Store Design" className="bg-[#0a0a0a]">New Store Design</option>
-                      <option value="Revamp" className="bg-[#0a0a0a]">Store Revamp</option>
-                      <option value="CRO" className="bg-[#0a0a0a]">CRO Optimization</option>
-                      <option value="Dropshipping Store" className="bg-[#0a0a0a]">Dropshipping Store</option>
+                      <option value="">Choose Service</option>
+                      <option value="New Store Design">New Store Design</option>
+                      <option value="Revamp">Store Revamp</option>
+                      <option value="CRO">CRO Optimization</option>
+                      <option value="Dropshipping Store">Dropshipping Store</option>
                     </select>
-                    <ShoppingBag className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30 transition-colors duration-300 peer-focus:text-[#22E39A] pointer-events-none" strokeWidth={1.75} />
-                    <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30 transition-colors duration-300 peer-focus:text-[#22E39A] pointer-events-none" strokeWidth={1.75} />
+                    <ShoppingBag className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400 transition-colors duration-300 peer-focus:text-emerald-600 pointer-events-none" strokeWidth={1.75} />
+                    <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400 transition-colors duration-300 peer-focus:text-emerald-600 pointer-events-none" strokeWidth={1.75} />
                   </div>
-                  {errors.service && <span className="text-[11px] text-red-400 font-medium mt-1.5 block">{errors.service}</span>}
+                  {errors.service && <span className="text-[11px] text-red-500 font-medium mt-1.5 block">{errors.service}</span>}
                 </div>
               </div>
 
               {/* Grid for Products & Photoshoot */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="flex flex-col relative">
-                  <label className="text-[10px] text-white/50 uppercase font-mono tracking-wider font-semibold mb-2 block">Number of Products *</label>
+                <div className="flex flex-col relative text-left">
+                  <label className="text-[10px] text-neutral-500 uppercase font-sans tracking-wider font-semibold mb-2 block">Number of Products *</label>
                   <div className="relative">
                     <select
                       value={formData.productsCount}
                       onChange={(e) => setFormData({ ...formData, productsCount: e.target.value })}
                       className={`${selectClass(!!errors.productsCount)} peer`}
                     >
-                      <option value="" className="bg-[#0a0a0a]">Choose Range</option>
-                      <option value="0-10" className="bg-[#0a0a0a]">0-10</option>
-                      <option value="10-20" className="bg-[#0a0a0a]">10-20</option>
-                      <option value="20+" className="bg-[#0a0a0a]">20+</option>
+                      <option value="">Choose Count</option>
+                      <option value="1-50">1 - 50 Products</option>
+                      <option value="50-200">50 - 200 Products</option>
+                      <option value="200+">200+ Products</option>
                     </select>
-                    <ShoppingBag className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30 transition-colors duration-300 peer-focus:text-[#22E39A] pointer-events-none" strokeWidth={1.75} />
-                    <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30 transition-colors duration-300 peer-focus:text-[#22E39A] pointer-events-none" strokeWidth={1.75} />
+                    <ShoppingBag className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400 transition-colors duration-300 peer-focus:text-emerald-600 pointer-events-none" strokeWidth={1.75} />
+                    <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400 transition-transform duration-300 peer-focus:text-emerald-600 pointer-events-none" />
                   </div>
-                  {errors.productsCount && <span className="text-[11px] text-red-400 font-medium mt-1.5 block">{errors.productsCount}</span>}
+                  {errors.productsCount && <span className="text-[11px] text-red-500 font-medium mt-1.5 block">{errors.productsCount}</span>}
                 </div>
 
-                <div className="flex flex-col relative">
-                  <label className="text-[10px] text-white/50 uppercase font-mono tracking-wider font-semibold mb-2 block">Photoshoot Available? *</label>
+                <div className="flex flex-col relative text-left">
+                  <label className="text-[10px] text-neutral-500 uppercase font-sans tracking-wider font-semibold mb-2 block">Photoshoot Available? *</label>
                   <div className="relative">
                     <select
                       value={formData.photoshootAvailable}
                       onChange={(e) => setFormData({ ...formData, photoshootAvailable: e.target.value })}
                       className={`${selectClass(!!errors.photoshootAvailable)} peer`}
                     >
-                      <option value="" className="bg-[#0a0a0a]">Select Yes/No</option>
-                      <option value="Yes" className="bg-[#0a0a0a]">Yes</option>
-                      <option value="No" className="bg-[#0a0a0a]">No</option>
+                      <option value="">Select Yes/No</option>
+                      <option value="Yes">Yes</option>
+                      <option value="No">No</option>
                     </select>
-                    <Camera className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30 transition-colors duration-300 peer-focus:text-[#22E39A] pointer-events-none" strokeWidth={1.75} />
-                    <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30 transition-colors duration-300 peer-focus:text-[#22E39A] pointer-events-none" strokeWidth={1.75} />
+                    <Camera className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400 transition-colors duration-300 peer-focus:text-emerald-600 pointer-events-none" strokeWidth={1.75} />
+                    <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400 transition-colors duration-300 peer-focus:text-emerald-600 pointer-events-none" strokeWidth={1.75} />
                   </div>
-                  {errors.photoshootAvailable && <span className="text-[11px] text-red-400 font-medium mt-1.5 block">{errors.photoshootAvailable}</span>}
+                  {errors.photoshootAvailable && <span className="text-[11px] text-red-500 font-medium mt-1.5 block">{errors.photoshootAvailable}</span>}
                 </div>
               </div>
 
               {/* Grid for Budget & Timeline */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="flex flex-col relative">
-                  <label className="text-[10px] text-white/50 uppercase font-mono tracking-wider font-semibold mb-2 block">Project Budget *</label>
+                <div className="flex flex-col relative text-left">
+                  <label className="text-[10px] text-neutral-500 uppercase font-sans tracking-wider font-semibold mb-2 block">Project Budget *</label>
                   <div className="relative">
                     <select
                       value={formData.budgetRange}
                       onChange={(e) => setFormData({ ...formData, budgetRange: e.target.value })}
                       className={`${selectClass(!!errors.budgetRange)} peer`}
                     >
-                      <option value="" className="bg-[#0a0a0a]">Select Budget</option>
-                      <option value="₹20k" className="bg-[#0a0a0a]">₹20k</option>
-                      <option value="₹20k to ₹40k" className="bg-[#0a0a0a]">₹20k to ₹40k</option>
-                      <option value="Above ₹50k" className="bg-[#0a0a0a]">Above ₹50k</option>
+                      <option value="">Choose Budget</option>
+                      <option value="Under ₹20K">Under ₹20K</option>
+                      <option value="₹20K - ₹40K">₹20K - ₹40K</option>
+                      <option value="Above ₹40K">Above ₹40K</option>
                     </select>
-                    <Landmark className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30 transition-colors duration-300 peer-focus:text-[#22E39A] pointer-events-none" strokeWidth={1.75} />
-                    <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30 transition-colors duration-300 peer-focus:text-[#22E39A] pointer-events-none" strokeWidth={1.75} />
+                    <Landmark className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400 transition-colors duration-300 peer-focus:text-emerald-600 pointer-events-none" strokeWidth={1.75} />
+                    <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400 transition-transform duration-300 peer-focus:text-emerald-600 pointer-events-none" />
                   </div>
-                  {errors.budgetRange && <span className="text-[11px] text-red-400 font-medium mt-1.5 block">{errors.budgetRange}</span>}
+                  {errors.budgetRange && <span className="text-[11px] text-red-500 font-medium mt-1.5 block">{errors.budgetRange}</span>}
                 </div>
 
-                <div className="flex flex-col relative">
-                  <label className="text-[10px] text-white/50 uppercase font-mono tracking-wider font-semibold mb-2 block">Expected Timeline *</label>
+                <div className="flex flex-col relative text-left">
+                  <label className="text-[10px] text-neutral-500 uppercase font-sans tracking-wider font-semibold mb-2 block">Expected Timeline *</label>
                   <div className="relative">
                     <select
                       value={formData.timeline}
                       onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
                       className={`${selectClass(!!errors.timeline)} peer`}
                     >
-                      <option value="" className="bg-[#0a0a0a]">Select Timeline</option>
-                      <option value="ASAP" className="bg-[#0a0a0a]">ASAP</option>
-                      <option value="1 Week" className="bg-[#0a0a0a]">1 Week</option>
-                      <option value="2 Weeks" className="bg-[#0a0a0a]">2 Weeks</option>
+                      <option value="">Select Timeline</option>
+                      <option value="ASAP">ASAP</option>
+                      <option value="1 Week">1 Week</option>
+                      <option value="2 Weeks">2 Weeks</option>
                     </select>
-                    <Clock className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30 transition-colors duration-300 peer-focus:text-[#22E39A] pointer-events-none" strokeWidth={1.75} />
-                    <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30 transition-colors duration-300 peer-focus:text-[#22E39A] pointer-events-none" strokeWidth={1.75} />
+                    <Clock className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400 transition-colors duration-300 peer-focus:text-emerald-600 pointer-events-none" strokeWidth={1.75} />
+                    <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400 transition-colors duration-300 peer-focus:text-emerald-600 pointer-events-none" strokeWidth={1.75} />
                   </div>
-                  {errors.timeline && <span className="text-[11px] text-red-400 font-medium mt-1.5 block">{errors.timeline}</span>}
+                  {errors.timeline && <span className="text-[11px] text-red-500 font-medium mt-1.5 block">{errors.timeline}</span>}
+                </div>
+              </div>
+
+              {/* Reference Website Link */}
+              <div className="flex flex-col relative text-left">
+                <label className="text-[10px] text-neutral-500 uppercase font-sans tracking-wider font-semibold mb-2 block">Reference Website Link (Optional)</label>
+                <div className="relative">
+                  <textarea
+                    rows={2}
+                    placeholder="e.g. https://competitor1.com, https://competitor2.com"
+                    value={formData.referenceLink}
+                    onChange={(e) => setFormData({ ...formData, referenceLink: e.target.value })}
+                    className="w-full bg-white border border-neutral-200/80 focus:border-emerald-500 focus:ring-emerald-500/15 text-neutral-800 text-sm rounded-xl pl-11 pr-4 py-3 transition-all duration-300 outline-none focus:ring-4 placeholder:text-neutral-400 resize-none peer"
+                  />
+                  <Link2 className="absolute left-4 top-4 w-4 h-4 text-neutral-400 transition-colors duration-300 peer-focus:text-emerald-600 pointer-events-none" strokeWidth={1.75} />
                 </div>
               </div>
 
               {/* Custom Brief Box */}
-              <div className="flex flex-col relative">
-                <label className="text-[10px] text-white/50 uppercase font-mono tracking-wider font-semibold mb-2 block">About your project or brand</label>
+              <div className="flex flex-col relative text-left">
+                <label className="text-[10px] text-neutral-500 uppercase font-sans tracking-wider font-semibold mb-2 block">About your project or brand</label>
                 <div className="relative">
                   <textarea
                     rows={3}
                     placeholder="Describe your design styling, custom features, or Shopify goals..."
                     value={formData.projectDetails}
                     onChange={(e) => setFormData({ ...formData, projectDetails: e.target.value })}
-                    className="w-full bg-white/[0.02] border border-white/10 focus:border-[#22E39A] focus:ring-[#22E39A]/15 text-white text-sm rounded-xl pl-11 pr-4 py-3.5 transition-all duration-300 outline-none focus:ring-4 placeholder:text-white/25 resize-none min-h-[100px] peer"
+                    className="w-full bg-white border border-neutral-200/80 focus:border-emerald-500 focus:ring-emerald-500/15 text-neutral-800 text-sm rounded-xl pl-11 pr-4 py-3.5 transition-all duration-300 outline-none focus:ring-4 placeholder:text-neutral-400 resize-none min-h-[100px] peer"
                   />
-                  <FileText className="absolute left-4 top-4.5 w-4 h-4 text-white/30 transition-colors duration-300 peer-focus:text-[#22E39A] pointer-events-none" strokeWidth={1.75} />
+                  <FileText className="absolute left-4 top-4.5 w-4 h-4 text-neutral-400 transition-colors duration-300 peer-focus:text-emerald-600 pointer-events-none" strokeWidth={1.75} />
                 </div>
               </div>
 
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full h-[52px] rounded-xl text-xs font-bold uppercase tracking-wider text-black bg-[#22E39A] hover:bg-[#34F5AE] shadow-[0_4px_20px_rgba(34,227,154,0.15)] hover:shadow-[0_8px_30px_rgba(34,227,154,0.35)] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.99] transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer mt-2"
+                className="w-full h-[52px] rounded-xl text-xs font-bold uppercase tracking-wider text-white bg-emerald-600 hover:bg-emerald-500 shadow-sm transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer mt-2"
               >
                 Submit Lead <Send className="w-3.5 h-3.5" />
               </button>
             </div>
           </form>
         ) : (
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 relative z-10 font-sans">
             {/* Left Column Info stays during success */}
             <div className="lg:col-span-5 flex flex-col justify-between gap-8">
               <div>
-                <span className="text-[10px] text-[#22E39A] font-mono uppercase tracking-widest font-bold mb-3 block">
+                <span className="text-[10px] text-emerald-700 font-sans uppercase tracking-widest font-bold mb-3 block">
                   Partner with SalePXL
                 </span>
-                <h3 className="text-3xl md:text-[2.65rem] font-light text-white tracking-tight leading-[1.1] font-grotesk">
-                  Start <span className="light-gradient-text font-normal">Your</span> Project
+                <h3 className="text-3xl md:text-[2.65rem] font-light text-neutral-900 tracking-tight leading-[1.1] font-grotesk">
+                  Start <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent font-normal font-sans">Your</span> Project
                 </h3>
-                <p className="text-sm text-white/60 font-light leading-relaxed mt-4">
+                <p className="text-sm text-neutral-600 leading-relaxed mt-4">
                   Let's build a high-performance Shopify storefront. Share your project requirements below to receive a free conversion rate audit and schedule a strategy consultation.
                 </p>
               </div>
 
+              {/* Designer Laptop Illustration Panel */}
+              <div className="my-4 bg-emerald-500/[0.01] border border-neutral-200/50 rounded-2xl p-6 flex flex-col items-center justify-center relative overflow-hidden shadow-inner max-w-sm">
+                {/* Laptop Mockup */}
+                <div className="w-full relative flex flex-col items-center select-none">
+                  {/* Laptop Screen */}
+                  <div className="w-[85%] aspect-[16/10] bg-[#0c0d0e] rounded-t-xl border-t border-x border-neutral-700/80 p-1.5 shadow-2xl relative overflow-hidden">
+                    <video
+                      src="/download (3).mp4"
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="w-full h-full object-cover rounded-sm"
+                    />
+                  </div>
+                  {/* Laptop Base */}
+                  <div className="w-[98%] h-1.5 bg-neutral-300 rounded-t-xs border-b border-neutral-400 relative shadow-md" />
+                  <div className="w-[18%] h-0.5 bg-neutral-400 mx-auto rounded-b-xs" />
+                </div>
+              </div>
+
               {/* Trust Indicators / Badges */}
-              <div className="hidden lg:flex flex-col gap-6 border-t border-white/10 pt-8 mt-auto">
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-white/[0.03] border border-white/10 flex items-center justify-center text-[#22E39A] shrink-0">
+              <div className="hidden lg:flex flex-col gap-6 border-t border-neutral-200/60 pt-8 mt-auto">
+                <div className="flex items-start gap-4 text-left">
+                  <div className="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-100/60 flex items-center justify-center text-emerald-600 shrink-0 shadow-sm">
                     <CheckCircle2 className="w-5 h-5" strokeWidth={1.5} />
                   </div>
                   <div>
-                    <h4 className="text-xs font-semibold text-white font-grotesk tracking-wide uppercase">Shopify Plus Experts</h4>
-                    <p className="text-xs text-white/50 leading-relaxed mt-0.5">Certified partners designing custom high-converting storefronts.</p>
+                    <h4 className="text-xs font-semibold text-neutral-800 font-grotesk tracking-wide uppercase">Shopify Plus Experts</h4>
+                    <p className="text-xs text-neutral-500 leading-relaxed mt-0.5 font-sans">Certified partners designing custom high-converting storefronts.</p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-white/[0.03] border border-white/10 flex items-center justify-center text-[#22E39A] shrink-0">
+                <div className="flex items-start gap-4 text-left">
+                  <div className="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-100/60 flex items-center justify-center text-emerald-600 shrink-0 shadow-sm">
                     <CheckCircle2 className="w-5 h-5" strokeWidth={1.5} />
                   </div>
                   <div>
-                    <h4 className="text-xs font-semibold text-white font-grotesk tracking-wide uppercase">Speed-First Philosophy</h4>
-                    <p className="text-xs text-white/50 leading-relaxed mt-0.5">Optimized performance reaching 90+ Core Web Vitals score.</p>
+                    <h4 className="text-xs font-semibold text-neutral-800 font-grotesk tracking-wide uppercase">Speed-First Philosophy</h4>
+                    <p className="text-xs text-neutral-500 leading-relaxed mt-0.5 font-sans">Optimized performance reaching 90+ Core Web Vitals score.</p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-white/[0.03] border border-white/10 flex items-center justify-center text-[#22E39A] shrink-0">
+                <div className="flex items-start gap-4 text-left">
+                  <div className="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-100/60 flex items-center justify-center text-emerald-600 shrink-0 shadow-sm">
                     <CheckCircle2 className="w-5 h-5" strokeWidth={1.5} />
                   </div>
                   <div>
-                    <h4 className="text-xs font-semibold text-white font-grotesk tracking-wide uppercase">Conversion Driven UI/UX</h4>
-                    <p className="text-xs text-white/50 leading-relaxed mt-0.5">Minimizing purchase path friction to maximize sales value.</p>
+                    <h4 className="text-xs font-semibold text-neutral-800 font-grotesk tracking-wide uppercase">Conversion Driven UI/UX</h4>
+                    <p className="text-xs text-neutral-500 leading-relaxed mt-0.5 font-sans">Minimizing purchase path friction to maximize sales value.</p>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Right Column - Success State */}
-            <div className="lg:col-span-7 flex flex-col items-center justify-center py-16 px-6 text-center gap-6 bg-white/[0.01] border border-white/[0.04] rounded-2xl">
+            <div className="lg:col-span-7 flex flex-col items-center justify-center py-16 px-6 text-center gap-6 bg-emerald-500/[0.02] border border-emerald-500/10 shadow-inner rounded-2xl">
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 className="flex flex-col items-center justify-center text-center gap-5"
               >
-                <div className="w-16 h-16 rounded-full bg-[#22E39A]/10 border border-[#22E39A]/20 flex items-center justify-center text-[#22E39A]">
+                <div className="w-16 h-16 rounded-full bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600">
                   <CheckCircle2 className="w-8 h-8" strokeWidth={1.5} />
                 </div>
                 <div className="flex flex-col gap-2">
-                  <h3 className="text-2xl font-light text-white tracking-tight font-grotesk">Request Received!</h3>
-                  <p className="text-sm text-white/50 max-w-xs leading-relaxed font-light">
+                  <h3 className="text-2xl font-light text-neutral-900 tracking-tight font-grotesk">Request Received!</h3>
+                  <p className="text-sm text-neutral-600 max-w-xs leading-relaxed font-light">
                     Thank you for reaching out. We will audit your request details and email you a calendar booking link shortly.
                   </p>
                 </div>
@@ -366,7 +423,5 @@ export default function StartProjectForm() {
         )}
       </AnimatePresence>
     </div>
-
-
   );
 }
