@@ -2042,18 +2042,18 @@ export default function HomePage() {
                       <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
                       <polyline points="22 4 12 14.01 9 11.01" />
                     </svg>
-                    <span className="text-[10px] text-[#a1a1aa] font-mono uppercase tracking-wider">SalePXL Audit Checklist</span>
+                    <span className="text-[10px] text-[#a1a1aa] font-mono uppercase tracking-wider font-bold">Founder Approval Checklist</span>
                   </div>
                   <div className="flex justify-between text-[10px] text-white">
-                    <span>99.9% Server Uptime</span>
+                    <span>Design & Branding Approved</span>
                     <span className="text-primary font-bold">✓</span>
                   </div>
                   <div className="flex justify-between text-[10px] text-white">
-                    <span>Sub-1.5s Load Velocity</span>
+                    <span>Photoshoot Assets Synced</span>
                     <span className="text-primary font-bold">✓</span>
                   </div>
                   <div className="flex justify-between text-[10px] text-white">
-                    <span>MSME Certified Devs</span>
+                    <span>Mobile Viewport Polish</span>
                     <span className="text-primary font-bold">✓</span>
                   </div>
                 </div>
