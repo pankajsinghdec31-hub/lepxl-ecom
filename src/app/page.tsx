@@ -91,11 +91,12 @@ const GOOGLE_REVIEWS_CONSOLIDATED = [
     metadata: "Local Guide · 18 reviews",
     stars: 5,
     timeAgo: "2 weeks ago",
-    headline: "Conversion rate doubled in a month",
-    text: "SalePXL completely transformed our store. Conversion rate doubled in a month. Krish and team are highly technical, and actually understand e-commerce revenue. Best agency in India hands down.",
-    image: "/apparel_mockup.png",
-    statVal: "+100%",
-    statLabel: "Conversion Boost"
+    headline: "Unified Brand Identity & Launch",
+    text: "SalePXL completely elevated our branding. The design is clean, layout hierarchy is precise, and the launch was incredibly fast. They made our storefront look exceptionally premium.",
+    image: "/founder_4.jpg",
+    statVal: "5 Days",
+    statLabel: "Launch Speed",
+    category: "Branding & Design"
   },
   {
     name: "James Park",
@@ -104,11 +105,12 @@ const GOOGLE_REVIEWS_CONSOLIDATED = [
     metadata: "Local Guide · 13 reviews · 5 photos",
     stars: 5,
     timeAgo: "5 months ago",
-    headline: "AOV increased by 35%",
-    text: "The gamified cart drawer increased our AOV by 35%. Customers actually engage with the cart now — adding qualifying products to unlock free shipping. Beautifully built and never breaks.",
-    image: "/supplement_mockup.png",
-    statVal: "+35%",
-    statLabel: "AOV Increase"
+    headline: "AI Product Photoshoots Saved Lakhs",
+    text: "We used their custom AI photoshoot models and listing setup. The product visuals look stunning, super professional, and saved us massive photography overheads. Absolute game-changer.",
+    image: "/founder_5.jpg",
+    statVal: "-85%",
+    statLabel: "Shooting Cost",
+    category: "AI Photoshoot"
   },
   {
     name: "Monica Fernandes",
@@ -117,24 +119,26 @@ const GOOGLE_REVIEWS_CONSOLIDATED = [
     metadata: "Local Guide · 28 reviews · 10 photos",
     stars: 5,
     timeAgo: "2 months ago",
-    headline: "Real CRO done right",
-    text: "We run 50+ A/B tests a quarter with their CRO retainer. Every test teaches us something about our customers. They run experiments rigorously and never call winners early. Real CRO done right.",
-    image: "/apparel_mockup.png",
-    statVal: "50+",
-    statLabel: "Tests / Quarter"
+    headline: "Fully Optimized Mobile Storefront",
+    text: "Our storefront is now fully optimized for mobile devices. The checkout flow is smooth, the cart drawers feel native, and our Conversion Rate increased dramatically in weeks.",
+    image: "/founder_2.jpg",
+    statVal: "+4.2%",
+    statLabel: "Conversion Rate",
+    category: "Optimized Website"
   },
   {
-    name: "Deepak Nair",
+    name: "Deepika Nair",
     avatarColor: "bg-blue-600",
     avatarText: "DN",
     metadata: "Local Guide · 36 reviews · 18 photos",
     stars: 5,
     timeAgo: "7 months ago",
-    headline: "Engineering excellence",
-    text: "SalePXL understands Shopify at a code level. They've solved problems for us that other agencies said weren't possible — custom Liquid logic, Storefront API hacks, Shopify Functions. Engineering excellence.",
-    image: "/jewelry_mockup.png",
-    statVal: "Sub-1.2s",
-    statLabel: "Load Velocity"
+    headline: "Speed Boosted to 98 Mobile Score",
+    text: "SalePXL engineered our Shopify code from scratch. Custom script optimization and image lazy-loading got our mobile page speed score to 98. Visitors load the store in milliseconds.",
+    image: "/founder_3.jpg",
+    statVal: "98/100",
+    statLabel: "PageSpeed Score",
+    category: "Page Speed"
   },
   {
     name: "Sneha Rao",
@@ -143,11 +147,12 @@ const GOOGLE_REVIEWS_CONSOLIDATED = [
     metadata: "Local Guide · 21 reviews · 9 photos",
     stars: 5,
     timeAgo: "3 months ago",
-    headline: "Incredible AI integration",
-    text: "ChatGPT-powered concierge handles 60% of customer queries automatically — sizing, returns, product recommendations. Customer support team can now focus on actual issues. Incredible build.",
-    image: "/aumtea_mockup.png",
-    statVal: "60%",
-    statLabel: "Auto Support leads"
+    headline: "Premium High-Converting Design",
+    text: "The design speed and quality are phenomenal. They built custom modules that fit our branding guidelines perfectly. Speed, layout, and UX feel incredibly luxurious.",
+    image: "/founder_1.jpg",
+    statVal: "Sub-1.2s",
+    statLabel: "Load Velocity",
+    category: "Design Speed"
   }
 ];
 
@@ -1973,10 +1978,9 @@ export default function HomePage() {
                   ))}
                   <div className="absolute inset-0 bg-gradient-to-t from-[#070707] via-transparent to-transparent pointer-events-none" />
 
-                  {/* Rating Tag */}
-                  <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-md text-black text-xs font-semibold px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-lg">
-                    <span className="text-amber-500">★</span>
-                    <span>5.0 rating</span>
+                  {/* Category Tag */}
+                  <div className="absolute top-4 left-4 bg-black/60 text-white text-[10px] font-semibold uppercase tracking-wider px-3.5 py-1.5 rounded-full border border-white/[0.08] backdrop-blur-sm z-10">
+                    {GOOGLE_REVIEWS_CONSOLIDATED[activeReviewIdx].category}
                   </div>
 
                   {/* Profile overlay at the bottom */}
