@@ -638,21 +638,21 @@ export default function HowItWorksPage() {
                               setSliderPosition(percentage);
                             }}
                           >
-                            {/* Before Image (Flat Product / Amateur snap) */}
+                            {/* After Image (AI Studio Model Shot) - Background */}
                             <img
-                              src="/photoshoot_before.jpg"
-                              alt="Plain Snap Before AI Photoshoot"
+                              src="/photoshoot_after.jpg"
+                              alt="AI Studio Photoshoot After"
                               className="absolute inset-0 w-full h-full object-cover object-center select-none pointer-events-none"
                             />
 
-                            {/* After Image (AI Studio Model Shot) - Clips via percentage */}
+                            {/* Before Image (Flat Product / Amateur snap) - Clips via percentage */}
                             <div
                               className="absolute inset-y-0 left-0 right-0 z-10 overflow-hidden"
                               style={{ clipPath: `polygon(0 0, ${sliderPosition}% 0, ${sliderPosition}% 100%, 0 100%)` }}
                             >
                               <img
-                                src="/photoshoot_after.jpg"
-                                alt="AI Studio Photoshoot After"
+                                src="/photoshoot_before.jpg"
+                                alt="Plain Snap Before AI Photoshoot"
                                 className="absolute inset-0 w-full h-full object-cover object-center select-none pointer-events-none"
                               />
                             </div>
