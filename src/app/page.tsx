@@ -91,12 +91,12 @@ const GOOGLE_REVIEWS_CONSOLIDATED = [
     metadata: "Local Guide · 18 reviews",
     stars: 5,
     timeAgo: "2 weeks ago",
-    headline: "Unified Brand Identity & Launch",
-    text: "SalePXL completely elevated our branding. The design is clean, layout hierarchy is precise, and the launch was incredibly fast. They made our storefront look exceptionally premium.",
+    headline: "Fully Built & Live in 3 Days!",
+    text: "The speed of execution was incredible. Our Shopify storefront was fully designed, built, and launched in just 3 days without cutting any corners on layout quality or performance.",
     image: "/founder_4.jpg",
-    statVal: "5 Days",
-    statLabel: "Launch Speed",
-    category: "Branding & Design"
+    statVal: "3 Days",
+    statLabel: "Delivery Speed",
+    category: "Quick Store Delivery"
   },
   {
     name: "James Park",
@@ -105,12 +105,12 @@ const GOOGLE_REVIEWS_CONSOLIDATED = [
     metadata: "Local Guide · 13 reviews · 5 photos",
     stars: 5,
     timeAgo: "5 months ago",
-    headline: "AI Product Photoshoots Saved Lakhs",
-    text: "We used their custom AI photoshoot models and listing setup. The product visuals look stunning, super professional, and saved us massive photography overheads. Absolute game-changer.",
+    headline: "Premium High-Converting Design",
+    text: "The design speed and quality are phenomenal. They built custom sections that fit our branding guidelines perfectly, giving us a unique and high-converting storefront design.",
     image: "/founder_5.jpg",
-    statVal: "-85%",
-    statLabel: "Shooting Cost",
-    category: "AI Photoshoot"
+    statVal: "+85%",
+    statLabel: "Brand Appeal",
+    category: "Premium Design"
   },
   {
     name: "Monica Fernandes",
@@ -119,12 +119,12 @@ const GOOGLE_REVIEWS_CONSOLIDATED = [
     metadata: "Local Guide · 28 reviews · 10 photos",
     stars: 5,
     timeAgo: "2 months ago",
-    headline: "Fully Optimized Mobile Storefront",
-    text: "Our storefront is now fully optimized for mobile devices. The checkout flow is smooth, the cart drawers feel native, and our Conversion Rate increased dramatically in weeks.",
+    headline: "Optimized & Branded Storefront",
+    text: "Our storefront is now fully optimized for mobile devices and perfectly represents our brand style. The checkout flow is fast and completely frictionless.",
     image: "/founder_2.jpg",
     statVal: "+4.2%",
     statLabel: "Conversion Rate",
-    category: "Optimized Website"
+    category: "Optimized & Branding"
   },
   {
     name: "Deepika Nair",
@@ -133,12 +133,12 @@ const GOOGLE_REVIEWS_CONSOLIDATED = [
     metadata: "Local Guide · 36 reviews · 18 photos",
     stars: 5,
     timeAgo: "7 months ago",
-    headline: "Speed Boosted to 98 Mobile Score",
-    text: "SalePXL engineered our Shopify code from scratch. Custom script optimization and image lazy-loading got our mobile page speed score to 98. Visitors load the store in milliseconds.",
+    headline: "AI Photoshoot Saved Photo Costs",
+    text: "Their AI photoshoot service saved us lakhs in photography expenses. It turned basic flat-lay pictures into premium lifestyle catalog shots instantly.",
     image: "/founder_3.jpg",
-    statVal: "98/100",
-    statLabel: "PageSpeed Score",
-    category: "Page Speed"
+    statVal: "-90%",
+    statLabel: "Photoshoot Costs",
+    category: "AI Photoshoot"
   },
   {
     name: "Sneha Rao",
@@ -147,12 +147,12 @@ const GOOGLE_REVIEWS_CONSOLIDATED = [
     metadata: "Local Guide · 21 reviews · 9 photos",
     stars: 5,
     timeAgo: "3 months ago",
-    headline: "Premium High-Converting Design",
-    text: "The design speed and quality are phenomenal. They built custom modules that fit our branding guidelines perfectly. Speed, layout, and UX feel incredibly luxurious.",
+    headline: "Dedicated Developer Team Support",
+    text: "The post-launch team support has been outstanding. They resolved minor adjustments instantly, provided complete dashboard training, and acted like true partners.",
     image: "/founder_1.jpg",
-    statVal: "Sub-1.2s",
-    statLabel: "Load Velocity",
-    category: "Design Speed"
+    statVal: "24/7",
+    statLabel: "Team Support",
+    category: "Post-Launch Support"
   }
 ];
 
@@ -1991,6 +1991,7 @@ export default function HomePage() {
                       </span>
                       <div>
                         <p className="font-bold text-white text-sm">{GOOGLE_REVIEWS_CONSOLIDATED[activeReviewIdx].name}</p>
+                        <p className="text-[10px] text-white/50 mt-0.5">{GOOGLE_REVIEWS_CONSOLIDATED[activeReviewIdx].category}</p>
                       </div>
                     </div>
                   </div>
