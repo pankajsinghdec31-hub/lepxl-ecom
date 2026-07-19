@@ -12,7 +12,9 @@ export async function copyImages() {
     { src: "media__1784449871481.jpg", dest: "photoshoot_after.jpg" },
     { src: "process_plan_mockup_1784451315243.png", dest: "process_plan_mockup.png" },
     { src: "process_build_mockup_1784451334454.png", dest: "process_build_mockup.png" },
-    { src: "process_sales_mockup_1784451351354.png", dest: "process_sales_mockup.png" }
+    { src: "process_sales_mockup_1784451351354.png", dest: "process_sales_mockup.png" },
+    { src: "media__1784452008262.png", dest: "experts_desktop.png" },
+    { src: "media__1784452008135.png", dest: "experts_mobile.png" }
   ];
 
   const results = [];

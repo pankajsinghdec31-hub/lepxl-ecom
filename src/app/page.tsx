@@ -390,8 +390,8 @@ const BUILD_PROCESS_STEPS = [
     num: "02",
     title: "Build with Shopify Experts",
     desc: "Get clean custom liquid code, speed-optimized theme configuration, and robust API integrations from certified developers.",
-    desktopImg: "/process_build_mockup.png",
-    mobileImg: "/process_build_mockup.png"
+    desktopImg: "/experts_desktop.png",
+    mobileImg: "/experts_mobile.png"
   },
   {
     num: "03",
