@@ -67,7 +67,7 @@ export default function StartProjectForm() {
     <div className="w-full text-left relative">
       <AnimatePresence mode="wait">
         {!submitted ? (
-          <form onSubmit={handleSubmit} className="flex flex-col gap-5 sm:gap-6 relative z-10 font-sans w-full max-w-2xl mx-auto">
+          <form onSubmit={handleSubmit} className="flex flex-col gap-5 sm:gap-6 relative z-10 font-sans w-full max-w-3xl mx-auto">
             {/* Title & Description moved inside form as a simplified top header */}
             <div className="text-center mb-4">
               <span className="text-[10px] text-emerald-700 font-sans uppercase tracking-widest font-bold mb-2 block">
@@ -275,7 +275,7 @@ export default function StartProjectForm() {
             </div>
           </form>
         ) : (
-          <div className="flex flex-col items-center justify-center relative z-10 font-sans max-w-2xl mx-auto w-full">
+          <div className="flex flex-col items-center justify-center relative z-10 font-sans max-w-3xl mx-auto w-full">
             {/* Right Column - Success State */}
             <div className="w-full flex flex-col items-center justify-center py-16 px-6 text-center gap-6 bg-emerald-500/[0.02] border border-emerald-500/10 shadow-inner rounded-2xl">
               <motion.div
