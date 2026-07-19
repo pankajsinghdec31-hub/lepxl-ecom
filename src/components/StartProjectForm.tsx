@@ -90,6 +90,8 @@ export default function StartProjectForm() {
                   <div className="relative">
                     <input
                       type="text"
+                      name="name"
+                      autoComplete="name"
                       placeholder="Pankaj Singh"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -105,6 +107,8 @@ export default function StartProjectForm() {
                   <div className="relative">
                     <input
                       type="email"
+                      name="email"
+                      autoComplete="email"
                       placeholder="growth@salepxl.com"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -123,6 +127,8 @@ export default function StartProjectForm() {
                   <div className="relative">
                     <input
                       type="text"
+                      name="phone"
+                      autoComplete="tel"
                       placeholder="+91 9917780656"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
