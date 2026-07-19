@@ -45,8 +45,8 @@ export default function Footer() {
               </div>
               <div className="flex items-center gap-2 group">
                 <Mail className="w-4 h-4 text-primary premium-hover-icon" />
-                <a href="mailto:growth@salepxl.com" className="premium-hover-link">
-                  growth@salepxl.com
+                <a href="mailto:helpsalepxl@gmail.com" className="premium-hover-link">
+                  helpsalepxl@gmail.com
                 </a>
               </div>
               <div className="flex items-center gap-2 group">

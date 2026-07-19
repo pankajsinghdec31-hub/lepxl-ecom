@@ -757,55 +757,71 @@ const getStepIcon = (iconName: string) => {
 const FUNNEL_STEPS = [
   {
     num: "01",
-    title: "TRAFFIC",
-    subtitle: "Attract High-Intent Buyers",
-    desc: "Qualified visitors from Organic SEO, Google Ads, Meta Ads, Instagram, and TikTok feed into the top of the funnel.",
+    short: "Sources",
+    title: "Traffic Sources",
+    subtitle: "Organic SEO, Google Ads, Meta Ads, Instagram, TikTok",
+    desc: "We drive targeted, high-intent traffic from organic searches, search engine ads, and social media platforms to the store front.",
     sources: ["Organic SEO", "Google Ads", "Meta Ads", "Instagram", "TikTok"]
   },
   {
     num: "02",
+    short: "Traffic",
+    title: "TRAFFIC",
+    subtitle: "Qualified Customer Entry",
+    desc: "Attract and secure high-intent shoppers on the store's landing layers, creating consistent growth momentum.",
+    sources: ["High Intent Visitors", "Targeted Audience", "Minimal Bounce Rate"]
+  },
+  {
+    num: "03",
+    short: "Impression",
     title: "Website First Impression",
     subtitle: "Immediate Visual Engagement",
     desc: "Within milliseconds, visitors experience a premium, custom interface that loads instantly and positions your brand at the top tier.",
     sources: ["Sub-1.2s mobile loading", "99/100 Speed Score", "Sleek typography", "Zero layout shift"]
   },
   {
-    num: "03",
+    num: "04",
+    short: "Trust",
     title: "TRUST",
     subtitle: "Eliminating Buying Friction",
     desc: "Authentic trust signals, reviews, clear policies, and secure badges give customers the confidence to purchase.",
     sources: ["SSL secured certificate", "MSME Registered seal", "★ 5.0 Star Ratings", "Secure Payment Gateway"]
   },
   {
-    num: "04",
+    num: "05",
+    short: "Experience",
     title: "SHOPPING EXPERIENCE",
     subtitle: "Seamless Product Discovery",
     desc: "Fluid page navigation, crystal-clear media, sticky add-to-cart, and interactive product choices make selection effortless.",
     sources: ["Interactive size overlays", "Sticky buy drawer", "Instant cart drawers", "Smooth image swiping"]
   },
   {
-    num: "05",
+    num: "06",
+    short: "Boosters",
     title: "CONVERSION BOOSTERS",
     subtitle: "Maximizing Average Order Value",
     desc: "Smart upsell recommendations, automatic bundle builders, and express checkout sliders are placed strategically.",
     sources: ["Frequently bought together", "Express UPI checkout", "Tiered free shipping goal", "Cart upsell recommendations"]
   },
   {
-    num: "06",
+    num: "07",
+    short: "Purchase",
     title: "PURCHASE",
     subtitle: "Frictionless Checkout",
     desc: "A streamlined checkout process supporting all local payment gateways with zero redirection delays.",
     sources: ["Google Pay & Apple Pay", "Credit/Debit & Netbanking", "One-click UPI payment", "COD security checks"]
   },
   {
-    num: "07",
+    num: "08",
+    short: "Retention",
     title: "RETENTION",
     subtitle: "Turning Buyers Into Fans",
     desc: "Post-purchase alerts, automated loyalty emails, and WhatsApp status tracking build lifetime customer value.",
     sources: ["WhatsApp tracking link", "Automated email discount", "Cohort analytics: +40%", "Customer account portal"]
   },
   {
-    num: "08",
+    num: "09",
+    short: "Scale",
     title: "SCALE",
     subtitle: "Compound Monthly Growth",
     desc: "Higher conversion rate and larger basket size maximize your ROAS, enabling you to scale ad budgets profitably.",
@@ -819,380 +835,6 @@ export default function HomePage() {
   
   // Funnel Pipeline States
   const [activeFunnelStep, setActiveFunnelStep] = useState(0);
-  const [isSimulating, setIsSimulating] = useState(false);
-  const [trafficCounter, setTrafficCounter] = useState(24531);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setTrafficCounter(c => c + Math.floor(Math.random() * 4) + 1);
-    }, 1500);
-    return () => clearInterval(timer);
-  }, []);
-
-  const simulateFunnel = () => {
-    if (isSimulating) return;
-    setIsSimulating(true);
-    let step = 0;
-    setActiveFunnelStep(0);
-    const interval = setInterval(() => {
-      step++;
-      if (step < 8) {
-        setActiveFunnelStep(step);
-      } else {
-        clearInterval(interval);
-        setIsSimulating(false);
-      }
-    }, 3200);
-  };
-
-  const renderFunnelPreview = (stepIndex: number) => {
-    switch (stepIndex) {
-      case 0: // TRAFFIC
-        return (
-          <div className="w-full max-w-md flex flex-col gap-6 font-mono text-[11px]">
-            <div className="flex justify-between items-center relative h-36">
-              <div className="flex flex-col gap-1.5 z-10 w-24">
-                {["Organic SEO", "Google Ads", "Meta Ads", "Instagram", "TikTok"].map((source, i) => (
-                  <div key={i} className="px-2 py-1 rounded border border-white/5 bg-black/60 text-white/60 text-[9px] text-center uppercase tracking-wide">
-                    {source}
-                  </div>
-                ))}
-              </div>
-
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <svg className="w-full h-full" viewBox="0 0 400 150">
-                  <path d="M 90 20 C 180 20, 180 75, 290 75" stroke="rgba(34,227,154,0.15)" strokeWidth="1.5" fill="none" />
-                  <path d="M 90 45 C 180 45, 180 75, 290 75" stroke="rgba(34,227,154,0.15)" strokeWidth="1.5" fill="none" />
-                  <path d="M 90 75 L 290 75" stroke="rgba(34,227,154,0.15)" strokeWidth="1.5" fill="none" />
-                  <path d="M 90 105 C 180 105, 180 75, 290 75" stroke="rgba(34,227,154,0.15)" strokeWidth="1.5" fill="none" />
-                  <path d="M 90 130 C 180 130, 180 75, 290 75" stroke="rgba(34,227,154,0.15)" strokeWidth="1.5" fill="none" />
-
-                  <circle r="3" fill="#22E39A" className="particle-glow-dot" style={{ animation: "traffic-particle-path 2s infinite linear 0s" }} />
-                  <circle r="3.5" fill="#22E39A" className="particle-glow-dot" style={{ animation: "traffic-particle-path 2s infinite linear 0.4s" }} />
-                  <circle r="2.5" fill="#22E39A" className="particle-glow-dot" style={{ animation: "traffic-particle-path 2s infinite linear 0.8s" }} />
-                  <circle r="3" fill="#22E39A" className="particle-glow-dot" style={{ animation: "traffic-particle-path 2s infinite linear 1.2s" }} />
-                  <circle r="4" fill="#22E39A" className="particle-glow-dot" style={{ animation: "traffic-particle-path 2s infinite linear 1.6s" }} />
-                </svg>
-              </div>
-
-              <div className="z-10 w-32 h-20 rounded-xl border border-primary/20 bg-primary/5 flex flex-col items-center justify-center p-3 text-center shadow-[0_0_20px_rgba(34,227,154,0.1)]">
-                <span className="text-[9px] text-white/50 tracking-wider">TRAFFIC FLOW</span>
-                <span className="text-lg font-bold text-primary mt-1 font-mono tracking-tight">
-                  {trafficCounter.toLocaleString()}
-                </span>
-                <span className="text-[8px] text-emerald-500 font-bold block mt-0.5">↑ Active Visitors</span>
-              </div>
-            </div>
-            <style dangerouslySetInnerHTML={{ __html: `
-              @keyframes traffic-particle-path {
-                0% { motion-path: path("M 90 75 L 290 75"); motion-offset: 0%; opacity: 0; }
-                10% { opacity: 1; }
-                90% { opacity: 1; }
-                100% { motion-path: path("M 90 75 L 290 75"); motion-offset: 100%; opacity: 0; }
-              }
-              .particle-glow-dot {
-                offset-path: path("M 90 75 L 290 75");
-                animation: traffic-particle-path 2s infinite linear;
-              }
-            ` }} />
-          </div>
-        );
-      case 1: // WEBSITE FIRST IMPRESSION
-        return (
-          <div className="w-full max-w-sm bg-black/40 border border-white/10 rounded-2xl overflow-hidden shadow-xl p-4 font-sans text-left relative">
-            <div className="flex items-center justify-between border-b border-white/5 pb-3 mb-4">
-              <div className="flex items-center gap-1.5">
-                <div className="w-2.5 h-2.5 rounded-full bg-red-500" />
-                <div className="w-2.5 h-2.5 rounded-full bg-yellow-500" />
-                <div className="w-2.5 h-2.5 rounded-full bg-green-500" />
-              </div>
-              <span className="text-[9px] font-mono text-white/40">salepxl.com/store-preview</span>
-            </div>
-
-            <div className="grid grid-cols-3 gap-3 mb-4">
-              <div className="bg-black/50 border border-emerald-500/20 p-2.5 rounded-xl text-center flex flex-col items-center justify-center">
-                <span className="text-[8px] text-white/40 font-mono">SPEED INDEX</span>
-                <span className="text-xl font-bold text-emerald-500 mt-1 font-mono">99%</span>
-                <span className="text-[8px] text-emerald-500 font-bold block mt-0.5 font-sans">EXCELLENT</span>
-              </div>
-              <div className="bg-black/50 border border-white/[0.04] p-2.5 rounded-xl text-center flex flex-col items-center justify-center">
-                <span className="text-[8px] text-white/40 font-mono">MOBILE LOAD</span>
-                <span className="text-lg font-bold text-white mt-1 font-mono">1.1s</span>
-                <span className="text-[8px] text-white/50 block mt-0.5 font-sans">Edge Network</span>
-              </div>
-              <div className="bg-black/50 border border-white/[0.04] p-2.5 rounded-xl text-center flex flex-col items-center justify-center">
-                <span className="text-[8px] text-white/40 font-mono">BOUNCE RATE</span>
-                <span className="text-lg font-bold text-white mt-1 font-mono">-42%</span>
-                <span className="text-[8px] text-emerald-500 font-bold block mt-0.5 font-sans">Better Retention</span>
-              </div>
-            </div>
-
-            <div className="w-full bg-black/60 rounded-lg p-3 border border-white/5 relative overflow-hidden h-24">
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.4 }}
-                className="flex flex-col gap-2 h-full justify-between"
-              >
-                <div className="w-2/3 h-3 bg-white/10 rounded" />
-                <div className="w-full h-8 bg-white/[0.04] rounded flex items-center justify-between px-2 text-[9px] text-white/40">
-                  <span>Product Layout Loaded...</span>
-                  <span className="text-emerald-500 font-bold">100% SECURE</span>
-                </div>
-                <div className="flex gap-2">
-                  <div className="w-1/3 h-3 bg-white/10 rounded" />
-                  <div className="w-1/4 h-3 bg-white/10 rounded" />
-                </div>
-              </motion.div>
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center gap-1.5 bg-black/80 px-3 py-1.5 rounded-full border border-emerald-500/30 text-emerald-400 font-mono text-[9px] font-bold shadow-lg">
-                <Zap className="w-3.5 h-3.5 text-emerald-400 animate-bounce" />
-                INSTANT RENDERING ACTIVE
-              </div>
-            </div>
-          </div>
-        );
-      case 2: // TRUST
-        return (
-          <div className="w-full max-w-sm grid grid-cols-2 gap-4 font-mono text-left">
-            <div className="bg-black/40 border border-emerald-500/20 p-4 rounded-2xl flex flex-col gap-3 shadow-lg">
-              <div className="w-8 h-8 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
-                <Award className="w-4 h-4" />
-              </div>
-              <div>
-                <h4 className="text-[11px] text-white font-bold">MSME Registered</h4>
-                <p className="text-[9px] text-white/40 mt-1 leading-relaxed font-sans">Official Government MSME verified dev partner setup.</p>
-              </div>
-            </div>
-            <div className="bg-black/40 border border-white/[0.08] p-4 rounded-2xl flex flex-col gap-3 shadow-lg">
-              <div className="w-8 h-8 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center text-primary">
-                <Star className="w-4 h-4 fill-primary" />
-              </div>
-              <div>
-                <h4 className="text-[11px] text-white font-bold">5.0 Star Reviews</h4>
-                <p className="text-[9px] text-white/40 mt-1 leading-relaxed font-sans">100% verified customer feedbacks and proof logs.</p>
-              </div>
-            </div>
-            <div className="bg-black/40 border border-white/[0.08] p-4 rounded-2xl flex flex-col gap-3 shadow-lg">
-              <div className="w-8 h-8 rounded-full bg-[#1e40af]/20 border border-[#1e40af]/30 flex items-center justify-center text-[#60a5fa]">
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                </svg>
-              </div>
-              <div>
-                <h4 className="text-[11px] text-white font-bold">SSL Secured Link</h4>
-                <p className="text-[9px] text-white/40 mt-1 leading-relaxed font-sans">256-bit encryption on checkout pathways.</p>
-              </div>
-            </div>
-            <div className="bg-black/40 border border-white/[0.08] p-4 rounded-2xl flex flex-col gap-3 shadow-lg">
-              <div className="w-8 h-8 rounded-full bg-[#065f46]/20 border border-[#065f46]/30 flex items-center justify-center text-emerald-400">
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
-                </svg>
-              </div>
-              <div>
-                <h4 className="text-[11px] text-white font-bold">Secure Gateways</h4>
-                <p className="text-[9px] text-white/40 mt-1 leading-relaxed font-sans">Stripe, Razorpay, and direct secure bank hooks.</p>
-              </div>
-            </div>
-          </div>
-        );
-      case 3: // SHOPPING EXPERIENCE
-        return (
-          <div className="w-full max-w-[280px] bg-black/80 border border-white/10 rounded-[32px] overflow-hidden shadow-2xl relative p-4 flex flex-col gap-3 font-sans text-left">
-            <div className="w-24 h-4 bg-black/60 rounded-full mx-auto border border-white/5 absolute top-1.5 left-1/2 -translate-x-1/2 z-30" />
-            <div className="pt-4 flex flex-col gap-3 relative h-80 overflow-y-auto scrollbar-none text-[11px]">
-              <div className="w-full aspect-[4/3] rounded-xl bg-white/5 overflow-hidden relative">
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                <span className="absolute bottom-2.5 left-2.5 text-[9px] bg-primary/20 text-primary border border-primary/20 px-1.5 py-0.5 rounded font-mono uppercase">Featured Product</span>
-              </div>
-              <div>
-                <div className="flex justify-between items-center">
-                  <h4 className="font-bold text-white text-xs">Aumtea Wellness Pack</h4>
-                  <span className="font-bold text-primary font-mono">₹1,499</span>
-                </div>
-                <div className="flex gap-1 mt-1">
-                  {[1, 2, 3, 4, 5].map((s) => <Star key={s} className="w-2.5 h-2.5 fill-amber-500 text-amber-500" />)}
-                  <span className="text-[9px] text-white/40 ml-1 font-sans">(48 reviews)</span>
-                </div>
-              </div>
-              <div className="flex flex-col gap-1.5">
-                <span className="text-[9px] text-white/40 font-mono uppercase">Select Quantity</span>
-                <div className="flex gap-1.5">
-                  {["1 Pack", "2 Packs (Save 10%)", "3 Packs (Save 20%)"].map((q, i) => (
-                    <div key={i} className={`px-2 py-1 rounded text-[9px] border transition-all text-center flex-grow cursor-pointer ${
-                      i === 1 ? "border-primary bg-primary/10 text-primary font-bold" : "border-white/10 text-white/60 bg-white/[0.02]"
-                    }`}>
-                      {q}
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div className="mt-auto border-t border-white/5 pt-3">
-                <motion.button
-                  animate={{ scale: [1, 1.02, 1] }}
-                  transition={{ repeat: Infinity, duration: 2 }}
-                  className="w-full py-2.5 rounded-xl bg-primary text-black font-bold uppercase tracking-wider text-[10px] text-center shadow-lg shadow-primary/15 flex items-center justify-center gap-1.5 cursor-pointer"
-                >
-                  <ShoppingBag className="w-3.5 h-3.5" />
-                  <span>Add to Cart Drawer</span>
-                </motion.button>
-              </div>
-            </div>
-          </div>
-        );
-      case 4: // CONVERSION BOOSTERS
-        return (
-          <div className="w-full max-w-sm bg-black/60 border border-white/10 rounded-2xl p-4 text-left font-mono text-[11px] flex flex-col gap-4 shadow-xl">
-            <div className="bg-black/40 border border-white/5 p-3 rounded-xl flex flex-col gap-2">
-              <div className="flex justify-between items-center text-[10px] text-white/60 font-sans">
-                <span>Free Shipping Goal</span>
-                <span className="text-primary font-bold">₹500 away!</span>
-              </div>
-              <div className="w-full h-1.5 bg-white/5 rounded-full overflow-hidden">
-                <div className="h-full bg-primary rounded-full transition-all duration-1000" style={{ width: "75%" }} />
-              </div>
-            </div>
-
-            <div className="bg-black/40 border border-emerald-500/20 p-3 rounded-xl flex flex-col gap-2.5">
-              <span className="text-[9px] text-emerald-400 font-bold block uppercase tracking-wider">BUNDLE & SAVE DEALS</span>
-              <div className="flex items-center justify-between">
-                <div>
-                  <h4 className="text-white font-bold">Frequently Bought Together</h4>
-                  <p className="text-[9px] text-white/40 mt-0.5 font-sans">Add tea mug & infuser toolbox to save 15%</p>
-                </div>
-                <div className="flex items-center gap-1.5">
-                  <span className="text-white/40 line-through">₹2,100</span>
-                  <span className="text-primary font-bold text-xs">₹1,785</span>
-                </div>
-              </div>
-              <button className="w-full py-2 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-bold text-[9px] uppercase hover:bg-emerald-500/20 transition-all cursor-pointer">
-                + Add Bundle (Save ₹315)
-              </button>
-            </div>
-
-            <div className="bg-black/40 border border-white/5 p-3 rounded-xl flex flex-col gap-2">
-              <span className="text-[9px] text-white/40 tracking-wider font-bold">EXPRESS CHECKOUT</span>
-              <div className="flex gap-2">
-                <div className="flex-1 py-2 rounded-lg bg-[#5A31F4]/10 border border-[#5A31F4]/20 text-[#9B7EF9] text-center font-bold text-[10px] uppercase">Stripe Pay</div>
-                <div className="flex-1 py-2 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-center font-bold text-[10px] uppercase">Razorpay UPI</div>
-              </div>
-            </div>
-          </div>
-        );
-      case 5: // PURCHASE
-        return (
-          <div className="w-full max-w-sm bg-black/40 border border-white/10 rounded-2xl p-6 text-center font-mono text-[11px] flex flex-col items-center justify-center gap-4 shadow-xl">
-            <motion.div
-              initial={{ scale: 0.5, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ type: "spring", stiffness: 100, delay: 0.1 }}
-              className="w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 shadow-[0_0_30px_rgba(16,185,129,0.15)]"
-            >
-              <CheckCircle2 className="w-8 h-8" />
-            </motion.div>
-
-            <div>
-              <h3 className="text-white text-sm font-bold tracking-tight">ORDER COMPLETED SUCCESSFULLY</h3>
-              <p className="text-white/40 text-[9px] mt-1 font-sans">Thank you! Your order ID #SPX-9824 has been verified.</p>
-            </div>
-
-            <div className="w-full bg-black/60 rounded-xl p-3 border border-white/5 flex flex-col gap-2 text-left">
-              <div className="flex justify-between items-center text-[10px] border-b border-white/5 pb-2">
-                <span className="text-white/60">SUBTOTAL</span>
-                <span className="text-white font-bold">₹1,785</span>
-              </div>
-              <div className="flex justify-between items-center text-[10px] border-b border-white/5 pb-2">
-                <span className="text-white/60">SHIPPING</span>
-                <span className="text-emerald-500 font-bold">FREE SHIPPING</span>
-              </div>
-              <div className="flex justify-between items-center text-[10px]">
-                <span className="text-white/60">GATEWAY SPEED</span>
-                <span className="text-primary font-bold">0.9s SECURE</span>
-              </div>
-            </div>
-            <span className="text-[8px] bg-primary/10 border border-primary/20 text-primary px-2.5 py-0.5 rounded-full font-bold uppercase tracking-widest">GA4 Purchase Pixel Fired</span>
-          </div>
-        );
-      case 6: // RETENTION
-        return (
-          <div className="w-full max-w-sm flex flex-col gap-4 font-mono text-left text-[11px]">
-            <div className="bg-[#121212] border border-white/10 rounded-2xl p-4 flex flex-col gap-3 shadow-xl relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-24 h-24 bg-primary/[0.02] rounded-full blur-2xl" />
-              <div className="flex items-center gap-2 border-b border-white/5 pb-3">
-                <div className="w-6 h-6 rounded-full bg-emerald-600 flex items-center justify-center font-bold text-white text-[10px]">WA</div>
-                <div>
-                  <h4 className="text-white font-bold">WhatsApp Automation</h4>
-                  <span className="text-[8px] text-white/30 block mt-0.5 font-sans">Delivered just now</span>
-                </div>
-              </div>
-              <div className="bg-[#0b141a] p-3 rounded-lg border border-emerald-500/10 text-white/80 leading-relaxed font-sans text-xs">
-                "Hi Rahul! Your package containing Aumtea Wellness Pack has been secured and shipped via Delhivery. 📦 Track your shipment: <span className="text-emerald-500 underline cursor-pointer">salepxl.com/track/SPX-9824</span>"
-              </div>
-            </div>
-
-            <div className="bg-[#121212] border border-white/10 rounded-2xl p-4 flex flex-col gap-3 shadow-xl">
-              <div className="flex items-center justify-between text-[10px] font-sans">
-                <span className="text-white/60">Email Marketing Hook</span>
-                <span className="text-primary font-bold">Drip Active</span>
-              </div>
-              <div className="bg-black/60 p-3 rounded-lg border border-white/5">
-                <span className="text-[9px] text-white/40 block">SUBJECT</span>
-                <span className="text-white font-bold mt-0.5 font-sans">Thanks for ordering! Here is 10% off your next wellness box.</span>
-                <div className="mt-2.5 py-1 px-3 bg-white/5 border border-dashed border-white/20 text-center text-white text-xs font-bold rounded">
-                  LOYALTY-SPX10
-                </div>
-              </div>
-            </div>
-          </div>
-        );
-      case 7: // SCALE
-        return (
-          <div className="w-full max-w-sm bg-black/40 border border-white/10 rounded-2xl p-6 text-left font-mono text-[11px] flex flex-col gap-4 shadow-xl">
-            <div className="flex justify-between items-center">
-              <div>
-                <span className="text-[9px] text-white/40 tracking-wider">PROJECTED ROI LIFT</span>
-                <h4 className="text-xl font-bold text-white font-grotesk mt-0.5">Scale Stage Active</h4>
-              </div>
-              <div className="px-3 py-1 rounded bg-primary/10 border border-primary/20 text-primary font-bold text-[10px]">
-                3.8x ROAS
-              </div>
-            </div>
-
-            <div className="w-full h-32 bg-black/60 rounded-xl border border-white/5 overflow-hidden flex items-end p-2 relative">
-              <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 50">
-                <path d="M0 45 Q 25 40, 50 25 T 100 5" fill="none" stroke="#22E39A" strokeWidth="2" strokeLinecap="round" />
-                <path d="M0 45 Q 25 40, 50 25 T 100 5 L 100 50 L 0 50 Z" fill="url(#scale-grad)" />
-                <defs>
-                  <linearGradient id="scale-grad" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#22E39A" stopOpacity="0.15" />
-                    <stop offset="100%" stopColor="#22E39A" stopOpacity="0.0" />
-                  </linearGradient>
-                </defs>
-              </svg>
-              <div className="absolute left-[25%] bottom-[20%] w-2 h-2 rounded-full bg-primary shadow-lg" />
-              <div className="absolute left-[50%] bottom-[50%] w-2 h-2 rounded-full bg-primary shadow-lg" />
-              <div className="absolute right-[5%] top-[10%] w-2.5 h-2.5 rounded-full bg-primary shadow-[0_0_10px_#22E39A] animate-ping" />
-              
-              <div className="absolute top-2 left-2 text-[9px] text-white/40">₹1.5Cr/mo</div>
-              <div className="absolute bottom-2 right-2 text-[9px] text-white/40">Growth Year 1</div>
-            </div>
-
-            <div className="grid grid-cols-2 gap-2 text-center text-[10px]">
-              <div className="bg-black/60 p-2.5 rounded border border-white/5">
-                <span className="text-white/40 block font-sans">AOV LIFT</span>
-                <span className="text-emerald-500 font-bold text-xs mt-1 block">+38.4%</span>
-              </div>
-              <div className="bg-black/60 p-2.5 rounded border border-white/5">
-                <span className="text-white/40 block font-sans">RETURNING RATE</span>
-                <span className="text-emerald-500 font-bold text-xs mt-1 block">42.8%</span>
-              </div>
-            </div>
-          </div>
-        );
-      default:
-        return null;
-    }
-  };
 
   // Process Timeline States
   const [activeProcessStep, setActiveProcessStep] = useState(0);
@@ -1739,165 +1381,247 @@ export default function HomePage() {
         ` }} />
 
         <div className="max-w-[1360px] mx-auto px-6">
-          
-          {/* Header & Copywriting */}
-          <div className="max-w-3xl text-left mb-16 flex flex-col gap-4">
 
-            <h2 className="premium-heading text-3xl sm:text-4xl lg:text-[2.75rem] font-light text-white tracking-tight leading-[1.1] font-grotesk mt-2">
-              Branded Shopify Stores.<br />
-              <span className="premium-highlight text-white"><span className="light-gradient-text font-normal">Designed</span> to Convert.</span>
+          {/* Section Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            className="mb-12 max-w-2xl"
+          >
+            <p className="text-[10px] font-mono font-bold uppercase tracking-[0.25em] text-primary mb-4">The Growth Formula</p>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-white tracking-tight leading-[1.05] font-grotesk">
+              Hyper-Optimized.<br />
+              <span className="light-gradient-text font-normal">Designed</span> to Convert.
             </h2>
-            <p className="text-white/70 text-base sm:text-lg font-light leading-relaxed max-w-2xl mt-2">
-              We build Shopify stores that do more than look great—they convert. Every page is strategically designed for speed, user experience, and higher conversions. From intuitive navigation and mobile-first design to optimized product pages, checkout flows, and essential app integrations, every element is crafted to increase sales, maximize revenue, and support long-term business growth.
+            <p className="text-white/50 text-base font-light leading-relaxed mt-5 max-w-xl">
+              A successful Shopify store isn&apos;t built by design alone. Real growth happens when every part of the customer journey works together. We optimize every touchpoint to transform traffic into loyal customers and sustainable revenue.
             </p>
+          </motion.div>
 
-          </div>
+          {/* Interactive 4-Stage Journey */}
+          {(() => {
+            const STAGES = [
+              {
+                id: 0, num: "01", label: "Traffic",
+                headline: "Paid & Organic Traffic",
+                tagline: "Fuel the funnel",
+                color: "#60a5fa",
+                desc: "Drive high-intent shoppers through Google Ads, Meta Ads, organic SEO, Instagram and TikTok — the right audience, at the right moment.",
+                features: ["Google Search & Shopping Ads", "Meta & Instagram Ads", "Organic SEO & Content", "TikTok & Reels", "Influencer & Retargeting"],
+                stat: "↑ Qualified Traffic",
+                icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"/></svg>,
+              },
+              {
+                id: 1, num: "02", label: "Trust",
+                headline: "Store Trust",
+                tagline: "Win in 3 seconds",
+                color: "#22e39a",
+                badge: "Most Critical",
+                desc: "Visitors decide to buy — or leave — in seconds. A fast, premium Shopify store builds instant credibility that turns clicks into customers.",
+                features: ["Sub-1.5s mobile load speed", "Premium brand-first design", "★ 5.0 verified reviews", "SSL & secure payment badges", "Crystal-clear product media"],
+                stat: "3-Second Decision Window",
+                icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"/></svg>,
+              },
+              {
+                id: 2, num: "03", label: "Shopping Experience",
+                headline: "Seamless Shopping",
+                tagline: "Make buying effortless",
+                color: "#a78bfa",
+                desc: "Fluid navigation, sticky add-to-cart, smart upsells and instant cart drawers — every interaction reduces friction and increases purchase intent.",
+                features: ["Sticky add-to-cart & quick buy", "Interactive variants & sizing", "Instant cart drawer with upsells", "Frequently bought together", "Smooth product image swiping"],
+                stat: "↑ Session Time & AOV",
+                icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"/><path d="M3 6h18M16 10a4 4 0 01-8 0" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"/></svg>,
+              },
+              {
+                id: 3, num: "04", label: "Convert Sales",
+                headline: "Convert & Scale",
+                tagline: "Every click = revenue",
+                color: "#34d399",
+                desc: "Express checkout, COD verification, post-purchase upsells and WhatsApp retention flows — we turn visitors into repeat, loyal customers.",
+                features: ["Express UPI, GPay & card", "Post-purchase upsell flows", "WhatsApp order tracking", "Email retention sequences", "2x–4x ROAS improvement"],
+                stat: "2x–4x ROAS",
+                icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"/></svg>,
+              },
+            ] as const;
 
-          {/* Interactive Funnel Pipeline Layout */}
-          <div className="relative w-full z-20">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch relative">
-              
-              {/* Left Column: Funnel Timeline Pipeline */}
-              <div className="lg:col-span-5 flex flex-col gap-4">
-                {FUNNEL_STEPS.map((step, idx) => {
-                  const isActive = activeFunnelStep === idx;
-                  const isCompleted = activeFunnelStep > idx;
-                  return (
-                    <div
-                      key={idx}
-                      onClick={() => setActiveFunnelStep(idx)}
-                      className={`group relative flex gap-5 p-5 rounded-2xl border transition-all duration-300 cursor-pointer select-none ${
-                        isActive 
-                          ? "bg-white/[0.04] border-primary/30 shadow-[0_8px_30px_rgba(34,227,154,0.03)]" 
-                          : "bg-transparent border-white/[0.04] hover:border-white/10"
-                      }`}
-                    >
-                      {/* Glowing vertical line connecting nodes */}
-                      {idx < FUNNEL_STEPS.length - 1 && (
-                        <div className="absolute left-[30px] sm:left-[34px] top-[48px] sm:top-[54px] bottom-[-24px] w-[2px] bg-white/[0.06] pointer-events-none">
-                          <div 
-                            className="w-full bg-primary transition-all duration-500 origin-top"
-                            style={{ 
-                              height: isCompleted ? "100%" : isActive ? "50%" : "0%",
-                            }}
-                          />
-                        </div>
-                      )}
+            return (
+              <div className="relative flex gap-0">
 
-                      {/* Step Icon Node */}
-                      <div className="relative flex-shrink-0">
-                        <div className={`w-[28px] h-[28px] sm:w-[36px] sm:h-[36px] rounded-full flex items-center justify-center border font-mono text-[10px] sm:text-xs font-bold transition-all duration-300 ${
-                          isActive 
-                            ? "bg-primary text-black border-primary shadow-[0_0_15px_rgba(34,227,154,0.4)]" 
-                            : isCompleted 
-                              ? "bg-primary/10 text-primary border-primary/30" 
-                              : "bg-white/[0.02] text-white/30 border-white/10"
-                        }`}>
-                          {step.num}
-                        </div>
-                      </div>
-
-                      {/* Step Content */}
-                      <div className="flex-grow text-left">
-                        <h4 className={`text-sm sm:text-base font-semibold transition-colors duration-300 ${isActive ? "text-primary" : "text-white"}`}>
-                          {step.title}
-                        </h4>
-                        {isActive && (
-                          <motion.div
-                            initial={{ opacity: 0, height: 0 }}
-                            animate={{ opacity: 1, height: "auto" }}
-                            transition={{ duration: 0.3 }}
-                            className="mt-2 overflow-hidden"
-                          >
-                            <p className="text-xs text-white/60 leading-relaxed font-light font-sans">
-                              {step.desc}
-                            </p>
-                            <div className="flex flex-wrap gap-1.5 mt-3">
-                              {step.sources.map((src, i) => (
-                                <span key={i} className="text-[9px] font-mono font-medium px-2 py-0.5 rounded-full border border-white/[0.08] bg-white/[0.03] text-white/70">
-                                  {src}
-                                </span>
-                              ))}
-                            </div>
-                          </motion.div>
-                        )}
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-
-              {/* Right Column: Visual Preview Panel */}
-              <div className="lg:col-span-7 flex flex-col justify-stretch">
-                <div className="relative w-full min-h-[480px] lg:h-full bg-gradient-to-br from-[#0c0c0c] to-[#040404] border border-white/[0.08] rounded-[24px] p-6 sm:p-8 flex flex-col justify-between overflow-hidden shadow-2xl relative select-none">
-                  
-                  {/* Glowing ambient backing gradient */}
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(34,227,154,0.04),transparent_70%)] pointer-events-none" />
-
-                  {/* Dashboard Header */}
-                  <div className="flex justify-between items-center border-b border-white/[0.05] pb-4 relative z-20">
-                    <div className="text-left font-sans">
-                      <span className="text-[9px] text-white/40 font-mono tracking-widest block uppercase">LIVE PREVIEW SIMULATOR</span>
-                      <h3 className="text-white font-grotesk text-lg font-light mt-0.5">
-                        {FUNNEL_STEPS[activeFunnelStep].subtitle}
-                      </h3>
-                    </div>
-                    <span className="text-[10px] font-mono font-bold px-2 py-1 rounded bg-primary/10 border border-primary/20 text-primary uppercase">
-                      STAGE {FUNNEL_STEPS[activeFunnelStep].num} / 08
-                    </span>
-                  </div>
-
-                  {/* Main Dynamic Viewport */}
-                  <div className="flex-grow flex items-center justify-center py-8 relative z-20 overflow-hidden min-h-[280px]">
-                    <AnimatePresence mode="wait">
-                      <motion.div
-                        key={activeFunnelStep}
-                        initial={{ opacity: 0, y: 15 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -15 }}
-                        transition={{ duration: 0.35 }}
-                        className="w-full flex justify-center items-center"
-                      >
-                        {renderFunnelPreview(activeFunnelStep)}
-                      </motion.div>
-                    </AnimatePresence>
-                  </div>
-
-                  {/* Controller Action Bar at the Bottom */}
-                  <div className="border-t border-white/[0.05] pt-4 mt-4 flex items-center justify-between relative z-20">
-                    <div className="flex items-center gap-1.5">
-                      {Array.from({ length: 8 }).map((_, i) => (
-                        <div
-                          key={i}
-                          onClick={() => setActiveFunnelStep(i)}
-                          className={`w-2 h-2 rounded-full cursor-pointer transition-all duration-300 ${
-                            activeFunnelStep === i 
-                              ? "bg-primary scale-125 shadow-[0_0_8px_rgba(34,227,154,0.8)]" 
-                              : "bg-white/10 hover:bg-white/30"
-                          }`}
-                        />
-                      ))}
-                    </div>
-
-                    <div className="flex items-center gap-2">
-                      <button
-                        onClick={simulateFunnel}
-                        className="btn-primary text-[10px] font-bold uppercase tracking-wider px-4 py-2 rounded-full text-black bg-white flex items-center gap-1.5 cursor-pointer shadow-sm hover:scale-[1.02] transition-all font-sans"
-                      >
-                        <span>{isSimulating ? "Simulating..." : "Auto Run"}</span>
-                        <span className={`w-1.5 h-1.5 rounded-full bg-black ${isSimulating ? "animate-ping" : "animate-pulse"}`} />
-                      </button>
-                    </div>
-                  </div>
-
+                {/* Left glow spine */}
+                <div className="hidden sm:block relative w-px flex-shrink-0 mr-10">
+                  <div className="absolute inset-0 bg-white/[0.06]" />
+                  <motion.div
+                    className="absolute top-0 left-0 w-full bg-gradient-to-b from-blue-400 via-primary to-emerald-400"
+                    animate={{ height: `${((activeFunnelStep + 1) / STAGES.length) * 100}%` }}
+                    transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                  />
+                  <motion.div
+                    className="absolute -left-[5px] w-[11px] h-[11px] rounded-full border-2 border-[#0a0a0a]"
+                    style={{ backgroundColor: STAGES[activeFunnelStep].color }}
+                    animate={{ top: `calc(${((activeFunnelStep + 0.5) / STAGES.length) * 100}% - 5px)` }}
+                    transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                  />
                 </div>
-              </div>
 
+                {/* Stages */}
+                <div className="flex-1 flex flex-col">
+                  {STAGES.map((stage, idx) => {
+                    const isActive = activeFunnelStep === idx;
+                    return (
+                      <motion.div
+                        key={stage.id}
+                        initial={{ opacity: 0, x: -16 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true, margin: "-20px" }}
+                        transition={{ duration: 0.4, delay: idx * 0.07, ease: [0.22, 1, 0.36, 1] }}
+                        className="border-b border-white/[0.04] last:border-b-0"
+                      >
+                        {/* Row trigger */}
+                        <button
+                          onClick={() => setActiveFunnelStep(idx)}
+                          className="w-full text-left cursor-pointer"
+                        >
+                          <div className="flex items-center justify-between py-6 sm:py-7 pr-2 gap-4">
+                            <div className="flex items-center gap-5 flex-1 min-w-0">
+                              <div
+                                className="w-10 h-10 rounded-xl flex items-center justify-center font-mono text-xs font-black flex-shrink-0 border transition-all duration-400"
+                                style={{
+                                  background: isActive ? stage.color : "rgba(255,255,255,0.03)",
+                                  borderColor: isActive ? stage.color : "rgba(255,255,255,0.06)",
+                                  color: isActive ? "#000" : "rgba(255,255,255,0.25)",
+                                  boxShadow: isActive ? `0 0 20px ${stage.color}55` : "none",
+                                }}
+                              >{stage.num}</div>
+                              <div className="min-w-0">
+                                <div className="flex items-center gap-3 flex-wrap">
+                                  <h3
+                                    className="text-base sm:text-xl font-bold font-grotesk tracking-tight transition-colors duration-300"
+                                    style={{ color: isActive ? stage.color : "rgba(255,255,255,0.5)" }}
+                                  >{stage.headline}</h3>
+                                  {"badge" in stage && stage.badge && isActive && (
+                                    <span className="text-[8px] font-mono font-bold uppercase tracking-widest px-2 py-0.5 rounded-full bg-primary/10 border border-primary/20 text-primary">{stage.badge}</span>
+                                  )}
+                                </div>
+                                <p className={`text-[10px] font-mono mt-0.5 transition-colors ${isActive ? "text-white/35" : "text-white/12"}`}>{stage.tagline}</p>
+                              </div>
+                            </div>
+                            <div
+                              className="w-7 h-7 rounded-full border flex items-center justify-center flex-shrink-0 transition-all duration-400"
+                              style={{
+                                borderColor: isActive ? `${stage.color}40` : "rgba(255,255,255,0.07)",
+                                background: isActive ? `${stage.color}12` : "transparent",
+                                color: isActive ? stage.color : "rgba(255,255,255,0.2)",
+                                transform: isActive ? "rotate(90deg)" : "rotate(0deg)",
+                              }}
+                            >
+                              <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M3 1l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                            </div>
+                          </div>
+                        </button>
+
+                        {/* Expanded content */}
+                        <AnimatePresence>
+                          {isActive && (
+                            <motion.div
+                              initial={{ opacity: 0, height: 0 }}
+                              animate={{ opacity: 1, height: "auto" }}
+                              exit={{ opacity: 0, height: 0 }}
+                              transition={{ duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
+                              className="overflow-hidden"
+                            >
+                              <div className="pb-8 sm:pb-10">
+                                <div className="flex flex-col sm:flex-row gap-8 sm:gap-12">
+                                  <div className="flex-1">
+                                    <div
+                                      className="w-11 h-11 rounded-xl flex items-center justify-center mb-5 border"
+                                      style={{ background: `${stage.color}14`, borderColor: `${stage.color}30`, color: stage.color }}
+                                    >{stage.icon}</div>
+                                    <p className="text-sm sm:text-base text-white/55 leading-relaxed font-light font-sans max-w-lg">{stage.desc}</p>
+                                    <div
+                                      className="mt-5 inline-flex items-center gap-2 px-4 py-2 rounded-full border text-xs font-bold font-mono"
+                                      style={{ background: `${stage.color}10`, borderColor: `${stage.color}25`, color: stage.color }}
+                                    >
+                                      <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: stage.color }} />
+                                      {stage.stat}
+                                    </div>
+                                  </div>
+                                  <div className="sm:w-64 lg:w-72 flex-shrink-0">
+                                    <p className="text-[9px] font-mono font-bold uppercase tracking-[0.2em] text-white/20 mb-3">What we do</p>
+                                    <div className="flex flex-col gap-2">
+                                      {stage.features.map((feat, i) => (
+                                        <motion.div
+                                          key={i}
+                                          initial={{ opacity: 0, x: 10 }}
+                                          animate={{ opacity: 1, x: 0 }}
+                                          transition={{ duration: 0.25, delay: i * 0.055 }}
+                                          className="flex items-center gap-3 px-4 py-2.5 rounded-xl border border-white/[0.05] bg-white/[0.02] hover:bg-white/[0.04] transition-all"
+                                        >
+                                          <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: stage.color, opacity: 0.7 }} />
+                                          <span className="text-xs text-white/55 font-sans">{feat}</span>
+                                        </motion.div>
+                                      ))}
+                                    </div>
+                                  </div>
+                                </div>
+                                {idx < STAGES.length - 1 ? (
+                                  <button
+                                    onClick={() => setActiveFunnelStep(idx + 1)}
+                                    className="mt-6 flex items-center gap-2 text-[10px] font-mono font-bold uppercase tracking-widest cursor-pointer group/next transition-opacity hover:opacity-100 opacity-60"
+                                    style={{ color: STAGES[idx + 1].color }}
+                                  >
+                                    <span>Next: {STAGES[idx + 1].headline}</span>
+                                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="group-hover/next:translate-x-1 transition-transform"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                                  </button>
+                                ) : (
+                                  <button
+                                    onClick={() => setShowFormModal(true)}
+                                    className="mt-6 flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary/10 border border-primary/25 text-primary text-xs font-bold uppercase tracking-widest hover:bg-primary hover:text-black transition-all cursor-pointer"
+                                  >Build My Store <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg></button>
+                                )}
+                              </div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </motion.div>
+                    );
+                  })}
+                </div>
+
+              </div>
+            );
+          })()}
+
+
+          {/* CTA Strip */}
+          <motion.div
+            initial={{ opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4 px-6 py-5 rounded-2xl border border-white/[0.05] bg-white/[0.015]"
+          >
+            <div className="flex items-center gap-3">
+              <div className="w-2 h-2 rounded-full bg-primary flex-shrink-0 animate-pulse shadow-[0_0_8px_rgba(34,227,154,0.7)]" />
+              <p className="text-sm text-white/45 font-light">
+                We build every layer — from first click to loyal customer — so your store scales profitably.
+              </p>
             </div>
-          </div>
+            <button
+              onClick={() => setShowFormModal(true)}
+              className="flex-shrink-0 flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary/10 border border-primary/25 text-primary text-sm font-semibold hover:bg-primary hover:text-black transition-all duration-300 cursor-pointer"
+            >
+              Build My Store
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+            </button>
+          </motion.div>
 
         </div>
       </section>
+
+
+
 
 
 

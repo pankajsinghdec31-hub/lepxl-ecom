@@ -11,7 +11,7 @@ export const NAV_LINKS = [
   { name: "Services", href: "/services" },
   { name: "How It Works", href: "/how-it-works" },
   { name: "Portfolio", href: "/portfolio" },
-  { name: "Case Studies", href: "/case-studies" },
+  { name: "Pricing", href: "/pricing" },
   { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
 ];
@@ -64,16 +64,19 @@ export default function Navbar() {
   }, [pathname]);
 
   const isContactPage = pathname !== "/";
+  const isPricingPage = pathname === "/pricing";
 
   return (
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled
-            ? isContactPage
-              ? "bg-white/85 backdrop-blur-md border-b border-black/[0.06] py-4"
-              : "bg-[#050505]/80 backdrop-blur-md border-b border-white/[0.08] py-4"
-            : "bg-transparent py-6 border-b border-transparent"
+          isPricingPage
+            ? "bg-white shadow-sm border-b border-black/[0.06] py-4"
+            : isScrolled
+              ? isContactPage
+                ? "bg-white/85 backdrop-blur-md border-b border-black/[0.06] py-4"
+                : "bg-[#050505]/80 backdrop-blur-md border-b border-white/[0.08] py-4"
+              : "bg-transparent py-6 border-b border-transparent"
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
@@ -88,14 +91,14 @@ export default function Navbar() {
           </Link>
  
           {/* Desktop Nav Links */}
-          <nav className="hidden md:flex items-center gap-8">
-            {NAV_LINKS.map((link) => {
+          <nav className="hidden md:flex items-center gap-5 lg:gap-7">
+            {NAV_LINKS.filter(l => l.name !== "Home").map((link) => {
               const isActive = pathname === link.href;
               return (
                 <Link
                   key={link.name}
                   href={link.href}
-                  className={`text-sm font-medium relative py-2 transition-all ${
+                  className={`text-xs lg:text-sm font-medium relative py-2 transition-all whitespace-nowrap ${
                     isActive 
                       ? "text-primary font-semibold" 
                       : isContactPage 
