@@ -9,7 +9,10 @@ export async function copyImages() {
 
   const files = [
     { src: "media__1784449861784.jpg", dest: "photoshoot_before.jpg" },
-    { src: "media__1784449871481.jpg", dest: "photoshoot_after.jpg" }
+    { src: "media__1784449871481.jpg", dest: "photoshoot_after.jpg" },
+    { src: "process_plan_mockup_1784451315243.png", dest: "process_plan_mockup.png" },
+    { src: "process_build_mockup_1784451334454.png", dest: "process_build_mockup.png" },
+    { src: "process_sales_mockup_1784451351354.png", dest: "process_sales_mockup.png" }
   ];
 
   const results = [];

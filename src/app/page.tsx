@@ -29,6 +29,7 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 import EnquiryBox from "@/components/EnquiryBox";
 import InteractiveFunnel from "@/components/InteractiveFunnel";
+import { copyImages } from "./how-it-works/actions";
 
 import AnimatedDashboard from "@/components/AnimatedDashboard";
 import StartProjectForm from "@/components/StartProjectForm";
@@ -380,58 +381,24 @@ const PORTFOLIO_CARDS = [
 const BUILD_PROCESS_STEPS = [
   {
     num: "01",
-    title: "Planning & Discovery",
-    desc: "Understand your business, goals, target audience, competitors, and project requirements. We define the website structure, features, functionality, and growth strategy before design begins.",
-    highlights: [
-      "Business Discussion",
-      "Competitor Research",
-      "Website Strategy",
-      "Feature Planning",
-      "User Journey",
-      "Project Roadmap"
-    ],
-    icon: "Sliders"
+    title: "Plan Your Store",
+    desc: "Collaborate on structural architecture, design mockups, and layout strategies before writing a single line of code.",
+    desktopImg: "/process_plan_mockup.png",
+    mobileImg: "/process_plan_mockup.png"
   },
   {
     num: "02",
-    title: "UI/UX Design & Development",
-    desc: "Design a premium Shopify experience and develop a fast, responsive, conversion-focused storefront optimized for every device.",
-    highlights: [
-      "Homepage Design",
-      "Collection Pages",
-      "Product Pages",
-      "Mobile Responsive",
-      "Shopify Development",
-      "Performance Optimization"
-    ],
-    icon: "Code"
+    title: "Build with Shopify Experts",
+    desc: "Get clean custom liquid code, speed-optimized theme configuration, and robust API integrations from certified developers.",
+    desktopImg: "/process_build_mockup.png",
+    mobileImg: "/process_build_mockup.png"
   },
   {
     num: "03",
-    title: "Review & Refinement",
-    desc: "Review every section together, gather feedback, refine the design, improve user experience, and make final adjustments before launch.",
-    highlights: [
-      "Client Review",
-      "Design Revisions",
-      "UX Improvements",
-      "Quality Assurance",
-      "Final Approval"
-    ],
-    icon: "CheckCircle2"
-  },
-  {
-    num: "04",
-    title: "Store Launch & Integrations",
-    desc: "Configure your Shopify store for real business operations and launch with all essential integrations.",
-    highlights: [
-      "Payment Gateway Integration",
-      "Shipping Configuration",
-      "Domain Setup",
-      "Email Notifications",
-      "Analytics & Tracking",
-      "Store Launch"
-    ],
-    icon: "Zap"
+    title: "Increase Sales & Conversions",
+    desc: "Accelerate checkout flows, integrate smart upsell drawers, and maximize average order value with data-driven CRO.",
+    desktopImg: "/process_sales_mockup.png",
+    mobileImg: "/process_sales_mockup.png"
   }
 ];
 
@@ -1113,482 +1080,101 @@ export default function HomePage() {
 
         <div className="max-w-[1360px] mx-auto px-6">
           {/* Header */}
-          <div className="text-center mb-20 flex flex-col items-center">
-            <span className="inline-flex items-center gap-2 text-[10px] sm:text-[11px] font-semibold tracking-widest uppercase px-3.5 py-1.5 rounded-full border border-white/20 bg-white/[0.06] text-primary backdrop-blur-sm mb-4">
+          <div className="text-center mb-16 flex flex-col items-center">
+            <span className="inline-flex items-center gap-2 text-[10px] sm:text-[11px] font-semibold tracking-widest uppercase px-3.5 py-1.5 rounded-full border border-white/20 bg-white/[0.06] text-white/80 backdrop-blur-sm mb-4">
               <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-              Our Workflow
+              Built Ecom Store
             </span>
             <h2 className="premium-heading text-3xl sm:text-4xl lg:text-[2.75rem] font-light text-white tracking-tight font-grotesk mt-2">
-              Our <span className="light-gradient-text font-normal">Proven</span> <span className="premium-highlight">Process</span>
+              Build. <span className="light-gradient-text font-normal">Launch.</span> <span className="premium-highlight">Scale.</span>
             </h2>
-            <p className="mt-4 text-white/70 text-base sm:text-lg max-w-xl font-light leading-relaxed">
-              How we build high-converting Shopify stores, from initial strategy to deployment.
-            </p>
           </div>
 
-          {/* Cards Grid */}
-          <div className="relative z-20">
-            {/* Desktop horizontal connecting line */}
-            <div className="hidden lg:block absolute top-[56px] left-[56px] right-[calc(25%-56px)] h-[1px] bg-gradient-to-r from-primary/30 via-white/10 to-transparent pointer-events-none z-10" />
-            
-            {/* Mobile/Tablet vertical connecting line */}
-            <div className="absolute left-[56px] top-[56px] bottom-[56px] w-[1px] bg-gradient-to-b from-primary/30 via-white/10 to-transparent lg:hidden pointer-events-none z-10" />
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {BUILD_PROCESS_STEPS.map((item, idx) => {
-                const isActive = activeProcessStep === idx;
-                return (
-                  <motion.div
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            {/* Left side: Interactive Mockup Cards */}
+            <div className="lg:col-span-5 relative flex justify-center lg:justify-start pl-6 pr-12 pb-12 pt-6 select-none">
+              <div className="relative w-[280px] sm:w-[340px] aspect-[4/5] rounded-[24px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.8)] border border-white/[0.08] bg-[#101010]">
+                {BUILD_PROCESS_STEPS.map((step, idx) => (
+                  <motion.img
                     key={idx}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.6, delay: idx * 0.15 }}
-                    onClick={() => setActiveProcessStep(idx)}
-                    className={`group relative flex flex-col justify-between bg-black/40 backdrop-blur-md border rounded-[24px] p-8 transition-all duration-500 hover:scale-[1.02] hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)] min-h-[460px] select-none cursor-pointer ${
-                      isActive 
-                        ? "border-primary/50 ring-2 ring-primary/10 shadow-[0_0_30px_rgba(203,243,81,0.1)] opacity-100" 
-                        : "border-white/[0.08] opacity-60 hover:opacity-100"
-                    }`}
-                  >
-                    {/* Subtle hover gradient glow inside the card */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.02] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-[24px] pointer-events-none" />
-                    
-                    <div>
-                      {/* Top Row: Number & Icon */}
-                      <div className="flex items-center justify-between mb-8 relative">
-                        <span className={`font-mono text-4xl font-extralight tracking-tighter transition-colors duration-500 ${
-                          isActive ? "text-primary/40" : "text-white/25 group-hover:text-primary/30"
-                        }`}>
-                          {item.num}
-                        </span>
-                        
-                        {/* Elegant circle icon */}
-                        <div className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-500 shadow-inner ${
-                          isActive
-                            ? "text-black bg-primary border-primary"
-                            : "bg-white/[0.04] border-white/[0.08] text-white/60 group-hover:text-primary group-hover:bg-primary/[0.08] group-hover:border-primary/30"
-                        }`}>
-                          {getStepIcon(item.icon)}
-                        </div>
-                      </div>
-
-                      {/* Content */}
-                      <h3 className={`text-xl font-light tracking-tight transition-colors duration-500 mb-4 ${
-                        isActive ? "text-primary font-normal" : "text-white group-hover:text-primary"
-                      }`}>
-                        {item.title}
-                      </h3>
-                      <p className="text-sm text-white/60 leading-relaxed font-light mb-6">
-                        {item.desc}
-                      </p>
-                    </div>
-
-                    {/* Highlights List */}
-                    <div className="border-t border-white/[0.08] pt-6 mt-auto">
-                      <span className="text-[10px] uppercase tracking-wider font-semibold text-white/40 block mb-3">
-                        Highlights
-                      </span>
-                      <ul className="grid grid-cols-2 gap-x-3 gap-y-2">
-                        {item.highlights.map((h, hIdx) => (
-                          <li key={hIdx} className="flex items-center gap-1.5 text-[11px] sm:text-xs text-white/70 font-light">
-                            <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${isActive ? "bg-primary" : "bg-primary/70"}`} />
-                            <span className="truncate" title={h}>{h}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    {/* Explorer pill */}
-                    <div className="mt-4 flex items-center justify-center">
-                      <span className={`text-[10px] font-mono uppercase tracking-wider transition-opacity ${
-                        isActive ? "text-primary opacity-100 font-bold" : "text-white/30 opacity-0 group-hover:opacity-100"
-                      }`}>
-                        {isActive ? "Active View" : "Explore Workspace →"}
-                      </span>
-                    </div>
-
-                  </motion.div>
-                );
-              })}
+                    src={step.desktopImg}
+                    alt={step.title}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: activeProcessStep === idx ? 0.8 : 0 }}
+                    transition={{ duration: 0.4 }}
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                ))}
+              </div>
+              <div className="absolute bottom-[-10px] right-[10px] sm:right-[-20px] w-[160px] sm:w-[200px] aspect-[9/19] rounded-[24px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.8)] border-[6px] border-[#050505] bg-[#101010]">
+                {BUILD_PROCESS_STEPS.map((step, idx) => (
+                  <motion.img
+                    key={idx}
+                    src={step.mobileImg}
+                    alt={step.title}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: activeProcessStep === idx ? 1 : 0 }}
+                    transition={{ duration: 0.4 }}
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                ))}
+              </div>
             </div>
 
-            {/* Interactive Showcase Panel */}
-            <motion.div
-              layout
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="mt-12 w-full rounded-[24px] bg-[#0c0c0e]/60 border border-white/[0.08] p-6 sm:p-10 backdrop-blur-xl relative overflow-hidden"
-            >
-              <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-primary/[0.015] blur-[100px] pointer-events-none" />
-
-              <AnimatePresence mode="wait">
-                {activeProcessStep === 0 && (
-                  <motion.div
-                    key="step-0"
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: 10 }}
-                    transition={{ duration: 0.3 }}
-                    className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
-                  >
-                    <div className="lg:col-span-5 flex flex-col gap-4 text-left">
-                      <span className="text-xs font-mono font-bold text-primary tracking-widest uppercase">Phase 1 Workflow</span>
-                      <h4 className="text-2xl font-bold tracking-tight text-white font-grotesk">Interactive Wireframe Planner</h4>
-                      <p className="text-sm text-white/60 leading-relaxed">
-                        We map the structural hierarchy of your homepage before writing custom code. Try toggling layout blocks on/off to visualize how we plan user experience.
-                      </p>
-                      
-                      <div className="flex flex-col gap-2 mt-2">
-                        {Object.keys(wireframeLayout).map((key) => (
-                          <button
-                            key={key}
-                            onClick={() => toggleWireframeLayout(key)}
-                            className={`flex items-center justify-between p-3 rounded-xl border text-left text-xs transition-all ${
-                              wireframeLayout[key]
-                                ? "bg-primary/5 border-primary/20 text-white"
-                                : "bg-white/[0.01] border-white/5 text-white/40 hover:bg-white/[0.02]"
-                            }`}
-                          >
-                            <span className="capitalize font-semibold">{key.replace("-", " ")} Block</span>
-                            <span className={`w-4 h-4 rounded flex items-center justify-center border text-[9px] font-bold ${
-                              wireframeLayout[key] ? "bg-primary border-primary text-black" : "border-white/20"
-                            }`}>
-                              {wireframeLayout[key] && "✓"}
-                            </span>
-                          </button>
-                        ))}
+            {/* Right side: Interactive Collapsible Steps List */}
+            <div className="lg:col-span-7 flex flex-col justify-center pl-0 lg:pl-8">
+              <div className="flex flex-col">
+                {BUILD_PROCESS_STEPS.map((step, idx) => {
+                  const isActive = activeProcessStep === idx;
+                  return (
+                    <div
+                      key={idx}
+                      onMouseEnter={() => setActiveProcessStep(idx)}
+                      className="group cursor-pointer py-6 border-b border-white/[0.08] flex flex-col gap-2 transition-all duration-300"
+                    >
+                      <div className="flex items-baseline gap-5">
+                        <span className={`font-mono text-sm font-bold transition-colors duration-300 ${
+                          isActive ? "text-primary" : "text-white/40 group-hover:text-primary/70"
+                        }`}>
+                          {step.num}
+                        </span>
+                        <h3 className={`text-xl sm:text-2xl font-light tracking-tight transition-colors duration-300 ${
+                          isActive ? "text-white" : "text-[#8e8e93] group-hover:text-white"
+                        }`}>
+                          {step.title}
+                        </h3>
                       </div>
-                    </div>
-
-                    <div className="lg:col-span-7 rounded-2xl border border-white/5 bg-[#121214]/60 p-6 flex flex-col gap-3 min-h-[340px] justify-start shadow-inner">
-                      <div className="flex justify-between items-center pb-3 border-b border-white/5 text-[10px] text-white/30 font-mono">
-                        <span>WIREFRAME DIAGRAM</span>
-                        <span className="text-primary font-bold">SALE PXL VISUALIZER</span>
-                      </div>
-                      
                       <AnimatePresence>
-                        {wireframeLayout.announcement && (
-                          <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} className="h-6 bg-white/[0.03] border border-dashed border-white/10 rounded flex items-center justify-center text-[8px] text-white/30 uppercase tracking-widest font-mono">
-                            Announcement Bar
-                          </motion.div>
-                        )}
-                        {wireframeLayout.hero && (
-                          <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} className="h-28 bg-white/[0.03] border border-dashed border-white/10 rounded flex flex-col justify-center px-4 gap-2">
-                            <div className="h-3 w-1/3 bg-white/10 rounded-full" />
-                            <div className="h-6 w-3/4 bg-white/5 rounded-md" />
-                            <div className="h-6 w-20 bg-primary/20 border border-primary/20 rounded-full" />
-                          </motion.div>
-                        )}
-                        {wireframeLayout.features && (
-                          <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} className="grid grid-cols-3 gap-2">
-                            <div className="h-20 bg-white/[0.02] border border-dashed border-white/10 rounded flex items-center justify-center text-[7px] text-white/20">Prod 1</div>
-                            <div className="h-20 bg-white/[0.02] border border-dashed border-white/10 rounded flex items-center justify-center text-[7px] text-white/20">Prod 2</div>
-                            <div className="h-20 bg-white/[0.02] border border-dashed border-white/10 rounded flex items-center justify-center text-[7px] text-white/20">Prod 3</div>
-                          </motion.div>
-                        )}
-                        {wireframeLayout.testimonials && (
-                          <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} className="h-16 bg-white/[0.03] border border-dashed border-white/10 rounded flex flex-col justify-center px-4 gap-1.5">
-                            <div className="flex gap-0.5"><span className="text-primary text-[8px]">★★★★★</span></div>
-                            <div className="h-2.5 w-full bg-white/5 rounded" />
-                          </motion.div>
-                        )}
-                        {wireframeLayout.footer && (
-                          <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} className="h-10 bg-white/[0.03] border border-dashed border-white/10 rounded flex items-center justify-center text-[8px] text-white/25 uppercase tracking-widest font-mono">
-                            Footer Columns
+                        {isActive && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.3 }}
+                            className="overflow-hidden"
+                          >
+                            <p className="text-sm sm:text-base text-white/70 leading-relaxed pl-10 pt-1 pb-4">
+                              {step.desc}
+                            </p>
                           </motion.div>
                         )}
                       </AnimatePresence>
                     </div>
-                  </motion.div>
-                )}
+                  );
+                })}
+              </div>
 
-                {activeProcessStep === 1 && (
-                  <motion.div
-                    key="step-1"
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: 10 }}
-                    transition={{ duration: 0.3 }}
-                    className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
-                  >
-                    <div className="lg:col-span-5 flex flex-col gap-4 text-left">
-                      <span className="text-xs font-mono font-bold text-primary tracking-widest uppercase">Phase 2 Workflow</span>
-                      <h4 className="text-2xl font-bold tracking-tight text-white font-grotesk">Device Responsive Sandbox</h4>
-                      <p className="text-sm text-white/60 leading-relaxed">
-                        We build every layout with a strict mobile-first paradigm. Toggle views to see how the product layout dynamically adapts from desktop side-by-side splits to thumb-friendly mobile slides.
-                      </p>
-
-                      <div className="flex gap-2.5 mt-2 bg-white/5 p-1 rounded-xl w-max">
-                        <button
-                          onClick={() => setActiveDeviceView("desktop")}
-                          className={`px-4 py-2 rounded-lg text-xs font-semibold transition-all ${
-                            activeDeviceView === "desktop" ? "bg-white text-black" : "text-white/60 hover:text-white"
-                          }`}
-                        >
-                          Desktop Grid
-                        </button>
-                        <button
-                          onClick={() => setActiveDeviceView("mobile")}
-                          className={`px-4 py-2 rounded-lg text-xs font-semibold transition-all ${
-                            activeDeviceView === "mobile" ? "bg-white text-black" : "text-white/60 hover:text-white"
-                          }`}
-                        >
-                          Mobile Viewport
-                        </button>
-                      </div>
-                    </div>
-
-                    <div className="lg:col-span-7 flex justify-center items-center p-4 bg-black/40 rounded-2xl border border-white/5 min-h-[340px]">
-                      <motion.div
-                        animate={{
-                          width: activeDeviceView === "desktop" ? "100%" : "300px",
-                          height: activeDeviceView === "desktop" ? "240px" : "320px",
-                        }}
-                        transition={{ type: "spring", stiffness: 120, damping: 20 }}
-                        className="bg-[#0c0c0e] rounded-2xl border border-white/10 overflow-hidden flex flex-col shadow-2xl p-4 gap-3"
-                      >
-                        <div className="flex items-center justify-between border-b border-white/5 pb-2 text-[8px] font-mono text-white/30">
-                          <span>SHOPPING APP</span>
-                          <span>{activeDeviceView === "desktop" ? "1440x900 px" : "390x844 px"}</span>
-                        </div>
-
-                        {activeDeviceView === "desktop" ? (
-                          <div className="grid grid-cols-2 gap-4 h-full items-center">
-                            <div className="h-full rounded-lg bg-gradient-to-tr from-emerald-500/10 to-indigo-500/10 border border-white/5 flex items-center justify-center text-[10px] text-white/30 font-bold uppercase">Product Media</div>
-                            <div className="flex flex-col gap-2.5 justify-center">
-                              <span className="text-[7px] text-primary font-mono uppercase font-bold">Premium Silk Hoodie</span>
-                              <div className="h-2 w-3/4 bg-white/10 rounded-full" />
-                              <div className="h-1.5 w-full bg-white/5 rounded-full" />
-                              <div className="h-8 bg-white text-black text-[9px] font-bold rounded-lg flex items-center justify-center uppercase tracking-wider mt-2">Add To Cart</div>
-                            </div>
-                          </div>
-                        ) : (
-                          <div className="flex flex-col gap-3 h-full justify-between">
-                            <div className="h-32 rounded-lg bg-gradient-to-tr from-emerald-500/10 to-indigo-500/10 border border-white/5 flex items-center justify-center text-[9px] text-white/30 font-bold uppercase">Product Media Slider</div>
-                            <div className="flex flex-col gap-1.5">
-                              <span className="text-[7px] text-primary font-mono uppercase font-bold">Premium Silk Hoodie</span>
-                              <div className="h-1.5 w-1/2 bg-white/10 rounded-full" />
-                            </div>
-                            <div className="h-9 bg-white text-black text-[9px] font-bold rounded-lg flex items-center justify-center uppercase tracking-wider">Add To Cart</div>
-                          </div>
-                        )}
-                      </motion.div>
-                    </div>
-                  </motion.div>
-                )}
-
-                {activeProcessStep === 2 && (
-                  <motion.div
-                    key="step-2"
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: 10 }}
-                    transition={{ duration: 0.3 }}
-                    className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
-                  >
-                    <div className="lg:col-span-5 flex flex-col gap-4 text-left">
-                      <span className="text-xs font-mono font-bold text-primary tracking-widest uppercase">Phase 3 Workflow</span>
-                      <h4 className="text-2xl font-bold tracking-tight text-white font-grotesk">Interactive Revisions Board</h4>
-                      <p className="text-sm text-white/60 leading-relaxed">
-                        Revisions are simple. We map annotations directly on layout drafts. Try clicking on revision marker pins in the visualizer to explore changes and toggle layout styles.
-                      </p>
-
-                      <div className="flex gap-2.5 mt-2">
-                        {(["minimal", "editorial", "dark"] as const).map((style) => (
-                          <button
-                            key={style}
-                            onClick={() => setCustomRevisionStyle(style)}
-                            className={`px-3 py-1.5 rounded-lg text-[10px] font-mono uppercase tracking-wider transition-all border ${
-                              customRevisionStyle === style
-                                ? "bg-primary border-primary text-black font-bold"
-                                : "bg-white/[0.02] border-white/5 text-white/60 hover:bg-white/5"
-                            }`}
-                          >
-                            {style}
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div className="lg:col-span-7 relative rounded-2xl border border-white/5 bg-[#101012] p-5 flex flex-col gap-3 min-h-[340px] justify-between shadow-2xl">
-                      
-                      <div className="absolute inset-0 bg-radial-gradient from-white/5 to-transparent pointer-events-none" />
-
-                      {/* Homepage mockup layout container */}
-                      <div className={`flex-grow border border-white/5 p-4 rounded-xl flex flex-col gap-4 relative transition-all duration-500 ${
-                        customRevisionStyle === "minimal" 
-                          ? "bg-white text-black" 
-                          : customRevisionStyle === "editorial"
-                          ? "bg-[#faf6f0] text-[#332211]"
-                          : "bg-black text-white"
-                      }`}>
-                        
-                        <div className="flex justify-between items-center text-[7px] font-bold border-b border-black/5 pb-1">
-                          <span>STOREFRONT AUDIT</span>
-                          <span>CART (0)</span>
-                        </div>
-
-                        <div className="flex flex-col items-center gap-1.5 py-6">
-                          <span className="text-[6px] tracking-widest uppercase font-mono">FALL COLLECTION 2026</span>
-                          <h4 className="text-xs font-bold uppercase tracking-tight text-center font-grotesk">Bold Design Retails</h4>
-                        </div>
-
-                        {/* Interactive Pins */}
-                        {/* Pin 1: Hero title */}
-                        <button
-                          onClick={() => setActiveRevisionPin(1)}
-                          className="absolute top-[48%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-primary text-black border border-white flex items-center justify-center text-[10px] font-bold animate-bounce z-20 cursor-pointer shadow-lg shadow-primary/20"
-                        >
-                          1
-                        </button>
-
-                        {/* Pin 2: Style Theme */}
-                        <button
-                          onClick={() => setActiveRevisionPin(2)}
-                          className="absolute bottom-[10%] right-[10%] w-6 h-6 rounded-full bg-indigo-500 text-white border border-white flex items-center justify-center text-[10px] font-bold animate-pulse z-20 cursor-pointer shadow-lg shadow-indigo-500/20"
-                        >
-                          2
-                        </button>
-                      </div>
-
-                      {/* Pin descriptions box */}
-                      <div className="rounded-xl bg-white/[0.03] border border-white/5 p-3.5 z-10 text-left">
-                        <span className="text-[9px] font-mono text-white/40 block mb-1">REVISION SPECIFICATION</span>
-                        {activeRevisionPin === 1 && (
-                          <p className="text-xs text-white/80">
-                            <strong>Pin 1 (Typography)</strong>: Adjusted spacing and capitalization dynamically. "How it works" font applies custom Plus Jakarta Sans styling.
-                          </p>
-                        )}
-                        {activeRevisionPin === 2 && (
-                          <p className="text-xs text-white/80">
-                            <strong>Pin 2 (Theme Styles)</strong>: Use the minimal, editorial, or dark styled triggers on the left to review dynamic colors and layouts.
-                          </p>
-                        )}
-                        {!activeRevisionPin && (
-                          <p className="text-xs text-white/40 italic">Click one of the numerical pins inside the layout draft above.</p>
-                        )}
-                      </div>
-
-                    </div>
-                  </motion.div>
-                )}
-
-                {activeProcessStep === 3 && (
-                  <motion.div
-                    key="step-3"
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: 10 }}
-                    transition={{ duration: 0.3 }}
-                    className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
-                  >
-                    <div className="lg:col-span-5 flex flex-col gap-4 text-left">
-                      <span className="text-xs font-mono font-bold text-primary tracking-widest uppercase">Phase 4 Workflow</span>
-                      <h4 className="text-2xl font-bold tracking-tight text-white font-grotesk">Automated Launch Auditor</h4>
-                      <p className="text-sm text-white/60 leading-relaxed">
-                        We don't just push your store live. We run a comprehensive audit simulating shipping channels, cart scripts, SSL layers, and pixels. Click the test tool below to execute a simulated audit.
-                      </p>
-
-                      <button
-                        onClick={() => {
-                          setIsAuditing(true);
-                          setAuditProgress(0);
-                          setAuditChecks({ ssl: false, domain: false, shipping: false, payment: false, pixels: false });
-                          
-                          // Run loading checks
-                          const timer1 = setTimeout(() => {
-                            setAuditChecks(prev => ({ ...prev, ssl: true }));
-                            setAuditProgress(20);
-                          }, 500);
-                          const timer2 = setTimeout(() => {
-                            setAuditChecks(prev => ({ ...prev, domain: true }));
-                            setAuditProgress(40);
-                          }, 1000);
-                          const timer3 = setTimeout(() => {
-                            setAuditChecks(prev => ({ ...prev, shipping: true }));
-                            setAuditProgress(60);
-                          }, 1500);
-                          const timer4 = setTimeout(() => {
-                            setAuditChecks(prev => ({ ...prev, payment: true }));
-                            setAuditProgress(80);
-                          }, 2000);
-                          const timer5 = setTimeout(() => {
-                            setAuditChecks(prev => ({ ...prev, pixels: true }));
-                            setAuditProgress(100);
-                            setIsAuditing(false);
-                          }, 2500);
-                        }}
-                        disabled={isAuditing}
-                        className="w-full sm:w-auto px-6 py-3.5 mt-2 rounded-xl bg-primary text-black font-bold uppercase tracking-wider text-xs shadow-lg shadow-primary/10 hover:shadow-primary/20 transition-all select-none cursor-pointer disabled:opacity-50"
-                      >
-                        {isAuditing ? `Auditing (${auditProgress}%)` : "Run Store Audit Checklist"}
-                      </button>
-                    </div>
-
-                    <div className="lg:col-span-7 rounded-2xl border border-white/5 bg-[#0e0e10] p-6 flex flex-col gap-3 min-h-[340px] justify-between shadow-inner text-left">
-                      
-                      <div className="flex justify-between items-center pb-2 border-b border-white/5 text-[10px] text-white/30 font-mono">
-                        <span>LAUNCH READINESS CHECKS</span>
-                        <span className="text-emerald-400">ACTIVE LOGS</span>
-                      </div>
-
-                      <div className="flex-grow flex flex-col gap-3 mt-2 justify-center">
-                        <div className="flex justify-between items-center text-xs">
-                          <span className="text-white/60">SSL Certificate Status</span>
-                          <span className={auditChecks.ssl ? "text-primary font-bold" : "text-white/20"}>
-                            {auditChecks.ssl ? "✓ SECURED (Let's Encrypt)" : "Pending..."}
-                          </span>
-                        </div>
-                        <div className="flex justify-between items-center text-xs">
-                          <span className="text-white/60">Domain Configuration (CNAME/A Pointing)</span>
-                          <span className={auditChecks.domain ? "text-primary font-bold" : "text-white/20"}>
-                            {auditChecks.domain ? "✓ CONNECTED" : "Pending..."}
-                          </span>
-                        </div>
-                        <div className="flex justify-between items-center text-xs">
-                          <span className="text-white/60">Logistics Carrier Webhook</span>
-                          <span className={auditChecks.shipping ? "text-primary font-bold" : "text-white/20"}>
-                            {auditChecks.shipping ? "✓ ACTIVE (Shiprocket API)" : "Pending..."}
-                          </span>
-                        </div>
-                        <div className="flex justify-between items-center text-xs">
-                          <span className="text-white/60">Payment Gateway Handshake (Test Key)</span>
-                          <span className={auditChecks.payment ? "text-primary font-bold" : "text-white/20"}>
-                            {auditChecks.payment ? "✓ STABLE (Razorpay / Stripe)" : "Pending..."}
-                          </span>
-                        </div>
-                        <div className="flex justify-between items-center text-xs">
-                          <span className="text-white/60">Meta Pixel & GA4 Tag Handshake</span>
-                          <span className={auditChecks.pixels ? "text-primary font-bold" : "text-white/20"}>
-                            {auditChecks.pixels ? "✓ RUNNING (Pageview Event)" : "Pending..."}
-                          </span>
-                        </div>
-                      </div>
-
-                      {auditProgress === 100 && (
-                        <div className="mt-4 p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 text-center font-bold text-xs select-none">
-                          ALL LAUNCH PROTOCOLS CHECKED - STORE IS READY TO SELL 🚀
-                        </div>
-                      )}
-
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
+              {/* Get Started Button */}
+              <div className="mt-10 pl-10">
+                <button
+                  onClick={() => setShowFormModal(true)}
+                  className="w-full sm:w-auto btn-primary inline-flex items-center justify-center px-10 h-14 rounded-full text-black text-sm font-bold shadow-[0_4px_12px_rgba(255,255,255,0.08)] cursor-pointer"
+                >
+                  Get Started
+                </button>
+              </div>
+            </div>
           </div>
-
-          <div className="mt-16 flex justify-center z-20 relative">
-            <button
-              onClick={() => setShowFormModal(true)}
-              className="w-full sm:w-auto btn-primary inline-flex items-center justify-center px-10 h-14 rounded-full text-black text-sm font-bold shadow-[0_4px_12px_rgba(255,255,255,0.08)] cursor-pointer"
-            >
-              Get Started
-            </button>
-          </div>
-
         </div>
       </section>
 
