@@ -1978,9 +1978,10 @@ export default function HomePage() {
                   ))}
                   <div className="absolute inset-0 bg-gradient-to-t from-[#070707] via-transparent to-transparent pointer-events-none" />
 
-                  {/* Category Tag */}
-                  <div className="absolute top-4 left-4 bg-black/60 text-white text-[10px] font-semibold uppercase tracking-wider px-3.5 py-1.5 rounded-full border border-white/[0.08] backdrop-blur-sm z-10">
-                    {GOOGLE_REVIEWS_CONSOLIDATED[activeReviewIdx].category}
+                  {/* Star Rating Tag */}
+                  <div className="absolute top-4 left-4 bg-black/60 text-white text-xs font-semibold px-3 py-1.5 rounded-full flex items-center gap-1.5 border border-white/[0.08] backdrop-blur-sm z-10">
+                    <span className="text-amber-500">★</span>
+                    <span>5.0 rating</span>
                   </div>
 
                   {/* Profile overlay at the bottom */}
