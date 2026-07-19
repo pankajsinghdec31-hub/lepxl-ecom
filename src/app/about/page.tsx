@@ -40,8 +40,8 @@ export default function AboutPage() {
             <span className="text-[10px] text-neutral-400 font-mono uppercase tracking-widest font-semibold">EXCLUSIVELY E-COMMERCE</span>
           </div>
           <div className="flex flex-col gap-2">
-            <span className="text-4xl sm:text-5xl font-light font-grotesk tracking-tight text-neutral-900">MSME</span>
-            <span className="text-[10px] text-neutral-400 font-mono uppercase tracking-widest font-semibold">CERTIFIED PARTNER</span>
+            <span className="text-4xl sm:text-5xl font-light font-grotesk tracking-tight text-neutral-900">80+</span>
+            <span className="text-[10px] text-neutral-400 font-mono uppercase tracking-widest font-semibold">STORES LAUNCHED</span>
           </div>
         </section>
 
@@ -89,25 +89,25 @@ export default function AboutPage() {
         {/* Compliance and Office Grid */}
         <section className="grid grid-cols-1 md:grid-cols-2 gap-16 font-sans text-left">
           
-          {/* MSME registration details */}
+          {/* Conversion engineering details */}
           <div className="flex flex-col gap-6">
             <div className="flex flex-col gap-2">
               <span className="text-xs text-emerald-700 font-mono uppercase tracking-[0.2em] font-bold">
-                03 / Verification & Compliance
+                03 / Performance &amp; CRO Standards
               </span>
-              <h3 className="text-xl font-bold text-neutral-900 font-grotesk tracking-tight">Registered MSME Enterprise</h3>
+              <h3 className="text-xl font-bold text-neutral-900 font-grotesk tracking-tight">Conversion-First Engineering</h3>
             </div>
             <p className="text-xs text-neutral-600 leading-relaxed max-w-md">
-              SalePXL is officially registered with the Ministry of Micro, Small and Medium Enterprises, Government of India. We uphold transparent financial auditing and corporate billing structures.
+              We don&apos;t just build templates — we engineer Shopify storefronts optimized for maximum speed, seamless user journeys, and higher average order values (AOV).
             </p>
             <div className="flex flex-col gap-2 border-t border-neutral-100 pt-4 font-mono text-[11px] text-neutral-500">
               <div className="flex justify-between">
-                <span>Registered Name:</span>
-                <span className="text-neutral-900 font-bold">SALEPXL</span>
+                <span>Core Standards:</span>
+                <span className="text-neutral-900 font-bold">Liquid &amp; Custom Apps</span>
               </div>
               <div className="flex justify-between">
-                <span>Udyam Reg. Number:</span>
-                <span className="text-emerald-700 font-bold">UDYAM-UK-05-0097916</span>
+                <span>Mobile Load Speeds:</span>
+                <span className="text-emerald-700 font-bold">Sub-1.5 Seconds</span>
               </div>
             </div>
           </div>
