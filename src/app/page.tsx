@@ -1329,7 +1329,7 @@ export default function HomePage() {
 
             <h2 className="premium-heading text-3xl sm:text-4xl lg:text-[2.75rem] font-light text-white tracking-tight leading-[1.1] font-grotesk mt-2">
               Branded Shopify Stores.<br />
-              <span className="premium-highlight text-white"><span className="light-gradient-text font-normal">Built</span> to Scale.</span>
+              <span className="premium-highlight text-white"><span className="light-gradient-text font-normal">Designed</span> to Convert.</span>
             </h2>
             <p className="text-white/70 text-base sm:text-lg font-light leading-relaxed max-w-2xl mt-2">
               We build Shopify stores that do more than look great—they convert. Every page is strategically designed for speed, user experience, and higher conversions. From intuitive navigation and mobile-first design to optimized product pages, checkout flows, and essential app integrations, every element is crafted to increase sales, maximize revenue, and support long-term business growth.
