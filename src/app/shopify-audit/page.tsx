@@ -62,12 +62,12 @@ export default function ShopifyAuditPage() {
 
   // Calculations
   const currentCR = convRate;
-  
+
   // Calculate visitors based on revenue, AOV, and CR
   const estimatedVisitors = Math.round(
     currentCR > 0 ? revenue / (aov * (currentCR / 100)) : revenue / aov / 0.014
   );
-  
+
   const estimatedPurchases = Math.round(revenue / aov);
 
   const uncheckedImpact = checklist
@@ -76,10 +76,10 @@ export default function ShopifyAuditPage() {
 
   // Potential Conversion Rate is current CR boosted by the missing CRO features impact
   const optimizedCR = Number(Math.min(5.0, Math.max(2.8, currentCR * (1 + uncheckedImpact))).toFixed(2));
-  
+
   // Projected Revenue = visitors * (optimizedCR / 100) * aov
   const optimizedRevenue = Math.round(estimatedVisitors * (optimizedCR / 100) * aov);
-  
+
   // Projected ROAS = Optimized Revenue / Ad Spend
   const optimizedRoas = Number((adSpend > 0 ? optimizedRevenue / adSpend : 0).toFixed(2));
 
@@ -99,7 +99,7 @@ export default function ShopifyAuditPage() {
   const checkoutScore = checkoutChecked ? 90 : 54;
   const trustScore = trustChecked ? 88 : 55;
   const uxScore = productChecked ? 91 : 62;
-  
+
   // Overall score sum
   const checkedScoreAddition = checklist
     .filter(item => item.checked)
@@ -140,16 +140,21 @@ export default function ShopifyAuditPage() {
           storeUrl,
           revenueLeakage,
         }),
-      }).catch(() => {}); // Fail silently
+      }).catch(() => { }); // Fail silently
 
       // Track lead in Meta Pixel
-      if (typeof window !== "undefined" && (window as any).fbq) {
-        (window as any).fbq("track", "Lead", {
-          content_name: "Shopify Growth Audit",
-          content_category: "Audit Form",
-          value: revenueLeakage || 0,
-          currency: "INR",
-        });
+      try {
+        const fbq = (window as any)?.fbq as undefined | ((...args: any[]) => void);
+        if (typeof fbq === "function") {
+          fbq("track", "Lead", {
+            content_name: "Shopify Growth Audit",
+            content_category: "Audit Form",
+            value: revenueLeakage || 0,
+            currency: "INR",
+          });
+        }
+      } catch {
+        // ignore
       }
     }
   };
@@ -162,7 +167,7 @@ export default function ShopifyAuditPage() {
       <div className="absolute bottom-[10%] left-[-5%] w-[40%] h-[500px] rounded-full bg-emerald-400/[0.02] blur-[130px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto flex flex-col gap-12 relative z-10">
-        
+
         {/* Page Header */}
         <div className="text-center max-w-4xl mx-auto flex flex-col gap-5">
 
@@ -178,11 +183,11 @@ export default function ShopifyAuditPage() {
 
         {/* MAIN SaaS CONTAINER */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-16">
-          
+
           {/* LEFT SIDE PANEL: CONFIGURATOR FORM */}
           <div className="lg:col-span-5 flex flex-col gap-6 p-6 sm:p-8 rounded-3xl bg-white/70 border border-neutral-200/60 shadow-sm relative backdrop-blur-xl">
             <div className="absolute top-0 right-0 w-24 h-24 bg-emerald-500/5 rounded-full blur-xl pointer-events-none" />
-            
+
             <div className="flex items-center justify-between pb-4 border-b border-neutral-200/60 font-sans">
               <h2 className="text-lg font-bold text-neutral-900 flex items-center gap-2 font-grotesk">
                 <Settings className="w-5 h-5 text-emerald-600" />
@@ -220,11 +225,10 @@ export default function ShopifyAuditPage() {
                     key={source}
                     type="button"
                     onClick={() => setTrafficSource(source)}
-                    className={`py-2 px-3 rounded-xl text-xs font-medium border transition-all cursor-pointer ${
-                      trafficSource === source
+                    className={`py-2 px-3 rounded-xl text-xs font-medium border transition-all cursor-pointer ${trafficSource === source
                         ? "bg-emerald-50 border-emerald-500 text-emerald-700 font-bold"
                         : "bg-white border-neutral-200 text-neutral-500 hover:border-neutral-300 hover:text-neutral-700"
-                    }`}
+                      }`}
                   >
                     {source}
                   </button>
@@ -406,7 +410,7 @@ export default function ShopifyAuditPage() {
             {/* PERFORMANCE PROJECTIONS CARD: CURRENT VS OPTIMIZED */}
             <div className="p-6 rounded-3xl bg-white/70 border border-neutral-200/60 text-left flex flex-col gap-6 relative overflow-hidden shadow-sm backdrop-blur-xl font-sans">
               <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-2xl pointer-events-none" />
-              
+
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-neutral-200/60">
                 <div className="flex flex-col gap-1">
                   <span className="text-xs text-emerald-700 font-mono uppercase tracking-widest font-bold">Audit Forecast</span>
@@ -473,10 +477,10 @@ export default function ShopifyAuditPage() {
             {/* REVENUE LEAKAGE SPECIFICATION CARD */}
             <div className="p-6 rounded-3xl bg-red-500/[0.01] border border-red-500/10 text-left grid grid-cols-1 md:grid-cols-12 gap-6 items-center relative overflow-hidden shadow-sm backdrop-blur-xl font-sans">
               <div className="absolute top-0 right-0 w-24 h-24 bg-red-500/3 rounded-full blur-xl pointer-events-none" />
-              
+
               {/* Leaking bucket animation (Left/Top) */}
               <div className="md:col-span-5 flex flex-col items-center justify-center p-4 bg-neutral-50 border border-neutral-200/60 shadow-inner rounded-2xl min-h-[160px]">
-                
+
                 {/* SVG Animated Leaking Bucket */}
                 <div className="relative w-20 h-20 mb-3 flex items-center justify-center">
                   <svg className="w-16 h-16 text-red-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -617,10 +621,9 @@ export default function ShopifyAuditPage() {
                         {item.label}
                       </span>
                     </div>
-                    
-                    <span className={`text-[9px] font-mono font-bold px-1.5 py-0.5 rounded ${
-                      item.checked ? "bg-emerald-50 text-emerald-700" : "bg-neutral-100 text-neutral-400"
-                    }`}>
+
+                    <span className={`text-[9px] font-mono font-bold px-1.5 py-0.5 rounded ${item.checked ? "bg-emerald-50 text-emerald-700" : "bg-neutral-100 text-neutral-400"
+                      }`}>
                       {item.checked ? "ACTIVE" : "+CR BOOST"}
                     </span>
                   </button>
@@ -631,7 +634,7 @@ export default function ShopifyAuditPage() {
             {/* CTA LEAD GENERATION FORM */}
             <div className="p-6 sm:p-8 rounded-3xl bg-white border border-neutral-200/60 text-left relative overflow-hidden shadow-2xl backdrop-blur-xl font-sans">
               <div className="absolute top-0 right-0 w-24 h-24 bg-emerald-500/5 rounded-full blur-xl pointer-events-none" />
-              
+
               {!formSubmitted ? (
                 <form onSubmit={handleLeadSubmit} className="flex flex-col gap-5 text-left">
                   <div className="flex flex-col gap-1 text-left">

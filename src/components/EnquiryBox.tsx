@@ -66,21 +66,26 @@ export default function EnquiryBox() {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ source: "enquiry-box", ...formData }),
-    }).catch(() => {}); // Fail silently
+    }).catch(() => { }); // Fail silently
 
     // Simulate submission
     setTimeout(() => {
       setIsSubmitting(false);
       setSubmitted(true);
-      
+
       // Track lead in Meta Pixel
-      if (typeof window !== "undefined" && (window as any).fbq) {
-        (window as any).fbq("track", "Lead", {
-          content_name: formData.projectCategory || "Enquiry Box",
-          content_category: "Enquiry Form",
-          value: formData.budgetRange || "Unknown",
-          currency: "INR",
-        });
+      try {
+        const fbq = (window as any)?.fbq as undefined | ((...args: any[]) => void);
+        if (typeof fbq === "function") {
+          fbq("track", "Lead", {
+            content_name: formData.projectCategory || "Enquiry Box",
+            content_category: "Enquiry Form",
+            value: formData.budgetRange || "Unknown",
+            currency: "INR",
+          });
+        }
+      } catch {
+        // ignore
       }
     }, 1500);
   };
@@ -103,17 +108,13 @@ export default function EnquiryBox() {
   };
 
   const inputClasses = (hasError: boolean) =>
-    `w-full bg-white/[0.02] border ${
-      hasError ? "border-red-500/50 focus:border-red-500" : "border-white/[0.08] focus:border-primary"
-    } text-white text-xs rounded-xl px-4 py-3 focus:outline-none focus:ring-1 ${
-      hasError ? "focus:ring-red-500/20" : "focus:ring-primary/20"
+    `w-full bg-white/[0.02] border ${hasError ? "border-red-500/50 focus:border-red-500" : "border-white/[0.08] focus:border-primary"
+    } text-white text-xs rounded-xl px-4 py-3 focus:outline-none focus:ring-1 ${hasError ? "focus:ring-red-500/20" : "focus:ring-primary/20"
     } transition-all placeholder:text-[#7a7a7a]`;
 
   const selectClasses = (hasError: boolean) =>
-    `w-full bg-white/[0.02] border ${
-      hasError ? "border-red-500/50 focus:border-red-500" : "border-white/[0.08] focus:border-primary"
-    } text-white text-xs rounded-xl px-4 py-3 focus:outline-none focus:ring-1 ${
-      hasError ? "focus:ring-red-500/20" : "focus:ring-primary/20"
+    `w-full bg-white/[0.02] border ${hasError ? "border-red-500/50 focus:border-red-500" : "border-white/[0.08] focus:border-primary"
+    } text-white text-xs rounded-xl px-4 py-3 focus:outline-none focus:ring-1 ${hasError ? "focus:ring-red-500/20" : "focus:ring-primary/20"
     } transition-all appearance-none cursor-pointer pr-10`;
 
   return (
@@ -136,13 +137,11 @@ export default function EnquiryBox() {
               {/* Step 1 */}
               <div
                 onClick={() => step > 1 && setStep(1)}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full border text-[10px] font-mono uppercase tracking-wider font-bold transition-all ${
-                  step > 1 ? "cursor-pointer bg-white/[0.02]" : "cursor-default"
-                } ${
-                  step === 1
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full border text-[10px] font-mono uppercase tracking-wider font-bold transition-all ${step > 1 ? "cursor-pointer bg-white/[0.02]" : "cursor-default"
+                  } ${step === 1
                     ? "bg-primary/10 border-primary text-primary"
                     : "border-white/[0.05] text-[#8e8e93]"
-                }`}
+                  }`}
               >
                 {step > 1 ? (
                   <Check className="w-3 h-3 text-primary shrink-0" />
@@ -160,13 +159,11 @@ export default function EnquiryBox() {
               {/* Step 2 */}
               <div
                 onClick={() => step > 2 && setStep(2)}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full border text-[10px] font-mono uppercase tracking-wider font-bold transition-all ${
-                  step > 2 ? "cursor-pointer bg-white/[0.02]" : "cursor-default"
-                } ${
-                  step === 2
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full border text-[10px] font-mono uppercase tracking-wider font-bold transition-all ${step > 2 ? "cursor-pointer bg-white/[0.02]" : "cursor-default"
+                  } ${step === 2
                     ? "bg-primary/10 border-primary text-primary"
                     : "border-white/[0.05] text-[#8e8e93]"
-                }`}
+                  }`}
               >
                 {step > 2 ? (
                   <Check className="w-3 h-3 text-primary shrink-0" />
@@ -183,11 +180,10 @@ export default function EnquiryBox() {
 
               {/* Step 3 */}
               <div
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full border text-[10px] font-mono uppercase tracking-wider font-bold transition-all cursor-default ${
-                  step === 3
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full border text-[10px] font-mono uppercase tracking-wider font-bold transition-all cursor-default ${step === 3
                     ? "bg-primary/10 border-primary text-primary"
                     : "border-white/[0.05] text-[#8e8e93]"
-                }`}
+                  }`}
               >
                 <span className={`w-3 h-3 rounded-full flex items-center justify-center text-[8px] shrink-0 ${step === 3 ? "bg-primary text-white" : "bg-[#8e8e93]/20 text-[#8e8e93]"}`}>
                   3

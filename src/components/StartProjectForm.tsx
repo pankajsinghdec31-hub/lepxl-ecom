@@ -92,28 +92,31 @@ export default function StartProjectForm({ onSuccess }: { onSuccess?: () => void
     localStorage.setItem("salepxl_hero_lead", JSON.stringify(formData));
 
     // Track lead in Meta Pixel
-    if (typeof window !== "undefined" && (window as any).fbq) {
-      (window as any).fbq("track", "Lead", {
-        content_name: formData.service || "Start Project",
-        content_category: "Lead Form",
-        value: formData.budgetRange || "Unknown",
-        currency: "INR",
-      });
+    try {
+      const fbq = (window as any)?.fbq as undefined | ((...args: any[]) => void);
+      if (typeof fbq === "function") {
+        fbq("track", "Lead", {
+          content_name: formData.service || "Start Project",
+          content_category: "Lead Form",
+          value: formData.budgetRange || "Unknown",
+          currency: "INR",
+        });
+      }
+    } catch {
+      // ignore
     }
   };
 
-  const inputClass = (hasError: boolean) => 
-    `w-full h-[52px] bg-white border ${
-      hasError 
-        ? "border-red-500/30 focus:border-red-500 focus:ring-red-500/15" 
-        : "border-neutral-200/80 focus:border-emerald-500 focus:ring-emerald-500/15"
+  const inputClass = (hasError: boolean) =>
+    `w-full h-[52px] bg-white border ${hasError
+      ? "border-red-500/30 focus:border-red-500 focus:ring-red-500/15"
+      : "border-neutral-200/80 focus:border-emerald-500 focus:ring-emerald-500/15"
     } text-neutral-800 text-sm rounded-xl pl-11 pr-4 transition-all duration-300 outline-none focus:ring-4 placeholder:text-neutral-400`;
 
-  const selectClass = (hasError: boolean) => 
-    `w-full h-[52px] bg-white border ${
-      hasError 
-        ? "border-red-500/30 focus:border-red-500 focus:ring-red-500/15" 
-        : "border-neutral-200/80 focus:border-emerald-500 focus:ring-emerald-500/15"
+  const selectClass = (hasError: boolean) =>
+    `w-full h-[52px] bg-white border ${hasError
+      ? "border-red-500/30 focus:border-red-500 focus:ring-red-500/15"
+      : "border-neutral-200/80 focus:border-emerald-500 focus:ring-emerald-500/15"
     } text-neutral-800 text-sm rounded-xl pl-11 pr-10 transition-all duration-300 outline-none focus:ring-4 appearance-none cursor-pointer`;
 
 
@@ -360,17 +363,17 @@ export default function StartProjectForm({ onSuccess }: { onSuccess?: () => void
             {/* Cartoon Success Modal */}
             <motion.div
               initial={{ scale: 0.5, y: 100, rotate: -6, opacity: 0 }}
-              animate={{ 
-                scale: 1, 
-                y: 0, 
-                rotate: 0, 
+              animate={{
+                scale: 1,
+                y: 0,
+                rotate: 0,
                 opacity: 1,
-                transition: { type: "spring", damping: 12, stiffness: 100 } 
+                transition: { type: "spring", damping: 12, stiffness: 100 }
               }}
-              exit={{ 
-                scale: 0.8, 
-                y: 50, 
-                rotate: 4, 
+              exit={{
+                scale: 0.8,
+                y: 50,
+                rotate: 4,
                 opacity: 0,
                 transition: { duration: 0.2 }
               }}
@@ -404,12 +407,12 @@ export default function StartProjectForm({ onSuccess }: { onSuccess?: () => void
                 {/* Sparkles / floating shapes */}
                 <motion.div
                   className="absolute -top-3 -left-3 text-yellow-400 text-2xl filter drop-shadow-[1.5px_1.5px_0px_rgba(0,0,0,1)] font-bold select-none pointer-events-none"
-                  animate={{ 
+                  animate={{
                     scale: [1, 1.25, 1],
                     rotate: [0, 15, -15, 0],
                     y: [0, -5, 0]
                   }}
-                  transition={{ 
+                  transition={{
                     repeat: Infinity,
                     duration: 2.2,
                     ease: "easeInOut"
@@ -419,12 +422,12 @@ export default function StartProjectForm({ onSuccess }: { onSuccess?: () => void
                 </motion.div>
                 <motion.div
                   className="absolute top-2 -right-4 text-cyan-400 text-3xl filter drop-shadow-[1.5px_1.5px_0px_rgba(0,0,0,1)] font-bold select-none pointer-events-none"
-                  animate={{ 
+                  animate={{
                     scale: [0.9, 1.2, 0.9],
                     rotate: [0, -20, 20, 0],
                     y: [0, 4, 0]
                   }}
-                  transition={{ 
+                  transition={{
                     repeat: Infinity,
                     duration: 2.8,
                     ease: "easeInOut",
@@ -435,12 +438,12 @@ export default function StartProjectForm({ onSuccess }: { onSuccess?: () => void
                 </motion.div>
                 <motion.div
                   className="absolute -bottom-2 -left-2 text-orange-400 text-lg filter drop-shadow-[1px_1px_0px_rgba(0,0,0,1)] font-bold select-none pointer-events-none"
-                  animate={{ 
+                  animate={{
                     scale: [1, 1.3, 1],
                     x: [0, -3, 0],
                     y: [0, -3, 0]
                   }}
-                  transition={{ 
+                  transition={{
                     repeat: Infinity,
                     duration: 2,
                     ease: "easeInOut",
