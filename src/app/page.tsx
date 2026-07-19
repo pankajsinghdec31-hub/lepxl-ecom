@@ -1148,7 +1148,7 @@ export default function HomePage() {
       </section>
 
       {/* ── BUILD LAUNCH SCALE SECTION ── */}
-      <section className="py-16 md:py-24 lg:py-36 relative z-10 overflow-hidden bg-gradient-to-b from-[#050505] to-[#011a12] border-b border-white/[0.08]">
+      <section className="pt-24 pb-16 md:pt-36 md:pb-24 lg:pt-48 lg:pb-36 relative z-10 overflow-hidden bg-gradient-to-b from-[#050505] to-[#011a12] border-b border-white/[0.08]">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/[0.02] rounded-full blur-[120px] pointer-events-none" />
 
         <div className="max-w-[1360px] mx-auto px-6">
@@ -1290,7 +1290,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-20 md:py-28 lg:py-40 relative z-20 overflow-hidden bg-gradient-to-b from-[#020a16] to-[#050505] border-t border-b border-white/[0.08] rounded-t-[32px] md:rounded-t-[48px] mt-[-32px] md:mt-[-48px]">
+      <section className="pt-28 pb-20 md:pt-36 md:pb-28 lg:pt-48 lg:pb-40 relative z-20 overflow-hidden bg-gradient-to-b from-[#020a16] to-[#050505] border-t border-b border-white/[0.08] rounded-t-[32px] md:rounded-t-[48px] mt-[-32px] md:mt-[-48px]">
         {/* Glowing background details */}
         <div className="absolute top-[20%] left-[10%] w-[350px] h-[350px] bg-primary/[0.015] rounded-full blur-[100px] pointer-events-none" />
         <div className="absolute bottom-[20%] right-[10%] w-[350px] h-[350px] bg-primary/[0.015] rounded-full blur-[100px] pointer-events-none" />
@@ -1945,7 +1945,7 @@ export default function HomePage() {
       </section>
 
       {/* 10. GOOGLE REVIEWS SECTION */}
-      <section className="py-16 md:py-24 lg:py-36 relative overflow-hidden bg-gradient-to-b from-[#120324] to-[#070114] border-t border-white/[0.08] rounded-t-[32px] md:rounded-t-[48px] mt-[-32px] md:mt-[-48px] z-20">
+      <section className="pt-24 pb-16 md:pt-36 md:pb-24 lg:pt-48 lg:pb-36 relative overflow-hidden bg-gradient-to-b from-[#120324] to-[#070114] border-t border-white/[0.08] rounded-t-[32px] md:rounded-t-[48px] mt-[-32px] md:mt-[-48px] z-20">
         <div className="max-w-[1360px] mx-auto px-6">
           
           {/* Header */}

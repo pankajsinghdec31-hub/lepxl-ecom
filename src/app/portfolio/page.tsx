@@ -973,7 +973,7 @@ export default function PortfolioPage() {
       <div className="absolute top-[25%] right-[-10%] w-[500px] h-[500px] bg-emerald-500/[0.04] rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-[20%] left-[-10%] w-[500px] h-[500px] bg-teal-400/[0.04] rounded-full blur-[140px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10 flex flex-col gap-24 pt-36">
+      <div className="max-w-7xl mx-auto px-6 relative z-10 flex flex-col gap-24 pt-44">
         
         {/* HERO SECTION */}
         <section className="text-center max-w-4xl mx-auto flex flex-col gap-6">

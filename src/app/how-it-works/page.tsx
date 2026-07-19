@@ -223,7 +223,7 @@ export default function HowItWorksPage() {
       />
 
       {/* Hero Header */}
-      <section className="relative z-10 max-w-5xl mx-auto px-6 text-center pt-16 pb-24 md:py-32">
+      <section className="relative z-10 max-w-5xl mx-auto px-6 text-center pt-28 pb-24 md:pt-40 md:pb-32">
 
         <h1 className="mt-6 text-4xl sm:text-6xl font-light tracking-tight leading-[1.1] font-grotesk text-neutral-900">
           How We Build Your <br />

@@ -6,7 +6,7 @@ import { Check, ArrowRight, Sparkles } from "lucide-react";
 
 export default function CaseStudiesPage() {
   return (
-    <div className="relative min-h-screen bg-gradient-to-b from-[#fafcfc] via-[#f5faf7] to-[#eaf7f2] text-neutral-900 pt-36 pb-20 relative overflow-hidden font-sans -mt-24">
+    <div className="relative min-h-screen bg-gradient-to-b from-[#fafcfc] via-[#f5faf7] to-[#eaf7f2] text-neutral-900 pt-44 pb-20 relative overflow-hidden font-sans -mt-24">
       {/* Background glow highlights */}
       <div className="absolute top-[10%] left-1/4 w-96 h-96 rounded-full bg-emerald-400/[0.04] blur-[120px] pointer-events-none" />
       <div className="absolute bottom-[10%] right-1/4 w-[400px] h-[400px] rounded-full bg-teal-300/[0.03] blur-[140px] pointer-events-none" />
