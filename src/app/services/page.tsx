@@ -37,11 +37,11 @@ const SERVICES: ServiceItem[] = [
     bullets: ["Value proposition placement", "Mobile-optimized image grids", "Clear visual sizing/selector drawers"]
   },
   {
-    title: "Shopify Store Migrations",
-    desc: "Risk-free catalog data, SEO redirect configurations, and layout transition mapping.",
-    icon: Zap,
-    metric: "Zero SEO Traffic Loss",
-    bullets: ["Seamless data & catalog migration", "Exact 301 URL redirect mapping", "Preserved organic search rankings"]
+    title: "AI Photo Shoot",
+    desc: "Transform basic flat-lays and mannequin shots into high-end, premium studio model lifestyle imagery.",
+    icon: Sparkles,
+    metric: "90% Photo Costs Saved",
+    bullets: ["High-end studio model generation", "Realistic lifestyle background mockups", "Super-resolution catalog-ready outputs"]
   },
   {
     title: "Speed & Performance Tuning",
@@ -68,20 +68,20 @@ const SERVICES: ServiceItem[] = [
 
 export default function ServicesPage() {
   return (
-    <div className="relative min-h-screen bg-gradient-to-b from-[#fafcfc] via-[#f5faf7] to-[#eaf7f2] text-neutral-900 pt-44 pb-20 relative overflow-hidden font-sans -mt-24">
+    <div className="relative pt-44 pb-24 px-6 text-left min-h-screen bg-gradient-to-b from-[#fafcfc] via-[#f5faf7] to-[#eaf7f2] overflow-hidden -mt-24 font-grotesk">
       {/* Glow backgrounds */}
       <div className="absolute top-[20%] right-[-10%] w-[40%] h-[500px] rounded-full bg-emerald-400/[0.04] blur-[150px] pointer-events-none" />
       <div className="absolute bottom-[20%] left-[-10%] w-[40%] h-[500px] rounded-full bg-teal-300/[0.03] blur-[150px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 flex flex-col gap-20 relative z-10">
+      <div className="max-w-7xl mx-auto flex flex-col gap-20 relative z-10">
         
         {/* Page Header */}
-        <div className="text-center max-w-3xl mx-auto flex flex-col gap-4">
+        <div className="text-center max-w-4xl mx-auto flex flex-col gap-5">
 
-          <h1 className="text-4xl md:text-5xl font-light tracking-tight leading-tight text-neutral-900 font-grotesk">
+          <h1 className="text-4xl md:text-6xl font-light tracking-tight leading-tight text-neutral-900 font-grotesk">
             Shopify Storefront <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent font-normal font-sans">Engineering</span>
           </h1>
-          <p className="text-neutral-600 text-sm sm:text-base leading-relaxed font-sans">
+          <p className="text-neutral-600 text-base leading-relaxed max-w-2xl mx-auto font-sans">
             Traffic comes from anywhere, but trust comes from your store. We build custom, speed-optimized Shopify storefronts and engineer high-converting purchase paths. No pre-made templates—just custom high-performance e-commerce engineering.
           </p>
         </div>

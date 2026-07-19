@@ -6,26 +6,26 @@ import { ArrowRight } from "lucide-react";
 
 export default function AboutPage() {
   return (
-    <div className="relative min-h-screen bg-gradient-to-b from-[#fafcfc] via-[#f5faf7] to-[#eaf7f2] text-neutral-900 pt-36 pb-20 relative overflow-hidden font-sans">
+    <div className="relative pt-44 pb-24 px-6 text-left min-h-screen bg-gradient-to-b from-[#fafcfc] via-[#f5faf7] to-[#eaf7f2] overflow-hidden -mt-24 font-grotesk">
       {/* Subtle background decoration highlight */}
       <div className="absolute top-[10%] left-[-15%] w-[600px] h-[600px] bg-emerald-400/[0.04] rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-[10%] right-[-15%] w-[600px] h-[600px] bg-teal-300/[0.04] rounded-full blur-[140px] pointer-events-none" />
 
-      <div className="max-w-5xl mx-auto px-6 flex flex-col gap-14 relative z-10">
+      <div className="max-w-7xl mx-auto flex flex-col gap-14 relative z-10">
         
-        {/* Editorial Page Header */}
-        <section className="flex flex-col gap-6 max-w-3xl text-left">
+        {/* Page Header */}
+        <div className="text-center max-w-4xl mx-auto flex flex-col gap-5">
 
-          <h1 className="text-4xl sm:text-6xl font-light tracking-tight leading-[1.1] text-neutral-900 font-grotesk">
+          <h1 className="text-4xl md:text-6xl font-light tracking-tight leading-tight text-neutral-900 font-grotesk">
             We build high-converting <br />
-            <span className="font-normal bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
-              Shopify storefronts.
+            <span className="font-normal bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent font-sans">
+              Shopify Storefronts
             </span>
           </h1>
-          <p className="text-neutral-600 text-base sm:text-lg leading-relaxed font-sans max-w-2xl mt-2">
+          <p className="text-neutral-600 text-base leading-relaxed max-w-2xl mx-auto font-sans">
             We are a dedicated Shopify development agency focusing exclusively on designing, coding, and optimizing e-commerce storefronts. We do only e-commerce setups.
           </p>
-        </section>
+        </div>
 
         <hr className="border-neutral-200/80" />
 

@@ -71,8 +71,8 @@ const STEPS: Step[] = [
     num: "03",
     title: "Research & Strategy",
     headline: "Planning Before Design",
-    description: "Every successful Shopify store starts with proper research. Share your references, or our team will perform detailed competitor research, identify industry leaders, and create a strategic wireframe.",
-    highlights: ["Competitor Research", "Store Planning", "Wireframe Creation", "UX Strategy", "Conversion Planning", "Design Direction"]
+    description: "Every successful Shopify store starts with proper research. Share your references, or our team will perform detailed competitor research, identify industry leaders, and structure your store using proven competitor layout designs in the same niche.",
+    highlights: ["Competitor Layout Audit", "Niche-Specific Layouts", "Proven Conversion Design", "UX Wireframe Board", "Store Structure Planning"]
   },
   {
     id: "step-4",
@@ -210,7 +210,7 @@ export default function HowItWorksPage() {
   }, []);
 
   return (
-    <div ref={containerRef} className="min-h-screen bg-gradient-to-b from-[#fafcfc] via-[#f5faf7] to-[#eaf7f2] text-neutral-900 pt-36 pb-20 relative overflow-hidden font-sans -mt-24">
+    <div ref={containerRef} className="relative pt-44 pb-24 px-6 text-left min-h-screen bg-gradient-to-b from-[#fafcfc] via-[#f5faf7] to-[#eaf7f2] overflow-hidden -mt-24 font-grotesk">
       
       {/* Background decoration glow */}
       <div className="absolute top-[10%] right-[-15%] w-[600px] h-[600px] bg-emerald-400/[0.08] rounded-full blur-[140px] pointer-events-none animate-pulse" />
@@ -222,19 +222,21 @@ export default function HowItWorksPage() {
         style={{ scaleX }}
       />
 
-      {/* Hero Header */}
-      <section className="relative z-10 max-w-5xl mx-auto px-6 text-center pt-28 pb-24 md:pt-40 md:pb-32">
-
-        <h1 className="mt-6 text-4xl sm:text-6xl font-light tracking-tight leading-[1.1] font-grotesk text-neutral-900">
-          How We Build Your <br />
-          <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent font-normal font-sans">Shopify Store</span>
-        </h1>
-        <p className="mt-6 text-base sm:text-lg text-neutral-600 max-w-2xl mx-auto leading-relaxed">
-          From onboarding to launch, every step is structured, transparent, and collaborative. You'll always know what we're working on and what comes next.
-        </p>
+      <div className="max-w-7xl mx-auto flex flex-col gap-12 relative z-10 w-full mb-16">
+        
+        {/* Page Header */}
+        <div className="text-center max-w-4xl mx-auto flex flex-col gap-5 w-full">
+          <h1 className="text-4xl md:text-6xl font-light tracking-tight leading-tight text-neutral-900 font-grotesk">
+            How We Build Your <br />
+            <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent font-normal font-sans">Shopify Store</span>
+          </h1>
+          <p className="text-neutral-600 text-base leading-relaxed max-w-2xl mx-auto font-sans">
+            From onboarding to launch, every step is structured, transparent, and collaborative. You'll always know what we're working on and what comes next.
+          </p>
+        </div>
 
         {/* Global Progress Steps Tracker */}
-        <div className="mt-16 max-w-3xl mx-auto bg-white/70 border border-neutral-200/60 p-6 rounded-3xl backdrop-blur-md shadow-sm">
+        <div className="max-w-3xl mx-auto w-full bg-white/70 border border-neutral-200/60 p-6 rounded-3xl backdrop-blur-md shadow-sm">
           <div className="flex items-center justify-between text-xs text-neutral-500 font-mono mb-4 px-2">
             <span>YOUR JOURNEY PROGRESS</span>
             <span className="text-emerald-600 font-bold">{Math.round((activeStep + 1) * 10)}% COMPLETE</span>
@@ -249,7 +251,7 @@ export default function HowItWorksPage() {
               />
             ))}
           </div>
-          <div className="grid grid-cols-5 gap-2 mt-4 text-[10px] sm:text-xs text-center text-neutral-400">
+          <div className="grid grid-cols-5 gap-2 mt-4 text-[10px] sm:text-xs text-center text-neutral-400 font-sans">
             <span className={activeStep >= 0 ? "text-emerald-600 font-semibold" : ""}>01. Onboarding</span>
             <span className={activeStep >= 2 ? "text-emerald-600 font-semibold" : ""}>03. Strategy</span>
             <span className={activeStep >= 4 ? "text-emerald-600 font-semibold" : ""}>05. Design</span>
@@ -257,7 +259,7 @@ export default function HowItWorksPage() {
             <span className={activeStep >= 9 ? "text-emerald-600 font-semibold" : ""}>10. Launch</span>
           </div>
         </div>
-      </section>
+      </div>
 
       {/* Main Interactive Journey Container */}
       <section className="relative z-10 max-w-[1200px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">

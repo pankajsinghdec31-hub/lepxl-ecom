@@ -26,7 +26,16 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Brand Info */}
           <div className="flex flex-col gap-6">
-            <Link href="/" className="flex items-center group w-max select-none">
+            <Link
+              href="/"
+              onClick={(e) => {
+                if (window.location.pathname === "/") {
+                  e.preventDefault();
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }
+              }}
+              className="flex items-center group w-max select-none"
+            >
               <img 
                 src="/logo.png" 
                 alt="SalePXL Logo" 

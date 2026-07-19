@@ -131,24 +131,23 @@ export default function ShopifyAuditPage() {
   };
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-b from-[#fafcfc] via-[#f5faf7] to-[#eaf7f2] text-neutral-900 pt-44 pb-24 overflow-hidden text-left -mt-24">
+    <div className="relative pt-44 pb-24 px-6 text-left min-h-screen bg-gradient-to-b from-[#fafcfc] via-[#f5faf7] to-[#eaf7f2] overflow-hidden -mt-24 font-grotesk">
       {/* Decorative Blur Backgrounds */}
       <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[500px] rounded-full bg-emerald-400/[0.04] blur-[140px] pointer-events-none animate-pulse" />
       <div className="absolute top-[20%] right-[-10%] w-[45%] h-[600px] rounded-full bg-teal-300/[0.03] blur-[160px] pointer-events-none" />
       <div className="absolute bottom-[10%] left-[-5%] w-[40%] h-[500px] rounded-full bg-emerald-400/[0.02] blur-[130px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="max-w-7xl mx-auto flex flex-col gap-12 relative z-10">
         
-        {/* Header Breadcrumbs & Intro */}
-        <div className="flex flex-col gap-4 pb-16 text-center max-w-3xl mx-auto">
+        {/* Page Header */}
+        <div className="text-center max-w-4xl mx-auto flex flex-col gap-5">
 
-
-          <h1 className="text-4xl sm:text-5xl font-light tracking-tight text-neutral-900 leading-tight font-grotesk">
+          <h1 className="text-4xl md:text-6xl font-light tracking-tight leading-tight text-neutral-900 font-grotesk">
             Free Shopify <br className="sm:hidden" />
             <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent font-normal font-sans">Growth Audit</span>
           </h1>
 
-          <p className="text-neutral-600 text-base leading-relaxed font-sans">
+          <p className="text-neutral-600 text-base leading-relaxed max-w-2xl mx-auto font-sans">
             Stop losing sales to slow loading speeds and friction-filled customer experiences. Drop your current metrics below to visualize your revenue leaks and unlock your scaling roadmap.
           </p>
         </div>

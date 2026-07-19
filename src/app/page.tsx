@@ -26,7 +26,7 @@ import {
   ThumbsUp,
   Share2
 } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import EnquiryBox from "@/components/EnquiryBox";
 import InteractiveFunnel from "@/components/InteractiveFunnel";
 import { copyImages } from "./how-it-works/actions";
@@ -549,6 +549,11 @@ const APP_ICONS: { name: string; highlight: boolean; src?: string; svg?: React.R
       </svg>
     )
   },
+  { name: "CCAvenue", src: "/ccavenue.png", highlight: true },
+  { name: "Cashfree Payments", src: "/cashfree.png", highlight: true },
+  { name: "Shadowfax", src: "/shadowfax.png", highlight: true },
+  { name: "Ekart Logistics", src: "/ekart.png", highlight: true },
+  { name: "DTDC", src: "/dtdc.png", highlight: true },
   { name: "PayPal", src: "https://cdn.simpleicons.org/paypal", highlight: true },
   { name: "Apple Pay", src: "https://cdn.simpleicons.org/applepay", highlight: false },
   { name: "Google Pay", src: "https://cdn.simpleicons.org/googlepay", highlight: true },
@@ -829,12 +834,192 @@ const FUNNEL_STEPS = [
   }
 ];
 
+// ────────────────────────────────────────────────────────
+// ── CARTOON STORYBOARD HELPER COMPONENTS ────────────────
+// ────────────────────────────────────────────────────────
+
+const StoreFrontSVG = ({ doorRotate, lightsOn }: { doorRotate: any; lightsOn: boolean }) => (
+  <div className="relative w-48 h-48 sm:w-56 sm:h-56 flex items-end justify-center select-none">
+    <div className={`w-40 h-32 sm:w-48 sm:h-36 rounded-t-lg border-4 border-slate-900 relative transition-colors duration-500 ${lightsOn ? 'bg-amber-50' : 'bg-slate-100'} shadow-md`}>
+      <div className="absolute -top-4 -left-3 -right-3 h-8 bg-rose-400 border-4 border-slate-900 rounded-lg flex overflow-hidden">
+        {Array.from({ length: 8 }).map((_, i) => (
+          <div key={i} className={`flex-1 h-full ${i % 2 === 0 ? 'bg-rose-400' : 'bg-white'}`} />
+        ))}
+      </div>
+      <div className="absolute top-8 left-3 w-10 h-12 bg-blue-100 border-4 border-slate-900 rounded-lg flex items-center justify-center overflow-hidden">
+        <div className="w-full h-0.5 bg-slate-900/10 rotate-45" />
+      </div>
+      <div className="absolute top-8 right-3 w-10 h-12 bg-blue-100 border-4 border-slate-900 rounded-lg flex items-center justify-center overflow-hidden">
+        <div className="w-full h-0.5 bg-slate-900/10 -rotate-45" />
+      </div>
+      <div className="absolute -top-10 left-1/2 -translate-x-1/2 bg-yellow-300 border-4 border-slate-900 px-3 py-1 rounded-lg shadow-sm font-mono text-[9px] font-bold text-slate-900 tracking-wider">
+        STORE
+      </div>
+      <motion.div 
+        style={{ rotateY: doorRotate, originX: 0 }}
+        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-12 h-20 bg-rose-500 border-4 border-slate-900 rounded-t-lg z-10 flex items-center justify-end pr-1"
+      >
+        <div className="w-2 h-2 rounded-full bg-yellow-300 border-2 border-slate-900" />
+      </motion.div>
+      {lightsOn && (
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-10 h-16 bg-yellow-100/50 blur-sm rounded-t-lg" />
+      )}
+    </div>
+  </div>
+);
+
+const StoreOwnerSVG = ({ smile }: { smile: boolean }) => (
+  <div className="w-20 h-28 relative flex flex-col items-center justify-end select-none">
+    <div className="w-9 h-9 rounded-full bg-[#fde047] border-3 border-slate-900 relative">
+      <div className="absolute -top-1 -inset-x-0.5 h-3.5 rounded-t-full bg-slate-700" />
+      <div className="flex gap-2 justify-center mt-2.5">
+        <div className="w-1.5 h-1.5 rounded-full bg-slate-900" />
+        <div className="w-1.5 h-1.5 rounded-full bg-slate-900" />
+      </div>
+      <div className={`absolute bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-1.5 border-b-3 border-slate-900 rounded-b-full transition-all duration-300 ${smile ? 'scale-y-125' : 'scale-y-75'}`} />
+    </div>
+    <div className="w-10 h-12 bg-teal-500 border-3 border-slate-900 rounded-t-xl -mt-1 relative flex items-center justify-center">
+      <div className="w-4 h-6 bg-slate-800 border-2 border-slate-900 rounded-md flex items-center justify-center absolute -left-2 top-1.5 rotate-[12deg] shadow-md">
+        <div className="w-2.5 h-4 bg-green-300 rounded-sm animate-pulse" />
+      </div>
+    </div>
+  </div>
+);
+
+const CartSVG = ({ opacity, x }: { opacity: any; x: any }) => (
+  <motion.div 
+    style={{ opacity, x }}
+    className="w-20 h-20 absolute left-24 bottom-0 flex items-end justify-center select-none z-20 pointer-events-none"
+  >
+    <div className="w-16 h-10 border-4 border-slate-900 bg-white rounded-b-xl relative flex items-center justify-center">
+      <div className="absolute top-1 left-2 right-2 h-0.5 bg-slate-900/10" />
+      <div className="absolute top-2.5 left-3 right-3 h-0.5 bg-slate-900/10" />
+      <div className="absolute -left-3 top-0.5 w-4 h-1 bg-slate-900 rounded-full rotate-[35deg]" />
+      <div className="absolute -left-4 top-1.5 w-1.5 h-5 bg-slate-900 rounded-full" />
+    </div>
+    <div className="absolute bottom-0 left-3 w-4 h-4 rounded-full bg-slate-800 border-3 border-slate-900" />
+    <div className="absolute bottom-0 right-3 w-4 h-4 rounded-full bg-slate-800 border-3 border-slate-900" />
+  </motion.div>
+);
+
+const ProductNode = ({ 
+  x, 
+  y, 
+  opacity, 
+  iconType 
+}: { 
+  x: any; 
+  y: any; 
+  opacity: any; 
+  iconType: 'shirt' | 'bag' | 'shoe' 
+}) => {
+  const bgColors = {
+    shirt: 'bg-emerald-400',
+    bag: 'bg-indigo-400',
+    shoe: 'bg-rose-400'
+  };
+  
+  return (
+    <motion.div 
+      style={{ x, y, opacity }}
+      className={`w-9 h-9 rounded-full border-3 border-slate-900 flex items-center justify-center shadow-md absolute z-30 ${bgColors[iconType]}`}
+    >
+      {iconType === 'shirt' && (
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" className="text-slate-900"><path d="M20.38 3.46L16 6.14V2H8v4.14L3.62 3.46a2 2 0 00-2.38.9L1 5v9a2 2 0 001.27 1.86l7.73 3.12V22h4v-3.02l7.73-3.12A2 2 0 0023 14V5a2 2 0 00-.62-.64 2 2 0 00-2-.9z"/></svg>
+      )}
+      {iconType === 'bag' && (
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" className="text-slate-900"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"/></svg>
+      )}
+      {iconType === 'shoe' && (
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" className="text-slate-900"><path d="M3 12h18M3 16h18M4 8h16"/></svg>
+      )}
+    </motion.div>
+  );
+};
+
+const Character = ({ 
+  leftLegRot, 
+  rightLegRot, 
+  leftArmRot, 
+  rightArmRot, 
+  bodyBounceY,
+  accessory 
+}: { 
+  leftLegRot: any; 
+  rightLegRot: any; 
+  leftArmRot: any; 
+  rightArmRot: any; 
+  bodyBounceY: any;
+  accessory: string;
+}) => {
+  return (
+    <motion.div 
+      style={{ y: bodyBounceY }}
+      className="w-36 h-48 relative flex flex-col items-center justify-end select-none pointer-events-none z-30"
+    >
+      {accessory === 'balls' && (
+        <div className="absolute top-2 inset-x-0 h-16 flex justify-between px-3 pointer-events-none">
+          <div className="w-6 h-6 rounded-full bg-emerald-500 flex items-center justify-center text-[7px] font-mono font-bold text-white shadow-lg shadow-emerald-500/40 animate-bounce">
+            Org
+          </div>
+          <div className="w-6 h-6 rounded-full bg-blue-500 flex items-center justify-center text-[7px] font-mono font-bold text-white shadow-lg shadow-blue-500/40 animate-bounce" style={{ animationDelay: '0.2s' }}>
+            Ads
+          </div>
+        </div>
+      )}
+
+      {accessory === 'gift' && (
+        <div className="absolute top-12 left-1/2 -translate-x-1/2 w-8 h-8 bg-rose-500 border-3 border-slate-900 rounded-lg shadow-md z-20 flex flex-col items-center justify-center">
+          <div className="absolute top-2.5 left-0 right-0 h-0.5 bg-yellow-400" />
+          <div className="absolute top-0 bottom-0 left-2.5 w-0.5 bg-yellow-400" />
+        </div>
+      )}
+
+      <div className="w-14 h-14 rounded-full bg-[#fde047] border-4 border-slate-900 shadow-md relative flex items-center justify-center">
+        <div className="absolute -top-1 -inset-x-0.5 h-5 rounded-t-full bg-slate-800" />
+        <div className="flex gap-2.5 mt-1">
+          <div className="w-2 h-2 rounded-full bg-slate-900" />
+          <div className="w-2 h-2 rounded-full bg-slate-900" />
+        </div>
+        <div className="absolute bottom-2.5 w-4.5 h-2 border-b-3 border-slate-900 rounded-b-full" />
+      </div>
+
+      <div className="w-3.5 h-2 bg-[#fde047] border-x-3 border-slate-900 -mt-1 z-10" />
+
+      <div className="w-13 h-18 rounded-[16px] bg-orange-500 border-4 border-slate-900 shadow-md relative flex items-center justify-center z-10">
+        <span className="text-[8px] font-mono font-bold text-white/50">PXL</span>
+
+        <motion.div 
+          style={{ rotate: leftArmRot, originX: 0.5, originY: 0.1 }}
+          className="absolute -left-3.5 top-1.5 w-3 h-12 rounded-full bg-orange-500 border-3 border-slate-900"
+        />
+        <motion.div 
+          style={{ rotate: rightArmRot, originX: 0.5, originY: 0.1 }}
+          className="absolute -right-3.5 top-1.5 w-3 h-12 rounded-full bg-orange-500 border-3 border-slate-900"
+        />
+      </div>
+
+      <div className="flex gap-3.5 -mt-1.5 z-0 pb-1">
+        <motion.div 
+          style={{ rotate: leftLegRot, originX: 0.5, originY: 0 }}
+          className="w-3.5 h-14 rounded-full bg-slate-800 border-3 border-slate-900"
+        />
+        <motion.div 
+          style={{ rotate: rightLegRot, originX: 0.5, originY: 0 }}
+          className="w-3.5 h-14 rounded-full bg-slate-800 border-3 border-slate-900"
+        />
+      </div>
+    </motion.div>
+  );
+};
+
 export default function HomePage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [showFormModal, setShowFormModal] = useState(false);
   
   // Funnel Pipeline States
   const [activeFunnelStep, setActiveFunnelStep] = useState(0);
+  const [isOptimizedStore, setIsOptimizedStore] = useState(true);
 
   // Process Timeline States
   const [activeProcessStep, setActiveProcessStep] = useState(0);
@@ -865,6 +1050,146 @@ export default function HomePage() {
 
   const scrollRef = useRef<HTMLDivElement>(null);
   const isHoveringRef = useRef(false);
+
+  // Storyboard Scroll Targets and Transforms
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"]
+  });
+
+  const headerOpacity = useTransform(scrollYProgress, [0, 0.15], [1, 0]);
+  const trackX = useTransform(scrollYProgress, [0, 0.85], ["0vw", "-400vw"]);
+  const trackOpacity = useTransform(scrollYProgress, [0.85, 0.88], [1, 0]);
+  const summaryOpacity = useTransform(scrollYProgress, [0.85, 0.88], [0, 1]);
+  const summaryScale = useTransform(scrollYProgress, [0.85, 0.88], [0.95, 1]);
+
+  // Robust React states for header and summary display coordination
+  const [showHeader, setShowHeader] = useState(true);
+  const [showSummary, setShowSummary] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = (v: number) => {
+      setShowHeader(v < 0.15);
+      setShowSummary(v >= 0.85);
+    };
+    // Sync initial state
+    handleScroll(scrollYProgress.get());
+    return scrollYProgress.onChange(handleScroll);
+  }, [scrollYProgress]);
+
+  const walkCycle = useTransform(scrollYProgress, (val) => {
+    if (val >= 0.85) return 0;
+    return val * 160;
+  });
+
+  const leftLegRotation = useTransform(walkCycle, (r) => Math.sin(r) * 28);
+  const rightLegRotation = useTransform(walkCycle, (r) => -Math.sin(r) * 28);
+  
+  // Custom arm rot callbacks checking scroll progress values directly
+  const leftArmRotation = useTransform(scrollYProgress, (v) => {
+    if (v >= 0.72) return -45;
+    const r = walkCycle.get();
+    return Math.sin(r) * 20;
+  });
+  const rightArmRotation = useTransform(scrollYProgress, (v) => {
+    if (v >= 0.72) return 45;
+    const r = walkCycle.get();
+    return -Math.sin(r) * 20;
+  });
+  const bodyBounceY = useTransform(walkCycle, (r) => Math.abs(Math.sin(r)) * 4 - 2);
+
+  // Ball merge & throw transforms (Step 2)
+  const ballX = useTransform(scrollYProgress, [0.18, 0.22, 0.23, 0.28], [-40, 0, 0, 320]);
+  const ballY = useTransform(scrollYProgress, [0.18, 0.22, 0.23, 0.25, 0.28], [-40, -40, -40, -100, 20]);
+  const ballScaleMerged = useTransform(scrollYProgress, [0.18, 0.22, 0.23, 0.25], [1, 1.8, 1.4, 1.4]);
+  const ballColorMerged = useTransform(scrollYProgress, [0.18, 0.22, 0.23], ["#3b82f6", "#10b981", "#eab308"]);
+  const thrownBallOpacity = useTransform(scrollYProgress, [0.18, 0.22, 0.28, 0.29], [1, 1, 1, 0]);
+  const burstOpacity = useTransform(scrollYProgress, [0.21, 0.22, 0.24], [0, 1, 0]);
+
+  // Step 2 triggers: door opening, badges, stars
+  const doorRotate = useTransform(scrollYProgress, [0.28, 0.33], [0, 95]);
+  const trustBadgesOpacity = useTransform(scrollYProgress, [0.28, 0.33], [0, 1]);
+  const trustBadgesScale = useTransform(scrollYProgress, [0.28, 0.33], [0.6, 1]);
+  const starsScale = useTransform(scrollYProgress, [0.29, 0.35], [0, 1]);
+
+  // Step 3 triggers: Cart & products
+  const cartOpacity = useTransform(scrollYProgress, [0.36, 0.39, 0.51, 0.54], [0, 1, 1, 0]);
+  const cartX = useTransform(scrollYProgress, [0.36, 0.39], [100, 45]);
+  
+  const product1Opacity = useTransform(scrollYProgress, [0.41, 0.44, 0.52], [0, 1, 0]);
+  const product1X = useTransform(scrollYProgress, [0.41, 0.46], [160, 45]);
+  const product1Y = useTransform(scrollYProgress, [0.41, 0.46], [-50, 40]);
+  
+  const product2Opacity = useTransform(scrollYProgress, [0.45, 0.48, 0.52], [0, 1, 0]);
+  const product2X = useTransform(scrollYProgress, [0.45, 0.50], [160, 48]);
+  const product2Y = useTransform(scrollYProgress, [0.45, 0.50], [-50, 35]);
+
+  const product3Opacity = useTransform(scrollYProgress, [0.49, 0.52, 0.54], [0, 1, 0]);
+  const product3X = useTransform(scrollYProgress, [0.49, 0.53], [160, 52]);
+  const product3Y = useTransform(scrollYProgress, [0.49, 0.53], [-50, 45]);
+
+  const heartY = useTransform(scrollYProgress, [0.42, 0.54], [0, -100]);
+  const heartOpacity = useTransform(scrollYProgress, [0.42, 0.45, 0.51, 0.54], [0, 1, 1, 0]);
+
+  // Step 4 triggers: Sales notification, confetti, dancing
+  const orderNotifY = useTransform(scrollYProgress, [0.55, 0.6], [-120, 0]);
+  const orderNotifScale = useTransform(scrollYProgress, [0.55, 0.6, 0.62, 0.72], [0.5, 1.1, 1, 0]);
+  const confettiOpacity = useTransform(scrollYProgress, [0.6, 0.63, 0.7, 0.72], [0, 1, 1, 0]);
+  const confettiY = useTransform(scrollYProgress, [0.6, 0.72], [-10, 40]);
+  const danceAngle = useTransform(scrollYProgress, (v) => {
+    if (v >= 0.54 && v < 0.72) return Math.sin(v * 400) * 15;
+    return 0;
+  });
+  const ownerJumpY = useTransform(scrollYProgress, (v) => {
+    if (v >= 0.54 && v < 0.72) return Math.abs(Math.sin(v * 400)) * -25;
+    return 0;
+  });
+  const coinY = useTransform(scrollYProgress, [0.6, 0.68, 0.72], [80, 0, -20]);
+
+  const conf1X = useTransform(scrollYProgress, [0.6, 0.72], [0, -100]);
+  const conf1Y = useTransform(scrollYProgress, [0.6, 0.72], [0, -120]);
+  const conf2X = useTransform(scrollYProgress, [0.6, 0.72], [0, 100]);
+  const conf2Y = useTransform(scrollYProgress, [0.6, 0.72], [0, -140]);
+  const conf3X = useTransform(scrollYProgress, [0.6, 0.72], [0, 120]);
+  const conf3Y = useTransform(scrollYProgress, [0.6, 0.72], [0, 80]);
+
+  // Step 5 triggers: Loyalty gift, handshake, VIP badge
+  const giftBoxOpacity = useTransform(scrollYProgress, [0.72, 0.75, 0.85, 0.88], [0, 1, 1, 0]);
+  const giftBoxY = useTransform(scrollYProgress, [0.72, 0.76], [30, 0]);
+  const giftBoxScale = useTransform(scrollYProgress, [0.72, 0.76], [0.5, 1]);
+  const handshakeY = useTransform(scrollYProgress, (v) => {
+    if (v >= 0.72 && v < 0.88) return Math.sin(v * 300) * 6;
+    return 0;
+  });
+  const loyaltyHeartScale = useTransform(scrollYProgress, [0.76, 0.82, 0.86, 0.88], [0, 1.5, 1.5, 0]);
+  const loyaltyRotation = useTransform(scrollYProgress, [0.72, 0.88], [0, 360]);
+
+  // Dynamic states
+  const [lightsOn, setLightsOn] = useState(false);
+  const [characterAccessory, setCharacterAccessory] = useState('balls');
+
+  useEffect(() => {
+    return scrollYProgress.onChange((v) => {
+      // 1. Sync funnel step
+      const step = Math.min(Math.floor(v * 5.5), 4);
+      if (step !== activeFunnelStep) {
+        setActiveFunnelStep(step);
+      }
+      // 2. Sync lightsOn
+      setLightsOn(v >= 0.28);
+      // 3. Sync character accessory
+      if (v < 0.18) {
+        setCharacterAccessory('balls');
+      } else if (v >= 0.54 && v < 0.72) {
+        setCharacterAccessory('dancing');
+      } else if (v >= 0.72 && v < 0.88) {
+        setCharacterAccessory('gift');
+      } else {
+        setCharacterAccessory('none');
+      }
+    });
+  }, [scrollYProgress, activeFunnelStep]);
 
   useEffect(() => {
     const el = scrollRef.current;
@@ -958,7 +1283,7 @@ export default function HomePage() {
   };
 
   return (
-    <div className="relative overflow-hidden bg-bg-dark text-text-light min-h-screen">
+    <div className="relative overflow-x-clip bg-bg-dark text-text-light min-h-screen">
       <style dangerouslySetInnerHTML={{ __html: `
         @keyframes scroll-left {
           0% { transform: translateX(0); }
@@ -1348,284 +1673,420 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="pt-28 pb-20 md:pt-36 md:pb-28 lg:pt-48 lg:pb-40 relative z-20 overflow-hidden bg-gradient-to-b from-[#020a16] to-[#050505] border-t border-b border-white/[0.08] rounded-t-[32px] md:rounded-t-[48px] mt-[-32px] md:mt-[-48px]">
-        {/* Glowing background details */}
-        <div className="absolute top-[20%] left-[10%] w-[350px] h-[350px] bg-primary/[0.015] rounded-full blur-[100px] pointer-events-none" />
-        <div className="absolute bottom-[20%] right-[10%] w-[350px] h-[350px] bg-primary/[0.015] rounded-full blur-[100px] pointer-events-none" />
-
-        <style dangerouslySetInnerHTML={{ __html: `
-          @keyframes traffic-particle {
-            0% {
-              transform: translateX(-35px);
-              opacity: 0;
-            }
-            10% {
-              opacity: 1;
-            }
-            90% {
-              opacity: 1;
-            }
-            100% {
-              transform: translateX(35px);
-              opacity: 0;
-            }
-          }
-          @keyframes dash-scroll {
-            to {
-              stroke-dashoffset: -20;
-            }
-          }
-          .particle-glow-path {
-            animation: dash-scroll 1.2s infinite linear;
-          }
-        ` }} />
-
-        <div className="max-w-[1360px] mx-auto px-6">
-
-          {/* Section Header */}
+      {/* ── THE GROWTH FORMULA SECTION — Premium Dark Storytelling ── */}
+      <section 
+        ref={containerRef}
+        className="relative bg-bg-dark text-white border-t border-b border-white/[0.08] rounded-t-[32px] md:rounded-t-[48px] mt-[-32px] md:mt-[-48px] z-20"
+        style={{ height: "450vh" }}
+      >
+        <div className="sticky top-[80px] h-[calc(100vh-80px)] w-full overflow-hidden flex flex-col justify-between py-12 bg-bg-dark bg-[radial-gradient(rgba(255,255,255,0.06)_1px,transparent_1px)] [background-size:20px_20px]">
+          
+          {/* Static / Floating Header: fades out as we scroll */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="mb-12 max-w-2xl"
+            style={{ opacity: headerOpacity }}
+            className={`max-w-[1360px] mx-auto px-6 w-full text-left z-20 pointer-events-none ${showHeader ? "block" : "hidden"}`}
           >
-            <p className="text-[10px] font-mono font-bold uppercase tracking-[0.25em] text-primary mb-4">The Growth Formula</p>
+            <p className="text-[10px] font-mono font-bold uppercase tracking-[0.25em] text-[#22E39A] mb-4">The Growth Formula</p>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-white tracking-tight leading-[1.05] font-grotesk">
               Hyper-Optimized.<br />
-              <span className="light-gradient-text font-normal">Designed</span> to Convert.
+              <span className="text-[#22E39A] font-normal">Designed</span> to Convert.
             </h2>
-            <p className="text-white/50 text-base font-light leading-relaxed mt-5 max-w-xl">
+            <p className="text-white/60 text-base font-light leading-relaxed mt-5 max-w-xl">
               A successful Shopify store isn&apos;t built by design alone. Real growth happens when every part of the customer journey works together. We optimize every touchpoint to transform traffic into loyal customers and sustainable revenue.
             </p>
+            <div className="mt-4 flex items-center gap-2 text-xs font-mono font-semibold text-white/40 animate-pulse">
+              <span>Scroll down to follow the journey</span>
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="stroke-current"><path d="M6 2v8M3 7l3 3 3-3" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+            </div>
           </motion.div>
 
-          {/* Interactive 4-Stage Journey */}
-          {(() => {
-            const STAGES = [
-              {
-                id: 0, num: "01", label: "Traffic",
-                headline: "Paid & Organic Traffic",
-                tagline: "Fuel the funnel",
-                color: "#60a5fa",
-                desc: "Drive high-intent shoppers through Google Ads, Meta Ads, organic SEO, Instagram and TikTok — the right audience, at the right moment.",
-                features: ["Google Search & Shopping Ads", "Meta & Instagram Ads", "Organic SEO & Content", "TikTok & Reels", "Influencer & Retargeting"],
-                stat: "↑ Qualified Traffic",
-                icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"/></svg>,
-              },
-              {
-                id: 1, num: "02", label: "Trust",
-                headline: "Store Trust",
-                tagline: "Win in 3 seconds",
-                color: "#22e39a",
-                badge: "Most Critical",
-                desc: "Visitors decide to buy — or leave — in seconds. A fast, premium Shopify store builds instant credibility that turns clicks into customers.",
-                features: ["Sub-1.5s mobile load speed", "Premium brand-first design", "★ 5.0 verified reviews", "SSL & secure payment badges", "Crystal-clear product media"],
-                stat: "3-Second Decision Window",
-                icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"/></svg>,
-              },
-              {
-                id: 2, num: "03", label: "Shopping Experience",
-                headline: "Seamless Shopping",
-                tagline: "Make buying effortless",
-                color: "#a78bfa",
-                desc: "Fluid navigation, sticky add-to-cart, smart upsells and instant cart drawers — every interaction reduces friction and increases purchase intent.",
-                features: ["Sticky add-to-cart & quick buy", "Interactive variants & sizing", "Instant cart drawer with upsells", "Frequently bought together", "Smooth product image swiping"],
-                stat: "↑ Session Time & AOV",
-                icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"/><path d="M3 6h18M16 10a4 4 0 01-8 0" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"/></svg>,
-              },
-              {
-                id: 3, num: "04", label: "Convert Sales",
-                headline: "Convert & Scale",
-                tagline: "Every click = revenue",
-                color: "#34d399",
-                desc: "Express checkout, COD verification, post-purchase upsells and WhatsApp retention flows — we turn visitors into repeat, loyal customers.",
-                features: ["Express UPI, GPay & card", "Post-purchase upsell flows", "WhatsApp order tracking", "Email retention sequences", "2x–4x ROAS improvement"],
-                stat: "2x–4x ROAS",
-                icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"/></svg>,
-              },
-            ] as const;
+          {/* ──────────────── SCREEN STAGE ──────────────── */}
+          <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
+            
+            {/* Horizontal Story Conveyor */}
+            <motion.div 
+              style={{ x: trackX, opacity: trackOpacity }}
+              className={`absolute left-0 flex w-[500vw] h-full items-center ${showSummary ? "hidden" : "flex"}`}
+            >
+              {/* Continuous Curved Golden Path */}
+              <svg className="absolute bottom-[28vh] left-0 w-[500vw] h-40 pointer-events-none -z-10 translate-y-[80px]" viewBox="0 0 5000 160" preserveAspectRatio="none">
+                <path
+                  d="M 0 80 Q 250 20 500 80 T 1000 80 T 1500 80 T 2000 80 T 2500 80 T 3000 80 T 3500 80 T 4000 80 T 4500 80 T 5000 80"
+                  stroke="#eab308"
+                  strokeWidth="5"
+                  fill="none"
+                  strokeLinecap="round"
+                  strokeDasharray="16, 16"
+                  className="opacity-30"
+                />
+              </svg>
 
-            return (
-              <div className="relative flex gap-0">
+              {/* PANEL 1: TRAFFIC */}
+              <div className="w-screen h-full flex-shrink-0 flex flex-col justify-end items-center md:items-start px-6 md:px-24 lg:px-44 pb-[24vh] md:pb-[28vh]">
+                <div className="max-w-md w-full bg-gradient-to-b from-[#101010] to-[#070707] border border-white/[0.08] p-6 md:p-8 rounded-3xl shadow-xl shadow-black/45 select-none text-left">
+                  <span className="text-[10px] font-mono font-bold tracking-widest text-[#22E39A] uppercase px-3 py-1 rounded-full bg-[#22E39A]/10 border border-[#22E39A]/20">STEP 01 — TRAFFIC</span>
+                  <h3 className="text-xl sm:text-2xl font-normal font-grotesk text-white mt-4 mb-2">Social, Organic & Paid Ads</h3>
+                  <p className="text-white/60 text-xs sm:text-sm font-light leading-relaxed">
+                    Traffic comes from social media, organic searches, and paid campaigns. Anyone can drive clicks, but they are just the starting point of the loop.
+                  </p>
+                </div>
+              </div>
 
-                {/* Left glow spine */}
-                <div className="hidden sm:block relative w-px flex-shrink-0 mr-10">
-                  <div className="absolute inset-0 bg-white/[0.06]" />
-                  <motion.div
-                    className="absolute top-0 left-0 w-full bg-gradient-to-b from-blue-400 via-primary to-emerald-400"
-                    animate={{ height: `${((activeFunnelStep + 1) / STAGES.length) * 100}%` }}
-                    transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                  />
-                  <motion.div
-                    className="absolute -left-[5px] w-[11px] h-[11px] rounded-full border-2 border-[#0a0a0a]"
-                    style={{ backgroundColor: STAGES[activeFunnelStep].color }}
-                    animate={{ top: `calc(${((activeFunnelStep + 0.5) / STAGES.length) * 100}% - 5px)` }}
-                    transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                  />
+              {/* PANEL 2: TRUST */}
+              <div className="w-screen h-full flex-shrink-0 flex flex-col md:flex-row justify-end md:justify-between items-center px-6 md:px-24 lg:px-44 pb-[24vh] md:pb-[28vh]">
+                <div className="max-w-md w-full bg-gradient-to-b from-[#101010] to-[#070707] border border-white/[0.08] p-6 md:p-8 rounded-3xl shadow-xl shadow-black/45 select-none text-left">
+                  <span className="text-[10px] font-mono font-bold tracking-widest text-[#22E39A] uppercase px-3 py-1 rounded-full bg-[#22E39A]/10 border border-[#22E39A]/20">STEP 02 — TRUST</span>
+                  <h3 className="text-xl sm:text-2xl font-normal font-grotesk text-white mt-4 mb-2">Store Trust</h3>
+                  <p className="text-white/60 text-xs sm:text-sm font-light leading-relaxed">
+                    Before reaching the catalog, visitors meet secure storefront checkouts, instant sub-1.5s load speeds, and verified reviews that establish brand authority.
+                  </p>
+                </div>
+                
+                {/* Store facade and owner visual — desktop only */}
+                <div className="hidden md:flex items-end gap-2 pr-12 lg:pr-32 relative">
+                  <StoreFrontSVG doorRotate={doorRotate} lightsOn={lightsOn} />
+                  <StoreOwnerSVG smile={lightsOn} />
+                  
+                  {/* Trust Badges popping in */}
+                  <motion.div 
+                    style={{ opacity: trustBadgesOpacity, scale: trustBadgesScale }}
+                    className="absolute top-8 left-16 bg-[#101010] border-3 border-white/[0.15] rounded-xl p-2 flex items-center gap-1.5 shadow-lg z-20"
+                  >
+                    <svg className="w-4 h-4 text-emerald-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3"><path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                    <span className="text-[9px] font-mono font-black text-white">SSL SECURE</span>
+                  </motion.div>
+
+                  <motion.div 
+                    style={{ opacity: trustBadgesOpacity, scale: trustBadgesScale }}
+                    className="absolute top-20 right-6 bg-[#101010] border-3 border-white/[0.15] rounded-xl p-2 flex items-center gap-1 shadow-lg z-20"
+                  >
+                    <svg className="w-3.5 h-3.5 text-yellow-500 fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                    <span className="text-[9px] font-mono font-black text-white">4.9/5 RATING</span>
+                  </motion.div>
+
+                  {/* Trust Stars popping in */}
+                  <motion.div 
+                    style={{ scale: starsScale }}
+                    className="absolute -top-12 left-1/2 -translate-x-1/2 flex gap-1 z-30"
+                  >
+                    {[1, 2, 3].map((star) => (
+                      <svg key={star} className="w-6 h-6 text-yellow-400 fill-current drop-shadow-md animate-bounce" style={{ animationDelay: `${star * 0.1}s` }} viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                    ))}
+                  </motion.div>
+                </div>
+              </div>
+
+              {/* PANEL 3: SHOPPING EXPERIENCE */}
+              <div className="w-screen h-full flex-shrink-0 flex flex-col justify-end items-center md:items-start px-6 md:px-24 lg:px-44 pb-[24vh] md:pb-[28vh]">
+                <div className="max-w-md w-full bg-gradient-to-b from-[#101010] to-[#070707] border border-white/[0.08] p-6 md:p-8 rounded-3xl shadow-xl shadow-black/45 select-none text-left">
+                  <span className="text-[10px] font-mono font-bold tracking-widest text-[#22E39A] uppercase px-3 py-1 rounded-full bg-[#22E39A]/10 border border-[#22E39A]/20">STEP 03 — SHOPPING EXPERIENCE</span>
+                  <h3 className="text-xl sm:text-2xl font-normal font-grotesk text-white mt-4 mb-2">Seamless Catalog Flow</h3>
+                  <p className="text-white/60 text-xs sm:text-sm font-light leading-relaxed">
+                    Interactive variants, quick-buy features, and sticky add-to-carts allow the user to easily discover products and jump them into the cart with absolute speed.
+                  </p>
                 </div>
 
-                {/* Stages */}
-                <div className="flex-1 flex flex-col">
-                  {STAGES.map((stage, idx) => {
-                    const isActive = activeFunnelStep === idx;
-                    return (
-                      <motion.div
-                        key={stage.id}
-                        initial={{ opacity: 0, x: -16 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true, margin: "-20px" }}
-                        transition={{ duration: 0.4, delay: idx * 0.07, ease: [0.22, 1, 0.36, 1] }}
-                        className="border-b border-white/[0.04] last:border-b-0"
-                      >
-                        {/* Row trigger */}
-                        <button
-                          onClick={() => setActiveFunnelStep(idx)}
-                          className="w-full text-left cursor-pointer"
-                        >
-                          <div className="flex items-center justify-between py-6 sm:py-7 pr-2 gap-4">
-                            <div className="flex items-center gap-5 flex-1 min-w-0">
-                              <div
-                                className="w-10 h-10 rounded-xl flex items-center justify-center font-mono text-xs font-black flex-shrink-0 border transition-all duration-400"
-                                style={{
-                                  background: isActive ? stage.color : "rgba(255,255,255,0.03)",
-                                  borderColor: isActive ? stage.color : "rgba(255,255,255,0.06)",
-                                  color: isActive ? "#000" : "rgba(255,255,255,0.25)",
-                                  boxShadow: isActive ? `0 0 20px ${stage.color}55` : "none",
-                                }}
-                              >{stage.num}</div>
-                              <div className="min-w-0">
-                                <div className="flex items-center gap-3 flex-wrap">
-                                  <h3
-                                    className="text-base sm:text-xl font-bold font-grotesk tracking-tight transition-colors duration-300"
-                                    style={{ color: isActive ? stage.color : "rgba(255,255,255,0.5)" }}
-                                  >{stage.headline}</h3>
-                                  {"badge" in stage && stage.badge && isActive && (
-                                    <span className="text-[8px] font-mono font-bold uppercase tracking-widest px-2 py-0.5 rounded-full bg-primary/10 border border-primary/20 text-primary">{stage.badge}</span>
-                                  )}
-                                </div>
-                                <p className={`text-[10px] font-mono mt-0.5 transition-colors ${isActive ? "text-white/35" : "text-white/12"}`}>{stage.tagline}</p>
-                              </div>
-                            </div>
-                            <div
-                              className="w-7 h-7 rounded-full border flex items-center justify-center flex-shrink-0 transition-all duration-400"
-                              style={{
-                                borderColor: isActive ? `${stage.color}40` : "rgba(255,255,255,0.07)",
-                                background: isActive ? `${stage.color}12` : "transparent",
-                                color: isActive ? stage.color : "rgba(255,255,255,0.2)",
-                                transform: isActive ? "rotate(90deg)" : "rotate(0deg)",
-                              }}
-                            >
-                              <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M3 1l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                            </div>
-                          </div>
-                        </button>
+                {/* Mobile screen and product items — desktop only */}
+                <div className="hidden md:flex relative pr-12 lg:pr-36 w-80 h-72 items-end justify-center">
+                  <CartSVG opacity={cartOpacity} x={cartX} />
+                  
+                  {/* Floating Mobile Screen */}
+                  <motion.div 
+                    style={{ opacity: cartOpacity }}
+                    className="w-40 h-72 bg-slate-900 border-4 border-slate-900 rounded-[28px] overflow-hidden shadow-2xl relative flex flex-col items-center p-3 select-none"
+                  >
+                    <div className="w-12 h-4 rounded-full bg-slate-800 mb-4" />
+                    <div className="w-full h-24 bg-slate-800 rounded-xl mb-3 flex items-center justify-center">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-slate-600"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                    </div>
+                    <div className="w-full h-3 bg-slate-800 rounded-full mb-1.5" />
+                    <div className="w-2/3 h-3 bg-slate-800 rounded-full mb-4" />
+                    <div className="w-full h-8 rounded-lg bg-emerald-500 border-2 border-slate-900 shadow-sm flex items-center justify-center font-mono text-[8px] font-black text-slate-900">
+                      ADD TO CART
+                    </div>
+                  </motion.div>
 
-                        {/* Expanded content */}
-                        <AnimatePresence>
-                          {isActive && (
-                            <motion.div
-                              initial={{ opacity: 0, height: 0 }}
-                              animate={{ opacity: 1, height: "auto" }}
-                              exit={{ opacity: 0, height: 0 }}
-                              transition={{ duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
-                              className="overflow-hidden"
-                            >
-                              <div className="pb-8 sm:pb-10">
-                                <div className="flex flex-col sm:flex-row gap-8 sm:gap-12">
-                                  <div className="flex-1">
-                                    <div
-                                      className="w-11 h-11 rounded-xl flex items-center justify-center mb-5 border"
-                                      style={{ background: `${stage.color}14`, borderColor: `${stage.color}30`, color: stage.color }}
-                                    >{stage.icon}</div>
-                                    <p className="text-sm sm:text-base text-white/55 leading-relaxed font-light font-sans max-w-lg">{stage.desc}</p>
-                                    <div
-                                      className="mt-5 inline-flex items-center gap-2 px-4 py-2 rounded-full border text-xs font-bold font-mono"
-                                      style={{ background: `${stage.color}10`, borderColor: `${stage.color}25`, color: stage.color }}
-                                    >
-                                      <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: stage.color }} />
-                                      {stage.stat}
-                                    </div>
-                                  </div>
-                                  <div className="sm:w-64 lg:w-72 flex-shrink-0">
-                                    <p className="text-[9px] font-mono font-bold uppercase tracking-[0.2em] text-white/20 mb-3">What we do</p>
-                                    <div className="flex flex-col gap-2">
-                                      {stage.features.map((feat, i) => (
-                                        <motion.div
-                                          key={i}
-                                          initial={{ opacity: 0, x: 10 }}
-                                          animate={{ opacity: 1, x: 0 }}
-                                          transition={{ duration: 0.25, delay: i * 0.055 }}
-                                          className="flex items-center gap-3 px-4 py-2.5 rounded-xl border border-white/[0.05] bg-white/[0.02] hover:bg-white/[0.04] transition-all"
-                                        >
-                                          <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: stage.color, opacity: 0.7 }} />
-                                          <span className="text-xs text-white/55 font-sans">{feat}</span>
-                                        </motion.div>
-                                      ))}
-                                    </div>
-                                  </div>
-                                </div>
-                                {idx < STAGES.length - 1 ? (
-                                  <button
-                                    onClick={() => setActiveFunnelStep(idx + 1)}
-                                    className="mt-6 flex items-center gap-2 text-[10px] font-mono font-bold uppercase tracking-widest cursor-pointer group/next transition-opacity hover:opacity-100 opacity-60"
-                                    style={{ color: STAGES[idx + 1].color }}
-                                  >
-                                    <span>Next: {STAGES[idx + 1].headline}</span>
-                                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="group-hover/next:translate-x-1 transition-transform"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                                  </button>
-                                ) : (
-                                  <button
-                                    onClick={() => setShowFormModal(true)}
-                                    className="mt-6 flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary/10 border border-primary/25 text-primary text-xs font-bold uppercase tracking-widest hover:bg-primary hover:text-black transition-all cursor-pointer"
-                                  >Build My Store <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg></button>
-                                )}
-                              </div>
-                            </motion.div>
-                          )}
-                        </AnimatePresence>
-                      </motion.div>
-                    );
-                  })}
+                  {/* Jumping Products */}
+                  <ProductNode iconType="shirt" x={product1X} y={product1Y} opacity={product1Opacity} />
+                  <ProductNode iconType="bag" x={product2X} y={product2Y} opacity={product2Opacity} />
+                  <ProductNode iconType="shoe" x={product3X} y={product3Y} opacity={product3Opacity} />
+
+                  {/* Heart icons floating up */}
+                  <motion.div 
+                    style={{ y: heartY, opacity: heartOpacity }}
+                    className="absolute top-12 left-12 text-red-500 text-2xl font-bold select-none drop-shadow-md z-30"
+                  >
+                    ❤️
+                  </motion.div>
+                  <motion.div 
+                    style={{ y: heartY, opacity: heartOpacity }}
+                    className="absolute top-24 right-16 text-rose-400 text-xl font-bold select-none drop-shadow-md z-30"
+                  >
+                    💖
+                  </motion.div>
+                </div>
+              </div>
+
+              {/* PANEL 4: FIRST SALE */}
+              <div className="w-screen h-full flex-shrink-0 flex flex-col justify-end items-center md:items-start px-6 md:px-24 lg:px-44 pb-[24vh] md:pb-[28vh]">
+                <div className="max-w-md w-full bg-gradient-to-b from-[#101010] to-[#070707] border border-white/[0.08] p-6 md:p-8 rounded-3xl shadow-xl shadow-black/45 select-none text-left">
+                  <span className="text-[10px] font-mono font-bold tracking-widest text-[#22E39A] uppercase px-3 py-1 rounded-full bg-[#22E39A]/10 border border-[#22E39A]/20">STEP 04 — FIRST SALE</span>
+                  <h3 className="text-xl sm:text-2xl font-normal font-grotesk text-white mt-4 mb-2">🎉 New Order!</h3>
+                  <p className="text-white/60 text-xs sm:text-sm font-light leading-relaxed">
+                    Friction-free checkout processes convert clicks into concrete sales. Watch notifications trigger and store metrics skyrocket in real time.
+                  </p>
+                </div>
+
+                {/* Confetti & Notification Popup — desktop only */}
+                <div className="hidden md:flex relative pr-12 lg:pr-36 w-80 h-72 flex flex-col items-center justify-end">
+                  
+                  {/* Order notification card */}
+                  <motion.div 
+                    style={{ y: orderNotifY, scale: orderNotifScale }}
+                    className="bg-[#101010] border-4 border-white/[0.15] rounded-2xl p-4 flex items-center gap-3.5 shadow-2xl relative z-30 w-56 mb-24"
+                  >
+                    <div className="w-10 h-10 rounded-full bg-green-955 border-2 border-[#22E39A] flex items-center justify-center text-[#22E39A] text-lg font-bold">
+                      ✓
+                    </div>
+                    <div>
+                      <p className="text-[9px] font-mono font-black text-white/50 uppercase tracking-widest">New Order</p>
+                      <p className="text-base font-black font-mono text-white">$128.00</p>
+                    </div>
+                  </motion.div>
+
+                  {/* Store Owner Celebrating */}
+                  <motion.div 
+                    style={{ y: ownerJumpY, rotate: danceAngle }}
+                    className="absolute right-12 bottom-0"
+                  >
+                    <StoreOwnerSVG smile={true} />
+                  </motion.div>
+
+                  {/* Confetti Sprites */}
+                  <motion.div 
+                    style={{ opacity: confettiOpacity, y: confettiY }}
+                    className="absolute top-10 inset-x-0 h-40 pointer-events-none"
+                  >
+                    <motion.div style={{ x: conf1X, y: conf1Y }} className="absolute w-3 h-3 bg-red-400 rounded-full" />
+                    <motion.div style={{ x: conf2X, y: conf2Y }} className="absolute w-2 h-4 bg-yellow-400 rotate-45" />
+                    <motion.div style={{ x: conf3X, y: conf3Y }} className="absolute w-3.5 h-1.5 bg-blue-400 -rotate-12" />
+                    <motion.div style={{ x: conf1X, y: conf3Y }} className="absolute w-2 h-2 bg-emerald-400 rounded-full" />
+                  </motion.div>
+
+                  {/* Bouncing Gold Coins */}
+                  <motion.div 
+                    style={{ y: coinY }}
+                    className="absolute left-6 bottom-16 flex gap-2 z-30"
+                  >
+                    {[1, 2, 3].map((i) => (
+                      <div key={i} className="w-6 h-6 rounded-full bg-yellow-400 border-3 border-slate-900 flex items-center justify-center font-black font-mono text-[8px] text-slate-900 shadow-md">
+                        $
+                      </div>
+                    ))}
+                  </motion.div>
+                </div>
+              </div>
+
+              {/* PANEL 5: LOYAL CUSTOMER */}
+              <div className="w-screen h-full flex-shrink-0 flex flex-col justify-end items-center md:items-start px-6 md:px-24 lg:px-44 pb-[24vh] md:pb-[28vh]">
+                <div className="max-w-md w-full bg-gradient-to-b from-[#101010] to-[#070707] border border-white/[0.08] p-6 md:p-8 rounded-3xl shadow-xl shadow-black/45 select-none text-left">
+                  <span className="text-[10px] font-mono font-bold tracking-widest text-[#22E39A] uppercase px-3 py-1 rounded-full bg-[#22E39A]/10 border border-[#22E39A]/20">STEP 05 — LOYAL CUSTOMER</span>
+                  <h3 className="text-xl sm:text-2xl font-normal font-grotesk text-white mt-4 mb-2">Repeat Sales</h3>
+                  <p className="text-white/60 text-xs sm:text-sm font-light leading-relaxed">
+                    The journey doesn&apos;t end at checkout. Post-purchase guides and VIP loyalty rewards turn first-time buyers into repeat, loyal brand advocates.
+                  </p>
+                </div>
+
+                {/* Return customer gift box and handshake — desktop only */}
+                <div className="hidden md:flex relative pr-12 lg:pr-36 w-80 h-72 items-end justify-center">
+                  
+                  {/* Shaking Hands Store Owner */}
+                  <motion.div style={{ y: handshakeY }} className="absolute right-8 bottom-0">
+                    <StoreOwnerSVG smile={true} />
+                  </motion.div>
+
+                  {/* Gift Box floating */}
+                  <motion.div
+                    style={{ opacity: giftBoxOpacity, y: giftBoxY, scale: giftBoxScale }}
+                    className="absolute left-10 top-20 bg-[#101010] border-4 border-white/[0.15] rounded-xl p-3 flex flex-col items-center shadow-lg z-30"
+                  >
+                    <div className="w-8 h-8 rounded-lg bg-rose-500 border-3 border-slate-900 relative">
+                      <div className="absolute top-2.5 left-0 right-0 h-1 bg-yellow-400" />
+                      <div className="absolute top-0 bottom-0 left-2.5 w-1 bg-yellow-400" />
+                    </div>
+                    <span className="text-[8px] font-mono font-black text-white mt-1">GIFTS</span>
+                  </motion.div>
+
+                  {/* Growing Heart */}
+                  <motion.div 
+                    style={{ scale: loyaltyHeartScale }}
+                    className="absolute top-8 left-1/3 text-4xl text-rose-500 select-none drop-shadow-lg z-30"
+                  >
+                    ❤️
+                  </motion.div>
+
+                  {/* Rotating Loyalty Badge */}
+                  <motion.div 
+                    style={{ rotate: loyaltyRotation }}
+                    className="absolute top-4 right-16 w-12 h-12 rounded-full bg-yellow-400 border-3 border-slate-900 flex items-center justify-center shadow-lg"
+                  >
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-slate-900"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  </motion.div>
+                </div>
+              </div>
+
+            </motion.div>
+
+            {/* ──────── CHARACTER FIXED SPOTLIGHT — hidden on mobile and during final summary ──────── */}
+            <motion.div 
+              style={{ opacity: trackOpacity }}
+              className={`absolute left-1/2 -translate-x-1/2 bottom-[28vh] z-30 ${showSummary ? "hidden" : "hidden md:block"}`}
+            >
+              {/* Accessory Golden Ball (Step 2) */}
+              <motion.div 
+                style={{ 
+                  x: ballX, 
+                  y: ballY, 
+                  scale: ballScaleMerged, 
+                  backgroundColor: ballColorMerged,
+                  opacity: thrownBallOpacity
+                }}
+                className="absolute left-20 top-8 w-6 h-6 rounded-full border-3 border-slate-900 flex items-center justify-center font-mono text-[6px] font-black text-slate-900 shadow-md shadow-yellow-500/25 z-40"
+              >
+                {/* Light burst effect */}
+                <motion.div 
+                  style={{ opacity: burstOpacity }}
+                  className="absolute -inset-4 rounded-full border-4 border-yellow-300 scale-150 animate-ping -z-10" 
+                />
+              </motion.div>
+
+              <Character 
+                leftLegRot={leftLegRotation} 
+                rightLegRot={rightLegRotation} 
+                leftArmRot={leftArmRotation} 
+                rightArmRot={rightArmRotation} 
+                bodyBounceY={bodyBounceY}
+                accessory={characterAccessory}
+              />
+            </motion.div>
+
+            {/* ──────────────────────────────────────────────── */}
+            {/* ──────── FINAL SCENE: ZOOMED-OUT SUMMARY ──────── */}
+            {/* ──────────────────────────────────────────────── */}
+            <motion.div
+              style={{ opacity: summaryOpacity, scale: summaryScale }}
+              className={`absolute inset-0 flex flex-col items-center justify-center px-4 md:px-6 ${showSummary ? "pointer-events-auto" : "pointer-events-none hidden"}`}
+            >
+              <div className="max-w-4xl w-full text-center relative p-6 md:p-12 rounded-[32px] bg-gradient-to-b from-[#101010] to-[#070707] border border-white/[0.08] shadow-2xl shadow-black/90 pointer-events-auto">
+                <span className="text-[10px] font-mono font-bold tracking-widest text-[#22E39A] uppercase px-4 py-1.5 rounded-full bg-[#22E39A]/10 border border-[#22E39A]/20">Your Success Partner — SalePXL</span>
+                
+                <h3 className="text-xl sm:text-2xl md:text-4xl font-normal text-white mt-6 mb-8 md:mb-12 font-grotesk tracking-tight leading-tight">
+                  Traffic is just noise. <span className="text-[#22E39A] font-medium">Your store</span> converts it into success.
+                </h3>
+
+                {/* Curved miniature path and nodes illustration */}
+                <div className="h-40 md:h-44 w-full relative flex items-center justify-start md:justify-between gap-6 overflow-x-auto pb-4 scrollbar-none md:px-16 mb-8 md:mb-12 flex-nowrap">
+                  {/* Golden curved line (desktop only) */}
+                  <svg className="absolute inset-0 w-full h-full pointer-events-none hidden md:block" viewBox="0 0 800 160" preserveAspectRatio="none">
+                    <path
+                      d="M 0 80 Q 200 16 400 80 T 800 80"
+                      stroke="#eab308"
+                      strokeWidth="5"
+                      fill="none"
+                      strokeLinecap="round"
+                    />
+                  </svg>
+
+                  {/* 5 Stage Node Circles */}
+                  {[
+                    { num: "01", label: "Traffic", color: "bg-blue-400", pills: [{ text: "Paid", color: "bg-blue-500 text-white" }, { text: "Organic", color: "bg-emerald-500 text-white" }] },
+                    { num: "02", label: "Ecom Store (Trust)", color: "bg-emerald-400" },
+                    { num: "03", label: "Customer Journey — Website UX", color: "bg-indigo-400" },
+                    { num: "04", label: "Happy Customer", color: "bg-amber-400" },
+                    { num: "05", label: "Loyalist", color: "bg-rose-400" }
+                  ].map((node, idx) => (
+                    <motion.div 
+                      key={idx}
+                      initial={{ scale: 0 }}
+                      whileInView={{ scale: 1 }}
+                      transition={{ type: "spring", stiffness: 100, delay: idx * 0.1 }}
+                      className="flex flex-col items-center relative z-10 w-24 shrink-0 text-center"
+                    >
+                      <div className={`w-12 h-12 rounded-full border-4 border-slate-900 flex items-center justify-center font-mono text-xs font-black text-slate-900 shadow-md ${node.color}`}>
+                        {node.num}
+                      </div>
+                      <span className="text-[10px] font-mono font-bold text-white/80 mt-2 min-h-[32px] px-1">{node.label}</span>
+                      
+                      {/* Optional colored pills for Traffic node */}
+                      {node.pills && (
+                        <div className="flex gap-1 mt-1 justify-center">
+                          {node.pills.map((p, i) => (
+                            <span key={i} className={`text-[8px] font-mono font-bold px-1.5 py-0.5 rounded border border-slate-900/10 shadow-sm ${p.color}`}>
+                              {p.text}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+                    </motion.div>
+                  ))}
+
+                  {/* Happy Character mascot positioned at the end of the line (desktop only) */}
+                  <motion.div 
+                    initial={{ y: 20, opacity: 0 }}
+                    whileInView={{ y: -30, opacity: 1 }}
+                    transition={{ type: "spring", stiffness: 80, delay: 0.6 }}
+                    className="absolute right-12 bottom-12 scale-60 origin-bottom hidden md:block"
+                  >
+                    <Character 
+                      leftLegRot={0} 
+                      rightLegRot={0} 
+                      leftArmRot={-45} 
+                      rightArmRot={45} 
+                      bodyBounceY={0}
+                      accessory="gift"
+                    />
+                  </motion.div>
+                </div>
+
+                {/* Description */}
+                <p className="text-white/60 text-xs sm:text-sm md:text-base font-light max-w-xl mx-auto mb-6 md:mb-8 leading-relaxed">
+                  Your storefront is the single most crucial factor that decides whether a visitor bounces or becomes a customer. By engineering speed, trust, and frictionless design directly into your checkout flow, SalePXL turns raw traffic into a highly profitable, self-scaling e-commerce brand.
+                </p>
+
+                {/* Magnetic Hover CTA Button */}
+                <div className="flex justify-center">
+                  <motion.button
+                    onClick={() => setShowFormModal(true)}
+                    whileHover={{ scale: 1.05, boxShadow: "0px 10px 30px rgba(34,227,154,0.3)" }}
+                    whileTap={{ scale: 0.98 }}
+                    className="relative group inline-flex items-center justify-center gap-3 px-10 h-16 rounded-full bg-white border-4 border-white text-black font-grotesk text-sm font-bold tracking-wider hover:bg-[#22E39A] hover:border-[#22E39A] hover:text-black transition-all duration-300 shadow-xl cursor-pointer"
+                  >
+                    <span>Build My Shopify Store</span>
+                    <svg 
+                      className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5" 
+                      viewBox="0 0 24 24" 
+                      fill="none" 
+                      stroke="currentColor" 
+                      strokeWidth="3" 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round"
+                    >
+                      <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                  </motion.button>
                 </div>
 
               </div>
-            );
-          })()}
+            </motion.div>
 
+          </div>
 
-          {/* CTA Strip */}
-          <motion.div
-            initial={{ opacity: 0, y: 14 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4 px-6 py-5 rounded-2xl border border-white/[0.05] bg-white/[0.015]"
-          >
-            <div className="flex items-center gap-3">
-              <div className="w-2 h-2 rounded-full bg-primary flex-shrink-0 animate-pulse shadow-[0_0_8px_rgba(34,227,154,0.7)]" />
-              <p className="text-sm text-white/45 font-light">
-                We build every layer — from first click to loyal customer — so your store scales profitably.
-              </p>
-            </div>
-            <button
-              onClick={() => setShowFormModal(true)}
-              className="flex-shrink-0 flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary/10 border border-primary/25 text-primary text-sm font-semibold hover:bg-primary hover:text-black transition-all duration-300 cursor-pointer"
-            >
-              Build My Store
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
-            </button>
-          </motion.div>
+          <div className="absolute bottom-4 left-0 right-0 text-center z-20 pointer-events-none">
+            <span className="text-[9px] font-mono uppercase tracking-[0.2em] text-white/30">SalePXL Customer Engine</span>
+          </div>
 
         </div>
       </section>
-
-
-
-
-
-
-
 
       {/* ── FORM MODAL — works on all screen sizes ── */}
       {showFormModal && (
@@ -1660,7 +2121,7 @@ export default function HomePage() {
 
             {/* Form */}
             <div className="p-8 sm:p-14 md:p-16">
-              <StartProjectForm />
+              <StartProjectForm onSuccess={() => setShowFormModal(false)} />
             </div>
           </div>
         </div>

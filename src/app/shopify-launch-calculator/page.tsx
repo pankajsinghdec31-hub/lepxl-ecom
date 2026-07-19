@@ -42,24 +42,23 @@ export default function ShopifyLaunchCalculator() {
   };
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-b from-[#fafcfc] via-[#f5faf7] to-[#eaf7f2] text-neutral-900 pt-44 pb-24 overflow-hidden text-left -mt-24">
+    <div className="relative pt-44 pb-24 px-6 text-left min-h-screen bg-gradient-to-b from-[#fafcfc] via-[#f5faf7] to-[#eaf7f2] overflow-hidden -mt-24 font-grotesk">
       {/* Decorative Blob Backgrounds */}
       <div className="absolute top-[-5%] right-[-10%] w-[45%] h-[400px] rounded-full bg-emerald-400/[0.04] blur-[130px] pointer-events-none animate-pulse" />
       <div className="absolute top-[35%] left-[-10%] w-[40%] h-[450px] rounded-full bg-teal-300/[0.03] blur-[120px] pointer-events-none" />
       <div className="absolute bottom-[5%] right-[5%] w-[35%] h-[400px] rounded-full bg-emerald-400/[0.02] blur-[140px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="max-w-7xl mx-auto flex flex-col gap-12 relative z-10">
         
-        {/* Header Section */}
-        <div className="flex flex-col gap-4 pb-16 text-center max-w-3xl mx-auto">
+        {/* Page Header */}
+        <div className="text-center max-w-4xl mx-auto flex flex-col gap-5">
 
-
-          <h1 className="text-4xl sm:text-5xl font-light tracking-tight text-neutral-900 leading-tight font-grotesk">
+          <h1 className="text-4xl md:text-6xl font-light tracking-tight leading-tight text-neutral-900 font-grotesk">
             Launch ROI <br className="sm:hidden" />
             <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent font-normal font-sans">Simulator</span>
           </h1>
 
-          <p className="text-neutral-600 text-base leading-relaxed font-sans font-medium">
+          <p className="text-neutral-600 text-base leading-relaxed max-w-2xl mx-auto font-sans">
             Starting a dropshipping business or launching a D2C store? Compare how a basic storefront stacks up against a conversion-engineered Shopify layout designed by SalePXL.
           </p>
         </div>

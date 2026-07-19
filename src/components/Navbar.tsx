@@ -80,7 +80,16 @@ export default function Navbar() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-          <Link href="/" className="flex items-center group select-none min-h-[44px]">
+          <Link
+            href="/"
+            onClick={(e) => {
+              if (pathname === "/") {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }
+            }}
+            className="flex items-center group select-none min-h-[44px]"
+          >
             <img 
               src="/logo.png" 
               alt="SalePXL Logo" 
