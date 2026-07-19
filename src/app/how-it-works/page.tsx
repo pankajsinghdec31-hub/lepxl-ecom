@@ -646,7 +646,7 @@ export default function HowItWorksPage() {
                               fill
                               sizes="(max-width: 768px) 100vw, 450px"
                               priority
-                              className="object-cover object-center select-none pointer-events-none"
+                              className="object-contain object-center select-none pointer-events-none"
                             />
 
                             {/* Before Image (Flat Product / Amateur snap) - Clips via percentage */}
@@ -660,7 +660,7 @@ export default function HowItWorksPage() {
                                 fill
                                 sizes="(max-width: 768px) 100vw, 450px"
                                 priority
-                                className="object-cover object-center select-none pointer-events-none"
+                                className="object-contain object-center select-none pointer-events-none"
                               />
                             </div>
 
