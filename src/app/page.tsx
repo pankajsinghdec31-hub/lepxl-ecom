@@ -150,13 +150,6 @@ const GOOGLE_REVIEWS_CONSOLIDATED = [
   }
 ];
 
-// Trust Stats
-const TRUST_STATS = [
-  { label: "Experience", value: "10+ Years" },
-  { label: "Brands Scaled", value: "100+ Brands" },
-  { label: "Average Speed", value: "Sub-2.0s" },
-  { label: "Revenue Generated", value: "Millions" }
-];
 
 interface MockupConfig {
   name: string;
@@ -2184,23 +2177,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 2. TRUST STATS TICKER */}
-      <section className="bg-white/[0.01] py-10 border-y border-white/[0.08] relative overflow-hidden z-10">
-        <div className="max-w-[1360px] mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center text-center">
-            {TRUST_STATS.map((stat, idx) => (
-              <div key={idx} className="flex flex-col gap-1 items-center justify-center">
-                <span className="text-xl sm:text-2xl font-bold font-mono text-white">
-                  {stat.value}
-                </span>
-                <span className="text-[10px] text-white/70 uppercase tracking-wider font-bold">
-                  {stat.label}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
 
 
