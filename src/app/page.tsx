@@ -96,7 +96,7 @@ const GOOGLE_REVIEWS_CONSOLIDATED = [
     image: "/founder_4.jpg",
     statVal: "3 Days",
     statLabel: "Delivery Speed",
-    category: "Quick Store Delivery"
+    category: "Clothing & Apparel Store"
   },
   {
     name: "James Park",
@@ -110,7 +110,7 @@ const GOOGLE_REVIEWS_CONSOLIDATED = [
     image: "/founder_5.jpg",
     statVal: "+85%",
     statLabel: "Brand Appeal",
-    category: "Premium Design"
+    category: "Health & Wellness Store"
   },
   {
     name: "Monica Fernandes",
@@ -124,7 +124,7 @@ const GOOGLE_REVIEWS_CONSOLIDATED = [
     image: "/founder_2.jpg",
     statVal: "+4.2%",
     statLabel: "Conversion Rate",
-    category: "Optimized & Branding"
+    category: "Bracelet & Jewelry Store"
   },
   {
     name: "Deepika Nair",
@@ -138,7 +138,7 @@ const GOOGLE_REVIEWS_CONSOLIDATED = [
     image: "/founder_3.jpg",
     statVal: "-90%",
     statLabel: "Photoshoot Costs",
-    category: "AI Photoshoot"
+    category: "Furniture & Home Decor Store"
   },
   {
     name: "Sneha Rao",
@@ -152,7 +152,7 @@ const GOOGLE_REVIEWS_CONSOLIDATED = [
     image: "/founder_1.jpg",
     statVal: "24/7",
     statLabel: "Team Support",
-    category: "Post-Launch Support"
+    category: "Organic Tea & Beverages Store"
   }
 ];
 
