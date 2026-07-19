@@ -361,27 +361,27 @@ export default function ShopifyAuditPage() {
             )}
 
             {/* VISITATION & CONVERSION GENERAL STATS ROW */}
-            <div className="grid grid-cols-3 gap-4 font-sans">
-              <div className="p-4 rounded-2xl bg-white border border-neutral-200/60 flex flex-col gap-1 text-left shadow-sm">
-                <span className="text-[10px] text-neutral-500 uppercase tracking-wider font-semibold">Monthly Visitors</span>
-                <span className="text-lg font-bold font-mono text-neutral-900 mt-1">
+            <div className="grid grid-cols-3 gap-2 sm:gap-4 font-sans">
+              <div className="p-2.5 sm:p-4 rounded-xl sm:rounded-2xl bg-white border border-neutral-200/60 flex flex-col gap-0.5 sm:gap-1 text-left shadow-sm">
+                <span className="text-[8px] xs:text-[9px] sm:text-[10px] text-neutral-500 uppercase tracking-wider font-semibold truncate" title="Monthly Visitors">Monthly Visitors</span>
+                <span className="text-sm xs:text-base sm:text-lg font-bold font-mono text-neutral-900 mt-0.5 sm:mt-1">
                   {estimatedVisitors.toLocaleString("en-IN")}
                 </span>
-                <span className="text-[9px] text-neutral-500 mt-0.5">Estimated</span>
+                <span className="text-[7.5px] xs:text-[8px] sm:text-[9px] text-neutral-500 mt-0.5">Estimated</span>
               </div>
-              <div className="p-4 rounded-2xl bg-white border border-neutral-200/60 flex flex-col gap-1 text-left shadow-sm">
-                <span className="text-[10px] text-neutral-500 uppercase tracking-wider font-semibold">Monthly Orders</span>
-                <span className="text-lg font-bold font-mono text-neutral-900 mt-1">
+              <div className="p-2.5 sm:p-4 rounded-xl sm:rounded-2xl bg-white border border-neutral-200/60 flex flex-col gap-0.5 sm:gap-1 text-left shadow-sm">
+                <span className="text-[8px] xs:text-[9px] sm:text-[10px] text-neutral-500 uppercase tracking-wider font-semibold truncate" title="Monthly Orders">Monthly Orders</span>
+                <span className="text-sm xs:text-base sm:text-lg font-bold font-mono text-neutral-900 mt-0.5 sm:mt-1">
                   {estimatedPurchases.toLocaleString("en-IN")}
                 </span>
-                <span className="text-[9px] text-neutral-500 mt-0.5">Actual Orders</span>
+                <span className="text-[7.5px] xs:text-[8px] sm:text-[9px] text-neutral-500 mt-0.5">Actual Orders</span>
               </div>
-              <div className="p-4 rounded-2xl bg-white border border-neutral-200/60 flex flex-col gap-1 text-left shadow-sm">
-                <span className="text-[10px] text-neutral-500 uppercase tracking-wider font-semibold">Current CR</span>
-                <span className="text-lg font-bold font-mono text-emerald-600 mt-1">
+              <div className="p-2.5 sm:p-4 rounded-xl sm:rounded-2xl bg-white border border-neutral-200/60 flex flex-col gap-0.5 sm:gap-1 text-left shadow-sm">
+                <span className="text-[8px] xs:text-[9px] sm:text-[10px] text-neutral-500 uppercase tracking-wider font-semibold truncate" title="Current CR">Current CR</span>
+                <span className="text-sm xs:text-base sm:text-lg font-bold font-mono text-emerald-600 mt-0.5 sm:mt-1">
                   {currentCR}%
                 </span>
-                <span className="text-[9px] text-neutral-500 mt-0.5">Store Conversion</span>
+                <span className="text-[7.5px] xs:text-[8px] sm:text-[9px] text-neutral-500 mt-0.5">Store Conversion</span>
               </div>
             </div>
 

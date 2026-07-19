@@ -824,6 +824,17 @@ export default function HomePage() {
     return () => clearTimeout(timer);
   }, [currentText, isDeleting, wordIndex, typingSpeed]);
 
+  useEffect(() => {
+    if (showFormModal) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [showFormModal]);
+
   const toggleFaq = (index: number) => {
     setOpenFaq(openFaq === index ? null : index);
   };
@@ -1102,7 +1113,7 @@ export default function HomePage() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: activeProcessStep === idx ? 0.8 : 0 }}
                     transition={{ duration: 0.4 }}
-                    className="absolute inset-0 w-full h-full object-cover"
+                    className="absolute inset-0 w-full h-full object-contain object-top"
                   />
                 ))}
               </div>
@@ -1115,7 +1126,7 @@ export default function HomePage() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: activeProcessStep === idx ? 1 : 0 }}
                     transition={{ duration: 0.4 }}
-                    className="absolute inset-0 w-full h-full object-cover"
+                    className="absolute inset-0 w-full h-full object-contain object-top"
                   />
                 ))}
               </div>
@@ -1200,7 +1211,7 @@ export default function HomePage() {
               <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#080214] to-transparent pointer-events-none z-20 hidden lg:block" />
               <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-[#160528] to-transparent pointer-events-none z-20 hidden lg:block" />
 
-              <div className="grid grid-cols-6 sm:grid-cols-8 gap-3 sm:gap-4 max-h-[480px] overflow-hidden lg:pr-8 pr-0">
+              <div className="grid grid-cols-4 xs:grid-cols-5 sm:grid-cols-8 gap-3 sm:gap-4 max-h-[480px] overflow-hidden lg:pr-8 pr-0">
                 {APP_ICONS.map((app, idx) => (
                   <div
                     key={idx}
@@ -1685,7 +1696,7 @@ export default function HomePage() {
             {/* Close Button */}
             <button
               onClick={() => setShowFormModal(false)}
-              className="absolute top-5 right-5 sm:top-6 sm:right-6 w-9 h-9 rounded-full bg-black/[0.03] border border-neutral-200/60 flex items-center justify-center text-neutral-500 hover:text-neutral-900 hover:bg-black/[0.08] hover:border-neutral-300 transition-all duration-300 z-50"
+              className="absolute top-5 right-5 sm:top-6 sm:right-6 w-11 h-11 sm:w-9 sm:h-9 rounded-full bg-black/[0.03] border border-neutral-200/60 flex items-center justify-center text-neutral-500 hover:text-neutral-900 hover:bg-black/[0.08] hover:border-neutral-300 transition-all duration-300 z-50"
               aria-label="Close"
             >
               <svg width="12" height="12" viewBox="0 0 14 14" fill="none">

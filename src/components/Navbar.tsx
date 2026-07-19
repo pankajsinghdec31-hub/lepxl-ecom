@@ -39,6 +39,18 @@ export default function Navbar() {
     setIsMobileMenuOpen(false);
   }, [pathname]);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMobileMenuOpen]);
+
   // Dynamically toggle body class for the homepage layout
   useEffect(() => {
     if (pathname === "/") {
@@ -66,7 +78,7 @@ export default function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-1.5 group select-none">
+          <Link href="/" className="flex items-center gap-1.5 group select-none min-h-[44px]">
             <span className={`font-bold text-2xl tracking-tight transition-colors ${isContactPage ? "text-black" : "text-white"}`}>
               SALE<span className="text-primary">PXL</span>
             </span>
@@ -153,7 +165,7 @@ export default function Navbar() {
             </Link>
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={`p-2 transition-colors ${isContactPage ? "text-black" : "text-white premium-hover-icon"}`}
+              className={`w-11 h-11 flex items-center justify-center transition-colors ${isContactPage ? "text-black" : "text-white premium-hover-icon"}`}
               aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -170,7 +182,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 top-[72px] z-40 bg-[#050505]/95 backdrop-blur-xl border-t border-white/[0.08] px-6 py-8 md:hidden flex flex-col justify-between"
+            className="fixed inset-x-0 bottom-0 top-[72px] z-40 bg-[#050505]/95 backdrop-blur-xl border-t border-white/[0.08] px-6 py-8 md:hidden flex flex-col justify-between overflow-y-auto hide-scrollbar"
           >
             <div className="flex flex-col gap-6">
               {NAV_LINKS.map((link, idx) => {
