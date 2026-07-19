@@ -1328,11 +1328,11 @@ export default function HomePage() {
           <div className="max-w-3xl text-left mb-16 flex flex-col gap-4">
 
             <h2 className="premium-heading text-3xl sm:text-4xl lg:text-[2.75rem] font-light text-white tracking-tight leading-[1.1] font-grotesk mt-2">
-              Hyper-Optimized.<br />
-              <span className="premium-highlight text-white"><span className="light-gradient-text font-normal">Designed</span> to Convert.</span>
+              Branded Shopify Stores.<br />
+              <span className="premium-highlight text-white"><span className="light-gradient-text font-normal">Built</span> to Scale.</span>
             </h2>
             <p className="text-white/70 text-base sm:text-lg font-light leading-relaxed max-w-2xl mt-2">
-              A successful Shopify store isn't built by design alone. Real growth happens when every part of the customer journey works together. We optimize every touchpoint to transform traffic into loyal customers and sustainable revenue.
+              We build Shopify stores that do more than look great—they convert. Every page is strategically designed for speed, user experience, and higher conversions. From intuitive navigation and mobile-first design to optimized product pages, checkout flows, and essential app integrations, every element is crafted to increase sales, maximize revenue, and support long-term business growth.
             </p>
 
             <div className="flex flex-wrap gap-4 mt-2">
