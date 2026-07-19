@@ -754,11 +754,445 @@ const getStepIcon = (iconName: string) => {
   }
 };
 
+const FUNNEL_STEPS = [
+  {
+    num: "01",
+    title: "TRAFFIC",
+    subtitle: "Attract High-Intent Buyers",
+    desc: "Qualified visitors from Organic SEO, Google Ads, Meta Ads, Instagram, and TikTok feed into the top of the funnel.",
+    sources: ["Organic SEO", "Google Ads", "Meta Ads", "Instagram", "TikTok"]
+  },
+  {
+    num: "02",
+    title: "Website First Impression",
+    subtitle: "Immediate Visual Engagement",
+    desc: "Within milliseconds, visitors experience a premium, custom interface that loads instantly and positions your brand at the top tier.",
+    sources: ["Sub-1.2s mobile loading", "99/100 Speed Score", "Sleek typography", "Zero layout shift"]
+  },
+  {
+    num: "03",
+    title: "TRUST",
+    subtitle: "Eliminating Buying Friction",
+    desc: "Authentic trust signals, reviews, clear policies, and secure badges give customers the confidence to purchase.",
+    sources: ["SSL secured certificate", "MSME Registered seal", "★ 5.0 Star Ratings", "Secure Payment Gateway"]
+  },
+  {
+    num: "04",
+    title: "SHOPPING EXPERIENCE",
+    subtitle: "Seamless Product Discovery",
+    desc: "Fluid page navigation, crystal-clear media, sticky add-to-cart, and interactive product choices make selection effortless.",
+    sources: ["Interactive size overlays", "Sticky buy drawer", "Instant cart drawers", "Smooth image swiping"]
+  },
+  {
+    num: "05",
+    title: "CONVERSION BOOSTERS",
+    subtitle: "Maximizing Average Order Value",
+    desc: "Smart upsell recommendations, automatic bundle builders, and express checkout sliders are placed strategically.",
+    sources: ["Frequently bought together", "Express UPI checkout", "Tiered free shipping goal", "Cart upsell recommendations"]
+  },
+  {
+    num: "06",
+    title: "PURCHASE",
+    subtitle: "Frictionless Checkout",
+    desc: "A streamlined checkout process supporting all local payment gateways with zero redirection delays.",
+    sources: ["Google Pay & Apple Pay", "Credit/Debit & Netbanking", "One-click UPI payment", "COD security checks"]
+  },
+  {
+    num: "07",
+    title: "RETENTION",
+    subtitle: "Turning Buyers Into Fans",
+    desc: "Post-purchase alerts, automated loyalty emails, and WhatsApp status tracking build lifetime customer value.",
+    sources: ["WhatsApp tracking link", "Automated email discount", "Cohort analytics: +40%", "Customer account portal"]
+  },
+  {
+    num: "08",
+    title: "SCALE",
+    subtitle: "Compound Monthly Growth",
+    desc: "Higher conversion rate and larger basket size maximize your ROAS, enabling you to scale ad budgets profitably.",
+    sources: ["2x to 4x ROAS increase", "Higher ad budget capability", "Compound monthly revenue", "Market expansion ready"]
+  }
+];
+
 export default function HomePage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [showFormModal, setShowFormModal] = useState(false);
-  const [activeGrowthCard, setActiveGrowthCard] = useState<number>(0);
-  const [activatedGrowthCards, setActivatedGrowthCards] = useState<number[]>([0]);
+  
+  // Funnel Pipeline States
+  const [activeFunnelStep, setActiveFunnelStep] = useState(0);
+  const [isSimulating, setIsSimulating] = useState(false);
+  const [trafficCounter, setTrafficCounter] = useState(24531);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTrafficCounter(c => c + Math.floor(Math.random() * 4) + 1);
+    }, 1500);
+    return () => clearInterval(timer);
+  }, []);
+
+  const simulateFunnel = () => {
+    if (isSimulating) return;
+    setIsSimulating(true);
+    let step = 0;
+    setActiveFunnelStep(0);
+    const interval = setInterval(() => {
+      step++;
+      if (step < 8) {
+        setActiveFunnelStep(step);
+      } else {
+        clearInterval(interval);
+        setIsSimulating(false);
+      }
+    }, 3200);
+  };
+
+  const renderFunnelPreview = (stepIndex: number) => {
+    switch (stepIndex) {
+      case 0: // TRAFFIC
+        return (
+          <div className="w-full max-w-md flex flex-col gap-6 font-mono text-[11px]">
+            <div className="flex justify-between items-center relative h-36">
+              <div className="flex flex-col gap-1.5 z-10 w-24">
+                {["Organic SEO", "Google Ads", "Meta Ads", "Instagram", "TikTok"].map((source, i) => (
+                  <div key={i} className="px-2 py-1 rounded border border-white/5 bg-black/60 text-white/60 text-[9px] text-center uppercase tracking-wide">
+                    {source}
+                  </div>
+                ))}
+              </div>
+
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <svg className="w-full h-full" viewBox="0 0 400 150">
+                  <path d="M 90 20 C 180 20, 180 75, 290 75" stroke="rgba(34,227,154,0.15)" strokeWidth="1.5" fill="none" />
+                  <path d="M 90 45 C 180 45, 180 75, 290 75" stroke="rgba(34,227,154,0.15)" strokeWidth="1.5" fill="none" />
+                  <path d="M 90 75 L 290 75" stroke="rgba(34,227,154,0.15)" strokeWidth="1.5" fill="none" />
+                  <path d="M 90 105 C 180 105, 180 75, 290 75" stroke="rgba(34,227,154,0.15)" strokeWidth="1.5" fill="none" />
+                  <path d="M 90 130 C 180 130, 180 75, 290 75" stroke="rgba(34,227,154,0.15)" strokeWidth="1.5" fill="none" />
+
+                  <circle r="3" fill="#22E39A" className="particle-glow-dot" style={{ animation: "traffic-particle-path 2s infinite linear 0s" }} />
+                  <circle r="3.5" fill="#22E39A" className="particle-glow-dot" style={{ animation: "traffic-particle-path 2s infinite linear 0.4s" }} />
+                  <circle r="2.5" fill="#22E39A" className="particle-glow-dot" style={{ animation: "traffic-particle-path 2s infinite linear 0.8s" }} />
+                  <circle r="3" fill="#22E39A" className="particle-glow-dot" style={{ animation: "traffic-particle-path 2s infinite linear 1.2s" }} />
+                  <circle r="4" fill="#22E39A" className="particle-glow-dot" style={{ animation: "traffic-particle-path 2s infinite linear 1.6s" }} />
+                </svg>
+              </div>
+
+              <div className="z-10 w-32 h-20 rounded-xl border border-primary/20 bg-primary/5 flex flex-col items-center justify-center p-3 text-center shadow-[0_0_20px_rgba(34,227,154,0.1)]">
+                <span className="text-[9px] text-white/50 tracking-wider">TRAFFIC FLOW</span>
+                <span className="text-lg font-bold text-primary mt-1 font-mono tracking-tight">
+                  {trafficCounter.toLocaleString()}
+                </span>
+                <span className="text-[8px] text-emerald-500 font-bold block mt-0.5">↑ Active Visitors</span>
+              </div>
+            </div>
+            <style dangerouslySetInnerHTML={{ __html: `
+              @keyframes traffic-particle-path {
+                0% { motion-path: path("M 90 75 L 290 75"); motion-offset: 0%; opacity: 0; }
+                10% { opacity: 1; }
+                90% { opacity: 1; }
+                100% { motion-path: path("M 90 75 L 290 75"); motion-offset: 100%; opacity: 0; }
+              }
+              .particle-glow-dot {
+                offset-path: path("M 90 75 L 290 75");
+                animation: traffic-particle-path 2s infinite linear;
+              }
+            ` }} />
+          </div>
+        );
+      case 1: // WEBSITE FIRST IMPRESSION
+        return (
+          <div className="w-full max-w-sm bg-black/40 border border-white/10 rounded-2xl overflow-hidden shadow-xl p-4 font-sans text-left relative">
+            <div className="flex items-center justify-between border-b border-white/5 pb-3 mb-4">
+              <div className="flex items-center gap-1.5">
+                <div className="w-2.5 h-2.5 rounded-full bg-red-500" />
+                <div className="w-2.5 h-2.5 rounded-full bg-yellow-500" />
+                <div className="w-2.5 h-2.5 rounded-full bg-green-500" />
+              </div>
+              <span className="text-[9px] font-mono text-white/40">salepxl.com/store-preview</span>
+            </div>
+
+            <div className="grid grid-cols-3 gap-3 mb-4">
+              <div className="bg-black/50 border border-emerald-500/20 p-2.5 rounded-xl text-center flex flex-col items-center justify-center">
+                <span className="text-[8px] text-white/40 font-mono">SPEED INDEX</span>
+                <span className="text-xl font-bold text-emerald-500 mt-1 font-mono">99%</span>
+                <span className="text-[8px] text-emerald-500 font-bold block mt-0.5 font-sans">EXCELLENT</span>
+              </div>
+              <div className="bg-black/50 border border-white/[0.04] p-2.5 rounded-xl text-center flex flex-col items-center justify-center">
+                <span className="text-[8px] text-white/40 font-mono">MOBILE LOAD</span>
+                <span className="text-lg font-bold text-white mt-1 font-mono">1.1s</span>
+                <span className="text-[8px] text-white/50 block mt-0.5 font-sans">Edge Network</span>
+              </div>
+              <div className="bg-black/50 border border-white/[0.04] p-2.5 rounded-xl text-center flex flex-col items-center justify-center">
+                <span className="text-[8px] text-white/40 font-mono">BOUNCE RATE</span>
+                <span className="text-lg font-bold text-white mt-1 font-mono">-42%</span>
+                <span className="text-[8px] text-emerald-500 font-bold block mt-0.5 font-sans">Better Retention</span>
+              </div>
+            </div>
+
+            <div className="w-full bg-black/60 rounded-lg p-3 border border-white/5 relative overflow-hidden h-24">
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.4 }}
+                className="flex flex-col gap-2 h-full justify-between"
+              >
+                <div className="w-2/3 h-3 bg-white/10 rounded" />
+                <div className="w-full h-8 bg-white/[0.04] rounded flex items-center justify-between px-2 text-[9px] text-white/40">
+                  <span>Product Layout Loaded...</span>
+                  <span className="text-emerald-500 font-bold">100% SECURE</span>
+                </div>
+                <div className="flex gap-2">
+                  <div className="w-1/3 h-3 bg-white/10 rounded" />
+                  <div className="w-1/4 h-3 bg-white/10 rounded" />
+                </div>
+              </motion.div>
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center gap-1.5 bg-black/80 px-3 py-1.5 rounded-full border border-emerald-500/30 text-emerald-400 font-mono text-[9px] font-bold shadow-lg">
+                <Zap className="w-3.5 h-3.5 text-emerald-400 animate-bounce" />
+                INSTANT RENDERING ACTIVE
+              </div>
+            </div>
+          </div>
+        );
+      case 2: // TRUST
+        return (
+          <div className="w-full max-w-sm grid grid-cols-2 gap-4 font-mono text-left">
+            <div className="bg-black/40 border border-emerald-500/20 p-4 rounded-2xl flex flex-col gap-3 shadow-lg">
+              <div className="w-8 h-8 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
+                <Award className="w-4 h-4" />
+              </div>
+              <div>
+                <h4 className="text-[11px] text-white font-bold">MSME Registered</h4>
+                <p className="text-[9px] text-white/40 mt-1 leading-relaxed font-sans">Official Government MSME verified dev partner setup.</p>
+              </div>
+            </div>
+            <div className="bg-black/40 border border-white/[0.08] p-4 rounded-2xl flex flex-col gap-3 shadow-lg">
+              <div className="w-8 h-8 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center text-primary">
+                <Star className="w-4 h-4 fill-primary" />
+              </div>
+              <div>
+                <h4 className="text-[11px] text-white font-bold">5.0 Star Reviews</h4>
+                <p className="text-[9px] text-white/40 mt-1 leading-relaxed font-sans">100% verified customer feedbacks and proof logs.</p>
+              </div>
+            </div>
+            <div className="bg-black/40 border border-white/[0.08] p-4 rounded-2xl flex flex-col gap-3 shadow-lg">
+              <div className="w-8 h-8 rounded-full bg-[#1e40af]/20 border border-[#1e40af]/30 flex items-center justify-center text-[#60a5fa]">
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </div>
+              <div>
+                <h4 className="text-[11px] text-white font-bold">SSL Secured Link</h4>
+                <p className="text-[9px] text-white/40 mt-1 leading-relaxed font-sans">256-bit encryption on checkout pathways.</p>
+              </div>
+            </div>
+            <div className="bg-black/40 border border-white/[0.08] p-4 rounded-2xl flex flex-col gap-3 shadow-lg">
+              <div className="w-8 h-8 rounded-full bg-[#065f46]/20 border border-[#065f46]/30 flex items-center justify-center text-emerald-400">
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                </svg>
+              </div>
+              <div>
+                <h4 className="text-[11px] text-white font-bold">Secure Gateways</h4>
+                <p className="text-[9px] text-white/40 mt-1 leading-relaxed font-sans">Stripe, Razorpay, and direct secure bank hooks.</p>
+              </div>
+            </div>
+          </div>
+        );
+      case 3: // SHOPPING EXPERIENCE
+        return (
+          <div className="w-full max-w-[280px] bg-black/80 border border-white/10 rounded-[32px] overflow-hidden shadow-2xl relative p-4 flex flex-col gap-3 font-sans text-left">
+            <div className="w-24 h-4 bg-black/60 rounded-full mx-auto border border-white/5 absolute top-1.5 left-1/2 -translate-x-1/2 z-30" />
+            <div className="pt-4 flex flex-col gap-3 relative h-80 overflow-y-auto scrollbar-none text-[11px]">
+              <div className="w-full aspect-[4/3] rounded-xl bg-white/5 overflow-hidden relative">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                <span className="absolute bottom-2.5 left-2.5 text-[9px] bg-primary/20 text-primary border border-primary/20 px-1.5 py-0.5 rounded font-mono uppercase">Featured Product</span>
+              </div>
+              <div>
+                <div className="flex justify-between items-center">
+                  <h4 className="font-bold text-white text-xs">Aumtea Wellness Pack</h4>
+                  <span className="font-bold text-primary font-mono">₹1,499</span>
+                </div>
+                <div className="flex gap-1 mt-1">
+                  {[1, 2, 3, 4, 5].map((s) => <Star key={s} className="w-2.5 h-2.5 fill-amber-500 text-amber-500" />)}
+                  <span className="text-[9px] text-white/40 ml-1 font-sans">(48 reviews)</span>
+                </div>
+              </div>
+              <div className="flex flex-col gap-1.5">
+                <span className="text-[9px] text-white/40 font-mono uppercase">Select Quantity</span>
+                <div className="flex gap-1.5">
+                  {["1 Pack", "2 Packs (Save 10%)", "3 Packs (Save 20%)"].map((q, i) => (
+                    <div key={i} className={`px-2 py-1 rounded text-[9px] border transition-all text-center flex-grow cursor-pointer ${
+                      i === 1 ? "border-primary bg-primary/10 text-primary font-bold" : "border-white/10 text-white/60 bg-white/[0.02]"
+                    }`}>
+                      {q}
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="mt-auto border-t border-white/5 pt-3">
+                <motion.button
+                  animate={{ scale: [1, 1.02, 1] }}
+                  transition={{ repeat: Infinity, duration: 2 }}
+                  className="w-full py-2.5 rounded-xl bg-primary text-black font-bold uppercase tracking-wider text-[10px] text-center shadow-lg shadow-primary/15 flex items-center justify-center gap-1.5 cursor-pointer"
+                >
+                  <ShoppingBag className="w-3.5 h-3.5" />
+                  <span>Add to Cart Drawer</span>
+                </motion.button>
+              </div>
+            </div>
+          </div>
+        );
+      case 4: // CONVERSION BOOSTERS
+        return (
+          <div className="w-full max-w-sm bg-black/60 border border-white/10 rounded-2xl p-4 text-left font-mono text-[11px] flex flex-col gap-4 shadow-xl">
+            <div className="bg-black/40 border border-white/5 p-3 rounded-xl flex flex-col gap-2">
+              <div className="flex justify-between items-center text-[10px] text-white/60 font-sans">
+                <span>Free Shipping Goal</span>
+                <span className="text-primary font-bold">₹500 away!</span>
+              </div>
+              <div className="w-full h-1.5 bg-white/5 rounded-full overflow-hidden">
+                <div className="h-full bg-primary rounded-full transition-all duration-1000" style={{ width: "75%" }} />
+              </div>
+            </div>
+
+            <div className="bg-black/40 border border-emerald-500/20 p-3 rounded-xl flex flex-col gap-2.5">
+              <span className="text-[9px] text-emerald-400 font-bold block uppercase tracking-wider">BUNDLE & SAVE DEALS</span>
+              <div className="flex items-center justify-between">
+                <div>
+                  <h4 className="text-white font-bold">Frequently Bought Together</h4>
+                  <p className="text-[9px] text-white/40 mt-0.5 font-sans">Add tea mug & infuser toolbox to save 15%</p>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <span className="text-white/40 line-through">₹2,100</span>
+                  <span className="text-primary font-bold text-xs">₹1,785</span>
+                </div>
+              </div>
+              <button className="w-full py-2 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-bold text-[9px] uppercase hover:bg-emerald-500/20 transition-all cursor-pointer">
+                + Add Bundle (Save ₹315)
+              </button>
+            </div>
+
+            <div className="bg-black/40 border border-white/5 p-3 rounded-xl flex flex-col gap-2">
+              <span className="text-[9px] text-white/40 tracking-wider font-bold">EXPRESS CHECKOUT</span>
+              <div className="flex gap-2">
+                <div className="flex-1 py-2 rounded-lg bg-[#5A31F4]/10 border border-[#5A31F4]/20 text-[#9B7EF9] text-center font-bold text-[10px] uppercase">Stripe Pay</div>
+                <div className="flex-1 py-2 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-center font-bold text-[10px] uppercase">Razorpay UPI</div>
+              </div>
+            </div>
+          </div>
+        );
+      case 5: // PURCHASE
+        return (
+          <div className="w-full max-w-sm bg-black/40 border border-white/10 rounded-2xl p-6 text-center font-mono text-[11px] flex flex-col items-center justify-center gap-4 shadow-xl">
+            <motion.div
+              initial={{ scale: 0.5, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ type: "spring", stiffness: 100, delay: 0.1 }}
+              className="w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 shadow-[0_0_30px_rgba(16,185,129,0.15)]"
+            >
+              <CheckCircle2 className="w-8 h-8" />
+            </motion.div>
+
+            <div>
+              <h3 className="text-white text-sm font-bold tracking-tight">ORDER COMPLETED SUCCESSFULLY</h3>
+              <p className="text-white/40 text-[9px] mt-1 font-sans">Thank you! Your order ID #SPX-9824 has been verified.</p>
+            </div>
+
+            <div className="w-full bg-black/60 rounded-xl p-3 border border-white/5 flex flex-col gap-2 text-left">
+              <div className="flex justify-between items-center text-[10px] border-b border-white/5 pb-2">
+                <span className="text-white/60">SUBTOTAL</span>
+                <span className="text-white font-bold">₹1,785</span>
+              </div>
+              <div className="flex justify-between items-center text-[10px] border-b border-white/5 pb-2">
+                <span className="text-white/60">SHIPPING</span>
+                <span className="text-emerald-500 font-bold">FREE SHIPPING</span>
+              </div>
+              <div className="flex justify-between items-center text-[10px]">
+                <span className="text-white/60">GATEWAY SPEED</span>
+                <span className="text-primary font-bold">0.9s SECURE</span>
+              </div>
+            </div>
+            <span className="text-[8px] bg-primary/10 border border-primary/20 text-primary px-2.5 py-0.5 rounded-full font-bold uppercase tracking-widest">GA4 Purchase Pixel Fired</span>
+          </div>
+        );
+      case 6: // RETENTION
+        return (
+          <div className="w-full max-w-sm flex flex-col gap-4 font-mono text-left text-[11px]">
+            <div className="bg-[#121212] border border-white/10 rounded-2xl p-4 flex flex-col gap-3 shadow-xl relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-24 h-24 bg-primary/[0.02] rounded-full blur-2xl" />
+              <div className="flex items-center gap-2 border-b border-white/5 pb-3">
+                <div className="w-6 h-6 rounded-full bg-emerald-600 flex items-center justify-center font-bold text-white text-[10px]">WA</div>
+                <div>
+                  <h4 className="text-white font-bold">WhatsApp Automation</h4>
+                  <span className="text-[8px] text-white/30 block mt-0.5 font-sans">Delivered just now</span>
+                </div>
+              </div>
+              <div className="bg-[#0b141a] p-3 rounded-lg border border-emerald-500/10 text-white/80 leading-relaxed font-sans text-xs">
+                "Hi Rahul! Your package containing Aumtea Wellness Pack has been secured and shipped via Delhivery. 📦 Track your shipment: <span className="text-emerald-500 underline cursor-pointer">salepxl.com/track/SPX-9824</span>"
+              </div>
+            </div>
+
+            <div className="bg-[#121212] border border-white/10 rounded-2xl p-4 flex flex-col gap-3 shadow-xl">
+              <div className="flex items-center justify-between text-[10px] font-sans">
+                <span className="text-white/60">Email Marketing Hook</span>
+                <span className="text-primary font-bold">Drip Active</span>
+              </div>
+              <div className="bg-black/60 p-3 rounded-lg border border-white/5">
+                <span className="text-[9px] text-white/40 block">SUBJECT</span>
+                <span className="text-white font-bold mt-0.5 font-sans">Thanks for ordering! Here is 10% off your next wellness box.</span>
+                <div className="mt-2.5 py-1 px-3 bg-white/5 border border-dashed border-white/20 text-center text-white text-xs font-bold rounded">
+                  LOYALTY-SPX10
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      case 7: // SCALE
+        return (
+          <div className="w-full max-w-sm bg-black/40 border border-white/10 rounded-2xl p-6 text-left font-mono text-[11px] flex flex-col gap-4 shadow-xl">
+            <div className="flex justify-between items-center">
+              <div>
+                <span className="text-[9px] text-white/40 tracking-wider">PROJECTED ROI LIFT</span>
+                <h4 className="text-xl font-bold text-white font-grotesk mt-0.5">Scale Stage Active</h4>
+              </div>
+              <div className="px-3 py-1 rounded bg-primary/10 border border-primary/20 text-primary font-bold text-[10px]">
+                3.8x ROAS
+              </div>
+            </div>
+
+            <div className="w-full h-32 bg-black/60 rounded-xl border border-white/5 overflow-hidden flex items-end p-2 relative">
+              <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 50">
+                <path d="M0 45 Q 25 40, 50 25 T 100 5" fill="none" stroke="#22E39A" strokeWidth="2" strokeLinecap="round" />
+                <path d="M0 45 Q 25 40, 50 25 T 100 5 L 100 50 L 0 50 Z" fill="url(#scale-grad)" />
+                <defs>
+                  <linearGradient id="scale-grad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="#22E39A" stopOpacity="0.15" />
+                    <stop offset="100%" stopColor="#22E39A" stopOpacity="0.0" />
+                  </linearGradient>
+                </defs>
+              </svg>
+              <div className="absolute left-[25%] bottom-[20%] w-2 h-2 rounded-full bg-primary shadow-lg" />
+              <div className="absolute left-[50%] bottom-[50%] w-2 h-2 rounded-full bg-primary shadow-lg" />
+              <div className="absolute right-[5%] top-[10%] w-2.5 h-2.5 rounded-full bg-primary shadow-[0_0_10px_#22E39A] animate-ping" />
+              
+              <div className="absolute top-2 left-2 text-[9px] text-white/40">₹1.5Cr/mo</div>
+              <div className="absolute bottom-2 right-2 text-[9px] text-white/40">Growth Year 1</div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-2 text-center text-[10px]">
+              <div className="bg-black/60 p-2.5 rounded border border-white/5">
+                <span className="text-white/40 block font-sans">AOV LIFT</span>
+                <span className="text-emerald-500 font-bold text-xs mt-1 block">+38.4%</span>
+              </div>
+              <div className="bg-black/60 p-2.5 rounded border border-white/5">
+                <span className="text-white/40 block font-sans">RETURNING RATE</span>
+                <span className="text-emerald-500 font-bold text-xs mt-1 block">42.8%</span>
+              </div>
+            </div>
+          </div>
+        );
+      default:
+        return null;
+    }
+  };
 
   // Process Timeline States
   const [activeProcessStep, setActiveProcessStep] = useState(0);
@@ -786,24 +1220,6 @@ export default function HomePage() {
     payment: false,
     pixels: false
   });
-
-  const simulateGrowthFlow = () => {
-    setActivatedGrowthCards([0]);
-    setActiveGrowthCard(0);
-    let step = 0;
-    const interval = setInterval(() => {
-      step++;
-      if (step < 4) {
-        setActiveGrowthCard(step);
-        setActivatedGrowthCards(prev => {
-          if (!prev.includes(step)) return [...prev, step];
-          return prev;
-        });
-      } else {
-        clearInterval(interval);
-      }
-    }, 1000);
-  };
 
   const scrollRef = useRef<HTMLDivElement>(null);
   const isHoveringRef = useRef(false);
@@ -1335,378 +1751,149 @@ export default function HomePage() {
               We build Shopify stores that do more than look great—they convert. Every page is strategically designed for speed, user experience, and higher conversions. From intuitive navigation and mobile-first design to optimized product pages, checkout flows, and essential app integrations, every element is crafted to increase sales, maximize revenue, and support long-term business growth.
             </p>
 
-            <div className="flex flex-wrap gap-4 mt-2">
-              <button 
-                onClick={simulateGrowthFlow}
-                className="btn-primary px-6 h-10 text-xs rounded-full text-black font-semibold flex items-center gap-2 cursor-pointer shadow-md hover:scale-[1.02] transition-all"
-              >
-                <span>Simulate Full Growth Flow</span>
-                <span className="w-1.5 h-1.5 rounded-full bg-black animate-ping" />
-              </button>
-              {activatedGrowthCards.length > 1 && (
-                <button 
-                  onClick={() => setActivatedGrowthCards([0])}
-                  className="btn-secondary px-5 h-10 text-xs rounded-full text-white/70 border border-white/10 hover:text-white cursor-pointer hover:bg-white/5 transition-all"
-                >
-                  Reset Flow
-                </button>
-              )}
-            </div>
           </div>
 
-          {/* Interactive Storytelling Layout */}
+          {/* Interactive Funnel Pipeline Layout */}
           <div className="relative w-full z-20">
-            
-            {/* SVG Connecting Flow Lines (Desktop Only) */}
-            <div className="hidden lg:block absolute inset-0 pointer-events-none z-10">
-              <svg className="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
-                {/* Card 1 to Center */}
-                <path
-                  d="M 32% 25% C 36% 25%, 36% 40%, 40% 40%"
-                  stroke={activeGrowthCard === 0 ? "#22E39A" : "rgba(255,255,255,0.06)"}
-                  strokeWidth="2"
-                  className="transition-colors duration-500"
-                />
-                {activeGrowthCard === 0 && (
-                  <path
-                    d="M 32% 25% C 36% 25%, 36% 40%, 40% 40%"
-                    stroke="#22E39A"
-                    strokeWidth="3"
-                    strokeDasharray="8 6"
-                    className="particle-glow-path"
-                  />
-                )}
-
-                {/* Card 2 to Center */}
-                <path
-                  d="M 32% 75% C 36% 75%, 36% 60%, 40% 60%"
-                  stroke={activeGrowthCard === 1 ? "#22E39A" : "rgba(255,255,255,0.06)"}
-                  strokeWidth="2"
-                  className="transition-colors duration-500"
-                />
-                {activeGrowthCard === 1 && (
-                  <path
-                    d="M 32% 75% C 36% 75%, 36% 60%, 40% 60%"
-                    stroke="#22E39A"
-                    strokeWidth="3"
-                    strokeDasharray="8 6"
-                    className="particle-glow-path"
-                  />
-                )}
-
-                {/* Card 3 to Center */}
-                <path
-                  d="M 68% 25% C 64% 25%, 64% 40%, 60% 40%"
-                  stroke={activeGrowthCard === 2 ? "#22E39A" : "rgba(255,255,255,0.06)"}
-                  strokeWidth="2"
-                  className="transition-colors duration-500"
-                />
-                {activeGrowthCard === 2 && (
-                  <path
-                    d="M 68% 25% C 64% 25%, 64% 40%, 60% 40%"
-                    stroke="#22E39A"
-                    strokeWidth="3"
-                    strokeDasharray="8 6"
-                    className="particle-glow-path"
-                  />
-                )}
-
-                {/* Card 4 to Center */}
-                <path
-                  d="M 68% 75% C 64% 75%, 64% 60%, 60% 60%"
-                  stroke={activeGrowthCard === 3 ? "#22E39A" : "rgba(255,255,255,0.06)"}
-                  strokeWidth="2"
-                  className="transition-colors duration-500"
-                />
-                {activeGrowthCard === 3 && (
-                  <path
-                    d="M 68% 75% C 64% 75%, 64% 60%, 60% 60%"
-                    stroke="#22E39A"
-                    strokeWidth="3"
-                    strokeDasharray="8 6"
-                    className="particle-glow-path"
-                  />
-                )}
-              </svg>
-            </div>
-
-            {/* Symmetrical 3-Column Grid */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch relative z-20">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch relative">
               
-              {/* Left Column: Cards 1 & 2 */}
-              <div className="lg:col-span-4 flex flex-col gap-8 justify-between">
-                
-                {/* 01. Traffic Card */}
-                <motion.div
-                  onMouseEnter={() => {
-                    setActiveGrowthCard(0);
-                    if (!activatedGrowthCards.includes(0)) setActivatedGrowthCards(p => [...p, 0]);
-                  }}
-                  className={`flex flex-col justify-between bg-black/40 backdrop-blur-md border rounded-[24px] p-8 transition-all duration-500 min-h-[260px] cursor-pointer select-none ${
-                    activeGrowthCard === 0 ? "border-primary/40 shadow-[0_15px_30px_rgba(34,227,154,0.05)] scale-[1.01]" : "border-white/[0.08] hover:border-white/20"
-                  }`}
-                >
-                  <div>
-                    <div className="flex items-center justify-between mb-4">
-                      <span className="font-mono text-2xl font-extralight text-white/20">01</span>
-                      <div className={`w-10 h-10 rounded-xl flex items-center justify-center border transition-all ${
-                        activeGrowthCard === 0 ? "bg-primary/10 border-primary/20 text-primary" : "bg-white/[0.02] border-white/5 text-white/50"
-                      }`}>
-                        <TrendingUp className="w-5 h-5" />
+              {/* Left Column: Funnel Timeline Pipeline */}
+              <div className="lg:col-span-5 flex flex-col gap-4">
+                {FUNNEL_STEPS.map((step, idx) => {
+                  const isActive = activeFunnelStep === idx;
+                  const isCompleted = activeFunnelStep > idx;
+                  return (
+                    <div
+                      key={idx}
+                      onClick={() => setActiveFunnelStep(idx)}
+                      className={`group relative flex gap-5 p-5 rounded-2xl border transition-all duration-300 cursor-pointer select-none ${
+                        isActive 
+                          ? "bg-white/[0.04] border-primary/30 shadow-[0_8px_30px_rgba(34,227,154,0.03)]" 
+                          : "bg-transparent border-white/[0.04] hover:border-white/10"
+                      }`}
+                    >
+                      {/* Glowing vertical line connecting nodes */}
+                      {idx < FUNNEL_STEPS.length - 1 && (
+                        <div className="absolute left-[30px] sm:left-[34px] top-[48px] sm:top-[54px] bottom-[-24px] w-[2px] bg-white/[0.06] pointer-events-none">
+                          <div 
+                            className="w-full bg-primary transition-all duration-500 origin-top"
+                            style={{ 
+                              height: isCompleted ? "100%" : isActive ? "50%" : "0%",
+                            }}
+                          />
+                        </div>
+                      )}
+
+                      {/* Step Icon Node */}
+                      <div className="relative flex-shrink-0">
+                        <div className={`w-[28px] h-[28px] sm:w-[36px] sm:h-[36px] rounded-full flex items-center justify-center border font-mono text-[10px] sm:text-xs font-bold transition-all duration-300 ${
+                          isActive 
+                            ? "bg-primary text-black border-primary shadow-[0_0_15px_rgba(34,227,154,0.4)]" 
+                            : isCompleted 
+                              ? "bg-primary/10 text-primary border-primary/30" 
+                              : "bg-white/[0.02] text-white/30 border-white/10"
+                        }`}>
+                          {step.num}
+                        </div>
+                      </div>
+
+                      {/* Step Content */}
+                      <div className="flex-grow text-left">
+                        <h4 className={`text-sm sm:text-base font-semibold transition-colors duration-300 ${isActive ? "text-primary" : "text-white"}`}>
+                          {step.title}
+                        </h4>
+                        {isActive && (
+                          <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto" }}
+                            transition={{ duration: 0.3 }}
+                            className="mt-2 overflow-hidden"
+                          >
+                            <p className="text-xs text-white/60 leading-relaxed font-light font-sans">
+                              {step.desc}
+                            </p>
+                            <div className="flex flex-wrap gap-1.5 mt-3">
+                              {step.sources.map((src, i) => (
+                                <span key={i} className="text-[9px] font-mono font-medium px-2 py-0.5 rounded-full border border-white/[0.08] bg-white/[0.03] text-white/70">
+                                  {src}
+                                </span>
+                              ))}
+                            </div>
+                          </motion.div>
+                        )}
                       </div>
                     </div>
-                    <h3 className={`text-xl font-light tracking-tight transition-colors duration-300 ${activeGrowthCard === 0 ? "text-primary font-normal" : "text-white"}`}>
-                      Traffic
-                    </h3>
-                    <p className="text-sm text-white/60 font-light mt-3 leading-relaxed">
-                      Sales begin with qualified visitors. We help you attract high-intent customers through both Paid Marketing and Organic Growth strategies.
-                    </p>
-                  </div>
-
-                  <TrafficParticles active={activeGrowthCard === 0} />
-
-                  <div className="border-t border-white/[0.05] pt-4 mt-6">
-                    <ul className="grid grid-cols-2 gap-2 text-xs text-white/70 font-light">
-                      {["Meta Ads", "Google Ads", "SEO", "Social Media", "Organic Traffic", "High Intent Visitors"].map((h, i) => (
-                        <li key={i} className="flex items-center gap-1.5">
-                          <span className="w-1 h-1 rounded-full bg-primary/80" />
-                          <span>{h}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </motion.div>
-
-                {/* 02. Trust Card */}
-                <motion.div
-                  onMouseEnter={() => {
-                    setActiveGrowthCard(1);
-                    if (!activatedGrowthCards.includes(1)) setActivatedGrowthCards(p => [...p, 1]);
-                  }}
-                  className={`flex flex-col justify-between bg-black/40 backdrop-blur-md border rounded-[24px] p-8 transition-all duration-500 min-h-[260px] cursor-pointer select-none ${
-                    activeGrowthCard === 1 ? "border-primary/40 shadow-[0_15px_30px_rgba(34,227,154,0.05)] scale-[1.01]" : "border-white/[0.08] hover:border-white/20"
-                  }`}
-                >
-                  <div>
-                    <div className="flex items-center justify-between mb-4">
-                      <span className="font-mono text-2xl font-extralight text-white/20">02</span>
-                      <div className={`w-10 h-10 rounded-xl flex items-center justify-center border transition-all ${
-                        activeGrowthCard === 1 ? "bg-primary/10 border-primary/20 text-primary" : "bg-white/[0.02] border-white/5 text-white/50"
-                      }`}>
-                        <Award className="w-5 h-5" />
-                      </div>
-                    </div>
-                    <h3 className={`text-xl font-light tracking-tight transition-colors duration-300 ${activeGrowthCard === 1 ? "text-primary font-normal" : "text-white"}`}>
-                      Build Trust
-                    </h3>
-                    <p className="text-sm text-white/60 font-light mt-3 leading-relaxed">
-                      Your website is your digital storefront. A premium design instantly builds credibility and gives customers the confidence to purchase.
-                    </p>
-                  </div>
-
-                  <TrustMeter active={activeGrowthCard === 1} />
-
-                  <div className="border-t border-white/[0.05] pt-4 mt-6">
-                    <ul className="grid grid-cols-2 gap-2 text-xs text-white/70 font-light">
-                      {["Premium UI Design", "Professional Branding", "Product Presentation", "Social Proof", "Reviews", "Secure Checkout"].map((h, i) => (
-                        <li key={i} className="flex items-center gap-1.5">
-                          <span className="w-1 h-1 rounded-full bg-primary/80" />
-                          <span>{h}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </motion.div>
-
+                  );
+                })}
               </div>
 
-              {/* Center Column: The Visual Outcome Dashboard */}
-              <div className="lg:col-span-4 flex flex-col justify-between">
-                <div className="relative w-full h-full bg-gradient-to-br from-[#0c0c0c] to-[#040404] border border-white/[0.08] rounded-[24px] p-6 sm:p-8 flex flex-col justify-between overflow-hidden shadow-2xl relative select-none">
-                  {/* Subtle glowing overlay behind center card */}
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(34,227,154,0.06),transparent_70%)] pointer-events-none" />
+              {/* Right Column: Visual Preview Panel */}
+              <div className="lg:col-span-7 flex flex-col justify-stretch">
+                <div className="relative w-full min-h-[480px] lg:h-full bg-gradient-to-br from-[#0c0c0c] to-[#040404] border border-white/[0.08] rounded-[24px] p-6 sm:p-8 flex flex-col justify-between overflow-hidden shadow-2xl relative select-none">
+                  
+                  {/* Glowing ambient backing gradient */}
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(34,227,154,0.04),transparent_70%)] pointer-events-none" />
 
-                  {/* Logo Center */}
-                  <div className="text-center mt-4 relative z-20">
-                    <div className="relative w-20 h-20 rounded-full bg-black/40 border border-white/[0.08] flex items-center justify-center shadow-[0_0_40px_rgba(34,227,154,0.1)] mx-auto">
-                      <div className="absolute inset-0 bg-primary/5 rounded-full animate-ping pointer-events-none" />
-                      <svg viewBox="0 0 24 24" className="w-10 h-10 text-primary" fill="currentColor">
-                        <path d="M19.58 7.37L12.35 1.15a1 1 0 00-1.34 0L3.78 7.37a1 1 0 00-.31.73v9.64a1 1 0 00.31.73l7.23 6.22a1 1 0 001.34 0l7.23-6.22a1 1 0 00.31-.73V8.1a1 1 0 00-.31-.73zM12 3l6.5 5.58L12 14.16 5.5 8.58 12 3zm6.5 13.82l-6.5 5.58-6.5-5.58V9.75l6.5 5.58 6.5-5.58v7.07z" />
-                      </svg>
+                  {/* Dashboard Header */}
+                  <div className="flex justify-between items-center border-b border-white/[0.05] pb-4 relative z-20">
+                    <div className="text-left font-sans">
+                      <span className="text-[9px] text-white/40 font-mono tracking-widest block uppercase">LIVE PREVIEW SIMULATOR</span>
+                      <h3 className="text-white font-grotesk text-lg font-light mt-0.5">
+                        {FUNNEL_STEPS[activeFunnelStep].subtitle}
+                      </h3>
                     </div>
-                    <span className="text-[10px] text-white/40 font-mono tracking-widest block mt-4 uppercase">HIGH CONVERTING ENGINE</span>
-                    <h4 className="text-white font-grotesk text-lg font-light mt-1">Shopify Store Core</h4>
+                    <span className="text-[10px] font-mono font-bold px-2 py-1 rounded bg-primary/10 border border-primary/20 text-primary uppercase">
+                      STAGE {FUNNEL_STEPS[activeFunnelStep].num} / 08
+                    </span>
                   </div>
 
-                  {/* Dynamic Metric Cloud */}
-                  <div className="my-6 relative z-20">
-                    {activatedGrowthCards.length === 4 ? (
-                      <div className="flex flex-col gap-4">
-                        {/* Achievements Grid */}
-                        <div className="grid grid-cols-2 gap-x-2 gap-y-1.5 text-[11px] text-white/90 font-mono border-b border-white/5 pb-3">
-                          <div className="flex items-center gap-1"><span className="text-primary font-bold">✓</span> Conversion Up</div>
-                          <div className="flex items-center gap-1"><span className="text-primary font-bold">✓</span> More Sales</div>
-                          <div className="flex items-center gap-1"><span className="text-primary font-bold">✓</span> Fast Growth</div>
-                          <div className="flex items-center gap-1"><span className="text-primary font-bold">✓</span> Max Retention</div>
-                        </div>
-
-                        {/* Floating Metrics Cloud */}
-                        <div className="flex flex-wrap gap-1.5 justify-center">
-                          {[
-                            "↑ Conversion Rate",
-                            "↑ ROAS",
-                            "↑ Revenue",
-                            "↑ Average Order Value",
-                            "↑ Returning Customers"
-                          ].map((metric, i) => (
-                            <motion.span
-                              key={i}
-                              initial={{ opacity: 0, scale: 0.8 }}
-                              animate={{ opacity: 1, scale: 1 }}
-                              transition={{ duration: 0.3, delay: i * 0.08 }}
-                              className="text-[9px] font-mono font-bold px-2 py-0.5 rounded-full border border-primary/20 bg-primary/10 text-primary"
-                            >
-                              {metric}
-                            </motion.span>
-                          ))}
-                        </div>
-                      </div>
-                    ) : (
-                      <div className="flex flex-col items-center justify-center p-6 border border-dashed border-white/10 rounded-xl bg-black/20 text-center min-h-[110px]">
-                        <span className="text-xs text-white/40 leading-relaxed font-light">
-                          Hover over the surrounding elements to unlock full growth diagnostics
-                        </span>
-                        <div className="mt-3 flex items-center gap-1.5">
-                          {[0, 1, 2, 3].map((step) => {
-                            const done = activatedGrowthCards.includes(step);
-                            return (
-                              <div 
-                                key={step} 
-                                className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                                  done ? "bg-primary scale-110 shadow-[0_0_8px_rgba(34,227,154,0.8)]" : "bg-white/10"
-                                }`} 
-                              />
-                            );
-                          })}
-                        </div>
-                      </div>
-                    )}
+                  {/* Main Dynamic Viewport */}
+                  <div className="flex-grow flex items-center justify-center py-8 relative z-20 overflow-hidden min-h-[280px]">
+                    <AnimatePresence mode="wait">
+                      <motion.div
+                        key={activeFunnelStep}
+                        initial={{ opacity: 0, y: 15 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -15 }}
+                        transition={{ duration: 0.35 }}
+                        className="w-full flex justify-center items-center"
+                      >
+                        {renderFunnelPreview(activeFunnelStep)}
+                      </motion.div>
+                    </AnimatePresence>
                   </div>
 
-                  {/* Revenue Graph widget */}
-                  <div className="relative z-20">
-                    <div className="flex justify-between items-end text-[10px] text-white/40 font-mono">
-                      <span>LTM Revenue Graph</span>
-                      <span className={activatedGrowthCards.length === 4 ? "text-primary" : ""}>
-                        {activatedGrowthCards.length === 4 ? "PEAK REVENUE" : `STAGE ${activatedGrowthCards.length}/4`}
-                      </span>
+                  {/* Controller Action Bar at the Bottom */}
+                  <div className="border-t border-white/[0.05] pt-4 mt-4 flex items-center justify-between relative z-20">
+                    <div className="flex items-center gap-1.5">
+                      {Array.from({ length: 8 }).map((_, i) => (
+                        <div
+                          key={i}
+                          onClick={() => setActiveFunnelStep(i)}
+                          className={`w-2 h-2 rounded-full cursor-pointer transition-all duration-300 ${
+                            activeFunnelStep === i 
+                              ? "bg-primary scale-125 shadow-[0_0_8px_rgba(34,227,154,0.8)]" 
+                              : "bg-white/10 hover:bg-white/30"
+                          }`}
+                        />
+                      ))}
                     </div>
-                    <RevenueGraph activeCount={activatedGrowthCards.length} />
+
+                    <div className="flex items-center gap-2">
+                      <button
+                        onClick={simulateFunnel}
+                        className="btn-primary text-[10px] font-bold uppercase tracking-wider px-4 py-2 rounded-full text-black bg-white flex items-center gap-1.5 cursor-pointer shadow-sm hover:scale-[1.02] transition-all font-sans"
+                      >
+                        <span>{isSimulating ? "Simulating..." : "Auto Run"}</span>
+                        <span className={`w-1.5 h-1.5 rounded-full bg-black ${isSimulating ? "animate-ping" : "animate-pulse"}`} />
+                      </button>
+                    </div>
                   </div>
 
-                  {/* Glowing Statement */}
-                  {activatedGrowthCards.length === 4 && (
-                    <motion.p
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5 }}
-                      className="text-[11px] sm:text-xs text-center text-white/80 leading-relaxed pt-4 border-t border-white/5 mt-4 font-light italic relative z-20"
-                    >
-                      "When <span className="text-primary font-semibold">Traffic</span>, <span className="text-primary font-semibold">Trust</span>, <span className="text-primary font-semibold">Customer Experience</span>, and <span className="text-primary font-semibold">Performance</span> work together, <span className="light-gradient-text font-semibold uppercase tracking-wider">Sales become the natural outcome</span>."
-                    </motion.p>
-                  )}
                 </div>
               </div>
 
-              {/* Right Column: Cards 3 & 4 */}
-              <div className="lg:col-span-4 flex flex-col gap-8 justify-between">
-                
-                {/* 03. Customer Experience Card */}
-                <motion.div
-                  onMouseEnter={() => {
-                    setActiveGrowthCard(2);
-                    if (!activatedGrowthCards.includes(2)) setActivatedGrowthCards(p => [...p, 2]);
-                  }}
-                  className={`flex flex-col justify-between bg-black/40 backdrop-blur-md border rounded-[24px] p-8 transition-all duration-500 min-h-[260px] cursor-pointer select-none ${
-                    activeGrowthCard === 2 ? "border-primary/40 shadow-[0_15px_30px_rgba(34,227,154,0.05)] scale-[1.01]" : "border-white/[0.08] hover:border-white/20"
-                  }`}
-                >
-                  <div>
-                    <div className="flex items-center justify-between mb-4">
-                      <span className="font-mono text-2xl font-extralight text-white/20">03</span>
-                      <div className={`w-10 h-10 rounded-xl flex items-center justify-center border transition-all ${
-                        activeGrowthCard === 2 ? "bg-primary/10 border-primary/20 text-primary" : "bg-white/[0.02] border-white/5 text-white/50"
-                      }`}>
-                        <Smartphone className="w-5 h-5" />
-                      </div>
-                    </div>
-                    <h3 className={`text-xl font-light tracking-tight transition-colors duration-300 ${activeGrowthCard === 2 ? "text-primary font-normal" : "text-white"}`}>
-                      Customer Experience
-                    </h3>
-                    <p className="text-sm text-white/60 font-light mt-3 leading-relaxed">
-                      Every interaction matters. We create intuitive shopping experiences that make browsing effortless and purchasing seamless.
-                    </p>
-                  </div>
-
-                  <UserJourneyMockup active={activeGrowthCard === 2} />
-
-                  <div className="border-t border-white/[0.05] pt-4 mt-6">
-                    <ul className="grid grid-cols-2 gap-2 text-xs text-white/70 font-light">
-                      {["Easy Navigation", "Mobile Responsive", "Interactive Design", "Smart Product Discovery", "Smooth Checkout", "Conversion-Focused UX"].map((h, i) => (
-                        <li key={i} className="flex items-center gap-1.5">
-                          <span className="w-1.5 h-1.5 rounded-full bg-primary/80 shrink-0" />
-                          <span className="truncate" title={h}>{h}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </motion.div>
-
-                {/* 04. Performance Card */}
-                <motion.div
-                  onMouseEnter={() => {
-                    setActiveGrowthCard(3);
-                    if (!activatedGrowthCards.includes(3)) setActivatedGrowthCards(p => [...p, 3]);
-                  }}
-                  className={`flex flex-col justify-between bg-black/40 backdrop-blur-md border rounded-[24px] p-8 transition-all duration-500 min-h-[260px] cursor-pointer select-none ${
-                    activeGrowthCard === 3 ? "border-primary/40 shadow-[0_15px_30px_rgba(34,227,154,0.05)] scale-[1.01]" : "border-white/[0.08] hover:border-white/20"
-                  }`}
-                >
-                  <div>
-                    <div className="flex items-center justify-between mb-4">
-                      <span className="font-mono text-2xl font-extralight text-white/20">04</span>
-                      <div className={`w-10 h-10 rounded-xl flex items-center justify-center border transition-all ${
-                        activeGrowthCard === 3 ? "bg-primary/10 border-primary/20 text-primary" : "bg-white/[0.02] border-white/5 text-white/50"
-                      }`}>
-                        <Zap className="w-5 h-5" />
-                      </div>
-                    </div>
-                    <h3 className={`text-xl font-light tracking-tight transition-colors duration-300 ${activeGrowthCard === 3 ? "text-primary font-normal" : "text-white"}`}>
-                      Performance & Optimization
-                    </h3>
-                    <p className="text-sm text-white/60 font-light mt-3 leading-relaxed">
-                      A fast website converts better. We optimize every technical detail to deliver lightning-fast loading, better engagement, and higher conversions.
-                    </p>
-                  </div>
-
-                  <PerformanceMeter active={activeGrowthCard === 3} />
-
-                  <div className="border-t border-white/[0.05] pt-4 mt-6">
-                    <ul className="grid grid-cols-2 gap-2 text-xs text-white/70 font-light">
-                      {["Page Speed", "Core Web Vitals", "Shopify Optimization", "Clean Code", "Performance Monitoring", "Faster Checkout"].map((h, i) => (
-                        <li key={i} className="flex items-center gap-1.5">
-                          <span className="w-1.5 h-1.5 rounded-full bg-primary/80 shrink-0" />
-                          <span className="truncate" title={h}>{h}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </motion.div>
-
-              </div>
-
             </div>
-
           </div>
 
         </div>
