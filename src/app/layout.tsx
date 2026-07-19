@@ -52,7 +52,7 @@ export default function RootLayout({
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1315915199980599"
              crossOrigin="anonymous"></script>
       </head>
-      <body className="bg-bg-dark text-text-light font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-primary/20 selection:text-text-light">
+      <body className="bg-[#050505] text-white font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-primary/20 selection:text-white">
         <Navbar />
         <main className="flex-grow pt-24">{children}</main>
         <Footer />

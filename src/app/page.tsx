@@ -36,28 +36,48 @@ import StartProjectForm from "@/components/StartProjectForm";
 // FAQ Items
 const FAQ_ITEMS = [
   {
-    q: "How long does a Shopify store build take?",
-    a: "Standard builds require 2 to 3 weeks. Custom storefronts and complex integrations take 4 to 6 weeks. We prioritize optimization, speed tuning, and checkout validation."
+    q: "What is your typical project delivery timeline?",
+    a: "Our standard delivery timeline is 3 to 7 days, depending on the complexity and custom features required for your Shopify store."
   },
   {
-    q: "Can you redesign an existing Shopify store?",
-    a: "Yes. We revamp theme layouts, optimize mobile UX, and accelerate loading speeds while preserving order logs, collections, and customer records."
+    q: "Do you handle shipping configurations?",
+    a: "Yes. We handle complete shipping setups. Since we are official partners with multiple shipping companies (such as Shiprocket, Delhivery, etc.), we help you integrate optimal rates and automated order sync directly in your dashboard."
   },
   {
-    q: "Do you build custom Shopify features?",
-    a: "Absolutely. We engineer custom sections, option configurators, slide-out drawers, and API connections tailored to your inventory setups."
+    q: "Do you configure payment gateways?",
+    a: "Yes. We provide complete payment gateway setup. We are partners with multiple gateway provider companies (including Razorpay, Stripe, Paytm, etc.) to ensure a smooth, secure checkout flow for your customers."
   },
   {
-    q: "Do you create Shopify stores for dropshipping?",
-    a: "Yes. We build D2C-centric dropshipping stores featuring custom supplier sync pipelines, optimized landing templates, and fast checkouts."
+    q: "What after-sales support do you offer?",
+    a: "We offer complimentary support for soft changes (minor text adjustments, banner updates, bug fixes, layout tweaks) for up to 1 month post-launch."
   },
   {
-    q: "Will my Shopify store work on mobile?",
-    a: "Yes. We develop under a strict mobile-first paradigm. Over 80% of digital traffic is mobile, so checkout speed and swipe interactions are optimized."
+    q: "Will we receive dashboard training?",
+    a: "Absolutely. We provide a complete Shopify dashboard training session. We will guide you through product listings, updating homepage banners, setting up discount offers, and understanding overall store metrics."
   },
   {
-    q: "Can I edit my website after delivery?",
-    a: "Yes. All stores leverage Shopify Online Store 2.0 sections, allowing your brand team to re-order layouts, banners, and text without editing code."
+    q: "What are your payment terms?",
+    a: "Our standard payment term is 50% advance to initiate the build and the remaining 50% upon successful delivery of the project."
+  },
+  {
+    q: "Is the storefront fully search engine optimized (SEO friendly)?",
+    a: "Yes. We build stores with standard SEO practices in mind, including meta description fields, semantic HTML5 structure, image alt-tag configs, and page speed optimization to help you rank higher on Google search results."
+  },
+  {
+    q: "Will my store be responsive and mobile-friendly?",
+    a: "Yes. Over 80% of e-commerce traffic comes from mobile devices, so we follow a strict mobile-first design system. Touch targets, checkout slides, and image banners are fully optimized for all screen sizes."
+  },
+  {
+    q: "Do you design custom graphics and banners for the store?",
+    a: "Yes. We create customized, high-converting banner designs and collection graphics tailored to your brand identity, ensuring a premium, polished storefront aesthetic."
+  },
+  {
+    q: "Can you migrate my existing store to Shopify?",
+    a: "Yes. We handle complete migrations from WooCommerce, Magento, Wix, or other e-commerce platforms. We migrate products, client databases, collections, and configurations cleanly without losing search index rankings."
+  },
+  {
+    q: "Do you offer AI product photoshoots and listing setup?",
+    a: "Yes. We offer AI-powered product photoshoots depending on the product type. We also include up to 20 free product listings complete with AI-generated photoshoot imagery to get your store live quickly with premium visuals."
   }
 ];
 
@@ -299,36 +319,7 @@ const PORTFOLIO_IMAGES_ROW2 = [
   { src: "https://jhango-images.b-cdn.net/images/swadezi.webp", alt: "Swadezi" }
 ];
 
-const CAROUSEL_ITEMS = [
-  {
-    title: "Instant CRO Audit",
-    subtitle: "Identify conversion leaks in your funnel",
-    image: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExejA3c2s2OTMxbnNxNXF4YW5tcTRkZ3FmZXkyYjFidGFpdTgzczYydyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/26EOCf4GvA6p9w8kE/giphy.gif",
-    link: "#audit",
-    badge: "Lead Diagnostics"
-  },
-  {
-    title: "OS 2.0 Custom Themes",
-    subtitle: "Clean Liquid engine for lightning-fast loads",
-    image: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExejc1b2c4OGM3M3VzN3ZndjR0dmN5ZTN1M3N5bTFzbnN5bmFzbWdxYiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l378c0upZm7TqIDrG/giphy.gif",
-    link: "#capabilities",
-    badge: "Speed Engineered"
-  },
-  {
-    title: "Smart Slide Cart Drawers",
-    subtitle: "Increase average order values natively",
-    image: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3h0Y3dyNjM5M3RwbjZtcDFoOTV4NGdmaDZ0dHc4dmtsZXo4d3A1MCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xT0xezQGU5RcCDj35S/giphy.gif",
-    link: "#capabilities",
-    badge: "Conversion Built"
-  },
-  {
-    title: "Headless Next.js Storefronts",
-    subtitle: "React-powered checks at custom scale",
-    image: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3d6bms4NDNkbzBwMGpxdzBrOTI0MG5zOTk4bGF0OTAwcjRpb3AwOWYmcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/t3s3iY3s0rKAw/giphy.gif",
-    link: "#capabilities",
-    badge: "Headless Scale"
-  }
-];
+
 
 const PORTFOLIO_CARDS = [
   {
@@ -396,26 +387,61 @@ const PORTFOLIO_CARDS = [
 const BUILD_PROCESS_STEPS = [
   {
     num: "01",
-    title: "Plan Your Store",
-    desc: "Collaborate on structural architecture, design mockups, and layout strategies before writing a single line of code.",
-    desktopImg: "/wellness_mockup.png",
-    mobileImg: "/imgi_93_swadezi.webp"
+    title: "Planning & Discovery",
+    desc: "Understand your business, goals, target audience, competitors, and project requirements. We define the website structure, features, functionality, and growth strategy before design begins.",
+    highlights: [
+      "Business Discussion",
+      "Competitor Research",
+      "Website Strategy",
+      "Feature Planning",
+      "User Journey",
+      "Project Roadmap"
+    ],
+    icon: "Sliders"
   },
   {
     num: "02",
-    title: "Build with Shopify Experts",
-    desc: "Get clean custom liquid code, speed-optimized theme configuration, and robust API integrations from certified developers.",
-    desktopImg: "/apparel_mockup.png",
-    mobileImg: "/imgi_80_sobo-beauty.webp"
+    title: "UI/UX Design & Development",
+    desc: "Design a premium Shopify experience and develop a fast, responsive, conversion-focused storefront optimized for every device.",
+    highlights: [
+      "Homepage Design",
+      "Collection Pages",
+      "Product Pages",
+      "Mobile Responsive",
+      "Shopify Development",
+      "Performance Optimization"
+    ],
+    icon: "Code"
   },
   {
     num: "03",
-    title: "Increase Sales & Conversions",
-    desc: "Accelerate checkout flows, integrate smart upsell drawers, and maximize average order value with data-driven CRO.",
-    desktopImg: "/jewelry_mockup.png",
-    mobileImg: "/imgi_81_well-essentials.webp"
+    title: "Review & Refinement",
+    desc: "Review every section together, gather feedback, refine the design, improve user experience, and make final adjustments before launch.",
+    highlights: [
+      "Client Review",
+      "Design Revisions",
+      "UX Improvements",
+      "Quality Assurance",
+      "Final Approval"
+    ],
+    icon: "CheckCircle2"
+  },
+  {
+    num: "04",
+    title: "Store Launch & Integrations",
+    desc: "Configure your Shopify store for real business operations and launch with all essential integrations.",
+    highlights: [
+      "Payment Gateway Integration",
+      "Shipping Configuration",
+      "Domain Setup",
+      "Email Notifications",
+      "Analytics & Tracking",
+      "Store Launch"
+    ],
+    icon: "Zap"
   }
 ];
+
 
 const APP_ICONS: { name: string; highlight: boolean; src?: string; svg?: React.ReactNode }[] = [
   { name: "Shopify", src: "https://cdn.simpleicons.org/shopify", highlight: true },
@@ -544,11 +570,240 @@ const APP_ICONS: { name: string; highlight: boolean; src?: string; svg?: React.R
 ];
 
 
+const TrafficParticles = ({ active }: { active: boolean }) => {
+  return (
+    <div className="relative w-full h-16 bg-black/40 border border-white/5 rounded-xl overflow-hidden flex items-center justify-between px-4 mt-4">
+      <div className={`w-8 h-8 rounded-lg border flex items-center justify-center text-[10px] font-mono font-bold transition-all duration-500 ${active ? "border-primary/50 text-primary bg-primary/5 shadow-[0_0_15px_rgba(34,227,154,0.15)]" : "border-white/10 text-white/30"}`}>
+        Store
+      </div>
+      <div className="relative flex-grow h-12 overflow-hidden mx-4 flex items-center justify-center">
+        {active ? (
+          <>
+            <span className="absolute w-1.5 h-1.5 rounded-full bg-primary/80" style={{ animation: 'traffic-particle 1.5s infinite linear 0s' }} />
+            <span className="absolute w-1.5 h-1.5 rounded-full bg-primary/80" style={{ animation: 'traffic-particle 1.5s infinite linear 0.4s' }} />
+            <span className="absolute w-1.5 h-1.5 rounded-full bg-primary/80" style={{ animation: 'traffic-particle 1.5s infinite linear 0.8s' }} />
+            <span className="absolute w-1 h-1 rounded-full bg-primary/40" style={{ animation: 'traffic-particle 1.5s infinite linear 0.2s' }} />
+            <span className="absolute w-1 h-1 rounded-full bg-primary/40" style={{ animation: 'traffic-particle 1.5s infinite linear 0.6s' }} />
+          </>
+        ) : (
+          <div className="text-[10px] text-white/10 font-mono tracking-widest">HOVER TO FLOW</div>
+        )}
+      </div>
+      <div className="text-right shrink-0">
+        <span className="text-[9px] text-white/40 block font-mono">TRAFFIC</span>
+        <span className={`text-xs font-bold font-mono transition-colors duration-500 ${active ? "text-primary" : "text-white/60"}`}>
+          {active ? "+2,450%" : "Attract Mode"}
+        </span>
+      </div>
+    </div>
+  );
+};
+
+const TrustMeter = ({ active }: { active: boolean }) => {
+  return (
+    <div className="relative w-full h-16 bg-black/40 border border-white/5 rounded-xl overflow-hidden flex items-center justify-between px-4 mt-4 transition-all duration-500">
+      <div className="flex flex-col text-left shrink-0">
+        <span className="text-[9px] text-white/40 block font-mono">SECURE SSL</span>
+        <span className={`text-xs font-bold font-mono transition-colors duration-500 ${active ? "text-primary" : "text-white/60"}`}>
+          {active ? "99.9% TRUSTED" : "UNVERIFIED"}
+        </span>
+      </div>
+      
+      <div className="flex items-center justify-center relative w-10 h-10">
+        {active ? (
+          <div className="w-8 h-8 rounded-full bg-primary/10 border border-primary/40 flex items-center justify-center text-primary shadow-[0_0_15px_rgba(34,227,154,0.3)] text-xs">
+            ✓
+          </div>
+        ) : (
+          <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center text-white/20 text-xs">
+            ?
+          </div>
+        )}
+      </div>
+      
+      <div className="w-20 bg-white/5 h-1.5 rounded-full overflow-hidden shrink-0">
+        <div 
+          className="h-full bg-primary transition-all duration-1000 ease-out"
+          style={{ width: active ? "100%" : "40%" }}
+        />
+      </div>
+    </div>
+  );
+};
+
+const UserJourneyMockup = ({ active }: { active: boolean }) => {
+  return (
+    <div className="relative w-full h-16 bg-black/40 border border-white/5 rounded-xl overflow-hidden flex items-center justify-between px-4 mt-4">
+      <div className="flex gap-1.5 items-center my-auto w-full justify-between">
+        <div className={`w-8 h-8 rounded-lg border flex items-center justify-center text-xs transition-all ${active ? "border-primary/40 bg-primary/5 text-primary" : "border-white/10 text-white/30"}`}>
+          🛒
+        </div>
+        <div className="flex-grow mx-2 relative h-1.5 bg-white/5 rounded-full overflow-hidden">
+          <div 
+            className="h-full bg-primary transition-all duration-[1500ms] ease-out"
+            style={{ width: active ? "100%" : "0%" }}
+          />
+        </div>
+        <div className={`w-14 h-8 rounded-lg border flex flex-col items-center justify-center transition-all ${active ? "border-primary bg-primary/10 text-primary" : "border-white/10 text-white/30"}`}>
+          <span className="text-[8px] font-mono leading-none">CHECKOUT</span>
+          <span className="text-[9px] font-bold mt-0.5">{active ? "Instant" : "Slow"}</span>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const PerformanceMeter = ({ active }: { active: boolean }) => {
+  return (
+    <div className="relative w-full h-16 bg-black/40 border border-white/5 rounded-xl overflow-hidden flex items-center justify-between px-4 mt-4">
+      <div className="text-left shrink-0">
+        <span className="text-[9px] text-white/40 block font-mono">SPEED INDEX</span>
+        <span className={`text-xs font-bold font-mono transition-colors duration-500 ${active ? "text-primary" : "text-amber-500"}`}>
+          {active ? "100/100" : "70/100"}
+        </span>
+      </div>
+
+      <div className="relative w-20 h-10 flex items-center justify-center overflow-hidden">
+        <svg className="w-16 h-16 transform -rotate-180" viewBox="0 0 100 100">
+          <circle
+            cx="50"
+            cy="50"
+            r="40"
+            stroke="#222"
+            strokeWidth="10"
+            fill="none"
+            strokeDasharray="125 250"
+            strokeLinecap="round"
+          />
+          <circle
+            cx="50"
+            cy="50"
+            r="40"
+            stroke={active ? "#22E39A" : "#D97706"}
+            strokeWidth="10"
+            fill="none"
+            strokeDasharray={active ? "125 250" : "85 250"}
+            strokeLinecap="round"
+            className="transition-all duration-1000 ease-out"
+          />
+        </svg>
+        <span className="absolute bottom-0 text-[9px] font-mono text-white/40">CORE INDEX</span>
+      </div>
+
+      <span className={`text-[10px] font-mono px-2 py-0.5 rounded ${active ? "bg-primary/10 text-primary border border-primary/20" : "bg-amber-500/10 text-amber-500 border border-amber-500/20"}`}>
+        {active ? "FAST" : "SLOW"}
+      </span>
+    </div>
+  );
+};
+
+const RevenueGraph = ({ activeCount }: { activeCount: number }) => {
+  const getPath = () => {
+    switch (activeCount) {
+      case 0: return "M10 80 Q 40 80, 70 80 T 130 80";
+      case 1: return "M10 80 Q 40 75, 70 70 T 130 65";
+      case 2: return "M10 80 Q 40 70, 70 60 T 130 45";
+      case 3: return "M10 80 Q 40 60, 70 50 T 130 25";
+      case 4: return "M10 80 Q 40 45, 70 25 T 130 10";
+      default: return "M10 80 Q 40 80, 70 80 T 130 80";
+    }
+  };
+
+  return (
+    <div className="relative w-full h-24 bg-black/40 border border-white/10 rounded-xl overflow-hidden mt-4">
+      <svg className="w-full h-full" viewBox="0 0 140 90">
+        <line x1="10" y1="10" x2="130" y2="10" stroke="rgba(255,255,255,0.03)" strokeWidth="1" />
+        <line x1="10" y1="35" x2="130" y2="35" stroke="rgba(255,255,255,0.03)" strokeWidth="1" />
+        <line x1="10" y1="60" x2="130" y2="60" stroke="rgba(255,255,255,0.03)" strokeWidth="1" />
+        
+        {activeCount > 0 && (
+          <path
+            d={`${getPath()} L 130 80 L 10 80 Z`}
+            fill="url(#chart-area-grad)"
+            className="transition-all duration-1000 ease-out"
+          />
+        )}
+        
+        <path
+          d={getPath()}
+          fill="none"
+          stroke={activeCount === 4 ? "#22E39A" : "rgba(255,255,255,0.2)"}
+          strokeWidth="3"
+          strokeLinecap="round"
+          className="transition-all duration-1000 ease-out"
+        />
+        
+        <defs>
+          <linearGradient id="chart-area-grad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#22E39A" stopOpacity="0.2" />
+            <stop offset="100%" stopColor="#22E39A" stopOpacity="0.0" />
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+  );
+};
+
+const getStepIcon = (iconName: string) => {
+  switch (iconName) {
+    case "Sliders": return <Sliders className="w-5 h-5" />;
+    case "Code": return <Code className="w-5 h-5" />;
+    case "CheckCircle2": return <CheckCircle2 className="w-5 h-5" />;
+    case "Zap": return <Zap className="w-5 h-5" />;
+    default: return null;
+  }
+};
+
 export default function HomePage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [showFormModal, setShowFormModal] = useState(false);
+  const [activeGrowthCard, setActiveGrowthCard] = useState<number>(0);
+  const [activatedGrowthCards, setActivatedGrowthCards] = useState<number[]>([0]);
 
-  const [activeStep, setActiveStep] = useState(0);
+  // Process Timeline States
+  const [activeProcessStep, setActiveProcessStep] = useState(0);
+  const [wireframeLayout, setWireframeLayout] = useState<Record<string, boolean>>({
+    announcement: true,
+    hero: true,
+    features: true,
+    testimonials: true,
+    footer: true
+  });
+  const toggleWireframeLayout = (key: string) => {
+    setWireframeLayout((prev) => ({ ...prev, [key]: !prev[key] }));
+  };
+
+  const [activeDeviceView, setActiveDeviceView] = useState<"desktop" | "mobile">("desktop");
+  const [activeRevisionPin, setActiveRevisionPin] = useState<number | null>(null);
+  const [customRevisionStyle, setCustomRevisionStyle] = useState<"minimal" | "editorial" | "dark">("minimal");
+
+  const [isAuditing, setIsAuditing] = useState(false);
+  const [auditProgress, setAuditProgress] = useState(0);
+  const [auditChecks, setAuditChecks] = useState<Record<string, boolean>>({
+    ssl: false,
+    domain: false,
+    shipping: false,
+    payment: false,
+    pixels: false
+  });
+
+  const simulateGrowthFlow = () => {
+    setActivatedGrowthCards([0]);
+    setActiveGrowthCard(0);
+    let step = 0;
+    const interval = setInterval(() => {
+      step++;
+      if (step < 4) {
+        setActiveGrowthCard(step);
+        setActivatedGrowthCards(prev => {
+          if (!prev.includes(step)) return [...prev, step];
+          return prev;
+        });
+      } else {
+        clearInterval(interval);
+      }
+    }, 1000);
+  };
 
   const scrollRef = useRef<HTMLDivElement>(null);
 
@@ -861,103 +1116,489 @@ export default function HomePage() {
 
       {/* ── BUILD LAUNCH SCALE SECTION ── */}
       <section className="py-16 md:py-24 lg:py-36 relative z-10 overflow-hidden bg-gradient-to-b from-[#050505] to-[#011a12] border-b border-white/[0.08]">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/[0.02] rounded-full blur-[120px] pointer-events-none" />
+
         <div className="max-w-[1360px] mx-auto px-6">
           {/* Header */}
-          <div className="text-center mb-16 flex flex-col items-center">
-            <span className="inline-flex items-center gap-2 text-[10px] sm:text-[11px] font-semibold tracking-widest uppercase px-3.5 py-1.5 rounded-full border border-white/20 bg-white/[0.06] text-white/80 backdrop-blur-sm mb-4">
+          <div className="text-center mb-20 flex flex-col items-center">
+            <span className="inline-flex items-center gap-2 text-[10px] sm:text-[11px] font-semibold tracking-widest uppercase px-3.5 py-1.5 rounded-full border border-white/20 bg-white/[0.06] text-primary backdrop-blur-sm mb-4">
               <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-              Built Ecom Store
+              Our Workflow
             </span>
             <h2 className="premium-heading text-3xl sm:text-4xl lg:text-[2.75rem] font-light text-white tracking-tight font-grotesk mt-2">
-              Build. <span className="light-gradient-text font-normal">Launch.</span> <span className="premium-highlight">Scale.</span>
+              Our <span className="light-gradient-text font-normal">Proven</span> <span className="premium-highlight">Process</span>
             </h2>
+            <p className="mt-4 text-white/70 text-base sm:text-lg max-w-xl font-light leading-relaxed">
+              How we build high-converting Shopify stores, from initial strategy to deployment.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            {/* Left side: Interactive Mockup Cards */}
-            <div className="lg:col-span-5 relative flex justify-center lg:justify-start pl-6 pr-12 pb-12 pt-6 select-none">
-              <div className="relative w-[280px] sm:w-[340px] aspect-[4/5] rounded-[24px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.8)] border border-white/[0.08] bg-[#101010]">
-                {BUILD_PROCESS_STEPS.map((step, idx) => (
-                  <motion.img
+          {/* Cards Grid */}
+          <div className="relative z-20">
+            {/* Desktop horizontal connecting line */}
+            <div className="hidden lg:block absolute top-[56px] left-[56px] right-[calc(25%-56px)] h-[1px] bg-gradient-to-r from-primary/30 via-white/10 to-transparent pointer-events-none z-10" />
+            
+            {/* Mobile/Tablet vertical connecting line */}
+            <div className="absolute left-[56px] top-[56px] bottom-[56px] w-[1px] bg-gradient-to-b from-primary/30 via-white/10 to-transparent lg:hidden pointer-events-none z-10" />
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {BUILD_PROCESS_STEPS.map((item, idx) => {
+                const isActive = activeProcessStep === idx;
+                return (
+                  <motion.div
                     key={idx}
-                    src={step.desktopImg}
-                    alt={step.title}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: activeStep === idx ? 0.8 : 0 }}
-                    transition={{ duration: 0.4 }}
-                    className="absolute inset-0 w-full h-full object-cover"
-                  />
-                ))}
-              </div>
-              <div className="absolute bottom-[-10px] right-[10px] sm:right-[-20px] w-[160px] sm:w-[200px] aspect-[9/19] rounded-[24px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.8)] border-[6px] border-[#050505] bg-[#101010]">
-                {BUILD_PROCESS_STEPS.map((step, idx) => (
-                  <motion.img
-                    key={idx}
-                    src={step.mobileImg}
-                    alt={step.title}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: activeStep === idx ? 1 : 0 }}
-                    transition={{ duration: 0.4 }}
-                    className="absolute inset-0 w-full h-full object-cover"
-                  />
-                ))}
-              </div>
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.6, delay: idx * 0.15 }}
+                    onClick={() => setActiveProcessStep(idx)}
+                    className={`group relative flex flex-col justify-between bg-black/40 backdrop-blur-md border rounded-[24px] p-8 transition-all duration-500 hover:scale-[1.02] hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)] min-h-[460px] select-none cursor-pointer ${
+                      isActive 
+                        ? "border-primary/50 ring-2 ring-primary/10 shadow-[0_0_30px_rgba(203,243,81,0.1)] opacity-100" 
+                        : "border-white/[0.08] opacity-60 hover:opacity-100"
+                    }`}
+                  >
+                    {/* Subtle hover gradient glow inside the card */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.02] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-[24px] pointer-events-none" />
+                    
+                    <div>
+                      {/* Top Row: Number & Icon */}
+                      <div className="flex items-center justify-between mb-8 relative">
+                        <span className={`font-mono text-4xl font-extralight tracking-tighter transition-colors duration-500 ${
+                          isActive ? "text-primary/40" : "text-white/25 group-hover:text-primary/30"
+                        }`}>
+                          {item.num}
+                        </span>
+                        
+                        {/* Elegant circle icon */}
+                        <div className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-500 shadow-inner ${
+                          isActive
+                            ? "text-black bg-primary border-primary"
+                            : "bg-white/[0.04] border-white/[0.08] text-white/60 group-hover:text-primary group-hover:bg-primary/[0.08] group-hover:border-primary/30"
+                        }`}>
+                          {getStepIcon(item.icon)}
+                        </div>
+                      </div>
+
+                      {/* Content */}
+                      <h3 className={`text-xl font-light tracking-tight transition-colors duration-500 mb-4 ${
+                        isActive ? "text-primary font-normal" : "text-white group-hover:text-primary"
+                      }`}>
+                        {item.title}
+                      </h3>
+                      <p className="text-sm text-white/60 leading-relaxed font-light mb-6">
+                        {item.desc}
+                      </p>
+                    </div>
+
+                    {/* Highlights List */}
+                    <div className="border-t border-white/[0.08] pt-6 mt-auto">
+                      <span className="text-[10px] uppercase tracking-wider font-semibold text-white/40 block mb-3">
+                        Highlights
+                      </span>
+                      <ul className="grid grid-cols-2 gap-x-3 gap-y-2">
+                        {item.highlights.map((h, hIdx) => (
+                          <li key={hIdx} className="flex items-center gap-1.5 text-[11px] sm:text-xs text-white/70 font-light">
+                            <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${isActive ? "bg-primary" : "bg-primary/70"}`} />
+                            <span className="truncate" title={h}>{h}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Explorer pill */}
+                    <div className="mt-4 flex items-center justify-center">
+                      <span className={`text-[10px] font-mono uppercase tracking-wider transition-opacity ${
+                        isActive ? "text-primary opacity-100 font-bold" : "text-white/30 opacity-0 group-hover:opacity-100"
+                      }`}>
+                        {isActive ? "Active View" : "Explore Workspace →"}
+                      </span>
+                    </div>
+
+                  </motion.div>
+                );
+              })}
             </div>
 
-            {/* Right side: Interactive Collapsible Steps List */}
-            <div className="lg:col-span-7 flex flex-col justify-center pl-0 lg:pl-8">
-              <div className="flex flex-col">
-                {BUILD_PROCESS_STEPS.map((step, idx) => {
-                  const isActive = activeStep === idx;
-                  return (
-                    <div
-                      key={idx}
-                      onMouseEnter={() => setActiveStep(idx)}
-                      className="group cursor-pointer py-6 border-b border-white/[0.08] flex flex-col gap-2 transition-all duration-300"
-                    >
-                      <div className="flex items-baseline gap-5">
-                        <span className={`font-mono text-sm font-bold transition-colors duration-300 ${
-                          isActive ? "text-primary" : "text-white/40 group-hover:text-primary/70"
-                        }`}>
-                          {step.num}
-                        </span>
-                        <h3 className={`text-xl sm:text-2xl font-light tracking-tight transition-colors duration-300 ${
-                          isActive ? "text-white" : "text-[#8e8e93] group-hover:text-white"
-                        }`}>
-                          {step.title}
-                        </h3>
+            {/* Interactive Showcase Panel */}
+            <motion.div
+              layout
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="mt-12 w-full rounded-[24px] bg-[#0c0c0e]/60 border border-white/[0.08] p-6 sm:p-10 backdrop-blur-xl relative overflow-hidden"
+            >
+              <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-primary/[0.015] blur-[100px] pointer-events-none" />
+
+              <AnimatePresence mode="wait">
+                {activeProcessStep === 0 && (
+                  <motion.div
+                    key="step-0"
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: 10 }}
+                    transition={{ duration: 0.3 }}
+                    className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
+                  >
+                    <div className="lg:col-span-5 flex flex-col gap-4 text-left">
+                      <span className="text-xs font-mono font-bold text-primary tracking-widest uppercase">Phase 1 Workflow</span>
+                      <h4 className="text-2xl font-bold tracking-tight text-white font-grotesk">Interactive Wireframe Planner</h4>
+                      <p className="text-sm text-white/60 leading-relaxed">
+                        We map the structural hierarchy of your homepage before writing custom code. Try toggling layout blocks on/off to visualize how we plan user experience.
+                      </p>
+                      
+                      <div className="flex flex-col gap-2 mt-2">
+                        {Object.keys(wireframeLayout).map((key) => (
+                          <button
+                            key={key}
+                            onClick={() => toggleWireframeLayout(key)}
+                            className={`flex items-center justify-between p-3 rounded-xl border text-left text-xs transition-all ${
+                              wireframeLayout[key]
+                                ? "bg-primary/5 border-primary/20 text-white"
+                                : "bg-white/[0.01] border-white/5 text-white/40 hover:bg-white/[0.02]"
+                            }`}
+                          >
+                            <span className="capitalize font-semibold">{key.replace("-", " ")} Block</span>
+                            <span className={`w-4 h-4 rounded flex items-center justify-center border text-[9px] font-bold ${
+                              wireframeLayout[key] ? "bg-primary border-primary text-black" : "border-white/20"
+                            }`}>
+                              {wireframeLayout[key] && "✓"}
+                            </span>
+                          </button>
+                        ))}
                       </div>
-                      {/* Collapsible description */}
+                    </div>
+
+                    <div className="lg:col-span-7 rounded-2xl border border-white/5 bg-[#121214]/60 p-6 flex flex-col gap-3 min-h-[340px] justify-start shadow-inner">
+                      <div className="flex justify-between items-center pb-3 border-b border-white/5 text-[10px] text-white/30 font-mono">
+                        <span>WIREFRAME DIAGRAM</span>
+                        <span className="text-primary font-bold">SALE PXL VISUALIZER</span>
+                      </div>
+                      
+                      <AnimatePresence>
+                        {wireframeLayout.announcement && (
+                          <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} className="h-6 bg-white/[0.03] border border-dashed border-white/10 rounded flex items-center justify-center text-[8px] text-white/30 uppercase tracking-widest font-mono">
+                            Announcement Bar
+                          </motion.div>
+                        )}
+                        {wireframeLayout.hero && (
+                          <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} className="h-28 bg-white/[0.03] border border-dashed border-white/10 rounded flex flex-col justify-center px-4 gap-2">
+                            <div className="h-3 w-1/3 bg-white/10 rounded-full" />
+                            <div className="h-6 w-3/4 bg-white/5 rounded-md" />
+                            <div className="h-6 w-20 bg-primary/20 border border-primary/20 rounded-full" />
+                          </motion.div>
+                        )}
+                        {wireframeLayout.features && (
+                          <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} className="grid grid-cols-3 gap-2">
+                            <div className="h-20 bg-white/[0.02] border border-dashed border-white/10 rounded flex items-center justify-center text-[7px] text-white/20">Prod 1</div>
+                            <div className="h-20 bg-white/[0.02] border border-dashed border-white/10 rounded flex items-center justify-center text-[7px] text-white/20">Prod 2</div>
+                            <div className="h-20 bg-white/[0.02] border border-dashed border-white/10 rounded flex items-center justify-center text-[7px] text-white/20">Prod 3</div>
+                          </motion.div>
+                        )}
+                        {wireframeLayout.testimonials && (
+                          <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} className="h-16 bg-white/[0.03] border border-dashed border-white/10 rounded flex flex-col justify-center px-4 gap-1.5">
+                            <div className="flex gap-0.5"><span className="text-primary text-[8px]">★★★★★</span></div>
+                            <div className="h-2.5 w-full bg-white/5 rounded" />
+                          </motion.div>
+                        )}
+                        {wireframeLayout.footer && (
+                          <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} className="h-10 bg-white/[0.03] border border-dashed border-white/10 rounded flex items-center justify-center text-[8px] text-white/25 uppercase tracking-widest font-mono">
+                            Footer Columns
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  </motion.div>
+                )}
+
+                {activeProcessStep === 1 && (
+                  <motion.div
+                    key="step-1"
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: 10 }}
+                    transition={{ duration: 0.3 }}
+                    className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
+                  >
+                    <div className="lg:col-span-5 flex flex-col gap-4 text-left">
+                      <span className="text-xs font-mono font-bold text-primary tracking-widest uppercase">Phase 2 Workflow</span>
+                      <h4 className="text-2xl font-bold tracking-tight text-white font-grotesk">Device Responsive Sandbox</h4>
+                      <p className="text-sm text-white/60 leading-relaxed">
+                        We build every layout with a strict mobile-first paradigm. Toggle views to see how the product layout dynamically adapts from desktop side-by-side splits to thumb-friendly mobile slides.
+                      </p>
+
+                      <div className="flex gap-2.5 mt-2 bg-white/5 p-1 rounded-xl w-max">
+                        <button
+                          onClick={() => setActiveDeviceView("desktop")}
+                          className={`px-4 py-2 rounded-lg text-xs font-semibold transition-all ${
+                            activeDeviceView === "desktop" ? "bg-white text-black" : "text-white/60 hover:text-white"
+                          }`}
+                        >
+                          Desktop Grid
+                        </button>
+                        <button
+                          onClick={() => setActiveDeviceView("mobile")}
+                          className={`px-4 py-2 rounded-lg text-xs font-semibold transition-all ${
+                            activeDeviceView === "mobile" ? "bg-white text-black" : "text-white/60 hover:text-white"
+                          }`}
+                        >
+                          Mobile Viewport
+                        </button>
+                      </div>
+                    </div>
+
+                    <div className="lg:col-span-7 flex justify-center items-center p-4 bg-black/40 rounded-2xl border border-white/5 min-h-[340px]">
                       <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ 
-                          height: isActive ? "auto" : 0, 
-                          opacity: isActive ? 1 : 0 
+                        animate={{
+                          width: activeDeviceView === "desktop" ? "100%" : "300px",
+                          height: activeDeviceView === "desktop" ? "240px" : "320px",
                         }}
-                        transition={{ duration: 0.3 }}
-                        className="overflow-hidden pl-10"
+                        transition={{ type: "spring", stiffness: 120, damping: 20 }}
+                        className="bg-[#0c0c0e] rounded-2xl border border-white/10 overflow-hidden flex flex-col shadow-2xl p-4 gap-3"
                       >
-                        <p className="text-sm text-white/70 leading-relaxed pt-2 max-w-md">
-                          {step.desc}
-                        </p>
+                        <div className="flex items-center justify-between border-b border-white/5 pb-2 text-[8px] font-mono text-white/30">
+                          <span>SHOPPING APP</span>
+                          <span>{activeDeviceView === "desktop" ? "1440x900 px" : "390x844 px"}</span>
+                        </div>
+
+                        {activeDeviceView === "desktop" ? (
+                          <div className="grid grid-cols-2 gap-4 h-full items-center">
+                            <div className="h-full rounded-lg bg-gradient-to-tr from-emerald-500/10 to-indigo-500/10 border border-white/5 flex items-center justify-center text-[10px] text-white/30 font-bold uppercase">Product Media</div>
+                            <div className="flex flex-col gap-2.5 justify-center">
+                              <span className="text-[7px] text-primary font-mono uppercase font-bold">Premium Silk Hoodie</span>
+                              <div className="h-2 w-3/4 bg-white/10 rounded-full" />
+                              <div className="h-1.5 w-full bg-white/5 rounded-full" />
+                              <div className="h-8 bg-white text-black text-[9px] font-bold rounded-lg flex items-center justify-center uppercase tracking-wider mt-2">Add To Cart</div>
+                            </div>
+                          </div>
+                        ) : (
+                          <div className="flex flex-col gap-3 h-full justify-between">
+                            <div className="h-32 rounded-lg bg-gradient-to-tr from-emerald-500/10 to-indigo-500/10 border border-white/5 flex items-center justify-center text-[9px] text-white/30 font-bold uppercase">Product Media Slider</div>
+                            <div className="flex flex-col gap-1.5">
+                              <span className="text-[7px] text-primary font-mono uppercase font-bold">Premium Silk Hoodie</span>
+                              <div className="h-1.5 w-1/2 bg-white/10 rounded-full" />
+                            </div>
+                            <div className="h-9 bg-white text-black text-[9px] font-bold rounded-lg flex items-center justify-center uppercase tracking-wider">Add To Cart</div>
+                          </div>
+                        )}
                       </motion.div>
                     </div>
-                  );
-                })}
-              </div>
+                  </motion.div>
+                )}
 
-              <div className="mt-10 flex justify-start pl-10">
-                <button
-                  onClick={() => setShowFormModal(true)}
-                  className="w-full sm:w-auto btn-primary inline-flex items-center justify-center px-8 h-13 rounded-full text-black text-xs sm:text-sm font-bold shadow-[0_4px_12px_rgba(255,255,255,0.08)] cursor-pointer"
-                >
-                  Get Started
-                </button>
-              </div>
-            </div>
+                {activeProcessStep === 2 && (
+                  <motion.div
+                    key="step-2"
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: 10 }}
+                    transition={{ duration: 0.3 }}
+                    className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
+                  >
+                    <div className="lg:col-span-5 flex flex-col gap-4 text-left">
+                      <span className="text-xs font-mono font-bold text-primary tracking-widest uppercase">Phase 3 Workflow</span>
+                      <h4 className="text-2xl font-bold tracking-tight text-white font-grotesk">Interactive Revisions Board</h4>
+                      <p className="text-sm text-white/60 leading-relaxed">
+                        Revisions are simple. We map annotations directly on layout drafts. Try clicking on revision marker pins in the visualizer to explore changes and toggle layout styles.
+                      </p>
+
+                      <div className="flex gap-2.5 mt-2">
+                        {(["minimal", "editorial", "dark"] as const).map((style) => (
+                          <button
+                            key={style}
+                            onClick={() => setCustomRevisionStyle(style)}
+                            className={`px-3 py-1.5 rounded-lg text-[10px] font-mono uppercase tracking-wider transition-all border ${
+                              customRevisionStyle === style
+                                ? "bg-primary border-primary text-black font-bold"
+                                : "bg-white/[0.02] border-white/5 text-white/60 hover:bg-white/5"
+                            }`}
+                          >
+                            {style}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="lg:col-span-7 relative rounded-2xl border border-white/5 bg-[#101012] p-5 flex flex-col gap-3 min-h-[340px] justify-between shadow-2xl">
+                      
+                      <div className="absolute inset-0 bg-radial-gradient from-white/5 to-transparent pointer-events-none" />
+
+                      {/* Homepage mockup layout container */}
+                      <div className={`flex-grow border border-white/5 p-4 rounded-xl flex flex-col gap-4 relative transition-all duration-500 ${
+                        customRevisionStyle === "minimal" 
+                          ? "bg-white text-black" 
+                          : customRevisionStyle === "editorial"
+                          ? "bg-[#faf6f0] text-[#332211]"
+                          : "bg-black text-white"
+                      }`}>
+                        
+                        <div className="flex justify-between items-center text-[7px] font-bold border-b border-black/5 pb-1">
+                          <span>STOREFRONT AUDIT</span>
+                          <span>CART (0)</span>
+                        </div>
+
+                        <div className="flex flex-col items-center gap-1.5 py-6">
+                          <span className="text-[6px] tracking-widest uppercase font-mono">FALL COLLECTION 2026</span>
+                          <h4 className="text-xs font-bold uppercase tracking-tight text-center font-grotesk">Bold Design Retails</h4>
+                        </div>
+
+                        {/* Interactive Pins */}
+                        {/* Pin 1: Hero title */}
+                        <button
+                          onClick={() => setActiveRevisionPin(1)}
+                          className="absolute top-[48%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-primary text-black border border-white flex items-center justify-center text-[10px] font-bold animate-bounce z-20 cursor-pointer shadow-lg shadow-primary/20"
+                        >
+                          1
+                        </button>
+
+                        {/* Pin 2: Style Theme */}
+                        <button
+                          onClick={() => setActiveRevisionPin(2)}
+                          className="absolute bottom-[10%] right-[10%] w-6 h-6 rounded-full bg-indigo-500 text-white border border-white flex items-center justify-center text-[10px] font-bold animate-pulse z-20 cursor-pointer shadow-lg shadow-indigo-500/20"
+                        >
+                          2
+                        </button>
+                      </div>
+
+                      {/* Pin descriptions box */}
+                      <div className="rounded-xl bg-white/[0.03] border border-white/5 p-3.5 z-10 text-left">
+                        <span className="text-[9px] font-mono text-white/40 block mb-1">REVISION SPECIFICATION</span>
+                        {activeRevisionPin === 1 && (
+                          <p className="text-xs text-white/80">
+                            <strong>Pin 1 (Typography)</strong>: Adjusted spacing and capitalization dynamically. "How it works" font applies custom Plus Jakarta Sans styling.
+                          </p>
+                        )}
+                        {activeRevisionPin === 2 && (
+                          <p className="text-xs text-white/80">
+                            <strong>Pin 2 (Theme Styles)</strong>: Use the minimal, editorial, or dark styled triggers on the left to review dynamic colors and layouts.
+                          </p>
+                        )}
+                        {!activeRevisionPin && (
+                          <p className="text-xs text-white/40 italic">Click one of the numerical pins inside the layout draft above.</p>
+                        )}
+                      </div>
+
+                    </div>
+                  </motion.div>
+                )}
+
+                {activeProcessStep === 3 && (
+                  <motion.div
+                    key="step-3"
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: 10 }}
+                    transition={{ duration: 0.3 }}
+                    className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
+                  >
+                    <div className="lg:col-span-5 flex flex-col gap-4 text-left">
+                      <span className="text-xs font-mono font-bold text-primary tracking-widest uppercase">Phase 4 Workflow</span>
+                      <h4 className="text-2xl font-bold tracking-tight text-white font-grotesk">Automated Launch Auditor</h4>
+                      <p className="text-sm text-white/60 leading-relaxed">
+                        We don't just push your store live. We run a comprehensive audit simulating shipping channels, cart scripts, SSL layers, and pixels. Click the test tool below to execute a simulated audit.
+                      </p>
+
+                      <button
+                        onClick={() => {
+                          setIsAuditing(true);
+                          setAuditProgress(0);
+                          setAuditChecks({ ssl: false, domain: false, shipping: false, payment: false, pixels: false });
+                          
+                          // Run loading checks
+                          const timer1 = setTimeout(() => {
+                            setAuditChecks(prev => ({ ...prev, ssl: true }));
+                            setAuditProgress(20);
+                          }, 500);
+                          const timer2 = setTimeout(() => {
+                            setAuditChecks(prev => ({ ...prev, domain: true }));
+                            setAuditProgress(40);
+                          }, 1000);
+                          const timer3 = setTimeout(() => {
+                            setAuditChecks(prev => ({ ...prev, shipping: true }));
+                            setAuditProgress(60);
+                          }, 1500);
+                          const timer4 = setTimeout(() => {
+                            setAuditChecks(prev => ({ ...prev, payment: true }));
+                            setAuditProgress(80);
+                          }, 2000);
+                          const timer5 = setTimeout(() => {
+                            setAuditChecks(prev => ({ ...prev, pixels: true }));
+                            setAuditProgress(100);
+                            setIsAuditing(false);
+                          }, 2500);
+                        }}
+                        disabled={isAuditing}
+                        className="w-full sm:w-auto px-6 py-3.5 mt-2 rounded-xl bg-primary text-black font-bold uppercase tracking-wider text-xs shadow-lg shadow-primary/10 hover:shadow-primary/20 transition-all select-none cursor-pointer disabled:opacity-50"
+                      >
+                        {isAuditing ? `Auditing (${auditProgress}%)` : "Run Store Audit Checklist"}
+                      </button>
+                    </div>
+
+                    <div className="lg:col-span-7 rounded-2xl border border-white/5 bg-[#0e0e10] p-6 flex flex-col gap-3 min-h-[340px] justify-between shadow-inner text-left">
+                      
+                      <div className="flex justify-between items-center pb-2 border-b border-white/5 text-[10px] text-white/30 font-mono">
+                        <span>LAUNCH READINESS CHECKS</span>
+                        <span className="text-emerald-400">ACTIVE LOGS</span>
+                      </div>
+
+                      <div className="flex-grow flex flex-col gap-3 mt-2 justify-center">
+                        <div className="flex justify-between items-center text-xs">
+                          <span className="text-white/60">SSL Certificate Status</span>
+                          <span className={auditChecks.ssl ? "text-primary font-bold" : "text-white/20"}>
+                            {auditChecks.ssl ? "✓ SECURED (Let's Encrypt)" : "Pending..."}
+                          </span>
+                        </div>
+                        <div className="flex justify-between items-center text-xs">
+                          <span className="text-white/60">Domain Configuration (CNAME/A Pointing)</span>
+                          <span className={auditChecks.domain ? "text-primary font-bold" : "text-white/20"}>
+                            {auditChecks.domain ? "✓ CONNECTED" : "Pending..."}
+                          </span>
+                        </div>
+                        <div className="flex justify-between items-center text-xs">
+                          <span className="text-white/60">Logistics Carrier Webhook</span>
+                          <span className={auditChecks.shipping ? "text-primary font-bold" : "text-white/20"}>
+                            {auditChecks.shipping ? "✓ ACTIVE (Shiprocket API)" : "Pending..."}
+                          </span>
+                        </div>
+                        <div className="flex justify-between items-center text-xs">
+                          <span className="text-white/60">Payment Gateway Handshake (Test Key)</span>
+                          <span className={auditChecks.payment ? "text-primary font-bold" : "text-white/20"}>
+                            {auditChecks.payment ? "✓ STABLE (Razorpay / Stripe)" : "Pending..."}
+                          </span>
+                        </div>
+                        <div className="flex justify-between items-center text-xs">
+                          <span className="text-white/60">Meta Pixel & GA4 Tag Handshake</span>
+                          <span className={auditChecks.pixels ? "text-primary font-bold" : "text-white/20"}>
+                            {auditChecks.pixels ? "✓ RUNNING (Pageview Event)" : "Pending..."}
+                          </span>
+                        </div>
+                      </div>
+
+                      {auditProgress === 100 && (
+                        <div className="mt-4 p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 text-center font-bold text-xs select-none">
+                          ALL LAUNCH PROTOCOLS CHECKED - STORE IS READY TO SELL 🚀
+                        </div>
+                      )}
+
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
           </div>
+
+          <div className="mt-16 flex justify-center z-20 relative">
+            <button
+              onClick={() => setShowFormModal(true)}
+              className="w-full sm:w-auto btn-primary inline-flex items-center justify-center px-10 h-14 rounded-full text-black text-sm font-bold shadow-[0_4px_12px_rgba(255,255,255,0.08)] cursor-pointer"
+            >
+              Get Started
+            </button>
+          </div>
+
         </div>
       </section>
+
 
       <section className="py-16 md:py-24 lg:py-36 relative z-20 overflow-hidden bg-gradient-to-b from-[#160528] to-[#080214] border-b border-t border-white/[0.08] rounded-t-[32px] md:rounded-t-[48px] mt-[-32px] md:mt-[-48px]">
         <div className="max-w-[1360px] mx-auto px-6">
@@ -1013,322 +1654,431 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-16 md:py-24 lg:py-36 relative z-20 overflow-hidden bg-gradient-to-b from-[#041328] to-[#020a16] border-t border-b border-white/[0.08] rounded-t-[32px] md:rounded-t-[48px] mt-[-32px] md:mt-[-48px]">
+      <section className="py-20 md:py-28 lg:py-40 relative z-20 overflow-hidden bg-gradient-to-b from-[#020a16] to-[#050505] border-t border-b border-white/[0.08] rounded-t-[32px] md:rounded-t-[48px] mt-[-32px] md:mt-[-48px]">
+        {/* Glowing background details */}
+        <div className="absolute top-[20%] left-[10%] w-[350px] h-[350px] bg-primary/[0.015] rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute bottom-[20%] right-[10%] w-[350px] h-[350px] bg-primary/[0.015] rounded-full blur-[100px] pointer-events-none" />
+
+        <style dangerouslySetInnerHTML={{ __html: `
+          @keyframes traffic-particle {
+            0% {
+              transform: translateX(-35px);
+              opacity: 0;
+            }
+            10% {
+              opacity: 1;
+            }
+            90% {
+              opacity: 1;
+            }
+            100% {
+              transform: translateX(35px);
+              opacity: 0;
+            }
+          }
+          @keyframes dash-scroll {
+            to {
+              stroke-dashoffset: -20;
+            }
+          }
+          .particle-glow-path {
+            animation: dash-scroll 1.2s infinite linear;
+          }
+        ` }} />
+
         <div className="max-w-[1360px] mx-auto px-6">
           
           {/* Header & Copywriting */}
           <div className="max-w-3xl text-left mb-16 flex flex-col gap-4">
             <span className="inline-flex items-center gap-2 text-[10px] sm:text-[11px] font-semibold tracking-widest uppercase px-3.5 py-1.5 rounded-full border border-white/20 bg-white/[0.06] text-primary backdrop-blur-sm w-fit">
               <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-              Conversion Diagnostics
+              Growth Engine
             </span>
             <h2 className="premium-heading text-3xl sm:text-4xl lg:text-[2.75rem] font-light text-white tracking-tight leading-[1.1] font-grotesk mt-2">
               Hyper-Optimized.<br />
               <span className="premium-highlight text-white"><span className="light-gradient-text font-normal">Designed</span> to Convert.</span>
             </h2>
-            <p className="text-white/70 text-lg sm:text-xl font-light leading-relaxed max-w-2xl mt-2">
-              We replace sluggish, heavy pre-built templates with custom Liquid engines and advanced conversion architectures. Built to turn traffic into high-value customers natively.
+            <p className="text-white/70 text-base sm:text-lg font-light leading-relaxed max-w-2xl mt-2">
+              A successful Shopify store isn't built by design alone. Real growth happens when every part of the customer journey works together. We optimize every touchpoint to transform traffic into loyal customers and sustainable revenue.
             </p>
+
+            <div className="flex flex-wrap gap-4 mt-2">
+              <button 
+                onClick={simulateGrowthFlow}
+                className="btn-primary px-6 h-10 text-xs rounded-full text-black font-semibold flex items-center gap-2 cursor-pointer shadow-md hover:scale-[1.02] transition-all"
+              >
+                <span>Simulate Full Growth Flow</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-black animate-ping" />
+              </button>
+              {activatedGrowthCards.length > 1 && (
+                <button 
+                  onClick={() => setActivatedGrowthCards([0])}
+                  className="btn-secondary px-5 h-10 text-xs rounded-full text-white/70 border border-white/10 hover:text-white cursor-pointer hover:bg-white/5 transition-all"
+                >
+                  Reset Flow
+                </button>
+              )}
+            </div>
           </div>
 
-          {/* Interactive Pills Selector */}
-          <div className="flex flex-wrap gap-3 mb-8">
-            {[
-              { id: "checkout", label: "CRO-Optimized Checkout" },
-              { id: "ui", label: "Premium UI Experience" },
-              { id: "ai", label: "Agentic Commerce (AI)" },
-            ].map((tab) => {
-              const isActive = activeDevTab === tab.id;
-              return (
-                <button
-                  key={tab.id}
-                  onClick={() => setActiveDevTab(tab.id as any)}
-                  className={`px-5 py-3 rounded-full text-xs font-semibold uppercase tracking-wider cursor-pointer ${
-                    isActive
-                      ? "btn-primary h-auto text-black font-bold shadow-md"
-                      : "btn-secondary h-auto text-white/60 border border-white/[0.08]"
+          {/* Interactive Storytelling Layout */}
+          <div className="relative w-full z-20">
+            
+            {/* SVG Connecting Flow Lines (Desktop Only) */}
+            <div className="hidden lg:block absolute inset-0 pointer-events-none z-10">
+              <svg className="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+                {/* Card 1 to Center */}
+                <path
+                  d="M 32% 25% C 36% 25%, 36% 40%, 40% 40%"
+                  stroke={activeGrowthCard === 0 ? "#22E39A" : "rgba(255,255,255,0.06)"}
+                  strokeWidth="2"
+                  className="transition-colors duration-500"
+                />
+                {activeGrowthCard === 0 && (
+                  <path
+                    d="M 32% 25% C 36% 25%, 36% 40%, 40% 40%"
+                    stroke="#22E39A"
+                    strokeWidth="3"
+                    strokeDasharray="8 6"
+                    className="particle-glow-path"
+                  />
+                )}
+
+                {/* Card 2 to Center */}
+                <path
+                  d="M 32% 75% C 36% 75%, 36% 60%, 40% 60%"
+                  stroke={activeGrowthCard === 1 ? "#22E39A" : "rgba(255,255,255,0.06)"}
+                  strokeWidth="2"
+                  className="transition-colors duration-500"
+                />
+                {activeGrowthCard === 1 && (
+                  <path
+                    d="M 32% 75% C 36% 75%, 36% 60%, 40% 60%"
+                    stroke="#22E39A"
+                    strokeWidth="3"
+                    strokeDasharray="8 6"
+                    className="particle-glow-path"
+                  />
+                )}
+
+                {/* Card 3 to Center */}
+                <path
+                  d="M 68% 25% C 64% 25%, 64% 40%, 60% 40%"
+                  stroke={activeGrowthCard === 2 ? "#22E39A" : "rgba(255,255,255,0.06)"}
+                  strokeWidth="2"
+                  className="transition-colors duration-500"
+                />
+                {activeGrowthCard === 2 && (
+                  <path
+                    d="M 68% 25% C 64% 25%, 64% 40%, 60% 40%"
+                    stroke="#22E39A"
+                    strokeWidth="3"
+                    strokeDasharray="8 6"
+                    className="particle-glow-path"
+                  />
+                )}
+
+                {/* Card 4 to Center */}
+                <path
+                  d="M 68% 75% C 64% 75%, 64% 60%, 60% 60%"
+                  stroke={activeGrowthCard === 3 ? "#22E39A" : "rgba(255,255,255,0.06)"}
+                  strokeWidth="2"
+                  className="transition-colors duration-500"
+                />
+                {activeGrowthCard === 3 && (
+                  <path
+                    d="M 68% 75% C 64% 75%, 64% 60%, 60% 60%"
+                    stroke="#22E39A"
+                    strokeWidth="3"
+                    strokeDasharray="8 6"
+                    className="particle-glow-path"
+                  />
+                )}
+              </svg>
+            </div>
+
+            {/* Symmetrical 3-Column Grid */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch relative z-20">
+              
+              {/* Left Column: Cards 1 & 2 */}
+              <div className="lg:col-span-4 flex flex-col gap-8 justify-between">
+                
+                {/* 01. Traffic Card */}
+                <motion.div
+                  onMouseEnter={() => {
+                    setActiveGrowthCard(0);
+                    if (!activatedGrowthCards.includes(0)) setActivatedGrowthCards(p => [...p, 0]);
+                  }}
+                  className={`flex flex-col justify-between bg-black/40 backdrop-blur-md border rounded-[24px] p-8 transition-all duration-500 min-h-[260px] cursor-pointer select-none ${
+                    activeGrowthCard === 0 ? "border-primary/40 shadow-[0_15px_30px_rgba(34,227,154,0.05)] scale-[1.01]" : "border-white/[0.08] hover:border-white/20"
                   }`}
                 >
-                  {tab.label}
-                </button>
-              );
-            })}
-          </div>
-
-          {/* Main Showcase Panel */}
-          <div className="relative w-full bg-gradient-to-br from-[#101010] to-[#070707] border border-white/[0.08] rounded-[24px] p-6 sm:p-10 lg:p-12 overflow-hidden shadow-2xl">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(34,227,154,0.04),transparent_60%)] pointer-events-none" />
-            
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch relative z-10">
-              
-              {/* Left Column: Simulated Code/Terminal Console */}
-              <div className="lg:col-span-7 flex flex-col justify-between rounded-[20px] bg-black/60 border border-white/[0.08] overflow-hidden min-h-[380px] font-mono text-xs text-left shadow-2xl">
-                
-                {/* Console Window Header */}
-                <div className="px-4 py-3 bg-[#0B0B0B] border-b border-white/[0.08] flex items-center justify-between">
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-3 h-3 rounded-full bg-rose-500/80" />
-                    <span className="w-3 h-3 rounded-full bg-amber-500/80" />
-                    <span className="w-3 h-3 rounded-full bg-emerald-500/80" />
-                    <span className="text-[10px] text-white/40 ml-2 font-mono">
-                      {activeDevTab === "checkout" && "shopify --zsh - 100x30"}
-                      {activeDevTab === "ui" && "theme.liquid - Liquid editor"}
-                      {activeDevTab === "ai" && "ai-concierge.ts - TypeScript"}
-                    </span>
+                  <div>
+                    <div className="flex items-center justify-between mb-4">
+                      <span className="font-mono text-2xl font-extralight text-white/20">01</span>
+                      <div className={`w-10 h-10 rounded-xl flex items-center justify-center border transition-all ${
+                        activeGrowthCard === 0 ? "bg-primary/10 border-primary/20 text-primary" : "bg-white/[0.02] border-white/5 text-white/50"
+                      }`}>
+                        <TrendingUp className="w-5 h-5" />
+                      </div>
+                    </div>
+                    <h3 className={`text-xl font-light tracking-tight transition-colors duration-300 ${activeGrowthCard === 0 ? "text-primary font-normal" : "text-white"}`}>
+                      Traffic
+                    </h3>
+                    <p className="text-sm text-white/60 font-light mt-3 leading-relaxed">
+                      Sales begin with qualified visitors. We help you attract high-intent customers through both Paid Marketing and Organic Growth strategies.
+                    </p>
                   </div>
-                  <span className="text-[9px] text-primary/50 border border-primary/20 px-2 py-0.5 rounded uppercase font-semibold">
-                    {activeDevTab === "checkout" && "zsh terminal"}
-                    {activeDevTab === "ui" && "liquid engine"}
-                    {activeDevTab === "ai" && "agentic backend"}
-                  </span>
-                </div>
 
-                {/* Console Content */}
-                <div className="p-6 flex-grow overflow-auto text-white/70 leading-relaxed select-none">
-                  {activeDevTab === "checkout" && (
-                    <div className="flex flex-col gap-2">
-                      <p className="text-white/40 font-mono">// Instantiating Custom Checkout Engine</p>
-                      <p className="text-white">$ npx -y create-salepxl-storefront@latest ./</p>
-                      <p className="text-primary font-bold">✓ Initialized high-converting storefront skeleton</p>
-                      <p className="text-primary font-bold">✓ Applied custom single-tap checkout modules</p>
-                      <p className="text-white mt-2">? Enter target performance rating (0-100): <span className="text-primary font-bold underline">98</span></p>
-                      <p className="text-primary mt-2">✓ Cart drawer latency optimized: 0.12s</p>
-                      <p className="text-primary">✓ Preloaded main collection assets: Saved 2.4MB payload</p>
-                      <p className="text-white/60 mt-2 font-bold font-mono">
-                        Speed Index: 1.2s | Core Web Vitals: Passing
-                      </p>
+                  <TrafficParticles active={activeGrowthCard === 0} />
+
+                  <div className="border-t border-white/[0.05] pt-4 mt-6">
+                    <ul className="grid grid-cols-2 gap-2 text-xs text-white/70 font-light">
+                      {["Meta Ads", "Google Ads", "SEO", "Social Media", "Organic Traffic", "High Intent Visitors"].map((h, i) => (
+                        <li key={i} className="flex items-center gap-1.5">
+                          <span className="w-1 h-1 rounded-full bg-primary/80" />
+                          <span>{h}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </motion.div>
+
+                {/* 02. Trust Card */}
+                <motion.div
+                  onMouseEnter={() => {
+                    setActiveGrowthCard(1);
+                    if (!activatedGrowthCards.includes(1)) setActivatedGrowthCards(p => [...p, 1]);
+                  }}
+                  className={`flex flex-col justify-between bg-black/40 backdrop-blur-md border rounded-[24px] p-8 transition-all duration-500 min-h-[260px] cursor-pointer select-none ${
+                    activeGrowthCard === 1 ? "border-primary/40 shadow-[0_15px_30px_rgba(34,227,154,0.05)] scale-[1.01]" : "border-white/[0.08] hover:border-white/20"
+                  }`}
+                >
+                  <div>
+                    <div className="flex items-center justify-between mb-4">
+                      <span className="font-mono text-2xl font-extralight text-white/20">02</span>
+                      <div className={`w-10 h-10 rounded-xl flex items-center justify-center border transition-all ${
+                        activeGrowthCard === 1 ? "bg-primary/10 border-primary/20 text-primary" : "bg-white/[0.02] border-white/5 text-white/50"
+                      }`}>
+                        <Award className="w-5 h-5" />
+                      </div>
                     </div>
-                  )}
+                    <h3 className={`text-xl font-light tracking-tight transition-colors duration-300 ${activeGrowthCard === 1 ? "text-primary font-normal" : "text-white"}`}>
+                      Build Trust
+                    </h3>
+                    <p className="text-sm text-white/60 font-light mt-3 leading-relaxed">
+                      Your website is your digital storefront. A premium design instantly builds credibility and gives customers the confidence to purchase.
+                    </p>
+                  </div>
 
-                  {activeDevTab === "ui" && (
-                    <div className="flex flex-col gap-1 font-mono text-[11px]">
-                      <p className="text-white/40 font-mono">// Custom Liquid Section with Hover State Transitions</p>
-                      <p className="text-white">{"<div className=\"relative group rounded-3xl overflow-hidden\">"}</p>
-                      <p className="text-primary pl-4">{"{% if product.hover_image %}"}</p>
-                      <p className="text-white pl-8">{"<img src=\"{{ product.hover_image | img_url: 'large' }}\""}</p>
-                      <p className="text-primary pl-12">{"class=\"absolute inset-0 transition-opacity duration-700 opacity-0 group-hover:opacity-100\" />"}</p>
-                      <p className="text-primary pl-4">{"{% endif %}"}</p>
-                      <p className="text-white pl-4">{"<button class=\"transition-all duration-300 active:scale-95\">"}</p>
-                      <p className="text-amber-300 pl-8">{"Quick Buy + Free Gift"}</p>
-                      <p className="text-white pl-4">{"</button>"}</p>
-                      <p className="text-white">{"</div>"}</p>
-                      <p className="text-emerald-400 mt-3 font-semibold font-mono">// Rendering UI layout with sub-16ms frames</p>
+                  <TrustMeter active={activeGrowthCard === 1} />
+
+                  <div className="border-t border-white/[0.05] pt-4 mt-6">
+                    <ul className="grid grid-cols-2 gap-2 text-xs text-white/70 font-light">
+                      {["Premium UI Design", "Professional Branding", "Product Presentation", "Social Proof", "Reviews", "Secure Checkout"].map((h, i) => (
+                        <li key={i} className="flex items-center gap-1.5">
+                          <span className="w-1 h-1 rounded-full bg-primary/80" />
+                          <span>{h}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </motion.div>
+
+              </div>
+
+              {/* Center Column: The Visual Outcome Dashboard */}
+              <div className="lg:col-span-4 flex flex-col justify-between">
+                <div className="relative w-full h-full bg-gradient-to-br from-[#0c0c0c] to-[#040404] border border-white/[0.08] rounded-[24px] p-6 sm:p-8 flex flex-col justify-between overflow-hidden shadow-2xl relative select-none">
+                  {/* Subtle glowing overlay behind center card */}
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(34,227,154,0.06),transparent_70%)] pointer-events-none" />
+
+                  {/* Logo Center */}
+                  <div className="text-center mt-4 relative z-20">
+                    <div className="relative w-20 h-20 rounded-full bg-black/40 border border-white/[0.08] flex items-center justify-center shadow-[0_0_40px_rgba(34,227,154,0.1)] mx-auto">
+                      <div className="absolute inset-0 bg-primary/5 rounded-full animate-ping pointer-events-none" />
+                      <svg viewBox="0 0 24 24" className="w-10 h-10 text-primary" fill="currentColor">
+                        <path d="M19.58 7.37L12.35 1.15a1 1 0 00-1.34 0L3.78 7.37a1 1 0 00-.31.73v9.64a1 1 0 00.31.73l7.23 6.22a1 1 0 001.34 0l7.23-6.22a1 1 0 00.31-.73V8.1a1 1 0 00-.31-.73zM12 3l6.5 5.58L12 14.16 5.5 8.58 12 3zm6.5 13.82l-6.5 5.58-6.5-5.58V9.75l6.5 5.58 6.5-5.58v7.07z" />
+                      </svg>
                     </div>
-                  )}
+                    <span className="text-[10px] text-white/40 font-mono tracking-widest block mt-4 uppercase">HIGH CONVERTING ENGINE</span>
+                    <h4 className="text-white font-grotesk text-lg font-light mt-1">Shopify Store Core</h4>
+                  </div>
 
-                  {activeDevTab === "ai" && (
-                    <div className="flex flex-col gap-2">
-                      <p className="text-white/40 font-mono">// Live Agentic Chat Assistant Context</p>
-                      <p className="text-primary">{"{"}</p>
-                      <p className="text-white pl-4">"agent": "SalePXL AI Concierge",</p>
-                      <p className="text-white pl-4">"intent": "Recommend products for sensitive skin",</p>
-                      <p className="text-white pl-4">"action": "Querying Jeju-secrets collection API...",</p>
-                      <p className="text-white pl-4">"results": [</p>
-                      <p className="text-amber-300 pl-8">{"{ \"name\": \"Jeju Volcanic Mask\", \"matchScore\": \"98%\" }"}</p>
-                      <p className="text-white pl-4">]</p>
-                      <p className="text-primary">{"}"}</p>
-                      <p className="text-primary mt-2 font-mono">✓ AI Concierge initialized. Ready to auto-close sales.</p>
+                  {/* Dynamic Metric Cloud */}
+                  <div className="my-6 relative z-20">
+                    {activatedGrowthCards.length === 4 ? (
+                      <div className="flex flex-col gap-4">
+                        {/* Achievements Grid */}
+                        <div className="grid grid-cols-2 gap-x-2 gap-y-1.5 text-[11px] text-white/90 font-mono border-b border-white/5 pb-3">
+                          <div className="flex items-center gap-1"><span className="text-primary font-bold">✓</span> Conversion Up</div>
+                          <div className="flex items-center gap-1"><span className="text-primary font-bold">✓</span> More Sales</div>
+                          <div className="flex items-center gap-1"><span className="text-primary font-bold">✓</span> Fast Growth</div>
+                          <div className="flex items-center gap-1"><span className="text-primary font-bold">✓</span> Max Retention</div>
+                        </div>
+
+                        {/* Floating Metrics Cloud */}
+                        <div className="flex flex-wrap gap-1.5 justify-center">
+                          {[
+                            "↑ Conversion Rate",
+                            "↑ ROAS",
+                            "↑ Revenue",
+                            "↑ Average Order Value",
+                            "↑ Returning Customers"
+                          ].map((metric, i) => (
+                            <motion.span
+                              key={i}
+                              initial={{ opacity: 0, scale: 0.8 }}
+                              animate={{ opacity: 1, scale: 1 }}
+                              transition={{ duration: 0.3, delay: i * 0.08 }}
+                              className="text-[9px] font-mono font-bold px-2 py-0.5 rounded-full border border-primary/20 bg-primary/10 text-primary"
+                            >
+                              {metric}
+                            </motion.span>
+                          ))}
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="flex flex-col items-center justify-center p-6 border border-dashed border-white/10 rounded-xl bg-black/20 text-center min-h-[110px]">
+                        <span className="text-xs text-white/40 leading-relaxed font-light">
+                          Hover over the surrounding elements to unlock full growth diagnostics
+                        </span>
+                        <div className="mt-3 flex items-center gap-1.5">
+                          {[0, 1, 2, 3].map((step) => {
+                            const done = activatedGrowthCards.includes(step);
+                            return (
+                              <div 
+                                key={step} 
+                                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                                  done ? "bg-primary scale-110 shadow-[0_0_8px_rgba(34,227,154,0.8)]" : "bg-white/10"
+                                }`} 
+                              />
+                            );
+                          })}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Revenue Graph widget */}
+                  <div className="relative z-20">
+                    <div className="flex justify-between items-end text-[10px] text-white/40 font-mono">
+                      <span>LTM Revenue Graph</span>
+                      <span className={activatedGrowthCards.length === 4 ? "text-primary" : ""}>
+                        {activatedGrowthCards.length === 4 ? "PEAK REVENUE" : `STAGE ${activatedGrowthCards.length}/4`}
+                      </span>
                     </div>
-                  )}
-                </div>
+                    <RevenueGraph activeCount={activatedGrowthCards.length} />
+                  </div>
 
-                {/* Console Footer */}
-                <div className="px-4 py-3 bg-[#0B0B0B]/80 border-t border-white/[0.08] text-[10px] text-white/30 flex justify-between">
-                  <span>System: MacOS</span>
-                  <span>SalePXL CRO V3.0</span>
+                  {/* Glowing Statement */}
+                  {activatedGrowthCards.length === 4 && (
+                    <motion.p
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5 }}
+                      className="text-[11px] sm:text-xs text-center text-white/80 leading-relaxed pt-4 border-t border-white/5 mt-4 font-light italic relative z-20"
+                    >
+                      "When <span className="text-primary font-semibold">Traffic</span>, <span className="text-primary font-semibold">Trust</span>, <span className="text-primary font-semibold">Customer Experience</span>, and <span className="text-primary font-semibold">Performance</span> work together, <span className="light-gradient-text font-semibold uppercase tracking-wider">Sales become the natural outcome</span>."
+                    </motion.p>
+                  )}
                 </div>
               </div>
 
-              {/* Right Column: Live Visual Preview */}
-              <div className="lg:col-span-5 flex flex-col justify-center items-center relative">
+              {/* Right Column: Cards 3 & 4 */}
+              <div className="lg:col-span-4 flex flex-col gap-8 justify-between">
                 
-                {/* Visual Preview Container */}
-                <div className="w-full max-w-[320px] aspect-[4/5] rounded-[24px] overflow-hidden border border-white/[0.08] bg-[#101010] relative shadow-2xl group transition-all duration-500 hover:scale-[1.015] hover:shadow-2xl hover:shadow-black/70 flex flex-col justify-between p-6">
-                  
-                  {activeDevTab === "checkout" && (
-                    <>
-                      {/* Product Header */}
-                      <div className="flex justify-between items-start w-full">
-                        <span className="text-[10px] bg-primary/10 text-primary border border-primary/25 px-2.5 py-1 rounded-full font-mono font-bold tracking-wider">
-                          SAVING 2.4MB
-                        </span>
-                        <div className="text-right">
-                          <span className="text-[10px] text-white/50 block font-mono">LOAD SPEED</span>
-                          <span className="text-primary font-bold font-mono">1.2s (Instant)</span>
-                        </div>
+                {/* 03. Customer Experience Card */}
+                <motion.div
+                  onMouseEnter={() => {
+                    setActiveGrowthCard(2);
+                    if (!activatedGrowthCards.includes(2)) setActivatedGrowthCards(p => [...p, 2]);
+                  }}
+                  className={`flex flex-col justify-between bg-black/40 backdrop-blur-md border rounded-[24px] p-8 transition-all duration-500 min-h-[260px] cursor-pointer select-none ${
+                    activeGrowthCard === 2 ? "border-primary/40 shadow-[0_15px_30px_rgba(34,227,154,0.05)] scale-[1.01]" : "border-white/[0.08] hover:border-white/20"
+                  }`}
+                >
+                  <div>
+                    <div className="flex items-center justify-between mb-4">
+                      <span className="font-mono text-2xl font-extralight text-white/20">03</span>
+                      <div className={`w-10 h-10 rounded-xl flex items-center justify-center border transition-all ${
+                        activeGrowthCard === 2 ? "bg-primary/10 border-primary/20 text-primary" : "bg-white/[0.02] border-white/5 text-white/50"
+                      }`}>
+                        <Smartphone className="w-5 h-5" />
                       </div>
-
-                      {/* Middle Card: Image & Cart Slide-In */}
-                      <div className="my-auto flex flex-col items-center">
-                        <div className="relative w-36 h-36 rounded-[20px] overflow-hidden border border-white/[0.08] bg-white/5 p-2 mb-3">
-                          <img 
-                            src="/wellness_mockup.png" 
-                            alt="Jeju Volcanic Mask" 
-                            className="w-full h-full object-contain"
-                          />
-                          <div className="absolute top-2 left-2 bg-black/60 backdrop-blur-sm text-primary text-[8px] font-bold px-2 py-0.5 rounded-full border border-white/[0.08]">
-                            BEST SELLER
-                          </div>
-                        </div>
-                        <h4 className="text-white font-semibold text-sm">Jeju Volcanic Mask</h4>
-                        <div className="flex items-center gap-2 mt-1">
-                          <span className="text-xs text-white/50 line-through">₹999</span>
-                          <span className="text-xs text-primary font-bold">₹699</span>
-                          <span className="text-[9px] bg-emerald-500/10 text-emerald-400 px-1.5 py-0.5 rounded font-bold">SAVE 30%</span>
-                        </div>
-                      </div>
-
-                      {/* Checkout Footer Button */}
-                      <div className="flex flex-col gap-2 w-full">
-                        {/* Dynamic AOV indicator */}
-                        <div className="flex justify-between items-center text-[10px] text-white/60 font-mono border-t border-white/5 pt-3">
-                          <span>Progress: Add ₹301 for FREE Shipping</span>
-                          <span className="text-primary font-bold">70%</span>
-                        </div>
-                        <div className="w-full bg-white/5 rounded-full h-1.5 overflow-hidden">
-                          <div className="bg-primary h-full w-[70%]" />
-                        </div>
-                        <button className="w-full h-11 mt-1 rounded-full bg-white hover:bg-[#f5f5f7] text-black text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer hover:scale-[1.01] shadow-sm">
-                          Secure Express Checkout
-                        </button>
-                      </div>
-                    </>
-                  )}
-
-                  {activeDevTab === "ui" && (
-                    <>
-                      {/* Live UI interaction mockup */}
-                      <div className="flex justify-between items-start w-full">
-                        <span className="text-[10px] bg-amber-500/10 text-amber-400 border border-amber-500/25 px-2.5 py-1 rounded-full font-mono font-bold">
-                          MICRO-INTERACTION
-                        </span>
-                        <div className="flex items-center gap-1">
-                          <span className="w-2 h-2 rounded-full bg-primary animate-ping" />
-                          <span className="text-[10px] text-white/60 font-mono">60 FPS</span>
-                        </div>
-                      </div>
-
-                      {/* Product display card */}
-                      <div className="my-auto flex flex-col items-center">
-                        <div className="relative w-40 h-40 rounded-2xl overflow-hidden border border-white/10 bg-white/5 p-2 mb-3 cursor-pointer group/hover">
-                          {/* Main Image */}
-                          <img 
-                            src="/supplement_mockup.png" 
-                            alt="Supplement pack" 
-                            className="w-full h-full object-contain transition-transform duration-500 group-hover/hover:scale-105"
-                          />
-                          {/* Custom hover glow */}
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover/hover:opacity-100 transition-opacity duration-300 flex items-end justify-center p-3">
-                            <span className="text-[9px] text-primary font-mono tracking-widest font-black uppercase">HOVER FOR PREVIEW</span>
-                          </div>
-                        </div>
-                        
-                        {/* Rating stars */}
-                        <div className="flex gap-0.5 text-amber-400 text-xs">
-                          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-                          <span className="text-[10px] text-white/40 ml-1">(4.9/5)</span>
-                        </div>
-                        <h4 className="text-white font-semibold text-sm mt-1">Superfood Daily Mix</h4>
-                      </div>
-
-                      <div className="flex flex-col gap-2 w-full">
-                        {/* Interactive size selectors */}
-                        <div className="flex justify-center gap-2 mb-1">
-                          {["30 Servings", "60 Servings", "90 Servings"].map((size, idx) => (
-                            <span 
-                              key={idx} 
-                              className={`text-[9px] px-2.5 py-1 rounded-full border cursor-pointer transition-all duration-200 ${
-                                idx === 0 
-                                  ? "border-primary text-primary bg-primary/5" 
-                                  : "border-white/10 text-white/50 hover:text-white"
-                              }`}
-                            >
-                              {size}
-                            </span>
-                          ))}
-                        </div>
-                        <button className="w-full h-11 rounded-full bg-primary hover:bg-primary-hover text-black text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer shadow-sm">
-                          Instant Add to Cart
-                        </button>
-                      </div>
-                    </>
-                  )}
-
-                  {activeDevTab === "ai" && (
-                    <>
-                      {/* AI Concierge Chat Interface */}
-                      <div className="flex justify-between items-center border-b border-white/5 pb-3 w-full">
-                        <div className="flex items-center gap-2">
-                          <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
-                          <span className="text-xs text-white font-semibold font-mono">SalePXL AI Concierge</span>
-                        </div>
-                        <span className="text-[9px] text-white/40 font-mono">LIVE AGENT</span>
-                      </div>
-
-                      {/* Chat messages stream */}
-                      <div className="flex-grow my-4 flex flex-col gap-3 justify-end overflow-y-auto w-full">
-                        
-                        {/* User Message */}
-                        <div className="flex justify-end w-full">
-                          <div className="bg-white/5 border border-white/10 text-white text-[10px] p-2.5 rounded-[16px] rounded-tr-sm max-w-[85%] text-right">
-                            I have sensitive skin and want a volcanic clay mask. Anything suitable?
-                          </div>
-                        </div>
-
-                        {/* Agent Message */}
-                        <div className="flex justify-start items-start gap-2 w-full">
-                          <span className="w-5 h-5 rounded-full bg-primary/20 text-primary border border-primary/25 flex items-center justify-center font-bold text-[8px] font-mono shrink-0 mt-0.5">
-                            AI
-                          </span>
-                          <div className="bg-[#101010] border border-primary/20 text-white text-[10px] p-2.5 rounded-[16px] rounded-tl-sm max-w-[85%] text-left">
-                            <p>Based on your query, the <strong>Jeju Volcanic Mask</strong> is formulated exactly for sensitive skin.</p>
-                            <div className="mt-2.5 p-2 bg-black/40 border border-white/10 rounded-[12px] flex items-center gap-2">
-                              <img src="/wellness_mockup.png" className="w-8 h-8 object-contain" />
-                              <div className="flex-grow">
-                                <p className="text-[8px] font-bold text-white leading-tight">Jeju Volcanic Mask</p>
-                                <p className="text-[8px] text-primary font-mono">₹699 • <span className="line-through text-white/30">₹999</span></p>
-                              </div>
-                              <button className="px-3 h-7 bg-[#ffffff] text-black text-[8px] font-bold rounded-full uppercase tracking-wider shrink-0 cursor-pointer hover:bg-[#f5f5f7] transition-all">
-                                Buy
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-
-                      </div>
-
-                      {/* Chat Input Simulation */}
-                      <div className="relative pt-2 border-t border-white/5 w-full">
-                        <div className="w-full bg-white/5 border border-white/10 rounded-full h-10 px-3.5 py-2 text-[10px] text-white/40 flex justify-between items-center">
-                          <span>Recommend another skincare routine...</span>
-                          <svg className="w-3.5 h-3.5 text-primary" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
-                          </svg>
-                        </div>
-                      </div>
-                    </>
-                  )}
-
-                </div>
-
-                {/* Floating Speed Widget */}
-                <div className="absolute bottom-[-16px] right-[-16px] z-20 w-44 p-4 rounded-[20px] bg-[#101010] border border-primary/20 flex items-center gap-3 shadow-xl backdrop-blur-md">
-                  <div className="w-10 h-10 rounded-full border-2 border-primary flex items-center justify-center font-mono font-bold text-xs text-primary bg-black/50">
-                    98
+                    </div>
+                    <h3 className={`text-xl font-light tracking-tight transition-colors duration-300 ${activeGrowthCard === 2 ? "text-primary font-normal" : "text-white"}`}>
+                      Customer Experience
+                    </h3>
+                    <p className="text-sm text-white/60 font-light mt-3 leading-relaxed">
+                      Every interaction matters. We create intuitive shopping experiences that make browsing effortless and purchasing seamless.
+                    </p>
                   </div>
-                  <div className="text-left">
-                    <span className="text-[9px] text-[#a1a1aa] block font-mono">SPEED SCORE</span>
-                    <span className="text-[11px] text-white font-bold">Core Web Vitals</span>
+
+                  <UserJourneyMockup active={activeGrowthCard === 2} />
+
+                  <div className="border-t border-white/[0.05] pt-4 mt-6">
+                    <ul className="grid grid-cols-2 gap-2 text-xs text-white/70 font-light">
+                      {["Easy Navigation", "Mobile Responsive", "Interactive Design", "Smart Product Discovery", "Smooth Checkout", "Conversion-Focused UX"].map((h, i) => (
+                        <li key={i} className="flex items-center gap-1.5">
+                          <span className="w-1.5 h-1.5 rounded-full bg-primary/80 shrink-0" />
+                          <span className="truncate" title={h}>{h}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                </div>
+                </motion.div>
+
+                {/* 04. Performance Card */}
+                <motion.div
+                  onMouseEnter={() => {
+                    setActiveGrowthCard(3);
+                    if (!activatedGrowthCards.includes(3)) setActivatedGrowthCards(p => [...p, 3]);
+                  }}
+                  className={`flex flex-col justify-between bg-black/40 backdrop-blur-md border rounded-[24px] p-8 transition-all duration-500 min-h-[260px] cursor-pointer select-none ${
+                    activeGrowthCard === 3 ? "border-primary/40 shadow-[0_15px_30px_rgba(34,227,154,0.05)] scale-[1.01]" : "border-white/[0.08] hover:border-white/20"
+                  }`}
+                >
+                  <div>
+                    <div className="flex items-center justify-between mb-4">
+                      <span className="font-mono text-2xl font-extralight text-white/20">04</span>
+                      <div className={`w-10 h-10 rounded-xl flex items-center justify-center border transition-all ${
+                        activeGrowthCard === 3 ? "bg-primary/10 border-primary/20 text-primary" : "bg-white/[0.02] border-white/5 text-white/50"
+                      }`}>
+                        <Zap className="w-5 h-5" />
+                      </div>
+                    </div>
+                    <h3 className={`text-xl font-light tracking-tight transition-colors duration-300 ${activeGrowthCard === 3 ? "text-primary font-normal" : "text-white"}`}>
+                      Performance & Optimization
+                    </h3>
+                    <p className="text-sm text-white/60 font-light mt-3 leading-relaxed">
+                      A fast website converts better. We optimize every technical detail to deliver lightning-fast loading, better engagement, and higher conversions.
+                    </p>
+                  </div>
+
+                  <PerformanceMeter active={activeGrowthCard === 3} />
+
+                  <div className="border-t border-white/[0.05] pt-4 mt-6">
+                    <ul className="grid grid-cols-2 gap-2 text-xs text-white/70 font-light">
+                      {["Page Speed", "Core Web Vitals", "Shopify Optimization", "Clean Code", "Performance Monitoring", "Faster Checkout"].map((h, i) => (
+                        <li key={i} className="flex items-center gap-1.5">
+                          <span className="w-1.5 h-1.5 rounded-full bg-primary/80 shrink-0" />
+                          <span className="truncate" title={h}>{h}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </motion.div>
 
               </div>
 
             </div>
+
           </div>
 
         </div>
       </section>
+
 
 
 
@@ -1347,16 +2097,16 @@ export default function HomePage() {
           />
 
           {/* Sheet: bottom-sheet on mobile, centered card on desktop */}
-          <div className="relative w-full sm:max-w-4xl max-h-[92vh] overflow-y-auto rounded-t-3xl sm:rounded-3xl bg-[#0a0a0a]/95 backdrop-blur-2xl border-t sm:border border-white/[0.08] shadow-2xl animate-fade-blur">
+          <div className="relative w-full sm:max-w-4xl max-h-[92vh] overflow-y-auto rounded-t-3xl sm:rounded-3xl bg-gradient-to-b from-[#fafcfc] via-[#f5faf7] to-[#eaf7f2] border-t sm:border border-neutral-200/80 shadow-2xl animate-fade-blur">
             {/* Handle bar (mobile only) */}
             <div className="flex justify-center pt-3 pb-1 sm:hidden">
-              <div className="w-10 h-1 rounded-full bg-white/20" />
+              <div className="w-10 h-1 rounded-full bg-neutral-300" />
             </div>
 
             {/* Close Button */}
             <button
               onClick={() => setShowFormModal(false)}
-              className="absolute top-5 right-5 sm:top-6 sm:right-6 w-9 h-9 rounded-full bg-white/[0.04] border border-white/10 flex items-center justify-center text-white/50 hover:text-white hover:bg-white/10 hover:border-white/25 transition-all duration-300 z-50"
+              className="absolute top-5 right-5 sm:top-6 sm:right-6 w-9 h-9 rounded-full bg-black/[0.03] border border-neutral-200/60 flex items-center justify-center text-neutral-500 hover:text-neutral-900 hover:bg-black/[0.08] hover:border-neutral-300 transition-all duration-300 z-50"
               aria-label="Close"
             >
               <svg width="12" height="12" viewBox="0 0 14 14" fill="none">
@@ -1376,7 +2126,7 @@ export default function HomePage() {
       {/* 6. TRUSTED BY 800+ LEADING BRANDS LOGO SECTION */}
       <section className="py-16 md:py-24 lg:py-36 bg-white relative z-20 overflow-hidden rounded-t-[32px] md:rounded-t-[48px] mt-[-32px] md:mt-[-48px]">
         <div className="max-w-[1360px] mx-auto px-6 flex flex-col gap-6 text-center items-center mb-8">
-          <span className="text-[10px] text-neutral-400 font-mono uppercase tracking-widest font-black">
+          <span className="text-[10px] text-neutral-400 font-sans uppercase tracking-widest font-black">
             Trusted by 800+ Leading Brands
           </span>
         </div>
@@ -1452,51 +2202,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 3. HORIZONTAL SCROLL SHOWCASE CAROUSEL (Directly below Hero) */}
-      <section className="relative px-0 py-16 md:py-24 lg:py-36 z-20 rounded-t-[32px] md:rounded-t-[48px] mt-[-32px] md:mt-[-48px] border-t border-white/[0.08] bg-gradient-to-b from-[#031022] to-[#050505]">
-        <div className="max-w-[1360px] mx-auto px-6 mb-6">
-          <h2 className="premium-heading text-2xl sm:text-3xl font-light text-white tracking-tight mt-1">Agency <span className="premium-highlight"><span className="light-gradient-text font-normal">Features</span> & Tools</span></h2>
-        </div>
-        
-        <div className="overflow-x-auto hide-scrollbar min-w-0 grid px-6">
-          <ul className="flex gap-5 min-w-0 *:flex-[0_0_19.5rem] md:*:flex-[0_0_24rem] xl:*:flex-[0_0_28rem] pb-4">
-            {CAROUSEL_ITEMS.map((item, idx) => (
-              <li key={idx}>
-                <div className="premium-hover-card group grid rounded-[24px] gap-3 relative p-5 bg-gradient-to-b from-[#101010] to-[#070707] border border-white/[0.08] transition-all duration-500">
-                  <a href={item.link} className="absolute inset-0 z-10">
-                    <span className="sr-only">Open {item.title}</span>
-                  </a>
-                  
-                  <figure className="premium-hover-image-container relative overflow-hidden rounded-[16px] aspect-[1.77] w-full bg-[#050505]">
-                    {/* Media Image Showcase */}
-                    <img
-                      alt={item.title}
-                      loading="lazy"
-                      src={item.image}
-                      className="premium-hover-image pointer-events-none select-none absolute inset-0 object-cover size-full opacity-70"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent pointer-events-none" />
-                    
-                    {/* Floating top badge */}
-                    <span className="absolute top-3 left-3 bg-[#050505]/80 text-white text-[9px] font-mono tracking-wider uppercase px-2 py-0.5 rounded-full border border-white/[0.08]">
-                      {item.badge}
-                    </span>
-                  </figure>
 
-                  <div className="text-left flex flex-col gap-1">
-                    <h3 className="uppercase font-grotesk truncate text-sm font-bold text-white group-hover:text-primary transition-colors">
-                      {item.title}
-                    </h3>
-                    <p className="text-white/70 text-xs truncate">
-                      {item.subtitle}
-                    </p>
-                  </div>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
 
 
 
@@ -1689,7 +2395,7 @@ export default function HomePage() {
                       initial={{ opacity: 0 }}
                       animate={{ opacity: activeReviewIdx === idx ? 0.6 : 0 }}
                       transition={{ duration: 0.4 }}
-                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                      className="absolute inset-0 w-full h-full object-contain group-hover:scale-105 transition-transform duration-700"
                     />
                   ))}
                   <div className="absolute inset-0 bg-gradient-to-t from-[#070707] via-transparent to-transparent pointer-events-none" />
@@ -1708,12 +2414,7 @@ export default function HomePage() {
                       </span>
                       <div>
                         <p className="font-bold text-white text-sm">{GOOGLE_REVIEWS_CONSOLIDATED[activeReviewIdx].name}</p>
-                        <p className="text-[9px] text-white/50 font-mono">{GOOGLE_REVIEWS_CONSOLIDATED[activeReviewIdx].metadata}</p>
                       </div>
-                    </div>
-
-                    <div className="w-full h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/15 backdrop-blur-md border border-white/10 text-center text-xs font-semibold text-white transition-all cursor-pointer">
-                      Google Verified Reviewer
                     </div>
                   </div>
                 </div>

@@ -2,183 +2,163 @@
 
 import React from "react";
 import Link from "next/link";
-import { User, Shield, CheckCircle2, MapPin, Phone, Award, Clock, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export default function AboutPage() {
   return (
-    <div className="relative py-16 px-6 text-left">
-      {/* Background decoration highlight */}
-      <div className="absolute top-[15%] left-[-10%] w-[45%] h-[400px] bg-primary/[0.02] rounded-full blur-[150px] pointer-events-none" />
-      <div className="absolute bottom-[15%] right-[-10%] w-[40%] h-[400px] bg-primary/[0.02] rounded-full blur-[140px] pointer-events-none" />
+    <div className="relative min-h-screen bg-gradient-to-b from-[#fafcfc] via-[#f5faf7] to-[#eaf7f2] text-neutral-900 pt-36 pb-24 relative overflow-hidden font-sans -mt-24">
+      {/* Subtle background decoration highlight */}
+      <div className="absolute top-[10%] left-[-15%] w-[600px] h-[600px] bg-emerald-400/[0.04] rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-[10%] right-[-15%] w-[600px] h-[600px] bg-teal-300/[0.04] rounded-full blur-[140px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto flex flex-col gap-20">
+      <div className="max-w-5xl mx-auto px-6 flex flex-col gap-24 relative z-10">
         
-        {/* Page Header */}
-        <div className="text-center max-w-3xl mx-auto flex flex-col gap-4">
-          <span className="text-xs text-primary font-mono uppercase tracking-widest font-bold">
-            Company Ledger
+        {/* Editorial Page Header */}
+        <section className="flex flex-col gap-6 max-w-3xl text-left">
+          <span className="text-xs text-emerald-700 font-mono uppercase tracking-[0.2em] font-bold">
+            01 / Agency Manifesto
           </span>
-          <h1 className="premium-heading text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
-            About <span className="premium-highlight text-white">SalePXL</span>
-          </h1>
-          <p className="text-[#8e8e93] text-sm sm:text-base leading-relaxed">
-            We build conversion-centric Shopify storefronts and scale them using paid media bidding models.
-          </p>
-        </div>
-
-        {/* Founder Bio Block */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-          
-          {/* Left Column Profile Frame */}
-          <div className="lg:col-span-5 relative flex justify-center">
-            {/* Apple styled founder glass card mockup */}
-            <div className="relative w-full max-w-sm rounded-3xl glass-card overflow-hidden p-6 shadow-sm flex flex-col gap-6">
-              <div className="aspect-square w-full rounded-2xl bg-gradient-to-tr from-white/[0.02] to-white/[0.06] border border-white/[0.05] flex items-center justify-center relative overflow-hidden group">
-                <User className="w-20 h-20 text-[#8e8e93]" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent opacity-85" />
-                
-                {/* Float signature detail */}
-                <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between">
-                  <div className="flex flex-col">
-                    <span className="text-white font-bold text-base">Pankaj Singh</span>
-                    <span className="text-[10px] text-primary font-mono tracking-widest uppercase font-bold">Founder & Growth Architect</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Stat Counters */}
-              <div className="grid grid-cols-2 gap-4">
-                <div className="premium-hover-card p-4 rounded-xl bg-white/[0.01] border border-white/[0.05]">
-                  <div className="flex items-center gap-1 text-primary">
-                    <Clock className="w-3.5 h-3.5" />
-                    <span className="text-xs font-bold font-mono">10+ Years</span>
-                  </div>
-                  <p className="text-[9px] text-[#8e8e93] uppercase tracking-wider mt-1 font-semibold">Experience</p>
-                </div>
-                <div className="premium-hover-card p-4 rounded-xl bg-white/[0.01] border border-white/[0.05]">
-                  <div className="flex items-center gap-1 text-primary">
-                    <Award className="w-3.5 h-3.5" />
-                    <span className="text-xs font-bold font-mono">100+ Brands</span>
-                  </div>
-                  <p className="text-[9px] text-[#8e8e93] uppercase tracking-wider mt-1 font-semibold">Scaled</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Column Experience Details */}
-          <div className="lg:col-span-7 flex flex-col gap-6 text-left">
-            <span className="text-xs text-primary font-mono uppercase tracking-widest font-bold">
-              Founder Profile
+          <h1 className="text-4xl sm:text-6xl font-light tracking-tight leading-[1.1] text-neutral-900 font-grotesk">
+            We build high-converting <br />
+            <span className="font-normal bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
+              Shopify storefronts.
             </span>
-            <h2 className="premium-heading text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-              Pankaj <span className="premium-highlight text-white"><span className="light-gradient-text font-normal">Singh</span></span>
+          </h1>
+          <p className="text-neutral-600 text-base sm:text-lg leading-relaxed font-sans max-w-2xl mt-2">
+            We are a dedicated Shopify development agency focusing exclusively on designing, coding, and optimizing e-commerce storefronts. We do only e-commerce setups.
+          </p>
+        </section>
+
+        <hr className="border-neutral-200/80" />
+
+        {/* Core Stats Row */}
+        <section className="grid grid-cols-1 sm:grid-cols-3 gap-12 font-sans py-2 text-left">
+          <div className="flex flex-col gap-2">
+            <span className="text-4xl sm:text-5xl font-light font-grotesk tracking-tight text-neutral-900">5 Years</span>
+            <span className="text-[10px] text-neutral-400 font-mono uppercase tracking-widest font-semibold">ESTABLISHED HISTORY</span>
+          </div>
+          <div className="flex flex-col gap-2">
+            <span className="text-4xl sm:text-5xl font-light font-grotesk tracking-tight text-neutral-900">100%</span>
+            <span className="text-[10px] text-neutral-400 font-mono uppercase tracking-widest font-semibold">EXCLUSIVELY E-COMMERCE</span>
+          </div>
+          <div className="flex flex-col gap-2">
+            <span className="text-4xl sm:text-5xl font-light font-grotesk tracking-tight text-neutral-900">MSME</span>
+            <span className="text-[10px] text-neutral-400 font-mono uppercase tracking-widest font-semibold">CERTIFIED PARTNER</span>
+          </div>
+        </section>
+
+        <hr className="border-neutral-200/80" />
+
+        {/* Narrative / Focus Areas Section */}
+        <section className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16 items-start text-left">
+          <div className="md:col-span-4 flex flex-col gap-2">
+            <span className="text-xs text-emerald-700 font-mono uppercase tracking-[0.2em] font-bold">
+              02 / Focus Areas
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-light font-grotesk tracking-tight text-neutral-900">
+              Only Ecom Setups.
             </h2>
-            
-            <p className="text-sm sm:text-base text-white leading-relaxed font-medium">
-              A decade of experience engineering high-converting, sub-2.0s Shopify storefronts by blending custom UI/UX, CRO, and clean Liquid code.
+          </div>
+          
+          <div className="md:col-span-8 flex flex-col gap-8 text-neutral-600 text-sm sm:text-base leading-relaxed font-sans">
+            <p>
+              We do not build corporate landing pages, directory lists, or generic websites. Over the past 5 years, we have aligned our entire engineering and design focus toward Shopify storefronts.
+            </p>
+            <p>
+              Our core competencies include all-in-one e-commerce setups, Shopify store integrations, custom Shopify app builders, custom theme development, conversion-rate optimization (CRO), and advanced checkout optimization.
             </p>
 
-            <p className="text-xs sm:text-sm text-[#8e8e93] leading-relaxed">
-              Based in Uttarakhand, India, serving global D2C brands as a strategic technical architect for headless builds, migrations, and speed optimizations.
-            </p>
-
-            {/* Checklist of Core Capabilities */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 pt-4 border-t border-neutral-100 mt-2">
               {[
-                "10+ Years Experience in ECommerce Strategy",
-                "Custom Shopify Theme Development",
-                "Advanced Shopify Liquid Optimization",
-                "Shopify Speed & Performance Tuning",
-                "API & ERP App Integration Architect",
-                "Government Certified MSME Partner"
+                "Shopify Store Integrations",
+                "Custom Theme Development",
+                "Shopify App Builder Configs",
+                "Custom Checkout Architectures",
+                "Conversion Rate Optimization (CRO)",
+                "Sub-second Performance Tuning"
               ].map((cap, index) => (
-                <div key={index} className="flex items-center gap-2 text-xs text-left">
-                  <CheckCircle2 className="w-4 h-4 text-primary shrink-0" />
-                  <span className="text-white font-medium">{cap}</span>
+                <div key={index} className="flex items-center gap-2.5 text-xs text-neutral-800 font-semibold">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                  <span>{cap}</span>
                 </div>
               ))}
             </div>
           </div>
-        </div>
+        </section>
 
-        {/* Corporate Integrity Section (MSME Registrations details) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
-          {/* Certificate Registration Card */}
-          <div className="premium-hover-card p-8 rounded-3xl glass-card flex flex-col justify-between gap-6 shadow-sm">
-            <div className="flex flex-col gap-4">
-              <span className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
-                <Shield className="w-5 h-5" />
+        <hr className="border-neutral-200/80" />
+
+        {/* Compliance and Office Grid */}
+        <section className="grid grid-cols-1 md:grid-cols-2 gap-16 font-sans text-left">
+          
+          {/* MSME registration details */}
+          <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-2">
+              <span className="text-xs text-emerald-700 font-mono uppercase tracking-[0.2em] font-bold">
+                03 / Verification & Compliance
               </span>
-              <div>
-                <span className="text-[10px] text-[#8e8e93] font-mono uppercase tracking-widest font-semibold">Government Compliance</span>
-                <h3 className="text-xl font-bold text-white mt-1">MSME Certified Enterprise</h3>
-              </div>
-              <p className="text-xs text-[#8e8e93] leading-relaxed">
-                SalePXL is officially registered with the Ministry of Micro, Small and Medium Enterprises, Government of India. We Uphold transparent financial auditing and billing structures.
-              </p>
+              <h3 className="text-xl font-bold text-neutral-900 font-grotesk tracking-tight">Registered MSME Enterprise</h3>
             </div>
-
-            {/* Registration Metadata */}
-            <div className="p-4 rounded-xl bg-white/[0.01] border border-white/[0.05] flex flex-col gap-2 font-mono text-xs text-left">
+            <p className="text-xs text-neutral-600 leading-relaxed max-w-md">
+              SalePXL is officially registered with the Ministry of Micro, Small and Medium Enterprises, Government of India. We uphold transparent financial auditing and corporate billing structures.
+            </p>
+            <div className="flex flex-col gap-2 border-t border-neutral-100 pt-4 font-mono text-[11px] text-neutral-500">
               <div className="flex justify-between">
-                <span className="text-[#8e8e93]">Registered Name:</span>
-                <span className="text-white font-semibold">SALEPXL</span>
+                <span>Registered Name:</span>
+                <span className="text-neutral-900 font-bold">SALEPXL</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-[#8e8e93]">Udyam Registration No:</span>
-                <span className="text-primary font-semibold">UDYAM-UK-05-0097916</span>
+                <span>Udyam Reg. Number:</span>
+                <span className="text-emerald-700 font-bold">UDYAM-UK-05-0097916</span>
               </div>
             </div>
           </div>
 
-          {/* Location / Office Details */}
-          <div className="premium-hover-card p-8 rounded-3xl glass-card flex flex-col justify-between gap-6 shadow-sm">
-            <div className="flex flex-col gap-4">
-              <span className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
-                <MapPin className="w-5 h-5" />
+          {/* Location details */}
+          <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-2">
+              <span className="text-xs text-emerald-700 font-mono uppercase tracking-[0.2em] font-bold">
+                04 / Physical Office
               </span>
-              <div>
-                <span className="text-[10px] text-[#8e8e93] font-mono uppercase tracking-widest font-semibold">Location details</span>
-                <h3 className="text-xl font-bold text-white mt-1">Dehradun, Uttarakhand</h3>
-              </div>
-              <p className="text-xs text-[#8e8e93] leading-relaxed">
-                Operating from the serene landscapes of Dehradun, Uttarakhand, India. Our physical hub provides optimization and campaign consultation services globally.
-              </p>
+              <h3 className="text-xl font-bold text-neutral-900 font-grotesk tracking-tight">Dehradun, Uttarakhand</h3>
             </div>
-
-            {/* Address Info Cards */}
-            <div className="p-4 rounded-xl bg-white/[0.01] border border-white/[0.05] flex flex-col gap-3 text-xs text-left">
-              <div className="flex items-center gap-2.5">
-                <MapPin className="w-4 h-4 text-primary shrink-0" />
-                <span className="text-white">Dehradun, Uttarakhand, India</span>
+            <p className="text-xs text-neutral-600 leading-relaxed max-w-md">
+              Operating from the foothills of the Himalayas in Dehradun, Uttarakhand, India. Our office handles development pipelines, speed optimizations, and storefront integrations for international clients.
+            </p>
+            <div className="flex flex-col gap-2 border-t border-neutral-100 pt-4 font-mono text-[11px] text-neutral-500">
+              <div className="flex justify-between">
+                <span>Coordinates:</span>
+                <span className="text-neutral-900 font-bold">Dehradun, India</span>
               </div>
-              <div className="flex items-center gap-2.5">
-                <Phone className="w-4 h-4 text-primary shrink-0" />
-                <a href="tel:+919917780656" className="text-white hover:text-primary transition-colors">
+              <div className="flex justify-between">
+                <span>Communications Hub:</span>
+                <a href="tel:+919917780656" className="text-emerald-700 font-bold hover:underline">
                   +91 9917780656
                 </a>
               </div>
             </div>
           </div>
-        </div>
+        </section>
 
-        {/* CTA Banner */}
-        <div className="premium-hover-card p-8 md:p-12 rounded-3xl bg-[#0a0a0a] border border-white/[0.05] text-center flex flex-col gap-6 items-center">
-          <h2 className="premium-heading text-xl md:text-2xl font-bold text-white max-w-xl">
-            Let's <span className="light-gradient-text font-normal">design</span> a high-converting store for your <span className="premium-highlight text-white">brand.</span>
+        <hr className="border-neutral-200/80" />
+
+        {/* Minimal CTA Banner */}
+        <section className="text-center py-12 flex flex-col gap-8 items-center max-w-3xl mx-auto font-sans">
+          <h2 className="text-2xl sm:text-4xl font-light font-grotesk tracking-tight leading-tight text-neutral-900">
+            Let's design a high-converting store <br />
+            for your <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent font-normal font-sans">brand.</span>
           </h2>
-          <p className="text-xs text-[#8e8e93] max-w-lg leading-relaxed">
-            Schedule a conversation with founder Pankaj Singh to map out budget priorities, speed targets, and scale projections.
+          <p className="text-xs sm:text-sm text-neutral-500 max-w-lg leading-relaxed">
+            Schedule a conversation with the SalePXL team to map out budget priorities, speed targets, and scale projections.
           </p>
           <Link
             href="/contact"
-            className="btn-primary inline-flex items-center gap-2 px-6 py-3 rounded-xl text-xs font-semibold uppercase tracking-wider text-black bg-white shadow-sm"
+            className="inline-flex items-center justify-center gap-2 px-8 h-14 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-black hover:bg-neutral-900 transition-all shadow-md group"
           >
             <span>Book Strategy Session</span>
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-4.5 h-4.5 transition-transform duration-300 group-hover:translate-x-1" />
           </Link>
-        </div>
+        </section>
 
       </div>
     </div>
