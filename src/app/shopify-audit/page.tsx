@@ -127,6 +127,30 @@ export default function ShopifyAuditPage() {
     e.preventDefault();
     if (contactEmail && contactPhone) {
       setFormSubmitted(true);
+
+      // POST to API
+      fetch("/api/submit-lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          source: "shopify-audit",
+          contactName,
+          contactEmail,
+          contactPhone,
+          storeUrl,
+          revenueLeakage,
+        }),
+      }).catch(() => {}); // Fail silently
+
+      // Track lead in Meta Pixel
+      if (typeof window !== "undefined" && (window as any).fbq) {
+        (window as any).fbq("track", "Lead", {
+          content_name: "Shopify Growth Audit",
+          content_category: "Audit Form",
+          value: revenueLeakage || 0,
+          currency: "INR",
+        });
+      }
     }
   };
 

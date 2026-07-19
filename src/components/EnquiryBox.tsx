@@ -60,10 +60,28 @@ export default function EnquiryBox() {
     if (!validateStep(3)) return;
 
     setIsSubmitting(true);
+
+    // POST to API
+    fetch("/api/submit-lead", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ source: "enquiry-box", ...formData }),
+    }).catch(() => {}); // Fail silently
+
     // Simulate submission
     setTimeout(() => {
       setIsSubmitting(false);
       setSubmitted(true);
+      
+      // Track lead in Meta Pixel
+      if (typeof window !== "undefined" && (window as any).fbq) {
+        (window as any).fbq("track", "Lead", {
+          content_name: formData.projectCategory || "Enquiry Box",
+          content_category: "Enquiry Form",
+          value: formData.budgetRange || "Unknown",
+          currency: "INR",
+        });
+      }
     }, 1500);
   };
 

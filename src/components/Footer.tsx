@@ -13,6 +13,16 @@ export default function Footer() {
     if (email.trim()) {
       setSubscribed(true);
       setEmail("");
+
+      // Track newsletter subscription in Meta Pixel
+      if (typeof window !== "undefined" && (window as any).fbq) {
+        (window as any).fbq("track", "Subscribe", {
+          content_name: "Newsletter",
+          content_category: "Footer Form",
+          currency: "INR",
+          value: 0
+        });
+      }
     }
   };
 

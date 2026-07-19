@@ -19,6 +19,7 @@ export default function StartProjectForm({ onSuccess }: { onSuccess?: () => void
   });
 
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
@@ -70,11 +71,34 @@ export default function StartProjectForm({ onSuccess }: { onSuccess?: () => void
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (validate()) {
-      setSubmitted(true);
-      localStorage.setItem("salepxl_hero_lead", JSON.stringify(formData));
+    if (!validate()) return;
+
+    setIsSubmitting(true);
+    try {
+      await fetch("/api/submit-lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ source: "start-project", ...formData }),
+      });
+    } catch (_) {
+      // Fail silently — lead still shown as submitted
+    } finally {
+      setIsSubmitting(false);
+    }
+
+    setSubmitted(true);
+    localStorage.setItem("salepxl_hero_lead", JSON.stringify(formData));
+
+    // Track lead in Meta Pixel
+    if (typeof window !== "undefined" && (window as any).fbq) {
+      (window as any).fbq("track", "Lead", {
+        content_name: formData.service || "Start Project",
+        content_category: "Lead Form",
+        value: formData.budgetRange || "Unknown",
+        currency: "INR",
+      });
     }
   };
 
@@ -302,9 +326,20 @@ export default function StartProjectForm({ onSuccess }: { onSuccess?: () => void
           {/* Submit Button */}
           <button
             type="submit"
-            className="w-full h-[52px] rounded-xl text-xs font-bold uppercase tracking-wider text-white bg-emerald-600 hover:bg-emerald-500 shadow-sm transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer mt-2"
+            disabled={isSubmitting}
+            className="w-full h-[52px] rounded-xl text-xs font-bold uppercase tracking-wider text-white bg-emerald-600 hover:bg-emerald-500 shadow-sm transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer mt-2 disabled:opacity-70 disabled:cursor-not-allowed"
           >
-            Submit Lead <Send className="w-3.5 h-3.5" />
+            {isSubmitting ? (
+              <>
+                <svg className="animate-spin w-4 h-4" viewBox="0 0 24 24" fill="none">
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
+                </svg>
+                Sending...
+              </>
+            ) : (
+              <>Submit Lead <Send className="w-3.5 h-3.5" /></>
+            )}
           </button>
         </div>
       </form>
