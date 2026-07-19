@@ -1975,23 +1975,24 @@ export default function HomePage() {
             {/* ──────────────────────────────────────────────── */}
             <motion.div
               style={{ opacity: summaryOpacity, scale: summaryScale }}
-              className={`absolute inset-0 flex flex-col items-center justify-center px-4 md:px-6 ${showSummary ? "pointer-events-auto" : "pointer-events-none hidden"}`}
+              className={`absolute inset-0 flex flex-col items-center justify-center p-3 xs:p-4 md:p-6 overflow-y-auto ${showSummary ? "pointer-events-auto" : "pointer-events-none hidden"}`}
             >
-              <div className="max-w-4xl w-full text-center relative p-6 md:p-12 rounded-[32px] bg-gradient-to-b from-[#101010] to-[#070707] border border-white/[0.08] shadow-2xl shadow-black/90 pointer-events-auto">
+              <div className="max-w-4xl w-full text-center relative p-5 xs:p-6 md:p-12 rounded-[24px] md:rounded-[32px] bg-gradient-to-b from-[#101010] to-[#070707] border border-white/[0.08] shadow-2xl shadow-black/90 pointer-events-auto my-auto max-h-[92vh] overflow-y-auto scrollbar-none">
                 <span className="text-[10px] font-mono font-bold tracking-widest text-[#22E39A] uppercase px-4 py-1.5 rounded-full bg-[#22E39A]/10 border border-[#22E39A]/20">Your Success Partner — SalePXL</span>
                 
-                <h3 className="text-xl sm:text-2xl md:text-4xl font-normal text-white mt-6 mb-8 md:mb-12 font-grotesk tracking-tight leading-tight">
+                <h3 className="text-lg xs:text-xl sm:text-2xl md:text-4xl font-normal text-white mt-4 xs:mt-6 mb-5 xs:mb-8 md:mb-12 font-grotesk tracking-tight leading-tight">
                   Traffic is just noise. <span className="text-[#22E39A] font-medium">Your store</span> converts it into success.
                 </h3>
 
                 {/* Curved miniature path and nodes illustration */}
-                <div className="h-40 md:h-44 w-full relative flex items-center justify-start md:justify-between gap-6 overflow-x-auto pb-4 scrollbar-none md:px-16 mb-8 md:mb-12 flex-nowrap">
-                  {/* Golden curved line (desktop only) */}
-                  <svg className="absolute inset-0 w-full h-full pointer-events-none hidden md:block" viewBox="0 0 800 160" preserveAspectRatio="none">
+                <div className="h-28 xs:h-32 sm:h-36 md:h-44 w-full relative flex items-center justify-between gap-1 xs:gap-2 md:gap-6 md:px-16 mb-6 md:mb-12 px-2 xs:px-4 sm:px-8">
+                  {/* Golden curved line */}
+                  <svg className="absolute inset-0 w-full h-full pointer-events-none block" viewBox="0 0 800 160" preserveAspectRatio="none">
                     <path
                       d="M 0 80 Q 200 16 400 80 T 800 80"
                       stroke="#eab308"
                       strokeWidth="5"
+                      className="stroke-[3px] md:stroke-[5px]"
                       fill="none"
                       strokeLinecap="round"
                     />
@@ -1999,29 +2000,38 @@ export default function HomePage() {
 
                   {/* 5 Stage Node Circles */}
                   {[
-                    { num: "01", label: "Traffic", color: "bg-blue-400", pills: [{ text: "Paid", color: "bg-blue-500 text-white" }, { text: "Organic", color: "bg-emerald-500 text-white" }] },
-                    { num: "02", label: "Ecom Store (Trust)", color: "bg-emerald-400" },
-                    { num: "03", label: "Customer Journey — Website UX", color: "bg-indigo-400" },
-                    { num: "04", label: "Happy Customer", color: "bg-amber-400" },
-                    { num: "05", label: "Loyalist", color: "bg-rose-400" }
+                    { num: "01", label: "Traffic", labelMobile: "Traffic", color: "bg-blue-400", pills: [{ text: "Paid", color: "bg-blue-500 text-white" }, { text: "Organic", color: "bg-emerald-500 text-white" }] },
+                    { num: "02", label: "Ecom Store (Trust)", labelMobile: "Store Trust", color: "bg-emerald-400" },
+                    { num: "03", label: "Customer Journey — Website UX", labelMobile: "Website UX", color: "bg-indigo-400" },
+                    { num: "04", label: "Happy Customer", labelMobile: "Conversion", color: "bg-amber-400" },
+                    { num: "05", label: "Loyalist", labelMobile: "Loyalist", color: "bg-rose-400" }
                   ].map((node, idx) => (
                     <motion.div 
                       key={idx}
                       initial={{ scale: 0 }}
                       whileInView={{ scale: 1 }}
                       transition={{ type: "spring", stiffness: 100, delay: idx * 0.1 }}
-                      className="flex flex-col items-center relative z-10 w-24 shrink-0 text-center"
+                      className="flex flex-col items-center relative z-10 w-[18%] xs:w-[19%] sm:w-24 shrink-0 text-center"
                     >
-                      <div className={`w-12 h-12 rounded-full border-4 border-slate-900 flex items-center justify-center font-mono text-xs font-black text-slate-900 shadow-md ${node.color}`}>
+                      <div className={`w-8 h-8 xs:w-9 xs:h-9 sm:w-12 sm:h-12 rounded-full border-[3px] sm:border-4 border-slate-900 flex items-center justify-center font-mono text-[10px] xs:text-xs font-black text-slate-900 shadow-md ${node.color}`}>
                         {node.num}
                       </div>
-                      <span className="text-[10px] font-mono font-bold text-white/80 mt-2 min-h-[32px] px-1">{node.label}</span>
+                      
+                      {/* Desktop Label */}
+                      <span className="hidden sm:inline text-[10px] font-mono font-bold text-white/80 mt-2 min-h-[32px] px-1">
+                        {node.label}
+                      </span>
+                      
+                      {/* Mobile Label */}
+                      <span className="inline sm:hidden text-[7.5px] xs:text-[9px] font-mono font-bold text-white/80 mt-1.5 min-h-[22px] px-0.5 leading-tight">
+                        {node.labelMobile}
+                      </span>
                       
                       {/* Optional colored pills for Traffic node */}
                       {node.pills && (
-                        <div className="flex gap-1 mt-1 justify-center">
+                        <div className="flex flex-col xs:flex-row gap-0.5 xs:gap-1 mt-1 justify-center">
                           {node.pills.map((p, i) => (
-                            <span key={i} className={`text-[8px] font-mono font-bold px-1.5 py-0.5 rounded border border-slate-900/10 shadow-sm ${p.color}`}>
+                            <span key={i} className={`text-[6.5px] xs:text-[7.5px] sm:text-[8px] font-mono font-bold px-1 xs:px-1.5 py-0.5 rounded border border-slate-900/10 shadow-sm ${p.color}`}>
                               {p.text}
                             </span>
                           ))}
@@ -2049,7 +2059,7 @@ export default function HomePage() {
                 </div>
 
                 {/* Description */}
-                <p className="text-white/60 text-xs sm:text-sm md:text-base font-light max-w-xl mx-auto mb-6 md:mb-8 leading-relaxed">
+                <p className="text-white/60 text-[11px] xs:text-xs sm:text-sm md:text-base font-light max-w-xl mx-auto mb-4 xs:mb-6 md:mb-8 leading-relaxed">
                   Your storefront is the single most crucial factor that decides whether a visitor bounces or becomes a customer. By engineering speed, trust, and frictionless design directly into your checkout flow, SalePXL turns raw traffic into a highly profitable, self-scaling e-commerce brand.
                 </p>
 
@@ -2059,7 +2069,7 @@ export default function HomePage() {
                     onClick={() => setShowFormModal(true)}
                     whileHover={{ scale: 1.05, boxShadow: "0px 10px 30px rgba(34,227,154,0.3)" }}
                     whileTap={{ scale: 0.98 }}
-                    className="relative group inline-flex items-center justify-center gap-3 px-10 h-16 rounded-full bg-white border-4 border-white text-black font-grotesk text-sm font-bold tracking-wider hover:bg-[#22E39A] hover:border-[#22E39A] hover:text-black transition-all duration-300 shadow-xl cursor-pointer"
+                    className="relative group inline-flex items-center justify-center gap-2 xs:gap-3 px-6 xs:px-10 h-12 xs:h-16 rounded-full bg-white border-4 border-white text-black font-grotesk text-xs xs:text-sm font-bold tracking-wider hover:bg-[#22E39A] hover:border-[#22E39A] hover:text-black transition-all duration-300 shadow-xl cursor-pointer"
                   >
                     <span>Build My Shopify Store</span>
                     <svg 
