@@ -612,7 +612,7 @@ export default function HowItWorksPage() {
                           </div>
 
                           <div
-                            className="relative w-full max-w-[450px] mx-auto aspect-[2/3] rounded-2xl overflow-hidden border border-neutral-200 select-none cursor-ew-resize bg-neutral-100 shadow-md group"
+                            className="relative w-full max-w-[450px] mx-auto aspect-square rounded-2xl overflow-hidden border border-neutral-200 select-none cursor-ew-resize bg-neutral-100 shadow-md group"
                             onMouseMove={(e) => {
                               if (!isDraggingSlider) return;
                               const rect = e.currentTarget.getBoundingClientRect();
