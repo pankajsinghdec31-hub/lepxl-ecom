@@ -728,14 +728,10 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
                   <DeliveryHandover />
                 </div>
 
-                {/* Mobile CTA Button */}
-                <button
-                  onClick={onOpenModal}
-                  className="w-full py-3 px-4 rounded-full bg-gradient-to-r from-emerald-400 via-teal-400 to-emerald-500 text-black font-grotesk font-bold text-xs uppercase tracking-wider shadow-[0_0_20px_rgba(16,185,129,0.3)] active:scale-95 transition-transform flex items-center justify-center gap-2 cursor-pointer"
-                >
-                  <span>Build My High-Converting Store</span>
-                  <ArrowRight className="w-4 h-4 text-black" />
-                </button>
+                <div className="flex items-center justify-between p-3 rounded-xl bg-black/40 border border-indigo-500/20">
+                  <span className="text-[10px] font-mono text-indigo-300 font-bold">+245% AVERAGE LIFT</span>
+                  <span className="text-[9px] font-mono text-indigo-400/80">3.8x RETENTION</span>
+                </div>
               </motion.div>
             )}
 
