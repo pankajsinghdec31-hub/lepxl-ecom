@@ -637,35 +637,63 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
                 </div>
               </div>
 
-              {/* DESKTOP PANEL 3: CONVERSION */}
-              <div className="w-[100vw] h-full shrink-0 flex items-center justify-center px-12">
-                <div className="max-w-4xl w-full grid grid-cols-12 gap-8 items-center bg-white/[0.02] border border-indigo-500/30 rounded-3xl p-7 backdrop-blur-md shadow-2xl relative">
+              {/* DESKTOP PANEL 3: HIGH-CONVERTING STORE OUTPUT */}
+              <div className="w-[100vw] h-full shrink-0 flex items-center justify-center px-8 lg:px-12">
+                <div className="max-w-5xl w-full grid grid-cols-12 gap-8 items-center bg-white/[0.02] border border-indigo-500/30 rounded-3xl p-7 backdrop-blur-md shadow-2xl relative">
                   
-                  <div className="absolute -top-3 left-8 px-3 py-0.5 rounded-full bg-indigo-500/20 border border-indigo-500/40 text-[10px] font-mono font-bold text-indigo-400 uppercase tracking-widest flex items-center gap-1.5">
+                  <div className="absolute -top-3 left-8 px-3.5 py-1 rounded-full bg-indigo-500/20 border border-indigo-500/40 text-[10px] font-mono font-bold text-indigo-400 uppercase tracking-widest flex items-center gap-1.5 shadow-[0_0_15px_rgba(99,102,241,0.3)]">
                     <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-ping" />
-                    <span>Stage 03 • Profitable Conversion</span>
+                    <span>Stage 03 • High-Converting Store Output & Revenue</span>
                   </div>
 
-                  <div className="col-span-5 space-y-3.5">
+                  {/* Left Column: Copy & USP Positioning */}
+                  <div className="col-span-5 space-y-4">
+                    <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-indigo-500/10 border border-indigo-500/20 text-[11px] font-mono text-indigo-300">
+                      <TrendingUp className="w-3.5 h-3.5 text-indigo-400" />
+                      <span>SalePXL High-Converting USP Output</span>
+                    </div>
+
                     <h3 className="text-3xl font-extrabold font-grotesk tracking-tight text-white leading-tight">
-                      Turn Visitors into <span className="text-indigo-400">Paying Customers</span>
+                      Your High-Converting Store <span className="text-indigo-400">Is Your Ultimate USP</span>
                     </h3>
+
                     <p className="text-xs text-white/70 leading-relaxed font-sans">
-                      With trust built into every pixel, shoppers complete checkouts effortlessly. Higher conversion rate means maximum revenue without spending more on ads.
+                      With SalePXL conversion architecture, your high-converting Shopify store becomes your competitive USP. Strategic product positioning turns visitor trust into explosive order growth and higher AOV.
                     </p>
 
-                    <div className="space-y-1.5 pt-1">
-                      <div className="flex items-center gap-2 text-xs font-mono text-indigo-300">
-                        <BarChart3 className="w-3.5 h-3.5 text-indigo-400 shrink-0" />
-                        <span>+245% Average Conversion Lift</span>
+                    <div className="space-y-2.5 pt-1">
+                      <div className="flex items-start gap-2.5 text-xs text-indigo-200">
+                        <div className="p-1 rounded bg-indigo-500/20 border border-indigo-500/40 shrink-0 mt-0.5">
+                          <BarChart3 className="w-3.5 h-3.5 text-indigo-400" />
+                        </div>
+                        <div>
+                          <span className="font-semibold text-white">Visitor Trust & Conversion Lift:</span>
+                          <span className="text-white/60 block text-[11px]">+245% average conversion lift by removing buyer hesitation.</span>
+                        </div>
                       </div>
-                      <div className="flex items-center gap-2 text-xs font-mono text-indigo-300">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-indigo-400 shrink-0" />
-                        <span>Higher AOV & Repeat Customer Retention</span>
+
+                      <div className="flex items-start gap-2.5 text-xs text-indigo-200">
+                        <div className="p-1 rounded bg-indigo-500/20 border border-indigo-500/40 shrink-0 mt-0.5">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-indigo-400" />
+                        </div>
+                        <div>
+                          <span className="font-semibold text-white">Increased AOV & Bundle Sales:</span>
+                          <span className="text-white/60 block text-[11px]">Strategic discount callouts & high-margin cart upgrades.</span>
+                        </div>
+                      </div>
+
+                      <div className="flex items-start gap-2.5 text-xs text-indigo-200">
+                        <div className="p-1 rounded bg-indigo-500/20 border border-indigo-500/40 shrink-0 mt-0.5">
+                          <Zap className="w-3.5 h-3.5 text-indigo-400" />
+                        </div>
+                        <div>
+                          <span className="font-semibold text-white">Rapid Real-Time Confirmed Orders:</span>
+                          <span className="text-white/60 block text-[11px]">Continuous order stream with 1-click express checkout.</span>
+                        </div>
                       </div>
                     </div>
 
-                    <div className="pt-3">
+                    <div className="pt-2">
                       <button
                         onClick={onOpenModal}
                         className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-gradient-to-r from-emerald-400 via-teal-400 to-emerald-500 text-black font-grotesk font-bold text-xs uppercase tracking-wider shadow-[0_0_25px_rgba(16,185,129,0.4)] hover:scale-105 transition-transform cursor-pointer"
@@ -676,29 +704,87 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
                     </div>
                   </div>
 
-                  <div className="col-span-7 flex flex-col items-center justify-center bg-black/50 border border-indigo-500/20 rounded-2xl p-5 relative gap-3">
+                  {/* Right Column: 5 New Orders Confirmed & AOV Increased Live Feed Showcase */}
+                  <div className="col-span-7 flex flex-col items-center justify-center bg-black/60 border border-indigo-500/30 rounded-2xl p-4.5 relative gap-2.5 font-mono shadow-2xl">
                     
-                    <motion.div 
-                      animate={{ y: [0, -3, 0] }}
-                      transition={{ duration: 2, repeat: Infinity }}
-                      className="flex items-center gap-3 px-4 py-2 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-xs font-mono text-emerald-300"
-                    >
-                      <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-                      <span>🎉 New Order Confirmed! ₹4,850 • Just now</span>
-                    </motion.div>
-
-                    <div className="py-1">
-                      <DeliveryHandover />
+                    {/* Top Stats Banner: AOV Increased + Confirmed Orders */}
+                    <div className="w-full flex items-center justify-between px-3 py-2 rounded-xl bg-gradient-to-r from-indigo-950/80 via-slate-900 to-indigo-950/80 border border-indigo-500/40 text-xs">
+                      <div className="flex items-center gap-2 text-indigo-300 font-bold">
+                        <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
+                        <span>AOV INCREASED BY +42%</span>
+                      </div>
+                      <span className="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-[10px] font-bold">
+                        5 NEW ORDERS CONFIRMED
+                      </span>
                     </div>
 
-                    <div className="flex items-center gap-4">
-                      <ShopperFullCart delay={0} />
-                      <div className="text-left space-y-1">
-                        <span className="px-2.5 py-0.5 rounded bg-indigo-500/20 text-indigo-300 text-[10px] font-mono font-bold block">
-                          ORDER COMPLETED
-                        </span>
-                        <span className="text-[10px] text-white/50 block font-mono">Customer Retention +3.8x</span>
+                    {/* 5 Live Confirmed Orders Feed */}
+                    <div className="w-full space-y-1.5">
+                      
+                      {/* Order 1 */}
+                      <div className="flex items-center justify-between p-2 rounded-lg bg-white/[0.04] border border-emerald-500/30 text-[11px] text-emerald-300">
+                        <div className="flex items-center gap-2 truncate">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping shrink-0" />
+                          <span className="font-bold text-white">🎉 New Order Confirmed!</span>
+                          <span className="text-emerald-400 font-extrabold">₹4,850</span>
+                          <span className="text-white/60 text-[10px] truncate"> Radiant Serum Bundle</span>
+                        </div>
+                        <span className="text-white/40 text-[9px] shrink-0 ml-2">Just now</span>
                       </div>
+
+                      {/* Order 2 */}
+                      <div className="flex items-center justify-between p-2 rounded-lg bg-white/[0.03] border border-white/10 text-[11px] text-emerald-300">
+                        <div className="flex items-center gap-2 truncate">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0" />
+                          <span className="font-bold text-white">🎉 New Order Confirmed!</span>
+                          <span className="text-emerald-400 font-extrabold">₹3,200</span>
+                          <span className="text-white/60 text-[10px] truncate"> Evening Silk Dress</span>
+                        </div>
+                        <span className="text-white/40 text-[9px] shrink-0 ml-2">2m ago</span>
+                      </div>
+
+                      {/* Order 3 */}
+                      <div className="flex items-center justify-between p-2 rounded-lg bg-white/[0.03] border border-white/10 text-[11px] text-emerald-300">
+                        <div className="flex items-center gap-2 truncate">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0" />
+                          <span className="font-bold text-white">🎉 New Order Confirmed!</span>
+                          <span className="text-emerald-400 font-extrabold">₹6,400</span>
+                          <span className="text-white/60 text-[10px] truncate"> Deluxe Skincare Set</span>
+                        </div>
+                        <span className="text-white/40 text-[9px] shrink-0 ml-2">5m ago</span>
+                      </div>
+
+                      {/* Order 4 */}
+                      <div className="flex items-center justify-between p-2 rounded-lg bg-white/[0.03] border border-white/10 text-[11px] text-emerald-300">
+                        <div className="flex items-center gap-2 truncate">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0" />
+                          <span className="font-bold text-white">🎉 New Order Confirmed!</span>
+                          <span className="text-emerald-400 font-extrabold">₹2,750</span>
+                          <span className="text-white/60 text-[10px] truncate"> Hydrating Cream Pack</span>
+                        </div>
+                        <span className="text-white/40 text-[9px] shrink-0 ml-2">8m ago</span>
+                      </div>
+
+                      {/* Order 5 */}
+                      <div className="flex items-center justify-between p-2 rounded-lg bg-white/[0.03] border border-white/10 text-[11px] text-emerald-300">
+                        <div className="flex items-center gap-2 truncate">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0" />
+                          <span className="font-bold text-white">🎉 New Order Confirmed!</span>
+                          <span className="text-emerald-400 font-extrabold">₹5,100</span>
+                          <span className="text-white/60 text-[10px] truncate"> Luxury Glow Kit</span>
+                        </div>
+                        <span className="text-white/40 text-[9px] shrink-0 ml-2">12m ago</span>
+                      </div>
+
+                    </div>
+
+                    {/* Bottom Cart & Delivery Visual Indicator */}
+                    <div className="w-full flex items-center justify-between px-3 py-1.5 rounded-lg bg-slate-900/80 border border-white/10 text-[10px] text-white/70">
+                      <div className="flex items-center gap-2">
+                        <ShopperFullCart delay={0} />
+                        <span className="text-emerald-400 font-bold">SalePXL High-Converting Store Output</span>
+                      </div>
+                      <span className="text-indigo-300 font-bold bg-indigo-500/20 px-2 py-0.5 rounded">3.8X ROAS LIFT</span>
                     </div>
 
                   </div>
@@ -894,35 +980,61 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
           </div>
         </div>
 
-        {/* ── MOBILE STEP 3: CONVERSION ── */}
+        {/* ── MOBILE STEP 3: HIGH-CONVERTING STORE OUTPUT ── */}
         <div className="p-5 rounded-3xl bg-gradient-to-b from-indigo-500/15 via-[#070b18] to-[#04060d] border border-indigo-500/30 backdrop-blur-xl shadow-2xl space-y-4 relative overflow-hidden">
           <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-indigo-500/20 border border-indigo-500/40 text-[9px] font-mono font-bold text-indigo-400 uppercase tracking-wider flex items-center gap-1">
             <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-ping" />
-            <span>Stage 03 • Revenue Conversion</span>
+            <span>Stage 03 • High-Converting Store Output</span>
           </div>
 
           <h3 className="text-xl font-extrabold font-grotesk text-white leading-tight">
-            Turn Visitors into <span className="text-indigo-400">Paying Customers</span>
+            Your High-Converting Store <span className="text-indigo-400">Is Your Ultimate USP</span>
           </h3>
           <p className="text-xs text-white/70 leading-relaxed font-sans">
-            With trust built into every pixel, shoppers complete checkouts effortlessly for maximum revenue.
+            With SalePXL conversion architecture, your high-converting Shopify store becomes your ultimate USP. Strategic product positioning turns visitor trust into rapid sales and higher AOV.
           </p>
 
-          {/* Live Order Popup */}
-          <div className="flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-xs font-mono text-emerald-300">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping shrink-0" />
-            <span className="text-[10px] sm:text-xs">🎉 New Order Confirmed! ₹4,850 • Just now</span>
+          {/* Metric Banner: AOV Increased + 5 New Orders Confirmed */}
+          <div className="p-2.5 rounded-xl bg-indigo-950/80 border border-indigo-500/40 space-y-1.5 font-mono text-xs shadow-xl">
+            <div className="flex items-center justify-between text-[10px]">
+              <span className="text-indigo-300 font-bold">📈 AOV INCREASED BY +42%</span>
+              <span className="text-emerald-400 font-bold">5 NEW ORDERS CONFIRMED</span>
+            </div>
+            
+            {/* 5 Live Confirmed Orders Mini List */}
+            <div className="space-y-1 text-[9px]">
+              <div className="p-1 rounded bg-white/[0.04] border border-emerald-500/30 text-emerald-300 flex items-center justify-between">
+                <span className="truncate">🎉 New Order Confirmed! ₹4,850 • Serum Bundle</span>
+                <span className="text-white/40 text-[8px] shrink-0 ml-1">Just now</span>
+              </div>
+              <div className="p-1 rounded bg-white/[0.03] border border-white/10 text-emerald-300 flex items-center justify-between">
+                <span className="truncate">🎉 New Order Confirmed! ₹3,200 • Silk Dress</span>
+                <span className="text-white/40 text-[8px] shrink-0 ml-1">2m ago</span>
+              </div>
+              <div className="p-1 rounded bg-white/[0.03] border border-white/10 text-emerald-300 flex items-center justify-between">
+                <span className="truncate">🎉 New Order Confirmed! ₹6,400 • Skincare Set</span>
+                <span className="text-white/40 text-[8px] shrink-0 ml-1">5m ago</span>
+              </div>
+              <div className="p-1 rounded bg-white/[0.03] border border-white/10 text-emerald-300 flex items-center justify-between">
+                <span className="truncate">🎉 New Order Confirmed! ₹2,750 • Cream Pack</span>
+                <span className="text-white/40 text-[8px] shrink-0 ml-1">8m ago</span>
+              </div>
+              <div className="p-1 rounded bg-white/[0.03] border border-white/10 text-emerald-300 flex items-center justify-between">
+                <span className="truncate">🎉 New Order Confirmed! ₹5,100 • Glow Kit</span>
+                <span className="text-white/40 text-[8px] shrink-0 ml-1">12m ago</span>
+              </div>
+            </div>
           </div>
 
           {/* Delivery Handover & Full Cart */}
-          <div className="flex items-center justify-around py-2">
+          <div className="flex items-center justify-around py-1">
             <DeliveryHandover />
             <ShopperFullCart delay={0} />
           </div>
 
-          <div className="flex items-center justify-between p-3 rounded-xl bg-black/60 border border-indigo-500/20">
-            <span className="text-[10px] font-mono text-indigo-300 font-bold">+245% AVERAGE LIFT</span>
-            <span className="text-[9px] font-mono text-indigo-400/80">3.8x RETENTION</span>
+          <div className="flex items-center justify-between p-2.5 rounded-xl bg-black/60 border border-indigo-500/20 font-mono text-[10px]">
+            <span className="text-indigo-300 font-bold">+245% CONVERSION LIFT</span>
+            <span className="text-emerald-400 font-bold">HIGHER AOV CONFIRMED</span>
           </div>
         </div>
 
