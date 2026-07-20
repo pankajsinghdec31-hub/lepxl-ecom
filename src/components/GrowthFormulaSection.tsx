@@ -392,7 +392,7 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
                       Capture <span className="text-amber-400">Your Ad Traffic</span>
                     </h3>
                     <p className="text-xs text-white/70 leading-relaxed font-sans">
-                      You run your ads on Google, Meta, Instagram & WhatsApp to bring shoppers. We build the high-speed, CRO-optimized storefront that captures every visitor and prevents ad money bounce.
+                      You run your ads on Google, Meta, Instagram & WhatsApp to bring shoppers. We build the high-speed, CRO-optimized store that captures every visitor and prevents ad money bounce.
                     </p>
 
                     <div className="space-y-2 pt-2">
@@ -839,7 +839,7 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
             Capture <span className="text-amber-400">Your Ad Traffic</span>
           </h3>
           <p className="text-xs text-white/70 leading-relaxed font-sans">
-            You run your ads on Google, Meta, Instagram & WhatsApp to bring shoppers. We build the high-speed, CRO-optimized storefront that captures every visitor.
+            You run your ads on Google, Meta, Instagram & WhatsApp to bring shoppers. We build the high-speed, CRO-optimized store that captures every visitor.
           </p>
 
           {/* Traffic Channel Badges */}

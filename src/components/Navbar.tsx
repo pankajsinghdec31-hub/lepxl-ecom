@@ -209,21 +209,6 @@ export default function Navbar() {
                 );
               })}
               
-              <div className="border-t border-white/[0.08] pt-4 mt-2 flex flex-col gap-4">
-                <span className="text-[10px] text-[#8e8e93] uppercase tracking-wider font-sans font-bold">Growth Tools</span>
-                <Link
-                  href="/shopify-audit"
-                  className="text-sm font-semibold text-primary hover:text-primary/80 transition-colors"
-                >
-                  Free CRO Audit
-                </Link>
-                <Link
-                  href="/shopify-launch-calculator"
-                  className="text-sm font-semibold text-primary hover:text-primary/80 transition-colors"
-                >
-                  Shopify Launch Calculator
-                </Link>
-              </div>
             </div>
  
             <div className="flex flex-col gap-4 pb-12">

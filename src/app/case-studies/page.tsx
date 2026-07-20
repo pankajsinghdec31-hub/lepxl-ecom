@@ -175,7 +175,7 @@ export default function CaseStudiesPage() {
         {/* Call to action footer section */}
         <div className="p-8 md:p-12 rounded-3xl bg-white border border-neutral-200/60 shadow-sm text-center flex flex-col gap-6 items-center backdrop-blur-xl font-sans">
           <h2 className="text-xl md:text-2xl font-bold text-neutral-900 font-grotesk">
-            Want to audit your brand's <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent font-normal font-sans">storefront performance?</span>
+            Want to audit your brand's <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent font-normal font-sans">store performance?</span>
           </h2>
           <p className="text-xs text-neutral-600 max-w-lg leading-relaxed">
             Let Pankaj Singh audit your current checkout funnel and page speed metrics to map out a performance structure tailored to your product catalog.

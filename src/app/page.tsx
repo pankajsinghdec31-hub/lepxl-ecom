@@ -64,7 +64,7 @@ const FAQ_ITEMS = [
     a: "Our standard payment term is 50% advance to initiate the build and the remaining 50% upon successful delivery of the project."
   },
   {
-    q: "Is the storefront fully search engine optimized (SEO friendly)?",
+    q: "Is the store fully search engine optimized (SEO friendly)?",
     a: "Yes. We build stores with standard SEO practices in mind, including meta description fields, semantic HTML5 structure, image alt-tag configs, and page speed optimization to help you rank higher on Google search results."
   },
   {
@@ -73,7 +73,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Do you design custom graphics and banners for the store?",
-    a: "Yes. We create customized, high-converting banner designs and collection graphics tailored to your brand identity, ensuring a premium, polished storefront aesthetic."
+    a: "Yes. We create customized, high-converting banner designs and collection graphics tailored to your brand identity, ensuring a premium, polished store aesthetic."
   },
   {
     q: "Can you migrate my existing store to Shopify?",
@@ -109,7 +109,7 @@ const GOOGLE_REVIEWS_CONSOLIDATED = [
     stars: 5,
     timeAgo: "5 months ago",
     headline: "Premium High-Converting Design",
-    text: "The design speed and quality are phenomenal. They built custom sections that fit our branding guidelines perfectly, giving us a unique and high-converting storefront design.",
+    text: "The design speed and quality are phenomenal. They built custom sections that fit our branding guidelines perfectly, giving us a unique and high-converting store design.",
     image: "/founder_5.jpg",
     statVal: "+85%",
     statLabel: "Brand Appeal",
@@ -122,8 +122,8 @@ const GOOGLE_REVIEWS_CONSOLIDATED = [
     metadata: "Local Guide · 28 reviews · 10 photos",
     stars: 5,
     timeAgo: "2 months ago",
-    headline: "Optimized & Branded Storefront",
-    text: "Our storefront is now fully optimized for mobile devices and perfectly represents our brand style. The checkout flow is fast and completely frictionless.",
+    headline: "Optimized & Branded Store",
+    text: "Our store is now fully optimized for mobile devices and perfectly represents our brand style. The checkout flow is fast and completely frictionless.",
     image: "/founder_2.jpg",
     statVal: "+4.2%",
     statLabel: "Conversion Rate",
@@ -187,7 +187,7 @@ const HOME_PROJECTS: MockupConfig[] = [
     heroSub: "Premium Korean Beauty Routines",
     products: [ { name: "Jeju Volcanic Mask", price: "₹699" }, { name: "French Vinotherapy Serum", price: "₹1,250" } ],
     image: "/wellness_mockup.png",
-    description: "Bespoke Shopify OS 2.0 storefront featuring dynamic skincare routine builders, Jeju-secrets ingredient paths, and cart upsell recommendations."
+    description: "Bespoke Shopify OS 2.0 store featuring dynamic skincare routine builders, Jeju-secrets ingredient paths, and cart upsell recommendations."
   },
   {
     name: "Cosmix Superfoods",
@@ -332,7 +332,7 @@ const PORTFOLIO_CARDS = [
   {
     label: "Chomp Brand",
     image: "/chomp.jpg",
-    alt: "Designed a premium skateboarding and streetwear collaborative storefront with interactive drop layouts.",
+    alt: "Designed a premium skateboarding and streetwear collaborative store with interactive drop layouts.",
     category: "Apparel & Skateboarding"
   },
   {
@@ -350,13 +350,13 @@ const PORTFOLIO_CARDS = [
   {
     label: "Spanx",
     image: "/spanx.jpg",
-    alt: "Optimized premium apparel collections showcasing fit finders and multi-region storefront synchronization.",
+    alt: "Optimized premium apparel collections showcasing fit finders and multi-region store synchronization.",
     category: "Apparel & Shapewear"
   },
   {
     label: "Glossier",
     image: "/glossier.png",
-    alt: "Aesthetic makeup storefront featuring high-converting skincare routes and intuitive checkout drawers.",
+    alt: "Aesthetic makeup store featuring high-converting skincare routes and intuitive checkout drawers.",
     category: "Cosmetics & Beauty"
   },
   {
@@ -374,13 +374,13 @@ const PORTFOLIO_CARDS = [
   {
     label: "Aumtea",
     image: "/aumtea_mockup.png",
-    alt: "D2C organic tea and beverages storefront with streamlined checkout and custom brand typography.",
+    alt: "D2C organic tea and beverages store with streamlined checkout and custom brand typography.",
     category: "Tea & Beverages"
   },
   {
     label: "Kohkayn Basics",
     image: "/imgi_89_kohkayn-com.webp",
-    alt: "Modern basics apparel store built with Next.js Headless storefront for lightning fast page loads.",
+    alt: "Modern basics apparel store built with Next.js Headless store for lightning fast page loads.",
     category: "Modern Apparel"
   },
   {
@@ -398,7 +398,7 @@ const PORTFOLIO_CARDS = [
   {
     label: "Skin Basics",
     image: "/imgi_91_skin-basics.webp",
-    alt: "Premium leather goods storefront equipped with trust badges and a customized single-click slide cart drawer.",
+    alt: "Premium leather goods store equipped with trust badges and a customized single-click slide cart drawer.",
     category: "Premium Leather Goods"
   },
   {
@@ -1446,7 +1446,7 @@ export default function HomePage() {
                 <span className="text-white/30 mr-1 transition-all duration-300 hover:text-white cursor-default">
                   Convert <span className="light-gradient-text font-normal">every visitor</span> into a loyal customer.
                 </span>
-                <span className="premium-highlight text-white transition-all duration-300 hover:text-primary cursor-default">High-converting storefronts.</span>
+                <span className="premium-highlight text-white transition-all duration-300 hover:text-primary cursor-default">High-converting stores.</span>
                 <span className="text-white/60 transition-all duration-300 hover:text-white cursor-default">Seamless mobile checkout.</span>
                 <span className="text-white/30 transition-all duration-300 hover:text-white cursor-default">Scaling brands to 8-figures.</span>
               </h2>

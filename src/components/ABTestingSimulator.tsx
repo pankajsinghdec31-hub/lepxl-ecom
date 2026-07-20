@@ -110,7 +110,7 @@ export default function ABTestingSimulator() {
               
               {/* Product Header */}
               <div className="flex justify-between items-center pb-2.5 border-b border-white/[0.05] mb-3">
-                <span className="text-[10px] text-[#8e8e93] font-mono tracking-widest font-bold">STOREFRONT</span>
+                <span className="text-[10px] text-[#8e8e93] font-mono tracking-widest font-bold">STORE</span>
                 <span className={`text-[10px] font-bold font-mono px-2 py-0.5 rounded ${
                   activeTab === "before" ? "bg-red-500/10 text-red-400" : "bg-primary/10 text-primary"
                 }`}>
@@ -267,7 +267,7 @@ export default function ABTestingSimulator() {
             {activeTab === "before" ? (
               <div className="flex flex-col gap-4 text-xs sm:text-sm text-[#8e8e93] leading-relaxed">
                 <p>
-                  Most digital ad agencies focus entirely on sending visitors to the storefront. However, standard template layouts contain significant friction points:
+                  Most digital ad agencies focus entirely on sending visitors to the store. However, standard template layouts contain significant friction points:
                 </p>
                 <ul className="flex flex-col gap-2.5 mt-2">
                   <li className="flex gap-2">

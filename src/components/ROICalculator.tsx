@@ -51,7 +51,7 @@ export default function ROICalculator() {
               Calculate Your Shopify Scale Gap
             </h3>
             <p className="text-xs text-[#8e8e93] leading-relaxed">
-              Drag the parameters below matching your current storefront metrics. See how many sales are lost due to checkout friction.
+              Drag the parameters below matching your current store metrics. See how many sales are lost due to checkout friction.
             </p>
           </div>
 
@@ -130,7 +130,7 @@ export default function ROICalculator() {
           </div>
 
           <div className="text-[10px] text-[#8e8e93] leading-relaxed pt-2 border-t border-white/[0.05]">
-            * Calculated using a benchmark Cost-Per-Click (CPC) of ₹15. Higher storefront conversion rate directly lowers acquisition cost per purchase.
+            * Calculated using a benchmark Cost-Per-Click (CPC) of ₹15. Higher store conversion rate directly lowers acquisition cost per purchase.
           </div>
         </div>
 
