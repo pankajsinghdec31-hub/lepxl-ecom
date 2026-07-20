@@ -211,9 +211,8 @@ export default function InteractiveComparison() {
                       </div>
                       <div>
                         <h3 className="text-base font-bold text-white font-grotesk">Story of a Failed Ecom Brand</h3>
-                        <span className="text-[10px] text-red-400/90 font-mono font-semibold uppercase tracking-wider flex items-center gap-1">
-                          <Scroll className="w-3 h-3 text-red-400" />
-                          Confession Letter #1
+                        <span className="text-[10px] text-red-400/90 font-mono font-semibold uppercase tracking-wider">
+                          Why 90% of Stores Fail
                         </span>
                       </div>
                     </div>
@@ -268,9 +267,8 @@ export default function InteractiveComparison() {
                           <span>SalePXL Store Rebuild</span>
                           <Sparkles className="w-3.5 h-3.5 text-emerald-400 animate-pulse" />
                         </h3>
-                        <span className="text-[10px] text-emerald-400 font-mono font-bold tracking-wider uppercase flex items-center gap-1">
-                          <Scroll className="w-3 h-3 text-emerald-400" />
-                          Blueprint Letter #2
+                        <span className="text-[10px] text-emerald-400 font-mono font-bold tracking-wider uppercase">
+                          Fully Customized
                         </span>
                       </div>
                     </div>
@@ -322,9 +320,8 @@ export default function InteractiveComparison() {
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-white font-grotesk">Story of a Failed Ecom Brand</h3>
-                  <span className="text-[10px] text-red-400/90 font-mono font-semibold uppercase tracking-wider flex items-center gap-1.5 mt-0.5">
-                    <Scroll className="w-3 h-3 text-red-400" />
-                    Confession Letter #1
+                  <span className="text-[10px] text-red-400/90 font-mono font-semibold uppercase tracking-wider mt-0.5">
+                    Why 90% of Stores Fail
                   </span>
                 </div>
               </div>
@@ -359,9 +356,8 @@ export default function InteractiveComparison() {
                     <span>SalePXL Store Rebuild</span>
                     <Sparkles className="w-3.5 h-3.5 text-emerald-400 animate-pulse" />
                   </h3>
-                  <span className="text-[10px] text-emerald-400 font-mono font-bold tracking-wider uppercase flex items-center gap-1.5 mt-0.5">
-                    <Scroll className="w-3 h-3 text-emerald-400" />
-                    Blueprint Letter #2
+                  <span className="text-[10px] text-emerald-400 font-mono font-bold tracking-wider uppercase mt-0.5">
+                    Fully Customized
                   </span>
                 </div>
               </div>
