@@ -41,152 +41,88 @@ const COMPARISON_DATA: ComparisonItem[] = [
   {
     id: "goal",
     category: "conversion",
-    mainPoint: "Primary Goal & Strategy",
+    mainPoint: "01. Primary Strategy & Conversion Goal",
     basicStore: {
-      title: "Surface-Level Visuals Only",
-      description: "Designed just to look acceptable using generic template defaults without conversion engineering.",
-      metric: "~1–2% Conv. Rate",
-      drawback: "Leaks 80%+ of incoming traffic due to lack of sales psychology"
+      title: "Surface-Level Default Template",
+      description: "Designed only to look acceptable using generic template defaults without conversion engineering.",
+      metric: "~1%–2% Conv. Rate",
+      drawback: "Leaks 80%+ of incoming ad traffic due to lack of sales psychology"
     },
     salepxlStore: {
-      title: "Conversion-Engineered Revenue Machine",
+      title: "2X Conversion Revenue Machine",
       description: "Custom built with behavioral CRO psychology to turn window shoppers into instant buyers.",
       metric: "3.5%–5%+ Conv. Rate",
-      advantage: "Generates up to 3x higher revenue from the exact same ad traffic"
+      advantage: "Generates up to 3x higher sales from the exact same ad budget"
     },
     impactScore: 10
   },
   {
     id: "speed",
     category: "speed",
-    mainPoint: "Page Speed & Loading Time",
+    mainPoint: "02. Page Speed & Mobile Load Time",
     basicStore: {
       title: "Sluggish 3–6 Second Load",
-      description: "Bogged down by bloated pre-built theme code, unoptimized CSS, and excessive third-party apps.",
+      description: "Bogged down by heavy theme code, bloated CSS, and unoptimized third-party apps.",
       metric: "3.8s Avg. Load Time",
-      drawback: "~40% of visitors abandon before page even finishes loading"
+      drawback: "~40% of paid ad visitors bounce before page even finishes loading"
     },
     salepxlStore: {
-      title: "Sub-2 Second Lightning Speed",
-      description: "Ultra-lean custom code architecture with instant image preloading and zero app bloat.",
+      title: "Sub-Second 99/100 Instant Load",
+      description: "Custom lightweight architecture with instant image preloading & zero app bloat.",
       metric: "< 1.5s Load Time",
-      advantage: "Instant page responses boost search rankings & keep buyers engaged"
+      advantage: "Instant load stops bounce rates & ranks higher on search"
     },
-    impactScore: 9
-  },
-  {
-    id: "hero",
-    category: "ux",
-    mainPoint: "Hero Section & Value Proposition",
-    basicStore: {
-      title: "Vague Banner & Hidden CTA",
-      description: "Large stock images with generic headlines like 'Welcome to Our Store' and no clear incentive to buy.",
-      drawback: "Shoppers leave within 3 seconds because value is unclear"
-    },
-    salepxlStore: {
-      title: "High-Impact Hero Above The Fold",
-      description: "Crystal clear value proposition, instant social proof badges, and a high-converting primary CTA.",
-      advantage: "Captures visitor interest instantly and guides them directly to purchase"
-    },
-    impactScore: 8
+    impactScore: 10
   },
   {
     id: "pdp",
     category: "conversion",
-    mainPoint: "Product Page (PDP) Layout",
+    mainPoint: "03. Product Display Page (PDP) Experience",
     basicStore: {
-      title: "Basic Photos & Wall of Text",
-      description: "Standard image carousel with unformatted description paragraphs and no structured benefits.",
+      title: "Generic Photos & Text Walls",
+      description: "Standard image carousel with unformatted description paragraphs and hidden offer positioning.",
       drawback: "High cart abandonment due to unanswered buyer friction"
     },
     salepxlStore: {
-      title: "High-Converting Product Experience",
-      description: "Rich visual media, scannable benefit bullets, customer review snippets, trust badges, & live FAQs.",
-      advantage: "Eliminates buying hesitation and turns product browsing into sales"
+      title: "High-Converting Buyer Experience",
+      description: "Scannable benefit bullets, customer psychology proof, strategic offer positioning, & verified reviews.",
+      advantage: "Dissolves buying hesitation and turns browsers into buyers"
     },
     impactScore: 9
   },
   {
     id: "checkout",
     category: "revenue",
-    mainPoint: "Add-To-Cart & Checkout Friction",
+    mainPoint: "04. Add-To-Cart & Checkout Velocity",
     basicStore: {
       title: "Multi-Step Friction Checkout",
-      description: "Standard Add to Cart button leading to multi-page forms with hidden shipping fees at the end.",
+      description: "Standard Add to Cart button leading to multi-page forms with hidden fees at the end.",
       drawback: "~70% abandoned cart rate from unexpected checkout hurdles"
     },
     salepxlStore: {
       title: "1-Click Express & Sticky Add-To-Cart",
-      description: "Sticky purchase bar on scroll, 1-click Apple Pay/Shop Pay express checkout, & upfront transparency.",
-      advantage: "Dramatically cuts checkout drop-offs and speeds up purchases"
+      description: "Sticky purchase bar on scroll, 1-click UPI & Apple Pay express checkout, & zero hidden fees.",
+      advantage: "Eliminates checkout drop-offs and accelerates instant sales"
     },
     impactScore: 10
   },
   {
-    id: "mobile",
-    category: "ux",
-    mainPoint: "Mobile-First Shopping Experience",
-    basicStore: {
-      title: "Basic Desktop Scaling",
-      description: "Desktop layout squished down for mobile with small tap targets, horizontal scrolling, and laggy menus.",
-      drawback: "Frustrates mobile visitors (which account for 80%+ of total traffic)"
-    },
-    salepxlStore: {
-      title: "Thumb-Friendly Mobile UX",
-      description: "Purpose-built for smartphones with bottom sticky buy buttons, swipeable galleries, & zero touch lag.",
-      advantage: "Delivers effortless 1-thumb purchasing for maximum mobile sales"
-    },
-    impactScore: 9
-  },
-  {
     id: "upsell",
     category: "revenue",
-    mainPoint: "Upselling & Average Order Value (AOV)",
+    mainPoint: "05. Upselling & Average Order Value (AOV)",
     basicStore: {
-      title: "Rare or Missing Upsells",
-      description: "No product recommendation engine or post-purchase offers, missing out on extra order revenue.",
+      title: "Zero Upsell Infrastructure",
+      description: "Single product purchases with no bundle offers or cart recommendations.",
       metric: "Standard AOV",
-      drawback: "Leaves 20-35% potential extra revenue on the table for every order"
+      drawback: "Misses 25%–40% extra revenue on every transaction"
     },
     salepxlStore: {
-      title: "Smart Cart Bundles & Post-Purchase Upsells",
-      description: "Frequently Bought Together bundles, slide-out cart upsells, & 1-click post-checkout offers.",
+      title: "Smart Bundles & High-Margin Upsells",
+      description: "Frequently Bought Together bundles, slide-out cart upgrades, & post-purchase offers.",
       metric: "+25%–40% Higher AOV",
-      advantage: "Maximizes revenue per customer without increasing ad spend"
+      advantage: "Maximizes revenue per shopper without spending more on ads"
     },
     impactScore: 9
-  },
-  {
-    id: "trust",
-    category: "conversion",
-    mainPoint: "Trust Badges & Social Proof",
-    basicStore: {
-      title: "Minimal Trust Signals",
-      description: "Few reviews, hidden return policy, and generic unverified payment icons that raise suspicion.",
-      drawback: "New visitors hesitate to trust their credit card information"
-    },
-    salepxlStore: {
-      title: "Bulletproof Authority & Trust Seals",
-      description: "Verified buyer reviews, money-back guarantee badges, SSL encryption seals, & fast shipping timers.",
-      advantage: "Builds instant consumer confidence and dissolves buying doubt"
-    },
-    impactScore: 8
-  },
-  {
-    id: "analytics",
-    category: "speed",
-    mainPoint: "Analytics & Growth Optimization",
-    basicStore: {
-      title: "Basic Tracking & No Testing",
-      description: "Relies only on default Shopify dashboard with zero heatmaps or conversion split testing.",
-      drawback: "Impossible to identify where money is leaking in the funnel"
-    },
-    salepxlStore: {
-      title: "Full CRO Stack & Heatmap Integration",
-      description: "Configured with Google Analytics 4, heatmaps, event tracking, and built-in A/B test infrastructure.",
-      advantage: "Provides data-driven insights to continuously scale conversions"
-    },
-    impactScore: 8
   }
 ];
 
