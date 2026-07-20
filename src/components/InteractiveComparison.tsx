@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { CheckCircle2, XCircle, Sparkles, ChevronLeft, ChevronRight, PenTool } from "lucide-react";
+import { CheckCircle2, XCircle, Sparkles, ChevronLeft, ChevronRight, PenTool, Flame } from "lucide-react";
 
 const COMPARISON_POINTS = [
   {
@@ -38,7 +38,19 @@ const COMPARISON_POINTS = [
 ];
 
 // Interactive Pen Writing / Typewriter Effect Component
-function PenTypewriterText({ text, delay = 0, speed = 20, showPen = true }: { text: string; delay?: number; speed?: number; showPen?: boolean }) {
+function PenTypewriterText({
+  text,
+  delay = 0,
+  speed = 18,
+  showPen = true,
+  theme = "emerald"
+}: {
+  text: string;
+  delay?: number;
+  speed?: number;
+  showPen?: boolean;
+  theme?: "emerald" | "red";
+}) {
   const [displayedText, setDisplayedText] = useState("");
   const [isWriting, setIsWriting] = useState(true);
 
@@ -64,12 +76,20 @@ function PenTypewriterText({ text, delay = 0, speed = 20, showPen = true }: { te
     return () => clearTimeout(startTimeout);
   }, [text, delay, speed]);
 
+  const isRed = theme === "red";
+
   return (
     <span className="inline-flex items-center flex-wrap gap-1">
       <span>{displayedText}</span>
       {isWriting && showPen && (
-        <span className="inline-flex items-center justify-center p-0.5 rounded-full bg-emerald-500/20 border border-emerald-400/40 text-emerald-400 animate-pulse ml-1 shrink-0 shadow-[0_0_10px_rgba(16,185,129,0.5)]">
-          <PenTool className="w-3.5 h-3.5 text-emerald-300 -rotate-45" />
+        <span
+          className={`inline-flex items-center justify-center p-0.5 rounded-full border animate-pulse ml-1 shrink-0 ${
+            isRed
+              ? "bg-red-500/20 border-red-400/40 text-red-400 shadow-[0_0_10px_rgba(239,68,68,0.5)]"
+              : "bg-emerald-500/20 border-emerald-400/40 text-emerald-400 shadow-[0_0_10px_rgba(16,185,129,0.5)]"
+          }`}
+        >
+          <PenTool className={`w-3.5 h-3.5 -rotate-45 ${isRed ? "text-red-300" : "text-emerald-300"}`} />
         </span>
       )}
     </span>
@@ -123,10 +143,10 @@ export default function InteractiveComparison() {
         </div>
 
         {/* Mobile Swipe Container with Motion */}
-        <div className="relative min-h-[440px] overflow-hidden rounded-3xl p-0.5">
+        <div className="relative min-h-[460px] overflow-hidden rounded-3xl p-0.5">
           <AnimatePresence mode="wait">
             {activeMobileCardIndex === 0 ? (
-              /* MOBILE CARD 1: Basic Store (Shown FIRST) */
+              /* MOBILE CARD 1: FAILED ECOM BRAND STORY (Shown FIRST with Red Pen Writing) */
               <motion.div
                 key="basic-card"
                 drag="x"
@@ -146,11 +166,13 @@ export default function InteractiveComparison() {
                   <div className="flex items-center justify-between border-b border-red-500/20 pb-4 mb-4">
                     <div className="flex items-center gap-2.5">
                       <div className="w-9 h-9 rounded-xl bg-red-500/15 border border-red-500/30 flex items-center justify-center shrink-0">
-                        <XCircle className="w-5 h-5 text-red-400" />
+                        <Flame className="w-5 h-5 text-red-400" />
                       </div>
                       <div>
-                        <h3 className="text-base font-bold text-white font-grotesk">Basic Shopify Store</h3>
-                        <span className="text-[10px] text-red-400/80 font-mono font-semibold">Standard Template</span>
+                        <h3 className="text-base font-bold text-white font-grotesk">Story of a Failed Ecom Brand</h3>
+                        <span className="text-[10px] text-red-400/90 font-mono font-semibold uppercase tracking-wider">
+                          Why 90% of Stores Fail
+                        </span>
                       </div>
                     </div>
                     
@@ -159,13 +181,13 @@ export default function InteractiveComparison() {
                     </span>
                   </div>
 
-                  {/* 5 Red Drawbacks */}
+                  {/* 5 Red Drawbacks - Failed Ecom Brand Story written with Red Pen */}
                   <div className="space-y-2.5">
-                    {COMPARISON_POINTS.map((pt) => (
+                    {COMPARISON_POINTS.map((pt, idx) => (
                       <div key={pt.id} className="flex items-start gap-2.5 p-2.5 rounded-xl bg-red-950/30 border border-red-500/15">
                         <XCircle className="w-4 h-4 text-red-400 shrink-0 mt-0.5" />
                         <span className="text-xs text-red-200/90 leading-relaxed font-sans font-normal">
-                          {pt.basic}
+                          <PenTypewriterText text={pt.basic} delay={200 + idx * 150} speed={18} showPen={true} theme="red" />
                         </span>
                       </div>
                     ))}
@@ -187,7 +209,7 @@ export default function InteractiveComparison() {
                 </div>
               </motion.div>
             ) : (
-              /* MOBILE CARD 2: SalePXL Store (REVEALED ON SWIPE WITH PEN TYPEWRITER EFFECT) */
+              /* MOBILE CARD 2: SalePXL Store (REVEALED ON SWIPE WITH EMERALD PEN TYPEWRITER EFFECT) */
               <motion.div
                 key="salepxl-card"
                 drag="x"
@@ -211,11 +233,11 @@ export default function InteractiveComparison() {
                       </div>
                       <div>
                         <h3 className="text-base font-bold text-white font-grotesk flex items-center gap-1.5">
-                          <span>SalePXL Store</span>
+                          <span>SalePXL Store Rebuild</span>
                           <Sparkles className="w-3.5 h-3.5 text-emerald-400 animate-pulse" />
                         </h3>
                         <span className="text-[10px] text-emerald-400 font-mono font-bold tracking-wider uppercase">
-                          <PenTypewriterText text="Fully Customized" delay={150} speed={25} showPen={false} />
+                          <PenTypewriterText text="Fully Customized" delay={150} speed={25} showPen={false} theme="emerald" />
                         </span>
                       </div>
                     </div>
@@ -225,13 +247,13 @@ export default function InteractiveComparison() {
                     </span>
                   </div>
 
-                  {/* 5 Green Advantages with Pen Writing Effect */}
+                  {/* 5 Green Advantages with Emerald Pen Writing Effect */}
                   <div className="space-y-2.5">
                     {COMPARISON_POINTS.map((pt, idx) => (
                       <div key={pt.id} className="flex items-start gap-2.5 p-2.5 rounded-xl bg-emerald-950/50 border border-emerald-500/30 shadow-sm">
                         <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
                         <span className="text-xs text-white font-medium leading-relaxed font-sans">
-                          <PenTypewriterText text={pt.salepxl} delay={200 + idx * 150} speed={18} showPen={true} />
+                          <PenTypewriterText text={pt.salepxl} delay={200 + idx * 150} speed={18} showPen={true} theme="emerald" />
                         </span>
                       </div>
                     ))}
@@ -248,7 +270,7 @@ export default function InteractiveComparison() {
                     className="text-[10px] font-mono font-bold text-white/70 hover:text-white flex items-center gap-0.5 bg-white/10 px-2 py-1 rounded-full"
                   >
                     <ChevronLeft className="w-3 h-3 text-red-400" />
-                    <span>Basic Store</span>
+                    <span>Failed Store Story</span>
                   </button>
                 </div>
               </motion.div>
@@ -263,7 +285,7 @@ export default function InteractiveComparison() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       <div className="hidden md:grid grid-cols-2 gap-6 lg:gap-8 items-stretch">
         
-        {/* DESKTOP CARD 1: Basic Shopify Store */}
+        {/* DESKTOP CARD 1: Story of a Failed Ecom Brand */}
         <div className="p-8 rounded-3xl bg-gradient-to-b from-red-950/20 via-[#0d0709] to-[#080405] border border-red-500/20 relative overflow-hidden flex flex-col justify-between shadow-2xl group">
           <div className="absolute top-0 right-0 w-48 h-48 bg-red-500/[0.04] blur-3xl pointer-events-none" />
 
@@ -272,11 +294,13 @@ export default function InteractiveComparison() {
             <div className="flex items-center justify-between border-b border-red-500/20 pb-4 mb-5">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-xl bg-red-500/10 border border-red-500/30 flex items-center justify-center shrink-0">
-                  <XCircle className="w-5 h-5 text-red-400" />
+                  <Flame className="w-5 h-5 text-red-400" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-white font-grotesk">Basic Shopify Store</h3>
-                  <span className="text-[10px] text-red-400/80 font-mono font-semibold">Standard Template Setup</span>
+                  <h3 className="text-lg font-bold text-white font-grotesk">Story of a Failed Ecom Brand</h3>
+                  <span className="text-[10px] text-red-400/90 font-mono font-semibold uppercase tracking-wider">
+                    Why 90% of Stores Fail
+                  </span>
                 </div>
               </div>
               <span className="text-[11px] font-mono font-bold text-red-400 bg-red-500/10 border border-red-500/20 px-2.5 py-1 rounded-full">
@@ -284,13 +308,13 @@ export default function InteractiveComparison() {
               </span>
             </div>
 
-            {/* List of 5 Red Drawbacks */}
+            {/* List of 5 Red Drawbacks - Written with Red Pen */}
             <div className="space-y-3">
-              {COMPARISON_POINTS.map((pt) => (
+              {COMPARISON_POINTS.map((pt, idx) => (
                 <div key={pt.id} className="flex items-start gap-2.5 p-3 rounded-xl bg-red-950/20 border border-red-500/10">
                   <XCircle className="w-4 h-4 text-red-400 shrink-0 mt-0.5" />
                   <span className="text-sm text-red-200/90 leading-relaxed font-sans font-normal">
-                    {pt.basic}
+                    <PenTypewriterText text={pt.basic} delay={200 + idx * 150} speed={18} showPen={true} theme="red" />
                   </span>
                 </div>
               ))}
@@ -304,7 +328,7 @@ export default function InteractiveComparison() {
           </div>
         </div>
 
-        {/* DESKTOP CARD 2: SalePXL Shopify Store */}
+        {/* DESKTOP CARD 2: SalePXL Store Rebuild */}
         <div className="p-8 rounded-3xl bg-gradient-to-b from-emerald-950/40 via-[#07140f] to-[#040a08] border-2 border-emerald-500/50 relative overflow-hidden flex flex-col justify-between shadow-[0_0_40px_rgba(16,185,129,0.15)] group">
           <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/[0.08] blur-3xl pointer-events-none" />
 
@@ -317,11 +341,11 @@ export default function InteractiveComparison() {
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-white font-grotesk flex items-center gap-1.5">
-                    <span>SalePXL Store</span>
+                    <span>SalePXL Store Rebuild</span>
                     <Sparkles className="w-3.5 h-3.5 text-emerald-400 animate-pulse" />
                   </h3>
                   <span className="text-[10px] text-emerald-400 font-mono font-bold tracking-wider uppercase">
-                    <PenTypewriterText text="Fully Customized" delay={150} speed={25} showPen={false} />
+                    <PenTypewriterText text="Fully Customized" delay={150} speed={25} showPen={false} theme="emerald" />
                   </span>
                 </div>
               </div>
@@ -330,13 +354,13 @@ export default function InteractiveComparison() {
               </span>
             </div>
 
-            {/* List of 5 Green Advantages with Pen Writing Effect */}
+            {/* List of 5 Green Advantages with Emerald Pen Writing Effect */}
             <div className="space-y-3">
               {COMPARISON_POINTS.map((pt, idx) => (
                 <div key={pt.id} className="flex items-start gap-2.5 p-3 rounded-xl bg-emerald-950/40 border border-emerald-500/25 shadow-sm">
                   <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
                   <span className="text-sm text-white font-medium leading-relaxed font-sans">
-                    <PenTypewriterText text={pt.salepxl} delay={200 + idx * 150} speed={18} showPen={true} />
+                    <PenTypewriterText text={pt.salepxl} delay={200 + idx * 150} speed={18} showPen={true} theme="emerald" />
                   </span>
                 </div>
               ))}
