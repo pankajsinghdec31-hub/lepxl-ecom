@@ -86,11 +86,13 @@ function HandwrittenPenText({
 function SequentialLetterWriterList({
   items,
   theme = "emerald",
-  icon: Icon
+  icon: Icon,
+  compact = false
 }: {
   items: typeof FAILED_LETTER_POINTS;
   theme?: "emerald" | "red";
   icon: any;
+  compact?: boolean;
 }) {
   const [activeWritingIndex, setActiveWritingIndex] = useState(0);
 
@@ -99,7 +101,7 @@ function SequentialLetterWriterList({
   }, [items]);
 
   return (
-    <div className="space-y-3 sm:space-y-3.5">
+    <div className={compact ? "space-y-2" : "space-y-3 sm:space-y-3.5"}>
       {items.map((pt, idx) => {
         const isVisible = idx <= activeWritingIndex;
         const isCurrentlyWriting = idx === activeWritingIndex;
@@ -107,7 +109,9 @@ function SequentialLetterWriterList({
         return (
           <div
             key={pt.id}
-            className={`flex items-start gap-2.5 p-3 rounded-xl transition-all duration-300 border backdrop-blur-sm ${
+            className={`flex items-start gap-2 transition-all duration-300 border backdrop-blur-sm ${
+              compact ? "p-2.5 rounded-xl" : "p-3 rounded-xl"
+            } ${
               isVisible
                 ? theme === "red"
                   ? "bg-red-950/25 border-red-500/20 shadow-lg shadow-red-950/30 opacity-100"
@@ -115,12 +119,12 @@ function SequentialLetterWriterList({
                 : "opacity-0 hidden"
             }`}
           >
-            <Icon className={`w-4 h-4 shrink-0 mt-0.5 ${theme === "red" ? "text-red-400" : "text-emerald-400"}`} />
-            <span className={`text-xs sm:text-sm font-medium leading-relaxed ${theme === "red" ? "text-red-200/90" : "text-emerald-50"}`}>
+            <Icon className={`shrink-0 mt-0.5 ${compact ? "w-3.5 h-3.5" : "w-4 h-4"} ${theme === "red" ? "text-red-400" : "text-emerald-400"}`} />
+            <span className={`font-medium leading-relaxed ${compact ? "text-[11px] sm:text-xs" : "text-xs sm:text-sm"} ${theme === "red" ? "text-red-200/90" : "text-emerald-50"}`}>
               {isVisible ? (
                 <HandwrittenPenText
                   text={pt.text}
-                  speed={20}
+                  speed={18}
                   showPen={isCurrentlyWriting}
                   theme={theme}
                   onComplete={() => {
@@ -161,7 +165,7 @@ export default function InteractiveComparison() {
       <div className="block md:hidden w-full relative">
         
         {/* Top Control Bar with Swipe Hint & Dot Indicators */}
-        <div className="flex items-center justify-between px-2 mb-3">
+        <div className="flex items-center justify-between px-1 mb-2.5">
           <div className="flex items-center gap-1.5 bg-slate-900/90 border border-white/10 px-3 py-1 rounded-full text-[10px] font-mono text-amber-400">
             <Sparkles className="w-3 h-3 text-amber-400" />
             <span>👈 Swipe left to read SalePXL Blueprint 👉</span>
@@ -195,7 +199,7 @@ export default function InteractiveComparison() {
         </div>
 
         {/* Mobile Swipe Container with Motion */}
-        <div className="relative min-h-[520px] overflow-hidden rounded-3xl p-0.5">
+        <div className="relative min-h-[440px] overflow-hidden rounded-[28px] p-0.5">
           <AnimatePresence mode="popLayout" initial={false}>
             {activeMobileCardIndex === 0 ? (
               /* MOBILE CARD 1: FAILED ECOM BRAND STORY LETTER */
@@ -208,38 +212,38 @@ export default function InteractiveComparison() {
                 animate={{ opacity: 1, x: 0, scale: 1 }}
                 exit={{ opacity: 0, x: -80, scale: 0.95 }}
                 transition={{ duration: 0.35, ease: "easeOut" }}
-                className="w-full p-5 sm:p-7 rounded-3xl bg-gradient-to-b from-[#180a0d] via-[#0d0709] to-[#080405] border-2 border-red-500/40 relative overflow-hidden shadow-[0_0_35px_rgba(239,68,68,0.2)] flex flex-col justify-between select-none cursor-grab active:cursor-grabbing"
+                className="w-full p-4.5 sm:p-5 rounded-[28px] bg-gradient-to-b from-[#16080b] via-[#0d0608] to-[#070304] border border-red-500/35 relative overflow-hidden shadow-[0_0_30px_rgba(239,68,68,0.18)] flex flex-col justify-between select-none cursor-grab active:cursor-grabbing"
               >
-                <div className="absolute top-0 right-0 w-48 h-48 bg-red-500/[0.06] blur-3xl pointer-events-none" />
+                <div className="absolute top-0 right-0 w-40 h-40 bg-red-500/[0.06] blur-3xl pointer-events-none" />
 
                 <div>
                   {/* Header Letter Tag */}
-                  <div className="flex items-center justify-between border-b border-red-500/20 pb-4 mb-4">
-                    <div className="flex items-center gap-2.5">
-                      <div className="w-9 h-9 rounded-xl bg-red-500/15 border border-red-500/30 flex items-center justify-center shrink-0">
-                        <Flame className="w-5 h-5 text-red-400" />
+                  <div className="flex items-center justify-between border-b border-red-500/20 pb-3 mb-3">
+                    <div className="flex items-center gap-2">
+                      <div className="w-8 h-8 rounded-xl bg-red-500/15 border border-red-500/30 flex items-center justify-center shrink-0">
+                        <Flame className="w-4 h-4 text-red-400" />
                       </div>
                       <div>
-                        <h3 className="text-base font-bold text-white font-grotesk">Story of a Failed Ecom Brand</h3>
-                        <span className="text-[10px] text-red-400/90 font-mono font-semibold uppercase tracking-wider">
+                        <h3 className="text-sm font-bold text-white font-grotesk">Story of a Failed Ecom Brand</h3>
+                        <span className="text-[9px] text-red-400/90 font-mono font-semibold uppercase tracking-wider block">
                           Why 90% of Stores Fail
                         </span>
                       </div>
                     </div>
                     
-                    <span className="text-[10px] font-mono font-bold text-red-400 bg-red-500/10 border border-red-500/20 px-2 py-0.5 rounded-full">
+                    <span className="text-[9px] font-mono font-bold text-red-400 bg-red-500/10 border border-red-500/20 px-2 py-0.5 rounded-full">
                       ~1% Conv.
                     </span>
                   </div>
 
                   {/* Failed Letter Points Written Line-by-Line with Pen */}
-                  <SequentialLetterWriterList items={FAILED_LETTER_POINTS} theme="red" icon={XCircle} />
+                  <SequentialLetterWriterList items={FAILED_LETTER_POINTS} theme="red" icon={XCircle} compact={true} />
                 </div>
 
                 {/* Footer Sign-off */}
-                <div className="mt-5 pt-3 border-t border-red-500/10 flex items-center justify-between">
-                  <span className="text-[10px] font-mono text-red-400/90 font-semibold">
-                    Core Reason: Unoptimized UX Kills Paid Ad Traffic
+                <div className="mt-4 pt-2.5 border-t border-red-500/10 flex items-center justify-between">
+                  <span className="text-[9px] font-mono text-red-400/90 font-semibold">
+                    Core Reason: Unoptimized UX
                   </span>
                   <button
                     type="button"
@@ -248,10 +252,10 @@ export default function InteractiveComparison() {
                       e.stopPropagation();
                       setActiveMobileCardIndex(1);
                     }}
-                    className="text-[10px] font-mono font-bold text-emerald-400 hover:text-emerald-300 flex items-center gap-1 bg-emerald-500/10 border border-emerald-500/30 px-2.5 py-1 rounded-full animate-pulse"
+                    className="text-[9px] font-mono font-bold text-emerald-400 hover:text-emerald-300 flex items-center gap-1 bg-emerald-500/10 border border-emerald-500/30 px-2.5 py-1 rounded-full animate-pulse"
                   >
                     <span>Read Success Blueprint</span>
-                    <ChevronRight className="w-3.5 h-3.5 text-emerald-400" />
+                    <ChevronRight className="w-3 h-3 text-emerald-400" />
                   </button>
                 </div>
               </motion.div>
@@ -266,41 +270,41 @@ export default function InteractiveComparison() {
                 animate={{ opacity: 1, x: 0, scale: 1 }}
                 exit={{ opacity: 0, x: 80, scale: 0.95 }}
                 transition={{ duration: 0.35, ease: "easeOut" }}
-                className="w-full p-5 sm:p-7 rounded-3xl bg-gradient-to-b from-[#0a1f18] via-[#07140f] to-[#040a08] border-2 border-emerald-500/60 relative overflow-hidden shadow-[0_0_40px_rgba(16,185,129,0.3)] flex flex-col justify-between select-none cursor-grab active:cursor-grabbing"
+                className="w-full p-4.5 sm:p-5 rounded-[28px] bg-gradient-to-b from-[#091b15] via-[#06120d] to-[#030906] border border-emerald-500/50 relative overflow-hidden shadow-[0_0_35px_rgba(16,185,129,0.25)] flex flex-col justify-between select-none cursor-grab active:cursor-grabbing"
               >
-                <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/[0.1] blur-3xl pointer-events-none" />
+                <div className="absolute top-0 right-0 w-52 h-52 bg-emerald-500/[0.08] blur-3xl pointer-events-none" />
 
                 <div>
                   {/* Header Letter Tag */}
-                  <div className="flex items-center justify-between border-b border-emerald-500/30 pb-4 mb-4">
-                    <div className="flex items-center gap-2.5">
-                      <div className="w-9 h-9 rounded-xl bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center shrink-0 shadow-[0_0_15px_rgba(16,185,129,0.3)]">
-                        <CheckCircle2 className="w-5 h-5 text-emerald-400" />
+                  <div className="flex items-center justify-between border-b border-emerald-500/30 pb-3 mb-3">
+                    <div className="flex items-center gap-2">
+                      <div className="w-8 h-8 rounded-xl bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center shrink-0 shadow-[0_0_12px_rgba(16,185,129,0.25)]">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-400" />
                       </div>
                       <div>
-                        <h3 className="text-base font-bold text-white font-grotesk flex items-center gap-1.5">
+                        <h3 className="text-sm font-bold text-white font-grotesk flex items-center gap-1">
                           <span>SalePXL Store Rebuild</span>
-                          <Sparkles className="w-3.5 h-3.5 text-emerald-400 animate-pulse" />
+                          <Sparkles className="w-3 h-3 text-emerald-400 animate-pulse" />
                         </h3>
-                        <span className="text-[10px] text-emerald-400 font-mono font-bold tracking-wider uppercase">
+                        <span className="text-[9px] text-emerald-400 font-mono font-bold tracking-wider uppercase block">
                           Fully Customized
                         </span>
                       </div>
                     </div>
                     
-                    <span className="text-[10px] font-mono font-bold text-emerald-300 bg-emerald-500/20 border border-emerald-500/40 px-2 py-0.5 rounded-full shadow-[0_0_10px_rgba(16,185,129,0.2)]">
+                    <span className="text-[9px] font-mono font-bold text-emerald-300 bg-emerald-500/20 border border-emerald-500/40 px-2 py-0.5 rounded-full shadow-[0_0_8px_rgba(16,185,129,0.2)]">
                       3.5%–5%+ Conv.
                     </span>
                   </div>
 
                   {/* SalePXL Blueprint Letter Points Written Line-by-Line with Pen */}
-                  <SequentialLetterWriterList items={SALEPXL_LETTER_POINTS} theme="emerald" icon={CheckCircle2} />
+                  <SequentialLetterWriterList items={SALEPXL_LETTER_POINTS} theme="emerald" icon={CheckCircle2} compact={true} />
                 </div>
 
                 {/* Footer Sign-off */}
-                <div className="mt-5 pt-3 border-t border-emerald-500/20 flex items-center justify-between">
-                  <span className="text-[10px] font-mono text-emerald-300 font-bold">
-                    Core Reason: CRO Architecture + High AOV & Retention
+                <div className="mt-4 pt-2.5 border-t border-emerald-500/20 flex items-center justify-between">
+                  <span className="text-[9px] font-mono text-emerald-300 font-bold">
+                    Core Reason: CRO Architecture
                   </span>
                   <button
                     type="button"
@@ -309,7 +313,7 @@ export default function InteractiveComparison() {
                       e.stopPropagation();
                       setActiveMobileCardIndex(0);
                     }}
-                    className="text-[10px] font-mono font-bold text-white/70 hover:text-white flex items-center gap-0.5 bg-white/10 px-2 py-1 rounded-full"
+                    className="text-[9px] font-mono font-bold text-white/70 hover:text-white flex items-center gap-0.5 bg-white/10 px-2 py-1 rounded-full"
                   >
                     <ChevronLeft className="w-3 h-3 text-red-400" />
                     <span>Read Failure Reason</span>
