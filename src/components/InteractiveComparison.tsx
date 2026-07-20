@@ -308,22 +308,6 @@ export default function InteractiveComparison() {
         </div>
 
       </div>
-
-      {/* Bottom Call to Action Bar */}
-      <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-[#0d1522] via-[#09101a] to-[#0d1522] border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <div>
-          <h4 className="text-xs sm:text-sm font-bold text-white font-grotesk">Ready to upgrade from a Basic Store to a Branded SalePXL Engine?</h4>
-          <p className="text-[11px] sm:text-xs text-white/60 font-sans mt-0.5">We engineer high-converting Shopify Stores tailored to turn clicks into loyal customers.</p>
-        </div>
-        <a
-          href="/contact"
-          className="w-full sm:w-auto px-6 py-3 rounded-full bg-gradient-to-r from-emerald-400 to-teal-400 text-black font-grotesk font-extrabold text-xs uppercase tracking-wider hover:scale-105 transition-transform flex items-center justify-center gap-2 shrink-0 shadow-[0_0_20px_rgba(16,185,129,0.3)] cursor-pointer"
-        >
-          <span>Build Branded Store</span>
-          <ArrowRight className="w-4 h-4 text-black" />
-        </a>
-      </div>
-
     </div>
   );
 }
