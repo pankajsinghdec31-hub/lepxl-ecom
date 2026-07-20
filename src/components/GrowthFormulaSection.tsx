@@ -261,14 +261,14 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
   }, [isAutoScrolling, isInView, isHovered]);
 
   const trustBadges = [
-    { label: "★ 4.9 Verified Rating", icon: "⭐", pos: "-top-7 left-1/2 -translate-x-1/2" },
-    { label: "SSL 256-Bit Bank Grade", icon: "🔒", pos: "-left-16 top-6" },
-    { label: "99/100 Instant Speed", icon: "⚡", pos: "-right-16 top-6" },
-    { label: "1-Click UPI & Express Pay", icon: "🚀", pos: "-top-4 right-2" },
-    { label: "30-Day Money-Back Guarantee", icon: "🛡️", pos: "-left-14 bottom-8" },
-    { label: "Sticky High-Converting ATC", icon: "🛒", pos: "-right-14 bottom-8" },
-    { label: "FOMO Stock & Urgency Engine", icon: "🔥", pos: "-bottom-6 left-1/3 -translate-x-1/2" },
-    { label: "Mobile Thumb-Zone UX", icon: "📱", pos: "-bottom-6 right-6" }
+    { label: "SalePXL 2X Conversion PDP", icon: "⚡", pos: "-top-7 left-1/2 -translate-x-1/2" },
+    { label: "Customer Psychology Trust", icon: "⭐", pos: "-left-16 top-6" },
+    { label: "CRO Optimized Product Page", icon: "🎯", pos: "-right-16 top-6" },
+    { label: "Faster 1-Click Checkout", icon: "🚀", pos: "-top-4 right-2" },
+    { label: "Offer & Discount Positioning", icon: "🏷️", pos: "-left-14 bottom-8" },
+    { label: "Clean & Well-Optimized UX", icon: "✨", pos: "-right-14 bottom-8" },
+    { label: "Buyer Trust & Proof Engine", icon: "🛡️", pos: "-bottom-6 left-1/3 -translate-x-1/2" },
+    { label: "High-Converting Shopify Store", icon: "🛍️", pos: "-bottom-6 right-6" }
   ];
 
   return (
@@ -452,28 +452,28 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
                 </div>
               </div>
 
-              {/* DESKTOP PANEL 2: STOREFRONT TRUST */}
+              {/* DESKTOP PANEL 2: STOREFRONT TRUST & SALE PXL POSITIONING */}
               <div className="w-[100vw] h-full shrink-0 flex items-center justify-center px-8 lg:px-12">
                 <div className="max-w-5xl w-full grid grid-cols-12 gap-8 items-center bg-white/[0.02] border border-emerald-500/25 rounded-3xl p-7 backdrop-blur-md shadow-2xl relative">
                   
                   <div className="absolute -top-3 left-8 px-3.5 py-1 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-[10px] font-mono font-bold text-emerald-400 uppercase tracking-widest flex items-center gap-1.5 shadow-[0_0_15px_rgba(16,185,129,0.3)]">
                     <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-                    <span>Stage 02 • High-Converting Storefront Trust</span>
+                    <span>Stage 02 • High-Converting Shopify Store</span>
                   </div>
 
-                  {/* Left Column: Copy & Psychology Pillars */}
+                  {/* Left Column: Copy & SalePXL Psychology Pillars */}
                   <div className="col-span-5 space-y-4">
                     <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-emerald-500/10 border border-emerald-500/20 text-[11px] font-mono text-emerald-300">
                       <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
-                      <span>Psychology-Backed CRO Storefront</span>
+                      <span>SalePXL Store Architecture</span>
                     </div>
 
                     <h3 className="text-3xl font-extrabold font-grotesk tracking-tight text-white leading-tight">
-                      Build Instant Shopper <span className="text-emerald-400">Trust & Buyers</span>
+                      Build Instant <span className="text-emerald-400">Buyer Trust</span> & Best UX
                     </h3>
                     
                     <p className="text-xs text-white/70 leading-relaxed font-sans">
-                      Traffic without trust leads to empty carts. We engineer ultra-fast e-commerce stores packed with high-converting CRO psychology, verified proof signals, and seamless 1-click checkout.
+                      We build buyer trust with SalePXL Shopify stores. Engineered with customer psychology, ultra-clean design, and well-optimized product pages to turn visitors into buyers.
                     </p>
 
                     <div className="space-y-2.5 pt-1">
@@ -482,8 +482,8 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
                           <Zap className="w-3.5 h-3.5 text-emerald-400" />
                         </div>
                         <div>
-                          <span className="font-semibold text-white">99/100 Instant Load Speed:</span>
-                          <span className="text-white/60 block text-[11px]">Sub-second PDP render eliminates store bounce rate.</span>
+                          <span className="font-semibold text-white">CRO-Optimized 2X Conversion PDP:</span>
+                          <span className="text-white/60 block text-[11px]">Product pages designed around scannable benefit blocks & visual proof.</span>
                         </div>
                       </div>
 
@@ -492,8 +492,8 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
                           <Star className="w-3.5 h-3.5 text-emerald-400 fill-emerald-400" />
                         </div>
                         <div>
-                          <span className="font-semibold text-white">Psychological Social Proof:</span>
-                          <span className="text-white/60 block text-[11px]">Verified buyer reviews, live stock counters & real-time sales notifications.</span>
+                          <span className="font-semibold text-white">Customer Psychology & Buyer Trust:</span>
+                          <span className="text-white/60 block text-[11px]">Verified review widgets, authority seals, and zero-anxiety guarantees.</span>
                         </div>
                       </div>
 
@@ -502,8 +502,8 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
                           <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
                         </div>
                         <div>
-                          <span className="font-semibold text-white">Zero-Friction Bank Security:</span>
-                          <span className="text-white/60 block text-[11px]">256-bit encrypted 1-click UPI, Apple Pay & Cards checkout.</span>
+                          <span className="font-semibold text-white">Faster Checkout & Offer Positioning:</span>
+                          <span className="text-white/60 block text-[11px]">Strategic discount callouts paired with 1-click express payment flow.</span>
                         </div>
                       </div>
                     </div>
@@ -805,17 +805,17 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
           </div>
         </div>
 
-        {/* ── MOBILE STEP 2: STOREFRONT TRUST ── */}
+        {/* ── MOBILE STEP 2: HIGH-CONVERTING SHOPIFY STORE ── */}
         <div className="p-5 rounded-3xl bg-gradient-to-b from-emerald-500/15 via-[#070b18] to-[#04060d] border border-emerald-500/30 backdrop-blur-xl shadow-2xl space-y-4 relative overflow-hidden">
           <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-[9px] font-mono font-bold text-emerald-400 uppercase tracking-wider">
-            Stage 02 • High-Converting Storefront Trust
+            Stage 02 • High-Converting Shopify Store
           </div>
 
           <h3 className="text-xl font-extrabold font-grotesk text-white leading-tight">
-            Build Instant Shopper <span className="text-emerald-400">Trust & Buyers</span>
+            Build Instant <span className="text-emerald-400">Buyer Trust</span> & Best UX
           </h3>
           <p className="text-xs text-white/70 leading-relaxed font-sans">
-            Traffic without trust leads to empty carts. We engineer ultra-fast e-commerce stores packed with high-converting CRO psychology, verified proof signals, and seamless 1-click checkout.
+            We build buyer trust with SalePXL Shopify stores. Engineered with customer psychology, ultra-clean design, and well-optimized product pages to turn visitors into buyers.
           </p>
 
           {/* Realistic Mobile E-Commerce Storefront Card Mockup */}
@@ -823,7 +823,7 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
             
             {/* Top Bar */}
             <div className="bg-gradient-to-r from-emerald-600 to-teal-500 py-1 px-3 text-center flex items-center justify-between text-[9px] font-bold text-black">
-              <span>⚡ FREE 2-DAY DELIVERY</span>
+              <span>⚡ SALEPXL 2X CONVERSION STORE</span>
               <span className="bg-black/20 text-white font-mono px-1 rounded">COD ACTIVE</span>
             </div>
 
@@ -837,12 +837,12 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
                 <div className="space-y-0.5 min-w-0 flex-1">
                   <div className="flex items-center gap-1 text-[9px] text-amber-400 font-mono">
                     <span>★★★★★</span>
-                    <span className="text-white font-bold">4.9</span>
+                    <span className="text-white font-bold">4.9 Buyer Trust</span>
                   </div>
                   <h4 className="text-xs font-bold text-white truncate">Radiant Renewal Serum</h4>
                   <div className="flex items-center gap-1 text-[9px] text-emerald-400 font-mono">
                     <Clock className="w-2.5 h-2.5" />
-                    <span>Only 3 Left in Stock</span>
+                    <span>Offer & Discount Positioned</span>
                   </div>
                   <div className="flex items-center gap-1.5 pt-0.5">
                     <span className="text-xs font-extrabold text-white">₹1,499</span>
@@ -854,26 +854,26 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
               {/* High-Converting 1-Click Buy CTA */}
               <button className="w-full py-2 rounded-xl bg-gradient-to-r from-emerald-400 to-teal-400 text-black font-grotesk font-extrabold text-[11px] uppercase tracking-wider flex items-center justify-center gap-1.5 shadow-[0_0_15px_rgba(16,185,129,0.3)]">
                 <Zap className="w-3 h-3 fill-black" />
-                <span>BUY NOW - 1-CLICK CHECKOUT</span>
+                <span>FASTER 1-CLICK CHECKOUT</span>
               </button>
 
               {/* Mobile CRO Psychology Badges Grid */}
               <div className="grid grid-cols-2 gap-1.5 pt-1">
                 <div className="p-1.5 rounded-lg bg-slate-900 border border-emerald-500/30 text-[9px] font-mono text-emerald-300 flex items-center gap-1">
                   <span>⚡</span>
-                  <span>99/100 Instant Speed</span>
+                  <span>2X Conversion PDP</span>
                 </div>
                 <div className="p-1.5 rounded-lg bg-slate-900 border border-emerald-500/30 text-[9px] font-mono text-emerald-300 flex items-center gap-1">
                   <span>🔒</span>
-                  <span>256-Bit SSL Encrypted</span>
+                  <span>Customer Psychology</span>
                 </div>
                 <div className="p-1.5 rounded-lg bg-slate-900 border border-emerald-500/30 text-[9px] font-mono text-emerald-300 flex items-center gap-1">
-                  <span>🛡️</span>
-                  <span>30-Day Guarantee</span>
+                  <span>🎯</span>
+                  <span>Offer Positioning</span>
                 </div>
                 <div className="p-1.5 rounded-lg bg-slate-900 border border-emerald-500/30 text-[9px] font-mono text-emerald-300 flex items-center gap-1">
                   <span>🚀</span>
-                  <span>1-Click UPI & Cards</span>
+                  <span>Faster Checkout</span>
                 </div>
               </div>
             </div>
@@ -881,7 +881,7 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
             {/* Live Order Popup */}
             <div className="mx-2 mb-2 p-1.5 rounded-lg bg-emerald-950/80 border border-emerald-500/30 flex items-center gap-1.5 text-[8px] font-mono text-emerald-300">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping shrink-0" />
-              <span className="truncate">Priya from Mumbai just purchased!</span>
+              <span className="truncate">SalePXL Rebuild: +245% Conversion Lift</span>
             </div>
           </div>
         </div>
