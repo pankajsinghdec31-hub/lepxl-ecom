@@ -101,7 +101,7 @@ export default function InteractiveComparison() {
             <div className="space-y-3">
               {COMPARISON_POINTS.map((pt) => (
                 <div key={pt.id} className="flex items-start gap-2.5 p-2.5 sm:p-3 rounded-xl bg-red-950/20 border border-red-500/10">
-                  <span className="text-red-400 font-bold text-xs sm:text-sm shrink-0 mt-0.5">❌</span>
+                  <XCircle className="w-4 h-4 text-red-400 shrink-0 mt-0.5" />
                   <span className="text-xs sm:text-sm text-red-200/90 leading-relaxed font-sans font-normal">
                     {pt.basic}
                   </span>
@@ -150,7 +150,7 @@ export default function InteractiveComparison() {
             <div className="space-y-3">
               {COMPARISON_POINTS.map((pt) => (
                 <div key={pt.id} className="flex items-start gap-2.5 p-2.5 sm:p-3 rounded-xl bg-emerald-950/40 border border-emerald-500/25 shadow-sm">
-                  <span className="text-emerald-400 font-bold text-xs sm:text-sm shrink-0 mt-0.5">✅</span>
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
                   <span className="text-xs sm:text-sm text-white font-medium leading-relaxed font-sans">
                     {pt.salepxl}
                   </span>
