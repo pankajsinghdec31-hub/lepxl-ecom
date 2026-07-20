@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { CheckCircle2, XCircle, Sparkles, ChevronLeft, ChevronRight, PenTool, Flame, Scroll } from "lucide-react";
 
 const FAILED_LETTER_POINTS = [
-  { id: 1, text: "Dear Founder, I launched with $10k+ in ad budget using a generic theme store." },
+  { id: 1, text: "I launched an ecom brand with $50k investment in ads & store, spending only 20% on the store." },
   { id: 2, text: "Visitors clicked my ad, but bounced in seconds due to low customer trust." },
   { id: 3, text: "Product pages were unformatted text walls with zero offer positioning." },
   { id: 4, text: "Over 82% of shoppers abandoned their carts during multi-page checkout." },
