@@ -24,7 +24,8 @@ import {
   CheckCircle2,
   Activity,
   ThumbsUp,
-  Share2
+  Share2,
+  MessageCircle
 } from "lucide-react";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import EnquiryBox from "@/components/EnquiryBox";
@@ -1401,19 +1402,17 @@ export default function HomePage() {
                 onClick={() => setShowFormModal(true)}
                 className="w-full sm:w-auto btn-primary inline-flex items-center justify-center gap-2 px-8 h-13 rounded-full text-black bg-white text-xs sm:text-sm font-bold shadow-sm cursor-pointer"
               >
-                Start for free
+                Start with SalePXL
               </button>
-              <button
-                onClick={() => setShowFormModal(true)}
-                className="w-full sm:w-auto btn-secondary inline-flex items-center justify-center gap-2 px-8 h-13 rounded-full border border-white text-white text-xs sm:text-sm font-semibold backdrop-blur-sm cursor-pointer"
+              <a
+                href="https://wa.me/919917780656?text=Hi%20SalePXL%20team%2C%20I'd%20like%20to%20discuss%20building%20a%20high-converting%20Shopify%20store."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto btn-secondary inline-flex items-center justify-center gap-2 px-8 h-13 rounded-full border border-white text-white text-xs sm:text-sm font-semibold backdrop-blur-sm hover:border-emerald-400 hover:text-emerald-400 transition-colors"
               >
-                {/* Play circle icon inline */}
-                <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0 premium-hover-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <circle cx="12" cy="12" r="10" />
-                  <polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none" />
-                </svg>
-                <span>Why we build Shopify</span>
-              </button>
+                <MessageCircle className="w-4 h-4 text-emerald-400 shrink-0" />
+                <span>Chat on WhatsApp</span>
+              </a>
             </div>
 
             {/* Trust strip - hidden on mobile, visible from sm up */}
@@ -1445,11 +1444,11 @@ export default function HomePage() {
             <div className="max-w-4xl text-left">
               <h2 className="premium-heading text-3xl sm:text-4xl lg:text-[2.75rem] font-light leading-[1.2] tracking-tight font-grotesk select-none flex flex-wrap gap-x-4 gap-y-3">
                 <span className="text-white/30 mr-1 transition-all duration-300 hover:text-white cursor-default">
-                  Sell <span className="light-gradient-text font-normal">everywhere</span> people shop.
+                  Convert <span className="light-gradient-text font-normal">every visitor</span> into a loyal customer.
                 </span>
-                <span className="premium-highlight text-white transition-all duration-300 hover:text-primary cursor-default">Online and in person.</span>
-                <span className="text-white/60 transition-all duration-300 hover:text-white cursor-default">Across AI and on social.</span>
-                <span className="text-white/30 transition-all duration-300 hover:text-white cursor-default">Locally and globally.</span>
+                <span className="premium-highlight text-white transition-all duration-300 hover:text-primary cursor-default">High-converting storefronts.</span>
+                <span className="text-white/60 transition-all duration-300 hover:text-white cursor-default">Seamless mobile checkout.</span>
+                <span className="text-white/30 transition-all duration-300 hover:text-white cursor-default">Scaling brands to 8-figures.</span>
               </h2>
             </div>
             
