@@ -15,7 +15,12 @@ import {
   BarChart3,
   Play,
   Pause,
-  ChevronDown
+  ChevronDown,
+  ShoppingBag,
+  Lock,
+  Truck,
+  Sparkles,
+  Clock
 } from "lucide-react";
 
 interface GrowthFormulaSectionProps {
@@ -249,14 +254,14 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
   }, [isAutoScrolling, isInView, isHovered]);
 
   const trustBadges = [
-    { label: "★★★★★ 5.0 Rating", pos: "-top-7 left-1/2 -translate-x-1/2" },
-    { label: "SSL 256-bit Secure", pos: "-left-14 top-10" },
-    { label: "99/100 Speed Score", pos: "-right-14 top-10" },
-    { label: "Sticky Add To Cart", pos: "-bottom-7 left-1/2 -translate-x-1/2" },
-    { label: "1-Click Checkout", pos: "-top-5 right-2" },
-    { label: "Mobile Optimized", pos: "-bottom-5 right-2" },
-    { label: "Free Shipping", pos: "-left-12 bottom-8" },
-    { label: "7-Day Easy Returns", pos: "-right-12 bottom-8" }
+    { label: "★ 4.9 Verified Rating", icon: "⭐", pos: "-top-7 left-1/2 -translate-x-1/2" },
+    { label: "SSL 256-Bit Bank Grade", icon: "🔒", pos: "-left-16 top-6" },
+    { label: "99/100 Instant Speed", icon: "⚡", pos: "-right-16 top-6" },
+    { label: "1-Click UPI & Express Pay", icon: "🚀", pos: "-top-4 right-2" },
+    { label: "30-Day Money-Back Guarantee", icon: "🛡️", pos: "-left-14 bottom-8" },
+    { label: "Sticky High-Converting ATC", icon: "🛒", pos: "-right-14 bottom-8" },
+    { label: "FOMO Stock & Urgency Engine", icon: "🔥", pos: "-bottom-6 left-1/3 -translate-x-1/2" },
+    { label: "Mobile Thumb-Zone UX", icon: "📱", pos: "-bottom-6 right-6" }
   ];
 
   return (
@@ -367,37 +372,37 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
               style={{ x: cameraX }}
               className="flex items-center w-[300%] h-full relative z-10"
             >
-              {/* DESKTOP PANEL 1: TRAFFIC */}
+              {/* DESKTOP PANEL 1: TRAFFIC INFLOW */}
               <div className="w-[100vw] h-full shrink-0 flex items-center justify-center px-12">
                 <div className="max-w-4xl w-full grid grid-cols-12 gap-8 items-center bg-white/[0.02] border border-amber-500/20 rounded-3xl p-7 backdrop-blur-md shadow-2xl relative">
                   
                   <div className="absolute -top-3 left-8 px-3 py-0.5 rounded-full bg-amber-500/20 border border-amber-500/40 text-[10px] font-mono font-bold text-amber-400 uppercase tracking-widest">
-                    Stage 01 • Traffic Engine
+                    Stage 01 • Your Ad Traffic Inflow
                   </div>
 
                   <div className="col-span-5 space-y-4">
                     <h3 className="text-3xl font-extrabold font-grotesk tracking-tight text-white leading-tight">
-                      Attract <span className="text-amber-400">High-Intent</span> Shoppers
+                      Capture <span className="text-amber-400">Your Ad Traffic</span>
                     </h3>
                     <p className="text-xs text-white/70 leading-relaxed font-sans">
-                      We aggregate top-of-funnel traffic from Google Search, Meta Ads, Instagram & Messaging channels directly to your high-speed landing experience.
+                      You run your ads on Google, Meta, Instagram & WhatsApp to bring shoppers. We build the high-speed, CRO-optimized storefront that captures every visitor and prevents ad money bounce.
                     </p>
 
                     <div className="space-y-2 pt-2">
                       <div className="flex items-center gap-2 text-xs font-mono text-amber-300">
                         <Zap className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-                        <span>Google & Meta Search Intent Capture</span>
+                        <span>Seamless Landing for Google & Meta Ad Traffic</span>
                       </div>
                       <div className="flex items-center gap-2 text-xs font-mono text-amber-300">
                         <TrendingUp className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-                        <span>Sub-Second Page Entry Speed</span>
+                        <span>Zero Drop-Off Flow for Social Media Shoppers</span>
                       </div>
                     </div>
                   </div>
 
                   <div className="col-span-7 flex items-center justify-around bg-black/40 border border-white/10 rounded-2xl p-6 relative overflow-hidden">
                     <div className="flex flex-col gap-3 shrink-0">
-                      <span className="text-[10px] font-mono font-bold text-white/50 tracking-wider">CHANNELS</span>
+                      <span className="text-[10px] font-mono font-bold text-white/50 tracking-wider">YOUR AD CHANNELS</span>
                       <div className="flex items-center gap-2.5 px-3 py-2 rounded-xl bg-white/[0.05] border border-white/10 text-xs font-medium">
                         <GoogleLogo />
                         <span>Google Ads</span>
@@ -417,7 +422,7 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
                     </div>
 
                     <div className="flex flex-col items-center gap-1 text-amber-400">
-                      <span className="text-[9px] font-mono tracking-widest text-amber-400/80">FLOW</span>
+                      <span className="text-[9px] font-mono tracking-widest text-amber-400/80">STORE INFLOW</span>
                       <div className="w-24 h-1 bg-gradient-to-r from-amber-500 to-amber-300 rounded-full relative overflow-hidden shadow-[0_0_10px_#f59e0b]">
                         <motion.div 
                           animate={{ x: ["-100%", "100%"] }} 
@@ -440,76 +445,184 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
                 </div>
               </div>
 
-              {/* DESKTOP PANEL 2: TRUST */}
-              <div className="w-[100vw] h-full shrink-0 flex items-center justify-center px-12">
-                <div className="max-w-4xl w-full grid grid-cols-12 gap-8 items-center bg-white/[0.02] border border-emerald-500/20 rounded-3xl p-7 backdrop-blur-md shadow-2xl relative">
+              {/* DESKTOP PANEL 2: STOREFRONT TRUST */}
+              <div className="w-[100vw] h-full shrink-0 flex items-center justify-center px-8 lg:px-12">
+                <div className="max-w-5xl w-full grid grid-cols-12 gap-8 items-center bg-white/[0.02] border border-emerald-500/25 rounded-3xl p-7 backdrop-blur-md shadow-2xl relative">
                   
-                  <div className="absolute -top-3 left-8 px-3 py-0.5 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-[10px] font-mono font-bold text-emerald-400 uppercase tracking-widest">
-                    Stage 02 • Storefront Trust
+                  <div className="absolute -top-3 left-8 px-3.5 py-1 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-[10px] font-mono font-bold text-emerald-400 uppercase tracking-widest flex items-center gap-1.5 shadow-[0_0_15px_rgba(16,185,129,0.3)]">
+                    <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+                    <span>Stage 02 • High-Converting Storefront Trust</span>
                   </div>
 
+                  {/* Left Column: Copy & Psychology Pillars */}
                   <div className="col-span-5 space-y-4">
+                    <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-emerald-500/10 border border-emerald-500/20 text-[11px] font-mono text-emerald-300">
+                      <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
+                      <span>Psychology-Backed CRO Storefront</span>
+                    </div>
+
                     <h3 className="text-3xl font-extrabold font-grotesk tracking-tight text-white leading-tight">
-                      Instant Store <span className="text-emerald-400">Trust Signals</span>
+                      Build Instant Shopper <span className="text-emerald-400">Trust & Buyers</span>
                     </h3>
+                    
                     <p className="text-xs text-white/70 leading-relaxed font-sans">
-                      Traffic without trust leads to empty carts. We engineer ultra-fast Shopify storefronts packed with social proof, verified seals, and frictionless UX.
+                      Traffic without trust leads to empty carts. We engineer ultra-fast e-commerce stores packed with high-converting CRO psychology, verified proof signals, and seamless 1-click checkout.
                     </p>
 
-                    <div className="space-y-2 pt-2">
-                      <div className="flex items-center gap-2 text-xs font-mono text-emerald-300">
-                        <ShieldCheck className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                        <span>256-bit SSL & Payment Authority</span>
+                    <div className="space-y-2.5 pt-1">
+                      <div className="flex items-start gap-2.5 text-xs text-emerald-200">
+                        <div className="p-1 rounded bg-emerald-500/20 border border-emerald-500/40 shrink-0 mt-0.5">
+                          <Zap className="w-3.5 h-3.5 text-emerald-400" />
+                        </div>
+                        <div>
+                          <span className="font-semibold text-white">99/100 Instant Load Speed:</span>
+                          <span className="text-white/60 block text-[11px]">Sub-second PDP render eliminates store bounce rate.</span>
+                        </div>
                       </div>
-                      <div className="flex items-center gap-2 text-xs font-mono text-emerald-300">
-                        <Star className="w-3.5 h-3.5 text-emerald-400 shrink-0 fill-emerald-400" />
-                        <span>Verified Review Widgets & Proof Hooks</span>
+
+                      <div className="flex items-start gap-2.5 text-xs text-emerald-200">
+                        <div className="p-1 rounded bg-emerald-500/20 border border-emerald-500/40 shrink-0 mt-0.5">
+                          <Star className="w-3.5 h-3.5 text-emerald-400 fill-emerald-400" />
+                        </div>
+                        <div>
+                          <span className="font-semibold text-white">Psychological Social Proof:</span>
+                          <span className="text-white/60 block text-[11px]">Verified buyer reviews, live stock counters & real-time sales notifications.</span>
+                        </div>
+                      </div>
+
+                      <div className="flex items-start gap-2.5 text-xs text-emerald-200">
+                        <div className="p-1 rounded bg-emerald-500/20 border border-emerald-500/40 shrink-0 mt-0.5">
+                          <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+                        </div>
+                        <div>
+                          <span className="font-semibold text-white">Zero-Friction Bank Security:</span>
+                          <span className="text-white/60 block text-[11px]">256-bit encrypted 1-click UPI, Apple Pay & Cards checkout.</span>
+                        </div>
                       </div>
                     </div>
                   </div>
 
-                  <div className="col-span-7 flex items-center justify-center relative py-6">
-                    <div className="w-60 bg-[#070a14] border-2 border-emerald-500/40 rounded-3xl p-3.5 shadow-2xl relative flex flex-col justify-between z-10">
-                      <div className="w-full h-5 bg-gradient-to-r from-emerald-500 via-teal-400 to-emerald-500 rounded-t-lg flex overflow-hidden -mt-3.5 mb-2">
-                        {[...Array(6)].map((_, i) => (
-                          <div key={i} className={`flex-1 h-full ${i % 2 === 0 ? "bg-emerald-600" : "bg-white/80"}`} />
-                        ))}
+                  {/* Right Column: Interactive CRO E-Commerce Store Preview Card */}
+                  <div className="col-span-7 flex items-center justify-center relative py-4">
+                    <div className="w-[310px] bg-[#070b14] border-2 border-emerald-500/40 rounded-2xl shadow-[0_0_40px_rgba(16,185,129,0.15)] relative overflow-hidden z-10 font-sans">
+                      
+                      {/* Store Top Announcement Bar */}
+                      <div className="bg-gradient-to-r from-emerald-600 via-teal-500 to-emerald-600 py-1 px-3 text-center flex items-center justify-between text-[10px] font-medium text-black">
+                        <span className="font-bold tracking-tight">⚡ FREE Express 2-Day Shipping</span>
+                        <span className="bg-black/20 text-white font-mono px-1.5 py-0.2 rounded text-[9px]">COD AVAILABLE</span>
                       </div>
 
-                      <div className="flex items-center justify-between px-2 py-1 bg-white/5 rounded-lg border border-white/10 mb-2">
-                        <span className="text-[10px] font-mono font-bold text-emerald-300">LUXURY STORE</span>
-                        <span className="text-[9px] font-mono bg-emerald-500/20 text-emerald-300 px-1.5 py-0.5 rounded">99/100 SPEED</span>
+                      {/* Store Header Navigation */}
+                      <div className="px-3.5 py-2 border-b border-white/10 flex items-center justify-between bg-slate-950/80">
+                        <div className="flex items-center gap-1.5">
+                          <div className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
+                          <span className="text-[11px] font-grotesk font-extrabold tracking-wider text-white">LUXURY STORE</span>
+                        </div>
+                        <div className="flex items-center gap-2 text-white/70">
+                          <Search className="w-3.5 h-3.5" />
+                          <div className="relative">
+                            <ShoppingBag className="w-3.5 h-3.5 text-emerald-400" />
+                            <span className="absolute -top-1.5 -right-2 bg-emerald-500 text-black font-bold text-[8px] w-3.5 h-3.5 rounded-full flex items-center justify-center">1</span>
+                          </div>
+                        </div>
                       </div>
 
-                      <div className="px-2 py-1 bg-slate-900 rounded-md border border-white/10 flex items-center gap-1.5 mb-2.5">
-                        <Search className="w-3 h-3 text-white/40" />
-                        <span className="text-[9px] font-mono text-white/40">Search products...</span>
-                      </div>
-
-                      <div className="h-20 rounded-xl bg-emerald-950/60 border border-emerald-500/40 flex flex-col items-center justify-center gap-1 relative">
-                        <span className="text-xs font-mono font-bold text-emerald-300 bg-emerald-500/20 px-3 py-1 rounded-full border border-emerald-500/40">
-                          OPEN FOR ORDERS
-                        </span>
-                        <span className="text-[9px] font-mono text-emerald-400/70">Conversion Architecture Active</span>
+                      {/* Product Display & CRO Micro-UI */}
+                      <div className="p-3.5 space-y-3">
                         
-                        <motion.div
-                          animate={{ x: [-15, 15, -15], y: [-5, 5, -5] }}
-                          transition={{ duration: 2.5, repeat: Infinity }}
-                          className="absolute bottom-1 right-2 text-white"
-                        >
-                          <MousePointer className="w-3.5 h-3.5 fill-emerald-400 text-white" />
-                        </motion.div>
+                        {/* Main Product Card */}
+                        <div className="relative bg-white/[0.03] border border-white/10 rounded-xl p-2.5 flex gap-3 items-center">
+                          
+                          {/* Product Image Mockup */}
+                          <div className="w-20 h-20 rounded-lg bg-gradient-to-br from-emerald-900/60 to-slate-900 border border-emerald-500/30 flex flex-col items-center justify-center relative shrink-0 overflow-hidden">
+                            <Sparkles className="w-7 h-7 text-emerald-400 animate-pulse" />
+                            <span className="text-[8px] font-mono font-bold text-emerald-300 mt-1">BESTSELLER</span>
+                            <span className="absolute top-1 left-1 bg-emerald-500 text-black font-mono font-bold text-[8px] px-1 rounded">40% OFF</span>
+                          </div>
+
+                          {/* Product Meta */}
+                          <div className="space-y-1 flex-1 min-w-0">
+                            <div className="flex items-center gap-1 text-[10px] text-amber-400 font-mono">
+                              <span>★★★★★</span>
+                              <span className="text-white/80 font-bold">4.9</span>
+                              <span className="text-white/40 text-[9px]">(2,840)</span>
+                            </div>
+                            
+                            <h4 className="text-xs font-bold text-white truncate font-grotesk">
+                              Radiant Renewal Serum
+                            </h4>
+
+                            {/* Psychological Urgency Trigger */}
+                            <div className="flex items-center gap-1 text-[9px] text-emerald-400 font-mono">
+                              <Clock className="w-3 h-3 text-emerald-400 shrink-0" />
+                              <span>Only 3 Left • 18 Sold Recently</span>
+                            </div>
+
+                            {/* Price & Savings Pill */}
+                            <div className="flex items-center gap-2 pt-0.5">
+                              <span className="text-sm font-extrabold text-white">₹1,499</span>
+                              <span className="text-[10px] text-white/40 line-through">₹2,499</span>
+                              <span className="px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-[9px] font-mono font-bold">
+                                SAVE ₹1,000
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Size / Shade Pills Selector */}
+                        <div className="flex items-center justify-between text-[10px] font-mono">
+                          <span className="text-white/60">Select Size:</span>
+                          <div className="flex items-center gap-1.5">
+                            <span className="px-2 py-0.5 rounded bg-white/10 text-white/50 border border-white/10 text-[9px]">30ml</span>
+                            <span className="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/60 font-bold text-[9px]">50ml</span>
+                            <span className="px-2 py-0.5 rounded bg-white/10 text-white/50 border border-white/10 text-[9px]">100ml</span>
+                          </div>
+                        </div>
+
+                        {/* High-Converting 1-Click Add To Cart CTA Button */}
+                        <button className="w-full py-2.5 rounded-xl bg-gradient-to-r from-emerald-400 via-teal-400 to-emerald-500 text-black font-grotesk font-extrabold text-xs tracking-wider uppercase flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(16,185,129,0.4)] hover:scale-[1.02] transition-transform cursor-pointer">
+                          <Zap className="w-3.5 h-3.5 fill-black" />
+                          <span>BUY NOW - 1-CLICK CHECKOUT</span>
+                        </button>
+
+                        {/* Security & Guarantee Pills Below CTA */}
+                        <div className="grid grid-cols-3 gap-1 pt-1 text-center font-mono text-[8px] text-emerald-300/80">
+                          <div className="p-1 rounded bg-white/[0.03] border border-white/5 flex flex-col items-center gap-0.5">
+                            <ShieldCheck className="w-3 h-3 text-emerald-400" />
+                            <span>30-Day Guarantee</span>
+                          </div>
+                          <div className="p-1 rounded bg-white/[0.03] border border-white/5 flex flex-col items-center gap-0.5">
+                            <Lock className="w-3 h-3 text-emerald-400" />
+                            <span>256-Bit SSL Safe</span>
+                          </div>
+                          <div className="p-1 rounded bg-white/[0.03] border border-white/5 flex flex-col items-center gap-0.5">
+                            <Truck className="w-3 h-3 text-emerald-400" />
+                            <span>Same-Day Ship</span>
+                          </div>
+                        </div>
                       </div>
+
+                      {/* Live Customer Order Notification Toast Floating at Bottom */}
+                      <div className="mx-3 mb-3 p-2 rounded-lg bg-emerald-950/80 border border-emerald-500/40 flex items-center justify-between text-[9px] font-mono text-emerald-300">
+                        <div className="flex items-center gap-1.5">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
+                          <span>Priya from Mumbai just purchased!</span>
+                        </div>
+                        <span className="text-emerald-400/60 text-[8px]">1m ago</span>
+                      </div>
+
                     </div>
 
+                    {/* Floating CRO Psychology Pills positioned around the Store Card */}
                     {trustBadges.map((badge, i) => (
                       <motion.span
                         key={badge.label}
-                        animate={{ y: [0, -5, 0] }}
-                        transition={{ duration: 2.5 + i * 0.2, repeat: Infinity, ease: "easeInOut" }}
-                        className={`absolute ${badge.pos} px-2.5 py-1 rounded-full bg-slate-900/90 border border-emerald-500/40 text-[9px] font-mono text-emerald-300 backdrop-blur-md shadow-xl whitespace-nowrap z-20`}
+                        animate={{ y: [0, -6, 0] }}
+                        transition={{ duration: 2.8 + i * 0.2, repeat: Infinity, ease: "easeInOut" }}
+                        className={`absolute ${badge.pos} px-3 py-1 rounded-full bg-slate-900/95 border border-emerald-500/50 text-[10px] font-mono font-bold text-emerald-300 backdrop-blur-md shadow-[0_0_15px_rgba(16,185,129,0.2)] whitespace-nowrap z-20 flex items-center gap-1.5`}
                       >
-                        {badge.label}
+                        <span>{badge.icon}</span>
+                        <span>{badge.label}</span>
                       </motion.span>
                     ))}
                   </div>
@@ -623,17 +736,17 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
           </p>
         </div>
 
-        {/* ── MOBILE STEP 1: TRAFFIC ── */}
+        {/* ── MOBILE STEP 1: TRAFFIC INFLOW ── */}
         <div className="p-5 rounded-3xl bg-gradient-to-b from-amber-500/15 via-[#070b18] to-[#04060d] border border-amber-500/30 backdrop-blur-xl shadow-2xl space-y-4 relative overflow-hidden">
           <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-amber-500/20 border border-amber-500/40 text-[9px] font-mono font-bold text-amber-400 uppercase tracking-wider">
-            Stage 01 • Traffic Engine
+            Stage 01 • Your Ad Traffic Inflow
           </div>
 
           <h3 className="text-xl font-extrabold font-grotesk text-white leading-tight">
-            Attract <span className="text-amber-400">High-Intent</span> Shoppers
+            Capture <span className="text-amber-400">Your Ad Traffic</span>
           </h3>
           <p className="text-xs text-white/70 leading-relaxed font-sans">
-            We aggregate top-of-funnel traffic from Google Search, Meta Ads, Instagram & Messaging channels directly to your high-speed landing experience.
+            You run your ads on Google, Meta, Instagram & WhatsApp to bring shoppers. We build the high-speed, CRO-optimized storefront that captures every visitor.
           </p>
 
           {/* Traffic Channel Badges */}
@@ -685,41 +798,83 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
           </div>
         </div>
 
-        {/* ── MOBILE STEP 2: TRUST ── */}
+        {/* ── MOBILE STEP 2: STOREFRONT TRUST ── */}
         <div className="p-5 rounded-3xl bg-gradient-to-b from-emerald-500/15 via-[#070b18] to-[#04060d] border border-emerald-500/30 backdrop-blur-xl shadow-2xl space-y-4 relative overflow-hidden">
           <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-[9px] font-mono font-bold text-emerald-400 uppercase tracking-wider">
-            Stage 02 • Storefront Trust
+            Stage 02 • High-Converting Storefront Trust
           </div>
 
           <h3 className="text-xl font-extrabold font-grotesk text-white leading-tight">
-            Instant Store <span className="text-emerald-400">Trust Signals</span>
+            Build Instant Shopper <span className="text-emerald-400">Trust & Buyers</span>
           </h3>
           <p className="text-xs text-white/70 leading-relaxed font-sans">
-            Traffic without trust leads to empty carts. We engineer ultra-fast Shopify storefronts packed with social proof, verified seals, and frictionless UX.
+            Traffic without trust leads to empty carts. We engineer ultra-fast e-commerce stores packed with high-converting CRO psychology, verified proof signals, and seamless 1-click checkout.
           </p>
 
-          {/* Mini Mobile Store Mockup */}
-          <div className="p-4 rounded-2xl bg-[#070a14] border-2 border-emerald-500/40 relative flex flex-col items-center gap-2 text-center">
-            <div className="w-full h-4 bg-gradient-to-r from-emerald-500 via-teal-400 to-emerald-500 rounded-t flex overflow-hidden -mt-4 mb-1">
-              {[...Array(6)].map((_, i) => (
-                <div key={i} className={`flex-1 h-full ${i % 2 === 0 ? "bg-emerald-600" : "bg-white/80"}`} />
-              ))}
-            </div>
+          {/* Realistic Mobile E-Commerce Storefront Card Mockup */}
+          <div className="rounded-2xl bg-[#070b14] border-2 border-emerald-500/40 relative overflow-hidden space-y-2 font-sans">
             
-            <div className="inline-block px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-xs font-mono font-bold text-emerald-300">
-              OPEN FOR ORDERS
+            {/* Top Bar */}
+            <div className="bg-gradient-to-r from-emerald-600 to-teal-500 py-1 px-3 text-center flex items-center justify-between text-[9px] font-bold text-black">
+              <span>⚡ FREE 2-DAY DELIVERY</span>
+              <span className="bg-black/20 text-white font-mono px-1 rounded">COD ACTIVE</span>
             </div>
-            
-            <div className="flex flex-wrap justify-center gap-1.5 pt-1">
-              <span className="px-2.5 py-0.5 rounded-full bg-slate-900 border border-emerald-500/30 text-[9px] font-mono text-emerald-300">
-                ★★★★★ 5.0 Rating
-              </span>
-              <span className="px-2.5 py-0.5 rounded-full bg-slate-900 border border-emerald-500/30 text-[9px] font-mono text-emerald-300">
-                99/100 Speed
-              </span>
-              <span className="px-2.5 py-0.5 rounded-full bg-slate-900 border border-emerald-500/30 text-[9px] font-mono text-emerald-300">
-                SSL 256-bit Secure
-              </span>
+
+            <div className="p-3 space-y-2.5">
+              {/* Product Info */}
+              <div className="flex gap-2.5 items-center bg-white/[0.03] border border-white/10 rounded-xl p-2">
+                <div className="w-14 h-14 rounded-lg bg-gradient-to-br from-emerald-900 to-slate-900 border border-emerald-500/30 flex flex-col items-center justify-center shrink-0">
+                  <Sparkles className="w-5 h-5 text-emerald-400 animate-pulse" />
+                  <span className="text-[7px] font-mono font-bold text-emerald-300">40% OFF</span>
+                </div>
+                <div className="space-y-0.5 min-w-0 flex-1">
+                  <div className="flex items-center gap-1 text-[9px] text-amber-400 font-mono">
+                    <span>★★★★★</span>
+                    <span className="text-white font-bold">4.9</span>
+                  </div>
+                  <h4 className="text-xs font-bold text-white truncate">Radiant Renewal Serum</h4>
+                  <div className="flex items-center gap-1 text-[9px] text-emerald-400 font-mono">
+                    <Clock className="w-2.5 h-2.5" />
+                    <span>Only 3 Left in Stock</span>
+                  </div>
+                  <div className="flex items-center gap-1.5 pt-0.5">
+                    <span className="text-xs font-extrabold text-white">₹1,499</span>
+                    <span className="text-[9px] text-white/40 line-through">₹2,499</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* High-Converting 1-Click Buy CTA */}
+              <button className="w-full py-2 rounded-xl bg-gradient-to-r from-emerald-400 to-teal-400 text-black font-grotesk font-extrabold text-[11px] uppercase tracking-wider flex items-center justify-center gap-1.5 shadow-[0_0_15px_rgba(16,185,129,0.3)]">
+                <Zap className="w-3 h-3 fill-black" />
+                <span>BUY NOW - 1-CLICK CHECKOUT</span>
+              </button>
+
+              {/* Mobile CRO Psychology Badges Grid */}
+              <div className="grid grid-cols-2 gap-1.5 pt-1">
+                <div className="p-1.5 rounded-lg bg-slate-900 border border-emerald-500/30 text-[9px] font-mono text-emerald-300 flex items-center gap-1">
+                  <span>⚡</span>
+                  <span>99/100 Instant Speed</span>
+                </div>
+                <div className="p-1.5 rounded-lg bg-slate-900 border border-emerald-500/30 text-[9px] font-mono text-emerald-300 flex items-center gap-1">
+                  <span>🔒</span>
+                  <span>256-Bit SSL Encrypted</span>
+                </div>
+                <div className="p-1.5 rounded-lg bg-slate-900 border border-emerald-500/30 text-[9px] font-mono text-emerald-300 flex items-center gap-1">
+                  <span>🛡️</span>
+                  <span>30-Day Guarantee</span>
+                </div>
+                <div className="p-1.5 rounded-lg bg-slate-900 border border-emerald-500/30 text-[9px] font-mono text-emerald-300 flex items-center gap-1">
+                  <span>🚀</span>
+                  <span>1-Click UPI & Cards</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Live Order Popup */}
+            <div className="mx-2 mb-2 p-1.5 rounded-lg bg-emerald-950/80 border border-emerald-500/30 flex items-center gap-1.5 text-[8px] font-mono text-emerald-300">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping shrink-0" />
+              <span className="truncate">Priya from Mumbai just purchased!</span>
             </div>
           </div>
         </div>
