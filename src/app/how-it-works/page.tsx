@@ -232,8 +232,8 @@ export default function HowItWorksPage() {
         {/* Page Header */}
         <div className="text-center max-w-4xl mx-auto flex flex-col gap-3 sm:gap-5 w-full">
           <h1 className="text-3xl sm:text-4xl md:text-6xl font-light tracking-tight leading-tight text-neutral-900 font-grotesk">
-            How We Build Your <br />
-            <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent font-normal font-sans">Shopify Store</span>
+            Our Shopify Store <br />
+            <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent font-normal font-sans">Build Process</span>
           </h1>
           <p className="text-neutral-600 text-xs sm:text-base leading-relaxed max-w-2xl mx-auto font-sans">
             From onboarding to launch, every step is structured, transparent, and collaborative. You'll always know what we're working on and what comes next.

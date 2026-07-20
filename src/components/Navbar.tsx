@@ -9,7 +9,7 @@ import { motion, AnimatePresence } from "framer-motion";
 export const NAV_LINKS = [
   { name: "Home", href: "/" },
   { name: "Services", href: "/services" },
-  { name: "How It Works", href: "/how-it-works" },
+  { name: "Our Process", href: "/how-it-works" },
   { name: "Portfolio", href: "/portfolio" },
   { name: "Pricing", href: "/pricing" },
   { name: "About", href: "/about" },
