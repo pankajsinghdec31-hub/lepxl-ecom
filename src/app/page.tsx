@@ -1860,164 +1860,151 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 10. GOOGLE REVIEWS SECTION */}
+      {/* 10. LOVED BY FOUNDERS & TEAMS WORLDWIDE SECTION */}
       <section className="pt-24 pb-16 md:pt-36 md:pb-24 lg:pt-48 lg:pb-36 relative overflow-hidden bg-gradient-to-b from-[#120324] to-[#070114] border-t border-white/[0.08] rounded-t-[32px] md:rounded-t-[48px] mt-[-32px] md:mt-[-48px] z-20">
         <div className="max-w-[1360px] mx-auto px-6">
           
-          {/* Header */}
-          <div className="max-w-3xl mx-auto text-center mb-16 flex flex-col items-center gap-4">
-
-            <h2 className="premium-heading text-3xl sm:text-4xl lg:text-[2.75rem] font-light text-white tracking-tight leading-[1.1] font-grotesk mt-2">
+          {/* Section Header */}
+          <div className="max-w-3xl mx-auto text-center mb-12 flex flex-col items-center gap-3">
+            <span className="text-xs text-emerald-400 font-mono uppercase tracking-widest font-bold px-3.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30">
+              Verified Founder Reviews
+            </span>
+            <h2 className="premium-heading text-3xl sm:text-4xl lg:text-[2.75rem] font-light text-white tracking-tight leading-[1.1] font-grotesk mt-1">
               Loved <span className="light-gradient-text font-normal">by</span> Founders <span className="premium-highlight text-white">& Teams Worldwide</span>
             </h2>
           </div>
 
-          {/* Main Card Container */}
-          <div className="w-full bg-gradient-to-br from-[#101010] to-[#070707] border border-white/[0.08] rounded-[24px] p-6 sm:p-10 lg:p-12 relative overflow-hidden flex flex-col gap-12 shadow-2xl">
+          {/* Founder Selector Tabs (Cards with Founder Photo, Name & Store Category) */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-3 mb-8">
+            {GOOGLE_REVIEWS_CONSOLIDATED.map((rev, idx) => {
+              const isActive = activeReviewIdx === idx;
+              return (
+                <button
+                  key={idx}
+                  onClick={() => setActiveReviewIdx(idx)}
+                  className={`flex items-center gap-3 p-3 rounded-2xl border text-left transition-all duration-300 cursor-pointer ${
+                    isActive
+                      ? "bg-emerald-950/70 border-emerald-500/60 shadow-[0_0_20px_rgba(16,185,129,0.25)] scale-[1.02]"
+                      : "bg-[#101010]/80 border-white/10 hover:border-white/20 opacity-70 hover:opacity-100"
+                  }`}
+                >
+                  {/* Founder Image Avatar */}
+                  <div className="relative shrink-0">
+                    <img
+                      src={rev.image}
+                      alt={rev.name}
+                      className={`w-11 h-11 rounded-full object-cover border ${
+                        isActive ? "border-emerald-400" : "border-white/20"
+                      }`}
+                    />
+                    {isActive && (
+                      <span className="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 bg-emerald-400 rounded-full border-2 border-[#101010]" />
+                    )}
+                  </div>
+
+                  {/* Founder Name & Store Category */}
+                  <div className="min-w-0 flex-1">
+                    <h4 className="text-xs font-bold text-white truncate font-grotesk">{rev.name}</h4>
+                    <p className="text-[10px] text-emerald-400/90 truncate font-mono mt-0.5">{rev.category}</p>
+                  </div>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Main Active Founder Review Card */}
+          <div className="w-full bg-gradient-to-br from-[#101010] via-[#0c0c0c] to-[#070707] border border-white/[0.1] rounded-[24px] p-6 sm:p-10 lg:p-12 relative overflow-hidden shadow-2xl">
             
             {/* Ambient inner glow */}
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(34,227,154,0.06),transparent_60%)] pointer-events-none" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(16,185,129,0.08),transparent_60%)] pointer-events-none" />
 
-            <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16 relative z-10">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
               
-              {/* Left Side: Avatar Side Tabs (Flags equivalent) */}
-              <div className="flex lg:flex-col flex-row gap-3 items-center justify-center flex-wrap">
-                {GOOGLE_REVIEWS_CONSOLIDATED.map((tab, idx) => {
-                  const isActive = activeReviewIdx === idx;
-                  return (
-                    <button
-                      key={idx}
-                      onClick={() => setActiveReviewIdx(idx)}
-                      onMouseEnter={() => setActiveReviewIdx(idx)}
-                      className={`w-12 h-12 rounded-full flex items-center justify-center font-bold text-sm transition-all duration-300 ${tab.avatarColor} text-white cursor-pointer relative ${
-                        isActive 
-                          ? "ring-[3px] ring-primary ring-offset-4 ring-offset-[#101010] scale-110 shadow-lg shadow-primary/25" 
-                          : "opacity-45 hover:opacity-100 hover:scale-105"
-                      }`}
-                    >
-                      {tab.avatarText}
-                      {/* Active indicator dot */}
-                      {isActive && (
-                        <span className="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-primary rounded-full border-2 border-[#101010] flex items-center justify-center">
-                          <span className="w-1.5 h-1.5 bg-black rounded-full" />
-                        </span>
-                      )}
-                    </button>
-                  );
-                })}
-              </div>
-
-              {/* Middle: Main Review Card (Swiping sweater image equivalent) */}
-              <div className="flex-grow w-full flex justify-center items-center">
-                <div className="relative w-[280px] sm:w-[320px] aspect-[4/5] rounded-[24px] overflow-hidden shadow-2xl border border-white/[0.08] bg-[#101010] group">
+              {/* Left Side: Founder Image Portrait & Category Tag (5 cols) */}
+              <div className="lg:col-span-5 flex flex-col items-center justify-center">
+                <div className="relative w-full max-w-[320px] aspect-[4/5] rounded-[24px] overflow-hidden border-2 border-emerald-500/30 shadow-2xl bg-[#0a0a0a] group">
                   
-                  {/* Store image mockups cross-fade */}
-                  {GOOGLE_REVIEWS_CONSOLIDATED.map((tab, idx) => (
-                    <motion.img
-                      key={idx}
-                      src={tab.image}
-                      alt={tab.name}
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: activeReviewIdx === idx ? 0.6 : 0 }}
-                      transition={{ duration: 0.4 }}
-                      className="absolute inset-0 w-full h-full object-contain group-hover:scale-105 transition-transform duration-700"
-                    />
-                  ))}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#070707] via-transparent to-transparent pointer-events-none" />
+                  {/* Active Founder Image */}
+                  <motion.img
+                    key={activeReviewIdx}
+                    src={GOOGLE_REVIEWS_CONSOLIDATED[activeReviewIdx].image}
+                    alt={GOOGLE_REVIEWS_CONSOLIDATED[activeReviewIdx].name}
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.4 }}
+                    className="w-full h-full object-cover"
+                  />
+                  
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent pointer-events-none" />
 
+                  {/* Top Category Tag */}
+                  <div className="absolute top-4 left-4 bg-slate-900/90 border border-emerald-500/40 px-3 py-1 rounded-full text-[10px] font-mono font-bold text-emerald-300 backdrop-blur-md shadow-lg flex items-center gap-1.5">
+                    <span>🛍️</span>
+                    <span>{GOOGLE_REVIEWS_CONSOLIDATED[activeReviewIdx].category}</span>
+                  </div>
 
+                  {/* Bottom Founder Profile Info */}
+                  <div className="absolute bottom-4 inset-x-4 p-3.5 rounded-xl bg-slate-950/90 border border-white/10 backdrop-blur-md flex items-center justify-between">
+                    <div>
+                      <h4 className="text-sm font-bold text-white font-grotesk">
+                        {GOOGLE_REVIEWS_CONSOLIDATED[activeReviewIdx].name}
+                      </h4>
+                      <p className="text-[10px] text-emerald-400 font-mono mt-0.5 flex items-center gap-1">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
+                        <span>Verified Store Founder</span>
+                      </p>
+                    </div>
 
-                  {/* Profile overlay at the bottom */}
-                  <div className="absolute bottom-6 inset-x-6 flex flex-col gap-3">
-                    <div className="flex items-center gap-3">
-                      <span className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-xs text-white ${GOOGLE_REVIEWS_CONSOLIDATED[activeReviewIdx].avatarColor}`}>
-                        {GOOGLE_REVIEWS_CONSOLIDATED[activeReviewIdx].avatarText}
-                      </span>
-                      <div>
-                        <p className="font-bold text-white text-sm">{GOOGLE_REVIEWS_CONSOLIDATED[activeReviewIdx].name}</p>
-                        <p className="text-[10px] text-white/50 mt-0.5">{GOOGLE_REVIEWS_CONSOLIDATED[activeReviewIdx].category}</p>
-                      </div>
+                    <div className="text-right font-mono">
+                      <span className="text-xs font-bold text-white block">{GOOGLE_REVIEWS_CONSOLIDATED[activeReviewIdx].statVal}</span>
+                      <span className="text-[9px] text-white/50 block">{GOOGLE_REVIEWS_CONSOLIDATED[activeReviewIdx].statLabel}</span>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Right Side: Overlay Statistics and World Map (Dotted map equivalent) */}
-              <div className="w-full lg:w-[45%] relative flex flex-col gap-6 select-none min-h-[280px] justify-center items-center lg:items-start">
+              {/* Right Side: Active Review Quote & Ratings Card (7 cols - matching screenshot format) */}
+              <div className="lg:col-span-7 flex flex-col justify-center space-y-6 text-left">
                 
-                {/* SVG Dotted Map Background */}
-                <div className="absolute inset-0 opacity-[0.06] text-primary pointer-events-none flex items-center justify-center">
-                  <svg className="w-full h-full max-h-[220px]" viewBox="0 0 1000 500" fill="currentColor">
-                    {/* Dotted grid approximation of map */}
-                    <circle cx="150" cy="150" r="4"/><circle cx="170" cy="140" r="4"/><circle cx="190" cy="150" r="4"/><circle cx="210" cy="160" r="4"/>
-                    <circle cx="230" cy="170" r="4"/><circle cx="250" cy="150" r="4"/><circle cx="270" cy="130" r="4"/><circle cx="290" cy="140" r="4"/>
-                    <circle cx="310" cy="160" r="4"/><circle cx="330" cy="180" r="4"/><circle cx="350" cy="170" r="4"/><circle cx="370" cy="150" r="4"/>
-                    <circle cx="500" cy="200" r="4"/><circle cx="520" cy="220" r="4"/><circle cx="540" cy="240" r="4"/><circle cx="560" cy="220" r="4"/>
-                    <circle cx="580" cy="200" r="4"/><circle cx="600" cy="180" r="4"/><circle cx="620" cy="190" r="4"/><circle cx="640" cy="210" r="4"/>
-                    <circle cx="660" cy="230" r="4"/><circle cx="680" cy="220" r="4"/><circle cx="700" cy="200" r="4"/><circle cx="720" cy="210" r="4"/>
-                    <circle cx="740" cy="230" r="4"/><circle cx="760" cy="240" r="4"/><circle cx="780" cy="250" r="4"/><circle cx="800" cy="220" r="4"/>
-                  </svg>
+                {/* 5 Gold Stars */}
+                <div className="flex items-center gap-1.5 text-amber-400 text-2xl">
+                  {[...Array(GOOGLE_REVIEWS_CONSOLIDATED[activeReviewIdx].stars)].map((_, i) => (
+                    <span key={i}>★</span>
+                  ))}
+                  <span className="text-xs text-emerald-400 font-mono font-bold ml-2 px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/30">
+                    VERIFIED GOOGLE REVIEW
+                  </span>
                 </div>
 
-                {/* Floating Metric Card (A4 Package equivalent) */}
-                <div className="relative z-10 w-full max-w-[280px] p-5 rounded-[20px] bg-[#101010] border border-white/[0.08] flex flex-col gap-3 shadow-xl">
-                  <div className="flex justify-between items-center border-b border-white/5 pb-2">
-                    <span className="text-[10px] text-white/50 font-mono uppercase tracking-wider">Growth Performance</span>
-                    <span className="text-[9px] bg-primary/10 text-primary border border-primary/25 px-2 py-0.5 rounded-full font-mono font-bold">ACTIVE</span>
-                  </div>
-                  <div className="flex items-baseline gap-2">
-                    <span className="text-3xl font-extrabold text-white tracking-tight font-mono">
-                      {GOOGLE_REVIEWS_CONSOLIDATED[activeReviewIdx].statVal}
-                    </span>
-                    <span className="text-[11px] text-[#a1a1aa] font-medium font-mono">
-                      {GOOGLE_REVIEWS_CONSOLIDATED[activeReviewIdx].statLabel}
-                    </span>
-                  </div>
-                  <p className="text-[10px] text-[#8e8e93]">
-                    Measured metric from customer Shopify dashboard logs post-launch.
-                  </p>
-                </div>
+                {/* Review Headline in large quote font */}
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight leading-snug font-grotesk">
+                  "{GOOGLE_REVIEWS_CONSOLIDATED[activeReviewIdx].headline}"
+                </h3>
 
-                {/* Second Floating Checklist Card (Unfulfilled equivalent) */}
-                <div className="relative z-10 w-full max-w-[280px] p-5 rounded-[20px] bg-[#101010] border border-white/[0.08] flex flex-col gap-2.5 shadow-xl">
-                  <div className="flex items-center gap-2 border-b border-white/5 pb-2 mb-1">
-                    <svg className="w-4 h-4 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                      <polyline points="22 4 12 14.01 9 11.01" />
-                    </svg>
-                    <span className="text-[10px] text-[#a1a1aa] font-mono uppercase tracking-wider font-bold">Founder Approval Checklist</span>
-                  </div>
-                  <div className="flex justify-between text-[10px] text-white">
-                    <span>Design & Branding Approved</span>
-                    <span className="text-primary font-bold">✓</span>
-                  </div>
-                  <div className="flex justify-between text-[10px] text-white">
-                    <span>Photoshoot Assets Synced</span>
-                    <span className="text-primary font-bold">✓</span>
-                  </div>
-                  <div className="flex justify-between text-[10px] text-white">
-                    <span>Mobile Viewport Polish</span>
-                    <span className="text-primary font-bold">✓</span>
+                {/* Review Body Text */}
+                <p className="text-white/80 text-base sm:text-lg leading-relaxed font-sans font-normal">
+                  {GOOGLE_REVIEWS_CONSOLIDATED[activeReviewIdx].text}
+                </p>
+
+                {/* Founder Info Footer */}
+                <div className="pt-4 border-t border-white/10 flex items-center gap-3.5">
+                  <img
+                    src={GOOGLE_REVIEWS_CONSOLIDATED[activeReviewIdx].image}
+                    alt={GOOGLE_REVIEWS_CONSOLIDATED[activeReviewIdx].name}
+                    className="w-12 h-12 rounded-full object-cover border-2 border-emerald-400 shadow-md"
+                  />
+                  <div>
+                    <h4 className="text-sm font-bold text-white font-grotesk">
+                      {GOOGLE_REVIEWS_CONSOLIDATED[activeReviewIdx].name}
+                    </h4>
+                    <p className="text-xs text-emerald-400 font-mono">
+                      {GOOGLE_REVIEWS_CONSOLIDATED[activeReviewIdx].category}
+                    </p>
                   </div>
                 </div>
 
               </div>
 
-            </div>
-
-            {/* Bottom: Active Review Quote Text */}
-            <div className="border-t border-white/10 pt-8 text-left max-w-4xl relative z-10">
-              <span className="text-amber-500 flex gap-0.5 mb-3 text-lg">
-                {[...Array(GOOGLE_REVIEWS_CONSOLIDATED[activeReviewIdx].stars)].map((_, i) => (
-                  <span key={i}>★</span>
-                ))}
-              </span>
-              <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight leading-snug font-grotesk">
-                "{GOOGLE_REVIEWS_CONSOLIDATED[activeReviewIdx].headline}"
-              </h3>
-              <p className="mt-4 text-[#a1a1aa] text-base leading-relaxed">
-                {GOOGLE_REVIEWS_CONSOLIDATED[activeReviewIdx].text}
-              </p>
             </div>
 
           </div>
