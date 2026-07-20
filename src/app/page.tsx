@@ -2261,7 +2261,6 @@ export default function HomePage() {
       <section className="py-16 md:py-24 lg:py-36 px-6 bg-gradient-to-b from-[#070e17] to-[#04080d] border-y border-white/[0.08] relative z-20 rounded-t-[32px] md:rounded-t-[48px] mt-[-32px] md:mt-[-48px]">
         <div className="max-w-[1360px] mx-auto flex flex-col gap-16 px-6">
           <div className="text-center max-w-2xl mx-auto flex flex-col gap-4">
-
             <h2 className="premium-heading text-3xl sm:text-4xl lg:text-[2.75rem] font-light text-white tracking-tight font-grotesk">
               Legacy <span className="light-gradient-text font-normal">vs.</span> <span className="premium-highlight">SalePXL Rebuilds</span>
             </h2>
@@ -2270,57 +2269,127 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
-            {/* Legacy Store */}
-            <div className="premium-hover-card p-8 rounded-[24px] bg-gradient-to-b from-[#101010] to-[#070707] border border-red-500/15 flex flex-col gap-6 text-left relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-red-500/5 rounded-full blur-3xl pointer-events-none" />
-              <div className="flex justify-between items-center border-b border-white/[0.08] pb-4">
-                <h4 className="text-lg font-bold text-white">Traditional App-Heavy Theme</h4>
-                <span className="text-[10px] bg-red-500/10 text-red-400 border border-red-500/25 px-3 py-1 rounded-full font-mono uppercase font-bold">
-                  Legacy
-                </span>
+          {/* Full Comparison Table */}
+          <div className="w-full overflow-x-auto rounded-[24px] border border-white/[0.08] bg-gradient-to-b from-[#0d1117] to-[#070707] shadow-2xl">
+            {/* Table Header */}
+            <div className="grid grid-cols-[2fr_1fr_1fr] min-w-[640px]">
+              <div className="px-6 py-5 border-b border-r border-white/[0.08]">
+                <span className="text-[11px] font-mono uppercase tracking-widest text-white/40">Feature</span>
               </div>
-              
-              <ul className="flex flex-col gap-4">
-                {[
-                  { label: "Mobile Speed Index", val: "6.8 seconds (Slow)", ok: false },
-                  { label: "Apps Installed", val: "28 third-party apps loading script tags", ok: false },
-                  { label: "Codebase Size", val: "8.4 MB of bloated Javascript/CSS", ok: false },
-                  { label: "Add-To-Cart Friction", val: "Multi-click redirect to slow cart pages", ok: false },
-                  { label: "Average Mobile Conversion", val: "1.1% to 1.5%", ok: false }
-                ].map((item, idx) => (
-                  <li key={idx} className="flex justify-between items-center text-xs">
-                    <span className="text-white/70 font-semibold">{item.label}</span>
-                    <span className="text-red-400 font-mono font-bold text-right">{item.val}</span>
-                  </li>
-                ))}
-              </ul>
+              <div className="px-6 py-5 border-b border-r border-white/[0.08] flex items-center justify-center gap-2">
+                <span className="text-[10px] bg-red-500/10 text-red-400 border border-red-500/25 px-2.5 py-1 rounded-full font-mono uppercase font-bold">Normal Shopify</span>
+              </div>
+              <div className="px-6 py-5 border-b border-white/[0.08] flex items-center justify-center gap-2">
+                <span className="text-[10px] bg-primary/10 text-primary border border-primary/25 px-2.5 py-1 rounded-full font-mono uppercase font-bold neon-shadow-lime">CRO-Optimized</span>
+              </div>
             </div>
 
-            {/* SalePXL Optimized Store */}
-            <div className="premium-hover-card p-8 rounded-[24px] bg-gradient-to-b from-[#101010] to-[#070707] border border-primary/20 flex flex-col gap-6 text-left relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
-              <div className="flex justify-between items-center border-b border-white/[0.08] pb-4">
-                <h4 className="text-lg font-bold text-white">SalePXL Custom Engine</h4>
-                <span className="text-[10px] bg-primary/10 text-primary border border-primary/25 px-3 py-1 rounded-full font-mono uppercase font-bold neon-shadow-lime">
-                  Optimized
-                </span>
+            {/* Table Rows */}
+            {[
+              {
+                feature: "Goal",
+                legacy: "Looks good",
+                optimized: "Generates more sales",
+              },
+              {
+                feature: "Design",
+                legacy: "Generic theme",
+                optimized: "Strategic, conversion-focused design",
+              },
+              {
+                feature: "Page Speed",
+                legacy: "Average (3–6 sec)",
+                optimized: "Fast (under 2 sec)",
+              },
+              {
+                feature: "Hero Section",
+                legacy: "Large banner with little direction",
+                optimized: "Clear value proposition + strong CTA",
+              },
+              {
+                feature: "Navigation",
+                legacy: "Basic menu",
+                optimized: "Optimized for quick product discovery",
+              },
+              {
+                feature: "Product Page",
+                legacy: "Basic images and description",
+                optimized: "High-quality images, benefits, reviews, FAQs, trust badges, urgency",
+              },
+              {
+                feature: "Trust Elements",
+                legacy: "Minimal",
+                optimized: "Reviews, secure payment icons, guarantees, shipping & return policies",
+              },
+              {
+                feature: "Add to Cart",
+                legacy: "Standard button",
+                optimized: "Sticky Add to Cart, Buy Now, express checkout",
+              },
+              {
+                feature: "Checkout",
+                legacy: "Default",
+                optimized: "Reduced friction, multiple payment methods",
+              },
+              {
+                feature: "Mobile Experience",
+                legacy: "Responsive",
+                optimized: "Mobile-first with thumb-friendly design",
+              },
+              {
+                feature: "Loading Speed",
+                legacy: "Heavy apps and images",
+                optimized: "Optimized assets and lightweight code",
+              },
+              {
+                feature: "Upselling",
+                legacy: "Rare",
+                optimized: "Frequently Bought Together, bundles, post-purchase offers",
+              },
+              {
+                feature: "Analytics",
+                legacy: "Basic",
+                optimized: "Heatmaps, A/B testing, conversion tracking",
+              },
+              {
+                feature: "Customer Journey",
+                legacy: "Unplanned",
+                optimized: "Designed to guide users from landing to purchase",
+              },
+              {
+                feature: "Avg. Conversion Rate",
+                legacy: "~1–2%",
+                optimized: "3–5%+ (varies by niche & traffic quality)",
+                isLast: true,
+              },
+            ].map((row, idx) => (
+              <div
+                key={idx}
+                className={`grid grid-cols-[2fr_1fr_1fr] min-w-[640px] group transition-colors duration-200 hover:bg-white/[0.025] ${!row.isLast ? "border-b border-white/[0.06]" : ""}`}
+              >
+                {/* Feature */}
+                <div className="px-6 py-4 border-r border-white/[0.06] flex items-center">
+                  <span className="text-sm font-semibold text-white/80 group-hover:text-white transition-colors">{row.feature}</span>
+                </div>
+                {/* Legacy */}
+                <div className="px-5 py-4 border-r border-white/[0.06] flex items-center justify-center text-center relative overflow-hidden">
+                  <div className="absolute inset-0 bg-red-500/[0.03] pointer-events-none" />
+                  <span className="text-[11px] text-red-400/80 font-mono leading-snug relative z-10">{row.legacy}</span>
+                </div>
+                {/* Optimized */}
+                <div className="px-5 py-4 flex items-center justify-center text-center relative overflow-hidden">
+                  <div className="absolute inset-0 bg-primary/[0.03] pointer-events-none" />
+                  <span className="text-[11px] text-primary/90 font-mono leading-snug relative z-10">{row.optimized}</span>
+                </div>
               </div>
-              
-              <ul className="flex flex-col gap-4">
-                {[
-                  { label: "Mobile Speed Index", val: "1.2 seconds (Instant)", ok: true },
-                  { label: "Apps Installed", val: "0 apps (Fully coded custom feature logic)", ok: true },
-                  { label: "Codebase Size", val: "1.2 MB lightweight bundle asset load", ok: true },
-                  { label: "Add-To-Cart Friction", val: "Instant AJAX slide drawer with upsell hooks", ok: true },
-                  { label: "Average Mobile Conversion", val: "4.2% to 4.86%", ok: true }
-                ].map((item, idx) => (
-                  <li key={idx} className="flex justify-between items-center text-xs">
-                    <span className="text-white/70 font-semibold">{item.label}</span>
-                    <span className="text-primary font-mono font-bold text-right">{item.val}</span>
-                  </li>
-                ))}
-              </ul>
+            ))}
+
+            {/* Footer Note */}
+            <div className="px-6 py-4 border-t border-white/[0.08] flex items-center gap-2">
+              <svg className="w-3 h-3 text-primary shrink-0" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/><path d="M12 8v4m0 4h.01" stroke="#000" strokeWidth="2" strokeLinecap="round"/></svg>
+              <p className="text-[10px] text-white/30 font-mono">
+                Avg. conversion rate source: Shopify CRO Blog — results vary by niche and traffic quality.
+              </p>
             </div>
           </div>
         </div>
