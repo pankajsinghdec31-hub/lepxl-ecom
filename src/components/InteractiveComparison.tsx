@@ -38,15 +38,15 @@ const COMPARISON_POINTS = [
 ];
 
 export default function InteractiveComparison() {
-  const [activeMobileCardIndex, setActiveMobileCardIndex] = useState<number>(0); // 0 = SalePXL Store, 1 = Basic Store
+  const [activeMobileCardIndex, setActiveMobileCardIndex] = useState<number>(0); // 0 = Basic Store (First), 1 = SalePXL Store (Second)
 
   // Handle Swipe Gesture
   const handleDragEnd = (_: any, info: { offset: { x: number } }) => {
     if (info.offset.x < -50) {
-      // Swiped Left -> go to next card (Basic Store)
+      // Swiped Left -> go to next card (SalePXL Store)
       setActiveMobileCardIndex(1);
     } else if (info.offset.x > 50) {
-      // Swiped Right -> go to previous card (SalePXL Store)
+      // Swiped Right -> go to previous card (Basic Store)
       setActiveMobileCardIndex(0);
     }
   };
@@ -61,9 +61,9 @@ export default function InteractiveComparison() {
         
         {/* Top Control Bar with Swipe Hint & Dot Indicators */}
         <div className="flex items-center justify-between px-2 mb-3">
-          <div className="flex items-center gap-1.5 bg-slate-900/90 border border-white/10 px-3 py-1 rounded-full text-[10px] font-mono text-emerald-400">
-            <Sparkles className="w-3 h-3 text-emerald-400" />
-            <span>👈 Swipe cards left / right 👉</span>
+          <div className="flex items-center gap-1.5 bg-slate-900/90 border border-white/10 px-3 py-1 rounded-full text-[10px] font-mono text-amber-400">
+            <Sparkles className="w-3 h-3 text-amber-400" />
+            <span>👈 Swipe left to see SalePXL Rebuild 👉</span>
           </div>
 
           {/* Dots Indicator */}
@@ -71,13 +71,13 @@ export default function InteractiveComparison() {
             <button
               onClick={() => setActiveMobileCardIndex(0)}
               className={`h-2 rounded-full transition-all duration-300 ${
-                activeMobileCardIndex === 0 ? "w-6 bg-emerald-400" : "w-2 bg-white/20"
+                activeMobileCardIndex === 0 ? "w-6 bg-red-400" : "w-2 bg-white/20"
               }`}
             />
             <button
               onClick={() => setActiveMobileCardIndex(1)}
               className={`h-2 rounded-full transition-all duration-300 ${
-                activeMobileCardIndex === 1 ? "w-6 bg-red-400" : "w-2 bg-white/20"
+                activeMobileCardIndex === 1 ? "w-6 bg-emerald-400" : "w-2 bg-white/20"
               }`}
             />
           </div>
@@ -87,71 +87,7 @@ export default function InteractiveComparison() {
         <div className="relative min-h-[440px] overflow-hidden rounded-3xl p-0.5">
           <AnimatePresence mode="wait">
             {activeMobileCardIndex === 0 ? (
-              /* MOBILE CARD 1: SalePXL Store (Active First) */
-              <motion.div
-                key="salepxl-card"
-                drag="x"
-                dragConstraints={{ left: 0, right: 0 }}
-                onDragEnd={handleDragEnd}
-                initial={{ opacity: 0, x: 80, scale: 0.95 }}
-                animate={{ opacity: 1, x: 0, scale: 1 }}
-                exit={{ opacity: 0, x: -80, scale: 0.95 }}
-                transition={{ duration: 0.35, ease: "easeOut" }}
-                className="w-full p-5 sm:p-7 rounded-3xl bg-gradient-to-b from-emerald-950/60 via-[#07140f] to-[#040a08] border-2 border-emerald-500/60 relative overflow-hidden shadow-[0_0_35px_rgba(16,185,129,0.25)] flex flex-col justify-between select-none cursor-grab active:cursor-grabbing"
-              >
-                {/* Subtle Ambient Emerald Glow */}
-                <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/[0.1] blur-3xl pointer-events-none" />
-
-                <div>
-                  {/* Header */}
-                  <div className="flex items-center justify-between border-b border-emerald-500/30 pb-4 mb-4">
-                    <div className="flex items-center gap-2.5">
-                      <div className="w-9 h-9 rounded-xl bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center shrink-0 shadow-[0_0_15px_rgba(16,185,129,0.3)]">
-                        <CheckCircle2 className="w-5 h-5 text-emerald-400" />
-                      </div>
-                      <div>
-                        <h3 className="text-base font-bold text-white font-grotesk flex items-center gap-1.5">
-                          <span>SalePXL Store</span>
-                          <Sparkles className="w-3.5 h-3.5 text-emerald-400 animate-pulse" />
-                        </h3>
-                        <span className="text-[10px] text-emerald-400 font-mono font-semibold">Branded Engine</span>
-                      </div>
-                    </div>
-                    
-                    <span className="text-[10px] font-mono font-bold text-emerald-300 bg-emerald-500/20 border border-emerald-500/40 px-2 py-0.5 rounded-full shadow-[0_0_10px_rgba(16,185,129,0.2)]">
-                      3.5%–5%+ Conv.
-                    </span>
-                  </div>
-
-                  {/* 5 Green Advantages */}
-                  <div className="space-y-2.5">
-                    {COMPARISON_POINTS.map((pt) => (
-                      <div key={pt.id} className="flex items-start gap-2.5 p-2.5 rounded-xl bg-emerald-950/50 border border-emerald-500/30 shadow-sm">
-                        <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-                        <span className="text-xs text-white font-medium leading-relaxed font-sans">
-                          {pt.salepxl}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Footer & Next Card Nav Hint */}
-                <div className="mt-5 pt-3 border-t border-emerald-500/20 flex items-center justify-between">
-                  <span className="text-[10px] font-mono text-emerald-300 font-bold flex items-center gap-1">
-                    <span>🚀 Up to 3x higher sales</span>
-                  </span>
-                  <button
-                    onClick={() => setActiveMobileCardIndex(1)}
-                    className="text-[10px] font-mono font-bold text-white/70 hover:text-white flex items-center gap-0.5 bg-white/10 px-2 py-1 rounded-full"
-                  >
-                    <span>Basic Store</span>
-                    <ChevronRight className="w-3 h-3 text-emerald-400" />
-                  </button>
-                </div>
-              </motion.div>
-            ) : (
-              /* MOBILE CARD 2: Basic Store (Active Second) */
+              /* MOBILE CARD 1: Basic Store (Shown FIRST) */
               <motion.div
                 key="basic-card"
                 drag="x"
@@ -159,7 +95,7 @@ export default function InteractiveComparison() {
                 onDragEnd={handleDragEnd}
                 initial={{ opacity: 0, x: -80, scale: 0.95 }}
                 animate={{ opacity: 1, x: 0, scale: 1 }}
-                exit={{ opacity: 0, x: 80, scale: 0.95 }}
+                exit={{ opacity: 0, x: -80, scale: 0.95 }}
                 transition={{ duration: 0.35, ease: "easeOut" }}
                 className="w-full p-5 sm:p-7 rounded-3xl bg-gradient-to-b from-red-950/40 via-[#0d0709] to-[#080405] border-2 border-red-500/40 relative overflow-hidden shadow-[0_0_30px_rgba(239,68,68,0.15)] flex flex-col justify-between select-none cursor-grab active:cursor-grabbing"
               >
@@ -203,11 +139,75 @@ export default function InteractiveComparison() {
                     ⚠ Leaks ad budget
                   </span>
                   <button
-                    onClick={() => setActiveMobileCardIndex(0)}
-                    className="text-[10px] font-mono font-bold text-emerald-400 hover:text-emerald-300 flex items-center gap-0.5 bg-emerald-500/10 border border-emerald-500/30 px-2 py-1 rounded-full"
+                    onClick={() => setActiveMobileCardIndex(1)}
+                    className="text-[10px] font-mono font-bold text-emerald-400 hover:text-emerald-300 flex items-center gap-1 bg-emerald-500/10 border border-emerald-500/30 px-2.5 py-1 rounded-full animate-pulse"
                   >
-                    <ChevronLeft className="w-3 h-3 text-emerald-400" />
-                    <span>SalePXL Store</span>
+                    <span>Swipe to SalePXL</span>
+                    <ChevronRight className="w-3.5 h-3.5 text-emerald-400" />
+                  </button>
+                </div>
+              </motion.div>
+            ) : (
+              /* MOBILE CARD 2: SalePXL Store (REVEALED ON SWIPE) */
+              <motion.div
+                key="salepxl-card"
+                drag="x"
+                dragConstraints={{ left: 0, right: 0 }}
+                onDragEnd={handleDragEnd}
+                initial={{ opacity: 0, x: 80, scale: 0.95 }}
+                animate={{ opacity: 1, x: 0, scale: 1 }}
+                exit={{ opacity: 0, x: 80, scale: 0.95 }}
+                transition={{ duration: 0.35, ease: "easeOut" }}
+                className="w-full p-5 sm:p-7 rounded-3xl bg-gradient-to-b from-emerald-950/60 via-[#07140f] to-[#040a08] border-2 border-emerald-500/60 relative overflow-hidden shadow-[0_0_35px_rgba(16,185,129,0.25)] flex flex-col justify-between select-none cursor-grab active:cursor-grabbing"
+              >
+                {/* Subtle Ambient Emerald Glow */}
+                <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/[0.1] blur-3xl pointer-events-none" />
+
+                <div>
+                  {/* Header */}
+                  <div className="flex items-center justify-between border-b border-emerald-500/30 pb-4 mb-4">
+                    <div className="flex items-center gap-2.5">
+                      <div className="w-9 h-9 rounded-xl bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center shrink-0 shadow-[0_0_15px_rgba(16,185,129,0.3)]">
+                        <CheckCircle2 className="w-5 h-5 text-emerald-400" />
+                      </div>
+                      <div>
+                        <h3 className="text-base font-bold text-white font-grotesk flex items-center gap-1.5">
+                          <span>SalePXL Store</span>
+                          <Sparkles className="w-3.5 h-3.5 text-emerald-400 animate-pulse" />
+                        </h3>
+                        <span className="text-[10px] text-emerald-400 font-mono font-semibold">Branded Engine</span>
+                      </div>
+                    </div>
+                    
+                    <span className="text-[10px] font-mono font-bold text-emerald-300 bg-emerald-500/20 border border-emerald-500/40 px-2 py-0.5 rounded-full shadow-[0_0_10px_rgba(16,185,129,0.2)]">
+                      3.5%–5%+ Conv.
+                    </span>
+                  </div>
+
+                  {/* 5 Green Advantages */}
+                  <div className="space-y-2.5">
+                    {COMPARISON_POINTS.map((pt) => (
+                      <div key={pt.id} className="flex items-start gap-2.5 p-2.5 rounded-xl bg-emerald-950/50 border border-emerald-500/30 shadow-sm">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                        <span className="text-xs text-white font-medium leading-relaxed font-sans">
+                          {pt.salepxl}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Footer & Prev Card Nav Hint */}
+                <div className="mt-5 pt-3 border-t border-emerald-500/20 flex items-center justify-between">
+                  <span className="text-[10px] font-mono text-emerald-300 font-bold flex items-center gap-1">
+                    <span>🚀 Up to 3x higher sales</span>
+                  </span>
+                  <button
+                    onClick={() => setActiveMobileCardIndex(0)}
+                    className="text-[10px] font-mono font-bold text-white/70 hover:text-white flex items-center gap-0.5 bg-white/10 px-2 py-1 rounded-full"
+                  >
+                    <ChevronLeft className="w-3 h-3 text-red-400" />
+                    <span>Basic Store</span>
                   </button>
                 </div>
               </motion.div>
