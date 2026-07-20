@@ -1874,18 +1874,18 @@ export default function HomePage() {
             </h2>
           </div>
 
-          {/* Founder Selector Tabs (Cards with Founder Photo, Name & Store Category) */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-3 mb-8">
+          {/* Founder Selector Tabs (Horizontal Scrollable Pills on Mobile, Grid on Desktop) */}
+          <div className="flex sm:grid sm:grid-cols-3 lg:grid-cols-5 gap-2.5 overflow-x-auto scrollbar-none pb-2 sm:pb-0 mb-6 sm:mb-8">
             {GOOGLE_REVIEWS_CONSOLIDATED.map((rev, idx) => {
               const isActive = activeReviewIdx === idx;
               return (
                 <button
                   key={idx}
                   onClick={() => setActiveReviewIdx(idx)}
-                  className={`flex items-center gap-2.5 p-2.5 rounded-2xl border text-left transition-all duration-300 cursor-pointer ${
+                  className={`flex items-center gap-2.5 p-2.5 rounded-2xl border text-left transition-all duration-300 cursor-pointer shrink-0 min-w-[160px] sm:min-w-0 ${
                     isActive
-                      ? "bg-emerald-950/70 border-emerald-500/60 shadow-[0_0_20px_rgba(16,185,129,0.25)] scale-[1.02]"
-                      : "bg-[#101010]/80 border-white/10 hover:border-white/20 opacity-70 hover:opacity-100"
+                      ? "bg-emerald-950/80 border-emerald-500/70 shadow-[0_0_20px_rgba(16,185,129,0.3)] scale-[1.02]"
+                      : "bg-[#101010]/90 border-white/10 hover:border-white/20 opacity-70 hover:opacity-100"
                   }`}
                 >
                   {/* Founder Image Avatar */}
@@ -1913,16 +1913,16 @@ export default function HomePage() {
           </div>
 
           {/* Main Active Founder Review Card */}
-          <div className="w-full bg-gradient-to-br from-[#101010] via-[#0c0c0c] to-[#070707] border border-white/[0.1] rounded-[24px] p-6 sm:p-8 lg:p-10 relative overflow-hidden shadow-2xl">
+          <div className="w-full bg-gradient-to-br from-[#101010] via-[#0c0c0c] to-[#070707] border border-white/[0.1] rounded-[24px] p-5 sm:p-8 lg:p-10 relative overflow-hidden shadow-2xl">
             
             {/* Ambient inner glow */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(16,185,129,0.08),transparent_60%)] pointer-events-none" />
 
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center relative z-10">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6 lg:gap-10 items-center relative z-10">
               
               {/* Left Side: Compact Founder Image Portrait (4 cols) */}
               <div className="lg:col-span-4 flex flex-col items-center justify-center">
-                <div className="relative w-full max-w-[200px] sm:max-w-[220px] aspect-square rounded-[20px] overflow-hidden border-2 border-emerald-500/30 shadow-2xl bg-[#0a0a0a] group">
+                <div className="relative w-full max-w-[160px] sm:max-w-[220px] aspect-square rounded-[20px] overflow-hidden border-2 border-emerald-500/30 shadow-2xl bg-[#0a0a0a] group">
                   
                   {/* Active Founder Image */}
                   <motion.img
@@ -1938,51 +1938,51 @@ export default function HomePage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent pointer-events-none" />
 
                   {/* Top Category Tag */}
-                  <div className="absolute top-2.5 left-2.5 bg-slate-900/90 border border-emerald-500/40 px-2.5 py-0.5 rounded-full text-[9px] font-mono font-bold text-emerald-300 backdrop-blur-md shadow-lg flex items-center gap-1">
+                  <div className="absolute top-2 left-2 sm:top-2.5 sm:left-2.5 bg-slate-900/90 border border-emerald-500/40 px-2 py-0.5 rounded-full text-[8px] sm:text-[9px] font-mono font-bold text-emerald-300 backdrop-blur-md shadow-lg flex items-center gap-1">
                     <span>🛍️</span>
-                    <span className="truncate max-w-[130px]">{GOOGLE_REVIEWS_CONSOLIDATED[activeReviewIdx].category}</span>
+                    <span className="truncate max-w-[100px] sm:max-w-[130px]">{GOOGLE_REVIEWS_CONSOLIDATED[activeReviewIdx].category}</span>
                   </div>
 
                   {/* Bottom Founder Profile Info */}
-                  <div className="absolute bottom-2.5 inset-x-2.5 p-2.5 rounded-xl bg-slate-950/90 border border-white/10 backdrop-blur-md flex items-center justify-between">
+                  <div className="absolute bottom-2 inset-x-2 sm:bottom-2.5 sm:inset-x-2.5 p-2 sm:p-2.5 rounded-xl bg-slate-950/90 border border-white/10 backdrop-blur-md flex items-center justify-between">
                     <div>
-                      <h4 className="text-xs font-bold text-white font-grotesk truncate max-w-[110px]">
+                      <h4 className="text-[11px] sm:text-xs font-bold text-white font-grotesk truncate max-w-[90px] sm:max-w-[110px]">
                         {GOOGLE_REVIEWS_CONSOLIDATED[activeReviewIdx].name}
                       </h4>
-                      <p className="text-[9px] text-emerald-400 font-mono mt-0.5 flex items-center gap-1">
+                      <p className="text-[8px] sm:text-[9px] text-emerald-400 font-mono mt-0.5 flex items-center gap-1">
                         <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
                         <span>Verified</span>
                       </p>
                     </div>
 
                     <div className="text-right font-mono">
-                      <span className="text-xs font-bold text-white block">{GOOGLE_REVIEWS_CONSOLIDATED[activeReviewIdx].statVal}</span>
-                      <span className="text-[8px] text-white/50 block">{GOOGLE_REVIEWS_CONSOLIDATED[activeReviewIdx].statLabel}</span>
+                      <span className="text-[11px] sm:text-xs font-bold text-white block">{GOOGLE_REVIEWS_CONSOLIDATED[activeReviewIdx].statVal}</span>
+                      <span className="text-[7px] sm:text-[8px] text-white/50 block">{GOOGLE_REVIEWS_CONSOLIDATED[activeReviewIdx].statLabel}</span>
                     </div>
                   </div>
                 </div>
               </div>
 
               {/* Right Side: Active Review Quote & Ratings Card (8 cols) */}
-              <div className="lg:col-span-8 flex flex-col justify-center space-y-5 text-left">
+              <div className="lg:col-span-8 flex flex-col justify-center space-y-3.5 sm:space-y-5 text-left">
                 
                 {/* 5 Gold Stars */}
-                <div className="flex items-center gap-1.5 text-amber-400 text-xl">
+                <div className="flex flex-wrap items-center gap-1.5 text-amber-400 text-lg sm:text-xl">
                   {[...Array(GOOGLE_REVIEWS_CONSOLIDATED[activeReviewIdx].stars)].map((_, i) => (
                     <span key={i}>★</span>
                   ))}
-                  <span className="text-xs text-emerald-400 font-mono font-bold ml-2 px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/30">
+                  <span className="text-[10px] sm:text-xs text-emerald-400 font-mono font-bold ml-1 sm:ml-2 px-2 sm:px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/30">
                     VERIFIED GOOGLE REVIEW
                   </span>
                 </div>
 
                 {/* Review Headline in large quote font */}
-                <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight leading-snug font-grotesk">
+                <h3 className="text-xl sm:text-3xl font-extrabold text-white tracking-tight leading-snug font-grotesk">
                   "{GOOGLE_REVIEWS_CONSOLIDATED[activeReviewIdx].headline}"
                 </h3>
 
                 {/* Review Body Text */}
-                <p className="text-white/80 text-base leading-relaxed font-sans font-normal">
+                <p className="text-white/80 text-sm sm:text-base leading-relaxed font-sans font-normal">
                   {GOOGLE_REVIEWS_CONSOLIDATED[activeReviewIdx].text}
                 </p>
 
@@ -1991,7 +1991,7 @@ export default function HomePage() {
                   <img
                     src={GOOGLE_REVIEWS_CONSOLIDATED[activeReviewIdx].image}
                     alt={GOOGLE_REVIEWS_CONSOLIDATED[activeReviewIdx].name}
-                    className="w-9 h-9 rounded-full object-cover border-2 border-emerald-400 shadow-md"
+                    className="w-8 h-8 sm:w-9 sm:h-9 rounded-full object-cover border-2 border-emerald-400 shadow-md"
                   />
                   <div>
                     <h4 className="text-xs font-bold text-white font-grotesk">
