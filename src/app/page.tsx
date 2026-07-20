@@ -1382,11 +1382,11 @@ export default function HomePage() {
             </div>
 
             {/* Giant headline */}
-            <h1 className="text-[2.65rem] xs:text-[3.25rem] sm:text-6xl md:text-7xl lg:text-[4.5rem] font-light text-white leading-[1.1] tracking-tight max-w-3xl animate-fade-blur text-left" style={{ animationDelay: "0.05s" }}>
-              We build<br />
-              <span className="text-white">
-                {currentText}
-                <span className="typewriter-cursor" />
+            <h1 className="text-[2.65rem] xs:text-[3.25rem] sm:text-6xl md:text-7xl lg:text-[4.75rem] font-light text-white leading-[1.15] tracking-tight max-w-4xl animate-fade-blur text-left font-grotesk" style={{ animationDelay: "0.05s" }}>
+              Build. Launch.{" "}
+              <span className="relative inline-block z-10 px-3 py-0.5 rounded-xl bg-gradient-to-r from-emerald-500/30 via-emerald-400/25 to-teal-500/30 border-b-4 border-emerald-400 text-white font-normal shadow-[0_0_30px_rgba(16,185,129,0.4)] backdrop-blur-sm">
+                <span className="relative z-10 text-emerald-300 font-medium">Scale.</span>
+                <span className="absolute inset-x-1 bottom-1 h-3.5 bg-emerald-400/40 rounded transform -rotate-1 -z-1" />
               </span>
             </h1>
 
