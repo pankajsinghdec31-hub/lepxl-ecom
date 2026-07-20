@@ -82,7 +82,7 @@ export default function ServicesPage() {
             Shopify Storefront <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent font-normal font-sans">Engineering</span>
           </h1>
           <p className="text-neutral-600 text-base leading-relaxed max-w-2xl mx-auto font-sans">
-            Traffic comes from anywhere, but trust comes from your store. We build custom, speed-optimized Shopify storefronts and engineer high-converting purchase paths. No pre-made templates—just custom high-performance e-commerce engineering.
+            Traffic comes from anywhere, but trust comes from your store. We build custom, speed-optimized Shopify storefronts and engineer high-converting purchase paths. No pre-made templates—just custom High Converting Ecommerce Store engineering.
           </p>
         </div>
 

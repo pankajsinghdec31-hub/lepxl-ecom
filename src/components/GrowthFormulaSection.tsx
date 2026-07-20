@@ -825,7 +825,7 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
             <span className="text-amber-400">Traffic</span> → <span className="text-emerald-400">Trust</span> → <span className="text-indigo-400">Conversion</span>
           </h2>
           <p className="text-xs text-white/70 max-w-xs mx-auto font-sans leading-relaxed">
-            The 3-stage high-performance Shopify formula designed to convert ad visitors into repeat customers.
+            The 3-stage High Converting Ecommerce Store formula designed to convert ad visitors into repeat customers.
           </p>
         </div>
 

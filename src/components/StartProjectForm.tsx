@@ -132,7 +132,7 @@ export default function StartProjectForm({ onSuccess }: { onSuccess?: () => void
             Start <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent font-normal font-sans">Your</span> Project
           </h3>
           <p className="text-sm text-neutral-600 leading-relaxed mt-2 max-w-lg mx-auto">
-            Let's build a high-performance Shopify storefront. Share your project requirements below to receive a free conversion rate audit and schedule a strategy consultation.
+            Let's build a High Converting Ecommerce Store. Share your project requirements below to receive a free conversion rate audit and schedule a strategy consultation.
           </p>
         </div>
 
