@@ -36,7 +36,6 @@ import AnimatedDashboard from "@/components/AnimatedDashboard";
 import StartProjectForm from "@/components/StartProjectForm";
 import GrowthFormulaSection from "@/components/GrowthFormulaSection";
 import InteractiveComparison from "@/components/InteractiveComparison";
-import ShopifyIntegrationsSection from "@/components/ShopifyIntegrationsSection";
 
 // FAQ Items
 const FAQ_ITEMS = [
@@ -450,17 +449,41 @@ const BUILD_PROCESS_STEPS = [
 const APP_ICONS: { name: string; highlight: boolean; src?: string; svg?: React.ReactNode }[] = [
   { name: "Shopify", src: "https://cdn.simpleicons.org/shopify", highlight: true },
   {
-    name: "Stripe",
+    name: "Klaviyo",
     highlight: true,
     svg: (
       <svg viewBox="0 0 24 24" className="w-12 h-12 max-h-[80%] max-w-[80%] object-contain select-none pointer-events-none transition-all duration-300" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M13.978 11.072c0-1.229-.618-1.668-1.49-1.668-.962 0-1.494.515-1.494 1.427 0 2.25 6.273 1.157 6.273 5.378 0 3.208-2.622 4.543-5.56 4.543-3.155 0-5.667-1.39-5.667-4.088h2.793c.03 1.332.95 1.864 2.1 1.864 1.096 0 1.878-.456 1.878-1.47 0-2.459-6.273-1.455-6.273-5.396 0-2.996 2.459-4.527 5.396-4.527 2.894 0 5.148.973 5.337 3.398h-2.986zm1.326-8.877L18.15.59v3.74l-2.846.804V2.195z" fill="url(#stripe-grad)" />
+        <rect width="24" height="24" rx="5" fill="#151515"/>
+        <path d="M4.5 7.5L12 12.75L19.5 7.5V16.5H4.5V7.5Z" fill="#2EAA76"/>
+        <path d="M4.5 7.5L12 12.75L19.5 7.5" stroke="#FFFFFF" strokeWidth="1.5" strokeLinecap="round"/>
+      </svg>
+    )
+  },
+  {
+    name: "GoKwik",
+    highlight: true,
+    svg: (
+      <svg viewBox="0 0 24 24" className="w-12 h-12 max-h-[80%] max-w-[80%] object-contain select-none pointer-events-none transition-all duration-300" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2" y="2" width="20" height="20" rx="5" fill="url(#gokwik-bg)" />
+        <path d="M6 12L11 17L19 9" stroke="#FFFFFF" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M13 5L17 9L13 13" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" opacity="0.8" />
         <defs>
-          <linearGradient id="stripe-grad" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stopColor="#635BFF" />
-            <stop offset="100%" stopColor="#80E9FF" />
+          <linearGradient id="gokwik-bg" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stopColor="#10B981" />
+            <stop offset="100%" stopColor="#059669" />
           </linearGradient>
         </defs>
+      </svg>
+    )
+  },
+  {
+    name: "Recharge",
+    highlight: true,
+    svg: (
+      <svg viewBox="0 0 24 24" className="w-12 h-12 max-h-[80%] max-w-[80%] object-contain select-none pointer-events-none transition-all duration-300" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="24" height="24" rx="5" fill="#2B3654"/>
+        <path d="M12 5V19M5 12H19" stroke="#00D290" strokeWidth="3" strokeLinecap="round"/>
+        <circle cx="12" cy="12" r="7" stroke="#00D290" strokeWidth="2" strokeDasharray="3 3"/>
       </svg>
     )
   },
@@ -515,19 +538,59 @@ const APP_ICONS: { name: string; highlight: boolean; src?: string; svg?: React.R
     )
   },
   {
-    name: "GoKwik",
+    name: "Stripe",
     highlight: true,
     svg: (
       <svg viewBox="0 0 24 24" className="w-12 h-12 max-h-[80%] max-w-[80%] object-contain select-none pointer-events-none transition-all duration-300" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="2" y="2" width="20" height="20" rx="5" fill="url(#gokwik-bg)" />
-        <path d="M6 12L11 17L19 9" stroke="#FFFFFF" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M13 5L17 9L13 13" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" opacity="0.8" />
+        <path d="M13.978 11.072c0-1.229-.618-1.668-1.49-1.668-.962 0-1.494.515-1.494 1.427 0 2.25 6.273 1.157 6.273 5.378 0 3.208-2.622 4.543-5.56 4.543-3.155 0-5.667-1.39-5.667-4.088h2.793c.03 1.332.95 1.864 2.1 1.864 1.096 0 1.878-.456 1.878-1.47 0-2.459-6.273-1.455-6.273-5.396 0-2.996 2.459-4.527 5.396-4.527 2.894 0 5.148.973 5.337 3.398h-2.986zm1.326-8.877L18.15.59v3.74l-2.846.804V2.195z" fill="url(#stripe-grad)" />
         <defs>
-          <linearGradient id="gokwik-bg" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stopColor="#10B981" />
-            <stop offset="100%" stopColor="#059669" />
+          <linearGradient id="stripe-grad" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stopColor="#635BFF" />
+            <stop offset="100%" stopColor="#80E9FF" />
           </linearGradient>
         </defs>
+      </svg>
+    )
+  },
+  {
+    name: "Loox",
+    highlight: true,
+    svg: (
+      <svg viewBox="0 0 24 24" className="w-12 h-12 max-h-[80%] max-w-[80%] object-contain select-none pointer-events-none transition-all duration-300" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="24" height="24" rx="5" fill="#5B21B6"/>
+        <path d="M12 4L14.472 8.958L19.944 9.771L15.972 13.629L16.908 19.076L12 16.5L7.092 19.076L8.028 13.629L4.056 9.771L9.528 8.958L12 4Z" fill="#FBBF24"/>
+      </svg>
+    )
+  },
+  {
+    name: "Judge.me",
+    highlight: true,
+    svg: (
+      <svg viewBox="0 0 24 24" className="w-12 h-12 max-h-[80%] max-w-[80%] object-contain select-none pointer-events-none transition-all duration-300" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="24" height="24" rx="5" fill="#00A389"/>
+        <path d="M7 12L10.5 15.5L17 8.5" stroke="#FFFFFF" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    )
+  },
+  {
+    name: "WhatsApp Commerce",
+    highlight: true,
+    svg: (
+      <svg viewBox="0 0 24 24" className="w-12 h-12 max-h-[80%] max-w-[80%] object-contain select-none pointer-events-none transition-all duration-300" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="24" height="24" rx="5" fill="#25D366"/>
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.447-.521.15-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.075-.149-.669-1.612-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347z" fill="#FFFFFF"/>
+      </svg>
+    )
+  },
+  {
+    name: "Triple Whale",
+    highlight: true,
+    svg: (
+      <svg viewBox="0 0 24 24" className="w-12 h-12 max-h-[80%] max-w-[80%] object-contain select-none pointer-events-none transition-all duration-300" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="24" height="24" rx="5" fill="#0D0D12"/>
+        <path d="M4 14C4 14 7 7 12 7C17 7 20 14 20 14" stroke="#3B82F6" strokeWidth="2.5" strokeLinecap="round"/>
+        <path d="M7 16C7 16 9.5 11 12 11C14.5 11 17 16 17 16" stroke="#60A5FA" strokeWidth="2" strokeLinecap="round"/>
+        <circle cx="12" cy="7" r="2" fill="#60A5FA"/>
       </svg>
     )
   },
@@ -553,29 +616,17 @@ const APP_ICONS: { name: string; highlight: boolean; src?: string; svg?: React.R
       </svg>
     )
   },
-  { name: "CCAvenue", src: "/ccavenue.png", highlight: true },
   { name: "Cashfree Payments", src: "/cashfree.png", highlight: true },
   { name: "Shadowfax", src: "/shadowfax.png", highlight: true },
-  { name: "Ekart Logistics", src: "/ekart.png", highlight: true },
-  { name: "DTDC", src: "/dtdc.png", highlight: true },
   { name: "PayPal", src: "https://cdn.simpleicons.org/paypal", highlight: true },
   { name: "Apple Pay", src: "https://cdn.simpleicons.org/applepay", highlight: false },
   { name: "Google Pay", src: "https://cdn.simpleicons.org/googlepay", highlight: true },
-  { name: "Amazon", src: "https://cdn.simpleicons.org/amazon", highlight: false },
   { name: "Klarna", src: "https://cdn.simpleicons.org/klarna", highlight: true },
-  { name: "Afterpay", src: "https://cdn.simpleicons.org/afterpay", highlight: false },
   { name: "Affirm", src: "https://cdn.simpleicons.org/affirm", highlight: true },
-  { name: "Mailchimp", src: "https://cdn.simpleicons.org/mailchimp", highlight: false },
-  { name: "Zendesk", src: "https://cdn.simpleicons.org/zendesk", highlight: true },
   { name: "Google Analytics", src: "https://cdn.simpleicons.org/googleanalytics", highlight: false },
   { name: "Google Tag Manager", src: "https://cdn.simpleicons.org/googletagmanager", highlight: true },
-  { name: "Microsoft Clarity", src: "https://cdn.simpleicons.org/microsoft", highlight: false },
   { name: "Meta Pixel", src: "https://cdn.simpleicons.org/meta", highlight: true },
-  { name: "TikTok Shop", src: "https://cdn.simpleicons.org/tiktok", highlight: false },
-  { name: "Facebook Shop", src: "https://cdn.simpleicons.org/facebook", highlight: true },
-  { name: "Instagram Shopping", src: "https://cdn.simpleicons.org/instagram", highlight: false },
-  { name: "Pinterest Shopping", src: "https://cdn.simpleicons.org/pinterest", highlight: true },
-  { name: "eBay", src: "https://cdn.simpleicons.org/ebay", highlight: false }
+  { name: "TikTok Shop", src: "https://cdn.simpleicons.org/tiktok", highlight: false }
 ];
 
 
@@ -1634,8 +1685,59 @@ export default function HomePage() {
       </section>
 
 
-      {/* ── SHOPIFY INTEGRATIONS SECTION ── */}
-      <ShopifyIntegrationsSection onOpenModal={() => setShowFormModal(true)} />
+      <section className="py-16 md:py-24 lg:py-36 relative z-20 overflow-hidden bg-gradient-to-b from-[#160528] to-[#080214] border-b border-t border-white/[0.08] rounded-t-[32px] md:rounded-t-[48px] mt-[-32px] md:mt-[-48px]">
+        <div className="max-w-[1360px] mx-auto px-6">
+          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+            
+            {/* Left side text column */}
+            <div className="w-full lg:w-[45%] text-left flex flex-col justify-center">
+              <h2 className="premium-heading text-3xl sm:text-4xl lg:text-[2.75rem] font-light text-white leading-[1.1] tracking-tight font-grotesk">
+                Customize <span className="light-gradient-text font-normal">everything</span> with <span className="premium-highlight">Shopify Integrations</span>
+              </h2>
+              <p className="mt-6 text-white/70 text-base sm:text-lg font-light leading-relaxed max-w-lg">
+                We install and configure essential Shopify apps for reviews, upsells, bundles, loyalty programs, analytics, WhatsApp automation, email marketing, and store automation to increase sales, boost conversions, and improve customer retention.
+              </p>
+            </div>
+
+            {/* Right side interactive app grid */}
+            <div className="w-full lg:w-[55%] relative select-none">
+              {/* Fade out mask overlays on desktop */}
+              <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#080214] to-transparent pointer-events-none z-20 hidden lg:block" />
+              <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#080214] to-transparent pointer-events-none z-20 hidden lg:block" />
+              <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-[#160528] to-transparent pointer-events-none z-20 hidden lg:block" />
+
+              <div className="grid grid-cols-4 xs:grid-cols-5 sm:grid-cols-8 gap-3 sm:gap-4 max-h-[480px] overflow-hidden lg:pr-8 pr-0">
+                {APP_ICONS.map((app, idx) => (
+                  <div
+                    key={idx}
+                    className={`aspect-square rounded-[20px] flex items-center justify-center p-2.5 transition-all duration-300 hover:scale-115 hover:rotate-[2deg] hover:z-30 cursor-pointer shadow-lg bg-white border border-white/[0.08] ${
+                      app.highlight 
+                        ? "opacity-100 hover:shadow-2xl hover:shadow-primary/20" 
+                        : "opacity-35 hover:opacity-100 hover:shadow-2xl hover:shadow-primary/15"
+                    }`}
+                    style={{
+                      transitionDelay: `${(idx % 8) * 15}ms`
+                    }}
+                    title={app.name}
+                  >
+                    {app.svg ? (
+                      app.svg
+                    ) : (
+                      <img 
+                        src={app.src} 
+                        alt={app.name}
+                        loading="lazy"
+                        className="max-h-[80%] max-w-[80%] object-contain select-none pointer-events-none transition-all duration-300"
+                      />
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
 
       {/* ── THE GROWTH FORMULA SECTION — Premium Dark Storytelling ── */}
       <GrowthFormulaSection onOpenModal={() => setShowFormModal(true)} />

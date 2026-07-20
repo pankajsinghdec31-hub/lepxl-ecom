@@ -2,7 +2,6 @@
 
 import React from "react";
 import Link from "next/link";
-import ShopifyIntegrationsSection from "@/components/ShopifyIntegrationsSection";
 import {
   Layers,
   Zap,
@@ -124,10 +123,6 @@ export default function ServicesPage() {
           </div>
         </div>
 
-        {/* Detailed Shopify Ecosystem Integrations Grid */}
-        <div className="mt-8 rounded-3xl overflow-hidden shadow-2xl">
-          <ShopifyIntegrationsSection />
-        </div>
 
         {/* Final call to action section */}
         <div className="p-6 md:p-12 rounded-2xl sm:rounded-3xl bg-white border border-neutral-200/80 shadow-sm text-center flex flex-col gap-4 sm:gap-6 items-center backdrop-blur-xl font-sans">
