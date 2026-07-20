@@ -1967,13 +1967,10 @@ export default function HomePage() {
               <div className="lg:col-span-8 flex flex-col justify-center space-y-3.5 sm:space-y-5 text-left">
                 
                 {/* 5 Gold Stars */}
-                <div className="flex flex-wrap items-center gap-1.5 text-amber-400 text-lg sm:text-xl">
+                <div className="flex items-center gap-1.5 text-amber-400 text-lg sm:text-xl">
                   {[...Array(GOOGLE_REVIEWS_CONSOLIDATED[activeReviewIdx].stars)].map((_, i) => (
                     <span key={i}>★</span>
                   ))}
-                  <span className="text-[10px] sm:text-xs text-emerald-400 font-mono font-bold ml-1 sm:ml-2 px-2 sm:px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/30">
-                    VERIFIED GOOGLE REVIEW
-                  </span>
                 </div>
 
                 {/* Review Headline in large quote font */}
