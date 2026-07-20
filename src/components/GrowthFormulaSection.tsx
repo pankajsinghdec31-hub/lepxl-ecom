@@ -231,7 +231,10 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
   }, [smoothProgress]);
 
   const scrollToStep = (stepIndex: number) => {
-    if (!containerRef.current) return;
+    if (!containerRef.current || typeof window === "undefined") return;
+    // Strictly disable programmatic scrolling on mobile devices
+    if (window.innerWidth < 1024) return;
+
     const containerTop = containerRef.current.offsetTop;
     const containerHeight = containerRef.current.clientHeight - window.innerHeight;
     const targetY = containerTop + (stepIndex / 2) * containerHeight * 0.7;
@@ -241,8 +244,12 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
   // AUTO SCROLL EFFECT (Desktop only)
   useEffect(() => {
     if (!isAutoScrolling || !isInView || isHovered) return;
+    // Strictly disable auto-scrolling on mobile screens
+    if (typeof window !== "undefined" && window.innerWidth < 1024) return;
 
     const interval = setInterval(() => {
+      if (typeof window !== "undefined" && window.innerWidth < 1024) return;
+
       setActiveStep((prevStep) => {
         const nextStep = (prevStep + 1) % 3;
         scrollToStep(nextStep);
