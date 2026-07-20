@@ -604,7 +604,7 @@ function PortfolioCard({ proj, heightClass }: { proj: Project; heightClass: stri
           }`}
         >
           <span className={`w-1.5 h-1.5 rounded-full ${isCustom ? "bg-white" : "bg-emerald-600"}`} />
-          {isCustom ? "Shopify Liquid" : "Shopify Theme"}
+          {isCustom ? "Shopify Liquid" : "Custom Store"}
         </span>
       </div>
     </div>
