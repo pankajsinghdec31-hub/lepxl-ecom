@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 const FUNNEL_STAGES = [
   { name: "Traffic Channels", label: "Paid Social, Search & Email Marketing", desc: "Top of Funnel: Driving visitors to your store", color: "from-[#8C8C8C]/20 to-[#8C8C8C]/5" },
   { name: "Landing Experience", label: "Custom Dedicated Landing Pages", desc: "Engaging prospects on specific benefits", color: "from-[#8C8C8C]/20 to-[#8C8C8C]/5" },
-  { name: "Shopify Storefront", label: "Ultra-Premium conversion-focused storefront", desc: "Showcasing brand value, premium speed & UX", color: "from-primary/20 to-primary/5" },
+  { name: "Shopify Store", label: "Ultra-Premium conversion-focused store", desc: "Showcasing brand value, premium speed & UX", color: "from-primary/20 to-primary/5" },
   { name: "Consumer Trust", label: "Social proof, speed, flawless Checkout", desc: "Creating buying confidence instantly", color: "from-primary/30 to-primary/10" },
   { name: "Conversion Event", label: "High-value purchase transaction", desc: "Decreased cart abandonment, higher AOV", color: "from-primary/40 to-primary/15" },
   { name: "Exponential Revenue", label: "Customer LTV & Maximum Revenue Yield", desc: "Unlocking profitable, conversion-led growth", color: "from-primary/50 to-primary/25" }

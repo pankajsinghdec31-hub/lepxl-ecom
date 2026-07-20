@@ -20,7 +20,7 @@ export default function ContactPage() {
             Book Your Shopify <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent font-normal font-sans">Strategy Call</span>
           </h1>
           <p className="text-neutral-600 text-base leading-relaxed max-w-2xl mx-auto font-sans">
-            Stop wasting paid budgets sending traffic to low-conversion layouts. We design high-performing Shopify storefronts and optimize product pages to turn clicks into profitable customers.
+            Stop wasting paid budgets sending traffic to low-conversion layouts. We design high-performing Shopify Stores and optimize product pages to turn clicks into profitable customers.
           </p>
         </div>
 

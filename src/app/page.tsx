@@ -94,7 +94,7 @@ const GOOGLE_REVIEWS_CONSOLIDATED = [
     stars: 5,
     timeAgo: "2 weeks ago",
     headline: "Fully Built & Live in 3 Days!",
-    text: "The speed of execution was incredible. Our Shopify storefront was fully designed, built, and launched in just 3 days without cutting any corners on layout quality or performance.",
+    text: "The speed of execution was incredible. Our Shopify Store was fully designed, built, and launched in just 3 days without cutting any corners on layout quality or performance.",
     image: "/founder_4.jpg",
     statVal: "3 Days",
     statLabel: "Delivery Speed",

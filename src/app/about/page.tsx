@@ -19,11 +19,11 @@ export default function AboutPage() {
           <h1 className="text-4xl md:text-6xl font-light tracking-tight leading-tight text-neutral-900 font-grotesk">
             We build high-converting <br />
             <span className="font-normal bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent font-sans">
-              Shopify Storefronts
+              Shopify Stores
             </span>
           </h1>
           <p className="text-neutral-600 text-base leading-relaxed max-w-2xl mx-auto font-sans">
-            We are a dedicated Shopify development agency focusing exclusively on designing, coding, and optimizing e-commerce storefronts. We do only e-commerce setups.
+            We are a dedicated Shopify development agency focusing exclusively on designing, coding, and optimizing e-commerce stores. We do only e-commerce setups.
           </p>
         </div>
 
@@ -60,7 +60,7 @@ export default function AboutPage() {
           
           <div className="md:col-span-8 flex flex-col gap-8 text-neutral-600 text-sm sm:text-base leading-relaxed font-sans">
             <p>
-              We do not build corporate landing pages, directory lists, or generic websites. Over the past 5 years, we have aligned our entire engineering and design focus toward Shopify storefronts.
+              We do not build corporate landing pages, directory lists, or generic websites. Over the past 5 years, we have aligned our entire engineering and design focus toward Shopify Stores.
             </p>
             <p>
               Our core competencies include all-in-one e-commerce setups, Shopify store integrations, custom Shopify app builders, custom theme development, conversion-rate optimization (CRO), and advanced checkout optimization.
@@ -98,7 +98,7 @@ export default function AboutPage() {
               <h3 className="text-xl font-bold text-neutral-900 font-grotesk tracking-tight">Conversion-First Engineering</h3>
             </div>
             <p className="text-xs text-neutral-600 leading-relaxed max-w-md">
-              We don&apos;t just build templates — we engineer Shopify storefronts optimized for maximum speed, seamless user journeys, and higher average order values (AOV).
+              We don&apos;t just build templates — we engineer Shopify Stores optimized for maximum speed, seamless user journeys, and higher average order values (AOV).
             </p>
             <div className="flex flex-col gap-2 border-t border-neutral-100 pt-4 font-mono text-[11px] text-neutral-500">
               <div className="flex justify-between">
