@@ -610,24 +610,21 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
       {/* ─────────────────────────────────────────────────────────────────── */}
       <div className="lg:hidden py-10 px-4 space-y-8 max-w-lg mx-auto relative z-10">
         
-        {/* Mobile Header Title */}
-        <div className="text-center space-y-2 mb-6">
-          <span className="px-3 py-1 rounded-full bg-white/[0.04] border border-white/10 text-[10px] font-mono font-bold text-emerald-400 uppercase tracking-widest">
+        {/* Mobile Section Main Header Title */}
+        <div className="text-center space-y-3 mb-8">
+          <span className="px-3.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-[10px] font-mono font-bold text-emerald-400 uppercase tracking-widest inline-block shadow-[0_0_15px_rgba(16,185,129,0.15)]">
             GROWTH ARCHITECTURE FLOW
           </span>
-          <h2 className="text-2xl font-extrabold font-grotesk text-white tracking-tight">
-            Traffic → Trust → Conversion
+          <h2 className="text-2xl sm:text-3xl font-extrabold font-grotesk text-white tracking-tight leading-tight block">
+            <span className="text-amber-400">Traffic</span> → <span className="text-emerald-400">Trust</span> → <span className="text-indigo-400">Conversion</span>
           </h2>
+          <p className="text-xs text-white/70 max-w-xs mx-auto font-sans leading-relaxed">
+            The 3-stage high-performance Shopify formula designed to convert ad visitors into repeat customers.
+          </p>
         </div>
 
         {/* ── MOBILE STEP 1: TRAFFIC ── */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.5 }}
-          className="p-5 rounded-3xl bg-gradient-to-b from-amber-500/10 via-[#070a14] to-[#04060d] border border-amber-500/30 backdrop-blur-xl shadow-2xl space-y-4 relative overflow-hidden"
-        >
+        <div className="p-5 rounded-3xl bg-gradient-to-b from-amber-500/15 via-[#070b18] to-[#04060d] border border-amber-500/30 backdrop-blur-xl shadow-2xl space-y-4 relative overflow-hidden">
           <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-amber-500/20 border border-amber-500/40 text-[9px] font-mono font-bold text-amber-400 uppercase tracking-wider">
             Stage 01 • Traffic Engine
           </div>
@@ -660,17 +657,17 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
           </div>
 
           {/* Flow Animation + Shoppers */}
-          <div className="flex items-center justify-between p-3.5 rounded-2xl bg-black/50 border border-amber-500/20">
+          <div className="flex items-center justify-between p-3.5 rounded-2xl bg-black/60 border border-amber-500/20">
             <div className="flex items-center gap-3">
               <ShopperEmptyCart delay={0} />
               <div className="text-left">
                 <span className="text-[10px] font-mono text-amber-300 font-bold block">50,000+ Visitors / Mo</span>
-                <span className="text-[9px] font-mono text-white/40 block">Search Intent Capture</span>
+                <span className="text-[9px] font-mono text-white/50 block">Search Intent Capture</span>
               </div>
             </div>
             
             {/* Animated Particle Beam */}
-            <div className="w-12 h-1 bg-gradient-to-r from-amber-500 to-amber-300 rounded-full relative overflow-hidden">
+            <div className="w-12 h-1 bg-gradient-to-r from-amber-500 to-amber-300 rounded-full relative overflow-hidden shrink-0">
               <motion.div 
                 animate={{ x: ["-100%", "100%"] }} 
                 transition={{ duration: 1.2, repeat: Infinity, ease: "linear" }}
@@ -678,7 +675,7 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
               />
             </div>
           </div>
-        </motion.div>
+        </div>
 
         {/* Animated Downward Flow Arrow */}
         <div className="flex flex-col items-center justify-center gap-1 my-2">
@@ -689,13 +686,7 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
         </div>
 
         {/* ── MOBILE STEP 2: TRUST ── */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.5 }}
-          className="p-5 rounded-3xl bg-gradient-to-b from-emerald-500/10 via-[#070a14] to-[#04060d] border border-emerald-500/30 backdrop-blur-xl shadow-2xl space-y-4 relative overflow-hidden"
-        >
+        <div className="p-5 rounded-3xl bg-gradient-to-b from-emerald-500/15 via-[#070b18] to-[#04060d] border border-emerald-500/30 backdrop-blur-xl shadow-2xl space-y-4 relative overflow-hidden">
           <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-[9px] font-mono font-bold text-emerald-400 uppercase tracking-wider">
             Stage 02 • Storefront Trust
           </div>
@@ -731,7 +722,7 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
               </span>
             </div>
           </div>
-        </motion.div>
+        </div>
 
         {/* Animated Downward Flow Arrow */}
         <div className="flex flex-col items-center justify-center gap-1 my-2">
@@ -742,13 +733,7 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
         </div>
 
         {/* ── MOBILE STEP 3: CONVERSION ── */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.5 }}
-          className="p-5 rounded-3xl bg-gradient-to-b from-indigo-500/10 via-[#070a14] to-[#04060d] border border-indigo-500/30 backdrop-blur-xl shadow-2xl space-y-4 relative overflow-hidden"
-        >
+        <div className="p-5 rounded-3xl bg-gradient-to-b from-indigo-500/15 via-[#070b18] to-[#04060d] border border-indigo-500/30 backdrop-blur-xl shadow-2xl space-y-4 relative overflow-hidden">
           <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-indigo-500/20 border border-indigo-500/40 text-[9px] font-mono font-bold text-indigo-400 uppercase tracking-wider flex items-center gap-1">
             <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-ping" />
             <span>Stage 03 • Revenue Conversion</span>
@@ -773,11 +758,11 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
             <ShopperFullCart delay={0} />
           </div>
 
-          <div className="flex items-center justify-between p-3 rounded-xl bg-black/50 border border-indigo-500/20">
+          <div className="flex items-center justify-between p-3 rounded-xl bg-black/60 border border-indigo-500/20">
             <span className="text-[10px] font-mono text-indigo-300 font-bold">+245% AVERAGE LIFT</span>
             <span className="text-[9px] font-mono text-indigo-400/80">3.8x RETENTION</span>
           </div>
-        </motion.div>
+        </div>
 
         {/* ── MOBILE FINAL CTA ── */}
         <div className="pt-4 text-center space-y-3">
