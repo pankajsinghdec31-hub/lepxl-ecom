@@ -709,15 +709,7 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
                       </div>
                     </div>
 
-                    <div className="pt-2">
-                      <button
-                        onClick={onOpenModal}
-                        className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-gradient-to-r from-emerald-400 via-teal-400 to-emerald-500 text-black font-grotesk font-bold text-xs uppercase tracking-wider shadow-[0_0_25px_rgba(16,185,129,0.4)] hover:scale-105 transition-transform cursor-pointer"
-                      >
-                        <span>Build My High-Converting Store</span>
-                        <ArrowRight className="w-4 h-4 text-black" />
-                      </button>
-                    </div>
+
                   </div>
 
                   {/* Right Column: 5 New Orders Confirmed & AOV Increased Live Feed Showcase */}
@@ -810,17 +802,10 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
             </motion.div>
           </div>
 
-          <div className="max-w-xl mx-auto px-4 z-40 text-center space-y-2 pb-2">
+          <div className="max-w-xl mx-auto px-4 z-40 text-center pb-2">
             <p className="text-xs sm:text-sm font-grotesk text-white/80 font-light">
               Traffic brings visitors. <span className="text-emerald-400 font-normal">Your Shopify store earns customers.</span>
             </p>
-            <button
-              onClick={onOpenModal}
-              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-gradient-to-r from-emerald-400 via-teal-400 to-emerald-500 text-black font-grotesk font-bold text-xs uppercase tracking-wider shadow-[0_0_25px_rgba(16,185,129,0.3)] hover:scale-105 transition-transform cursor-pointer"
-            >
-              <span>Build My High-Converting Store</span>
-              <ArrowRight className="w-4 h-4 text-black" />
-            </button>
           </div>
 
         </div>
@@ -1055,18 +1040,11 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
           </div>
         </div>
 
-        {/* ── MOBILE FINAL CTA ── */}
-        <div className="pt-4 text-center space-y-3">
+        {/* ── MOBILE FOOTER NOTE ── */}
+        <div className="pt-2 text-center">
           <p className="text-xs font-grotesk text-white/80 font-light">
             Traffic brings visitors. <span className="text-emerald-400 font-normal">Your Shopify store earns customers.</span>
           </p>
-          <button
-            onClick={onOpenModal}
-            className="w-full py-3.5 px-6 rounded-full bg-gradient-to-r from-emerald-400 via-teal-400 to-emerald-500 text-black font-grotesk font-bold text-xs uppercase tracking-wider shadow-[0_0_25px_rgba(16,185,129,0.3)] active:scale-95 transition-transform flex items-center justify-center gap-2 cursor-pointer"
-          >
-            <span>Build My High-Converting Store</span>
-            <ArrowRight className="w-4 h-4 text-black" />
-          </button>
         </div>
 
       </div>
