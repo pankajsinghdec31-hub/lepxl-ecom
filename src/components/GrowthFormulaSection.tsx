@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring, AnimatePresence } from "framer-motion";
 import { 
   Search, 
   ShieldCheck, 
@@ -69,7 +69,7 @@ function ShopperEmptyCart({ delay = 0 }: { delay?: number }) {
       transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut", delay }}
       className="flex items-end gap-1 shrink-0"
     >
-      <svg className="w-10 h-16" viewBox="0 0 40 70" fill="none">
+      <svg className="w-9 h-14" viewBox="0 0 40 70" fill="none">
         <circle cx="20" cy="12" r="7" fill="#F4A261" />
         <path d="M 14 10 C 14 5, 26 5, 26 10 Z" fill="#264653" />
         <path d="M 13 20 L 27 20 L 25 42 L 15 42 Z" fill="#E76F51" />
@@ -91,7 +91,7 @@ function ShopperEmptyCart({ delay = 0 }: { delay?: number }) {
         <path d="M 23 24 L 35 34" stroke="#F4A261" strokeWidth="3" strokeLinecap="round" />
       </svg>
 
-      <svg className="w-10 h-12" viewBox="0 0 45 45" fill="none">
+      <svg className="w-9 h-11" viewBox="0 0 45 45" fill="none">
         <path d="M 5 10 L 12 10 L 16 30 L 38 30 L 42 12 L 14 12" stroke="#64748B" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
         <path d="M 20 12 L 20 30 M 26 12 L 26 30 M 32 12 L 32 30" stroke="#475569" strokeWidth="1.5" />
         <motion.circle animate={{ rotate: 360 }} transition={{ duration: 1, repeat: Infinity, ease: "linear" }} cx="20" cy="36" r="3" fill="#334155" stroke="#64748B" strokeWidth="1.5" />
@@ -108,7 +108,7 @@ function ShopperFullCart({ delay = 0 }: { delay?: number }) {
       transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut", delay }}
       className="flex items-end gap-1 shrink-0"
     >
-      <svg className="w-10 h-16" viewBox="0 0 40 70" fill="none">
+      <svg className="w-9 h-14" viewBox="0 0 40 70" fill="none">
         <circle cx="20" cy="12" r="7" fill="#F4A261" />
         <path d="M 14 10 C 14 5, 26 5, 26 10 Z" fill="#1D3557" />
         <path d="M 13 20 L 27 20 L 25 42 L 15 42 Z" fill="#10B981" />
@@ -130,7 +130,7 @@ function ShopperFullCart({ delay = 0 }: { delay?: number }) {
         <path d="M 23 24 L 35 34" stroke="#F4A261" strokeWidth="3" strokeLinecap="round" />
       </svg>
 
-      <svg className="w-10 h-12" viewBox="0 0 45 45" fill="none">
+      <svg className="w-9 h-11" viewBox="0 0 45 45" fill="none">
         <rect x="18" y="10" width="9" height="9" rx="1" fill="#F59E0B" stroke="#D97706" strokeWidth="1" />
         <rect x="25" y="8" width="10" height="11" rx="1" fill="#10B981" stroke="#059669" strokeWidth="1" />
         <rect x="20" y="3" width="11" height="8" rx="1" fill="#6366F1" stroke="#4F46E5" strokeWidth="1" />
@@ -147,7 +147,7 @@ function ShopperFullCart({ delay = 0 }: { delay?: number }) {
 function DeliveryHandover() {
   return (
     <div className="flex items-end gap-2 shrink-0">
-      <svg className="w-12 h-20" viewBox="0 0 50 80" fill="none">
+      <svg className="w-11 h-18" viewBox="0 0 50 80" fill="none">
         <circle cx="22" cy="14" r="8" fill="#F4A261" />
         <path d="M 14 12 C 14 6, 30 6, 30 12 Z" fill="#E76F51" />
         <path d="M 12 24 L 32 24 L 30 50 L 14 50 Z" fill="#F59E0B" />
@@ -155,11 +155,11 @@ function DeliveryHandover() {
         <path d="M 28 30 L 44 34" stroke="#F4A261" strokeWidth="3.5" strokeLinecap="round" />
       </svg>
 
-      <div className="w-10 h-10 rounded-lg bg-amber-500 border-2 border-amber-300 shadow-lg flex items-center justify-center -ml-2 mb-4 z-10 animate-bounce">
-        <Package className="w-5 h-5 text-black" />
+      <div className="w-9 h-9 rounded-lg bg-amber-500 border-2 border-amber-300 shadow-lg flex items-center justify-center -ml-2 mb-3 z-10 animate-bounce">
+        <Package className="w-4 h-4 text-black" />
       </div>
 
-      <svg className="w-12 h-20 -ml-2" viewBox="0 0 50 80" fill="none">
+      <svg className="w-11 h-18 -ml-2" viewBox="0 0 50 80" fill="none">
         <path d="M 16 12 C 16 6, 32 6, 32 12 Z" fill="#10B981" />
         <path d="M 28 12 L 38 12" stroke="#047857" strokeWidth="3" strokeLinecap="round" />
         <circle cx="24" cy="14" r="8" fill="#F4A261" />
@@ -173,7 +173,7 @@ function DeliveryHandover() {
 
 /* ─────────────────────────────────────────────────────────────────────────────
    MAIN COMPONENT: GrowthFormulaSection
-   Seamless Inline Desktop Scroll: Traffic -> Trust -> Conversion + Auto Scroll
+   Seamless Inline Desktop Scroll & Fully Mobile Optimized Storyboard
 ───────────────────────────────────────────────────────────────────────────── */
 export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSectionProps) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -187,33 +187,29 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
     setIsMounted(true);
   }, []);
 
-  // Intersection observer to activate auto-scroll only when section is visible
   useEffect(() => {
     if (!containerRef.current) return;
     const observer = new IntersectionObserver(
       ([entry]) => {
         setIsInView(entry.isIntersecting);
       },
-      { threshold: 0.2 }
+      { threshold: 0.15 }
     );
     observer.observe(containerRef.current);
     return () => observer.disconnect();
   }, []);
 
-  // Scroll progress for vertical pinning & inline horizontal camera track
   const { scrollYProgress } = useScroll({
     target: isMounted && containerRef.current ? containerRef : undefined,
     offset: ["start start", "end end"]
   });
 
-  // Silky smooth spring physics
   const smoothProgress = useSpring(scrollYProgress, {
     stiffness: 90,
     damping: 28,
     restDelta: 0.001
   });
 
-  // Camera X finishes sliding to Panel 3 by 0.70 of total scroll, giving a full 30% scroll buffer
   const cameraX = useTransform(smoothProgress, [0, 0.70], ["0%", "-66.6666%"]);
   const progressLineWidth = useTransform(smoothProgress, [0, 0.70], ["0%", "100%"]);
 
@@ -227,14 +223,20 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
   }, [smoothProgress]);
 
   const scrollToStep = (stepIndex: number) => {
-    if (!containerRef.current) return;
-    const containerTop = containerRef.current.offsetTop;
-    const containerHeight = containerRef.current.clientHeight - window.innerHeight;
-    const targetY = containerTop + (stepIndex / 2) * containerHeight * 0.7;
-    window.scrollTo({ top: targetY, behavior: "smooth" });
+    // If desktop (large screen), scroll vertically to activate position
+    if (window.innerWidth >= 1024) {
+      if (!containerRef.current) return;
+      const containerTop = containerRef.current.offsetTop;
+      const containerHeight = containerRef.current.clientHeight - window.innerHeight;
+      const targetY = containerTop + (stepIndex / 2) * containerHeight * 0.7;
+      window.scrollTo({ top: targetY, behavior: "smooth" });
+    } else {
+      // On mobile, update state directly for instant card transition
+      setActiveStep(stepIndex);
+    }
   };
 
-  // AUTO SCROLL EFFECT: Automatically advances every 4 seconds when in view & not hovered
+  // AUTO SCROLL EFFECT
   useEffect(() => {
     if (!isAutoScrolling || !isInView || isHovered) return;
 
@@ -244,7 +246,7 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
         scrollToStep(nextStep);
         return nextStep;
       });
-    }, 4200);
+    }, 4000);
 
     return () => clearInterval(interval);
   }, [isAutoScrolling, isInView, isHovered]);
@@ -265,7 +267,7 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
       ref={containerRef}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="relative bg-[#03050a] text-white border-t border-b border-white/[0.08] z-20 font-sans select-none min-h-[350vh]"
+      className="relative bg-[#03050a] text-white border-t border-b border-white/[0.08] z-20 font-sans select-none min-h-[120vh] lg:min-h-[350vh]"
     >
       {/* Background Ambient Glow FX */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
@@ -274,54 +276,54 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
         <div className="absolute top-1/2 left-2/3 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-indigo-500/10 blur-[160px] rounded-full" />
       </div>
 
-      {/* STICKY DESKTOP & MOBILE VIEWPORT */}
-      <div className="sticky top-0 h-screen w-full flex flex-col justify-between py-4 sm:py-6 z-10 overflow-hidden">
+      {/* STICKY DESKTOP & RESPONSIVE CONTAINER */}
+      <div className="sticky top-0 h-auto lg:h-screen w-full flex flex-col justify-between py-6 lg:py-6 z-10 overflow-hidden">
 
-        {/* ── HEADER PROGRESS TRACKER WITH AUTO PLAY TOGGLE ── */}
-        <div className="max-w-4xl mx-auto px-4 w-full z-40">
+        {/* ── HEADER PROGRESS TRACKER WITH TOUCH-FRIENDLY TABS ── */}
+        <div className="max-w-4xl mx-auto px-3 w-full z-40">
           <div className="flex flex-col items-center gap-2">
             
-            {/* Steps Pills & Auto Play Controls */}
-            <div className="flex items-center gap-3">
-              <div className="inline-flex items-center gap-2 sm:gap-4 p-1.5 rounded-full bg-white/[0.04] border border-white/10 backdrop-blur-xl shadow-2xl">
+            {/* Steps Pills */}
+            <div className="flex items-center gap-2 sm:gap-3 w-full sm:w-auto justify-center">
+              <div className="inline-flex items-center gap-1.5 sm:gap-3 p-1 sm:p-1.5 rounded-full bg-white/[0.04] border border-white/10 backdrop-blur-xl shadow-2xl overflow-x-auto max-w-full">
                 
                 <button 
                   onClick={() => scrollToStep(0)}
-                  className={`flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono font-bold transition-all cursor-pointer ${
+                  className={`flex items-center gap-1.5 px-3 sm:px-4 py-1.5 rounded-full text-[11px] sm:text-xs font-mono font-bold transition-all cursor-pointer whitespace-nowrap ${
                     activeStep === 0 
                       ? "bg-amber-500/20 text-amber-400 border border-amber-500/40 shadow-[0_0_15px_rgba(245,158,11,0.2)]" 
                       : "text-white/50 hover:text-white"
                   }`}
                 >
-                  <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
                   01 TRAFFIC
                 </button>
 
-                <span className="text-white/20 text-xs">→</span>
+                <span className="text-white/20 text-[10px]">→</span>
 
                 <button 
                   onClick={() => scrollToStep(1)}
-                  className={`flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono font-bold transition-all cursor-pointer ${
+                  className={`flex items-center gap-1.5 px-3 sm:px-4 py-1.5 rounded-full text-[11px] sm:text-xs font-mono font-bold transition-all cursor-pointer whitespace-nowrap ${
                     activeStep === 1 
                       ? "bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 shadow-[0_0_15px_rgba(16,185,129,0.2)]" 
                       : "text-white/50 hover:text-white"
                   }`}
                 >
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                   02 TRUST
                 </button>
 
-                <span className="text-white/20 text-xs">→</span>
+                <span className="text-white/20 text-[10px]">→</span>
 
                 <button 
                   onClick={() => scrollToStep(2)}
-                  className={`flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono font-bold transition-all cursor-pointer ${
+                  className={`flex items-center gap-1.5 px-3 sm:px-4 py-1.5 rounded-full text-[11px] sm:text-xs font-mono font-bold transition-all cursor-pointer whitespace-nowrap ${
                     activeStep === 2 
                       ? "bg-indigo-500/20 text-indigo-400 border border-indigo-500/40 shadow-[0_0_15px_rgba(99,102,241,0.2)]" 
                       : "text-white/50 hover:text-white"
                   }`}
                 >
-                  <span className="w-2 h-2 rounded-full bg-indigo-400 animate-pulse" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse" />
                   03 CONVERSION
                 </button>
               </div>
@@ -334,24 +336,23 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
                     ? "bg-emerald-500/10 border-emerald-500/40 text-emerald-400"
                     : "bg-white/5 border-white/10 text-white/50 hover:text-white"
                 }`}
-                title={isAutoScrolling ? "Click to Pause Auto Scroll" : "Click to Enable Auto Scroll"}
               >
                 {isAutoScrolling && !isHovered ? (
                   <>
                     <Pause className="w-3 h-3 text-emerald-400 animate-pulse" />
-                    <span>AUTO SCROLL ON</span>
+                    <span>AUTO ON</span>
                   </>
                 ) : (
                   <>
                     <Play className="w-3 h-3 text-white/60" />
-                    <span>AUTO SCROLL PAUSED</span>
+                    <span>PAUSED</span>
                   </>
                 )}
               </button>
             </div>
 
             {/* Continuous Line Indicator */}
-            <div className="w-64 h-1 bg-white/10 rounded-full overflow-hidden mt-1">
+            <div className="w-48 sm:w-64 h-1 bg-white/10 rounded-full overflow-hidden mt-1">
               <motion.div 
                 style={{ width: progressLineWidth }}
                 className="h-full bg-gradient-to-r from-amber-400 via-emerald-400 to-indigo-500 rounded-full"
@@ -362,22 +363,18 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
 
 
         {/* ─────────────────────────────────────────────────────────────────── */}
-        {/* DESKTOP: SMOOTH INLINE HORIZONTAL SCROLL CAMERA (Traffic -> Trust -> Conversion) */}
+        {/* DESKTOP: SMOOTH INLINE HORIZONTAL SCROLL CAMERA */}
         {/* ─────────────────────────────────────────────────────────────────── */}
         <div className="hidden lg:block w-full h-[65vh] my-auto relative overflow-hidden">
           
-          {/* Background Connecting Laser Beam */}
           <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-0.5 bg-gradient-to-r from-amber-500/40 via-emerald-500/40 to-indigo-500/40 z-0 pointer-events-none" />
 
-          {/* Inline Track container (300% total width) */}
           <motion.div 
             style={{ x: cameraX }}
             className="flex items-center w-[300%] h-full relative z-10"
           >
             
-            {/* ════════════════════════════════════════════════════════════════
-               STAGE 1: TRAFFIC (Panel 1 - 100vw Width)
-               ════════════════════════════════════════════════════════════════ */}
+            {/* STAGE 1: TRAFFIC */}
             <div className="w-[100vw] h-full shrink-0 flex items-center justify-center px-12">
               <div className="max-w-4xl w-full grid grid-cols-12 gap-8 items-center bg-white/[0.02] border border-amber-500/20 rounded-3xl p-7 backdrop-blur-md shadow-2xl relative">
                 
@@ -451,9 +448,7 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
             </div>
 
 
-            {/* ════════════════════════════════════════════════════════════════
-               STAGE 2: TRUST (Panel 2 - 100vw Width)
-               ════════════════════════════════════════════════════════════════ */}
+            {/* STAGE 2: TRUST */}
             <div className="w-[100vw] h-full shrink-0 flex items-center justify-center px-12">
               <div className="max-w-4xl w-full grid grid-cols-12 gap-8 items-center bg-white/[0.02] border border-emerald-500/20 rounded-3xl p-7 backdrop-blur-md shadow-2xl relative">
                 
@@ -531,9 +526,7 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
             </div>
 
 
-            {/* ════════════════════════════════════════════════════════════════
-               STAGE 3: CONVERSION (Panel 3 - 100vw Width)
-               ════════════════════════════════════════════════════════════════ */}
+            {/* STAGE 3: CONVERSION */}
             <div className="w-[100vw] h-full shrink-0 flex items-center justify-center px-12">
               <div className="max-w-4xl w-full grid grid-cols-12 gap-8 items-center bg-white/[0.02] border border-indigo-500/30 rounded-3xl p-7 backdrop-blur-md shadow-2xl relative">
                 
@@ -607,51 +600,146 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
 
 
         {/* ─────────────────────────────────────────────────────────────────── */}
-        {/* MOBILE RESPONSIVE VIEW (Vertical Smooth Storyboard Stack) */}
+        {/* MOBILE OPTIMIZED VIEW (Interactive Dynamic Animated Cards) */}
         {/* ─────────────────────────────────────────────────────────────────── */}
-        <div className="lg:hidden flex flex-col gap-6 px-4 my-auto overflow-y-auto max-h-[72vh] py-4">
-          
-          <div className={`p-5 rounded-2xl border transition-all ${activeStep === 0 ? "bg-amber-500/10 border-amber-500/40" : "bg-white/[0.02] border-white/10"}`}>
-            <span className="text-[10px] font-mono font-bold text-amber-400 tracking-wider block mb-1">01 • TRAFFIC</span>
-            <h4 className="text-lg font-bold font-grotesk text-white mb-2">High-Intent Traffic Sources</h4>
-            <div className="flex items-center gap-3 mb-3">
-              <GoogleLogo />
-              <MetaLogo />
-              <InstagramLogo />
-              <WhatsAppLogo />
-            </div>
-            <div className="flex items-center gap-2 text-xs font-mono text-amber-300">
-              <ShopperEmptyCart />
-              <span>50K+ Monthly Visitors Arriving</span>
-            </div>
-          </div>
+        <div className="lg:hidden w-full px-4 my-auto py-3">
+          <AnimatePresence mode="wait">
+            
+            {/* MOBILE STAGE 1: TRAFFIC */}
+            {activeStep === 0 && (
+              <motion.div 
+                key="mobile-stage-0"
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ duration: 0.3 }}
+                className="p-5 rounded-2xl bg-gradient-to-b from-amber-500/10 via-[#070a14] to-[#04060d] border border-amber-500/30 backdrop-blur-xl shadow-2xl space-y-4 relative overflow-hidden"
+              >
+                <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-amber-500/20 border border-amber-500/40 text-[9px] font-mono font-bold text-amber-400 uppercase tracking-wider">
+                  Stage 01 • Traffic Engine
+                </div>
 
-          <div className={`p-5 rounded-2xl border transition-all ${activeStep === 1 ? "bg-emerald-500/10 border-emerald-500/40" : "bg-white/[0.02] border-white/10"}`}>
-            <span className="text-[10px] font-mono font-bold text-emerald-400 tracking-wider block mb-1">02 • TRUST</span>
-            <h4 className="text-lg font-bold font-grotesk text-white mb-2">Shopify Trust Engine</h4>
-            <p className="text-xs text-white/70 mb-3">Fast loading, SSL security badges, verified reviews & 1-click cart drawer.</p>
-            <div className="flex flex-wrap gap-1.5">
-              <span className="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-[10px] font-mono">★★★★★ 5.0 Rating</span>
-              <span className="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-[10px] font-mono">99/100 Speed</span>
-              <span className="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-[10px] font-mono">SSL Secure</span>
-            </div>
-          </div>
+                <h3 className="text-xl font-bold font-grotesk text-white leading-tight">
+                  Attract <span className="text-amber-400">High-Intent</span> Shoppers
+                </h3>
+                <p className="text-xs text-white/70 leading-relaxed">
+                  Direct Google, Meta, Instagram & Messaging traffic straight to your store.
+                </p>
 
-          <div className={`p-5 rounded-2xl border transition-all ${activeStep === 2 ? "bg-indigo-500/10 border-indigo-500/40" : "bg-white/[0.02] border-white/10"}`}>
-            <span className="text-[10px] font-mono font-bold text-indigo-400 tracking-wider block mb-1">03 • CONVERSION</span>
-            <h4 className="text-lg font-bold font-grotesk text-white mb-2">Revenue & Customer Growth</h4>
-            <div className="my-2">
-              <DeliveryHandover />
-            </div>
-            <span className="text-xs font-mono text-indigo-300 block my-2">+245% Conversion Rate Lift</span>
-            <button
-              onClick={onOpenModal}
-              className="w-full mt-2 py-3 rounded-full bg-gradient-to-r from-emerald-400 via-teal-400 to-emerald-500 text-black font-grotesk font-bold text-xs uppercase tracking-wider"
-            >
-              Build My High-Converting Store →
-            </button>
-          </div>
+                {/* Traffic Channels Stack */}
+                <div className="grid grid-cols-2 gap-2 pt-1">
+                  <div className="flex items-center gap-2 p-2 rounded-xl bg-white/[0.04] border border-white/10 text-xs font-medium">
+                    <GoogleLogo />
+                    <span>Google Ads</span>
+                  </div>
+                  <div className="flex items-center gap-2 p-2 rounded-xl bg-white/[0.04] border border-white/10 text-xs font-medium">
+                    <MetaLogo />
+                    <span>Meta Ads</span>
+                  </div>
+                  <div className="flex items-center gap-2 p-2 rounded-xl bg-white/[0.04] border border-white/10 text-xs font-medium">
+                    <InstagramLogo />
+                    <span>Instagram</span>
+                  </div>
+                  <div className="flex items-center gap-2 p-2 rounded-xl bg-white/[0.04] border border-white/10 text-xs font-medium">
+                    <WhatsAppLogo />
+                    <span>WhatsApp</span>
+                  </div>
+                </div>
 
+                <div className="flex items-center justify-between p-3 rounded-xl bg-black/40 border border-amber-500/20">
+                  <div className="flex items-center gap-2">
+                    <ShopperEmptyCart delay={0} />
+                    <span className="text-[10px] font-mono text-amber-300">50K+ Monthly Visitors</span>
+                  </div>
+                  <span className="text-[9px] font-mono bg-amber-500/20 text-amber-400 px-2 py-0.5 rounded">FAST ENTRY</span>
+                </div>
+              </motion.div>
+            )}
+
+            {/* MOBILE STAGE 2: TRUST */}
+            {activeStep === 1 && (
+              <motion.div 
+                key="mobile-stage-1"
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ duration: 0.3 }}
+                className="p-5 rounded-2xl bg-gradient-to-b from-emerald-500/10 via-[#070a14] to-[#04060d] border border-emerald-500/30 backdrop-blur-xl shadow-2xl space-y-4 relative overflow-hidden"
+              >
+                <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-[9px] font-mono font-bold text-emerald-400 uppercase tracking-wider">
+                  Stage 02 • Storefront Trust
+                </div>
+
+                <h3 className="text-xl font-bold font-grotesk text-white leading-tight">
+                  Instant Store <span className="text-emerald-400">Trust Signals</span>
+                </h3>
+                <p className="text-xs text-white/70 leading-relaxed">
+                  Fast loading, 256-bit SSL badges, review widgets & 1-click cart drawer.
+                </p>
+
+                {/* Trust Badges Pills */}
+                <div className="flex flex-wrap gap-1.5 pt-1">
+                  <span className="px-2.5 py-1 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 text-[10px] font-mono font-bold">
+                    ★★★★★ 5.0 Rating
+                  </span>
+                  <span className="px-2.5 py-1 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 text-[10px] font-mono font-bold">
+                    99/100 Speed
+                  </span>
+                  <span className="px-2.5 py-1 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 text-[10px] font-mono font-bold">
+                    SSL 256-bit Secure
+                  </span>
+                  <span className="px-2.5 py-1 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 text-[10px] font-mono font-bold">
+                    7-Day Easy Returns
+                  </span>
+                </div>
+
+                <div className="p-3 rounded-xl bg-black/40 border border-emerald-500/20 flex items-center justify-between">
+                  <span className="text-[10px] font-mono text-emerald-300 font-bold">SHOPPING UX OPTIMIZED</span>
+                  <span className="text-[9px] font-mono text-emerald-400/80">ZERO FRICTION</span>
+                </div>
+              </motion.div>
+            )}
+
+            {/* MOBILE STAGE 3: CONVERSION */}
+            {activeStep === 2 && (
+              <motion.div 
+                key="mobile-stage-2"
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ duration: 0.3 }}
+                className="p-5 rounded-2xl bg-gradient-to-b from-indigo-500/10 via-[#070a14] to-[#04060d] border border-indigo-500/30 backdrop-blur-xl shadow-2xl space-y-4 relative overflow-hidden"
+              >
+                <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-indigo-500/20 border border-indigo-500/40 text-[9px] font-mono font-bold text-indigo-400 uppercase tracking-wider">
+                  Stage 03 • Revenue Conversion
+                </div>
+
+                <h3 className="text-xl font-bold font-grotesk text-white leading-tight">
+                  Turn Visitors into <span className="text-indigo-400">Paying Customers</span>
+                </h3>
+
+                {/* Live Order Popup */}
+                <div className="flex items-center gap-2.5 px-3 py-2 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-xs font-mono text-emerald-300">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping shrink-0" />
+                  <span className="text-[10px]">🎉 New Order Confirmed! ₹4,850</span>
+                </div>
+
+                <div className="flex items-center justify-around py-1">
+                  <DeliveryHandover />
+                </div>
+
+                {/* Mobile CTA Button */}
+                <button
+                  onClick={onOpenModal}
+                  className="w-full py-3 px-4 rounded-full bg-gradient-to-r from-emerald-400 via-teal-400 to-emerald-500 text-black font-grotesk font-bold text-xs uppercase tracking-wider shadow-[0_0_20px_rgba(16,185,129,0.3)] active:scale-95 transition-transform flex items-center justify-center gap-2 cursor-pointer"
+                >
+                  <span>Build My High-Converting Store</span>
+                  <ArrowRight className="w-4 h-4 text-black" />
+                </button>
+              </motion.div>
+            )}
+
+          </AnimatePresence>
         </div>
 
 
