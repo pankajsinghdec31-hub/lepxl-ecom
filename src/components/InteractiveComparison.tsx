@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { CheckCircle2, XCircle, Sparkles, ChevronLeft, ChevronRight } from "lucide-react";
+import { CheckCircle2, XCircle, Sparkles, ChevronLeft, ChevronRight, PenTool } from "lucide-react";
 
 const COMPARISON_POINTS = [
   {
@@ -37,14 +37,14 @@ const COMPARISON_POINTS = [
   }
 ];
 
-// Interactive Typewriter Effect Component
-function TypewriterText({ text, delay = 0, speed = 20 }: { text: string; delay?: number; speed?: number }) {
+// Interactive Pen Writing / Typewriter Effect Component
+function PenTypewriterText({ text, delay = 0, speed = 20, showPen = true }: { text: string; delay?: number; speed?: number; showPen?: boolean }) {
   const [displayedText, setDisplayedText] = useState("");
-  const [isTyping, setIsTyping] = useState(true);
+  const [isWriting, setIsWriting] = useState(true);
 
   useEffect(() => {
     setDisplayedText("");
-    setIsTyping(true);
+    setIsWriting(true);
     let charIndex = 0;
 
     const startTimeout = setTimeout(() => {
@@ -53,7 +53,7 @@ function TypewriterText({ text, delay = 0, speed = 20 }: { text: string; delay?:
           setDisplayedText(text.substring(0, charIndex + 1));
           charIndex++;
         } else {
-          setIsTyping(false);
+          setIsWriting(false);
           clearInterval(intervalId);
         }
       }, speed);
@@ -65,10 +65,12 @@ function TypewriterText({ text, delay = 0, speed = 20 }: { text: string; delay?:
   }, [text, delay, speed]);
 
   return (
-    <span>
-      {displayedText}
-      {isTyping && (
-        <span className="inline-block w-1.5 h-3 bg-emerald-400 ml-0.5 animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.8)]" />
+    <span className="inline-flex items-center flex-wrap gap-1">
+      <span>{displayedText}</span>
+      {isWriting && showPen && (
+        <span className="inline-flex items-center justify-center p-0.5 rounded-full bg-emerald-500/20 border border-emerald-400/40 text-emerald-400 animate-pulse ml-1 shrink-0 shadow-[0_0_10px_rgba(16,185,129,0.5)]">
+          <PenTool className="w-3.5 h-3.5 text-emerald-300 -rotate-45" />
+        </span>
       )}
     </span>
   );
@@ -185,7 +187,7 @@ export default function InteractiveComparison() {
                 </div>
               </motion.div>
             ) : (
-              /* MOBILE CARD 2: SalePXL Store (REVEALED ON SWIPE WITH TYPEWRITER EFFECT) */
+              /* MOBILE CARD 2: SalePXL Store (REVEALED ON SWIPE WITH PEN TYPEWRITER EFFECT) */
               <motion.div
                 key="salepxl-card"
                 drag="x"
@@ -213,7 +215,7 @@ export default function InteractiveComparison() {
                           <Sparkles className="w-3.5 h-3.5 text-emerald-400 animate-pulse" />
                         </h3>
                         <span className="text-[10px] text-emerald-400 font-mono font-bold tracking-wider uppercase">
-                          <TypewriterText text="Fully Customized" delay={150} speed={25} />
+                          <PenTypewriterText text="Fully Customized" delay={150} speed={25} showPen={false} />
                         </span>
                       </div>
                     </div>
@@ -223,13 +225,13 @@ export default function InteractiveComparison() {
                     </span>
                   </div>
 
-                  {/* 5 Green Advantages with Typewriter Reveal */}
+                  {/* 5 Green Advantages with Pen Writing Effect */}
                   <div className="space-y-2.5">
                     {COMPARISON_POINTS.map((pt, idx) => (
                       <div key={pt.id} className="flex items-start gap-2.5 p-2.5 rounded-xl bg-emerald-950/50 border border-emerald-500/30 shadow-sm">
                         <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
                         <span className="text-xs text-white font-medium leading-relaxed font-sans">
-                          <TypewriterText text={pt.salepxl} delay={200 + idx * 150} speed={18} />
+                          <PenTypewriterText text={pt.salepxl} delay={200 + idx * 150} speed={18} showPen={true} />
                         </span>
                       </div>
                     ))}
@@ -319,7 +321,7 @@ export default function InteractiveComparison() {
                     <Sparkles className="w-3.5 h-3.5 text-emerald-400 animate-pulse" />
                   </h3>
                   <span className="text-[10px] text-emerald-400 font-mono font-bold tracking-wider uppercase">
-                    <TypewriterText text="Fully Customized" delay={150} speed={25} />
+                    <PenTypewriterText text="Fully Customized" delay={150} speed={25} showPen={false} />
                   </span>
                 </div>
               </div>
@@ -328,13 +330,13 @@ export default function InteractiveComparison() {
               </span>
             </div>
 
-            {/* List of 5 Green Advantages with Typewriter Reveal */}
+            {/* List of 5 Green Advantages with Pen Writing Effect */}
             <div className="space-y-3">
               {COMPARISON_POINTS.map((pt, idx) => (
                 <div key={pt.id} className="flex items-start gap-2.5 p-3 rounded-xl bg-emerald-950/40 border border-emerald-500/25 shadow-sm">
                   <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
                   <span className="text-sm text-white font-medium leading-relaxed font-sans">
-                    <TypewriterText text={pt.salepxl} delay={200 + idx * 150} speed={18} />
+                    <PenTypewriterText text={pt.salepxl} delay={200 + idx * 150} speed={18} showPen={true} />
                   </span>
                 </div>
               ))}
