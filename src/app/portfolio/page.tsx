@@ -576,10 +576,8 @@ function PortfolioCard({ proj, heightClass }: { proj: Project; heightClass: stri
       s.toLowerCase().includes("custom liquid")
   );
 
-  const hasLink = proj.url && proj.url !== "#" && proj.url !== "";
-
-  const cardContent = (
-    <>
+  return (
+    <div className={`relative group overflow-hidden rounded-[24px] border border-neutral-200/60 bg-white/70 w-full shrink-0 flex flex-col justify-between shadow-[0_10px_30px_rgba(0,0,0,0.02)] backdrop-blur-xl transition-all duration-500 hover:border-emerald-500/30 cursor-default ${heightClass}`}>
       {/* Mockup screen or image container */}
       <div className="absolute inset-0 w-full h-full overflow-hidden bg-black/5">
         {store.image ? (
@@ -609,38 +607,7 @@ function PortfolioCard({ proj, heightClass }: { proj: Project; heightClass: stri
           {isCustom ? "Custom Liquid" : "Theme"}
         </span>
       </div>
-
-      {/* Hover overlay with domain */}
-      {hasLink && (
-        <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center z-20 gap-2">
-          <span className="text-white text-sm font-bold tracking-wide flex items-center gap-1.5 group-hover:scale-105 transition-transform duration-300">
-            {proj.url.replace("https://", "").replace("www.", "")}
-            <ArrowUpRight className="w-4 h-4 text-white" strokeWidth={2.5} />
-          </span>
-        </div>
-      )}
-    </>
-  );
-
-  const containerClasses = `relative group overflow-hidden rounded-[24px] border border-neutral-200/60 bg-white/70 w-full shrink-0 flex flex-col justify-between shadow-[0_10px_30px_rgba(0,0,0,0.02)] backdrop-blur-xl transition-all duration-500 hover:border-emerald-500/30 ${heightClass} ${hasLink ? "" : "cursor-default"}`;
-
-  if (!hasLink) {
-    return (
-      <div className={containerClasses}>
-        {cardContent}
-      </div>
-    );
-  }
-
-  return (
-    <Link
-      href={proj.url}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={containerClasses}
-    >
-      {cardContent}
-    </Link>
+    </div>
   );
 }
 
