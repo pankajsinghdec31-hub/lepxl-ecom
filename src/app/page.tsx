@@ -2095,7 +2095,7 @@ export default function HomePage() {
           </h2>
 
           <p className="text-white/70 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
-            Let's construct a lightning-fast, high-converting checkout experience custom designed for your brand.<br className="hidden sm:block" /> Get a free audit and consultation today.
+            Let's build a high converting Shopify store and faster checkout experience custom designed for your ecom brand.<br className="hidden sm:block" /> Get a free audit and consultation today.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto mt-2">
