@@ -37,19 +37,19 @@ const COMPARISON_POINTS = [
   }
 ];
 
-// Interactive Pen Writing / Typewriter Effect Component
-function PenTypewriterText({
+// Single Line Pen Typewriter Component
+function SinglePenTypewriterText({
   text,
-  delay = 0,
   speed = 18,
   showPen = true,
-  theme = "emerald"
+  theme = "emerald",
+  onComplete
 }: {
   text: string;
-  delay?: number;
   speed?: number;
   showPen?: boolean;
   theme?: "emerald" | "red";
+  onComplete?: () => void;
 }) {
   const [displayedText, setDisplayedText] = useState("");
   const [isWriting, setIsWriting] = useState(true);
@@ -59,22 +59,21 @@ function PenTypewriterText({
     setIsWriting(true);
     let charIndex = 0;
 
-    const startTimeout = setTimeout(() => {
-      const intervalId = setInterval(() => {
-        if (charIndex < text.length) {
-          setDisplayedText(text.substring(0, charIndex + 1));
-          charIndex++;
-        } else {
-          setIsWriting(false);
-          clearInterval(intervalId);
+    const intervalId = setInterval(() => {
+      if (charIndex < text.length) {
+        setDisplayedText(text.substring(0, charIndex + 1));
+        charIndex++;
+      } else {
+        setIsWriting(false);
+        clearInterval(intervalId);
+        if (onComplete) {
+          onComplete();
         }
-      }, speed);
+      }
+    }, speed);
 
-      return () => clearInterval(intervalId);
-    }, delay);
-
-    return () => clearTimeout(startTimeout);
-  }, [text, delay, speed]);
+    return () => clearInterval(intervalId);
+  }, [text, speed]);
 
   const isRed = theme === "red";
 
@@ -93,6 +92,65 @@ function PenTypewriterText({
         </span>
       )}
     </span>
+  );
+}
+
+// Sequential Pen Typewriter List (Writes points ONE BY ONE)
+function SequentialPenWriterList({
+  items,
+  typeKey,
+  theme = "emerald",
+  icon: Icon
+}: {
+  items: typeof COMPARISON_POINTS;
+  typeKey: "basic" | "salepxl";
+  theme?: "emerald" | "red";
+  icon: any;
+}) {
+  const [activeWritingIndex, setActiveWritingIndex] = useState(0);
+
+  useEffect(() => {
+    setActiveWritingIndex(0);
+  }, [typeKey]);
+
+  return (
+    <div className="space-y-2.5 sm:space-y-3">
+      {items.map((pt, idx) => {
+        const text = pt[typeKey];
+        const isVisible = idx <= activeWritingIndex;
+        const isCurrentlyWriting = idx === activeWritingIndex;
+
+        return (
+          <div
+            key={pt.id}
+            className={`flex items-start gap-2.5 p-2.5 sm:p-3 rounded-xl transition-all duration-300 ${
+              isVisible
+                ? theme === "red"
+                  ? "bg-red-950/30 border border-red-500/15 opacity-100"
+                  : "bg-emerald-950/50 border border-emerald-500/30 shadow-sm opacity-100"
+                : "opacity-0 hidden"
+            }`}
+          >
+            <Icon className={`w-4 h-4 shrink-0 mt-0.5 ${theme === "red" ? "text-red-400" : "text-emerald-400"}`} />
+            <span className={`text-xs sm:text-sm font-medium leading-relaxed ${theme === "red" ? "text-red-200/90" : "text-white"}`}>
+              {isVisible ? (
+                <SinglePenTypewriterText
+                  text={text}
+                  speed={18}
+                  showPen={isCurrentlyWriting}
+                  theme={theme}
+                  onComplete={() => {
+                    if (idx === activeWritingIndex && activeWritingIndex < items.length - 1) {
+                      setActiveWritingIndex((prev) => prev + 1);
+                    }
+                  }}
+                />
+              ) : null}
+            </span>
+          </div>
+        );
+      })}
+    </div>
   );
 }
 
@@ -146,7 +204,7 @@ export default function InteractiveComparison() {
         <div className="relative min-h-[460px] overflow-hidden rounded-3xl p-0.5">
           <AnimatePresence mode="wait">
             {activeMobileCardIndex === 0 ? (
-              /* MOBILE CARD 1: FAILED ECOM BRAND STORY (Shown FIRST with Red Pen Writing) */
+              /* MOBILE CARD 1: FAILED ECOM BRAND STORY (Shown FIRST with Red Pen Writing points ONE BY ONE) */
               <motion.div
                 key="basic-card"
                 drag="x"
@@ -181,17 +239,8 @@ export default function InteractiveComparison() {
                     </span>
                   </div>
 
-                  {/* 5 Red Drawbacks - Failed Ecom Brand Story written with Red Pen */}
-                  <div className="space-y-2.5">
-                    {COMPARISON_POINTS.map((pt, idx) => (
-                      <div key={pt.id} className="flex items-start gap-2.5 p-2.5 rounded-xl bg-red-950/30 border border-red-500/15">
-                        <XCircle className="w-4 h-4 text-red-400 shrink-0 mt-0.5" />
-                        <span className="text-xs text-red-200/90 leading-relaxed font-sans font-normal">
-                          <PenTypewriterText text={pt.basic} delay={200 + idx * 150} speed={18} showPen={true} theme="red" />
-                        </span>
-                      </div>
-                    ))}
-                  </div>
+                  {/* 5 Red Drawbacks - Failed Ecom Brand Story written ONE BY ONE */}
+                  <SequentialPenWriterList items={COMPARISON_POINTS} typeKey="basic" theme="red" icon={XCircle} />
                 </div>
 
                 {/* Footer & Next Card Nav Hint */}
@@ -209,7 +258,7 @@ export default function InteractiveComparison() {
                 </div>
               </motion.div>
             ) : (
-              /* MOBILE CARD 2: SalePXL Store (REVEALED ON SWIPE WITH EMERALD PEN TYPEWRITER EFFECT) */
+              /* MOBILE CARD 2: SalePXL Store (REVEALED ON SWIPE WITH EMERALD PEN WRITING points ONE BY ONE) */
               <motion.div
                 key="salepxl-card"
                 drag="x"
@@ -237,7 +286,7 @@ export default function InteractiveComparison() {
                           <Sparkles className="w-3.5 h-3.5 text-emerald-400 animate-pulse" />
                         </h3>
                         <span className="text-[10px] text-emerald-400 font-mono font-bold tracking-wider uppercase">
-                          <PenTypewriterText text="Fully Customized" delay={150} speed={25} showPen={false} theme="emerald" />
+                          Fully Customized
                         </span>
                       </div>
                     </div>
@@ -247,17 +296,8 @@ export default function InteractiveComparison() {
                     </span>
                   </div>
 
-                  {/* 5 Green Advantages with Emerald Pen Writing Effect */}
-                  <div className="space-y-2.5">
-                    {COMPARISON_POINTS.map((pt, idx) => (
-                      <div key={pt.id} className="flex items-start gap-2.5 p-2.5 rounded-xl bg-emerald-950/50 border border-emerald-500/30 shadow-sm">
-                        <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-                        <span className="text-xs text-white font-medium leading-relaxed font-sans">
-                          <PenTypewriterText text={pt.salepxl} delay={200 + idx * 150} speed={18} showPen={true} theme="emerald" />
-                        </span>
-                      </div>
-                    ))}
-                  </div>
+                  {/* 5 Green Advantages - Written ONE BY ONE */}
+                  <SequentialPenWriterList items={COMPARISON_POINTS} typeKey="salepxl" theme="emerald" icon={CheckCircle2} />
                 </div>
 
                 {/* Footer & Prev Card Nav Hint */}
@@ -308,17 +348,8 @@ export default function InteractiveComparison() {
               </span>
             </div>
 
-            {/* List of 5 Red Drawbacks - Written with Red Pen */}
-            <div className="space-y-3">
-              {COMPARISON_POINTS.map((pt, idx) => (
-                <div key={pt.id} className="flex items-start gap-2.5 p-3 rounded-xl bg-red-950/20 border border-red-500/10">
-                  <XCircle className="w-4 h-4 text-red-400 shrink-0 mt-0.5" />
-                  <span className="text-sm text-red-200/90 leading-relaxed font-sans font-normal">
-                    <PenTypewriterText text={pt.basic} delay={200 + idx * 150} speed={18} showPen={true} theme="red" />
-                  </span>
-                </div>
-              ))}
-            </div>
+            {/* Sequential Line-by-Line Pen Writer */}
+            <SequentialPenWriterList items={COMPARISON_POINTS} typeKey="basic" theme="red" icon={XCircle} />
           </div>
 
           <div className="mt-6 pt-3 border-t border-red-500/10 text-center">
@@ -345,7 +376,7 @@ export default function InteractiveComparison() {
                     <Sparkles className="w-3.5 h-3.5 text-emerald-400 animate-pulse" />
                   </h3>
                   <span className="text-[10px] text-emerald-400 font-mono font-bold tracking-wider uppercase">
-                    <PenTypewriterText text="Fully Customized" delay={150} speed={25} showPen={false} theme="emerald" />
+                    Fully Customized
                   </span>
                 </div>
               </div>
@@ -354,17 +385,8 @@ export default function InteractiveComparison() {
               </span>
             </div>
 
-            {/* List of 5 Green Advantages with Emerald Pen Writing Effect */}
-            <div className="space-y-3">
-              {COMPARISON_POINTS.map((pt, idx) => (
-                <div key={pt.id} className="flex items-start gap-2.5 p-3 rounded-xl bg-emerald-950/40 border border-emerald-500/25 shadow-sm">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-                  <span className="text-sm text-white font-medium leading-relaxed font-sans">
-                    <PenTypewriterText text={pt.salepxl} delay={200 + idx * 150} speed={18} showPen={true} theme="emerald" />
-                  </span>
-                </div>
-              ))}
-            </div>
+            {/* Sequential Line-by-Line Pen Writer */}
+            <SequentialPenWriterList items={COMPARISON_POINTS} typeKey="salepxl" theme="emerald" icon={CheckCircle2} />
           </div>
 
           <div className="mt-6 pt-3 border-t border-emerald-500/20 flex items-center justify-between">
