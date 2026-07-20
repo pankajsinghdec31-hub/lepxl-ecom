@@ -47,6 +47,7 @@ export default function RootLayout({
     <html
       lang="en"
       className="scroll-smooth"
+      suppressHydrationWarning
     >
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -55,7 +56,7 @@ export default function RootLayout({
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1315915199980599"
              crossOrigin="anonymous"></script>
       </head>
-      <body className="bg-[#050505] text-white font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-primary/20 selection:text-white">
+      <body suppressHydrationWarning className="bg-[#050505] text-white font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-primary/20 selection:text-white">
         <Navbar />
         <main className="flex-grow pt-24">{children}</main>
         <Footer />

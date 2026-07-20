@@ -658,8 +658,13 @@ function StickySlideshow() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const [isMounted, setIsMounted] = useState(false);
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   const { scrollYProgress } = useScroll({
-    target: containerRef,
+    target: isMounted && containerRef.current ? containerRef : undefined,
     offset: ["start start", "end end"]
   });
 
@@ -911,10 +916,12 @@ export default function PortfolioPage() {
   const [activeAccordion, setActiveAccordion] = useState<number | null>(0);
   const [activeTestimonial, setActiveTestimonial] = useState(0);
   const [isDesktop, setIsDesktop] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
 
   const masonrySectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    setIsMounted(true);
     const handleResize = () => {
       setIsDesktop(window.innerWidth >= 768);
     };
@@ -924,7 +931,7 @@ export default function PortfolioPage() {
   }, []);
 
   const { scrollYProgress } = useScroll({
-    target: masonrySectionRef,
+    target: isMounted && masonrySectionRef.current ? masonrySectionRef : undefined,
     offset: ["start end", "end start"]
   });
 

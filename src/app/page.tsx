@@ -1055,8 +1055,14 @@ export default function HomePage() {
 
   // Storyboard Scroll Targets and Transforms
   const containerRef = useRef<HTMLDivElement>(null);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   const { scrollYProgress } = useScroll({
-    target: containerRef,
+    target: isMounted && containerRef.current ? containerRef : undefined,
     offset: ["start start", "end end"]
   });
 

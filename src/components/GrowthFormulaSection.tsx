@@ -1,956 +1,672 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { 
-  Zap, 
+  Search, 
   ShieldCheck, 
   Star, 
-  Lock, 
-  Truck, 
-  RotateCcw, 
-  CheckCircle2, 
-  ShoppingCart, 
-  CreditCard, 
   TrendingUp, 
-  Sparkles, 
-  PackageCheck, 
-  Award, 
-  Heart, 
-  Repeat, 
+  Package, 
+  MousePointer, 
+  Zap, 
   ArrowRight,
+  CheckCircle2,
+  BarChart3,
   Play,
-  Pause,
-  ChevronRight,
-  Globe,
-  Mail,
-  Search,
-  Share2,
-  SlidersHorizontal,
-  Check,
-  MousePointer
+  Pause
 } from "lucide-react";
 
 interface GrowthFormulaSectionProps {
   onOpenModal: () => void;
 }
 
+/* ─────────────────────────────────────────────────────────────────────────────
+   OFFICIAL LOGO SVGs (Traffic Channels)
+───────────────────────────────────────────────────────────────────────────── */
+function GoogleLogo() {
+  return (
+    <svg className="w-5 h-5" viewBox="0 0 24 24">
+      <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+      <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+      <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" />
+      <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" />
+    </svg>
+  );
+}
+
+function MetaLogo() {
+  return (
+    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="#0081FB">
+      <path d="M16.48 3.5c-2.3 0-4.32 1.25-5.48 3.19C9.84 4.75 7.82 3.5 5.52 3.5 2.47 3.5 0 5.97 0 9.02c0 4.14 4.8 8.48 10.42 11.23.36.18.8.18 1.16 0C17.2 17.5 22 13.16 22 9.02c0-3.05-2.47-5.52-5.52-5.52zm-5.48 15.35C5.7 16.32 1.8 12.42 1.8 9.02c0-2.05 1.67-3.72 3.72-3.72 1.77 0 3.32 1.25 3.66 2.99h1.64c.34-1.74 1.89-2.99 3.66-2.99 2.05 0 3.72 1.67 3.72 3.72 0 3.4-3.9 7.3-9.2 9.83z" />
+    </svg>
+  );
+}
+
+function InstagramLogo() {
+  return (
+    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none">
+      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" fill="#E1306C"/>
+    </svg>
+  );
+}
+
+function WhatsAppLogo() {
+  return (
+    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="#25D366">
+      <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.964 9.964 0 001.333 4.993L2 22l5.233-1.237a9.96 9.96 0 004.779 1.217h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.669-1.038-5.176-2.925-7.062A9.925 9.925 0 0012.012 2z" />
+    </svg>
+  );
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   SHOPPER SVG ANIMATED FIGURES
+───────────────────────────────────────────────────────────────────────────── */
+function ShopperEmptyCart({ delay = 0 }: { delay?: number }) {
+  return (
+    <motion.div 
+      animate={{ y: [0, -4, 0] }}
+      transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut", delay }}
+      className="flex items-end gap-1 shrink-0"
+    >
+      <svg className="w-10 h-16" viewBox="0 0 40 70" fill="none">
+        <circle cx="20" cy="12" r="7" fill="#F4A261" />
+        <path d="M 14 10 C 14 5, 26 5, 26 10 Z" fill="#264653" />
+        <path d="M 13 20 L 27 20 L 25 42 L 15 42 Z" fill="#E76F51" />
+        <path d="M 15 42 L 25 42 L 27 50 L 13 50 Z" fill="#2A9D8F" />
+        <motion.path 
+          animate={{ d: ["M 16 50 L 14 66", "M 16 50 L 20 66", "M 16 50 L 14 66"] }}
+          transition={{ duration: 0.8, repeat: Infinity }}
+          stroke="#E76F51" 
+          strokeWidth="3" 
+          strokeLinecap="round" 
+        />
+        <motion.path 
+          animate={{ d: ["M 24 50 L 26 66", "M 24 50 L 20 66", "M 24 50 L 26 66"] }}
+          transition={{ duration: 0.8, repeat: Infinity, delay: 0.4 }}
+          stroke="#E76F51" 
+          strokeWidth="3" 
+          strokeLinecap="round" 
+        />
+        <path d="M 23 24 L 35 34" stroke="#F4A261" strokeWidth="3" strokeLinecap="round" />
+      </svg>
+
+      <svg className="w-10 h-12" viewBox="0 0 45 45" fill="none">
+        <path d="M 5 10 L 12 10 L 16 30 L 38 30 L 42 12 L 14 12" stroke="#64748B" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M 20 12 L 20 30 M 26 12 L 26 30 M 32 12 L 32 30" stroke="#475569" strokeWidth="1.5" />
+        <motion.circle animate={{ rotate: 360 }} transition={{ duration: 1, repeat: Infinity, ease: "linear" }} cx="20" cy="36" r="3" fill="#334155" stroke="#64748B" strokeWidth="1.5" />
+        <motion.circle animate={{ rotate: 360 }} transition={{ duration: 1, repeat: Infinity, ease: "linear" }} cx="34" cy="36" r="3" fill="#334155" stroke="#64748B" strokeWidth="1.5" />
+      </svg>
+    </motion.div>
+  );
+}
+
+function ShopperFullCart({ delay = 0 }: { delay?: number }) {
+  return (
+    <motion.div 
+      animate={{ y: [0, -4, 0] }}
+      transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut", delay }}
+      className="flex items-end gap-1 shrink-0"
+    >
+      <svg className="w-10 h-16" viewBox="0 0 40 70" fill="none">
+        <circle cx="20" cy="12" r="7" fill="#F4A261" />
+        <path d="M 14 10 C 14 5, 26 5, 26 10 Z" fill="#1D3557" />
+        <path d="M 13 20 L 27 20 L 25 42 L 15 42 Z" fill="#10B981" />
+        <path d="M 15 42 L 25 42 L 27 50 L 13 50 Z" fill="#047857" />
+        <motion.path 
+          animate={{ d: ["M 16 50 L 14 66", "M 16 50 L 20 66", "M 16 50 L 14 66"] }}
+          transition={{ duration: 0.8, repeat: Infinity }}
+          stroke="#F4A261" 
+          strokeWidth="3" 
+          strokeLinecap="round" 
+        />
+        <motion.path 
+          animate={{ d: ["M 24 50 L 26 66", "M 24 50 L 20 66", "M 24 50 L 26 66"] }}
+          transition={{ duration: 0.8, repeat: Infinity, delay: 0.4 }}
+          stroke="#F4A261" 
+          strokeWidth="3" 
+          strokeLinecap="round" 
+        />
+        <path d="M 23 24 L 35 34" stroke="#F4A261" strokeWidth="3" strokeLinecap="round" />
+      </svg>
+
+      <svg className="w-10 h-12" viewBox="0 0 45 45" fill="none">
+        <rect x="18" y="10" width="9" height="9" rx="1" fill="#F59E0B" stroke="#D97706" strokeWidth="1" />
+        <rect x="25" y="8" width="10" height="11" rx="1" fill="#10B981" stroke="#059669" strokeWidth="1" />
+        <rect x="20" y="3" width="11" height="8" rx="1" fill="#6366F1" stroke="#4F46E5" strokeWidth="1" />
+
+        <path d="M 5 10 L 12 10 L 16 30 L 38 30 L 42 12 L 14 12" stroke="#10B981" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M 20 12 L 20 30 M 26 12 L 26 30 M 32 12 L 32 30" stroke="#059669" strokeWidth="1.5" />
+        <motion.circle animate={{ rotate: 360 }} transition={{ duration: 1, repeat: Infinity, ease: "linear" }} cx="20" cy="36" r="3" fill="#047857" stroke="#34D399" strokeWidth="1.5" />
+        <motion.circle animate={{ rotate: 360 }} transition={{ duration: 1, repeat: Infinity, ease: "linear" }} cx="34" cy="36" r="3" fill="#047857" stroke="#34D399" strokeWidth="1.5" />
+      </svg>
+    </motion.div>
+  );
+}
+
+function DeliveryHandover() {
+  return (
+    <div className="flex items-end gap-2 shrink-0">
+      <svg className="w-12 h-20" viewBox="0 0 50 80" fill="none">
+        <circle cx="22" cy="14" r="8" fill="#F4A261" />
+        <path d="M 14 12 C 14 6, 30 6, 30 12 Z" fill="#E76F51" />
+        <path d="M 12 24 L 32 24 L 30 50 L 14 50 Z" fill="#F59E0B" />
+        <path d="M 14 50 L 30 50 L 32 76 L 12 76 Z" fill="#1E293B" />
+        <path d="M 28 30 L 44 34" stroke="#F4A261" strokeWidth="3.5" strokeLinecap="round" />
+      </svg>
+
+      <div className="w-10 h-10 rounded-lg bg-amber-500 border-2 border-amber-300 shadow-lg flex items-center justify-center -ml-2 mb-4 z-10 animate-bounce">
+        <Package className="w-5 h-5 text-black" />
+      </div>
+
+      <svg className="w-12 h-20 -ml-2" viewBox="0 0 50 80" fill="none">
+        <path d="M 16 12 C 16 6, 32 6, 32 12 Z" fill="#10B981" />
+        <path d="M 28 12 L 38 12" stroke="#047857" strokeWidth="3" strokeLinecap="round" />
+        <circle cx="24" cy="14" r="8" fill="#F4A261" />
+        <path d="M 14 24 L 34 24 L 32 50 L 16 50 Z" fill="#10B981" />
+        <path d="M 16 50 L 32 50 L 34 76 L 14 76 Z" fill="#064E3B" />
+        <path d="M 18 30 L 6 34" stroke="#F4A261" strokeWidth="3.5" strokeLinecap="round" />
+      </svg>
+    </div>
+  );
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   MAIN COMPONENT: GrowthFormulaSection
+   Seamless Inline Desktop Scroll: Traffic -> Trust -> Conversion + Auto Scroll
+───────────────────────────────────────────────────────────────────────────── */
 export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSectionProps) {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [isMounted, setIsMounted] = useState<boolean>(false);
   const [activeStep, setActiveStep] = useState<number>(0);
-  const [isPlaying, setIsPlaying] = useState<boolean>(true);
-  const [activeColor, setActiveColor] = useState<string>("black");
-  const [activeSize, setActiveSize] = useState<string>("M");
-  const [cartOpen, setCartOpen] = useState<boolean>(false);
-  const [paymentDone, setPaymentDone] = useState<boolean>(false);
+  const [isAutoScrolling, setIsAutoScrolling] = useState<boolean>(true);
+  const [isHovered, setIsHovered] = useState<boolean>(false);
+  const [isInView, setIsInView] = useState<boolean>(false);
 
-  // Scroll Progress Hook
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  // Intersection observer to activate auto-scroll only when section is visible
+  useEffect(() => {
+    if (!containerRef.current) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting);
+      },
+      { threshold: 0.2 }
+    );
+    observer.observe(containerRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  // Scroll progress for vertical pinning & inline horizontal camera track
   const { scrollYProgress } = useScroll({
-    target: containerRef,
+    target: isMounted && containerRef.current ? containerRef : undefined,
     offset: ["start start", "end end"]
   });
 
-  // Track scroll position to update active step smoothly
+  // Silky smooth spring physics
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 90,
+    damping: 28,
+    restDelta: 0.001
+  });
+
+  // Camera X finishes sliding to Panel 3 by 0.70 of total scroll, giving a full 30% scroll buffer
+  const cameraX = useTransform(smoothProgress, [0, 0.70], ["0%", "-66.6666%"]);
+  const progressLineWidth = useTransform(smoothProgress, [0, 0.70], ["0%", "100%"]);
+
   useEffect(() => {
-    return scrollYProgress.onChange((val) => {
-      // Divide into 6 sections (0: Traffic, 1: Trust, 2: UX, 3: Sale, 4: Loyal, 5: Overview)
-      const stepIndex = Math.min(Math.floor(val * 6), 5);
-      if (!isPlaying) {
-        setActiveStep(stepIndex);
-      }
+    const unsub = smoothProgress.on("change", (val) => {
+      if (val < 0.28) setActiveStep(0);
+      else if (val < 0.58) setActiveStep(1);
+      else setActiveStep(2);
     });
-  }, [scrollYProgress, isPlaying]);
+    return () => unsub();
+  }, [smoothProgress]);
 
-  // Auto-play timer for 20-second keynote cinematic experience
+  const scrollToStep = (stepIndex: number) => {
+    if (!containerRef.current) return;
+    const containerTop = containerRef.current.offsetTop;
+    const containerHeight = containerRef.current.clientHeight - window.innerHeight;
+    const targetY = containerTop + (stepIndex / 2) * containerHeight * 0.7;
+    window.scrollTo({ top: targetY, behavior: "smooth" });
+  };
+
+  // AUTO SCROLL EFFECT: Automatically advances every 4 seconds when in view & not hovered
   useEffect(() => {
-    if (!isPlaying) return;
+    if (!isAutoScrolling || !isInView || isHovered) return;
+
     const interval = setInterval(() => {
-      setActiveStep((prev) => {
-        const next = (prev + 1) % 6;
-        return next;
+      setActiveStep((prevStep) => {
+        const nextStep = (prevStep + 1) % 3;
+        scrollToStep(nextStep);
+        return nextStep;
       });
-    }, 4500);
+    }, 4200);
+
     return () => clearInterval(interval);
-  }, [isPlaying]);
+  }, [isAutoScrolling, isInView, isHovered]);
 
-  // Step 3 Interactive Demo Handlers
-  useEffect(() => {
-    if (activeStep === 2) {
-      const timer1 = setTimeout(() => setActiveColor("emerald"), 1200);
-      const timer2 = setTimeout(() => setActiveSize("L"), 2400);
-      const timer3 = setTimeout(() => setCartOpen(true), 3400);
-      return () => {
-        clearTimeout(timer1);
-        clearTimeout(timer2);
-        clearTimeout(timer3);
-      };
-    } else {
-      setCartOpen(false);
-    }
-  }, [activeStep]);
-
-  // Step 4 Payment Demo Handler
-  useEffect(() => {
-    if (activeStep === 3) {
-      setPaymentDone(false);
-      const timer = setTimeout(() => setPaymentDone(true), 1800);
-      return () => clearTimeout(timer);
-    }
-  }, [activeStep]);
-
-  const stepsData = [
-    {
-      id: "traffic",
-      stepNum: "01",
-      badge: "STEP 1 — TRAFFIC",
-      title: "Traffic Can Come From Anywhere",
-      description: "Whether traffic comes from Meta Ads, Google, Instagram, SEO, influencers, or email campaigns... every visitor begins with a click."
-    },
-    {
-      id: "trust",
-      stepNum: "02",
-      badge: "STEP 2 — STORE TRUST",
-      title: "Trust Begins in Seconds",
-      description: "The moment visitors land on your store they instantly decide whether your brand feels trustworthy. Your website—not your ads—creates that first impression."
-    },
-    {
-      id: "ux",
-      stepNum: "03",
-      badge: "STEP 3 — BEST USER EXPERIENCE",
-      title: "Premium Shopping Experience",
-      description: "An intuitive user experience makes shopping effortless. Visitors easily discover products, explore collections, compare variants, and add items to the cart without friction."
-    },
-    {
-      id: "sale",
-      stepNum: "04",
-      badge: "STEP 4 — FIRST SALE",
-      title: "Traffic Becomes Revenue",
-      description: "A high-converting store removes friction at checkout, turning visitors into paying customers."
-    },
-    {
-      id: "loyal",
-      stepNum: "05",
-      badge: "STEP 5 — LOYAL CUSTOMER",
-      title: "Customers Return Again",
-      description: "Great ecommerce brands don't stop at one sale. Exceptional experiences create loyal customers who purchase again and recommend the brand."
-    },
-    {
-      id: "summary",
-      stepNum: "06",
-      badge: "THE COMPLETE ENGINE",
-      title: "Engineered for Conversion",
-      description: "Traffic buys clicks. Your Shopify store earns customers."
-    }
+  const trustBadges = [
+    { label: "★★★★★ 5.0 Rating", pos: "-top-7 left-1/2 -translate-x-1/2" },
+    { label: "SSL 256-bit Secure", pos: "-left-14 top-10" },
+    { label: "99/100 Speed Score", pos: "-right-14 top-10" },
+    { label: "Sticky Add To Cart", pos: "-bottom-7 left-1/2 -translate-x-1/2" },
+    { label: "1-Click Checkout", pos: "-top-5 right-2" },
+    { label: "Mobile Optimized", pos: "-bottom-5 right-2" },
+    { label: "Free Shipping", pos: "-left-12 bottom-8" },
+    { label: "7-Day Easy Returns", pos: "-right-12 bottom-8" }
   ];
 
   return (
     <section 
       ref={containerRef}
-      className="relative bg-[#060609] text-white border-t border-b border-white/[0.08] rounded-t-[32px] md:rounded-t-[48px] mt-[-32px] md:mt-[-48px] z-20 overflow-hidden font-sans select-none min-h-screen py-16 md:py-24"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      className="relative bg-[#03050a] text-white border-t border-b border-white/[0.08] z-20 font-sans select-none min-h-[350vh]"
     >
-      {/* ── CINEMATIC AMBIENT LIGHTING BACKGROUND ── */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-gradient-to-r from-emerald-500/10 via-amber-500/10 to-indigo-500/10 blur-[140px] rounded-full opacity-60" />
-        <div className="absolute bottom-10 left-10 w-96 h-96 bg-[#22E39A]/10 blur-[120px] rounded-full" />
-        <div className="absolute top-10 right-10 w-96 h-96 bg-amber-500/10 blur-[120px] rounded-full" />
-        
-        {/* Sleek Grid Overlay */}
-        <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.05)_1px,transparent_1px)] [background-size:24px_24px] opacity-70" />
+      {/* Background Ambient Glow FX */}
+      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+        <div className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-amber-500/10 blur-[160px] rounded-full" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[550px] bg-emerald-500/10 blur-[180px] rounded-full" />
+        <div className="absolute top-1/2 left-2/3 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-indigo-500/10 blur-[160px] rounded-full" />
       </div>
 
-      <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      {/* STICKY DESKTOP & MOBILE VIEWPORT */}
+      <div className="sticky top-0 h-screen w-full flex flex-col justify-between py-4 sm:py-6 z-10 overflow-hidden">
 
-        {/* ── HEADER (MUST REMAIN EXACT HEADING & SUBHEADING) ── */}
-        <div className="text-center max-w-3xl mx-auto mb-10 md:mb-14">
-          <motion.div 
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#22E39A]/10 border border-[#22E39A]/25 text-[#22E39A] text-[11px] font-mono font-bold uppercase tracking-[0.25em] mb-4 shadow-lg shadow-[#22E39A]/5"
-          >
-            <Sparkles className="w-3.5 h-3.5 animate-pulse" />
-            <span>The Growth Formula</span>
-          </motion.div>
-
-          <motion.h2 
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-3xl sm:text-4xl lg:text-5xl font-light text-white tracking-tight leading-[1.08] font-grotesk"
-          >
-            Hyper-Optimized.<br />
-            <span className="text-[#22E39A] font-normal">Designed</span> to Convert.
-          </motion.h2>
-
-          <motion.p 
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="text-white/65 text-sm sm:text-base font-light leading-relaxed mt-5 max-w-2xl mx-auto"
-          >
-            A successful Shopify store isn&apos;t built by design alone. Real growth happens when every part of the customer journey works together. We optimize every touchpoint to transform traffic into loyal customers and sustainable revenue.
-          </motion.p>
-        </div>
-
-        {/* ── STEP NAVIGATION TIMELINE / CONTROL BAR ── */}
-        <div className="flex flex-wrap items-center justify-between gap-3 mb-10 bg-[#0E0E14]/80 backdrop-blur-xl border border-white/10 p-2.5 sm:p-3 rounded-2xl shadow-2xl shadow-black/80 max-w-5xl mx-auto">
-          
-          <div className="flex items-center gap-1 sm:gap-2 overflow-x-auto scrollbar-none py-1 px-1 w-full sm:w-auto justify-start sm:justify-center">
-            {stepsData.slice(0, 5).map((step, idx) => {
-              const isActive = activeStep === idx;
-              return (
-                <button
-                  key={step.id}
-                  onClick={() => {
-                    setActiveStep(idx);
-                    setIsPlaying(false);
-                  }}
-                  className={`relative px-3 sm:px-4 py-2 rounded-xl text-xs font-mono font-medium transition-all duration-300 flex items-center gap-2 whitespace-nowrap cursor-pointer ${
-                    isActive 
-                      ? "bg-white text-black font-bold shadow-lg shadow-white/10 scale-105" 
-                      : "text-white/60 hover:text-white hover:bg-white/[0.06]"
+        {/* ── HEADER PROGRESS TRACKER WITH AUTO PLAY TOGGLE ── */}
+        <div className="max-w-4xl mx-auto px-4 w-full z-40">
+          <div className="flex flex-col items-center gap-2">
+            
+            {/* Steps Pills & Auto Play Controls */}
+            <div className="flex items-center gap-3">
+              <div className="inline-flex items-center gap-2 sm:gap-4 p-1.5 rounded-full bg-white/[0.04] border border-white/10 backdrop-blur-xl shadow-2xl">
+                
+                <button 
+                  onClick={() => scrollToStep(0)}
+                  className={`flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono font-bold transition-all cursor-pointer ${
+                    activeStep === 0 
+                      ? "bg-amber-500/20 text-amber-400 border border-amber-500/40 shadow-[0_0_15px_rgba(245,158,11,0.2)]" 
+                      : "text-white/50 hover:text-white"
                   }`}
                 >
-                  <span className={`w-5 h-5 rounded-full text-[10px] font-mono flex items-center justify-center font-bold ${
-                    isActive ? "bg-black text-white" : "bg-white/10 text-white/70"
-                  }`}>
-                    {step.stepNum}
-                  </span>
-                  <span className="hidden md:inline">{step.title.split(" ")[0]}</span>
-                  {isActive && (
-                    <motion.div 
-                      layoutId="activePill"
-                      className="absolute inset-0 border-2 border-[#22E39A] rounded-xl pointer-events-none" 
-                    />
-                  )}
+                  <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
+                  01 TRAFFIC
                 </button>
-              );
-            })}
 
-            <button
-              onClick={() => {
-                setActiveStep(5);
-                setIsPlaying(false);
-              }}
-              className={`px-3 sm:px-4 py-2 rounded-xl text-xs font-mono font-medium transition-all duration-300 flex items-center gap-2 whitespace-nowrap cursor-pointer ${
-                activeStep === 5
-                  ? "bg-[#22E39A] text-black font-bold shadow-lg shadow-[#22E39A]/20 scale-105"
-                  : "text-[#22E39A]/80 hover:text-[#22E39A] hover:bg-[#22E39A]/10"
-              }`}
-            >
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Full Loop</span>
-            </button>
+                <span className="text-white/20 text-xs">→</span>
+
+                <button 
+                  onClick={() => scrollToStep(1)}
+                  className={`flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono font-bold transition-all cursor-pointer ${
+                    activeStep === 1 
+                      ? "bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 shadow-[0_0_15px_rgba(16,185,129,0.2)]" 
+                      : "text-white/50 hover:text-white"
+                  }`}
+                >
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                  02 TRUST
+                </button>
+
+                <span className="text-white/20 text-xs">→</span>
+
+                <button 
+                  onClick={() => scrollToStep(2)}
+                  className={`flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono font-bold transition-all cursor-pointer ${
+                    activeStep === 2 
+                      ? "bg-indigo-500/20 text-indigo-400 border border-indigo-500/40 shadow-[0_0_15px_rgba(99,102,241,0.2)]" 
+                      : "text-white/50 hover:text-white"
+                  }`}
+                >
+                  <span className="w-2 h-2 rounded-full bg-indigo-400 animate-pulse" />
+                  03 CONVERSION
+                </button>
+              </div>
+
+              {/* Auto Scroll Toggle Button */}
+              <button
+                onClick={() => setIsAutoScrolling(!isAutoScrolling)}
+                className={`hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full border backdrop-blur-md text-[10px] font-mono font-bold transition-all cursor-pointer ${
+                  isAutoScrolling && !isHovered
+                    ? "bg-emerald-500/10 border-emerald-500/40 text-emerald-400"
+                    : "bg-white/5 border-white/10 text-white/50 hover:text-white"
+                }`}
+                title={isAutoScrolling ? "Click to Pause Auto Scroll" : "Click to Enable Auto Scroll"}
+              >
+                {isAutoScrolling && !isHovered ? (
+                  <>
+                    <Pause className="w-3 h-3 text-emerald-400 animate-pulse" />
+                    <span>AUTO SCROLL ON</span>
+                  </>
+                ) : (
+                  <>
+                    <Play className="w-3 h-3 text-white/60" />
+                    <span>AUTO SCROLL PAUSED</span>
+                  </>
+                )}
+              </button>
+            </div>
+
+            {/* Continuous Line Indicator */}
+            <div className="w-64 h-1 bg-white/10 rounded-full overflow-hidden mt-1">
+              <motion.div 
+                style={{ width: progressLineWidth }}
+                className="h-full bg-gradient-to-r from-amber-400 via-emerald-400 to-indigo-500 rounded-full"
+              />
+            </div>
           </div>
-
-          {/* Keynote Play / Pause Toggle */}
-          <button
-            onClick={() => setIsPlaying(!isPlaying)}
-            className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-mono text-white/70 hover:text-white transition-all cursor-pointer"
-            title={isPlaying ? "Pause Keynote" : "Play Keynote"}
-          >
-            {isPlaying ? (
-              <>
-                <Pause className="w-3.5 h-3.5 text-[#22E39A]" />
-                <span>Auto Keynote: ON</span>
-              </>
-            ) : (
-              <>
-                <Play className="w-3.5 h-3.5 text-amber-400" />
-                <span>Auto Keynote: OFF</span>
-              </>
-            )}
-          </button>
-
         </div>
 
-        {/* ── CONTINUOUS GOLDEN PATH LINE WITH GLOWING TRAVELING PARTICLES ── */}
-        <div className="relative w-full max-w-5xl mx-auto mb-10 hidden md:block">
-          <svg className="w-full h-10 overflow-visible" viewBox="0 0 1000 40">
-            <defs>
-              <linearGradient id="goldenPathGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#3B82F6" />
-                <stop offset="25%" stopColor="#22E39A" />
-                <stop offset="50%" stopColor="#EAB308" />
-                <stop offset="75%" stopColor="#8B5CF6" />
-                <stop offset="100%" stopColor="#EC4899" />
-              </linearGradient>
-              <filter id="glowGold" x="-20%" y="-20%" width="140%" height="140%">
-                <feGaussianBlur stdDeviation="3" result="blur" />
-                <feComposite in="SourceGraphic" in2="blur" operator="over" />
-              </filter>
-            </defs>
 
-            {/* Base Golden Line */}
-            <path 
-              d="M 50 20 L 950 20" 
-              stroke="url(#goldenPathGrad)" 
-              strokeWidth="4" 
-              strokeLinecap="round" 
-              className="opacity-40" 
-            />
-
-            {/* Active Highlight Line */}
-            <motion.path 
-              d="M 50 20 L 950 20" 
-              stroke="url(#goldenPathGrad)" 
-              strokeWidth="5" 
-              strokeLinecap="round" 
-              filter="url(#glowGold)"
-              initial={{ pathLength: 0.2 }}
-              animate={{ pathLength: Math.min((activeStep + 1) / 5, 1) }}
-              transition={{ duration: 0.8, ease: "easeInOut" }}
-            />
-
-            {/* 5 Golden Step Nodes along Path */}
-            {[0, 1, 2, 3, 4].map((nodeIdx) => {
-              const nodeX = 50 + nodeIdx * 225;
-              const isPassed = activeStep >= nodeIdx;
-              const isCurrent = activeStep === nodeIdx;
-              return (
-                <g key={nodeIdx} className="cursor-pointer" onClick={() => { setActiveStep(nodeIdx); setIsPlaying(false); }}>
-                  <circle 
-                    cx={nodeX} 
-                    cy="20" 
-                    r={isCurrent ? "12" : "8"} 
-                    className={`transition-all duration-300 ${
-                      isCurrent 
-                        ? "fill-[#EAB308] stroke-white stroke-[3px]" 
-                        : isPassed 
-                        ? "fill-[#22E39A] stroke-emerald-900 stroke-2" 
-                        : "fill-[#12131C] stroke-white/20 stroke-2"
-                    }`} 
-                  />
-                  {isCurrent && (
-                    <circle 
-                      cx={nodeX} 
-                      cy="20" 
-                      r="18" 
-                      className="fill-none stroke-[#EAB308] stroke-1 animate-ping opacity-60" 
-                    />
-                  )}
-                </g>
-              );
-            })}
-          </svg>
-        </div>
-
-        {/* ── KEYNOTE INTERACTIVE STAGE (PARALLAX CAROUSEL / STEP CARDS) ── */}
-        <div className="relative min-h-[520px] md:min-h-[580px] w-full max-w-5xl mx-auto">
+        {/* ─────────────────────────────────────────────────────────────────── */}
+        {/* DESKTOP: SMOOTH INLINE HORIZONTAL SCROLL CAMERA (Traffic -> Trust -> Conversion) */}
+        {/* ─────────────────────────────────────────────────────────────────── */}
+        <div className="hidden lg:block w-full h-[65vh] my-auto relative overflow-hidden">
           
-          <AnimatePresence mode="wait">
+          {/* Background Connecting Laser Beam */}
+          <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-0.5 bg-gradient-to-r from-amber-500/40 via-emerald-500/40 to-indigo-500/40 z-0 pointer-events-none" />
+
+          {/* Inline Track container (300% total width) */}
+          <motion.div 
+            style={{ x: cameraX }}
+            className="flex items-center w-[300%] h-full relative z-10"
+          >
             
-            {/* ───────────────────────────────────────────────────────────── */}
-            {/* STEP 1: TRAFFIC */}
-            {/* ───────────────────────────────────────────────────────────── */}
-            {activeStep === 0 && (
-              <motion.div
-                key="step-traffic"
-                initial={{ opacity: 0, scale: 0.96, x: 20 }}
-                animate={{ opacity: 1, scale: 1, x: 0 }}
-                exit={{ opacity: 0, scale: 0.96, x: -20 }}
-                transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[#0E0E16]/90 backdrop-blur-2xl border border-white/10 p-6 sm:p-10 rounded-3xl shadow-2xl shadow-black/90 relative overflow-hidden"
-              >
-                {/* Background aura */}
-                <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 blur-[100px] rounded-full pointer-events-none" />
-
-                {/* Left Description Card */}
-                <div className="lg:col-span-5 text-left z-10">
-                  <span className="text-[11px] font-mono font-bold tracking-widest text-[#22E39A] uppercase px-3 py-1 rounded-full bg-[#22E39A]/10 border border-[#22E39A]/20">
-                    {stepsData[0].badge}
-                  </span>
-                  <h3 className="text-2xl sm:text-3xl font-light font-grotesk text-white mt-4 mb-3 leading-tight">
-                    {stepsData[0].title}
-                  </h3>
-                  <p className="text-white/65 text-sm sm:text-base font-light leading-relaxed">
-                    {stepsData[0].description}
-                  </p>
-
-                  <div className="mt-6 pt-6 border-t border-white/10 flex items-center gap-3">
-                    <div className="w-2.5 h-2.5 rounded-full bg-blue-400 animate-ping" />
-                    <span className="text-xs font-mono text-white/50">Multi-Channel Particle Stream Active</span>
-                  </div>
+            {/* ════════════════════════════════════════════════════════════════
+               STAGE 1: TRAFFIC (Panel 1 - 100vw Width)
+               ════════════════════════════════════════════════════════════════ */}
+            <div className="w-[100vw] h-full shrink-0 flex items-center justify-center px-12">
+              <div className="max-w-4xl w-full grid grid-cols-12 gap-8 items-center bg-white/[0.02] border border-amber-500/20 rounded-3xl p-7 backdrop-blur-md shadow-2xl relative">
+                
+                <div className="absolute -top-3 left-8 px-3 py-0.5 rounded-full bg-amber-500/20 border border-amber-500/40 text-[10px] font-mono font-bold text-amber-400 uppercase tracking-widest">
+                  Stage 01 • Traffic Engine
                 </div>
 
-                {/* Right Interactive Visual Stage */}
-                <div className="lg:col-span-7 relative flex flex-col items-center justify-center min-h-[340px] sm:min-h-[380px] bg-[#08080E] border border-white/10 rounded-2xl p-6 overflow-hidden">
-                  
-                  {/* Glowing Traffic Source Grid */}
-                  <div className="grid grid-cols-3 gap-4 sm:gap-6 w-full max-w-sm mb-12 relative z-10">
-                    {[
-                      { name: "Meta Ads", icon: Share2, color: "from-pink-500 to-rose-500", glow: "shadow-pink-500/20" },
-                      { name: "Google", icon: Search, color: "from-blue-500 to-cyan-500", glow: "shadow-blue-500/20" },
-                      { name: "Instagram", icon: Share2, color: "from-purple-500 to-pink-500", glow: "shadow-purple-500/20" },
-                      { name: "SEO Organic", icon: Globe, color: "from-emerald-500 to-teal-500", glow: "shadow-emerald-500/20" },
-                      { name: "Influencers", icon: Zap, color: "from-amber-500 to-orange-500", glow: "shadow-amber-500/20" },
-                      { name: "Email", icon: Mail, color: "from-violet-500 to-purple-500", glow: "shadow-violet-500/20" }
-                    ].map((src, i) => (
-                      <motion.div
-                        key={src.name}
-                        animate={{ y: [0, -6, 0] }}
-                        transition={{ duration: 3, repeat: Infinity, delay: i * 0.4 }}
-                        className={`flex flex-col items-center p-3 rounded-xl bg-[#12131F]/90 border border-white/10 backdrop-blur-md shadow-lg ${src.glow}`}
-                      >
-                        <div className={`w-9 h-9 rounded-lg bg-gradient-to-br ${src.color} flex items-center justify-center text-white mb-1.5 shadow-md`}>
-                          <src.icon className="w-4 h-4" />
-                        </div>
-                        <span className="text-[10px] font-mono text-white/80 font-medium">{src.name}</span>
-                      </motion.div>
-                    ))}
-                  </div>
-
-                  {/* Animated Converging Particles */}
-                  <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
-                    {[...Array(8)].map((_, i) => (
-                      <motion.div
-                        key={i}
-                        initial={{ opacity: 0.2, scale: 0.5, y: -80, x: (i - 3.5) * 40 }}
-                        animate={{ opacity: [0.2, 1, 0], scale: [0.5, 1.2, 0.2], y: 70, x: 0 }}
-                        transition={{ duration: 2.2, repeat: Infinity, delay: i * 0.25, ease: "easeIn" }}
-                        className="absolute w-3 h-3 rounded-full bg-gradient-to-r from-[#22E39A] to-amber-400 shadow-md shadow-[#22E39A]/50"
-                      />
-                    ))}
-                  </div>
-
-                  {/* Merged Glowing Visitor Avatar Node on Golden Path */}
-                  <div className="relative z-10 flex flex-col items-center mt-4">
-                    <motion.div 
-                      animate={{ scale: [1, 1.08, 1], boxShadow: ["0 0 20px rgba(34,227,154,0.3)", "0 0 40px rgba(234,179,8,0.5)", "0 0 20px rgba(34,227,154,0.3)"] }}
-                      transition={{ duration: 2, repeat: Infinity }}
-                      className="w-16 h-16 rounded-full bg-gradient-to-tr from-[#22E39A] via-amber-400 to-yellow-300 p-0.5 shadow-2xl flex items-center justify-center"
-                    >
-                      <div className="w-full h-full rounded-full bg-[#08080E] flex flex-col items-center justify-center border border-white/20">
-                        <span className="text-[9px] font-mono font-bold text-amber-400 tracking-wider">VISITOR</span>
-                        <div className="w-2.5 h-2.5 rounded-full bg-[#22E39A] animate-ping mt-0.5" />
-                      </div>
-                    </motion.div>
-                    <span className="text-xs font-mono font-bold text-white/70 mt-3.5 bg-white/5 border border-white/10 px-3 py-1 rounded-full">
-                      1 Consolidated Visitor → Walking to Store
-                    </span>
-                  </div>
-
-                </div>
-              </motion.div>
-            )}
-
-            {/* ───────────────────────────────────────────────────────────── */}
-            {/* STEP 2: STORE TRUST */}
-            {/* ───────────────────────────────────────────────────────────── */}
-            {activeStep === 1 && (
-              <motion.div
-                key="step-trust"
-                initial={{ opacity: 0, scale: 0.96, x: 20 }}
-                animate={{ opacity: 1, scale: 1, x: 0 }}
-                exit={{ opacity: 0, scale: 0.96, x: -20 }}
-                transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[#0E0E16]/90 backdrop-blur-2xl border border-white/10 p-6 sm:p-10 rounded-3xl shadow-2xl shadow-black/90 relative overflow-hidden"
-              >
-                <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/10 blur-[100px] rounded-full pointer-events-none" />
-
-                {/* Left Description Card */}
-                <div className="lg:col-span-5 text-left z-10">
-                  <span className="text-[11px] font-mono font-bold tracking-widest text-[#22E39A] uppercase px-3 py-1 rounded-full bg-[#22E39A]/10 border border-[#22E39A]/20">
-                    {stepsData[1].badge}
-                  </span>
-                  <h3 className="text-2xl sm:text-3xl font-light font-grotesk text-white mt-4 mb-3 leading-tight">
-                    {stepsData[1].title}
+                <div className="col-span-5 space-y-4">
+                  <h3 className="text-3xl font-extrabold font-grotesk tracking-tight text-white leading-tight">
+                    Attract <span className="text-amber-400">High-Intent</span> Shoppers
                   </h3>
-                  <p className="text-white/65 text-sm sm:text-base font-light leading-relaxed">
-                    {stepsData[1].description}
+                  <p className="text-xs text-white/70 leading-relaxed font-sans">
+                    We aggregate top-of-funnel traffic from Google Search, Meta Ads, Instagram & Messaging channels directly to your high-speed landing experience.
                   </p>
 
-                  {/* Trust Score Gauge */}
-                  <div className="mt-6 p-4 rounded-xl bg-white/[0.03] border border-white/10">
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="text-xs font-mono text-white/70">Buyer Confidence Meter</span>
-                      <span className="text-sm font-mono font-bold text-[#22E39A]">98.4% TRUST</span>
+                  <div className="space-y-2 pt-2">
+                    <div className="flex items-center gap-2 text-xs font-mono text-amber-300">
+                      <Zap className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                      <span>Google & Meta Search Intent Capture</span>
                     </div>
-                    <div className="w-full h-2.5 bg-white/10 rounded-full overflow-hidden">
+                    <div className="flex items-center gap-2 text-xs font-mono text-amber-300">
+                      <TrendingUp className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                      <span>Sub-Second Page Entry Speed</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="col-span-7 flex items-center justify-around bg-black/40 border border-white/10 rounded-2xl p-6 relative overflow-hidden">
+                  <div className="flex flex-col gap-3 shrink-0">
+                    <span className="text-[10px] font-mono font-bold text-white/50 tracking-wider">CHANNELS</span>
+                    <div className="flex items-center gap-2.5 px-3 py-2 rounded-xl bg-white/[0.05] border border-white/10 text-xs font-medium">
+                      <GoogleLogo />
+                      <span>Google Ads</span>
+                    </div>
+                    <div className="flex items-center gap-2.5 px-3 py-2 rounded-xl bg-white/[0.05] border border-white/10 text-xs font-medium">
+                      <MetaLogo />
+                      <span>Meta Ads</span>
+                    </div>
+                    <div className="flex items-center gap-2.5 px-3 py-2 rounded-xl bg-white/[0.05] border border-white/10 text-xs font-medium">
+                      <InstagramLogo />
+                      <span>Instagram</span>
+                    </div>
+                    <div className="flex items-center gap-2.5 px-3 py-2 rounded-xl bg-white/[0.05] border border-white/10 text-xs font-medium">
+                      <WhatsAppLogo />
+                      <span>WhatsApp</span>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col items-center gap-1 text-amber-400">
+                    <span className="text-[9px] font-mono tracking-widest text-amber-400/80">FLOW</span>
+                    <div className="w-24 h-1 bg-gradient-to-r from-amber-500 to-amber-300 rounded-full relative overflow-hidden shadow-[0_0_10px_#f59e0b]">
                       <motion.div 
-                        initial={{ width: "20%" }}
-                        animate={{ width: "98.4%" }}
-                        transition={{ duration: 1.5, ease: "easeOut" }}
-                        className="h-full bg-gradient-to-r from-emerald-500 to-[#22E39A] rounded-full"
+                        animate={{ x: ["-100%", "100%"] }} 
+                        transition={{ duration: 1.2, repeat: Infinity, ease: "linear" }}
+                        className="w-8 h-full bg-white rounded-full shadow-[0_0_10px_#fff]"
                       />
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col items-center gap-3 shrink-0">
+                    <span className="text-[10px] font-mono font-bold text-amber-400 tracking-wider">VISITORS ARRIVING</span>
+                    <div className="flex items-center gap-3">
+                      <ShopperEmptyCart delay={0} />
+                      <ShopperEmptyCart delay={0.4} />
+                    </div>
+                    <span className="text-[10px] font-mono text-white/40">50,000+ Visitors / Mo</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+
+            {/* ════════════════════════════════════════════════════════════════
+               STAGE 2: TRUST (Panel 2 - 100vw Width)
+               ════════════════════════════════════════════════════════════════ */}
+            <div className="w-[100vw] h-full shrink-0 flex items-center justify-center px-12">
+              <div className="max-w-4xl w-full grid grid-cols-12 gap-8 items-center bg-white/[0.02] border border-emerald-500/20 rounded-3xl p-7 backdrop-blur-md shadow-2xl relative">
+                
+                <div className="absolute -top-3 left-8 px-3 py-0.5 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-[10px] font-mono font-bold text-emerald-400 uppercase tracking-widest">
+                  Stage 02 • Storefront Trust
+                </div>
+
+                <div className="col-span-5 space-y-4">
+                  <h3 className="text-3xl font-extrabold font-grotesk tracking-tight text-white leading-tight">
+                    Instant Store <span className="text-emerald-400">Trust Signals</span>
+                  </h3>
+                  <p className="text-xs text-white/70 leading-relaxed font-sans">
+                    Traffic without trust leads to empty carts. We engineer ultra-fast Shopify storefronts packed with social proof, verified seals, and frictionless UX.
+                  </p>
+
+                  <div className="space-y-2 pt-2">
+                    <div className="flex items-center gap-2 text-xs font-mono text-emerald-300">
+                      <ShieldCheck className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                      <span>256-bit SSL & Payment Authority</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-xs font-mono text-emerald-300">
+                      <Star className="w-3.5 h-3.5 text-emerald-400 shrink-0 fill-emerald-400" />
+                      <span>Verified Review Widgets & Proof Hooks</span>
                     </div>
                   </div>
                 </div>
 
-                {/* Right Realistic Shopify Homepage Mockup */}
-                <div className="lg:col-span-7 relative bg-[#0B0C12] border border-white/15 rounded-2xl overflow-hidden shadow-2xl">
-                  
-                  {/* Browser Header Bar */}
-                  <div className="bg-[#141520] px-4 py-2.5 border-b border-white/10 flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <div className="w-3 h-3 rounded-full bg-rose-500/80" />
-                      <div className="w-3 h-3 rounded-full bg-amber-500/80" />
-                      <div className="w-3 h-3 rounded-full bg-emerald-500/80" />
-                    </div>
-                    <div className="flex items-center gap-2 bg-[#08080D] border border-white/10 px-3 py-1 rounded-md text-[11px] font-mono text-emerald-400">
-                      <Lock className="w-3 h-3" />
-                      <span>https://luxury-store.com</span>
-                    </div>
-                    <div className="text-[10px] font-mono text-[#22E39A] bg-[#22E39A]/10 px-2 py-0.5 rounded border border-[#22E39A]/20">
-                      0.42s LOAD ⚡
-                    </div>
-                  </div>
-
-                  {/* Store Content Stage */}
-                  <div className="p-5 space-y-4">
-                    {/* Hero Banner Mockup */}
-                    <div className="relative h-32 sm:h-36 rounded-xl bg-gradient-to-r from-stone-900 via-zinc-800 to-stone-900 border border-white/10 p-5 flex flex-col justify-center text-left overflow-hidden">
-                      <span className="text-[10px] font-mono uppercase text-amber-400 tracking-widest font-bold">2026 EDITION</span>
-                      <h4 className="text-lg sm:text-xl font-grotesk text-white font-medium mt-1">AURA LUXURY COLLECTION</h4>
-                      <p className="text-xs text-white/50 font-light mt-1">Engineered for supreme comfort & sound perfection</p>
-                    </div>
-
-                    {/* Pop-in Floating Trust Badges */}
-                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
-                      {[
-                        { icon: Star, label: "4.9/5 RATING", sub: "2,840+ Reviews", color: "text-amber-400", bg: "bg-amber-500/10 border-amber-500/20" },
-                        { icon: ShieldCheck, label: "SSL SECURE", sub: "256-Bit Encrypted", color: "text-emerald-400", bg: "bg-emerald-500/10 border-emerald-500/20" },
-                        { icon: Truck, label: "EXPRESS SHIP", sub: "Free 2-Day Delivery", color: "text-blue-400", bg: "bg-blue-500/10 border-blue-500/20" },
-                        { icon: RotateCcw, label: "MONEY BACK", sub: "30-Day Guarantee", color: "text-purple-400", bg: "bg-purple-500/10 border-purple-500/20" }
-                      ].map((item, i) => (
-                        <motion.div
-                          key={item.label}
-                          initial={{ opacity: 0, y: 15 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ delay: 0.2 + i * 0.15 }}
-                          className={`p-2.5 rounded-xl border ${item.bg} backdrop-blur-md flex flex-col items-center text-center`}
-                        >
-                          <item.icon className={`w-4 h-4 mb-1 ${item.color}`} />
-                          <span className="text-[10px] font-mono font-bold text-white">{item.label}</span>
-                          <span className="text-[8.5px] font-mono text-white/50 mt-0.5">{item.sub}</span>
-                        </motion.div>
+                <div className="col-span-7 flex items-center justify-center relative py-6">
+                  <div className="w-60 bg-[#070a14] border-2 border-emerald-500/40 rounded-3xl p-3.5 shadow-2xl relative flex flex-col justify-between z-10">
+                    <div className="w-full h-5 bg-gradient-to-r from-emerald-500 via-teal-400 to-emerald-500 rounded-t-lg flex overflow-hidden -mt-3.5 mb-2">
+                      {[...Array(6)].map((_, i) => (
+                        <div key={i} className={`flex-1 h-full ${i % 2 === 0 ? "bg-emerald-600" : "bg-white/80"}`} />
                       ))}
                     </div>
-                  </div>
 
-                </div>
-              </motion.div>
-            )}
-
-            {/* ───────────────────────────────────────────────────────────── */}
-            {/* STEP 3: BEST USER EXPERIENCE */}
-            {/* ───────────────────────────────────────────────────────────── */}
-            {activeStep === 2 && (
-              <motion.div
-                key="step-ux"
-                initial={{ opacity: 0, scale: 0.96, x: 20 }}
-                animate={{ opacity: 1, scale: 1, x: 0 }}
-                exit={{ opacity: 0, scale: 0.96, x: -20 }}
-                transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[#0E0E16]/90 backdrop-blur-2xl border border-white/10 p-6 sm:p-10 rounded-3xl shadow-2xl shadow-black/90 relative overflow-hidden"
-              >
-                <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-500/10 blur-[100px] rounded-full pointer-events-none" />
-
-                {/* Left Description Card */}
-                <div className="lg:col-span-5 text-left z-10">
-                  <span className="text-[11px] font-mono font-bold tracking-widest text-[#22E39A] uppercase px-3 py-1 rounded-full bg-[#22E39A]/10 border border-[#22E39A]/20">
-                    {stepsData[2].badge}
-                  </span>
-                  <h3 className="text-2xl sm:text-3xl font-light font-grotesk text-white mt-4 mb-3 leading-tight">
-                    {stepsData[2].title}
-                  </h3>
-                  <p className="text-white/65 text-sm sm:text-base font-light leading-relaxed">
-                    {stepsData[2].description}
-                  </p>
-
-                  <div className="mt-6 flex items-center gap-3 bg-white/[0.03] border border-white/10 p-3 rounded-xl">
-                    <SlidersHorizontal className="w-4 h-4 text-[#22E39A]" />
-                    <span className="text-xs font-mono text-white/70">Instant Variant Switching & Sticky Checkout Drawer</span>
-                  </div>
-                </div>
-
-                {/* Right Interactive Shopify Product PDP & Drawer Mockup */}
-                <div className="lg:col-span-7 relative bg-[#090A0F] border border-white/15 rounded-2xl p-5 sm:p-6 overflow-hidden">
-                  
-                  <div className="grid grid-cols-1 sm:grid-cols-12 gap-6 items-center">
-                    
-                    {/* Product Card */}
-                    <div className="sm:col-span-7 space-y-4 text-left">
-                      <div className="relative h-44 rounded-xl bg-gradient-to-tr from-slate-900 via-zinc-900 to-stone-900 border border-white/10 p-4 flex items-center justify-center overflow-hidden group">
-                        {/* Dynamic Product Visual Swatch */}
-                        <motion.div 
-                          animate={{ scale: [1, 1.05, 1] }}
-                          transition={{ duration: 3, repeat: Infinity }}
-                          className={`w-24 h-24 rounded-full shadow-2xl flex items-center justify-center border-2 ${
-                            activeColor === "black" 
-                              ? "bg-slate-950 border-slate-700 shadow-slate-900" 
-                              : activeColor === "emerald" 
-                              ? "bg-emerald-950 border-emerald-500 shadow-emerald-500/40" 
-                              : "bg-stone-300 border-white shadow-white/40"
-                          }`}
-                        >
-                          <Sparkles className={`w-8 h-8 ${activeColor === "emerald" ? "text-emerald-400" : "text-amber-400"}`} />
-                        </motion.div>
-                        <span className="absolute bottom-2 left-3 text-[10px] font-mono text-white/40">HD Product Render</span>
-                      </div>
-
-                      {/* Variant Selection swatches */}
-                      <div className="space-y-2">
-                        <span className="text-[11px] font-mono text-white/60">Color: <strong className="text-white uppercase">{activeColor}</strong></span>
-                        <div className="flex gap-2">
-                          {[
-                            { id: "black", bg: "bg-slate-900 border-white/20" },
-                            { id: "emerald", bg: "bg-emerald-500 border-emerald-400" },
-                            { id: "silver", bg: "bg-slate-300 border-white" }
-                          ].map((swatch) => (
-                            <button
-                              key={swatch.id}
-                              onClick={() => setActiveColor(swatch.id)}
-                              className={`w-6 h-6 rounded-full border-2 transition-all cursor-pointer ${swatch.bg} ${
-                                activeColor === swatch.id ? "ring-2 ring-[#22E39A] scale-110" : ""
-                              }`}
-                            />
-                          ))}
-                        </div>
-                      </div>
-
-                      {/* Size Selector */}
-                      <div className="space-y-2">
-                        <span className="text-[11px] font-mono text-white/60">Size:</span>
-                        <div className="flex gap-2">
-                          {["S", "M", "L", "XL"].map((sz) => (
-                            <button
-                              key={sz}
-                              onClick={() => setActiveSize(sz)}
-                              className={`px-3 py-1 rounded-md text-xs font-mono border transition-all cursor-pointer ${
-                                activeSize === sz 
-                                  ? "bg-[#22E39A] text-black font-bold border-[#22E39A]" 
-                                  : "bg-white/5 text-white/70 border-white/10 hover:border-white/30"
-                              }`}
-                            >
-                              {sz}
-                            </button>
-                          ))}
-                        </div>
-                      </div>
-
-                      {/* Add to Cart CTA */}
-                      <button
-                        onClick={() => setCartOpen(!cartOpen)}
-                        className="w-full py-3 rounded-xl bg-gradient-to-r from-[#22E39A] to-emerald-400 text-black font-grotesk font-bold text-xs uppercase tracking-wider shadow-lg shadow-[#22E39A]/20 hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer flex items-center justify-center gap-2"
-                      >
-                        <ShoppingCart className="w-4 h-4" />
-                        <span>Add to Cart — $289.00</span>
-                      </button>
+                    <div className="flex items-center justify-between px-2 py-1 bg-white/5 rounded-lg border border-white/10 mb-2">
+                      <span className="text-[10px] font-mono font-bold text-emerald-300">LUXURY STORE</span>
+                      <span className="text-[9px] font-mono bg-emerald-500/20 text-emerald-300 px-1.5 py-0.5 rounded">99/100 SPEED</span>
                     </div>
 
-                    {/* Animated Slide-over Cart Drawer Preview */}
-                    <div className="sm:col-span-5 relative h-full">
-                      <motion.div 
-                        animate={{ x: cartOpen ? 0 : 20, opacity: cartOpen ? 1 : 0.4 }}
-                        className="bg-[#12131F] border border-white/15 rounded-xl p-4 text-left shadow-2xl space-y-3"
-                      >
-                        <div className="flex items-center justify-between border-b border-white/10 pb-2">
-                          <span className="text-xs font-mono font-bold text-white flex items-center gap-1.5">
-                            <ShoppingCart className="w-3.5 h-3.5 text-[#22E39A]" />
-                            Your Cart (1)
-                          </span>
-                          <span className="text-[10px] font-mono text-[#22E39A]">FREE SHIPPING</span>
-                        </div>
-
-                        <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 rounded-lg bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-[#22E39A]">
-                            <Sparkles className="w-5 h-5" />
-                          </div>
-                          <div>
-                            <p className="text-xs font-mono font-bold text-white">AURA Pro Headphone</p>
-                            <p className="text-[10px] font-mono text-white/50">{activeColor.toUpperCase()} / {activeSize}</p>
-                          </div>
-                        </div>
-
-                        <div className="pt-2 border-t border-white/10 flex justify-between items-center text-xs font-mono">
-                          <span className="text-white/60">Subtotal:</span>
-                          <span className="font-bold text-white">$289.00</span>
-                        </div>
-
-                        <div className="w-full py-2 rounded-lg bg-amber-400 text-black font-mono font-bold text-[11px] text-center shadow-md animate-pulse">
-                          PROCEED TO CHECKOUT →
-                        </div>
-                      </motion.div>
+                    <div className="px-2 py-1 bg-slate-900 rounded-md border border-white/10 flex items-center gap-1.5 mb-2.5">
+                      <Search className="w-3 h-3 text-white/40" />
+                      <span className="text-[9px] font-mono text-white/40">Search products...</span>
                     </div>
 
-                  </div>
-
-                </div>
-              </motion.div>
-            )}
-
-            {/* ───────────────────────────────────────────────────────────── */}
-            {/* STEP 4: FIRST SALE */}
-            {/* ───────────────────────────────────────────────────────────── */}
-            {activeStep === 3 && (
-              <motion.div
-                key="step-sale"
-                initial={{ opacity: 0, scale: 0.96, x: 20 }}
-                animate={{ opacity: 1, scale: 1, x: 0 }}
-                exit={{ opacity: 0, scale: 0.96, x: -20 }}
-                transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[#0E0E16]/90 backdrop-blur-2xl border border-white/10 p-6 sm:p-10 rounded-3xl shadow-2xl shadow-black/90 relative overflow-hidden"
-              >
-                <div className="absolute top-0 right-0 w-96 h-96 bg-amber-500/10 blur-[100px] rounded-full pointer-events-none" />
-
-                {/* Left Description Card */}
-                <div className="lg:col-span-5 text-left z-10">
-                  <span className="text-[11px] font-mono font-bold tracking-widest text-[#22E39A] uppercase px-3 py-1 rounded-full bg-[#22E39A]/10 border border-[#22E39A]/20">
-                    {stepsData[3].badge}
-                  </span>
-                  <h3 className="text-2xl sm:text-3xl font-light font-grotesk text-white mt-4 mb-3 leading-tight">
-                    {stepsData[3].title}
-                  </h3>
-                  <p className="text-white/65 text-sm sm:text-base font-light leading-relaxed">
-                    {stepsData[3].description}
-                  </p>
-
-                  <div className="mt-6 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-left space-y-1">
-                    <span className="text-xs font-mono font-bold text-[#22E39A] flex items-center gap-1.5">
-                      <TrendingUp className="w-4 h-4" /> Live Revenue Growth: +340%
-                    </span>
-                    <p className="text-[11px] font-mono text-white/50">Zero friction Stripe & 1-click Apple Pay checkout</p>
-                  </div>
-                </div>
-
-                {/* Right Payment & Sales Dashboard Visual */}
-                <div className="lg:col-span-7 relative bg-[#090A0F] border border-white/15 rounded-2xl p-6 overflow-hidden">
-                  
-                  {/* Floating Stripe Order Toast */}
-                  <motion.div 
-                    initial={{ y: -20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 0.3 }}
-                    className="mb-6 bg-[#131422] border border-emerald-500/40 p-3.5 rounded-xl flex items-center justify-between shadow-xl"
-                  >
-                    <div className="flex items-center gap-3 text-left">
-                      <div className="w-10 h-10 rounded-full bg-emerald-500/20 border border-emerald-500 flex items-center justify-center text-[#22E39A]">
-                        <CheckCircle2 className="w-5 h-5" />
-                      </div>
-                      <div>
-                        <span className="text-[10px] font-mono text-[#22E39A] uppercase font-bold tracking-wider">STRIPE PAYMENT SUCCESS</span>
-                        <p className="text-sm font-mono font-bold text-white">Order #4902 Authorized — $289.00</p>
-                      </div>
-                    </div>
-                    <span className="text-[10px] font-mono text-white/40">Just now</span>
-                  </motion.div>
-
-                  {/* Revenue Growth Chart */}
-                  <div className="bg-[#0D0E18] border border-white/10 p-5 rounded-xl text-left space-y-3">
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <span className="text-[10px] font-mono text-white/50 uppercase">SHOPIFY LIVE DASHBOARD</span>
-                        <h4 className="text-2xl font-mono font-bold text-white">$14,280.00</h4>
-                      </div>
-                      <span className="px-2.5 py-1 rounded-md bg-[#22E39A]/10 border border-[#22E39A]/30 text-[#22E39A] text-xs font-mono font-bold">
-                        +342.8% vs last week
+                    <div className="h-20 rounded-xl bg-emerald-950/60 border border-emerald-500/40 flex flex-col items-center justify-center gap-1 relative">
+                      <span className="text-xs font-mono font-bold text-emerald-300 bg-emerald-500/20 px-3 py-1 rounded-full border border-emerald-500/40">
+                        OPEN FOR ORDERS
                       </span>
-                    </div>
-
-                    {/* SVG Vector Chart Line */}
-                    <div className="h-28 w-full relative pt-2">
-                      <svg className="w-full h-full overflow-visible" viewBox="0 0 400 100" preserveAspectRatio="none">
-                        <defs>
-                          <linearGradient id="chartGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                            <stop offset="0%" stopColor="#22E39A" stopOpacity="0.4" />
-                            <stop offset="100%" stopColor="#22E39A" stopOpacity="0.0" />
-                          </linearGradient>
-                        </defs>
-                        <path d="M 0 80 Q 100 70 200 40 T 400 10 L 400 100 L 0 100 Z" fill="url(#chartGrad)" />
-                        <motion.path 
-                          d="M 0 80 Q 100 70 200 40 T 400 10" 
-                          fill="none" 
-                          stroke="#22E39A" 
-                          strokeWidth="3"
-                          initial={{ pathLength: 0 }}
-                          animate={{ pathLength: 1 }}
-                          transition={{ duration: 1.5, ease: "easeOut" }}
-                        />
-                      </svg>
-                    </div>
-                  </div>
-
-                  {/* Metallic particle burst */}
-                  <div className="absolute inset-0 pointer-events-none">
-                    {[...Array(6)].map((_, i) => (
+                      <span className="text-[9px] font-mono text-emerald-400/70">Conversion Architecture Active</span>
+                      
                       <motion.div
-                        key={i}
-                        initial={{ opacity: 0, y: 50, x: (i - 2.5) * 60 }}
-                        animate={{ opacity: [0, 1, 0], y: -80, x: (i - 2.5) * 80 }}
-                        transition={{ duration: 2, repeat: Infinity, delay: i * 0.3 }}
-                        className="absolute bottom-10 left-1/2 w-2 h-2 rounded-full bg-amber-400 shadow-md shadow-amber-400/80"
-                      />
-                    ))}
+                        animate={{ x: [-15, 15, -15], y: [-5, 5, -5] }}
+                        transition={{ duration: 2.5, repeat: Infinity }}
+                        className="absolute bottom-1 right-2 text-white"
+                      >
+                        <MousePointer className="w-3.5 h-3.5 fill-emerald-400 text-white" />
+                      </motion.div>
+                    </div>
                   </div>
 
-                </div>
-              </motion.div>
-            )}
-
-            {/* ───────────────────────────────────────────────────────────── */}
-            {/* STEP 5: LOYAL CUSTOMER */}
-            {/* ───────────────────────────────────────────────────────────── */}
-            {activeStep === 4 && (
-              <motion.div
-                key="step-loyal"
-                initial={{ opacity: 0, scale: 0.96, x: 20 }}
-                animate={{ opacity: 1, scale: 1, x: 0 }}
-                exit={{ opacity: 0, scale: 0.96, x: -20 }}
-                transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[#0E0E16]/90 backdrop-blur-2xl border border-white/10 p-6 sm:p-10 rounded-3xl shadow-2xl shadow-black/90 relative overflow-hidden"
-              >
-                <div className="absolute top-0 right-0 w-96 h-96 bg-purple-500/10 blur-[100px] rounded-full pointer-events-none" />
-
-                {/* Left Description Card */}
-                <div className="lg:col-span-5 text-left z-10">
-                  <span className="text-[11px] font-mono font-bold tracking-widest text-[#22E39A] uppercase px-3 py-1 rounded-full bg-[#22E39A]/10 border border-[#22E39A]/20">
-                    {stepsData[4].badge}
-                  </span>
-                  <h3 className="text-2xl sm:text-3xl font-light font-grotesk text-white mt-4 mb-3 leading-tight">
-                    {stepsData[4].title}
-                  </h3>
-                  <p className="text-white/65 text-sm sm:text-base font-light leading-relaxed">
-                    {stepsData[4].description}
-                  </p>
-
-                  <div className="mt-6 flex items-center gap-3 bg-purple-500/10 border border-purple-500/20 p-3.5 rounded-xl text-left">
-                    <Repeat className="w-4 h-4 text-purple-400" />
-                    <span className="text-xs font-mono text-white/80">Golden Retention Loop: High LTV & 42% Repeat Order Rate</span>
-                  </div>
-                </div>
-
-                {/* Right Post-Purchase Loyalty Cards Visual */}
-                <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
-                  
-                  {/* Unboxing / Package Card */}
-                  <motion.div 
-                    whileHover={{ y: -4 }}
-                    className="p-4 rounded-2xl bg-[#0F101B] border border-white/10 shadow-lg space-y-2"
-                  >
-                    <div className="flex items-center gap-2 text-emerald-400 text-xs font-mono font-bold">
-                      <PackageCheck className="w-4 h-4" />
-                      <span>Package Delivered</span>
-                    </div>
-                    <p className="text-xs font-mono text-white/70">Unboxing experience rating: 10/10</p>
-                    <span className="inline-block text-[9px] font-mono bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded border border-emerald-500/20">
-                      Delivered 2 days early
-                    </span>
-                  </motion.div>
-
-                  {/* 5-Star Review Card */}
-                  <motion.div 
-                    whileHover={{ y: -4 }}
-                    className="p-4 rounded-2xl bg-[#0F101B] border border-white/10 shadow-lg space-y-2"
-                  >
-                    <div className="flex gap-1 text-amber-400">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-3.5 h-3.5 fill-current" />
-                      ))}
-                    </div>
-                    <p className="text-xs font-grotesk text-white font-medium">&ldquo;Best quality & packaging ever! Reordering now.&rdquo;</p>
-                    <span className="text-[10px] font-mono text-white/40">— Sarah M. (Verified Buyer)</span>
-                  </motion.div>
-
-                  {/* VIP Loyalty Rewards */}
-                  <motion.div 
-                    whileHover={{ y: -4 }}
-                    className="p-4 rounded-2xl bg-[#0F101B] border border-white/10 shadow-lg space-y-2"
-                  >
-                    <div className="flex items-center gap-2 text-purple-400 text-xs font-mono font-bold">
-                      <Award className="w-4 h-4" />
-                      <span>VIP Loyalty Unlocked</span>
-                    </div>
-                    <p className="text-xs font-mono text-white/70">+500 Points earned on first purchase</p>
-                    <span className="inline-block text-[9px] font-mono bg-purple-500/10 text-purple-300 px-2 py-0.5 rounded border border-purple-500/20">
-                      15% Off Next Order Available
-                    </span>
-                  </motion.div>
-
-                  {/* Golden Loop Repeat Order */}
-                  <motion.div 
-                    whileHover={{ y: -4 }}
-                    className="p-4 rounded-2xl bg-gradient-to-br from-amber-500/10 via-[#0F101B] to-emerald-500/10 border border-amber-500/30 shadow-lg space-y-2"
-                  >
-                    <div className="flex items-center gap-2 text-amber-400 text-xs font-mono font-bold">
-                      <Repeat className="w-4 h-4" />
-                      <span>Repeat Order Placed</span>
-                    </div>
-                    <p className="text-xs font-mono font-bold text-white">$189.00 Second Order (30 Days Later)</p>
-                    <span className="inline-block text-[9px] font-mono bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded border border-amber-500/30">
-                      Golden Loop Completed 🔄
-                    </span>
-                  </motion.div>
-
-                </div>
-              </motion.div>
-            )}
-
-            {/* ───────────────────────────────────────────────────────────── */}
-            {/* FINAL SCENE: ZOOM OUT / FULL ENGINE SUMMARY */}
-            {/* ───────────────────────────────────────────────────────────── */}
-            {activeStep === 5 && (
-              <motion.div
-                key="step-summary"
-                initial={{ opacity: 0, scale: 0.92 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.92 }}
-                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                className="bg-gradient-to-b from-[#0E0E16] to-[#07070B] border border-white/15 p-8 sm:p-12 rounded-3xl shadow-2xl shadow-black/95 text-center relative overflow-hidden"
-              >
-                {/* 5 Connected Node Journey Bar */}
-                <div className="grid grid-cols-5 gap-2 sm:gap-4 mb-10 max-w-4xl mx-auto">
-                  {[
-                    { title: "Traffic", icon: Globe, color: "text-blue-400 border-blue-500/30 bg-blue-500/10" },
-                    { title: "Trust", icon: ShieldCheck, color: "text-emerald-400 border-emerald-500/30 bg-emerald-500/10" },
-                    { title: "Experience", icon: ShoppingCart, color: "text-indigo-400 border-indigo-500/30 bg-indigo-500/10" },
-                    { title: "Sales", icon: TrendingUp, color: "text-amber-400 border-amber-500/30 bg-amber-500/10" },
-                    { title: "Loyal Customers", icon: Heart, color: "text-rose-400 border-rose-500/30 bg-rose-500/10" }
-                  ].map((item, idx) => (
-                    <div key={item.title} className="flex flex-col items-center">
-                      <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-2xl border ${item.color} flex items-center justify-center mb-2 shadow-lg`}>
-                        <item.icon className="w-5 h-5" />
-                      </div>
-                      <span className="text-[10px] sm:text-xs font-mono font-bold text-white/80">{item.title}</span>
-                      {idx < 4 && (
-                        <div className="hidden sm:block text-white/30 font-mono text-xs mt-1">→</div>
-                      )}
-                    </div>
+                  {trustBadges.map((badge, i) => (
+                    <motion.span
+                      key={badge.label}
+                      animate={{ y: [0, -5, 0] }}
+                      transition={{ duration: 2.5 + i * 0.2, repeat: Infinity, ease: "easeInOut" }}
+                      className={`absolute ${badge.pos} px-2.5 py-1 rounded-full bg-slate-900/90 border border-emerald-500/40 text-[9px] font-mono text-emerald-300 backdrop-blur-md shadow-xl whitespace-nowrap z-20`}
+                    >
+                      {badge.label}
+                    </motion.span>
                   ))}
                 </div>
 
-                {/* EXACT REQUIRED MESSAGE */}
-                <div className="space-y-3 max-w-2xl mx-auto my-8">
-                  <h3 className="text-2xl sm:text-3xl lg:text-4xl font-light font-grotesk text-white tracking-tight leading-tight">
-                    Traffic buys clicks.
-                  </h3>
-                  <h3 className="text-2xl sm:text-3xl lg:text-4xl font-normal font-grotesk text-[#22E39A] tracking-tight leading-tight">
-                    Your Shopify store earns customers.
-                  </h3>
+              </div>
+            </div>
+
+
+            {/* ════════════════════════════════════════════════════════════════
+               STAGE 3: CONVERSION (Panel 3 - 100vw Width)
+               ════════════════════════════════════════════════════════════════ */}
+            <div className="w-[100vw] h-full shrink-0 flex items-center justify-center px-12">
+              <div className="max-w-4xl w-full grid grid-cols-12 gap-8 items-center bg-white/[0.02] border border-indigo-500/30 rounded-3xl p-7 backdrop-blur-md shadow-2xl relative">
+                
+                <div className="absolute -top-3 left-8 px-3 py-0.5 rounded-full bg-indigo-500/20 border border-indigo-500/40 text-[10px] font-mono font-bold text-indigo-400 uppercase tracking-widest flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-ping" />
+                  <span>Stage 03 • Profitable Conversion</span>
                 </div>
 
-                <div className="pt-6 border-t border-white/10 max-w-md mx-auto space-y-4">
-                  <div>
-                    <span className="text-xl font-mono font-black tracking-widest text-white">SALEPXL</span>
-                    <p className="text-xs font-mono text-white/50 mt-1">Building Shopify stores engineered for conversion.</p>
+                <div className="col-span-5 space-y-3.5">
+                  <h3 className="text-3xl font-extrabold font-grotesk tracking-tight text-white leading-tight">
+                    Turn Visitors into <span className="text-indigo-400">Paying Customers</span>
+                  </h3>
+                  <p className="text-xs text-white/70 leading-relaxed font-sans">
+                    With trust built into every pixel, shoppers complete checkouts effortlessly. Higher conversion rate means maximum revenue without spending more on ads.
+                  </p>
+
+                  <div className="space-y-1.5 pt-1">
+                    <div className="flex items-center gap-2 text-xs font-mono text-indigo-300">
+                      <BarChart3 className="w-3.5 h-3.5 text-indigo-400 shrink-0" />
+                      <span>+245% Average Conversion Lift</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-xs font-mono text-indigo-300">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-indigo-400 shrink-0" />
+                      <span>Higher AOV & Repeat Customer Retention</span>
+                    </div>
                   </div>
 
-                  <button
-                    onClick={onOpenModal}
-                    className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-white hover:bg-[#22E39A] text-black font-grotesk font-bold text-sm uppercase tracking-wider transition-all duration-300 shadow-2xl hover:scale-105 cursor-pointer"
-                  >
-                    <span>Build My Shopify Store</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
+                  <div className="pt-3">
+                    <button
+                      onClick={onOpenModal}
+                      className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-gradient-to-r from-emerald-400 via-teal-400 to-emerald-500 text-black font-grotesk font-bold text-xs uppercase tracking-wider shadow-[0_0_25px_rgba(16,185,129,0.4)] hover:scale-105 transition-transform cursor-pointer"
+                    >
+                      <span>Build My High-Converting Store</span>
+                      <ArrowRight className="w-4 h-4 text-black" />
+                    </button>
+                  </div>
                 </div>
 
-              </motion.div>
-            )}
+                <div className="col-span-7 flex flex-col items-center justify-center bg-black/50 border border-indigo-500/20 rounded-2xl p-5 relative gap-3">
+                  
+                  <motion.div 
+                    animate={{ y: [0, -3, 0] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                    className="flex items-center gap-3 px-4 py-2 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-xs font-mono text-emerald-300"
+                  >
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
+                    <span>🎉 New Order Confirmed! ₹4,850 • Just now</span>
+                  </motion.div>
 
-          </AnimatePresence>
+                  <div className="py-1">
+                    <DeliveryHandover />
+                  </div>
 
+                  <div className="flex items-center gap-4">
+                    <ShopperFullCart delay={0} />
+                    <div className="text-left space-y-1">
+                      <span className="px-2.5 py-0.5 rounded bg-indigo-500/20 text-indigo-300 text-[10px] font-mono font-bold block">
+                        ORDER COMPLETED
+                      </span>
+                      <span className="text-[10px] text-white/50 block font-mono">Customer Retention +3.8x</span>
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+
+          </motion.div>
+        </div>
+
+
+        {/* ─────────────────────────────────────────────────────────────────── */}
+        {/* MOBILE RESPONSIVE VIEW (Vertical Smooth Storyboard Stack) */}
+        {/* ─────────────────────────────────────────────────────────────────── */}
+        <div className="lg:hidden flex flex-col gap-6 px-4 my-auto overflow-y-auto max-h-[72vh] py-4">
+          
+          <div className={`p-5 rounded-2xl border transition-all ${activeStep === 0 ? "bg-amber-500/10 border-amber-500/40" : "bg-white/[0.02] border-white/10"}`}>
+            <span className="text-[10px] font-mono font-bold text-amber-400 tracking-wider block mb-1">01 • TRAFFIC</span>
+            <h4 className="text-lg font-bold font-grotesk text-white mb-2">High-Intent Traffic Sources</h4>
+            <div className="flex items-center gap-3 mb-3">
+              <GoogleLogo />
+              <MetaLogo />
+              <InstagramLogo />
+              <WhatsAppLogo />
+            </div>
+            <div className="flex items-center gap-2 text-xs font-mono text-amber-300">
+              <ShopperEmptyCart />
+              <span>50K+ Monthly Visitors Arriving</span>
+            </div>
+          </div>
+
+          <div className={`p-5 rounded-2xl border transition-all ${activeStep === 1 ? "bg-emerald-500/10 border-emerald-500/40" : "bg-white/[0.02] border-white/10"}`}>
+            <span className="text-[10px] font-mono font-bold text-emerald-400 tracking-wider block mb-1">02 • TRUST</span>
+            <h4 className="text-lg font-bold font-grotesk text-white mb-2">Shopify Trust Engine</h4>
+            <p className="text-xs text-white/70 mb-3">Fast loading, SSL security badges, verified reviews & 1-click cart drawer.</p>
+            <div className="flex flex-wrap gap-1.5">
+              <span className="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-[10px] font-mono">★★★★★ 5.0 Rating</span>
+              <span className="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-[10px] font-mono">99/100 Speed</span>
+              <span className="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-[10px] font-mono">SSL Secure</span>
+            </div>
+          </div>
+
+          <div className={`p-5 rounded-2xl border transition-all ${activeStep === 2 ? "bg-indigo-500/10 border-indigo-500/40" : "bg-white/[0.02] border-white/10"}`}>
+            <span className="text-[10px] font-mono font-bold text-indigo-400 tracking-wider block mb-1">03 • CONVERSION</span>
+            <h4 className="text-lg font-bold font-grotesk text-white mb-2">Revenue & Customer Growth</h4>
+            <div className="my-2">
+              <DeliveryHandover />
+            </div>
+            <span className="text-xs font-mono text-indigo-300 block my-2">+245% Conversion Rate Lift</span>
+            <button
+              onClick={onOpenModal}
+              className="w-full mt-2 py-3 rounded-full bg-gradient-to-r from-emerald-400 via-teal-400 to-emerald-500 text-black font-grotesk font-bold text-xs uppercase tracking-wider"
+            >
+              Build My High-Converting Store →
+            </button>
+          </div>
+
+        </div>
+
+
+        {/* ── FOOTER CALL TO ACTION ── */}
+        <div className="max-w-xl mx-auto px-4 z-40 text-center space-y-2 pb-2">
+          <p className="text-xs sm:text-sm font-grotesk text-white/80 font-light">
+            Traffic brings visitors. <span className="text-emerald-400 font-normal">Your Shopify store earns customers.</span>
+          </p>
+          <button
+            onClick={onOpenModal}
+            className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-gradient-to-r from-emerald-400 via-teal-400 to-emerald-500 text-black font-grotesk font-bold text-xs uppercase tracking-wider shadow-[0_0_25px_rgba(16,185,129,0.3)] hover:scale-105 transition-transform cursor-pointer"
+          >
+            <span>Build My High-Converting Store</span>
+            <ArrowRight className="w-4 h-4 text-black" />
+          </button>
         </div>
 
       </div>
