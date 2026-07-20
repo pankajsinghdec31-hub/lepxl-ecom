@@ -170,13 +170,23 @@ export default function InteractiveComparison() {
           {/* Dots Indicator */}
           <div className="flex items-center gap-1.5">
             <button
-              onClick={() => setActiveMobileCardIndex(0)}
+              type="button"
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                setActiveMobileCardIndex(0);
+              }}
               className={`h-2 rounded-full transition-all duration-300 ${
                 activeMobileCardIndex === 0 ? "w-6 bg-red-400" : "w-2 bg-white/20"
               }`}
             />
             <button
-              onClick={() => setActiveMobileCardIndex(1)}
+              type="button"
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                setActiveMobileCardIndex(1);
+              }}
               className={`h-2 rounded-full transition-all duration-300 ${
                 activeMobileCardIndex === 1 ? "w-6 bg-emerald-400" : "w-2 bg-white/20"
               }`}
@@ -185,8 +195,8 @@ export default function InteractiveComparison() {
         </div>
 
         {/* Mobile Swipe Container with Motion */}
-        <div className="relative min-h-[480px] overflow-hidden rounded-3xl p-0.5">
-          <AnimatePresence mode="wait">
+        <div className="relative min-h-[520px] overflow-hidden rounded-3xl p-0.5">
+          <AnimatePresence mode="popLayout" initial={false}>
             {activeMobileCardIndex === 0 ? (
               /* MOBILE CARD 1: FAILED ECOM BRAND STORY LETTER */
               <motion.div
@@ -232,7 +242,12 @@ export default function InteractiveComparison() {
                     Core Reason: Unoptimized UX Kills Paid Ad Traffic
                   </span>
                   <button
-                    onClick={() => setActiveMobileCardIndex(1)}
+                    type="button"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      setActiveMobileCardIndex(1);
+                    }}
                     className="text-[10px] font-mono font-bold text-emerald-400 hover:text-emerald-300 flex items-center gap-1 bg-emerald-500/10 border border-emerald-500/30 px-2.5 py-1 rounded-full animate-pulse"
                   >
                     <span>Read Success Blueprint</span>
@@ -288,7 +303,12 @@ export default function InteractiveComparison() {
                     Core Reason: CRO Architecture + High AOV & Retention
                   </span>
                   <button
-                    onClick={() => setActiveMobileCardIndex(0)}
+                    type="button"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      setActiveMobileCardIndex(0);
+                    }}
                     className="text-[10px] font-mono font-bold text-white/70 hover:text-white flex items-center gap-0.5 bg-white/10 px-2 py-1 rounded-full"
                   >
                     <ChevronLeft className="w-3 h-3 text-red-400" />
