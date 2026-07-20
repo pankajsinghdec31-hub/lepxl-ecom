@@ -1371,7 +1371,7 @@ export default function HomePage() {
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#050505] to-transparent" />
 
         {/* ── HERO CONTENT — anchored bottom-left like Shopify ── */}
-        <div className="absolute bottom-0 left-0 right-0 pb-8 sm:pb-20 z-10">
+        <div className="absolute bottom-0 left-0 right-0 pb-12 sm:pb-20 z-10">
           <div className="max-w-[1360px] mx-auto px-6">
             {/* Agency badge */}
             <div className="mb-3 sm:mb-4 animate-fade-blur flex justify-start">
@@ -1436,7 +1436,7 @@ export default function HomePage() {
 
 
       {/* ── OMNICHANNEL / SELL EVERYWHERE SECTION ── */}
-      <section className="py-16 md:py-24 lg:py-36 relative z-20 overflow-hidden bg-bg-dark border-t border-b border-white/[0.08] rounded-t-[32px] md:rounded-t-[48px] mt-[-32px] md:mt-[-48px]">
+      <section className="py-16 md:py-24 lg:py-36 relative z-20 overflow-hidden bg-bg-dark border-t border-b border-white/[0.08] rounded-t-[32px] md:rounded-t-[48px] mt-2 sm:mt-[-32px] md:mt-[-48px]">
         <div className="max-w-[1360px] mx-auto px-6">
           
           {/* Main big headline & Navigation controls */}
