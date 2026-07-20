@@ -1848,7 +1848,7 @@ export default function HomePage() {
         <div className="max-w-[1360px] mx-auto flex flex-col gap-16 px-6">
           <div className="text-center max-w-2xl mx-auto flex flex-col gap-4">
             <h2 className="premium-heading text-3xl sm:text-4xl lg:text-[2.75rem] font-light text-white tracking-tight font-grotesk">
-              Legacy <span className="light-gradient-text font-normal">vs.</span> <span className="premium-highlight">SalePXL Rebuilds</span>
+              Why 90% of Stores Fail <span className="light-gradient-text font-normal">vs.</span> <span className="premium-highlight">The SalePXL Conversion Blueprint</span>
             </h2>
             <p className="text-white/70 text-base font-light">
               We replace sluggish, heavy pre-built templates with optimized custom engines. The difference is measurable.
