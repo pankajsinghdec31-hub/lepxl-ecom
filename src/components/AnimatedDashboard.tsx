@@ -386,7 +386,7 @@ export default function AnimatedDashboard() {
 
                 {/* Micro animation callout */}
                 <div className="text-center text-[10px] text-[#4a4a4a]">
-                  📊 Integrated engine simulating real-time speed auditing and rendering parameters for optimized Shopify Stores.
+                  📊 Integrated engine simulating real-time speed optimization and rendering parameters for optimized Shopify Stores.
                 </div>
               </motion.div>
             )}

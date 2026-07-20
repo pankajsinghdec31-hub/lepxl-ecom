@@ -130,7 +130,7 @@ const PROJECTS: Project[] = [
     url: "https://chashma.com/",
     industry: "Premium Eyewear",
     category: "cro",
-    services: ["UX Audit", "Add-To-Cart CRO Optimization", "Checkout Streamlining"],
+    services: ["UX Optimization", "Add-To-Cart CRO Optimization", "Checkout Streamlining"],
     description: "Integrated lens selectors, reducing checkout drop-offs.",
     accentColor: "#6366f1",
   },
@@ -220,7 +220,7 @@ const PROJECTS: Project[] = [
     url: "https://amarose.com/",
     industry: "Luxury Perfumes",
     category: "cro",
-    services: ["UX Audit", "Scent Finder Quiz", "Add-To-Cart CRO"],
+    services: ["UX Optimization", "Scent Finder Quiz", "Add-To-Cart CRO"],
     description: "Scent matching quizzes, increasing carts by 35%.",
     accentColor: "#db2777",
   },
@@ -247,7 +247,7 @@ const PROJECTS: Project[] = [
     url: "https://skinbasics.com/",
     industry: "Leather Goods",
     category: "cro",
-    services: ["Conversion Rate Audit", "Trust Badging", "Optimized Checkout Drawer"],
+    services: ["Conversion Optimization", "Trust Badging", "Optimized Checkout Drawer"],
     description: "Billing streamlining and MSME trust seals.",
     accentColor: "#ca8a04",
   },
@@ -966,7 +966,7 @@ export default function PortfolioPage() {
               href="/contact"
               className="inline-flex items-center justify-center px-6 py-2.5 sm:px-8 sm:py-3 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-black hover:bg-neutral-900 transition-all duration-300 shadow-lg hover:scale-[1.02]"
             >
-              Book Free Audit Call
+              Book Strategy Call
             </Link>
             <Link
               href="https://wa.me/919917780656"
@@ -1161,7 +1161,7 @@ export default function PortfolioPage() {
             href="/contact"
             className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-black hover:bg-neutral-900 transition-all duration-300 hover:scale-[1.02]"
           >
-            <span>Book Free Audit Call</span>
+            <span>Book Strategy Call</span>
             <ArrowRight className="w-4 h-4" strokeWidth={3} />
           </Link>
         </section>

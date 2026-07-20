@@ -172,8 +172,8 @@ export default function ShopifyAuditPage() {
         <div className="text-center max-w-4xl mx-auto flex flex-col gap-5">
 
           <h1 className="text-4xl md:text-6xl font-light tracking-tight leading-tight text-neutral-900 font-grotesk">
-            Free Shopify <br className="sm:hidden" />
-            <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent font-normal font-sans">Growth Audit</span>
+            Shopify Store <br className="sm:hidden" />
+            <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent font-normal font-sans">Growth Roadmap</span>
           </h1>
 
           <p className="text-neutral-600 text-base leading-relaxed max-w-2xl mx-auto font-sans">
@@ -413,7 +413,7 @@ export default function ShopifyAuditPage() {
 
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-neutral-200/60">
                 <div className="flex flex-col gap-1">
-                  <span className="text-xs text-emerald-700 font-mono uppercase tracking-widest font-bold">Audit Forecast</span>
+                  <span className="text-xs text-emerald-700 font-mono uppercase tracking-widest font-bold">Growth Forecast</span>
                   <h3 className="text-lg font-bold text-neutral-900 font-grotesk">Performance Lift Projection</h3>
                 </div>
                 <div className="px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200/50 text-emerald-700 text-[10px] font-bold font-mono uppercase tracking-wider animate-pulse">
@@ -641,7 +641,7 @@ export default function ShopifyAuditPage() {
                     <span className="text-xs text-emerald-700 font-mono uppercase tracking-widest font-bold">Lock in Projections</span>
                     <h3 className="text-xl font-bold text-neutral-900 font-grotesk">Recover Your Lost <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent font-normal font-sans">Revenue</span></h3>
                     <p className="text-xs text-neutral-500 leading-relaxed font-sans">
-                      We'll compile these calculations, perform a manual deep-dive CRO audit on your Shopify store, and present a custom optimization roadmap.
+                      We'll compile these calculations, perform a manual deep-dive CRO analysis on your Shopify store, and present a custom optimization roadmap.
                     </p>
                   </div>
 
@@ -695,7 +695,7 @@ export default function ShopifyAuditPage() {
                     type="submit"
                     className="w-full btn-primary flex items-center justify-center gap-2 py-4 rounded-xl text-xs font-bold uppercase tracking-wider text-white bg-black hover:bg-neutral-800 shadow-sm mt-2 cursor-pointer"
                   >
-                    <span>Request Free Growth Audit</span>
+                    <span>Request Free Growth Plan</span>
                     <ArrowRight className="w-4 h-4" />
                   </button>
                 </form>
@@ -705,7 +705,7 @@ export default function ShopifyAuditPage() {
                     <ShieldCheck className="w-8 h-8" />
                   </div>
                   <div className="flex flex-col gap-2 text-center text-neutral-800">
-                    <h3 className="text-xl font-bold text-neutral-900 font-grotesk">Growth Audit Requested!</h3>
+                    <h3 className="text-xl font-bold text-neutral-900 font-grotesk">Growth Strategy Requested!</h3>
                     <p className="text-xs text-neutral-600 leading-relaxed max-w-sm mx-auto">
                       Thank you, **{contactName}**. We have logged your store metrics for **{storeUrl || "your brand"}** with leakage projection of **{formatCurrency(revenueLeakage)}/mo**.
                     </p>

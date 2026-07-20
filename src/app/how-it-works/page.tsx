@@ -72,7 +72,7 @@ const STEPS: Step[] = [
     title: "Research & Strategy",
     headline: "Planning Before Design",
     description: "Every successful Shopify store starts with proper research. Share your references, or our team will perform detailed competitor research, identify industry leaders, and structure your store using proven competitor layout designs in the same niche.",
-    highlights: ["Competitor Layout Audit", "Niche-Specific Layouts", "Proven Conversion Design", "UX Wireframe Board", "Store Structure Planning"]
+    highlights: ["Competitor Layout Analysis", "Niche-Specific Layouts", "Proven Conversion Design", "UX Wireframe Board", "Store Structure Planning"]
   },
   {
     id: "step-4",
@@ -121,7 +121,7 @@ const STEPS: Step[] = [
     headline: "Double-Checking Everything",
     description: "Before launching, we go through our 28-point checkout checklist ensuring speed optimization, payment integrations, and delivery hooks are active.",
     checklist: [
-      "28-Point Checkout Integrity Audit",
+      "28-Point Checkout Integrity Check",
       "Google Analytics & GTM Triggers",
       "Meta Pixel Purchase Event Verification",
       "UPI & Cod Split Checkout Tests",
@@ -495,7 +495,7 @@ export default function HowItWorksPage() {
                                 strategyTab === "competitor" ? "border-emerald-500 text-emerald-600" : "border-transparent text-neutral-400"
                               }`}
                             >
-                              Competitor Audit
+                              Competitor Analysis
                             </button>
                             <button
                               onClick={() => setStrategyTab("wireframe")}
@@ -519,7 +519,7 @@ export default function HowItWorksPage() {
                               </div>
                               <div className="rounded-xl bg-neutral-50 border border-neutral-200 p-3 flex flex-col gap-2 shadow-sm text-center">
                                 <div className="h-16 rounded-lg bg-white border border-neutral-200 flex items-center justify-center"><Zap className="w-5 h-5 text-neutral-400" /></div>
-                                <span className="text-[10px] font-bold text-neutral-800">Speed Audits</span>
+                                <span className="text-[10px] font-bold text-neutral-800">Speed Optimization</span>
                               </div>
                             </div>
                           ) : (
@@ -587,7 +587,7 @@ export default function HowItWorksPage() {
                         <div className="space-y-4">
                           <div className="rounded-2xl border border-neutral-200 bg-white p-5 flex flex-col gap-3 shadow-sm">
                             <div className="flex justify-between items-center text-xs font-mono">
-                              <span className="text-neutral-500">Lighthouse Performance Audit</span>
+                              <span className="text-neutral-500">Lighthouse Performance Test</span>
                               <span className={`font-bold transition-colors ${speedScore >= 90 ? "text-emerald-600 animate-pulse" : "text-amber-500"}`}>{speedScore}/100</span>
                             </div>
                             

@@ -46,7 +46,7 @@ const HOTSPOTS: Hotspot[] = [
     x: "30%",
     y: "90%",
     title: "Udyam MSME Trust Signals",
-    desc: "Explicit badges detailing government MSME audits resolve transaction legitimacy concerns."
+    desc: "Explicit badges detailing government MSME verification resolve transaction legitimacy concerns."
   }
 ];
 
@@ -221,7 +221,7 @@ export default function ABTestingSimulator() {
                 </button>
                 {activeTab === "after" && (
                   <p className="text-[8px] text-[#8e8e93] text-center">
-                    🔒 Guaranteed secure payment audit. Instant GST receipt.
+                    🔒 Guaranteed secure payment processing. Instant GST receipt.
                   </p>
                 )}
               </div>
@@ -259,7 +259,7 @@ export default function ABTestingSimulator() {
         {/* Right Side: Explanatory Copy & Active Hotspot Inspector */}
         <div className="lg:col-span-5 flex flex-col justify-between p-6 sm:p-8 rounded-2xl glass-card shadow-sm text-left">
           <div className="flex flex-col gap-6">
-            <span className="text-xs text-[#8e8e93] font-mono uppercase tracking-widest font-bold">Auditing Optimization Parameters</span>
+            <span className="text-xs text-[#8e8e93] font-mono uppercase tracking-widest font-bold">Analyzing Optimization Parameters</span>
             <h4 className="text-lg font-bold text-white">
               {activeTab === "before" ? "Why Cluttered Layouts Fail" : "How Optimization Multiplies Sales"}
             </h4>

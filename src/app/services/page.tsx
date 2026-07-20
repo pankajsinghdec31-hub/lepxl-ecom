@@ -45,14 +45,14 @@ const SERVICES: ServiceItem[] = [
   },
   {
     title: "Speed & Performance Tuning",
-    desc: "Liquid script auditing, lazy-loading sequences, and asset compression.",
+    desc: "Liquid script optimization, lazy-loading sequences, and asset compression.",
     icon: CheckCircle2,
     metric: "Consistently 90+ Score",
     bullets: ["Image compression & lazy-loading", "JavaScript & CSS minification", "App asset loading optimization"]
   },
   {
     title: "Conversion Rate Optimization (CRO)",
-    desc: "Session hot-map profiling, leak auditing, and checkout speed optimization.",
+    desc: "Session heat-map profiling, friction analysis, and checkout speed optimization.",
     icon: ShieldCheck,
     metric: "Avg. 2x Conversion Scale",
     bullets: ["Friction points mapping", "Add-to-cart conversion tuning", "Optimized cart drawer modules"]

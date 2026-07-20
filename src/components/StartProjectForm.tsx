@@ -132,7 +132,7 @@ export default function StartProjectForm({ onSuccess }: { onSuccess?: () => void
             Start <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent font-normal font-sans">Your</span> Project
           </h3>
           <p className="text-sm text-neutral-600 leading-relaxed mt-2 max-w-lg mx-auto">
-            Let's build a High Converting Ecommerce Store. Share your project requirements below to receive a free conversion rate audit and schedule a strategy consultation.
+            Let's build a High Converting Ecommerce Store. Share your project requirements below to schedule a strategy consultation.
           </p>
         </div>
 
@@ -460,7 +460,7 @@ export default function StartProjectForm({ onSuccess }: { onSuccess?: () => void
                   Request Received!
                 </h3>
                 <p className="text-sm text-neutral-700 leading-relaxed font-semibold px-2">
-                  Thank you for reaching out. We will audit your request details and email you a calendar booking link shortly.
+                  Thank you for reaching out. We will review your request details and email you a calendar booking link shortly.
                 </p>
               </div>
 

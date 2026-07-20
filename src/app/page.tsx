@@ -2023,7 +2023,7 @@ export default function HomePage() {
               FAQ
             </span>
             <h2 className="premium-heading text-3xl sm:text-4xl lg:text-[2.75rem] font-light text-white tracking-tight font-grotesk">
-              Auditing <span className="premium-highlight"><span className="light-gradient-text font-normal">Process</span> Details</span>
+              Optimization <span className="premium-highlight"><span className="light-gradient-text font-normal">Process</span> Details</span>
             </h2>
           </div>
 
@@ -2085,7 +2085,7 @@ export default function HomePage() {
           </h2>
 
           <p className="text-white/70 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
-            Let's build a high converting Shopify store and faster checkout experience custom designed for your ecom brand.<br className="hidden sm:block" /> Get a free audit and consultation today.
+            Let's build a high converting Shopify store and faster checkout experience custom designed for your ecom brand.<br className="hidden sm:block" /> Get a free strategy consultation today.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto mt-2">

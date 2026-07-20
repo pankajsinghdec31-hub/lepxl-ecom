@@ -40,7 +40,7 @@ export default function CaseStudiesPage() {
             
             <div className="px-5 py-2.5 rounded-2xl bg-emerald-50 border border-emerald-200/50 flex items-center gap-3 w-max">
               <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
-              <span className="text-xs font-bold text-emerald-700 font-sans">VERIFIED AUDIT LOG</span>
+              <span className="text-xs font-bold text-emerald-700 font-sans">VERIFIED PERFORMANCE LOG</span>
             </div>
           </div>
 
@@ -82,7 +82,7 @@ export default function CaseStudiesPage() {
               <div className="flex flex-col gap-4 mt-2">
                 {[
                   {
-                    title: "Phase 1: Speed & Design Auditing",
+                    title: "Phase 1: Speed & Design Optimization",
                     desc: "Restructured Liquid render sequence, securing 1.9s mobile load time to eliminate bounces."
                   },
                   {
@@ -175,10 +175,10 @@ export default function CaseStudiesPage() {
         {/* Call to action footer section */}
         <div className="p-8 md:p-12 rounded-3xl bg-white border border-neutral-200/60 shadow-sm text-center flex flex-col gap-6 items-center backdrop-blur-xl font-sans">
           <h2 className="text-xl md:text-2xl font-bold text-neutral-900 font-grotesk">
-            Want to audit your brand's <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent font-normal font-sans">store performance?</span>
+            Want to optimize your brand's <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent font-normal font-sans">store performance?</span>
           </h2>
           <p className="text-xs text-neutral-600 max-w-lg leading-relaxed">
-            Let Pankaj Singh audit your current checkout funnel and page speed metrics to map out a performance structure tailored to your product catalog.
+            Let Pankaj Singh analyze your current checkout funnel and page speed metrics to map out a performance structure tailored to your product catalog.
           </p>
           <Link
             href="/contact"
