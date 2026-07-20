@@ -6,18 +6,22 @@ import { CheckCircle2, XCircle, Sparkles, ChevronLeft, ChevronRight, PenTool, Fl
 
 const FAILED_LETTER_POINTS = [
   { id: 1, text: "I launched an ecom brand with $50k investment in ads & store, spending only 20% on the store." },
-  { id: 2, text: "Visitors clicked my ad, but bounced in seconds due to low customer trust." },
-  { id: 3, text: "Product pages were unformatted text walls with zero offer positioning." },
-  { id: 4, text: "Over 82% of shoppers abandoned their carts during multi-page checkout." },
-  { id: 5, text: "I burnt through capital at ~1% conversion rate & was forced to shut down." }
+  { id: 2, text: "I poured $40k into Meta & TikTok ads, driving tens of thousands of clicks to a standard template." },
+  { id: 3, text: "Visitors landed on my store, but bounced in seconds due to generic design & low buyer trust." },
+  { id: 4, text: "Product display pages were unformatted text walls with zero offer positioning or conversion triggers." },
+  { id: 5, text: "Add-to-cart rates hovered under 2% with zero bundle upsells to increase average order value." },
+  { id: 6, text: "Over 82% of shoppers abandoned their carts during multi-page checkout friction & unexpected fees." },
+  { id: 7, text: "I burnt through the entire $50k capital at ~1% conversion rate and was forced to shut down." }
 ];
 
 const SALEPXL_LETTER_POINTS = [
-  { id: 1, text: "Blueprint: We rebuilt the store with a unique brand identity that builds instant trust." },
-  { id: 2, text: "Transformed PDPs into high-converting, scannable benefit layouts with proof." },
-  { id: 3, text: "Integrated strategic offer positioning & high-margin bundle recommendations." },
-  { id: 4, text: "Accelerated checkout velocity with 1-Click express payments & zero friction." },
-  { id: 5, text: "Scaled store to 3.5%–5%+ conversion benchmark & profitable 3.8x LTV." }
+  { id: 1, text: "Blueprint: We re-engineered the store architecture around buyer psychology and conversion triggers." },
+  { id: 2, text: "Built a unique custom brand identity that establishes instant authority and high customer trust." },
+  { id: 3, text: "Transformed product pages with scannable benefit callouts, video highlights, & verified social proof." },
+  { id: 4, text: "Engineered strategic offer positioning with high-margin bundle recommendations & slide-out cart upsells." },
+  { id: 5, text: "Accelerated checkout velocity with 1-Click express payments, sticky add-to-cart, & zero checkout friction." },
+  { id: 6, text: "Lifted store conversion rates to 3.5%–5%+ benchmark while increasing average order value by +42%." },
+  { id: 7, text: "Turned ad spend into a profitable customer acquisition engine with a 3.8x repeat buyer LTV." }
 ];
 
 // Single Line Pen Typewriter Component (Simulates authentic handwriting)
