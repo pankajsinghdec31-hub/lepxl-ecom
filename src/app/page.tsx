@@ -1920,8 +1920,8 @@ export default function HomePage() {
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6 lg:gap-10 items-center relative z-10">
               
-              {/* Left Side: Compact Founder Image Portrait (4 cols) */}
-              <div className="lg:col-span-4 flex flex-col items-center justify-center">
+              {/* Left Side: Compact Founder Image Portrait (Hidden on mobile) */}
+              <div className="hidden sm:flex lg:col-span-4 flex-col items-center justify-center">
                 <div className="relative w-full max-w-[160px] sm:max-w-[220px] aspect-square rounded-[20px] overflow-hidden border-2 border-emerald-500/30 shadow-2xl bg-[#0a0a0a] group">
                   
                   {/* Active Founder Image */}
