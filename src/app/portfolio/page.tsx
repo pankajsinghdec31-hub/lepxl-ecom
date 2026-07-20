@@ -1020,36 +1020,7 @@ export default function PortfolioPage() {
             <p className="text-sm text-neutral-500 max-w-xl font-sans">All kinds of businesses. All kinds of stores. All built to sell with custom storefronts and optimized engines.</p>
           </div>
 
-          {/* Toggle pill selector */}
-          <div className="flex flex-col gap-6 items-start font-sans">
-            <div className="flex bg-white border border-neutral-200 p-1.5 rounded-full shadow-inner max-w-full overflow-x-auto no-scrollbar">
-              {TABS.map((tab) => (
-                <button
-                  key={tab.id}
-                  onClick={() => setFilter(tab.id as any)}
-                  className={`px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 shrink-0 ${
-                    filter === tab.id
-                      ? "bg-black text-white shadow-md font-extrabold"
-                      : "text-neutral-500 hover:text-neutral-900 hover:bg-neutral-50"
-                  }`}
-                >
-                  {tab.name}
-                </button>
-              ))}
-            </div>
-            
-            <AnimatePresence mode="wait">
-              <motion.p
-                key={filter}
-                initial={{ opacity: 0, y: 5 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -5 }}
-                className="text-xs text-neutral-500 font-mono tracking-wide"
-              >
-                {TABS.find((t) => t.id === filter)?.tagline}
-              </motion.p>
-            </AnimatePresence>
-          </div>
+
 
           {/* 3-Column Vertical Masonry Grid with Column 1 & 3 moving up, Column 2 moving down on scroll */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full mt-4 overflow-hidden md:overflow-visible">
