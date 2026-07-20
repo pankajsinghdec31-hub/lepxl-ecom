@@ -291,8 +291,24 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
       <div className="hidden lg:block min-h-[350vh]">
         <div className="sticky top-0 h-screen w-full flex flex-col justify-between py-6 z-10 overflow-hidden">
 
+          {/* Header Section from User Spec */}
+          <div className="max-w-3xl mx-auto px-4 w-full z-40 text-center flex flex-col items-center pt-2 sm:pt-4">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono font-medium tracking-widest uppercase mb-3 shadow-[0_0_20px_rgba(16,185,129,0.15)]">
+              <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
+              <span>THE GROWTH FORMULA</span>
+            </div>
+
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light font-grotesk text-white tracking-tight leading-[1.15] mb-3">
+              Hyper-Optimized. <span className="text-emerald-400 font-normal">Designed to Convert.</span>
+            </h2>
+
+            <p className="text-white/70 text-xs sm:text-sm md:text-base font-light leading-relaxed max-w-2xl mx-auto font-sans">
+              A successful Shopify store isn't built by design alone. Real growth happens when every part of the customer journey works together. We optimize every touchpoint to transform traffic into loyal customers and sustainable revenue.
+            </p>
+          </div>
+
           {/* Header Progress Tracker */}
-          <div className="max-w-4xl mx-auto px-4 w-full z-40">
+          <div className="max-w-4xl mx-auto px-4 w-full z-40 mt-3">
             <div className="flex flex-col items-center gap-2">
               
               <div className="flex items-center gap-3">
@@ -818,14 +834,15 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
         
         {/* Mobile Section Main Header Title */}
         <div className="text-center space-y-3 mb-8">
-          <span className="px-3.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-[10px] font-mono font-bold text-emerald-400 uppercase tracking-widest inline-block shadow-[0_0_15px_rgba(16,185,129,0.15)]">
-            GROWTH ARCHITECTURE FLOW
-          </span>
-          <h2 className="text-2xl sm:text-3xl font-extrabold font-grotesk text-white tracking-tight leading-tight block">
-            <span className="text-amber-400">Traffic</span> → <span className="text-emerald-400">Trust</span> → <span className="text-indigo-400">Conversion</span>
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-[10px] font-mono font-medium text-emerald-400 uppercase tracking-widest shadow-[0_0_15px_rgba(16,185,129,0.15)]">
+            <Sparkles className="w-3 h-3 text-emerald-400" />
+            <span>THE GROWTH FORMULA</span>
+          </div>
+          <h2 className="text-2xl sm:text-3xl font-light font-grotesk text-white tracking-tight leading-tight block">
+            Hyper-Optimized. <span className="text-emerald-400 font-normal">Designed to Convert.</span>
           </h2>
-          <p className="text-xs text-white/70 max-w-xs mx-auto font-sans leading-relaxed">
-            The 3-stage High Converting Ecommerce Store formula designed to convert ad visitors into repeat customers.
+          <p className="text-xs text-white/70 max-w-xs mx-auto font-sans leading-relaxed font-light">
+            A successful Shopify store isn't built by design alone. Real growth happens when every part of the customer journey works together. We optimize every touchpoint to transform traffic into loyal customers and sustainable revenue.
           </p>
         </div>
 
