@@ -1882,7 +1882,7 @@ export default function HomePage() {
                 <button
                   key={idx}
                   onClick={() => setActiveReviewIdx(idx)}
-                  className={`flex items-center gap-3 p-3 rounded-2xl border text-left transition-all duration-300 cursor-pointer ${
+                  className={`flex items-center gap-2.5 p-2.5 rounded-2xl border text-left transition-all duration-300 cursor-pointer ${
                     isActive
                       ? "bg-emerald-950/70 border-emerald-500/60 shadow-[0_0_20px_rgba(16,185,129,0.25)] scale-[1.02]"
                       : "bg-[#101010]/80 border-white/10 hover:border-white/20 opacity-70 hover:opacity-100"
@@ -1893,19 +1893,19 @@ export default function HomePage() {
                     <img
                       src={rev.image}
                       alt={rev.name}
-                      className={`w-11 h-11 rounded-full object-cover border ${
+                      className={`w-8 h-8 rounded-full object-cover border ${
                         isActive ? "border-emerald-400" : "border-white/20"
                       }`}
                     />
                     {isActive && (
-                      <span className="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 bg-emerald-400 rounded-full border-2 border-[#101010]" />
+                      <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-emerald-400 rounded-full border-2 border-[#101010]" />
                     )}
                   </div>
 
                   {/* Founder Name & Store Category */}
                   <div className="min-w-0 flex-1">
                     <h4 className="text-xs font-bold text-white truncate font-grotesk">{rev.name}</h4>
-                    <p className="text-[10px] text-emerald-400/90 truncate font-mono mt-0.5">{rev.category}</p>
+                    <p className="text-[9px] text-emerald-400/90 truncate font-mono mt-0.5">{rev.category}</p>
                   </div>
                 </button>
               );
@@ -1913,16 +1913,16 @@ export default function HomePage() {
           </div>
 
           {/* Main Active Founder Review Card */}
-          <div className="w-full bg-gradient-to-br from-[#101010] via-[#0c0c0c] to-[#070707] border border-white/[0.1] rounded-[24px] p-6 sm:p-10 lg:p-12 relative overflow-hidden shadow-2xl">
+          <div className="w-full bg-gradient-to-br from-[#101010] via-[#0c0c0c] to-[#070707] border border-white/[0.1] rounded-[24px] p-6 sm:p-8 lg:p-10 relative overflow-hidden shadow-2xl">
             
             {/* Ambient inner glow */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(16,185,129,0.08),transparent_60%)] pointer-events-none" />
 
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center relative z-10">
               
-              {/* Left Side: Founder Image Portrait & Category Tag (5 cols) */}
-              <div className="lg:col-span-5 flex flex-col items-center justify-center">
-                <div className="relative w-full max-w-[320px] aspect-[4/5] rounded-[24px] overflow-hidden border-2 border-emerald-500/30 shadow-2xl bg-[#0a0a0a] group">
+              {/* Left Side: Compact Founder Image Portrait (4 cols) */}
+              <div className="lg:col-span-4 flex flex-col items-center justify-center">
+                <div className="relative w-full max-w-[200px] sm:max-w-[220px] aspect-square rounded-[20px] overflow-hidden border-2 border-emerald-500/30 shadow-2xl bg-[#0a0a0a] group">
                   
                   {/* Active Founder Image */}
                   <motion.img
@@ -1938,36 +1938,36 @@ export default function HomePage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent pointer-events-none" />
 
                   {/* Top Category Tag */}
-                  <div className="absolute top-4 left-4 bg-slate-900/90 border border-emerald-500/40 px-3 py-1 rounded-full text-[10px] font-mono font-bold text-emerald-300 backdrop-blur-md shadow-lg flex items-center gap-1.5">
+                  <div className="absolute top-2.5 left-2.5 bg-slate-900/90 border border-emerald-500/40 px-2.5 py-0.5 rounded-full text-[9px] font-mono font-bold text-emerald-300 backdrop-blur-md shadow-lg flex items-center gap-1">
                     <span>🛍️</span>
-                    <span>{GOOGLE_REVIEWS_CONSOLIDATED[activeReviewIdx].category}</span>
+                    <span className="truncate max-w-[130px]">{GOOGLE_REVIEWS_CONSOLIDATED[activeReviewIdx].category}</span>
                   </div>
 
                   {/* Bottom Founder Profile Info */}
-                  <div className="absolute bottom-4 inset-x-4 p-3.5 rounded-xl bg-slate-950/90 border border-white/10 backdrop-blur-md flex items-center justify-between">
+                  <div className="absolute bottom-2.5 inset-x-2.5 p-2.5 rounded-xl bg-slate-950/90 border border-white/10 backdrop-blur-md flex items-center justify-between">
                     <div>
-                      <h4 className="text-sm font-bold text-white font-grotesk">
+                      <h4 className="text-xs font-bold text-white font-grotesk truncate max-w-[110px]">
                         {GOOGLE_REVIEWS_CONSOLIDATED[activeReviewIdx].name}
                       </h4>
-                      <p className="text-[10px] text-emerald-400 font-mono mt-0.5 flex items-center gap-1">
+                      <p className="text-[9px] text-emerald-400 font-mono mt-0.5 flex items-center gap-1">
                         <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
-                        <span>Verified Store Founder</span>
+                        <span>Verified</span>
                       </p>
                     </div>
 
                     <div className="text-right font-mono">
                       <span className="text-xs font-bold text-white block">{GOOGLE_REVIEWS_CONSOLIDATED[activeReviewIdx].statVal}</span>
-                      <span className="text-[9px] text-white/50 block">{GOOGLE_REVIEWS_CONSOLIDATED[activeReviewIdx].statLabel}</span>
+                      <span className="text-[8px] text-white/50 block">{GOOGLE_REVIEWS_CONSOLIDATED[activeReviewIdx].statLabel}</span>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Right Side: Active Review Quote & Ratings Card (7 cols - matching screenshot format) */}
-              <div className="lg:col-span-7 flex flex-col justify-center space-y-6 text-left">
+              {/* Right Side: Active Review Quote & Ratings Card (8 cols) */}
+              <div className="lg:col-span-8 flex flex-col justify-center space-y-5 text-left">
                 
                 {/* 5 Gold Stars */}
-                <div className="flex items-center gap-1.5 text-amber-400 text-2xl">
+                <div className="flex items-center gap-1.5 text-amber-400 text-xl">
                   {[...Array(GOOGLE_REVIEWS_CONSOLIDATED[activeReviewIdx].stars)].map((_, i) => (
                     <span key={i}>★</span>
                   ))}
@@ -1977,27 +1977,27 @@ export default function HomePage() {
                 </div>
 
                 {/* Review Headline in large quote font */}
-                <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight leading-snug font-grotesk">
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight leading-snug font-grotesk">
                   "{GOOGLE_REVIEWS_CONSOLIDATED[activeReviewIdx].headline}"
                 </h3>
 
                 {/* Review Body Text */}
-                <p className="text-white/80 text-base sm:text-lg leading-relaxed font-sans font-normal">
+                <p className="text-white/80 text-base leading-relaxed font-sans font-normal">
                   {GOOGLE_REVIEWS_CONSOLIDATED[activeReviewIdx].text}
                 </p>
 
                 {/* Founder Info Footer */}
-                <div className="pt-4 border-t border-white/10 flex items-center gap-3.5">
+                <div className="pt-3 border-t border-white/10 flex items-center gap-3">
                   <img
                     src={GOOGLE_REVIEWS_CONSOLIDATED[activeReviewIdx].image}
                     alt={GOOGLE_REVIEWS_CONSOLIDATED[activeReviewIdx].name}
-                    className="w-12 h-12 rounded-full object-cover border-2 border-emerald-400 shadow-md"
+                    className="w-9 h-9 rounded-full object-cover border-2 border-emerald-400 shadow-md"
                   />
                   <div>
-                    <h4 className="text-sm font-bold text-white font-grotesk">
+                    <h4 className="text-xs font-bold text-white font-grotesk">
                       {GOOGLE_REVIEWS_CONSOLIDATED[activeReviewIdx].name}
                     </h4>
-                    <p className="text-xs text-emerald-400 font-mono">
+                    <p className="text-[10px] text-emerald-400 font-mono">
                       {GOOGLE_REVIEWS_CONSOLIDATED[activeReviewIdx].category}
                     </p>
                   </div>
