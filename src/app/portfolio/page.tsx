@@ -604,7 +604,7 @@ function PortfolioCard({ proj, heightClass }: { proj: Project; heightClass: stri
           }`}
         >
           <span className={`w-1.5 h-1.5 rounded-full ${isCustom ? "bg-white" : "bg-emerald-600"}`} />
-          {isCustom ? "Custom Liquid" : "Theme"}
+          {isCustom ? "Shopify Liquid" : "Shopify Theme"}
         </span>
       </div>
     </div>
@@ -953,13 +953,13 @@ export default function PortfolioPage() {
         <section className="text-center max-w-4xl mx-auto flex flex-col gap-3 sm:gap-5">
 
           <h1 className="text-3xl sm:text-4xl md:text-6xl font-light tracking-tight leading-tight text-neutral-900 font-grotesk">
-            Build Your Online Store: <br />
+            Shopify Store <br />
             <span className="font-normal bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
-              Use Themes or Go Headless
+              E-Commerce Development
             </span>
           </h1>
           <p className="text-neutral-600 text-xs sm:text-base leading-relaxed max-w-2xl mx-auto font-sans">
-            Whether looking to optimize Liquid structures or launch a custom Next.js storefront, browse our curated D2C storefront layouts scaling performance.
+            Browse our curated portfolio of custom Shopify stores, Liquid theme builds, speed-optimized architectures, and high-converting e-commerce experiences engineered for scaling D2C brands.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 mt-2 sm:mt-4 font-sans">
             <Link
@@ -982,9 +982,9 @@ export default function PortfolioPage() {
         {/* MASONRY GRID PROJECTS SHOWCASE WITH OPPOSITE SCROLLING */}
         <section ref={masonrySectionRef} className="flex flex-col gap-6 sm:gap-10">
           <div className="flex flex-col gap-2 sm:gap-3 text-left">
-            <span className="text-[10px] sm:text-xs text-emerald-700 uppercase tracking-widest font-mono font-bold">Choose your stack</span>
-            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-neutral-900 font-grotesk">Join millions of merchants on Shopify</h2>
-            <p className="text-xs sm:text-sm text-neutral-500 max-w-xl font-sans">All kinds of businesses. All kinds of stores. All built to sell with custom storefronts and optimized engines.</p>
+            <span className="text-[10px] sm:text-xs text-emerald-700 uppercase tracking-widest font-mono font-bold">Shopify E-Commerce Showcase</span>
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-neutral-900 font-grotesk">Custom Shopify Stores Built for High Conversions</h2>
+            <p className="text-xs sm:text-sm text-neutral-500 max-w-xl font-sans">Every store engineered with clean Liquid code, mobile-first purchase paths, sub-second speed tuning, and high-converting Shopify designs.</p>
           </div>
 
 
