@@ -36,6 +36,7 @@ import AnimatedDashboard from "@/components/AnimatedDashboard";
 import StartProjectForm from "@/components/StartProjectForm";
 import GrowthFormulaSection from "@/components/GrowthFormulaSection";
 import InteractiveComparison from "@/components/InteractiveComparison";
+import ShopifyIntegrationsSection from "@/components/ShopifyIntegrationsSection";
 
 // FAQ Items
 const FAQ_ITEMS = [
@@ -1633,59 +1634,8 @@ export default function HomePage() {
       </section>
 
 
-      <section className="py-16 md:py-24 lg:py-36 relative z-20 overflow-hidden bg-gradient-to-b from-[#160528] to-[#080214] border-b border-t border-white/[0.08] rounded-t-[32px] md:rounded-t-[48px] mt-[-32px] md:mt-[-48px]">
-        <div className="max-w-[1360px] mx-auto px-6">
-          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-            
-            {/* Left side text column */}
-            <div className="w-full lg:w-[45%] text-left flex flex-col justify-center">
-              <h2 className="premium-heading text-3xl sm:text-4xl lg:text-[2.75rem] font-light text-white leading-[1.1] tracking-tight font-grotesk">
-                Customize <span className="light-gradient-text font-normal">everything</span> with <span className="premium-highlight">Shopify Integrations</span>
-              </h2>
-              <p className="mt-6 text-white/70 text-base sm:text-lg font-light leading-relaxed max-w-lg">
-                We install and configure essential Shopify apps for reviews, upsells, bundles, loyalty programs, analytics, WhatsApp automation, email marketing, and store automation to increase sales, boost conversions, and improve customer retention.
-              </p>
-            </div>
-
-            {/* Right side interactive app grid */}
-            <div className="w-full lg:w-[55%] relative select-none">
-              {/* Fade out mask overlays on desktop */}
-              <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#080214] to-transparent pointer-events-none z-20 hidden lg:block" />
-              <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#080214] to-transparent pointer-events-none z-20 hidden lg:block" />
-              <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-[#160528] to-transparent pointer-events-none z-20 hidden lg:block" />
-
-              <div className="grid grid-cols-4 xs:grid-cols-5 sm:grid-cols-8 gap-3 sm:gap-4 max-h-[480px] overflow-hidden lg:pr-8 pr-0">
-                {APP_ICONS.map((app, idx) => (
-                  <div
-                    key={idx}
-                    className={`aspect-square rounded-[20px] flex items-center justify-center p-2.5 transition-all duration-300 hover:scale-115 hover:rotate-[2deg] hover:z-30 cursor-pointer shadow-lg bg-white border border-white/[0.08] ${
-                      app.highlight 
-                        ? "opacity-100 hover:shadow-2xl hover:shadow-primary/20" 
-                        : "opacity-35 hover:opacity-100 hover:shadow-2xl hover:shadow-primary/15"
-                    }`}
-                    style={{
-                      transitionDelay: `${(idx % 8) * 15}ms`
-                    }}
-                    title={app.name}
-                  >
-                    {app.svg ? (
-                      app.svg
-                    ) : (
-                      <img 
-                        src={app.src} 
-                        alt={app.name}
-                        loading="lazy"
-                        className="max-h-[80%] max-w-[80%] object-contain select-none pointer-events-none transition-all duration-300"
-                      />
-                    )}
-                  </div>
-                ))}
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
+      {/* ── SHOPIFY INTEGRATIONS SECTION ── */}
+      <ShopifyIntegrationsSection onOpenModal={() => setShowFormModal(true)} />
 
       {/* ── THE GROWTH FORMULA SECTION — Premium Dark Storytelling ── */}
       <GrowthFormulaSection onOpenModal={() => setShowFormModal(true)} />
