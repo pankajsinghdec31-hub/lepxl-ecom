@@ -5,13 +5,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import { CheckCircle2, XCircle, Sparkles, ChevronLeft, ChevronRight, PenTool, Flame, Scroll } from "lucide-react";
 
 const FAILED_LETTER_POINTS = [
-  { id: 1, text: "I launched an ecom brand with ₹5 Lakhs investment in ads & store, spending only 20% on the store." },
-  { id: 2, text: "I poured ₹4 Lakhs into Meta & Instagram ads, driving tens of thousands of clicks to a standard template." },
+  { id: 1, text: "I launched an ecom brand with ₹1 Lakh investment in ads & store, spending only 20% on the store." },
+  { id: 2, text: "I poured ₹80,000 into Meta & Instagram ads, driving tens of thousands of clicks to a standard template." },
   { id: 3, text: "Visitors landed on my store, but bounced in seconds due to generic design & low buyer trust." },
   { id: 4, text: "Product display pages were unformatted text walls with zero offer positioning or conversion triggers." },
   { id: 5, text: "Add-to-cart rates hovered under 2% with zero bundle upsells to increase average order value." },
   { id: 6, text: "Over 82% of shoppers abandoned their carts during multi-page checkout friction & unexpected fees." },
-  { id: 7, text: "I burnt through the entire ₹5 Lakhs capital at ~1% conversion rate and was forced to shut down." }
+  { id: 7, text: "I burnt through the entire ₹1 Lakh capital at ~1% conversion rate and was forced to shut down." }
 ];
 
 const SALEPXL_LETTER_POINTS = [
