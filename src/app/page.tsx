@@ -1026,6 +1026,17 @@ export default function HomePage() {
 
   // Process Timeline States
   const [activeProcessStep, setActiveProcessStep] = useState(0);
+
+  // Auto-cycle Build / Launch / Scale steps automatically on mobile
+  useEffect(() => {
+    const timer = setInterval(() => {
+      if (typeof window !== "undefined" && window.innerWidth < 768) {
+        setActiveProcessStep((prev) => (prev + 1) % 3);
+      }
+    }, 3200);
+
+    return () => clearInterval(timer);
+  }, []);
   const [wireframeLayout, setWireframeLayout] = useState<Record<string, boolean>>({
     announcement: true,
     hero: true,
@@ -1545,8 +1556,13 @@ export default function HomePage() {
           {/* Header */}
           <div className="text-center mb-16 flex flex-col items-center">
 
-            <h2 className="premium-heading text-3xl sm:text-4xl lg:text-[2.75rem] font-light text-white tracking-tight font-grotesk mt-2">
-              Build. <span className="light-gradient-text font-normal">Launch.</span> <span className="premium-highlight">Scale.</span>
+            <h2 className="premium-heading text-3xl sm:text-4xl lg:text-[2.75rem] font-light text-white tracking-tight font-grotesk mt-2 flex flex-wrap items-center justify-center gap-2">
+              <span>Build.</span>
+              <span className="light-gradient-text font-normal">Launch.</span>
+              <span className="relative inline-block z-10 px-3 py-0.5 rounded-xl bg-gradient-to-r from-emerald-500/30 via-emerald-400/25 to-teal-500/30 border-b-4 border-emerald-400 text-white font-normal shadow-[0_0_30px_rgba(16,185,129,0.4)] backdrop-blur-sm">
+                <span className="relative z-10 text-emerald-300 font-medium">Scale.</span>
+                <span className="absolute inset-x-1 bottom-1 h-3.5 bg-emerald-400/40 rounded transform -rotate-1 -z-1" />
+              </span>
             </h2>
           </div>
 
@@ -1577,6 +1593,7 @@ export default function HomePage() {
                     <div
                       key={idx}
                       onMouseEnter={() => setActiveProcessStep(idx)}
+                      onClick={() => setActiveProcessStep(idx)}
                       className="group cursor-pointer py-6 border-b border-white/[0.08] flex flex-col gap-2 transition-all duration-300"
                     >
                       <div className="flex items-baseline gap-5">
