@@ -152,8 +152,8 @@ const GOOGLE_REVIEWS_CONSOLIDATED = [
     headline: "Dedicated Developer Team Support",
     text: "The post-launch team support has been outstanding. They resolved minor adjustments instantly, provided complete dashboard training, and acted like true partners.",
     image: "/founder_1.jpg",
-    statVal: "24/7",
-    statLabel: "Team Support",
+    statVal: "+3.8x",
+    statLabel: "Customer LTV",
     category: "Organic Tea & Beverages Store"
   }
 ];
