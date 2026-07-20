@@ -215,7 +215,7 @@ export default function HowItWorksPage() {
   }, []);
 
   return (
-    <div ref={containerRef} className="relative pt-44 pb-24 px-6 text-left min-h-screen bg-gradient-to-b from-[#fafcfc] via-[#f5faf7] to-[#eaf7f2] overflow-hidden -mt-24 font-grotesk">
+    <div ref={containerRef} className="relative pt-28 sm:pt-44 pb-12 sm:pb-24 px-4 sm:px-6 text-left min-h-screen bg-gradient-to-b from-[#fafcfc] via-[#f5faf7] to-[#eaf7f2] overflow-hidden -mt-24 font-grotesk">
       
       {/* Background decoration glow */}
       <div className="absolute top-[10%] right-[-15%] w-[600px] h-[600px] bg-emerald-400/[0.08] rounded-full blur-[140px] pointer-events-none animate-pulse" />
@@ -227,22 +227,22 @@ export default function HowItWorksPage() {
         style={{ scaleX }}
       />
 
-      <div className="max-w-7xl mx-auto flex flex-col gap-12 relative z-10 w-full mb-16">
+      <div className="max-w-7xl mx-auto flex flex-col gap-8 sm:gap-12 relative z-10 w-full mb-8 sm:mb-16">
         
         {/* Page Header */}
-        <div className="text-center max-w-4xl mx-auto flex flex-col gap-5 w-full">
-          <h1 className="text-4xl md:text-6xl font-light tracking-tight leading-tight text-neutral-900 font-grotesk">
+        <div className="text-center max-w-4xl mx-auto flex flex-col gap-3 sm:gap-5 w-full">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl font-light tracking-tight leading-tight text-neutral-900 font-grotesk">
             How We Build Your <br />
             <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent font-normal font-sans">Shopify Store</span>
           </h1>
-          <p className="text-neutral-600 text-base leading-relaxed max-w-2xl mx-auto font-sans">
+          <p className="text-neutral-600 text-xs sm:text-base leading-relaxed max-w-2xl mx-auto font-sans">
             From onboarding to launch, every step is structured, transparent, and collaborative. You'll always know what we're working on and what comes next.
           </p>
         </div>
 
         {/* Global Progress Steps Tracker */}
-        <div className="max-w-3xl mx-auto w-full bg-white/70 border border-neutral-200/60 p-6 rounded-3xl backdrop-blur-md shadow-sm">
-          <div className="flex items-center justify-between text-xs text-neutral-500 font-mono mb-4 px-2">
+        <div className="max-w-3xl mx-auto w-full bg-white/80 border border-neutral-200/80 p-4 sm:p-6 rounded-2xl sm:rounded-3xl backdrop-blur-md shadow-sm">
+          <div className="flex items-center justify-between text-[11px] sm:text-xs text-neutral-500 font-mono mb-3 sm:mb-4 px-1">
             <span>YOUR JOURNEY PROGRESS</span>
             <span className="text-emerald-600 font-bold">{Math.round((activeStep + 1) * 10)}% COMPLETE</span>
           </div>
@@ -256,7 +256,7 @@ export default function HowItWorksPage() {
               />
             ))}
           </div>
-          <div className="grid grid-cols-5 gap-2 mt-4 text-[10px] sm:text-xs text-center text-neutral-400 font-sans">
+          <div className="grid grid-cols-5 gap-1.5 sm:gap-2 mt-3 sm:mt-4 text-[9px] sm:text-xs text-center text-neutral-400 font-sans">
             <span className={activeStep >= 0 ? "text-emerald-600 font-semibold" : ""}>01. Onboarding</span>
             <span className={activeStep >= 2 ? "text-emerald-600 font-semibold" : ""}>03. Strategy</span>
             <span className={activeStep >= 4 ? "text-emerald-600 font-semibold" : ""}>05. Design</span>
@@ -267,7 +267,7 @@ export default function HowItWorksPage() {
       </div>
 
       {/* Main Interactive Journey Container */}
-      <section className="relative z-10 max-w-[1200px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+      <section className="relative z-10 max-w-[1200px] mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-12 items-start">
         
         {/* Left Side: Sticky Side Navigation Timeline */}
         <aside className="hidden lg:block lg:col-span-3 sticky top-32 bg-white/70 border border-neutral-200/60 rounded-[24px] p-6 backdrop-blur-xl shadow-sm">

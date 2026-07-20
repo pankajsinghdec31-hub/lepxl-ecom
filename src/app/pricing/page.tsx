@@ -141,36 +141,36 @@ export default function PricingPage() {
     <main className="min-h-screen bg-[#070707] text-white overflow-x-hidden -mt-24 font-grotesk">
 
       {/* HERO */}
-      <section className="relative pt-44 pb-24 px-6 overflow-hidden">
+      <section className="relative pt-28 sm:pt-44 pb-10 sm:pb-24 px-4 sm:px-6 overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[360px] rounded-full bg-emerald-500/[0.04] blur-[120px] pointer-events-none" />
-        <div className="max-w-7xl mx-auto relative z-10 flex flex-col gap-12">
+        <div className="max-w-7xl mx-auto relative z-10 flex flex-col gap-6 sm:gap-12">
           
           {/* Page Header */}
-          <div className="text-center max-w-4xl mx-auto flex flex-col gap-5">
-            <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }} className="flex flex-col gap-5">
-              <p className="text-[10px] font-mono font-bold uppercase tracking-[0.3em] text-[#22e39a] mb-2">Transparent Pricing</p>
-              <h1 className="text-4xl md:text-6xl font-light text-white tracking-tight leading-tight font-grotesk">
+          <div className="text-center max-w-4xl mx-auto flex flex-col gap-3 sm:gap-5">
+            <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }} className="flex flex-col gap-3 sm:gap-5">
+              <p className="text-[10px] font-mono font-bold uppercase tracking-[0.3em] text-[#22e39a] mb-1">Transparent Pricing</p>
+              <h1 className="text-3xl sm:text-4xl md:text-6xl font-light text-white tracking-tight leading-tight font-grotesk">
                 One Price.<br />
                 Everything <span className="bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent font-normal font-sans">Included.</span>
               </h1>
-              <p className="text-white/50 text-base leading-relaxed max-w-2xl mx-auto font-sans">
+              <p className="text-white/50 text-xs sm:text-base leading-relaxed max-w-2xl mx-auto font-sans">
                 No hidden fees. No monthly retainers. Pick your plan, pay via PhonePe or UPI, and we start building your store the next day.
               </p>
             </motion.div>
           </div>
           <motion.div
             initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }}
-            className="flex flex-wrap items-center justify-center gap-2.5 mt-7"
+            className="flex flex-wrap items-center justify-center gap-2 mt-4 sm:mt-7"
           >
             {["No Hidden Fees", "15-Day Support", "50% Advance Only", "UPI / PhonePe Accepted"].map((b, i) => (
-              <span key={i} className="text-[9px] font-mono font-bold uppercase tracking-widest px-3 py-1.5 rounded-full border border-white/[0.06] bg-white/[0.02] text-white/35">{b}</span>
+              <span key={i} className="text-[8px] sm:text-[9px] font-mono font-bold uppercase tracking-widest px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full border border-white/[0.06] bg-white/[0.02] text-white/35">{b}</span>
             ))}
           </motion.div>
         </div>
       </section>
 
       {/* PRICING CARDS */}
-      <section className="px-6 pb-24">
+      <section className="px-4 sm:px-6 pb-12 sm:pb-24">
         <div className="max-w-[1360px] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6 items-stretch">
             {PLANS.map((plan, i) => {

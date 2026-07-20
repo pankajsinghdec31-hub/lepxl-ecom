@@ -974,30 +974,30 @@ export default function PortfolioPage() {
   };
 
   return (
-    <div className="relative pt-44 pb-24 px-6 text-left min-h-screen bg-gradient-to-b from-[#fafcfc] via-[#f5faf7] to-[#eaf7f2] overflow-hidden -mt-24 font-grotesk">
+    <div className="relative pt-28 sm:pt-44 pb-12 sm:pb-24 px-4 sm:px-6 text-left min-h-screen bg-gradient-to-b from-[#fafcfc] via-[#f5faf7] to-[#eaf7f2] overflow-hidden -mt-24 font-grotesk">
       {/* Background glow highlights */}
       <div className="absolute top-0 left-0 w-full h-[600px] bg-gradient-to-b from-[#fafcfc] to-transparent pointer-events-none z-0" />
       <div className="absolute top-[25%] right-[-10%] w-[500px] h-[500px] bg-emerald-500/[0.04] rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-[20%] left-[-10%] w-[500px] h-[500px] bg-teal-400/[0.04] rounded-full blur-[140px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto relative z-10 flex flex-col gap-24">
+      <div className="max-w-7xl mx-auto relative z-10 flex flex-col gap-10 sm:gap-20">
         
         {/* HERO SECTION */}
-        <section className="text-center max-w-4xl mx-auto flex flex-col gap-5">
+        <section className="text-center max-w-4xl mx-auto flex flex-col gap-3 sm:gap-5">
 
-          <h1 className="text-4xl md:text-6xl font-light tracking-tight leading-tight text-neutral-900 font-grotesk">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl font-light tracking-tight leading-tight text-neutral-900 font-grotesk">
             Build Your Online Store: <br />
             <span className="font-normal bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
               Use Themes or Go Headless
             </span>
           </h1>
-          <p className="text-neutral-600 text-base leading-relaxed max-w-2xl mx-auto font-sans">
+          <p className="text-neutral-600 text-xs sm:text-base leading-relaxed max-w-2xl mx-auto font-sans">
             Whether looking to optimize Liquid structures or launch a custom Next.js storefront, browse our curated D2C storefront layouts scaling performance.
           </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4 mt-4 font-sans">
+          <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 mt-2 sm:mt-4 font-sans">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center px-8 py-3 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-black hover:bg-neutral-900 transition-all duration-300 shadow-lg hover:scale-[1.02]"
+              className="inline-flex items-center justify-center px-6 py-2.5 sm:px-8 sm:py-3 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-black hover:bg-neutral-900 transition-all duration-300 shadow-lg hover:scale-[1.02]"
             >
               Book Free Audit Call
             </Link>
@@ -1005,7 +1005,7 @@ export default function PortfolioPage() {
               href="https://wa.me/919917780656"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-8 py-3 rounded-full text-xs font-bold uppercase tracking-wider text-neutral-700 border border-neutral-200 bg-white hover:bg-neutral-50 transition-all duration-300"
+              className="inline-flex items-center justify-center px-6 py-2.5 sm:px-8 sm:py-3 rounded-full text-xs font-bold uppercase tracking-wider text-neutral-700 border border-neutral-200 bg-white hover:bg-neutral-50 transition-all duration-300"
             >
               WhatsApp Pankaj
             </Link>
@@ -1013,11 +1013,11 @@ export default function PortfolioPage() {
         </section>
 
         {/* MASONRY GRID PROJECTS SHOWCASE WITH OPPOSITE SCROLLING */}
-        <section ref={masonrySectionRef} className="flex flex-col gap-10">
-          <div className="flex flex-col gap-3 text-left">
-            <span className="text-xs text-emerald-700 uppercase tracking-widest font-mono font-bold">Choose your stack</span>
-            <h2 className="text-3xl font-bold tracking-tight text-neutral-900 font-grotesk">Join millions of merchants on Shopify</h2>
-            <p className="text-sm text-neutral-500 max-w-xl font-sans">All kinds of businesses. All kinds of stores. All built to sell with custom storefronts and optimized engines.</p>
+        <section ref={masonrySectionRef} className="flex flex-col gap-6 sm:gap-10">
+          <div className="flex flex-col gap-2 sm:gap-3 text-left">
+            <span className="text-[10px] sm:text-xs text-emerald-700 uppercase tracking-widest font-mono font-bold">Choose your stack</span>
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-neutral-900 font-grotesk">Join millions of merchants on Shopify</h2>
+            <p className="text-xs sm:text-sm text-neutral-500 max-w-xl font-sans">All kinds of businesses. All kinds of stores. All built to sell with custom storefronts and optimized engines.</p>
           </div>
 
 

@@ -1394,11 +1394,7 @@ export default function HomePage() {
 
             {/* Giant headline */}
             <h1 className="text-[2.65rem] xs:text-[3.25rem] sm:text-6xl md:text-7xl lg:text-[4.75rem] font-light text-white leading-[1.15] tracking-tight max-w-4xl animate-fade-blur text-left font-grotesk" style={{ animationDelay: "0.05s" }}>
-              Build. Launch.{" "}
-              <span className="relative inline-block z-10 px-3 py-0.5 rounded-xl bg-gradient-to-r from-emerald-500/30 via-emerald-400/25 to-teal-500/30 border-b-4 border-emerald-400 text-white font-normal shadow-[0_0_30px_rgba(16,185,129,0.4)] backdrop-blur-sm">
-                <span className="relative z-10 text-emerald-300 font-medium">Scale.</span>
-                <span className="absolute inset-x-1 bottom-1 h-3.5 bg-emerald-400/40 rounded transform -rotate-1 -z-1" />
-              </span>
+              Build. Launch. <span className="premium-highlight">Scale.</span>
             </h1>
 
             {/* Sub-copy */}
@@ -1459,7 +1455,6 @@ export default function HomePage() {
                 </span>
                 <span className="premium-highlight text-white transition-all duration-300 hover:text-primary cursor-default">High-converting stores.</span>
                 <span className="text-white/60 transition-all duration-300 hover:text-white cursor-default">Seamless mobile checkout.</span>
-                <span className="text-white/30 transition-all duration-300 hover:text-white cursor-default">Scaling brands to 8-figures.</span>
               </h2>
             </div>
             
@@ -1556,13 +1551,8 @@ export default function HomePage() {
           {/* Header */}
           <div className="text-center mb-16 flex flex-col items-center">
 
-            <h2 className="premium-heading text-3xl sm:text-4xl lg:text-[2.75rem] font-light text-white tracking-tight font-grotesk mt-2 flex flex-wrap items-center justify-center gap-2">
-              <span>Build.</span>
-              <span className="light-gradient-text font-normal">Launch.</span>
-              <span className="relative inline-block z-10 px-3 py-0.5 rounded-xl bg-gradient-to-r from-emerald-500/30 via-emerald-400/25 to-teal-500/30 border-b-4 border-emerald-400 text-white font-normal shadow-[0_0_30px_rgba(16,185,129,0.4)] backdrop-blur-sm">
-                <span className="relative z-10 text-emerald-300 font-medium">Scale.</span>
-                <span className="absolute inset-x-1 bottom-1 h-3.5 bg-emerald-400/40 rounded transform -rotate-1 -z-1" />
-              </span>
+            <h2 className="premium-heading text-3xl sm:text-4xl lg:text-[2.75rem] font-light text-white tracking-tight font-grotesk mt-2">
+              Build. <span className="light-gradient-text font-normal">Launch.</span> <span className="premium-highlight">Scale.</span>
             </h2>
           </div>
 

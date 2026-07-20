@@ -6,23 +6,23 @@ import { ArrowRight } from "lucide-react";
 
 export default function AboutPage() {
   return (
-    <div className="relative pt-44 pb-24 px-6 text-left min-h-screen bg-gradient-to-b from-[#fafcfc] via-[#f5faf7] to-[#eaf7f2] overflow-hidden -mt-24 font-grotesk">
+    <div className="relative pt-28 sm:pt-44 pb-12 sm:pb-24 px-4 sm:px-6 text-left min-h-screen bg-gradient-to-b from-[#fafcfc] via-[#f5faf7] to-[#eaf7f2] overflow-hidden -mt-24 font-grotesk">
       {/* Subtle background decoration highlight */}
       <div className="absolute top-[10%] left-[-15%] w-[600px] h-[600px] bg-emerald-400/[0.04] rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-[10%] right-[-15%] w-[600px] h-[600px] bg-teal-300/[0.04] rounded-full blur-[140px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto flex flex-col gap-14 relative z-10">
+      <div className="max-w-7xl mx-auto flex flex-col gap-8 sm:gap-14 relative z-10">
         
         {/* Page Header */}
-        <div className="text-center max-w-4xl mx-auto flex flex-col gap-5">
+        <div className="text-center max-w-4xl mx-auto flex flex-col gap-3 sm:gap-5">
 
-          <h1 className="text-4xl md:text-6xl font-light tracking-tight leading-tight text-neutral-900 font-grotesk">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl font-light tracking-tight leading-tight text-neutral-900 font-grotesk">
             We build high-converting <br />
             <span className="font-normal bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent font-sans">
               Shopify Stores
             </span>
           </h1>
-          <p className="text-neutral-600 text-base leading-relaxed max-w-2xl mx-auto font-sans">
+          <p className="text-neutral-600 text-xs sm:text-base leading-relaxed max-w-2xl mx-auto font-sans">
             We are a dedicated Shopify development agency focusing exclusively on designing, coding, and optimizing e-commerce stores. We do only e-commerce setups.
           </p>
         </div>
@@ -30,25 +30,25 @@ export default function AboutPage() {
         <hr className="border-neutral-200/80" />
 
         {/* Core Stats Row */}
-        <section className="grid grid-cols-1 sm:grid-cols-3 gap-12 font-sans py-2 text-left">
-          <div className="flex flex-col gap-2">
-            <span className="text-4xl sm:text-5xl font-light font-grotesk tracking-tight text-neutral-900">5 Years</span>
-            <span className="text-[10px] text-neutral-400 font-mono uppercase tracking-widest font-semibold">ESTABLISHED HISTORY</span>
+        <section className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-12 font-sans py-2 text-left">
+          <div className="flex flex-col gap-1 sm:gap-2">
+            <span className="text-3xl sm:text-5xl font-light font-grotesk tracking-tight text-neutral-900">5 Years</span>
+            <span className="text-[9px] sm:text-[10px] text-neutral-400 font-mono uppercase tracking-widest font-semibold">ESTABLISHED HISTORY</span>
           </div>
-          <div className="flex flex-col gap-2">
-            <span className="text-4xl sm:text-5xl font-light font-grotesk tracking-tight text-neutral-900">100%</span>
-            <span className="text-[10px] text-neutral-400 font-mono uppercase tracking-widest font-semibold">EXCLUSIVELY E-COMMERCE</span>
+          <div className="flex flex-col gap-1 sm:gap-2">
+            <span className="text-3xl sm:text-5xl font-light font-grotesk tracking-tight text-neutral-900">100%</span>
+            <span className="text-[9px] sm:text-[10px] text-neutral-400 font-mono uppercase tracking-widest font-semibold">EXCLUSIVELY E-COMMERCE</span>
           </div>
-          <div className="flex flex-col gap-2">
-            <span className="text-4xl sm:text-5xl font-light font-grotesk tracking-tight text-neutral-900">80+</span>
-            <span className="text-[10px] text-neutral-400 font-mono uppercase tracking-widest font-semibold">STORES LAUNCHED</span>
+          <div className="flex flex-col gap-1 sm:gap-2">
+            <span className="text-3xl sm:text-5xl font-light font-grotesk tracking-tight text-neutral-900">80+</span>
+            <span className="text-[9px] sm:text-[10px] text-neutral-400 font-mono uppercase tracking-widest font-semibold">STORES LAUNCHED</span>
           </div>
         </section>
 
         <hr className="border-neutral-200/80" />
 
         {/* Narrative / Focus Areas Section */}
-        <section className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16 items-start text-left">
+        <section className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-16 items-start text-left">
           <div className="md:col-span-4 flex flex-col gap-2">
             <span className="text-xs text-emerald-700 font-mono uppercase tracking-[0.2em] font-bold">
               02 / Focus Areas
