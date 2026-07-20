@@ -305,10 +305,29 @@ export default function HowItWorksPage() {
         </aside>
 
         {/* Right Side: Step Contents */}
-        <div className="lg:col-span-9 flex flex-col gap-24 relative">
+        <div className="lg:col-span-9 flex flex-col gap-8 sm:gap-20 relative">
           
-          {/* Vertical Connecting Line (Behind steps) */}
-          <div className="absolute left-[39px] sm:left-12 top-10 bottom-10 w-[2px] bg-gradient-to-b from-emerald-500 via-emerald-400/30 to-indigo-400/10 pointer-events-none" />
+          {/* Mobile Quick Steps Horizontal Selector */}
+          <div className="flex lg:hidden sticky top-16 z-30 bg-white/95 backdrop-blur-md border-y border-neutral-200/80 -mx-4 px-4 py-2.5 overflow-x-auto no-scrollbar gap-2 shadow-sm mb-2">
+            {STEPS.map((step, idx) => (
+              <button
+                key={step.id}
+                onClick={() => {
+                  document.getElementById(step.id)?.scrollIntoView({ behavior: "smooth", block: "center" });
+                }}
+                className={`px-3 py-1.5 rounded-full text-[10px] font-mono font-bold whitespace-nowrap shrink-0 transition-all ${
+                  activeStep === idx
+                    ? "bg-emerald-500 text-white shadow-sm"
+                    : "bg-neutral-100 text-neutral-600 hover:bg-neutral-200"
+                }`}
+              >
+                {step.num}. {step.title.split(" ")[0]}
+              </button>
+            ))}
+          </div>
+
+          {/* Vertical Connecting Line (Desktop Only) */}
+          <div className="hidden lg:block absolute left-[39px] sm:left-12 top-10 bottom-10 w-[2px] bg-gradient-to-b from-emerald-500 via-emerald-400/30 to-indigo-400/10 pointer-events-none" />
 
           {STEPS.map((step, idx) => {
             const isStepActive = activeStep === idx;
@@ -317,10 +336,10 @@ export default function HowItWorksPage() {
               <div
                 key={step.id}
                 id={step.id}
-                className="scroll-mt-36 relative flex gap-6 sm:gap-8 group text-left"
+                className="scroll-mt-36 relative flex flex-col lg:flex-row gap-4 lg:gap-8 group text-left"
               >
-                {/* Milestone Node */}
-                <div className="relative flex flex-col items-center">
+                {/* Milestone Node (Desktop Only) */}
+                <div className="hidden lg:flex relative flex-col items-center">
                   <motion.div
                     className={`w-12 h-12 sm:w-16 sm:h-16 rounded-full border-2 flex items-center justify-center font-mono text-sm sm:text-base font-bold bg-white z-10 transition-all duration-500 ${
                       isStepActive
@@ -333,20 +352,30 @@ export default function HowItWorksPage() {
                 </div>
 
                 {/* Step Card Container */}
-                <div className="flex-grow">
-                  <div className={`p-6 sm:p-8 rounded-[24px] bg-white/70 border border-neutral-200/60 shadow-[0_10px_30px_rgba(0,0,0,0.02)] transition-all duration-500 backdrop-blur-xl ${
+                <div className="flex-grow w-full">
+                  <div className={`p-4.5 sm:p-8 rounded-2xl sm:rounded-[24px] bg-white/80 border border-neutral-200/80 shadow-[0_10px_30px_rgba(0,0,0,0.02)] transition-all duration-500 backdrop-blur-xl ${
                     isStepActive 
-                      ? "border-emerald-500/30 shadow-[0_4px_30px_rgba(16,185,129,0.03)]" 
-                      : "opacity-70 group-hover:opacity-100"
+                      ? "border-emerald-500/40 shadow-[0_4px_30px_rgba(16,185,129,0.04)]" 
+                      : "opacity-80 lg:opacity-70 group-hover:opacity-100"
                   }`}>
                     
+                    {/* Mobile Step Header Badge */}
+                    <div className="flex lg:hidden items-center justify-between gap-2 mb-3 pb-2.5 border-b border-neutral-100">
+                      <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-mono font-bold bg-emerald-500/10 text-emerald-700 border border-emerald-500/20">
+                        STEP {step.num} / 10
+                      </span>
+                      <span className="text-[10px] font-mono text-neutral-400 font-semibold">
+                        Phase {idx < 3 ? "1: Planning" : idx < 7 ? "2: Build & Review" : "3: Launch"}
+                      </span>
+                    </div>
+
                     <span className="text-[10px] sm:text-xs font-mono font-semibold tracking-wider text-emerald-700 uppercase">
                       {step.title}
                     </span>
-                    <h2 className="mt-2 text-xl sm:text-2xl font-bold tracking-tight text-neutral-900 font-grotesk">
+                    <h2 className="mt-1.5 sm:mt-2 text-lg sm:text-2xl font-bold tracking-tight text-neutral-900 font-grotesk">
                       {step.headline}
                     </h2>
-                    <p className="mt-3 text-sm sm:text-base text-neutral-600 leading-relaxed">
+                    <p className="mt-2 sm:mt-3 text-xs sm:text-base text-neutral-600 leading-relaxed">
                       {step.description}
                     </p>
 
@@ -783,6 +812,22 @@ export default function HowItWorksPage() {
                       )}
 
                     </div>
+
+                    {/* Mobile Next Step Quick Action Button */}
+                    {idx < STEPS.length - 1 && (
+                      <div className="mt-5 pt-3.5 border-t border-neutral-100 flex lg:hidden items-center justify-between">
+                        <span className="text-[10px] font-mono text-neutral-400 font-medium">Step {idx + 1} of 10</span>
+                        <button
+                          onClick={() => {
+                            document.getElementById(STEPS[idx + 1].id)?.scrollIntoView({ behavior: "smooth", block: "center" });
+                          }}
+                          className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-neutral-900 text-white text-[10px] font-bold transition-all shadow-sm active:scale-95"
+                        >
+                          <span>Next: {STEPS[idx + 1].num}. {STEPS[idx + 1].title.split(" ")[0]}</span>
+                          <ArrowRight className="w-3 h-3" />
+                        </button>
+                      </div>
+                    )}
 
                   </div>
                 </div>
