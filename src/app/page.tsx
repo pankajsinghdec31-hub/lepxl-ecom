@@ -76,10 +76,6 @@ const FAQ_ITEMS = [
     a: "Yes. We create customized, high-converting banner designs and collection graphics tailored to your brand identity, ensuring a premium, polished store aesthetic."
   },
   {
-    q: "Can you migrate my existing store to Shopify?",
-    a: "Yes. We handle complete migrations from WooCommerce, Magento, Wix, or other e-commerce platforms. We migrate products, client databases, collections, and configurations cleanly without losing search index rankings."
-  },
-  {
     q: "Do you offer AI product photoshoots and listing setup?",
     a: "Yes. We offer AI-powered product photoshoots depending on the product type. We also include up to 20 free product listings complete with AI-generated photoshoot imagery to get your store live quickly with premium visuals."
   }
