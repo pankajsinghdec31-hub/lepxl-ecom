@@ -62,13 +62,10 @@ const FAQ_ITEMS = [
   {
     q: "What are your payment terms?",
     a: "Our standard payment term is 50% advance to initiate the build and the remaining 50% upon successful delivery of the project."
+  },
   {
     q: "Will my store be responsive and mobile-friendly?",
     a: "Yes. Over 80% of e-commerce traffic comes from mobile devices, so we follow a strict mobile-first design system. Touch targets, checkout slides, and image banners are fully optimized for all screen sizes."
-  },
-  {
-    q: "Do you design custom graphics and banners for the store?",
-    a: "Yes. We create customized, high-converting banner designs and collection graphics tailored to your brand identity, ensuring a premium, polished store aesthetic."
   },
   {
     q: "Do you offer AI product photoshoots and listing setup?",
