@@ -329,7 +329,7 @@ export default function MetaAdsShopifyLandingPage() {
     email: "",
     website: "",
     monthlyRevenue: "Under ₹1 Lakh",
-    projectBudget: "₹25k - ₹50k",
+    projectBudget: "Under ₹20,000",
     projectDetails: ""
   });
 
@@ -1180,33 +1180,6 @@ export default function MetaAdsShopifyLandingPage() {
               </div>
             </div>
 
-            {/* Current Monthly Revenue */}
-            <div>
-              <label className="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-2">
-                Current Monthly Revenue
-              </label>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3">
-                {[
-                  "Under ₹1 Lakh",
-                  "₹1L - ₹5 Lakhs",
-                  "₹5L - ₹25 Lakhs",
-                  "₹25 Lakhs+"
-                ].map((rev) => (
-                  <button
-                    key={rev}
-                    type="button"
-                    onClick={() => setFormData((prev) => ({ ...prev, monthlyRevenue: rev }))}
-                    className={`py-3 px-2 sm:px-3 rounded-xl text-xs font-semibold border transition-all duration-200 active:scale-95 cursor-pointer ${
-                      formData.monthlyRevenue === rev
-                        ? "bg-emerald-500 text-white border-emerald-500 font-bold shadow-[0_4px_15px_rgba(16,185,129,0.35)]"
-                        : "bg-white text-slate-700 border-slate-200 hover:border-emerald-300 hover:bg-emerald-50/50"
-                    }`}
-                  >
-                    {rev}
-                  </button>
-                ))}
-              </div>
-            </div>
 
             {/* Project Budget Range */}
             <div>
@@ -1215,9 +1188,9 @@ export default function MetaAdsShopifyLandingPage() {
               </label>
               <div className="grid grid-cols-3 gap-2.5 sm:gap-3">
                 {[
-                  "₹25k - ₹50k",
-                  "₹50k - ₹1 Lakh",
-                  "₹1 Lakh+"
+                  "Under ₹20,000",
+                  "₹20k - ₹30k",
+                  "₹30k - ₹50k"
                 ].map((b) => (
                   <button
                     key={b}
