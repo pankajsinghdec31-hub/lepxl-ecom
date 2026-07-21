@@ -2,11 +2,15 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { Mail, Phone, MapPin, ArrowRight, MessageCircle } from "lucide-react";
+import { trackWhatsAppClick } from "@/lib/analytics";
 
 export default function Footer() {
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
+  const pathname = usePathname();
+  const isLandingPage = pathname.startsWith("/shopify-landing") || pathname === "/thank-you";
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -25,6 +29,60 @@ export default function Footer() {
       }
     }
   };
+
+  if (isLandingPage) {
+    return (
+      <footer className="bg-brand-black border-t border-white/[0.08] relative overflow-hidden py-10">
+        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6 relative z-10">
+          <div className="flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left">
+            <Link href="/shopify-landing" className="flex items-center group select-none">
+              <img 
+                src="/logo.png" 
+                alt="SalePXL Logo" 
+                className="h-8 w-auto object-contain invert hue-rotate-180"
+              />
+            </Link>
+            <p className="text-xs text-[#8C8C8C] max-w-sm">
+              SalePXL — High-converting Shopify store development and CRO for high-growth Meta Ads brands.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap items-center justify-center gap-5 text-xs text-[#8C8C8C]">
+            <a href="mailto:helpsalepxl@gmail.com" className="flex items-center gap-1.5 hover:text-white transition-colors">
+              <Mail className="w-3.5 h-3.5 text-primary" />
+              <span>helpsalepxl@gmail.com</span>
+            </a>
+            <a href="tel:+919917780656" className="flex items-center gap-1.5 hover:text-white transition-colors">
+              <Phone className="w-3.5 h-3.5 text-primary" />
+              <span>+91 9917780656</span>
+            </a>
+            <a 
+              href="https://wa.me/919917780656" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              onClick={() => trackWhatsAppClick("Minimal Footer")}
+              className="flex items-center gap-1.5 hover:text-[#25D366] transition-colors"
+            >
+              <MessageCircle className="w-3.5 h-3.5 text-[#25D366]" />
+              <span>WhatsApp Us</span>
+            </a>
+          </div>
+
+          <div className="flex items-center gap-6 text-xs text-[#8C8C8C]">
+            <Link href="/privacy" className="hover:text-white transition-colors">
+              Privacy Policy
+            </Link>
+            <Link href="/terms" className="hover:text-white transition-colors">
+              Terms & Conditions
+            </Link>
+          </div>
+        </div>
+        <div className="max-w-7xl mx-auto px-6 mt-6 pt-6 border-t border-white/[0.05] text-center text-[11px] text-[#555]">
+          &copy; {new Date().getFullYear()} SalePXL. All rights reserved. Built for Meta Ads performance.
+        </div>
+      </footer>
+    );
+  }
 
   return (
     <footer className="bg-brand-black border-t border-white/[0.08] relative overflow-hidden">

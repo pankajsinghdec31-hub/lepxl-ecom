@@ -3,8 +3,9 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, ArrowUpRight, CheckCircle2 } from "lucide-react";
+import { Menu, X, ArrowUpRight, CheckCircle2, MessageCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { trackWhatsAppClick, trackCTAClick } from "@/lib/analytics";
 
 export const NAV_LINKS = [
   { name: "Home", href: "/" },
@@ -21,6 +22,7 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  const isLandingPage = pathname.startsWith("/shopify-landing") || pathname === "/thank-you";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -63,6 +65,43 @@ export default function Navbar() {
       document.body.classList.remove("home-page");
     };
   }, [pathname]);
+
+  if (isLandingPage) {
+    return (
+      <header className="fixed top-0 left-0 right-0 z-50 bg-[#050505]/90 backdrop-blur-xl border-b border-white/[0.08] py-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
+          <Link href="/shopify-landing" className="flex items-center group select-none min-h-[40px]">
+            <img 
+              src="/logo.png" 
+              alt="SalePXL Logo" 
+              className="h-8 sm:h-9 w-auto object-contain invert hue-rotate-180 transition-transform duration-300 group-hover:scale-[1.02]"
+            />
+          </Link>
+
+          <div className="flex items-center gap-2.5 sm:gap-4">
+            <a
+              href="https://wa.me/919917780656"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackWhatsAppClick("Header Minimal Nav")}
+              className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 sm:py-2.5 rounded-full text-xs font-semibold text-white bg-white/10 hover:bg-white/20 border border-white/15 transition-all duration-300 active:scale-95"
+            >
+              <MessageCircle className="w-4 h-4 text-[#25D366]" />
+              <span className="hidden xs:inline">WhatsApp</span>
+            </a>
+
+            <a
+              href="#lead-form"
+              onClick={() => trackCTAClick({ cta_name: "Book Free Consultation Header", cta_location: "Minimal Header" })}
+              className="inline-flex items-center justify-center px-4 sm:px-6 py-2 sm:py-2.5 rounded-full text-xs font-bold uppercase tracking-wider text-black bg-primary hover:bg-primary-hover shadow-[0_0_20px_rgba(34,227,154,0.3)] transition-all duration-300 active:scale-95 whitespace-nowrap"
+            >
+              Book Free Consultation
+            </a>
+          </div>
+        </div>
+      </header>
+    );
+  }
 
   const isContactPage = pathname !== "/";
   const isPricingPage = pathname === "/pricing";

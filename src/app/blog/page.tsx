@@ -100,7 +100,7 @@ export default function BlogListingPage() {
               <div className="flex items-center justify-between border-t border-neutral-100 pt-4 mt-2">
                 <div className="flex items-center gap-2.5">
                   <div className="w-8 h-8 rounded-full bg-emerald-100 border border-emerald-300 flex items-center justify-center font-bold text-emerald-800 text-xs">
-                    PS
+                    SP
                   </div>
                   <div className="flex flex-col text-left">
                     <span className="text-xs font-bold text-neutral-900">{featuredPost.author.name}</span>

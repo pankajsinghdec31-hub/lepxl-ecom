@@ -43,8 +43,8 @@ export const BLOG_POSTS: BlogPost[] = [
     publishDate: "July 18, 2026",
     updatedDate: "July 21, 2026",
     author: {
-      name: "Pankaj Singh",
-      role: "Founder & Lead E-Commerce Architect at SalePXL",
+      name: "SalePXL Team",
+      role: "E-Commerce & CRO Specialists",
       avatar: "/founder_1.jpg"
     },
     coverImage: "/blogs/payment_gateways.svg",
@@ -259,8 +259,8 @@ export const BLOG_POSTS: BlogPost[] = [
     publishDate: "July 19, 2026",
     updatedDate: "July 21, 2026",
     author: {
-      name: "Pankaj Singh",
-      role: "Founder & Lead E-Commerce Architect at SalePXL",
+      name: "SalePXL Team",
+      role: "E-Commerce & CRO Specialists",
       avatar: "/founder_1.jpg"
     },
     coverImage: "/blogs/shipping_courier.svg",
@@ -420,8 +420,8 @@ export const BLOG_POSTS: BlogPost[] = [
     publishDate: "July 15, 2026",
     updatedDate: "July 21, 2026",
     author: {
-      name: "Pankaj Singh",
-      role: "Founder & Lead E-Commerce Architect at SalePXL",
+      name: "SalePXL Team",
+      role: "E-Commerce & CRO Specialists",
       avatar: "/founder_1.jpg"
     },
     coverImage: "/blogs/dropshipping_guide.svg",
@@ -459,10 +459,22 @@ export const BLOG_POSTS: BlogPost[] = [
         <li><strong>Dropify India:</strong> Tech accessories, car gadgets, and trending viral gadgets.</li>
       </ol>
 
+      <h2 id="drop-4">Chapter 4: GST Registration & Legal Business Setup</h2>
+      <p>Selling inter-state across India mandates valid GST registration. Operating without GST risks account freezes from payment gateways and logistics aggregators.</p>
+      <ul>
+        <li><strong>Sole Proprietorship / OPC / Pvt Ltd:</strong> Register your business entity with a dedicated current bank account.</li>
+        <li><strong>Input Tax Credit (ITC):</strong> Claim ITC on your Meta ad spend, Shopify subscription fees, and supplier invoices to save up to 18% on taxes.</li>
+      </ul>
+
       <h2 id="drop-5">Chapter 5: Building a High-Converting Shopify Storefront</h2>
       <p>Generic, amateur dropshipping websites convert at under 1%. To achieve a <strong>3.5%+ conversion rate</strong>, your Shopify store must feature bespoke visual design, fast mobile loading, and localized trust elements.</p>
-
       <p>Explore our <a href="/portfolio">SalePXL Portfolio</a> to see how we build high-converting storefronts engineered for maximum sales ROAS.</p>
+
+      <h2 id="drop-6">Chapter 6: Meta (Facebook/Instagram) & Google Ad Strategy</h2>
+      <p>Acquiring customers profitably requires testing short-form video creative reels (15-30 seconds) on Instagram Ads featuring problem-solution hooks.</p>
+
+      <h2 id="drop-7">Chapter 7: Cash Flow Management & Scaling to ₹10 Lakhs/Month</h2>
+      <p>Manage working capital carefully. Opt for early COD remittance (T+2) with courier partners so capital flows back continuously into ad scaling.</p>
     `
   },
   {
@@ -483,8 +495,8 @@ export const BLOG_POSTS: BlogPost[] = [
     publishDate: "July 17, 2026",
     updatedDate: "July 21, 2026",
     author: {
-      name: "Pankaj Singh",
-      role: "Founder & Lead E-Commerce Architect at SalePXL",
+      name: "SalePXL Team",
+      role: "E-Commerce & CRO Specialists",
       avatar: "/founder_1.jpg"
     },
     coverImage: "/blogs/shopify_vs_woocommerce.svg",
@@ -506,6 +518,23 @@ export const BLOG_POSTS: BlogPost[] = [
       <p>Over 82% of Indian e-commerce traffic originates from mobile smartphones on 4G/5G networks. WooCommerce sites frequently suffer from heavy plugin bloat (20+ active plugins), leading to database queries that slow down page rendering to 4.5+ seconds.</p>
 
       <p>Shopify stores built by <a href="/services">SalePXL</a> run on clean Liquid code, achieving sub-1.2s page load speeds and 95+ Google Mobile PageSpeed scores.</p>
+
+      <h2 id="comp-3">Chapter 3: Security, PCI Compliance & Flash Sale Uptime</h2>
+      <p>Flash sale events and high ad spikes can crash a self-hosted WooCommerce server. Database lockups during peak traffic periods result in lost revenue and customer frustration.</p>
+      <p>Shopify guarantees 99.99% server uptime with PCI-DSS Level 1 compliance out of the box, handling millions of simultaneous transactions during high-volume sale events (Festive Diwali, Black Friday) without slowdowns.</p>
+
+      <h2 id="comp-4">Chapter 4: Total Cost of Ownership (TCO) Breakdown</h2>
+      <p>While WooCommerce appears free, hidden expenses add up quickly: premium hosting (₹3,000-₹10,000/mo), security plugins, developer maintenance retainers, and database tuning. Shopify offers predictable monthly billing with all infrastructure costs included.</p>
+
+      <h2 id="comp-5">Chapter 5: Migration Blueprint: Moving WooCommerce to Shopify</h2>
+      <p>Migrating from WooCommerce to Shopify can be completed in 5 structured steps without losing SEO rankings or order history:</p>
+      <ol>
+        <li><strong>Data Export & Cleaning:</strong> Export customer profiles, past order history, and product SKU databases.</li>
+        <li><strong>Shopify Theme Setup:</strong> Build a custom mobile-first Liquid theme designed for high conversion.</li>
+        <li><strong>301 URL Redirect Mapping:</strong> Map old WooCommerce product/category URLs to new Shopify paths to protect SEO traffic.</li>
+        <li><strong>Payment & App Integration:</strong> Hook up 1-tap UPI payment drawers, Shiprocket/Delhivery logistics, and review apps.</li>
+        <li><strong>Launch & Domain Switch:</strong> Perform live test orders and point your DNS records seamlessly to Shopify.</li>
+      </ol>
     `
   },
   {
@@ -525,8 +554,8 @@ export const BLOG_POSTS: BlogPost[] = [
     publishDate: "July 12, 2026",
     updatedDate: "July 21, 2026",
     author: {
-      name: "Pankaj Singh",
-      role: "Founder & Lead E-Commerce Architect at SalePXL",
+      name: "SalePXL Team",
+      role: "E-Commerce & CRO Specialists",
       avatar: "/founder_1.jpg"
     },
     coverImage: "/blogs/dropshipping_guide.svg",
@@ -549,6 +578,18 @@ export const BLOG_POSTS: BlogPost[] = [
         <li><strong>FSSAI License:</strong> Required if selling food, organic teas, or dietary supplements.</li>
         <li><strong>Trademark Application:</strong> Secure your brand name and logo mark with the Indian Patent & Trademark Registry.</li>
       </ul>
+
+      <h2 id="chk-2">2. Domain, Branding & High-Res Catalog Assets</h2>
+      <p>Secure a memorable <code>.in</code> or <code>.com</code> domain name. High-converting brands feature high-resolution product catalog imagery, lifestyle photoshoots, clean logo files, and transparent PNG assets.</p>
+
+      <h2 id="chk-3">3. Shopify Theme Engineering & Mobile UX Audit</h2>
+      <p>Audit your Shopify theme on real iOS and Android devices. Ensure your homepage and product pages load in sub-1.5 seconds with zero layout shifts.</p>
+
+      <h2 id="chk-4">4. Payment Gateway & COD Verification Hooks</h2>
+      <p>Configure 1-tap UPI intent payment drawers (Razorpay / Cashfree / PhonePe) and set up automated COD verification rules to prevent bogus orders.</p>
+
+      <h2 id="chk-5">5. Shipping Logistics & NDR Setup</h2>
+      <p>Integrate your shipping aggregator (Shiprocket / Delhivery) and set up automated WhatsApp non-delivery tracking workflows to maintain low RTO rates.</p>
     `
   },
   {
@@ -568,8 +609,8 @@ export const BLOG_POSTS: BlogPost[] = [
     publishDate: "July 14, 2026",
     updatedDate: "July 21, 2026",
     author: {
-      name: "Pankaj Singh",
-      role: "Founder & Lead E-Commerce Architect at SalePXL",
+      name: "SalePXL Team",
+      role: "E-Commerce & CRO Specialists",
       avatar: "/founder_1.jpg"
     },
     coverImage: "/blogs/shopify_vs_woocommerce.svg",
@@ -581,6 +622,20 @@ export const BLOG_POSTS: BlogPost[] = [
     content: `
       <h2 id="app-1">The App Bloat Trap: Why Quality Beats Quantity</h2>
       <p>Every Shopify app you install adds third-party JavaScript files that execute during page load. Installing 25+ unoptimized apps can slow your store down by 3 to 5 seconds. At SalePXL, we engineer high-speed Shopify stores using custom Liquid code and only essential, lightweight API-driven apps.</p>
+
+      <h2 id="app-2">Top 10 High-ROAS Shopify Apps Detailed Review</h2>
+      <ol>
+        <li><strong>Klaviyo / AiSensy:</strong> Email & WhatsApp marketing automation for abandoned cart recovery.</li>
+        <li><strong>Gokwik / Shopflo:</strong> 1-click express checkout drawer with RTO intelligence.</li>
+        <li><strong>Judge.me / Loox:</strong> Photo reviews and UGC widget to build social proof.</li>
+        <li><strong>Recharge Subscriptions:</strong> Recurring subscription billing for replenishment products.</li>
+        <li><strong>Rebuy Engine:</strong> Personalized AI upsells, cross-sells, and dynamic cart drawer upgrades.</li>
+        <li><strong>Shiprocket:</strong> Multi-courier automated logistics management and NDR tracking.</li>
+        <li><strong>Matrixify:</strong> Bulk catalog data imports and order export management.</li>
+        <li><strong>PageFly / Shogun:</strong> High-converting custom landing page builder.</li>
+        <li><strong>Plug in SEO:</strong> Automated SEO audit, schema markup, and broken link repair.</li>
+        <li><strong>Smile.io:</strong> VIP rewards, customer loyalty points, and referral incentives.</li>
+      </ol>
     `
   },
   {
@@ -596,18 +651,30 @@ export const BLOG_POSTS: BlogPost[] = [
     publishDate: "July 10, 2026",
     updatedDate: "July 21, 2026",
     author: {
-      name: "Pankaj Singh",
-      role: "Founder & Lead E-Commerce Architect at SalePXL",
+      name: "SalePXL Team",
+      role: "E-Commerce & CRO Specialists",
       avatar: "/founder_1.jpg"
     },
     coverImage: "/blogs/shipping_courier.svg",
     excerpt: "The Indian D2C landscape is evolving at breakneck speed. Discover how top direct-to-consumer brands adapt to quick delivery expectations, UPI payments, and interactive video storefronts.",
     tableOfContents: [
-      { id: "tr-1", text: "Chapter 1: The Shift in Indian Consumer Expectations" }
+      { id: "tr-1", text: "Chapter 1: The Shift in Indian Consumer Expectations" },
+      { id: "tr-2", text: "Chapter 2: Quick Commerce & Same-Day Local Fulfillment" },
+      { id: "tr-3", text: "Chapter 3: Native 1-Tap UPI Intent Dominance" },
+      { id: "tr-4", text: "Chapter 4: Shoppable Video Reels & Interactive PDPs" }
     ],
     content: `
       <h2 id="tr-1">Chapter 1: The Shift in Indian Consumer Expectations</h2>
       <p>With quick-commerce apps (Zepto, Blinkit, Instamart) conditioning Indian consumers to expect 10-minute deliveries, D2C brand stores must elevate their customer experience to compete.</p>
+
+      <h2 id="tr-2">Chapter 2: Quick Commerce & Same-Day Local Fulfillment</h2>
+      <p>Leading D2C brands are deploying dark stores in major metros (Delhi NCR, Mumbai, Bengaluru) to enable 24-hour delivery, reducing order cancellation rates by 30%.</p>
+
+      <h2 id="tr-3">Chapter 3: Native 1-Tap UPI Intent Dominance</h2>
+      <p>UPI Intent checkout drawers have replaced standard web redirects, offering single-tap payments via GPay, PhonePe, and CRED for instantaneous order processing.</p>
+
+      <h2 id="tr-4">Chapter 4: Shoppable Video Reels & Interactive PDPs</h2>
+      <p>Integrating shoppable Instagram video carousels directly onto Shopify product pages boosts time-on-site by 40% and lifts conversion rates by 22%.</p>
     `
   },
   {
@@ -623,18 +690,30 @@ export const BLOG_POSTS: BlogPost[] = [
     publishDate: "July 08, 2026",
     updatedDate: "July 21, 2026",
     author: {
-      name: "Pankaj Singh",
-      role: "Founder & Lead E-Commerce Architect at SalePXL",
+      name: "SalePXL Team",
+      role: "E-Commerce & CRO Specialists",
       avatar: "/founder_1.jpg"
     },
     coverImage: "/blogs/page_speed.svg",
     excerpt: "A 1-second delay in page load time reduces conversions by 7%. Learn how to audit your theme Liquid files, defer third-party scripts, and compress images for sub-1.5s load times.",
     tableOfContents: [
-      { id: "sp-1", text: "Chapter 1: The Conversion Impact of Page Speed" }
+      { id: "sp-1", text: "Chapter 1: The Conversion Impact of Page Speed" },
+      { id: "sp-2", text: "Chapter 2: Auditing Render-Blocking Liquid & App Scripts" },
+      { id: "sp-3", text: "Chapter 3: Image Compression & Next-Gen WebP/AVIF Formats" },
+      { id: "sp-4", text: "Chapter 4: Achieving 90+ Mobile Core Web Vitals" }
     ],
     content: `
       <h2 id="sp-1">Chapter 1: The Conversion Impact of Page Speed</h2>
       <p>Speed is money. Google search algorithms prioritize mobile page speed. If your Shopify store takes 4+ seconds to render product images on 4G networks, over 50% of paid ad traffic bounces before seeing your buy button.</p>
+
+      <h2 id="sp-2">Chapter 2: Auditing Render-Blocking Liquid & App Scripts</h2>
+      <p>Unused tracking pixels and redundant app scripts block browser rendering. Deferring non-critical JS tags using async loading strategies speeds up Largest Contentful Paint (LCP) drastically.</p>
+
+      <h2 id="sp-3">Chapter 3: Image Compression & Next-Gen WebP/AVIF Formats</h2>
+      <p>Convert heavy PNG/JPEG product images into WebP or AVIF formats. Utilize Shopify's native CDN image transformation parameters (_800x800.webp) to reduce page payload sizes by 70%.</p>
+
+      <h2 id="sp-4">Chapter 4: Achieving 90+ Mobile Core Web Vitals</h2>
+      <p>Eliminate Cumulative Layout Shift (CLS) by defining explicit aspect ratios for product cards and banners. Optimize First Input Delay (FID) for seamless mobile buying experience.</p>
     `
   },
   {
@@ -650,18 +729,30 @@ export const BLOG_POSTS: BlogPost[] = [
     publishDate: "July 05, 2026",
     updatedDate: "July 21, 2026",
     author: {
-      name: "Pankaj Singh",
-      role: "Founder & Lead E-Commerce Architect at SalePXL",
+      name: "SalePXL Team",
+      role: "E-Commerce & CRO Specialists",
       avatar: "/founder_1.jpg"
     },
     coverImage: "/blogs/payment_gateways.svg",
     excerpt: "Increasing your conversion rate from 1.5% to 3.0% doubles your revenue without spending a single extra dollar on ads. Here are 10 battle-tested CRO tactics.",
     tableOfContents: [
-      { id: "cro-1", text: "Chapter 1: What is E-Commerce CRO?" }
+      { id: "cro-1", text: "Chapter 1: What is E-Commerce CRO?" },
+      { id: "cro-2", text: "Chapter 2: Sticky Add-to-Cart & Express Checkout Drawers" },
+      { id: "cro-3", text: "Chapter 3: Social Proof, Photo Reviews & Trust Signals" },
+      { id: "cro-4", text: "Chapter 4: Automated WhatsApp Cart Recovery" }
     ],
     content: `
       <h2 id="cro-1">Chapter 1: What is E-Commerce CRO?</h2>
       <p>Conversion Rate Optimization (CRO) is the systematic process of increasing the percentage of website visitors who take a desired action—specifically, purchasing a product on your Shopify store.</p>
+
+      <h2 id="cro-2">Chapter 2: Sticky Add-to-Cart & Express Checkout Drawers</h2>
+      <p>Adding a persistent sticky buy bar on mobile screens ensures shoppers can checkout instantly regardless of how far down the page they scroll.</p>
+
+      <h2 id="cro-3">Chapter 3: Social Proof, Photo Reviews & Trust Signals</h2>
+      <p>Displaying authentic customer photo reviews, star ratings, and real-time order notification popups builds instant buying confidence for new visitors.</p>
+
+      <h2 id="cro-4">Chapter 4: Automated WhatsApp Cart Recovery</h2>
+      <p>Automate personalized WhatsApp checkout recovery messages sent within 15 minutes of cart abandonment to reclaim up to 25% of lost revenues.</p>
     `
   },
   {
@@ -677,18 +768,30 @@ export const BLOG_POSTS: BlogPost[] = [
     publishDate: "July 02, 2026",
     updatedDate: "July 21, 2026",
     author: {
-      name: "Pankaj Singh",
-      role: "Founder & Lead E-Commerce Architect at SalePXL",
+      name: "SalePXL Team",
+      role: "E-Commerce & CRO Specialists",
       avatar: "/founder_1.jpg"
     },
     coverImage: "/blogs/luxury_shopify.svg",
     excerpt: "Luxury brands require a distinct visual language. Discover how high-end apparel, jewelry, and perfume storefronts use dark aesthetics, tailored fonts, and high-impact layouts.",
     tableOfContents: [
-      { id: "lux-1", text: "Chapter 1: The Psychology of Luxury E-Commerce" }
+      { id: "lux-1", text: "Chapter 1: The Psychology of Luxury E-Commerce" },
+      { id: "lux-2", text: "Chapter 2: Dark Mode Aesthetics & Pedestal Product Displays" },
+      { id: "lux-3", text: "Chapter 3: Bespoke Typography & Editorial Visual Layouts" },
+      { id: "lux-4", text: "Chapter 4: High-Ticket Checkout Security & VIP Concierge" }
     ],
     content: `
       <h2 id="lux-1">Chapter 1: The Psychology of Luxury E-Commerce</h2>
       <p>Luxury shoppers buy craftsmanship, heritage, status, and exclusivity. Cheap default templates instantly destroy the perceived value of high-ticket items (₹10,000+ / $150+).</p>
+
+      <h2 id="lux-2">Chapter 2: Dark Mode Aesthetics & Pedestal Product Displays</h2>
+      <p>Utilize dark luxury color palettes (#08080a), subtle gold accents, and 3D pedestal framing to present products as museum-grade art pieces.</p>
+
+      <h2 id="lux-3">Chapter 3: Bespoke Typography & Editorial Visual Layouts</h2>
+      <p>Pair high-fashion serif titles with clean sans-serif body copy. Editorial grid layouts elevate brand prestige and justify high retail price points.</p>
+
+      <h2 id="lux-4">Chapter 4: High-Ticket Checkout Security & VIP Concierge</h2>
+      <p>Integrate 1-on-1 WhatsApp concierge shopping options and white-glove courier shipping options for ultra-VIP buyers.</p>
     `
   }
 ];

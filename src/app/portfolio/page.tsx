@@ -631,7 +631,7 @@ function StickySlideshow() {
   }, []);
 
   const { scrollYProgress } = useScroll({
-    target: containerRef,
+    target: isMounted ? containerRef : undefined,
     offset: ["start start", "end end"]
   });
 
@@ -898,7 +898,7 @@ export default function PortfolioPage() {
   }, []);
 
   const { scrollYProgress } = useScroll({
-    target: masonrySectionRef,
+    target: isMounted ? masonrySectionRef : undefined,
     offset: ["start end", "end start"]
   });
 

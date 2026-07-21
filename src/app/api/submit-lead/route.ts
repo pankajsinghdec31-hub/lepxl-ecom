@@ -2,10 +2,14 @@ import { NextRequest, NextResponse } from "next/server";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 interface LeadPayload {
-  source: "start-project" | "enquiry-box" | "shopify-audit";
+  source: "start-project" | "enquiry-box" | "shopify-audit" | "shopify-landing" | string;
   name?: string;
   email?: string;
   phone?: string;
+  businessName?: string;
+  website?: string;
+  monthlyRevenue?: string;
+  projectBudget?: string;
   service?: string;
   budgetRange?: string;
   timeline?: string;
@@ -35,7 +39,9 @@ function row(label: string, value?: string | number) {
 
 function buildEmailHtml(data: LeadPayload): string {
   const sourceLabel =
-    data.source === "start-project"
+    data.source === "shopify-landing"
+      ? "🎯 Meta Ads Shopify Landing Lead"
+      : data.source === "start-project"
       ? "🚀 Start Project Form"
       : data.source === "enquiry-box"
       ? "📬 Enquiry Box"
@@ -71,14 +77,15 @@ function buildEmailHtml(data: LeadPayload): string {
       <p style="margin:0 0 12px;font-size:12px;font-weight:700;color:#9ca3af;letter-spacing:1.5px;text-transform:uppercase;">Lead Details</p>
       <table style="width:100%;border-collapse:collapse;border:1px solid #f0f0f0;">
         ${row("Source", sourceLabel)}
+        ${row("Business / Brand", data.businessName || data.brandName)}
+        ${row("Website", data.website || data.storeUrl)}
+        ${row("Monthly Revenue", data.monthlyRevenue)}
+        ${row("Project Budget", data.projectBudget || data.budgetRange)}
         ${row("Service", data.service || data.projectCategory)}
-        ${row("Budget", data.budgetRange)}
         ${row("Timeline", data.timeline)}
         ${row("Products Count", data.productsCount)}
         ${row("Photoshoot Available", data.photoshootAvailable)}
         ${row("Platform", data.platform)}
-        ${row("Brand Name", data.brandName)}
-        ${row("Store URL", data.storeUrl)}
         ${row("Revenue Leakage", data.revenueLeakage !== undefined ? "Rs " + Number(data.revenueLeakage).toLocaleString("en-IN") : undefined)}
         ${row("Reference Links", data.referenceLink)}
         ${row("Project Details", data.projectDetails)}

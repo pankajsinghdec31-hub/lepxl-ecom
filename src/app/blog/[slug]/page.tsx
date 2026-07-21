@@ -116,7 +116,7 @@ export default async function BlogDetailPage({ params }: BlogSlugPageProps) {
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-y border-neutral-200/80 py-4 font-sans text-xs">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-emerald-700 text-white font-bold flex items-center justify-center text-sm shadow-sm">
-                PS
+                SP
               </div>
               <div className="flex flex-col">
                 <span className="font-bold text-neutral-900 text-sm">{post.author.name}</span>
@@ -185,13 +185,13 @@ export default async function BlogDetailPage({ params }: BlogSlugPageProps) {
             {/* AUTHOR BIO BOX */}
             <div className="mt-12 p-6 rounded-2xl bg-white border border-neutral-200/80 flex flex-col sm:flex-row items-start gap-4">
               <div className="w-14 h-14 rounded-full bg-emerald-700 text-white font-bold flex items-center justify-center text-lg shrink-0 shadow-sm">
-                PS
+                SP
               </div>
               <div className="flex flex-col gap-1 text-left">
-                <span className="text-xs font-mono font-bold text-emerald-700 uppercase">Written by Author</span>
+                <span className="text-xs font-mono font-bold text-emerald-700 uppercase">Written by SalePXL Team</span>
                 <h4 className="text-base font-bold text-neutral-900">{post.author.name}</h4>
                 <p className="text-xs text-neutral-500 leading-relaxed">
-                  Pankaj Singh is the Lead E-Commerce Architect at SalePXL. He specializes in bespoke Shopify Liquid development, high-speed headless stores, and conversion rate optimization (CRO) for D2C brands.
+                  The SalePXL Team specializes in bespoke Shopify Liquid development, high-speed headless stores, and conversion rate optimization (CRO) for D2C brands.
                 </p>
               </div>
             </div>

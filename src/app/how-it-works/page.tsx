@@ -154,7 +154,7 @@ export default function HowItWorksPage() {
     setIsMounted(true);
   }, []);
 
-  const { scrollYProgress } = useScroll({ target: containerRef });
+  const { scrollYProgress } = useScroll({ target: isMounted ? containerRef : undefined });
   const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30 });
 
   // Onboarding Checklist state

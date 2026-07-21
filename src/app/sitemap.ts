@@ -5,6 +5,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const routes = [
     "",
+    "/shopify-landing",
     "/services",
     "/portfolio",
     "/case-studies",
