@@ -443,20 +443,20 @@ export default function MetaAdsShopifyLandingPage() {
   };
 
   return (
-    <div className="bg-[#030404] text-white font-sans antialiased min-h-screen relative overflow-x-hidden selection:bg-primary selection:text-black">
-      {/* Clean Interactive Background Dot Pattern */}
-      <div className="absolute inset-0 bg-[radial-gradient(#ffffff0a_1px,transparent_1px)] [background-size:28px_28px] pointer-events-none z-0" />
+    <div className="bg-gradient-to-b from-white via-[#f0fdf4] to-slate-50 text-slate-900 font-sans antialiased min-h-screen relative overflow-x-hidden selection:bg-emerald-500 selection:text-white">
+      {/* Clean Interactive Background Grid Overlay */}
+      <div className="absolute inset-0 bg-[radial-gradient(#05966914_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none z-0" />
 
-      {/* Hardware Accelerated Background Ambient Glows */}
+      {/* Hardware Accelerated Background Ambient Green Glows */}
       <motion.div
-        animate={{ y: [0, -15, 0], opacity: [0.08, 0.12, 0.08] }}
+        animate={{ y: [0, -15, 0], opacity: [0.3, 0.45, 0.3] }}
         transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-[360px] sm:w-[650px] lg:w-[850px] h-[380px] sm:h-[550px] bg-gradient-to-tr from-primary/[0.12] via-[#22e39a]/[0.05] to-transparent rounded-full blur-[160px] pointer-events-none z-0"
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-[360px] sm:w-[650px] lg:w-[850px] h-[380px] sm:h-[550px] bg-gradient-to-tr from-emerald-300/35 via-teal-200/25 to-transparent rounded-full blur-[150px] pointer-events-none z-0"
       />
       <motion.div
-        animate={{ y: [0, 18, 0], opacity: [0.05, 0.09, 0.05] }}
+        animate={{ y: [0, 18, 0], opacity: [0.25, 0.4, 0.25] }}
         transition={{ duration: 11, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-[1200px] right-0 w-[320px] sm:w-[550px] h-[450px] bg-gradient-to-bl from-primary/[0.08] via-emerald-500/[0.03] to-transparent rounded-full blur-[180px] pointer-events-none z-0"
+        className="absolute top-[1200px] right-0 w-[320px] sm:w-[550px] h-[450px] bg-gradient-to-bl from-emerald-300/30 via-teal-100/20 to-transparent rounded-full blur-[160px] pointer-events-none z-0"
       />
 
       {/* ─── 1. HERO SECTION ────────────────────────────────────────────────── */}
@@ -467,9 +467,9 @@ export default function MetaAdsShopifyLandingPage() {
             initial={{ opacity: 0, y: -12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.35, ease: "easeOut" }}
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-primary/10 via-emerald-500/10 to-primary/10 border border-primary/25 text-[11px] sm:text-xs font-bold text-primary uppercase tracking-wider mb-4 sm:mb-5 shadow-[0_0_15px_rgba(34,227,154,0.15)] max-w-full text-center"
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-100/80 border border-emerald-300 text-[11px] sm:text-xs font-bold text-emerald-800 uppercase tracking-wider mb-4 sm:mb-5 shadow-sm max-w-full text-center"
           >
-            <Sparkles className="w-3.5 h-3.5 text-primary shrink-0" />
+            <Sparkles className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
             <span className="truncate">⚡ #1 High-Converting Shopify Store Agency</span>
           </motion.div>
 
@@ -478,10 +478,10 @@ export default function MetaAdsShopifyLandingPage() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="text-[22px] xs:text-[28px] sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-[1.2] mb-4 sm:mb-6"
+            className="text-[22px] xs:text-[28px] sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 leading-[1.2] mb-4 sm:mb-6"
           >
             High-Converting Shopify Store{" "}
-            <span className="bg-gradient-to-r from-primary via-[#34F5AE] to-emerald-400 bg-clip-text text-transparent block sm:inline mt-1 sm:mt-0">
+            <span className="bg-gradient-to-r from-emerald-600 via-teal-500 to-emerald-500 bg-clip-text text-transparent block sm:inline mt-1 sm:mt-0">
               Built to Scale Your Sales
             </span>
           </motion.h1>
@@ -491,7 +491,7 @@ export default function MetaAdsShopifyLandingPage() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="text-xs sm:text-base lg:text-lg text-neutral-300 leading-relaxed max-w-3xl mx-auto mb-7 sm:mb-8 font-normal px-1"
+            className="text-xs sm:text-base lg:text-lg text-slate-600 leading-relaxed max-w-3xl mx-auto mb-7 sm:mb-8 font-medium px-1"
           >
             Turn store visitors into loyal buyers. SalePXL designs and engineers custom OS 2.0 Shopify stores with high-converting custom sections, seamless payment gateways, automated shipping integrations, and AI product photoshoots.
           </motion.p>
@@ -506,7 +506,7 @@ export default function MetaAdsShopifyLandingPage() {
             <a
               href="#lead-form"
               onClick={() => trackCTAClick({ cta_name: "Book Strategy Call Hero", cta_location: "Hero Primary" })}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-7 sm:px-8 py-3.5 sm:py-4 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider text-black bg-primary hover:bg-primary-hover shadow-[0_0_35px_rgba(34,227,154,0.4)] active:scale-95 transition-all duration-300 group cursor-pointer"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-7 sm:px-8 py-3.5 sm:py-4 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider text-white bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 shadow-[0_8px_30px_rgba(16,185,129,0.35)] active:scale-95 transition-all duration-300 group cursor-pointer"
             >
               <span>Book Strategy Call</span>
               <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -517,7 +517,7 @@ export default function MetaAdsShopifyLandingPage() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => trackWhatsAppClick("Hero Secondary CTA")}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 sm:px-8 py-3.5 sm:py-4 rounded-full text-xs sm:text-sm font-semibold text-white bg-white/[0.06] hover:bg-white/10 border border-white/15 active:scale-95 transition-all duration-300 backdrop-blur-sm"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 sm:px-8 py-3.5 sm:py-4 rounded-full text-xs sm:text-sm font-bold text-slate-800 bg-white hover:bg-emerald-50/60 border border-emerald-200 shadow-sm active:scale-95 transition-all duration-300"
             >
               <WhatsAppLogo className="w-4 h-4 fill-[#25D366]" />
               <span>Chat on WhatsApp</span>
@@ -529,7 +529,7 @@ export default function MetaAdsShopifyLandingPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-4 max-w-4xl mx-auto pt-5 border-t border-white/[0.08]"
+            className="grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-4 max-w-4xl mx-auto pt-5 border-t border-emerald-100"
           >
             {[
               { val: "100+", label: "Stores Built", desc: "Proven track record" },
@@ -541,15 +541,15 @@ export default function MetaAdsShopifyLandingPage() {
                 key={idx}
                 whileHover={{ y: -4 }}
                 transition={{ duration: 0.2 }}
-                className="bg-gradient-to-b from-white/[0.04] to-white/[0.01] border border-white/10 rounded-2xl p-3 sm:p-4 text-center hover:border-primary/40 hover:shadow-[0_0_20px_rgba(34,227,154,0.12)] transition-all duration-300 backdrop-blur-md"
+                className="bg-white/90 border border-emerald-100 rounded-2xl p-3.5 sm:p-4 text-center hover:border-emerald-300 hover:shadow-[0_10px_25px_rgba(16,185,129,0.12)] transition-all duration-300 shadow-sm"
               >
-                <div className="text-base sm:text-2xl font-extrabold text-primary font-mono mb-0.5">
+                <div className="text-base sm:text-2xl font-extrabold text-emerald-600 font-mono mb-0.5">
                   <AnimatedStatCounter value={badge.val} />
                 </div>
-                <div className="text-[10px] sm:text-xs font-semibold text-white uppercase tracking-wider">
+                <div className="text-[10px] sm:text-xs font-bold text-slate-900 uppercase tracking-wider">
                   {badge.label}
                 </div>
-                <div className="text-[9px] sm:text-[11px] text-neutral-400 mt-0.5">
+                <div className="text-[9px] sm:text-[11px] text-slate-500 mt-0.5">
                   {badge.desc}
                 </div>
               </motion.div>
@@ -561,55 +561,55 @@ export default function MetaAdsShopifyLandingPage() {
             initial={{ opacity: 0, scale: 0.97 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.42 }}
-            className="mt-8 sm:mt-14 relative max-w-4xl mx-auto rounded-2xl sm:rounded-3xl border border-white/15 bg-gradient-to-b from-[#0e1612] via-[#090d0b] to-[#050605] p-4 sm:p-8 shadow-[0_20px_60px_rgba(0,0,0,0.8)] text-left backdrop-blur-xl"
+            className="mt-8 sm:mt-14 relative max-w-4xl mx-auto rounded-2xl sm:rounded-3xl border border-emerald-200/80 bg-white p-4 sm:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.06)] text-left"
           >
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-4">
               {/* Feature 1: Custom Sections */}
-              <div className="bg-gradient-to-br from-[#121c17] via-[#0b120e] to-[#070a08] border border-white/10 hover:border-primary/50 rounded-2xl p-4 flex flex-col justify-between space-y-2.5 transition-all duration-300 hover:shadow-[0_0_25px_rgba(34,227,154,0.15)] group">
-                <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-primary/25 via-primary/10 to-transparent border border-primary/30 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+              <div className="bg-gradient-to-br from-emerald-50/60 via-white to-emerald-50/30 border border-emerald-100 hover:border-emerald-400 rounded-2xl p-4 flex flex-col justify-between space-y-2.5 transition-all duration-300 hover:shadow-[0_10px_25px_rgba(16,185,129,0.12)] group">
+                <div className="w-9 h-9 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-600 group-hover:scale-110 transition-transform">
                   <LayoutGrid className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
                 <div>
-                  <h4 className="text-xs sm:text-sm font-bold text-white mb-1">Custom Sections</h4>
-                  <p className="text-[11px] sm:text-xs text-neutral-300 leading-relaxed">Bespoke Liquid drag-and-drop sections, routine builders & cart drawers.</p>
+                  <h4 className="text-xs sm:text-sm font-bold text-slate-900 mb-1">Custom Sections</h4>
+                  <p className="text-[11px] sm:text-xs text-slate-600 leading-relaxed">Bespoke Liquid drag-and-drop sections, routine builders & cart drawers.</p>
                 </div>
-                <span className="text-[10px] font-mono font-bold text-primary bg-primary/10 px-2 py-0.5 rounded-full border border-primary/20 w-fit">✓ Theme Customizer</span>
+                <span className="text-[10px] font-mono font-bold text-emerald-800 bg-emerald-100/80 px-2 py-0.5 rounded-full border border-emerald-200 w-fit">✓ Theme Customizer</span>
               </div>
 
               {/* Feature 2: Payment Gateways */}
-              <div className="bg-gradient-to-br from-[#121c17] via-[#0b120e] to-[#070a08] border border-white/10 hover:border-primary/50 rounded-2xl p-4 flex flex-col justify-between space-y-2.5 transition-all duration-300 hover:shadow-[0_0_25px_rgba(34,227,154,0.15)] group">
-                <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-primary/25 via-primary/10 to-transparent border border-primary/30 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+              <div className="bg-gradient-to-br from-emerald-50/60 via-white to-emerald-50/30 border border-emerald-100 hover:border-emerald-400 rounded-2xl p-4 flex flex-col justify-between space-y-2.5 transition-all duration-300 hover:shadow-[0_10px_25px_rgba(16,185,129,0.12)] group">
+                <div className="w-9 h-9 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-600 group-hover:scale-110 transition-transform">
                   <CreditCard className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
                 <div>
-                  <h4 className="text-xs sm:text-sm font-bold text-white mb-1">Payment Gateways</h4>
-                  <p className="text-[11px] sm:text-xs text-neutral-300 leading-relaxed">Razorpay, Stripe, Cashfree, Paytm & COD OTP verification.</p>
+                  <h4 className="text-xs sm:text-sm font-bold text-slate-900 mb-1">Payment Gateways</h4>
+                  <p className="text-[11px] sm:text-xs text-slate-600 leading-relaxed">Razorpay, Stripe, Cashfree, Paytm & COD OTP verification.</p>
                 </div>
-                <span className="text-[10px] font-mono font-bold text-primary bg-primary/10 px-2 py-0.5 rounded-full border border-primary/20 w-fit">✓ Instant Checkout</span>
+                <span className="text-[10px] font-mono font-bold text-emerald-800 bg-emerald-100/80 px-2 py-0.5 rounded-full border border-emerald-200 w-fit">✓ Instant Checkout</span>
               </div>
 
               {/* Feature 3: Shipping Integration */}
-              <div className="bg-gradient-to-br from-[#121c17] via-[#0b120e] to-[#070a08] border border-white/10 hover:border-primary/50 rounded-2xl p-4 flex flex-col justify-between space-y-2.5 transition-all duration-300 hover:shadow-[0_0_25px_rgba(34,227,154,0.15)] group">
-                <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-primary/25 via-primary/10 to-transparent border border-primary/30 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+              <div className="bg-gradient-to-br from-emerald-50/60 via-white to-emerald-50/30 border border-emerald-100 hover:border-emerald-400 rounded-2xl p-4 flex flex-col justify-between space-y-2.5 transition-all duration-300 hover:shadow-[0_10px_25px_rgba(16,185,129,0.12)] group">
+                <div className="w-9 h-9 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-600 group-hover:scale-110 transition-transform">
                   <Truck className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
                 <div>
-                  <h4 className="text-xs sm:text-sm font-bold text-white mb-1">Shipping Partners</h4>
-                  <p className="text-[11px] sm:text-xs text-neutral-300 leading-relaxed">Shiprocket, Delhivery, DTDC & automated tracking setup.</p>
+                  <h4 className="text-xs sm:text-sm font-bold text-slate-900 mb-1">Shipping Partners</h4>
+                  <p className="text-[11px] sm:text-xs text-slate-600 leading-relaxed">Shiprocket, Delhivery, DTDC & automated tracking setup.</p>
                 </div>
-                <span className="text-[10px] font-mono font-bold text-primary bg-primary/10 px-2 py-0.5 rounded-full border border-primary/20 w-fit">✓ Auto Order Sync</span>
+                <span className="text-[10px] font-mono font-bold text-emerald-800 bg-emerald-100/80 px-2 py-0.5 rounded-full border border-emerald-200 w-fit">✓ Auto Order Sync</span>
               </div>
 
               {/* Feature 4: AI Photoshoots */}
-              <div className="bg-gradient-to-br from-[#121c17] via-[#0b120e] to-[#070a08] border border-white/10 hover:border-primary/50 rounded-2xl p-4 flex flex-col justify-between space-y-2.5 transition-all duration-300 hover:shadow-[0_0_25px_rgba(34,227,154,0.15)] group">
-                <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-primary/25 via-primary/10 to-transparent border border-primary/30 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+              <div className="bg-gradient-to-br from-emerald-50/60 via-white to-emerald-50/30 border border-emerald-100 hover:border-emerald-400 rounded-2xl p-4 flex flex-col justify-between space-y-2.5 transition-all duration-300 hover:shadow-[0_10px_25px_rgba(16,185,129,0.12)] group">
+                <div className="w-9 h-9 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-600 group-hover:scale-110 transition-transform">
                   <Camera className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
                 <div>
-                  <h4 className="text-xs sm:text-sm font-bold text-white mb-1">AI Product Photoshoot</h4>
-                  <p className="text-[11px] sm:text-xs text-neutral-300 leading-relaxed">Transform flat-lays into studio lifestyle photos + 20 free listings.</p>
+                  <h4 className="text-xs sm:text-sm font-bold text-slate-900 mb-1">AI Product Photoshoot</h4>
+                  <p className="text-[11px] sm:text-xs text-slate-600 leading-relaxed">Transform flat-lays into studio lifestyle photos + 20 free listings.</p>
                 </div>
-                <span className="text-[10px] font-mono font-bold text-primary bg-primary/10 px-2 py-0.5 rounded-full border border-primary/20 w-fit">✓ Save Photo Costs</span>
+                <span className="text-[10px] font-mono font-bold text-emerald-800 bg-emerald-100/80 px-2 py-0.5 rounded-full border border-emerald-200 w-fit">✓ Save Photo Costs</span>
               </div>
             </div>
           </motion.div>
@@ -617,7 +617,7 @@ export default function MetaAdsShopifyLandingPage() {
       </section>
 
       {/* ─── 2. WHY SALEPXL SECTION (Interactive Auto Slider) ────────────────── */}
-      <section className="py-14 sm:py-20 lg:py-24 px-4 sm:px-6 max-w-7xl mx-auto relative z-10 border-t border-white/[0.08]">
+      <section className="py-14 sm:py-20 lg:py-24 px-4 sm:px-6 max-w-7xl mx-auto relative z-10 border-t border-emerald-100">
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -625,13 +625,13 @@ export default function MetaAdsShopifyLandingPage() {
           transition={{ duration: 0.4 }}
           className="text-center max-w-3xl mx-auto mb-10 sm:mb-14"
         >
-          <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-primary mb-2 block font-mono">
+          <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-emerald-600 mb-2 block font-mono">
             Why Choose SalePXL
           </span>
-          <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
             Built for High Conversions, Seamless Shipping & Payment Integrations
           </h2>
-          <p className="text-xs sm:text-base text-neutral-400 mt-2.5 leading-relaxed">
+          <p className="text-xs sm:text-base text-slate-600 mt-2.5 leading-relaxed">
             Generic Shopify templates lose sales due to slow load times, poor mobile UX, and broken checkout steps. SalePXL solves this completely.
           </p>
         </motion.div>
@@ -644,8 +644,8 @@ export default function MetaAdsShopifyLandingPage() {
         >
           {/* Controls: Prev & Next Buttons */}
           <div className="flex items-center justify-between mb-4 sm:mb-6">
-            <div className="text-xs text-neutral-400 font-mono">
-              Features Showcase <span className="text-primary font-bold">{whyChooseIdx + 1}</span> / {WHY_CHOOSE_ITEMS.length}
+            <div className="text-xs text-slate-500 font-mono">
+              Features Showcase <span className="text-emerald-600 font-bold">{whyChooseIdx + 1}</span> / {WHY_CHOOSE_ITEMS.length}
             </div>
 
             <div className="flex items-center gap-2">
@@ -653,24 +653,24 @@ export default function MetaAdsShopifyLandingPage() {
                 onClick={() =>
                   setWhyChooseIdx((prev) => (prev === 0 ? WHY_CHOOSE_ITEMS.length - 1 : prev - 1))
                 }
-                className="w-8 h-8 rounded-full bg-white/5 hover:bg-white/15 border border-white/10 flex items-center justify-center text-white transition-colors cursor-pointer"
+                className="w-8 h-8 rounded-full bg-white hover:bg-emerald-50 border border-emerald-200 flex items-center justify-center text-slate-800 transition-colors shadow-sm cursor-pointer"
                 aria-label="Previous feature"
               >
-                <ChevronLeft className="w-4 h-4" />
+                <ChevronLeft className="w-4 h-4 text-emerald-700" />
               </button>
               <button
                 onClick={() =>
                   setWhyChooseIdx((prev) => (prev + 1) % WHY_CHOOSE_ITEMS.length)
                 }
-                className="w-8 h-8 rounded-full bg-white/5 hover:bg-white/15 border border-white/10 flex items-center justify-center text-white transition-colors cursor-pointer"
+                className="w-8 h-8 rounded-full bg-white hover:bg-emerald-50 border border-emerald-200 flex items-center justify-center text-slate-800 transition-colors shadow-sm cursor-pointer"
                 aria-label="Next feature"
               >
-                <ChevronRight className="w-4 h-4" />
+                <ChevronRight className="w-4 h-4 text-emerald-700" />
               </button>
             </div>
           </div>
 
-          {/* Active Card Slider View with Gradient Styling */}
+          {/* Active Card Slider View with White & Green Gradient Styling */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
             {[0, 1].map((offset) => {
               const itemIdx = (whyChooseIdx + offset) % WHY_CHOOSE_ITEMS.length;
@@ -683,21 +683,21 @@ export default function MetaAdsShopifyLandingPage() {
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -20 }}
                     transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-                    className="bg-gradient-to-br from-[#0e1713] via-[#090e0b] to-[#050706] border border-white/15 hover:border-primary/60 rounded-2xl p-6 sm:p-8 text-left transition-all duration-300 flex flex-col justify-between group shadow-[0_15px_40px_rgba(0,0,0,0.7)] min-h-[200px]"
+                    className="bg-white border border-emerald-200/80 hover:border-emerald-400 rounded-2xl p-6 sm:p-8 text-left transition-all duration-300 flex flex-col justify-between group shadow-[0_10px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_15px_35px_rgba(16,185,129,0.12)] min-h-[200px]"
                   >
                     <div>
                       <div className="flex items-center justify-between mb-4">
-                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/25 via-primary/10 to-transparent border border-primary/30 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-black transition-colors duration-300">
+                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center text-white shadow-md group-hover:scale-110 transition-transform">
                           <IconComp className="w-6 h-6" />
                         </div>
-                        <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-primary px-3 py-1 rounded-full bg-primary/10 border border-primary/25">
+                        <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-emerald-800 px-3 py-1 rounded-full bg-emerald-100/80 border border-emerald-200">
                           {item.tag}
                         </span>
                       </div>
-                      <h3 className="text-lg sm:text-xl font-bold text-white mb-2">
+                      <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-2">
                         {item.title}
                       </h3>
-                      <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed">
+                      <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                         {item.desc}
                       </p>
                     </div>
@@ -715,8 +715,8 @@ export default function MetaAdsShopifyLandingPage() {
                 onClick={() => setWhyChooseIdx(idx)}
                 className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
                   idx === whyChooseIdx
-                    ? "w-6 bg-primary"
-                    : "w-1.5 bg-white/20 hover:bg-white/40"
+                    ? "w-6 bg-emerald-600"
+                    : "w-1.5 bg-slate-300 hover:bg-slate-400"
                 }`}
                 aria-label={`Go to slide ${idx + 1}`}
               />
@@ -726,7 +726,7 @@ export default function MetaAdsShopifyLandingPage() {
       </section>
 
       {/* ─── 3. SHOPIFY PORTFOLIO MARQUEE SHOWCASE ───────────────────────────── */}
-      <section className="py-14 sm:py-20 relative overflow-hidden bg-[#030404] border-t border-white/[0.08] z-10">
+      <section className="py-14 sm:py-20 relative overflow-hidden bg-gradient-to-b from-white via-[#f0fdf4]/50 to-white border-t border-emerald-100 z-10">
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -734,13 +734,13 @@ export default function MetaAdsShopifyLandingPage() {
           transition={{ duration: 0.4 }}
           className="max-w-[1360px] mx-auto px-4 sm:px-6 mb-10 text-center"
         >
-          <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-primary font-mono block mb-2">
+          <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-emerald-600 font-mono block mb-2">
             High-Converting Portfolio
           </span>
-          <h2 className="text-2.5xl sm:text-4xl lg:text-5xl font-light text-white tracking-tight font-sans">
-            Stores <span className="text-primary font-normal">We've</span> Built & <span className="text-white font-bold">Transformed</span>
+          <h2 className="text-2.5xl sm:text-4xl lg:text-5xl font-light text-slate-900 tracking-tight font-sans">
+            Stores <span className="text-emerald-600 font-normal">We've</span> Built & <span className="text-slate-900 font-bold">Transformed</span>
           </h2>
-          <p className="text-xs sm:text-base text-neutral-400 max-w-2xl mx-auto mt-2">
+          <p className="text-xs sm:text-base text-slate-600 max-w-2xl mx-auto mt-2">
             Real Shopify OS 2.0 store rebuilds engineered for performance, custom sections, mobile speed, and conversion growth.
           </p>
         </motion.div>
@@ -749,14 +749,14 @@ export default function MetaAdsShopifyLandingPage() {
         <div className="marquee-container marquee-pause mb-5 sm:mb-6">
           <div className="marquee-content" style={{ "--marquee-speed": "45s" } as React.CSSProperties}>
             {PORTFOLIO_IMAGES_ROW1.map((img, idx) => (
-              <div key={idx} className="premium-hover-image-container flex-shrink-0 w-[240px] xs:w-[260px] sm:w-[280px] rounded-[20px] sm:rounded-[24px] border border-white/10 hover:border-primary/50 shadow-xl bg-[#090d0b]">
+              <div key={idx} className="premium-hover-image-container flex-shrink-0 w-[240px] xs:w-[260px] sm:w-[280px] rounded-[20px] sm:rounded-[24px] border border-slate-200 hover:border-emerald-400 shadow-md bg-white">
                 <img src={img.src} alt={img.alt} loading="lazy" decoding="async" className="premium-hover-image w-full display-block object-cover object-top select-none pointer-events-none" />
               </div>
             ))}
           </div>
           <div className="marquee-content" aria-hidden="true" style={{ "--marquee-speed": "45s" } as React.CSSProperties}>
             {PORTFOLIO_IMAGES_ROW1.map((img, idx) => (
-              <div key={idx + "-dup"} className="premium-hover-image-container flex-shrink-0 w-[240px] xs:w-[260px] sm:w-[280px] rounded-[20px] sm:rounded-[24px] border border-white/10 hover:border-primary/50 shadow-xl bg-[#090d0b]">
+              <div key={idx + "-dup"} className="premium-hover-image-container flex-shrink-0 w-[240px] xs:w-[260px] sm:w-[280px] rounded-[20px] sm:rounded-[24px] border border-slate-200 hover:border-emerald-400 shadow-md bg-white">
                 <img src={img.src} alt={img.alt} loading="lazy" decoding="async" className="premium-hover-image w-full display-block object-cover object-top select-none pointer-events-none" />
               </div>
             ))}
@@ -767,14 +767,14 @@ export default function MetaAdsShopifyLandingPage() {
         <div className="marquee-container marquee-pause">
           <div className="marquee-content-reverse" style={{ "--marquee-speed": "45s" } as React.CSSProperties}>
             {PORTFOLIO_IMAGES_ROW2.map((img, idx) => (
-              <div key={idx} className="premium-hover-image-container flex-shrink-0 w-[240px] xs:w-[260px] sm:w-[280px] rounded-[20px] sm:rounded-[24px] border border-white/10 hover:border-primary/50 shadow-xl bg-[#090d0b]">
+              <div key={idx} className="premium-hover-image-container flex-shrink-0 w-[240px] xs:w-[260px] sm:w-[280px] rounded-[20px] sm:rounded-[24px] border border-slate-200 hover:border-emerald-400 shadow-md bg-white">
                 <img src={img.src} alt={img.alt} loading="lazy" decoding="async" className="premium-hover-image w-full display-block object-cover object-top select-none pointer-events-none" />
               </div>
             ))}
           </div>
           <div className="marquee-content-reverse" aria-hidden="true" style={{ "--marquee-speed": "45s" } as React.CSSProperties}>
             {PORTFOLIO_IMAGES_ROW2.map((img, idx) => (
-              <div key={idx + "-dup"} className="premium-hover-image-container flex-shrink-0 w-[240px] xs:w-[260px] sm:w-[280px] rounded-[20px] sm:rounded-[24px] border border-white/10 hover:border-primary/50 shadow-xl bg-[#090d0b]">
+              <div key={idx + "-dup"} className="premium-hover-image-container flex-shrink-0 w-[240px] xs:w-[260px] sm:w-[280px] rounded-[20px] sm:rounded-[24px] border border-slate-200 hover:border-emerald-400 shadow-md bg-white">
                 <img src={img.src} alt={img.alt} loading="lazy" decoding="async" className="premium-hover-image w-full display-block object-cover object-top select-none pointer-events-none" />
               </div>
             ))}
@@ -785,23 +785,23 @@ export default function MetaAdsShopifyLandingPage() {
           <a
             href="#lead-form"
             onClick={() => trackCTAClick({ cta_name: "Build Your Store Portfolio Section", cta_location: "Marquee Portfolio" })}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 sm:px-8 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider text-black bg-primary hover:bg-primary-hover shadow-[0_0_25px_rgba(34,227,154,0.35)] active:scale-95 transition-all duration-300 cursor-pointer"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 sm:px-8 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 shadow-[0_6px_25px_rgba(16,185,129,0.3)] active:scale-95 transition-all duration-300 cursor-pointer"
           >
             <span>Build Your High-Converting Store</span>
             <ArrowRight className="w-4 h-4" />
           </a>
           <Link
             href="/portfolio"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 sm:px-8 py-3.5 rounded-full text-xs font-semibold uppercase tracking-wider text-white border border-white/20 hover:bg-white/10 active:scale-95 transition-all duration-300"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 sm:px-8 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider text-slate-800 bg-white border border-slate-200 hover:bg-emerald-50 shadow-sm active:scale-95 transition-all duration-300"
           >
             <span>View Full Portfolio</span>
-            <ArrowUpRight className="w-4 h-4 text-primary" />
+            <ArrowUpRight className="w-4 h-4 text-emerald-600" />
           </Link>
         </div>
       </section>
 
       {/* ─── 4. OUR PROCESS SECTION (Animated Customer Journey) ──────────────── */}
-      <section className="py-14 sm:py-20 lg:py-24 px-4 sm:px-6 max-w-7xl mx-auto relative z-10 border-t border-white/[0.08]">
+      <section className="py-14 sm:py-20 lg:py-24 px-4 sm:px-6 max-w-7xl mx-auto relative z-10 border-t border-emerald-100">
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -809,18 +809,18 @@ export default function MetaAdsShopifyLandingPage() {
           transition={{ duration: 0.4 }}
           className="text-center max-w-3xl mx-auto mb-12 sm:mb-16"
         >
-          <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-primary mb-2 block font-mono">
+          <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-emerald-600 mb-2 block font-mono">
             Our Proven Growth Formula
           </span>
-          <h2 className="text-2.5xl sm:text-4xl font-extrabold text-white tracking-tight">
+          <h2 className="text-2.5xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
             The 5-Step Customer Conversion Process
           </h2>
-          <p className="text-xs sm:text-base text-neutral-400 mt-2.5 leading-relaxed">
+          <p className="text-xs sm:text-base text-slate-600 mt-2.5 leading-relaxed">
             How we transform store visitors into long-term brand advocates.
           </p>
         </motion.div>
 
-        {/* Animated Process Flow Steps with Card Gradients */}
+        {/* Animated Process Flow Steps */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3.5 sm:gap-4 relative">
           {[
             {
@@ -861,18 +861,18 @@ export default function MetaAdsShopifyLandingPage() {
               viewport={{ once: true, margin: "-30px" }}
               transition={{ duration: 0.35, delay: idx * 0.08 }}
               whileHover={{ y: -4 }}
-              className="bg-gradient-to-b from-[#0d1511] via-[#080d0a] to-[#040605] border border-white/10 hover:border-primary/40 rounded-2xl p-5 text-left relative group transition-all duration-300 shadow-md"
+              className="bg-white/90 border border-emerald-100 hover:border-emerald-400 rounded-2xl p-5 text-left relative group transition-all duration-300 shadow-sm hover:shadow-[0_10px_25px_rgba(16,185,129,0.12)]"
             >
-              <div className="text-2.5xl sm:text-3xl font-black font-mono text-primary/30 group-hover:text-primary transition-colors mb-2.5">
+              <div className="text-2.5xl sm:text-3xl font-black font-mono text-emerald-500/30 group-hover:text-emerald-600 transition-colors mb-2.5">
                 {item.step}
               </div>
-              <h3 className="text-base sm:text-lg font-bold text-white mb-1.5">
+              <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-1.5">
                 {item.title}
               </h3>
-              <p className="text-xs text-neutral-300 leading-relaxed mb-4">
+              <p className="text-xs text-slate-600 leading-relaxed mb-4">
                 {item.desc}
               </p>
-              <div className="inline-block px-2.5 py-1 rounded-full bg-gradient-to-r from-primary/15 to-emerald-500/10 border border-primary/30 text-[10px] font-mono font-bold text-primary">
+              <div className="inline-block px-2.5 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-[10px] font-mono font-bold text-emerald-700">
                 {item.metric}
               </div>
             </motion.div>
@@ -881,7 +881,7 @@ export default function MetaAdsShopifyLandingPage() {
       </section>
 
       {/* ─── 5. TESTIMONIALS SECTION ────────────────────────────────────────── */}
-      <section className="py-14 sm:py-20 lg:py-24 px-4 sm:px-6 max-w-7xl mx-auto relative z-10 border-t border-white/[0.08]">
+      <section className="py-14 sm:py-20 lg:py-24 px-4 sm:px-6 max-w-7xl mx-auto relative z-10 border-t border-emerald-100">
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -889,18 +889,18 @@ export default function MetaAdsShopifyLandingPage() {
           transition={{ duration: 0.4 }}
           className="text-center max-w-3xl mx-auto mb-12 sm:mb-16"
         >
-          <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-primary mb-2 block font-mono">
+          <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-emerald-600 mb-2 block font-mono">
             Client Success Stories
           </span>
-          <h2 className="text-2.5xl sm:text-4xl font-extrabold text-white tracking-tight">
+          <h2 className="text-2.5xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
             Trusted by 100+ High-Growth E-Commerce Founders
           </h2>
-          <p className="text-xs sm:text-base text-neutral-400 mt-2.5 leading-relaxed">
+          <p className="text-xs sm:text-base text-slate-600 mt-2.5 leading-relaxed">
             See how SalePXL helped Shopify brands increase conversion rates, integrate payment/shipping partners, and scale sales.
           </p>
         </motion.div>
 
-        {/* Testimonial Auto Slider Card with Gradient Styling */}
+        {/* Testimonial Auto Slider Card */}
         <div className="max-w-4xl mx-auto">
           <AnimatePresence mode="wait">
             {TESTIMONIALS.map((t, idx) => {
@@ -912,7 +912,7 @@ export default function MetaAdsShopifyLandingPage() {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: -10, scale: 0.98 }}
                   transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                  className="bg-gradient-to-b from-[#0e1612] via-[#090d0b] to-[#050706] border border-white/15 rounded-2xl sm:rounded-3xl p-6 sm:p-10 lg:p-12 shadow-[0_20px_50px_rgba(0,0,0,0.7)] text-left grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 items-center backdrop-blur-xl"
+                  className="bg-gradient-to-b from-white via-emerald-50/40 to-white border border-emerald-200/80 rounded-2xl sm:rounded-3xl p-6 sm:p-10 lg:p-12 shadow-[0_20px_50px_rgba(16,185,129,0.08)] text-left grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 items-center"
                 >
                   <div className="md:col-span-8 space-y-4 sm:space-y-6">
                     <div className="flex items-center gap-1 text-amber-400">
@@ -921,7 +921,7 @@ export default function MetaAdsShopifyLandingPage() {
                       ))}
                     </div>
 
-                    <p className="text-sm sm:text-lg lg:text-xl text-neutral-200 leading-relaxed font-normal italic">
+                    <p className="text-sm sm:text-lg lg:text-xl text-slate-800 leading-relaxed font-medium italic">
                       "{t.quote}"
                     </p>
 
@@ -931,23 +931,23 @@ export default function MetaAdsShopifyLandingPage() {
                         alt={t.name}
                         loading="lazy"
                         decoding="async"
-                        className="w-10 h-10 rounded-full object-cover border border-primary/40 shrink-0 shadow-md"
+                        className="w-10 h-10 rounded-full object-cover border border-emerald-300 shrink-0 shadow-sm"
                       />
                       <div>
-                        <h4 className="text-sm sm:text-base font-bold text-white">{t.name}</h4>
-                        <p className="text-xs text-neutral-400">{t.brand}</p>
+                        <h4 className="text-sm sm:text-base font-bold text-slate-900">{t.name}</h4>
+                        <p className="text-xs text-slate-500">{t.brand}</p>
                       </div>
                     </div>
                   </div>
 
-                  <div className="md:col-span-4 bg-gradient-to-br from-primary/10 via-emerald-500/5 to-transparent border border-primary/25 rounded-2xl p-5 text-center space-y-2 shadow-inner">
-                    <div className="text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-neutral-400">
+                  <div className="md:col-span-4 bg-gradient-to-br from-emerald-500/10 via-teal-500/5 to-white border border-emerald-200 rounded-2xl p-5 text-center space-y-2 shadow-sm">
+                    <div className="text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-slate-500">
                       Performance Result
                     </div>
-                    <div className="text-2.5xl sm:text-3xl font-black text-primary font-mono">
+                    <div className="text-2.5xl sm:text-3xl font-black text-emerald-600 font-mono">
                       <AnimatedStatCounter value={t.statVal} />
                     </div>
-                    <div className="text-xs text-white font-medium">
+                    <div className="text-xs text-slate-800 font-bold">
                       {t.statLabel}
                     </div>
                   </div>
@@ -964,8 +964,8 @@ export default function MetaAdsShopifyLandingPage() {
                 onClick={() => setActiveTestimonialIdx(dotIdx)}
                 className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
                   dotIdx === activeTestimonialIdx
-                    ? "w-7 sm:w-8 bg-primary"
-                    : "w-2 sm:w-2.5 bg-white/20 hover:bg-white/40"
+                    ? "w-7 sm:w-8 bg-emerald-600"
+                    : "w-2 sm:w-2.5 bg-slate-300 hover:bg-slate-400"
                 }`}
                 aria-label={`Go to slide ${dotIdx + 1}`}
               />
@@ -975,7 +975,7 @@ export default function MetaAdsShopifyLandingPage() {
       </section>
 
       {/* ─── 6. SERVICES SECTION (Shopify Focused Only) ──────────────────────── */}
-      <section className="py-14 sm:py-20 lg:py-24 px-4 sm:px-6 max-w-7xl mx-auto relative z-10 border-t border-white/[0.08]">
+      <section className="py-14 sm:py-20 lg:py-24 px-4 sm:px-6 max-w-7xl mx-auto relative z-10 border-t border-emerald-100">
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -983,13 +983,13 @@ export default function MetaAdsShopifyLandingPage() {
           transition={{ duration: 0.4 }}
           className="text-center max-w-3xl mx-auto mb-12 sm:mb-16"
         >
-          <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-primary mb-2 block font-mono">
+          <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-emerald-600 mb-2 block font-mono">
             Shopify Specialized Services
           </span>
-          <h2 className="text-2.5xl sm:text-4xl font-extrabold text-white tracking-tight">
+          <h2 className="text-2.5xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
             Complete Shopify Engineering Solutions
           </h2>
-          <p className="text-xs sm:text-base text-neutral-400 mt-2.5 leading-relaxed">
+          <p className="text-xs sm:text-base text-slate-600 mt-2.5 leading-relaxed">
             Everything your e-commerce brand needs to scale sales, custom sections, payment gateways, and automated shipping.
           </p>
         </motion.div>
@@ -1005,21 +1005,21 @@ export default function MetaAdsShopifyLandingPage() {
                 viewport={{ once: true, margin: "-30px" }}
                 transition={{ duration: 0.35, delay: idx * 0.06 }}
                 whileHover={{ y: -4 }}
-                className="bg-gradient-to-b from-[#0c1410] to-[#060807] border border-white/10 hover:border-primary/40 rounded-2xl p-5 sm:p-7 flex flex-col justify-between text-left transition-all duration-300 group shadow-md"
+                className="bg-white border border-emerald-100 hover:border-emerald-400 rounded-2xl p-5 sm:p-7 flex flex-col justify-between text-left transition-all duration-300 group shadow-sm hover:shadow-[0_15px_35px_rgba(16,185,129,0.12)]"
               >
                 <div>
                   <div className="flex items-center justify-between mb-5">
-                    <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-primary/25 via-primary/10 to-transparent border border-primary/30 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-black transition-colors duration-300">
+                    <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-300">
                       <IconComp className="w-5 h-5 sm:w-6 sm:h-6" />
                     </div>
-                    <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-primary px-2.5 py-1 rounded-full bg-gradient-to-r from-primary/15 to-emerald-500/10 border border-primary/25 truncate max-w-[150px]">
+                    <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-emerald-800 px-2.5 py-1 rounded-full bg-emerald-50 border border-emerald-200 truncate max-w-[150px]">
                       {srv.highlight}
                     </span>
                   </div>
-                  <h3 className="text-lg sm:text-xl font-bold text-white mb-2.5">
+                  <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-2.5">
                     {srv.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed mb-6">
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
                     {srv.desc}
                   </p>
                 </div>
@@ -1027,7 +1027,7 @@ export default function MetaAdsShopifyLandingPage() {
                 <a
                   href="#lead-form"
                   onClick={() => trackCTAClick({ cta_name: `Service ${srv.title}`, cta_location: "Services Grid" })}
-                  className="inline-flex items-center gap-2 text-xs font-bold text-primary hover:text-white uppercase tracking-wider transition-colors pt-4 border-t border-white/10 cursor-pointer"
+                  className="inline-flex items-center gap-2 text-xs font-bold text-emerald-600 hover:text-emerald-800 uppercase tracking-wider transition-colors pt-4 border-t border-slate-100 cursor-pointer"
                 >
                   <span>Request Service</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -1048,20 +1048,20 @@ export default function MetaAdsShopifyLandingPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-40px" }}
           transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-          className="bg-gradient-to-b from-[#0e1612] via-[#0a0e0b] to-[#050605] border border-primary/30 rounded-2xl sm:rounded-3xl p-5 sm:p-10 lg:p-12 shadow-[0_0_50px_rgba(34,227,154,0.12)] relative overflow-hidden text-left backdrop-blur-xl"
+          className="bg-gradient-to-b from-white via-emerald-50/60 to-slate-50 border border-emerald-200 rounded-2xl sm:rounded-3xl p-5 sm:p-10 lg:p-12 shadow-[0_25px_70px_rgba(16,185,129,0.12)] relative overflow-hidden text-left"
         >
           {/* Top Subtle Glow */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent" />
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-1 bg-gradient-to-r from-transparent via-emerald-500 to-transparent" />
 
           {/* Form Header */}
           <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
-            <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-primary mb-2 block font-mono">
+            <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-emerald-600 mb-2 block font-mono">
               Get Started Today
             </span>
-            <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
               Get Your Custom Shopify Store Strategy & Proposal
             </h2>
-            <p className="text-xs sm:text-sm text-neutral-300 mt-2 leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
               Fill out your project details below. Our senior Shopify architects will review your brand and send you a custom growth plan within 2 hours.
             </p>
           </div>
@@ -1071,110 +1071,110 @@ export default function MetaAdsShopifyLandingPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
               {/* Full Name */}
               <div>
-                <label className="block text-xs font-semibold uppercase tracking-wider text-neutral-300 mb-2">
-                  Full Name <span className="text-primary">*</span>
+                <label className="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-2">
+                  Full Name <span className="text-emerald-600">*</span>
                 </label>
                 <div className="relative">
-                  <User className="w-4 h-4 text-neutral-500 absolute left-4 top-3.5 pointer-events-none" />
+                  <User className="w-4 h-4 text-slate-400 absolute left-4 top-3.5 pointer-events-none" />
                   <input
                     type="text"
                     name="fullName"
                     value={formData.fullName}
                     onChange={handleInputChange}
                     placeholder="Pankaj Singh"
-                    className={`w-full bg-[#0f1211] border ${
-                      formErrors.fullName ? "border-red-500" : "border-white/15 focus:border-primary focus:shadow-[0_0_20px_rgba(34,227,154,0.2)]"
-                    } rounded-xl pl-11 pr-4 py-3 text-sm text-white placeholder-neutral-500 focus:outline-none transition-all min-h-[48px] sm:min-h-[52px] text-[16px] sm:text-sm`}
+                    className={`w-full bg-white border ${
+                      formErrors.fullName ? "border-red-500" : "border-slate-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20"
+                    } rounded-xl pl-11 pr-4 py-3 text-sm text-slate-900 placeholder-slate-400 focus:outline-none transition-all min-h-[48px] sm:min-h-[52px] text-[16px] sm:text-sm shadow-sm`}
                   />
                 </div>
                 {formErrors.fullName && (
-                  <p className="text-xs text-red-400 mt-1 font-medium">{formErrors.fullName}</p>
+                  <p className="text-xs text-red-500 mt-1 font-medium">{formErrors.fullName}</p>
                 )}
               </div>
 
               {/* Business Name */}
               <div>
-                <label className="block text-xs font-semibold uppercase tracking-wider text-neutral-300 mb-2">
-                  Business / Brand Name <span className="text-primary">*</span>
+                <label className="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-2">
+                  Business / Brand Name <span className="text-emerald-600">*</span>
                 </label>
                 <div className="relative">
-                  <Building className="w-4 h-4 text-neutral-500 absolute left-4 top-3.5 pointer-events-none" />
+                  <Building className="w-4 h-4 text-slate-400 absolute left-4 top-3.5 pointer-events-none" />
                   <input
                     type="text"
                     name="businessName"
                     value={formData.businessName}
                     onChange={handleInputChange}
                     placeholder="e.g., Pilgrim Skincare"
-                    className={`w-full bg-[#0f1211] border ${
-                      formErrors.businessName ? "border-red-500" : "border-white/15 focus:border-primary focus:shadow-[0_0_20px_rgba(34,227,154,0.2)]"
-                    } rounded-xl pl-11 pr-4 py-3 text-sm text-white placeholder-neutral-500 focus:outline-none transition-all min-h-[48px] sm:min-h-[52px] text-[16px] sm:text-sm`}
+                    className={`w-full bg-white border ${
+                      formErrors.businessName ? "border-red-500" : "border-slate-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20"
+                    } rounded-xl pl-11 pr-4 py-3 text-sm text-slate-900 placeholder-slate-400 focus:outline-none transition-all min-h-[48px] sm:min-h-[52px] text-[16px] sm:text-sm shadow-sm`}
                   />
                 </div>
                 {formErrors.businessName && (
-                  <p className="text-xs text-red-400 mt-1 font-medium">{formErrors.businessName}</p>
+                  <p className="text-xs text-red-500 mt-1 font-medium">{formErrors.businessName}</p>
                 )}
               </div>
 
               {/* Phone Number */}
               <div>
-                <label className="block text-xs font-semibold uppercase tracking-wider text-neutral-300 mb-2">
-                  Phone Number (for WhatsApp) <span className="text-primary">*</span>
+                <label className="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-2">
+                  Phone Number (for WhatsApp) <span className="text-emerald-600">*</span>
                 </label>
                 <div className="relative">
-                  <Phone className="w-4 h-4 text-neutral-500 absolute left-4 top-3.5 pointer-events-none" />
+                  <Phone className="w-4 h-4 text-slate-400 absolute left-4 top-3.5 pointer-events-none" />
                   <input
                     type="tel"
                     name="phone"
                     value={formData.phone}
                     onChange={handleInputChange}
                     placeholder="+91 9917780656"
-                    className={`w-full bg-[#0f1211] border ${
-                      formErrors.phone ? "border-red-500" : "border-white/15 focus:border-primary focus:shadow-[0_0_20px_rgba(34,227,154,0.2)]"
-                    } rounded-xl pl-11 pr-4 py-3 text-sm text-white placeholder-neutral-500 focus:outline-none transition-all min-h-[48px] sm:min-h-[52px] text-[16px] sm:text-sm`}
+                    className={`w-full bg-white border ${
+                      formErrors.phone ? "border-red-500" : "border-slate-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20"
+                    } rounded-xl pl-11 pr-4 py-3 text-sm text-slate-900 placeholder-slate-400 focus:outline-none transition-all min-h-[48px] sm:min-h-[52px] text-[16px] sm:text-sm shadow-sm`}
                   />
                 </div>
                 {formErrors.phone && (
-                  <p className="text-xs text-red-400 mt-1 font-medium">{formErrors.phone}</p>
+                  <p className="text-xs text-red-500 mt-1 font-medium">{formErrors.phone}</p>
                 )}
               </div>
 
               {/* Email Address */}
               <div>
-                <label className="block text-xs font-semibold uppercase tracking-wider text-neutral-300 mb-2">
-                  Business Email <span className="text-primary">*</span>
+                <label className="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-2">
+                  Business Email <span className="text-emerald-600">*</span>
                 </label>
                 <div className="relative">
-                  <Mail className="w-4 h-4 text-neutral-500 absolute left-4 top-3.5 pointer-events-none" />
+                  <Mail className="w-4 h-4 text-slate-400 absolute left-4 top-3.5 pointer-events-none" />
                   <input
                     type="email"
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
                     placeholder="pankaj@yourbrand.com"
-                    className={`w-full bg-[#0f1211] border ${
-                      formErrors.email ? "border-red-500" : "border-white/15 focus:border-primary focus:shadow-[0_0_20px_rgba(34,227,154,0.2)]"
-                    } rounded-xl pl-11 pr-4 py-3 text-sm text-white placeholder-neutral-500 focus:outline-none transition-all min-h-[48px] sm:min-h-[52px] text-[16px] sm:text-sm`}
+                    className={`w-full bg-white border ${
+                      formErrors.email ? "border-red-500" : "border-slate-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20"
+                    } rounded-xl pl-11 pr-4 py-3 text-sm text-slate-900 placeholder-slate-400 focus:outline-none transition-all min-h-[48px] sm:min-h-[52px] text-[16px] sm:text-sm shadow-sm`}
                   />
                 </div>
                 {formErrors.email && (
-                  <p className="text-xs text-red-400 mt-1 font-medium">{formErrors.email}</p>
+                  <p className="text-xs text-red-500 mt-1 font-medium">{formErrors.email}</p>
                 )}
               </div>
 
               {/* Website (Optional) */}
               <div className="sm:col-span-2">
-                <label className="block text-xs font-semibold uppercase tracking-wider text-neutral-300 mb-2">
+                <label className="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-2">
                   Existing Website (Optional)
                 </label>
                 <div className="relative">
-                  <Globe className="w-4 h-4 text-neutral-500 absolute left-4 top-3.5 pointer-events-none" />
+                  <Globe className="w-4 h-4 text-slate-400 absolute left-4 top-3.5 pointer-events-none" />
                   <input
                     type="text"
                     name="website"
                     value={formData.website}
                     onChange={handleInputChange}
                     placeholder="https://yourbrand.com"
-                    className="w-full bg-[#0f1211] border border-white/15 focus:border-primary focus:shadow-[0_0_20px_rgba(34,227,154,0.2)] rounded-xl pl-11 pr-4 py-3 text-sm text-white placeholder-neutral-500 focus:outline-none transition-all min-h-[48px] sm:min-h-[52px] text-[16px] sm:text-sm"
+                    className="w-full bg-white border border-slate-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 rounded-xl pl-11 pr-4 py-3 text-sm text-slate-900 placeholder-slate-400 focus:outline-none transition-all min-h-[48px] sm:min-h-[52px] text-[16px] sm:text-sm shadow-sm"
                   />
                 </div>
               </div>
@@ -1182,7 +1182,7 @@ export default function MetaAdsShopifyLandingPage() {
 
             {/* Current Monthly Revenue */}
             <div>
-              <label className="block text-xs font-semibold uppercase tracking-wider text-neutral-300 mb-2">
+              <label className="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-2">
                 Current Monthly Revenue
               </label>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3">
@@ -1198,8 +1198,8 @@ export default function MetaAdsShopifyLandingPage() {
                     onClick={() => setFormData((prev) => ({ ...prev, monthlyRevenue: rev }))}
                     className={`py-3 px-2 sm:px-3 rounded-xl text-xs font-semibold border transition-all duration-200 active:scale-95 cursor-pointer ${
                       formData.monthlyRevenue === rev
-                        ? "bg-primary text-black border-primary font-bold shadow-[0_0_20px_rgba(34,227,154,0.35)]"
-                        : "bg-[#0f1211] text-neutral-300 border-white/15 hover:border-white/35"
+                        ? "bg-emerald-500 text-white border-emerald-500 font-bold shadow-[0_4px_15px_rgba(16,185,129,0.35)]"
+                        : "bg-white text-slate-700 border-slate-200 hover:border-emerald-300 hover:bg-emerald-50/50"
                     }`}
                   >
                     {rev}
@@ -1210,7 +1210,7 @@ export default function MetaAdsShopifyLandingPage() {
 
             {/* Project Budget Range */}
             <div>
-              <label className="block text-xs font-semibold uppercase tracking-wider text-neutral-300 mb-2">
+              <label className="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-2">
                 Project Budget Range
               </label>
               <div className="grid grid-cols-3 gap-2.5 sm:gap-3">
@@ -1225,8 +1225,8 @@ export default function MetaAdsShopifyLandingPage() {
                     onClick={() => setFormData((prev) => ({ ...prev, projectBudget: b }))}
                     className={`py-3 px-2 sm:px-3 rounded-xl text-xs sm:text-sm font-semibold border transition-all duration-200 active:scale-95 cursor-pointer ${
                       formData.projectBudget === b
-                        ? "bg-primary text-black border-primary font-bold shadow-[0_0_20px_rgba(34,227,154,0.35)]"
-                        : "bg-[#0f1211] text-neutral-300 border-white/15 hover:border-white/35"
+                        ? "bg-emerald-500 text-white border-emerald-500 font-bold shadow-[0_4px_15px_rgba(16,185,129,0.35)]"
+                        : "bg-white text-slate-700 border-slate-200 hover:border-emerald-300 hover:bg-emerald-50/50"
                     }`}
                   >
                     {b}
@@ -1237,24 +1237,24 @@ export default function MetaAdsShopifyLandingPage() {
 
             {/* Tell us about your project */}
             <div>
-              <label className="block text-xs font-semibold uppercase tracking-wider text-neutral-300 mb-2">
-                Tell Us About Your Project <span className="text-primary">*</span>
+              <label className="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-2">
+                Tell Us About Your Project <span className="text-emerald-600">*</span>
               </label>
               <div className="relative">
-                <FileText className="w-4 h-4 text-neutral-500 absolute left-4 top-3.5 pointer-events-none" />
+                <FileText className="w-4 h-4 text-slate-400 absolute left-4 top-3.5 pointer-events-none" />
                 <textarea
                   name="projectDetails"
                   rows={3}
                   value={formData.projectDetails}
                   onChange={handleInputChange}
                   placeholder="Tell us about your brand products, target audience, and main goals for your Shopify store..."
-                  className={`w-full bg-[#0f1211] border ${
-                    formErrors.projectDetails ? "border-red-500" : "border-white/15 focus:border-primary focus:shadow-[0_0_20px_rgba(34,227,154,0.2)]"
-                  } rounded-xl pl-11 pr-4 py-3 text-sm text-white placeholder-neutral-500 focus:outline-none transition-all text-[16px] sm:text-sm`}
+                  className={`w-full bg-white border ${
+                    formErrors.projectDetails ? "border-red-500" : "border-slate-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20"
+                  } rounded-xl pl-11 pr-4 py-3 text-sm text-slate-900 placeholder-slate-400 focus:outline-none transition-all text-[16px] sm:text-sm shadow-sm`}
                 />
               </div>
               {formErrors.projectDetails && (
-                <p className="text-xs text-red-400 mt-1 font-medium">{formErrors.projectDetails}</p>
+                <p className="text-xs text-red-500 mt-1 font-medium">{formErrors.projectDetails}</p>
               )}
             </div>
 
@@ -1262,11 +1262,11 @@ export default function MetaAdsShopifyLandingPage() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full py-3.5 sm:py-4 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider text-black bg-primary hover:bg-primary-hover shadow-[0_0_35px_rgba(34,227,154,0.45)] active:scale-98 transition-all duration-300 disabled:opacity-70 flex items-center justify-center gap-2 cursor-pointer"
+              className="w-full py-3.5 sm:py-4 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider text-white bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 shadow-[0_8px_30px_rgba(16,185,129,0.35)] active:scale-98 transition-all duration-300 disabled:opacity-70 flex items-center justify-center gap-2 cursor-pointer"
             >
               {isSubmitting ? (
                 <>
-                  <div className="w-5 h-5 border-2 border-black border-t-transparent rounded-full animate-spin" />
+                  <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
                   <span>Submitting Details...</span>
                 </>
               ) : (
@@ -1278,8 +1278,8 @@ export default function MetaAdsShopifyLandingPage() {
             </button>
 
             {/* Privacy note */}
-            <p className="text-[11px] text-neutral-400 text-center flex items-center justify-center gap-1.5 pt-1">
-              <ShieldCheck className="w-3.5 h-3.5 text-primary shrink-0" />
+            <p className="text-[11px] text-slate-500 text-center flex items-center justify-center gap-1.5 pt-1">
+              <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
               <span>100% Confidential. Your data is never shared.</span>
             </p>
           </form>
@@ -1293,17 +1293,17 @@ export default function MetaAdsShopifyLandingPage() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: "-40px" }}
           transition={{ duration: 0.4 }}
-          className="bg-gradient-to-r from-[#0c2419] via-[#091a12] to-[#050b08] border border-[#25D366]/40 rounded-2xl sm:rounded-3xl p-6 sm:p-12 lg:p-14 text-center relative overflow-hidden shadow-[0_0_40px_rgba(37,211,102,0.15)] backdrop-blur-xl"
+          className="bg-gradient-to-br from-emerald-600 via-teal-600 to-emerald-700 border border-emerald-400/40 rounded-2xl sm:rounded-3xl p-6 sm:p-12 lg:p-14 text-center relative overflow-hidden shadow-[0_20px_50px_rgba(16,185,129,0.25)] text-white"
         >
-          <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#25D366]/15 border border-[#25D366]/30 flex items-center justify-center mx-auto mb-5 text-[#25D366] shadow-[0_0_20px_rgba(37,211,102,0.2)]">
-            <WhatsAppLogo className="w-7 h-7 sm:w-8 sm:h-8 fill-[#25D366]" />
+          <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-white/20 border border-white/30 flex items-center justify-center mx-auto mb-5 text-white shadow-lg backdrop-blur-md">
+            <WhatsAppLogo className="w-7 h-7 sm:w-8 sm:h-8 fill-white" />
           </div>
 
           <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight mb-3">
             Need Help Choosing the Right Shopify Solution?
           </h2>
 
-          <p className="text-xs sm:text-base text-neutral-300 max-w-2xl mx-auto mb-7 leading-relaxed">
+          <p className="text-xs sm:text-base text-emerald-100 max-w-2xl mx-auto mb-7 leading-relaxed font-medium">
             Speak directly with our senior Shopify architects on WhatsApp for instant guidance, payment gateway advice, and project estimation.
           </p>
 
@@ -1313,16 +1313,16 @@ export default function MetaAdsShopifyLandingPage() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => trackWhatsAppClick("Large WhatsApp CTA Section")}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 sm:px-8 py-3.5 sm:py-4 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider text-black bg-[#25D366] hover:bg-[#20ba5a] shadow-[0_0_30px_rgba(37,211,102,0.35)] active:scale-95 transition-all duration-300"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 sm:px-8 py-3.5 sm:py-4 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider text-emerald-950 bg-white hover:bg-emerald-50 shadow-lg active:scale-95 transition-all duration-300"
             >
-              <WhatsAppLogo className="w-4 h-4 fill-black" />
+              <WhatsAppLogo className="w-4 h-4 fill-emerald-600" />
               <span>Chat on WhatsApp</span>
             </a>
 
             <a
               href="#lead-form"
               onClick={() => trackCTAClick({ cta_name: "Book Consultation WhatsApp Banner", cta_location: "WhatsApp Section" })}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 sm:px-8 py-3.5 sm:py-4 rounded-full text-xs sm:text-sm font-semibold text-white bg-white/10 hover:bg-white/20 border border-white/15 active:scale-95 transition-all duration-300"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 sm:px-8 py-3.5 sm:py-4 rounded-full text-xs sm:text-sm font-bold text-white bg-black/20 hover:bg-black/30 border border-white/20 active:scale-95 transition-all duration-300"
             >
               <span>Book Strategy Call</span>
             </a>
@@ -1331,7 +1331,7 @@ export default function MetaAdsShopifyLandingPage() {
       </section>
 
       {/* ─── 9. FAQ SECTION ─────────────────────────────────────────────────── */}
-      <section className="py-14 sm:py-20 lg:py-24 px-4 sm:px-6 max-w-4xl mx-auto relative z-10 border-t border-white/[0.08]">
+      <section className="py-14 sm:py-20 lg:py-24 px-4 sm:px-6 max-w-4xl mx-auto relative z-10 border-t border-emerald-100">
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -1339,13 +1339,13 @@ export default function MetaAdsShopifyLandingPage() {
           transition={{ duration: 0.4 }}
           className="text-center max-w-3xl mx-auto mb-12 sm:mb-16"
         >
-          <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-primary mb-2 block font-mono">
+          <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-emerald-600 mb-2 block font-mono">
             Got Questions?
           </span>
-          <h2 className="text-2.5xl sm:text-4xl font-extrabold text-white tracking-tight">
+          <h2 className="text-2.5xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
             Frequently Asked Questions
           </h2>
-          <p className="text-xs sm:text-sm text-neutral-400 mt-2">
+          <p className="text-xs sm:text-sm text-slate-600 mt-2">
             Everything you need to know about our Shopify store development process.
           </p>
         </motion.div>
@@ -1360,20 +1360,20 @@ export default function MetaAdsShopifyLandingPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-20px" }}
                 transition={{ duration: 0.3, delay: idx * 0.04 }}
-                className={`bg-gradient-to-r from-[#090d0a] to-[#060807] border ${
-                  isOpen ? "border-primary/40 shadow-[0_0_20px_rgba(34,227,154,0.1)]" : "border-white/10"
-                } rounded-2xl overflow-hidden transition-all duration-300`}
+                className={`bg-white border ${
+                  isOpen ? "border-emerald-400 shadow-[0_8px_25px_rgba(16,185,129,0.1)]" : "border-slate-200"
+                } rounded-2xl overflow-hidden transition-all duration-300 shadow-sm`}
               >
                 <button
                   onClick={() => setOpenFaqIdx(isOpen ? null : idx)}
                   className="w-full p-4 sm:p-6 text-left flex items-center justify-between gap-3 sm:gap-4 focus:outline-none cursor-pointer"
                 >
-                  <span className="text-sm sm:text-lg font-bold text-white leading-snug">
+                  <span className="text-sm sm:text-lg font-bold text-slate-900 leading-snug">
                     {faq.q}
                   </span>
                   <div
-                    className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/5 flex items-center justify-center shrink-0 text-primary transition-transform duration-300 ${
-                      isOpen ? "rotate-180 bg-primary/10" : ""
+                    className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-slate-100 flex items-center justify-center shrink-0 text-emerald-600 transition-transform duration-300 ${
+                      isOpen ? "rotate-180 bg-emerald-100" : ""
                     }`}
                   >
                     <ChevronDown className="w-4 h-4" />
@@ -1387,7 +1387,7 @@ export default function MetaAdsShopifyLandingPage() {
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                      className="px-4 sm:px-6 pb-5 sm:pb-6 text-xs sm:text-sm text-neutral-300 leading-relaxed border-t border-white/5 pt-3.5"
+                      className="px-4 sm:px-6 pb-5 sm:pb-6 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3.5"
                     >
                       {faq.a}
                     </motion.div>
@@ -1400,16 +1400,16 @@ export default function MetaAdsShopifyLandingPage() {
       </section>
 
       {/* ─── 10. FINAL CTA SECTION ──────────────────────────────────────────── */}
-      <section className="py-14 sm:py-20 lg:py-24 px-4 sm:px-6 max-w-7xl mx-auto relative z-10 border-t border-white/[0.08]">
+      <section className="py-14 sm:py-20 lg:py-24 px-4 sm:px-6 max-w-7xl mx-auto relative z-10 border-t border-emerald-100">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-40px" }}
           transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-          className="bg-gradient-to-b from-[#0f1713] via-[#0a0f0c] to-[#040505] border border-white/15 rounded-2xl sm:rounded-3xl p-6 sm:p-14 lg:p-16 text-center relative overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.8)] backdrop-blur-xl"
+          className="bg-gradient-to-br from-slate-900 via-emerald-950 to-slate-950 border border-emerald-500/30 rounded-2xl sm:rounded-3xl p-6 sm:p-14 lg:p-16 text-center relative overflow-hidden shadow-2xl text-white"
         >
           <div className="max-w-3xl mx-auto space-y-4 sm:space-y-6">
-            <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-primary font-mono block">
+            <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-emerald-400 font-mono block">
               Start Scaling Your Shopify Store Today
             </span>
 
@@ -1417,7 +1417,7 @@ export default function MetaAdsShopifyLandingPage() {
               Ready to Build a Shopify Store That Converts?
             </h2>
 
-            <p className="text-xs sm:text-base text-neutral-300 leading-relaxed">
+            <p className="text-xs sm:text-base text-slate-300 leading-relaxed">
               Stop losing customers to slow, low-converting templates. Partner with SalePXL to launch a speed-optimized, custom-engineered store with seamless payment & shipping setup in days.
             </p>
 
@@ -1425,7 +1425,7 @@ export default function MetaAdsShopifyLandingPage() {
               <a
                 href="#lead-form"
                 onClick={() => trackCTAClick({ cta_name: "Book Consultation Final CTA", cta_location: "Final Banner" })}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 sm:px-8 py-3.5 sm:py-4 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider text-black bg-primary hover:bg-primary-hover shadow-[0_0_35px_rgba(34,227,154,0.4)] active:scale-95 transition-all duration-300 cursor-pointer"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 sm:px-8 py-3.5 sm:py-4 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider text-white bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 shadow-[0_0_30px_rgba(16,185,129,0.4)] active:scale-95 transition-all duration-300 cursor-pointer"
               >
                 <span>Book Strategy Call</span>
                 <ArrowRight className="w-4 h-4" />
@@ -1436,7 +1436,7 @@ export default function MetaAdsShopifyLandingPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => trackWhatsAppClick("Final CTA Section")}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 sm:px-8 py-3.5 sm:py-4 rounded-full text-xs sm:text-sm font-semibold text-white bg-white/10 hover:bg-white/20 border border-white/15 active:scale-95 transition-all duration-300"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 sm:px-8 py-3.5 sm:py-4 rounded-full text-xs sm:text-sm font-bold text-white bg-white/10 hover:bg-white/20 border border-white/15 active:scale-95 transition-all duration-300"
               >
                 <WhatsAppLogo className="w-4 h-4 fill-[#25D366]" />
                 <span>Chat on WhatsApp</span>
