@@ -18,16 +18,16 @@ export interface BlogPost {
   coverImage: string;
   excerpt: string;
   tableOfContents: { id: string; text: string }[];
-  content: string; // Comprehensive long-form Markdown / HTML content
+  content: string;
 }
 
 export const BLOG_POSTS: BlogPost[] = [
   {
     id: "1",
     slug: "top-payment-gateway-providers-in-india",
-    title: "Top Payment Gateway Providers in India for E-Commerce (2026 Ultimate 5,000-Word Guide)",
+    title: "Top Payment Gateway Providers in India for E-Commerce (2026 Comparison)",
     metaTitle: "Top Payment Gateway Providers in India (2026 Complete Blueprint)",
-    metaDescription: "The definitive 2026 guide to payment gateway providers in India. Deep comparison of Razorpay, Cashfree, PayU, PhonePe PG, and Stripe with 1-tap UPI integration, MDR fees, and RTO risk management.",
+    metaDescription: "The definitive 2026 guide to payment gateway providers in India. Compare Razorpay, Cashfree, PayU, PhonePe PG, and Stripe with 1-tap UPI integration, MDR fees, and RTO risk management.",
     focusKeyword: "top payment gateway provider in india",
     secondaryKeywords: [
       "best payment gateway india", 
@@ -48,11 +48,11 @@ export const BLOG_POSTS: BlogPost[] = [
       avatar: "/founder_1.jpg"
     },
     coverImage: "/blogs/payment_gateways.svg",
-    excerpt: "Selecting the right payment gateway in India directly affects your checkout drop-off rate, UPI conversion success, and cash flow settlement speed. Here is an exhaustive 5,000-word analysis of fees, settlement cycles, 1-tap UPI intent hooks, and RTO risk mitigation.",
+    excerpt: "Selecting the right payment gateway in India directly affects your checkout drop-off rate, UPI conversion success, and cash flow settlement speed. Here is an in-depth analysis of fees, settlement cycles, 1-tap UPI intent hooks, and RTO risk mitigation.",
     tableOfContents: [
-      { id: "chapter-1", text: "Chapter 1: The State of E-Commerce Payments in India (2026 Data)" },
-      { id: "chapter-2", text: "Chapter 2: Why UPI Intent is the #1 Conversion Driver for Indian D2C" },
-      { id: "chapter-3", text: "Chapter 3: Deep-Dive Analysis of Top 7 Indian Payment Gateways" },
+      { id: "ch1-pay", text: "Chapter 1: The State of E-Commerce Payments in India (2026 Market Data)" },
+      { id: "ch2-pay", text: "Chapter 2: Why UPI Intent is the #1 Conversion Driver for Indian D2C" },
+      { id: "ch3-pay", text: "Chapter 3: In-Depth Analysis of Top 7 Indian Payment Gateways" },
       { id: "razorpay-deep", text: "3.1 Razorpay: Features, MDR Rates & API Architecture" },
       { id: "cashfree-deep", text: "3.2 Cashfree Payments: Instant T+0 Settlements & Subscription Billing" },
       { id: "payu-deep", text: "3.3 PayU India: Enterprise Success Rates & International Cards" },
@@ -60,14 +60,14 @@ export const BLOG_POSTS: BlogPost[] = [
       { id: "stripe-deep", text: "3.5 Stripe India: Multi-Currency Billing & Global D2C Exports" },
       { id: "ccavenue-deep", text: "3.6 CCAvenue: Legacy Banking Networks & Multi-Lingual Checkout" },
       { id: "gokwik-deep", text: "3.7 Gokwik / Shopflo: 1-Click Express Drawers & RTO Scoring" },
-      { id: "chapter-4", text: "Chapter 4: Comprehensive Gateway Master Comparison Matrix" },
-      { id: "chapter-5", text: "Chapter 5: Technical Shopify Integration Guide & Webhook Reliability" },
-      { id: "chapter-6", text: "Chapter 6: Strategies to Convert COD Buyers to Prepaid UPI (Boost Margins)" },
-      { id: "chapter-7", text: "Chapter 7: Payment Failure Troubleshooting & Automated Retry Workflows" },
-      { id: "chapter-8", text: "Chapter 8: Final Strategic Blueprint & Recommendation Matrix" }
+      { id: "ch4-pay", text: "Chapter 4: Master Gateway Feature & Pricing Comparison Matrix" },
+      { id: "ch5-pay", text: "Chapter 5: Technical Shopify Integration & Webhook Reliability Blueprint" },
+      { id: "ch6-pay", text: "Chapter 6: 5 Strategies to Convert COD Buyers to Prepaid UPI" },
+      { id: "ch7-pay", text: "Chapter 7: Payment Failure Troubleshooting & Recovery Workflows" },
+      { id: "ch8-pay", text: "Chapter 8: Final Strategic Recommendation Matrix" }
     ],
     content: `
-      <h2 id="chapter-1">Chapter 1: The State of E-Commerce Payments in India (2026 Data)</h2>
+      <h2 id="ch1-pay">Chapter 1: The State of E-Commerce Payments in India (2026 Market Data)</h2>
       <p>India’s digital payment ecosystem has undergone a monumental shift. According to recent Reserve Bank of India (RBI) and NPCI reports, Unified Payments Interface (UPI) processes over <strong>14 billion transactions monthly</strong>, representing over 78% of all online retail payment volume. For direct-to-consumer (D2C) brands operating on Shopify, choosing the wrong payment gateway provider is not just a minor technical inconvenience—it is a catastrophic leak in your customer acquisition funnel.</p>
       
       <p>When an Indian shopper lands on your product page from a Meta (Instagram/Facebook) or Google Ad, your store has under 3 seconds to earn their trust. If your checkout page redirects through slow, unoptimized payment windows, triggers bank OTP delays, or fails to open native UPI apps smoothly, up to <strong>38% of intent-driven buyers drop off permanently</strong>.</p>
@@ -85,7 +85,7 @@ export const BLOG_POSTS: BlogPost[] = [
         </ul>
       </div>
 
-      <h2 id="chapter-2">Chapter 2: Why UPI Intent is the #1 Conversion Driver for Indian D2C</h2>
+      <h2 id="ch2-pay">Chapter 2: Why UPI Intent is the #1 Conversion Driver for Indian D2C</h2>
       <p>Understanding the difference between <strong>UPI Collect</strong> and <strong>UPI Intent</strong> is vital for every Indian e-commerce founder.</p>
 
       <h3>The Legacy Problem: UPI Collect (High Drop-off)</h3>
@@ -94,7 +94,7 @@ export const BLOG_POSTS: BlogPost[] = [
       <h3>The Modern Solution: Native UPI Intent (Sub-2s 1-Tap Payment)</h3>
       <p>With native <strong>UPI Intent</strong>, when the shopper selects GPay, PhonePe, Paytm, or CRED on your checkout drawer, your Shopify store triggers a deep-link protocol directly into the installed app. The payment screen opens pre-filled with the exact bill amount. The buyer inputs their PIN and is automatically redirected back to your custom order confirmation thank-you page in under 2 seconds.</p>
 
-      <h2 id="chapter-3">Chapter 3: Deep-Dive Analysis of Top 7 Indian Payment Gateways</h2>
+      <h2 id="ch3-pay">Chapter 3: In-Depth Analysis of Top 7 Indian Payment Gateways</h2>
 
       <h3 id="razorpay-deep">3.1 Razorpay: The Gold Standard for Shopify & D2C Brands</h3>
       <p>Razorpay continues to dominate the Indian e-commerce ecosystem. Its developer-friendly APIs, robust Shopify native integration, and comprehensive dashboard analytics make it the default choice for over 800,000+ businesses.</p>
@@ -117,7 +117,7 @@ export const BLOG_POSTS: BlogPost[] = [
         <li><strong>Automated NDR Refunds:</strong> Integrates directly with logistics providers (Shiprocket, Delhivery) to process instant refunds for failed COD deliveries, building buyer trust.</li>
       </ul>
 
-      <h3 id="payu-deep">3.3 PayU India: Enterprise Success Rates & Global Reach</h3>
+      <h3 id="payu-deep">3.3 PayU India: Enterprise Success Rates & International Cards</h3>
       <p>PayU India powers some of India's largest e-commerce platforms (Myntra, Pepperfry, Flipkart ecosystem). It is renowned for its multi-bank dynamic routing infrastructure that automatically re-routes payments if a specific bank gateway faces server downtime.</p>
 
       <h3 id="phonepe-deep">3.4 PhonePe Payment Gateway: Zero MDR Promotional Tiers</h3>
@@ -126,7 +126,13 @@ export const BLOG_POSTS: BlogPost[] = [
       <h3 id="stripe-deep">3.5 Stripe India: Premium Choice for Export & International D2C</h3>
       <p>If your brand sells globally to customers in North America, Europe, Australia, or the UAE, Stripe India is mandatory. It features world-class Radar fraud protection, multi-currency display, and seamless Apple Pay / Google Pay integrations.</p>
 
-      <h2 id="chapter-4">Chapter 4: Comprehensive Gateway Master Comparison Matrix</h2>
+      <h3 id="ccavenue-deep">3.6 CCAvenue: Legacy Banking Networks & Multi-Lingual Checkout</h3>
+      <p>CCAvenue is one of India's oldest payment gateways supporting over 200+ payment options, including niche regional cooperative banks, multi-currency billing in 27 foreign currencies, and 18 regional Indian languages.</p>
+
+      <h3 id="gokwik-deep">3.7 Gokwik / Shopflo: 1-Click Express Checkout & RTO Scoring</h3>
+      <p>Gokwik and Shopflo are specialized checkout intelligence layers that run on top of standard payment gateways. They pre-fill customer shipping addresses for 100M+ Indian online shoppers and use AI risk scoring to block chronic RTO buyers from opting for Cash on Delivery.</p>
+
+      <h2 id="ch4-pay">Chapter 4: Master Gateway Feature & Pricing Comparison Matrix</h2>
       <table>
         <thead>
           <tr>
@@ -182,28 +188,29 @@ export const BLOG_POSTS: BlogPost[] = [
         </tbody>
       </table>
 
-      <h2 id="chapter-5">Chapter 5: Technical Shopify Integration Guide & Webhook Reliability</h2>
+      <h2 id="ch5-pay">Chapter 5: Technical Shopify Integration & Webhook Reliability Blueprint</h2>
       <p>A major failure point in e-commerce stores occurs when a payment succeeds on the gateway side, but the webhook fails to register the order inside Shopify, resulting in lost customer orders and inventory discrepancies.</p>
 
       <h3>How SalePXL Prevents Webhook Order Drops:</h3>
       <ol>
         <li><strong>Dual Webhook Redundancy:</strong> We configure secondary fallback webhooks in your payment gateway portal pointing directly to secondary server handlers.</li>
         <li><strong>Real-time Cart Lock:</strong> We lock stock availability for 15 minutes during active checkout attempts to eliminate overselling during high-traffic flash sales.</li>
-        <li><strong>Custom Thank You Page Hooks:</strong> We embed direct client-side transaction verification scripts on the Shopify Order Status page to verify transaction status even if background webhooks encounter 5-second network latencies.</li>
+        <li><strong>Custom Thank You Page Hooks:</strong> We embed direct client-side transaction verification scripts on the Shopify Order Status page to verify transaction status even if background webhooks encounter network latencies.</li>
       </ol>
 
-      <h2 id="chapter-6">Chapter 6: Strategies to Convert COD Buyers to Prepaid UPI</h2>
+      <h2 id="ch6-pay">Chapter 6: 5 Strategies to Convert COD Buyers to Prepaid UPI</h2>
       <p>Cash on Delivery (COD) carries a heavy penalty in India: <strong>25% to 40% Return to Origin (RTO) rates</strong>. Every returned order incurs forward freight (₹60-₹90), reverse freight (₹60-₹90), and packaging damage. Converting just 20% of your COD traffic to Prepaid UPI drastically increases your net monthly profits.</p>
 
-      <h3>4 Battle-Tested Prepaid Conversion Tactics:</h3>
+      <h3>5 Battle-Tested Prepaid Conversion Tactics:</h3>
       <ol>
         <li><strong>Instant Prepaid Discount Hook:</strong> Offer an extra ₹50 OFF or 5% Instant Discount at checkout when paying via UPI.</li>
         <li><strong>Free Express Shipping Tier:</strong> Provide Free 2-Day Air Shipping for Prepaid orders, while charging ₹79 shipping for COD.</li>
         <li><strong>WhatsApp Pre-Checkout Nudge:</strong> Trigger an automated WhatsApp message offering a special UPI coupon code right when a user adds items to cart.</li>
         <li><strong>Showcase Zero-Risk Guarantees:</strong> Display "Instant Refund Guarantee & 7-Day Easy Replacement" trust badges directly under the UPI payment option.</li>
+        <li><strong>Gamified Payment Rewards:</strong> Partner with Cred or PhonePe rewards to offer scratch cards for prepaid payments.</li>
       </ol>
 
-      <h2 id="chapter-7">Chapter 7: Payment Failure Troubleshooting & Automated Retry Workflows</h2>
+      <h2 id="ch7-pay">Chapter 7: Payment Failure Troubleshooting & Recovery Workflows</h2>
       <p>When a payment fails due to bank server timeouts, 68% of shoppers abandon their purchase completely. Implementing automated payment recovery workflows allows you to reclaim lost revenue automatically.</p>
 
       <ul>
@@ -211,7 +218,7 @@ export const BLOG_POSTS: BlogPost[] = [
         <li><strong>Smart Gateway Failover:</strong> Automatically route failed transactions to a backup payment provider without forcing the user to re-enter their shipping address details.</li>
       </ul>
 
-      <h2 id="chapter-8">Chapter 8: Final Strategic Blueprint & Recommendation Matrix</h2>
+      <h2 id="ch8-pay">Chapter 8: Final Strategic Recommendation Matrix</h2>
       <p>Choosing the ideal payment gateway architecture depends on your store's scale, target audience, and business model:</p>
       
       <ul>
@@ -235,8 +242,8 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     id: "2",
     slug: "best-shipping-company-in-india-for-ecommerce",
-    title: "Best Shipping & Courier Companies in India for E-Commerce Stores (2026 Ultimate Guide)",
-    metaTitle: "Best Shipping & Courier Companies in India (2026 E-Commerce Logistics Guide)",
+    title: "Best Shipping & Courier Companies in India for E-Commerce Stores (2026 Master Guide)",
+    metaTitle: "Best Shipping & Courier Companies in India (2026 E-Commerce Logistics)",
     metaDescription: "Exhaustive 2026 guide to e-commerce logistics and courier shipping in India. Compare Shiprocket, Delhivery, BlueDart, Xpressbees, Shadowfax, and DTDC for RTO reduction, COD verification, and NDR automation.",
     focusKeyword: "best shipping company in india",
     secondaryKeywords: [
@@ -308,6 +315,15 @@ export const BLOG_POSTS: BlogPost[] = [
 
       <h3 id="bluedart-full">3.3 BlueDart / DHL: Premium 24-Hour Express Delivery</h3>
       <p>When shipping high-value items (luxury jewelry, high-end electronics, designer apparel), BlueDart is the undisputed gold standard. With its private cargo aircraft fleet, BlueDart guarantees 24-48 hour express air delivery to metro cities across India.</p>
+
+      <h3 id="xpressbees-full">3.4 Xpressbees: Deep Tier-2 & Tier-3 Pincode Penetration</h3>
+      <p>Xpressbees offers competitive shipping rates specifically tailored for Tier-2 and Tier-3 Indian cities, making it an ideal partner for mass-market fashion, cosmetics, and household lifestyle products.</p>
+
+      <h3 id="shadowfax-full">3.5 Shadowfax: Hyperlocal & Fast Express Dispatch</h3>
+      <p>Shadowfax provides rapid express logistics and hyperlocal delivery capabilities in major Indian metros, enabling D2C brands to fulfill same-day or next-day orders.</p>
+
+      <h3 id="dtdc-full">3.6 DTDC Express: Reliable National Coverage</h3>
+      <p>DTDC is a household logistics name in India with an extensive network of regional franchises ensuring delivery to remote pincodes where private logistics providers face operational limits.</p>
 
       <h2 id="ship-chap4">Chapter 4: Master Shipping Rate & Feature Comparison Table</h2>
       <table>
@@ -390,7 +406,7 @@ export const BLOG_POSTS: BlogPost[] = [
     slug: "how-to-start-dropshipping-in-india",
     title: "How to Start Dropshipping in India: Complete Step-by-Step Blueprint (2026)",
     metaTitle: "How to Start Dropshipping in India (2026 Step-by-Step Guide)",
-    metaDescription: "Master dropshipping in India with this 5,000-word step-by-step guide. Discover top Indian suppliers (Roposo Clout, GlowRoad), GST tax registration, winning product research, Meta ad scaling, and Shopify store building.",
+    metaDescription: "Master dropshipping in India with this step-by-step guide. Discover top Indian suppliers (Roposo Clout, GlowRoad), GST tax registration, winning product research, Meta ad scaling, and Shopify store building.",
     focusKeyword: "how to start dropshipping in india",
     secondaryKeywords: [
       "indian dropshipping suppliers roposo",
@@ -430,7 +446,7 @@ export const BLOG_POSTS: BlogPost[] = [
       <ul>
         <li><strong>High Perceived Value:</strong> Sourced for ₹200-₹300 and easily retailable for ₹899-₹1,299.</li>
         <li><strong>Solves an Immediate Problem or Has High Visual Appeal:</strong> Ideal for 15-second video ads on Instagram Reels.</li>
-        <li><strong>Not Easily Available in Offline Local Kirana Stores:</strong> Unique home gadgets, specialized beauty devices, aesthetic jewelry, or niche car accessories.</li>
+        <li><strong>Not Easily Available in Offline Kirana Stores:</strong> Unique home gadgets, specialized beauty devices, aesthetic jewelry, or niche car accessories.</li>
         <li><strong>Lightweight & Non-Fragile:</strong> Weight under 500 grams to keep freight fees under ₹60.</li>
       </ul>
 
@@ -446,13 +462,13 @@ export const BLOG_POSTS: BlogPost[] = [
       <h2 id="drop-5">Chapter 5: Building a High-Converting Shopify Storefront</h2>
       <p>Generic, amateur dropshipping websites convert at under 1%. To achieve a <strong>3.5%+ conversion rate</strong>, your Shopify store must feature bespoke visual design, fast mobile loading, and localized trust elements.</p>
 
-      <p>Check out our <a href="/portfolio">SalePXL Portfolio</a> to see how we build high-converting storefronts engineered for maximum sales ROAS.</p>
+      <p>Explore our <a href="/portfolio">SalePXL Portfolio</a> to see how we build high-converting storefronts engineered for maximum sales ROAS.</p>
     `
   },
   {
     id: "4",
     slug: "why-choose-shopify-over-woocommerce",
-    title: "Why Choose Shopify Over WooCommerce for E-Commerce Growth (2026 Detailed Comparison)",
+    title: "Why Choose Shopify Over WooCommerce for E-Commerce Growth (2026 Comparison)",
     metaTitle: "Why Choose Shopify Over WooCommerce (2026 Complete Comparison)",
     metaDescription: "Exhaustive comparison of Shopify vs WooCommerce for Indian D2C brands. Discover why top scaling brands choose Shopify for security, mobile speed, 1-click checkout, and zero plugin maintenance.",
     focusKeyword: "why choose shopify over woocommerce",
@@ -597,7 +613,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     id: "8",
     slug: "optimize-shopify-page-speed-guide",
-    title: "How to Optimize Shopify Page Speed & Core Web Vitals (Sub-1.5s Speed Masterclass)",
+    title: "How to Optimize Shopify Page Speed & Achieve 90+ Core Web Vitals (Sub-1.5s Speed)",
     metaTitle: "How to Optimize Shopify Page Speed & Core Web Vitals (Sub-1.5s)",
     metaDescription: "Complete technical masterclass on Shopify speed optimization. Defer third-party scripts, compress images to WebP/AVIF, clean theme liquid code, and achieve 95+ Mobile Speed Score.",
     focusKeyword: "optimize shopify page speed",
