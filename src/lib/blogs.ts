@@ -39,7 +39,7 @@ export const BLOG_POSTS: BlogPost[] = [
       role: "Founder & E-Commerce Strategist at SalePXL",
       avatar: "/founder_1.jpg"
     },
-    coverImage: "/imgi_80_sobo-beauty.webp",
+    coverImage: "/process_sales_mockup.png",
     excerpt: "Selecting the right payment gateway in India directly affects your checkout drop-off rate and UPI conversion success. Here is an in-depth comparison of fees, settlement times, and 1-tap UPI integration.",
     tableOfContents: [
       { id: "overview", text: "Why Payment Gateways Matter for Indian D2C Brands" },
@@ -140,7 +140,7 @@ export const BLOG_POSTS: BlogPost[] = [
       role: "Founder & E-Commerce Strategist at SalePXL",
       avatar: "/founder_1.jpg"
     },
-    coverImage: "/imgi_81_well-essentials.webp",
+    coverImage: "/process_plan_mockup.png",
     excerpt: "High RTO (Return to Origin) rates and slow courier dispatch can destroy D2C margins. Learn how top Indian brands select courier partners, automate shipping labels, and verify COD orders.",
     tableOfContents: [
       { id: "overview", text: "The RTO Challenge in Indian E-Commerce" },
@@ -193,7 +193,7 @@ export const BLOG_POSTS: BlogPost[] = [
       role: "Founder & E-Commerce Strategist at SalePXL",
       avatar: "/founder_1.jpg"
     },
-    coverImage: "/imgi_83_amarose.webp",
+    coverImage: "/apparel_mockup.png",
     excerpt: "Dropshipping in India is booming with local suppliers offering 2-day delivery and COD options. Discover the exact steps to launch your store with zero upfront inventory costs.",
     tableOfContents: [
       { id: "intro", text: "What is Indian Dropshipping?" },
@@ -242,7 +242,7 @@ export const BLOG_POSTS: BlogPost[] = [
       role: "Founder & E-Commerce Strategist at SalePXL",
       avatar: "/founder_1.jpg"
     },
-    coverImage: "/imgi_89_kohkayn-com.webp",
+    coverImage: "/process_build_mockup.png",
     excerpt: "Struggling with plugin conflicts, database crashes, and slow load times on WooCommerce? Here is why switching to Shopify transforms your operational speed and sales conversion.",
     tableOfContents: [
       { id: "overview", text: "The Platform Dilemma: Hosted vs Self-Hosted" },
@@ -281,7 +281,7 @@ export const BLOG_POSTS: BlogPost[] = [
       role: "Founder & E-Commerce Strategist at SalePXL",
       avatar: "/founder_1.jpg"
     },
-    coverImage: "/imgi_91_skin-basics.webp",
+    coverImage: "/photoshoot_after.jpg",
     excerpt: "Don't launch your store unprepared. Go through this 10-point checklist covering GST compliance, mobile UX audits, courier API integrations, and checkout testing.",
     tableOfContents: [
       { id: "legal", text: "1. Business Registration & Legal Setup" },
@@ -330,7 +330,7 @@ export const BLOG_POSTS: BlogPost[] = [
       role: "Founder & E-Commerce Strategist at SalePXL",
       avatar: "/founder_1.jpg"
     },
-    coverImage: "/imgi_93_swadezi.webp",
+    coverImage: "/glossier.png",
     excerpt: "Installing too many apps slows down your store. Here are the 10 essential, lightweight Shopify apps every brand needs to maximize order revenue and customer retention.",
     tableOfContents: [
       { id: "apps-list", text: "Top 10 High-ROAS Shopify Apps" },
