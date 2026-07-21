@@ -148,7 +148,7 @@ const TESTIMONIALS = [
     brand: "Jewelry & Accessories",
     image: "/founder_2.jpg",
     stars: 5,
-    quote: "Our store checkout is now fully optimized with Razorpay, COD verification, and Shiprocket auto-sync. Our conversion rate jumped from 1.2% to 3.8% instantly!",
+    quote: "Our store checkout is now fully setup with Razorpay, COD verification, and Shiprocket tracking. Our sales jumped from 1.2% to 3.8% instantly!",
     statVal: "+4.2%",
     statLabel: "Conversion Rate"
   },
@@ -157,7 +157,7 @@ const TESTIMONIALS = [
     brand: "Apparel & Streetwear",
     image: "/founder_4.jpg",
     stars: 5,
-    quote: "The speed of execution was unreal. Our store was live in 3 days with custom drag-and-drop sections and slide cart drawers that doubled our average order value.",
+    quote: "The speed was amazing. Our store was live in 3 days with custom sections and slide cart upsells that doubled our average order value.",
     statVal: "3 Days",
     statLabel: "Delivery Speed"
   },
@@ -166,7 +166,7 @@ const TESTIMONIALS = [
     brand: "Health & Wellness",
     image: "/founder_5.jpg",
     stars: 5,
-    quote: "Their AI product photoshoot service saved us lakhs in studio costs. They transformed flat-lay pictures into premium catalog imagery effortlessly!",
+    quote: "Their AI product photo service saved us lakhs in photography costs. They turned simple pictures into beautiful catalog photos easily!",
     statVal: "-90%",
     statLabel: "Photo Shoot Costs"
   },
@@ -175,7 +175,7 @@ const TESTIMONIALS = [
     brand: "Home Decor & Furnishings",
     image: "/founder_3.jpg",
     stars: 5,
-    quote: "SalePXL integrated our custom shipping partners and payment gateways seamlessly. The overall store design and mobile speed are top tier.",
+    quote: "SalePXL set up our shipping partners and payment gateways smoothly. The store looks clean and loads super fast on mobile.",
     statVal: "+3.8x",
     statLabel: "Revenue Lift"
   }
@@ -184,134 +184,134 @@ const TESTIMONIALS = [
 // ─── 3. Why Choose SalePXL Data ──────────────────────────────────────────────
 const WHY_CHOOSE_ITEMS = [
   {
-    title: "High-Converting Stores",
-    desc: "Frictionless sales funnels designed to turn casual visitors into instant buyers.",
+    title: "High-Converting Store Design",
+    desc: "Clean, easy-to-use layouts designed to turn casual visitors into paying customers.",
     icon: ShoppingBag,
-    tag: "Max Sales"
+    tag: "More Sales"
   },
   {
-    title: "Custom OS 2.0 Sections",
-    desc: "Bespoke drag-and-drop Liquid sections built specifically for your brand's unique needs.",
+    title: "Custom Drag-and-Drop Sections",
+    desc: "Bespoke sections made for your brand that you can easily edit anytime.",
     icon: LayoutGrid,
-    tag: "Custom Liquid"
+    tag: "Easy Editing"
   },
   {
     title: "Payment Gateway Setup",
-    desc: "Official Razorpay, Stripe, Cashfree & Paytm integration with automated COD OTP verification.",
+    desc: "Easy payment integration with Razorpay, Stripe, Paytm, and COD order verification.",
     icon: CreditCard,
-    tag: "Instant Checkout"
+    tag: "Easy Checkout"
   },
   {
     title: "Shipping Partner Integration",
-    desc: "Automated Shiprocket & Delhivery sync for live rates, label printing, and order tracking.",
+    desc: "Automatic order sync with Shiprocket and Delhivery for easy tracking and shipping.",
     icon: Truck,
-    tag: "Auto Order Sync"
+    tag: "Auto Shipping"
   },
   {
     title: "AI Product Photoshoots",
-    desc: "Turn basic product shots into high-end lifestyle catalog imagery, saving lakhs in photo costs.",
+    desc: "Turn basic product photos into studio-quality photos, saving lakhs in camera costs.",
     icon: Camera,
-    tag: "AI Studio Shots"
+    tag: "Save Money"
   },
   {
-    title: "Mobile-First Design",
-    desc: "Over 80% of traffic is mobile. We build touch-optimized layouts for effortless smartphone shopping.",
+    title: "Built for Mobile Phones",
+    desc: "Over 80% of buyers shop on phones. We make your store fast and easy to use on mobile.",
     icon: Smartphone,
-    tag: "Touch UX"
+    tag: "Mobile Ready"
   },
   {
-    title: "Fast Loading Speed",
-    desc: "Sub-1.2s page load times ensuring minimal drop-offs and frictionless checkout experience.",
+    title: "Super Fast Load Speed",
+    desc: "Sub-1.2 second load speed so buyers never leave your page out of frustration.",
     icon: Zap,
     tag: "Sub-1.2s Speed"
   },
   {
-    title: "Frictionless Slide Cart Upsells",
-    desc: "1-click upsells, free shipping progress bars, quantity breaks, and sticky buy bars that boost order values.",
+    title: "Slide Cart & Order Upsells",
+    desc: "1-click cart upsells, free shipping progress bars, and bundle discounts that increase order value.",
     icon: Sliders,
-    tag: "AOV Boost"
+    tag: "Higher Orders"
   }
 ];
 
 // ─── 4. Shopify Services Data ────────────────────────────────────────────────
 const SHOPIFY_SERVICES = [
   {
-    title: "High-Converting Shopify Development",
-    desc: "Custom OS 2.0 Shopify stores built from scratch with high-converting layouts, zero template bloat, and sub-1.2s speed.",
+    title: "Custom Shopify Store Building",
+    desc: "We build custom OS 2.0 Shopify stores from scratch with clean layouts, zero clutter, and fast loading speed.",
     icon: ShoppingBag,
-    highlight: "100% Bespoke OS 2.0"
+    highlight: "Custom Shopify OS 2.0"
   },
   {
     title: "Custom Sections & Theme Design",
-    desc: "Tailored Liquid sections including dynamic routine builders, sticky buy bars, slide cart drawers, and custom product showcases.",
+    desc: "Tailored drag-and-drop sections like product builders, sticky buy bars, and slide cart drawers.",
     icon: LayoutGrid,
-    highlight: "Custom Liquid Sections"
+    highlight: "Custom Sections"
   },
   {
     title: "Payment Gateway Integration",
-    desc: "Seamless configuration of Razorpay, Stripe, Cashfree, Paytm, CCAvenue, and Cash-On-Delivery (COD) OTP verification.",
+    desc: "Setup for Razorpay, Stripe, Cashfree, Paytm, and Cash-On-Delivery (COD) verification.",
     icon: CreditCard,
     highlight: "Razorpay & Stripe"
   },
   {
     title: "Shipping Partner Integration",
-    desc: "Direct partnership setup with Shiprocket, Delhivery, DTDC, Ekart, and Shadowfax for automated rate sync and tracking.",
+    desc: "Setup with Shiprocket, Delhivery, DTDC, and Ekart for automatic shipping rates and order tracking.",
     icon: Truck,
     highlight: "Shiprocket & Delhivery"
   },
   {
-    title: "AI Product Photoshoots & Setup",
-    desc: "AI-powered catalog photography that turns basic flat-lays into studio lifestyle product shots. Includes up to 20 free product listings.",
+    title: "AI Product Photos & Catalog Setup",
+    desc: "Turn basic product photos into studio quality lifestyle images. Includes up to 20 free product listings.",
     icon: Camera,
-    highlight: "AI Lifestyle Imagery"
+    highlight: "AI Product Photos"
   },
   {
     title: "Shopify Speed Optimization",
-    desc: "Core Web Vitals optimization achieving 90+ Google PageSpeed scores for instant page loads and minimal bounce rates.",
+    desc: "Speed optimization to get 90+ Google PageSpeed scores so your store opens instantly on mobile.",
     icon: Zap,
-    highlight: "Sub-1.2s Load Speed"
+    highlight: "Fast Mobile Speed"
   },
   {
-    title: "App Integration & Automation",
-    desc: "Complete setup for Klaviyo, Recharge, Gorgias, Yotpo, Judge.me, and custom automated email/WhatsApp flows.",
+    title: "App Setup & Automations",
+    desc: "Full setup for Klaviyo emails, WhatsApp order updates, customer reviews, and payment gateways.",
     icon: Code,
-    highlight: "Full Ecosystem Setup"
+    highlight: "Complete App Setup"
   }
 ];
 
 // ─── 5. FAQ Data ─────────────────────────────────────────────────────────────
 const FAQ_ITEMS = [
   {
-    q: "What is your typical project delivery timeline for Shopify stores?",
-    a: "Our standard turnaround time is 3 to 7 business days for a complete, high-converting Shopify OS 2.0 store. We work with dedicated sprint schedules to launch your store fast."
+    q: "How long does it take to build a Shopify store?",
+    a: "Our standard delivery time is 3 to 7 business days for a complete, high-converting Shopify store."
   },
   {
-    q: "How do you handle payment gateway and COD integrations?",
-    a: "We are official partners with leading payment providers including Razorpay, Stripe, Paytm, and Cashfree. We set up seamless 1-click checkouts and automated Cash-On-Delivery (COD) OTP verification to reduce RTO orders."
+    q: "How do payment gateways and Cash on Delivery (COD) work?",
+    a: "We set up official payment gateways like Razorpay, Stripe, and Paytm for instant payments, plus Cash on Delivery (COD) verification to prevent fake orders."
   },
   {
-    q: "Which shipping partners do you integrate into the store?",
-    a: "We integrate Shiprocket, Delhivery, DTDC, Ekart, Shadowfax, and custom logistics providers directly into your Shopify dashboard for automated label printing, live shipping rates, and customer order tracking."
+    q: "Which shipping services do you integrate?",
+    a: "We integrate Shiprocket, Delhivery, DTDC, and other shipping partners directly into your Shopify dashboard for automatic label printing and order tracking."
   },
   {
     q: "How does the AI Product Photoshoot service work?",
-    a: "You provide basic product images or flat-lays, and our AI design pipeline transforms them into high-definition lifestyle catalog imagery. This saves lakhs in studio photography expenses while making your catalog look ultra-premium."
+    a: "Send us basic product photos, and our AI design pipeline transforms them into high-quality lifestyle photos. This saves lakhs in studio photography costs."
   },
   {
-    q: "Can you build custom drag-and-drop sections for our theme?",
-    a: "Yes! We build bespoke Liquid and React custom sections (routine builders, bundle drawers, sticky CTA bars, interactive comparison tables) that you can easily edit directly from your Shopify theme customizer."
+    q: "Can I easily edit my store content myself?",
+    a: "Yes! We build drag-and-drop custom sections so you can easily change text, images, products, and banners anytime from your Shopify dashboard."
   },
   {
-    q: "Can you migrate my store from WooCommerce/WordPress seamlessly?",
-    a: "Yes. We execute zero-downtime migrations including product catalogs, customer history, order records, and URL redirects so your operation runs smoothly without missing a single order."
+    q: "Can you transfer my store from WordPress or WooCommerce?",
+    a: "Yes. We safely move your products, customers, and order history to Shopify without any downtime."
   },
   {
-    q: "What post-launch support and training do you provide?",
-    a: "We offer 30 days of complimentary post-launch support for layout adjustments, bug fixes, and banners, plus a 1-on-1 dashboard training session so you can easily manage products and offers."
+    q: "What support do you provide after the store is live?",
+    a: "We provide 30 days of free support after launch, plus a 1-on-1 walkthrough session so you feel 100% confident managing your store."
   },
   {
     q: "What are your payment terms?",
-    a: "Our standard term is 50% advance to begin work and 50% upon final store delivery after your complete review and approval."
+    a: "50% advance to start work, and the remaining 50% after your store is complete and you approve it."
   }
 ];
 
@@ -470,7 +470,7 @@ export default function MetaAdsShopifyLandingPage() {
             className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-100/80 border border-emerald-300 text-[11px] sm:text-xs font-bold text-emerald-800 uppercase tracking-wider mb-4 sm:mb-5 shadow-sm max-w-full text-center"
           >
             <Sparkles className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-            <span className="truncate">⚡ #1 High-Converting Shopify Store Agency</span>
+            <span className="truncate">⚡ High-Converting Shopify Store Agency</span>
           </motion.div>
 
           {/* Main Headline */}
@@ -480,9 +480,9 @@ export default function MetaAdsShopifyLandingPage() {
             transition={{ duration: 0.45, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
             className="text-[22px] xs:text-[28px] sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 leading-[1.2] mb-4 sm:mb-6"
           >
-            High-Converting Shopify Store{" "}
+            We Build High-Converting Shopify Stores{" "}
             <span className="bg-gradient-to-r from-emerald-600 via-teal-500 to-emerald-500 bg-clip-text text-transparent block sm:inline mt-1 sm:mt-0">
-              Built to Scale Your Sales
+              That Scale Your Brand
             </span>
           </motion.h1>
 
@@ -493,7 +493,7 @@ export default function MetaAdsShopifyLandingPage() {
             transition={{ duration: 0.45, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
             className="text-xs sm:text-base lg:text-lg text-slate-600 leading-relaxed max-w-3xl mx-auto mb-7 sm:mb-8 font-medium px-1"
           >
-            Turn store visitors into loyal buyers. SalePXL designs and engineers custom OS 2.0 Shopify stores with high-converting custom sections, seamless payment gateways, automated shipping integrations, and AI product photoshoots.
+            Get a fast, beautiful Shopify store with custom sections, payment gateways (Razorpay, Stripe), fast shipping integration (Shiprocket), and AI product photos.
           </motion.p>
 
           {/* Hero CTAs */}
@@ -505,10 +505,10 @@ export default function MetaAdsShopifyLandingPage() {
           >
             <a
               href="#lead-form"
-              onClick={() => trackCTAClick({ cta_name: "Book Strategy Call Hero", cta_location: "Hero Primary" })}
+              onClick={() => trackCTAClick({ cta_name: "Get Project Quote Hero", cta_location: "Hero Primary" })}
               className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-7 sm:px-8 py-3.5 sm:py-4 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider text-white bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 shadow-[0_8px_30px_rgba(16,185,129,0.35)] active:scale-95 transition-all duration-300 group cursor-pointer"
             >
-              <span>Book Strategy Call</span>
+              <span>Get Free Project Quote</span>
               <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
             </a>
 
@@ -532,10 +532,10 @@ export default function MetaAdsShopifyLandingPage() {
             className="grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-4 max-w-4xl mx-auto pt-5 border-t border-emerald-100"
           >
             {[
-              { val: "100+", label: "Stores Built", desc: "Proven track record" },
-              { val: "Shopify", label: "Official Experts", desc: "OS 2.0 certified" },
-              { val: "Seamless", label: "Payment & Shipping", desc: "Razorpay & Shiprocket" },
-              { val: "Sub-1.2s", label: "Mobile Speed", desc: "90+ PageSpeed score" }
+              { val: "100+", label: "Stores Built", desc: "Real Client Results" },
+              { val: "Shopify", label: "Official Experts", desc: "OS 2.0 Certified" },
+              { val: "Easy", label: "Payments & Shipping", desc: "Razorpay & Shiprocket" },
+              { val: "Sub-1.2s", label: "Fast Mobile Speed", desc: "90+ PageSpeed score" }
             ].map((badge, idx) => (
               <motion.div
                 key={idx}
@@ -556,7 +556,7 @@ export default function MetaAdsShopifyLandingPage() {
             ))}
           </motion.div>
 
-          {/* Feature Showcase Grid Cards with Color Gradients */}
+          {/* Feature Showcase Grid Cards */}
           <motion.div
             initial={{ opacity: 0, scale: 0.97 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -571,9 +571,9 @@ export default function MetaAdsShopifyLandingPage() {
                 </div>
                 <div>
                   <h4 className="text-xs sm:text-sm font-bold text-slate-900 mb-1">Custom Sections</h4>
-                  <p className="text-[11px] sm:text-xs text-slate-600 leading-relaxed">Bespoke Liquid drag-and-drop sections, routine builders & cart drawers.</p>
+                  <p className="text-[11px] sm:text-xs text-slate-600 leading-relaxed">Easy drag-and-drop sections, product builders, and cart drawers.</p>
                 </div>
-                <span className="text-[10px] font-mono font-bold text-emerald-800 bg-emerald-100/80 px-2 py-0.5 rounded-full border border-emerald-200 w-fit">✓ Theme Customizer</span>
+                <span className="text-[10px] font-mono font-bold text-emerald-800 bg-emerald-100/80 px-2 py-0.5 rounded-full border border-emerald-200 w-fit">✓ Easy Editing</span>
               </div>
 
               {/* Feature 2: Payment Gateways */}
@@ -582,10 +582,10 @@ export default function MetaAdsShopifyLandingPage() {
                   <CreditCard className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
                 <div>
-                  <h4 className="text-xs sm:text-sm font-bold text-slate-900 mb-1">Payment Gateways</h4>
-                  <p className="text-[11px] sm:text-xs text-slate-600 leading-relaxed">Razorpay, Stripe, Cashfree, Paytm & COD OTP verification.</p>
+                  <h4 className="text-xs sm:text-sm font-bold text-slate-900 mb-1">Payment Setup</h4>
+                  <p className="text-[11px] sm:text-xs text-slate-600 leading-relaxed">Razorpay, Stripe, Cashfree, Paytm, and COD options.</p>
                 </div>
-                <span className="text-[10px] font-mono font-bold text-emerald-800 bg-emerald-100/80 px-2 py-0.5 rounded-full border border-emerald-200 w-fit">✓ Instant Checkout</span>
+                <span className="text-[10px] font-mono font-bold text-emerald-800 bg-emerald-100/80 px-2 py-0.5 rounded-full border border-emerald-200 w-fit">✓ Easy Payments</span>
               </div>
 
               {/* Feature 3: Shipping Integration */}
@@ -595,9 +595,9 @@ export default function MetaAdsShopifyLandingPage() {
                 </div>
                 <div>
                   <h4 className="text-xs sm:text-sm font-bold text-slate-900 mb-1">Shipping Partners</h4>
-                  <p className="text-[11px] sm:text-xs text-slate-600 leading-relaxed">Shiprocket, Delhivery, DTDC & automated tracking setup.</p>
+                  <p className="text-[11px] sm:text-xs text-slate-600 leading-relaxed">Shiprocket, Delhivery, DTDC, and automatic order tracking.</p>
                 </div>
-                <span className="text-[10px] font-mono font-bold text-emerald-800 bg-emerald-100/80 px-2 py-0.5 rounded-full border border-emerald-200 w-fit">✓ Auto Order Sync</span>
+                <span className="text-[10px] font-mono font-bold text-emerald-800 bg-emerald-100/80 px-2 py-0.5 rounded-full border border-emerald-200 w-fit">✓ Auto Shipping</span>
               </div>
 
               {/* Feature 4: AI Photoshoots */}
@@ -606,8 +606,8 @@ export default function MetaAdsShopifyLandingPage() {
                   <Camera className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
                 <div>
-                  <h4 className="text-xs sm:text-sm font-bold text-slate-900 mb-1">AI Product Photoshoot</h4>
-                  <p className="text-[11px] sm:text-xs text-slate-600 leading-relaxed">Transform flat-lays into studio lifestyle photos + 20 free listings.</p>
+                  <h4 className="text-xs sm:text-sm font-bold text-slate-900 mb-1">AI Product Photos</h4>
+                  <p className="text-[11px] sm:text-xs text-slate-600 leading-relaxed">Turn simple photos into studio quality shots + 20 free listings.</p>
                 </div>
                 <span className="text-[10px] font-mono font-bold text-emerald-800 bg-emerald-100/80 px-2 py-0.5 rounded-full border border-emerald-200 w-fit">✓ Save Photo Costs</span>
               </div>
@@ -616,7 +616,7 @@ export default function MetaAdsShopifyLandingPage() {
         </div>
       </section>
 
-      {/* ─── 2. WHY SALEPXL SECTION (Interactive Auto Slider) ────────────────── */}
+      {/* ─── 2. WHY SALEPXL SECTION ─────────────────────────────────────────── */}
       <section className="py-14 sm:py-20 lg:py-24 px-4 sm:px-6 max-w-7xl mx-auto relative z-10 border-t border-emerald-100">
         <motion.div
           initial={{ opacity: 0, y: 15 }}
@@ -629,10 +629,10 @@ export default function MetaAdsShopifyLandingPage() {
             Why Choose SalePXL
           </span>
           <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-            Built for High Conversions, Seamless Shipping & Payment Integrations
+            Why E-Commerce Brands Choose SalePXL
           </h2>
           <p className="text-xs sm:text-base text-slate-600 mt-2.5 leading-relaxed">
-            Generic Shopify templates lose sales due to slow load times, poor mobile UX, and broken checkout steps. SalePXL solves this completely.
+            We fix slow load times, poor mobile design, and complicated checkout steps so you get more sales.
           </p>
         </motion.div>
 
@@ -670,7 +670,7 @@ export default function MetaAdsShopifyLandingPage() {
             </div>
           </div>
 
-          {/* Active Card Slider View with White & Green Gradient Styling */}
+          {/* Active Card Slider View */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
             {[0, 1].map((offset) => {
               const itemIdx = (whyChooseIdx + offset) % WHY_CHOOSE_ITEMS.length;
@@ -735,13 +735,13 @@ export default function MetaAdsShopifyLandingPage() {
           className="max-w-[1360px] mx-auto px-4 sm:px-6 mb-10 text-center"
         >
           <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-emerald-600 font-mono block mb-2">
-            High-Converting Portfolio
+            Our Portfolio
           </span>
           <h2 className="text-2.5xl sm:text-4xl lg:text-5xl font-light text-slate-900 tracking-tight font-sans">
-            Stores <span className="text-emerald-600 font-normal">We've</span> Built & <span className="text-slate-900 font-bold">Transformed</span>
+            Shopify Stores <span className="text-emerald-600 font-normal">We've</span> Built & <span className="text-slate-900 font-bold">Transformed</span>
           </h2>
           <p className="text-xs sm:text-base text-slate-600 max-w-2xl mx-auto mt-2">
-            Real Shopify OS 2.0 store rebuilds engineered for performance, custom sections, mobile speed, and conversion growth.
+            Real Shopify stores built for fast mobile speed, easy shopping, and higher sales.
           </p>
         </motion.div>
 
@@ -800,7 +800,7 @@ export default function MetaAdsShopifyLandingPage() {
         </div>
       </section>
 
-      {/* ─── 4. OUR PROCESS SECTION (Animated Customer Journey) ──────────────── */}
+      {/* ─── 4. OUR PROCESS SECTION (5-Step Conversion Process) ──────────────── */}
       <section className="py-14 sm:py-20 lg:py-24 px-4 sm:px-6 max-w-7xl mx-auto relative z-10 border-t border-emerald-100">
         <motion.div
           initial={{ opacity: 0, y: 15 }}
@@ -810,48 +810,48 @@ export default function MetaAdsShopifyLandingPage() {
           className="text-center max-w-3xl mx-auto mb-12 sm:mb-16"
         >
           <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-emerald-600 mb-2 block font-mono">
-            Our Proven Growth Formula
+            How It Works
           </span>
           <h2 className="text-2.5xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-            The 5-Step Customer Conversion Process
+            Our 5-Step Store Building Process
           </h2>
           <p className="text-xs sm:text-base text-slate-600 mt-2.5 leading-relaxed">
-            How we transform store visitors into long-term brand advocates.
+            How we help your store turn visitors into happy customers.
           </p>
         </motion.div>
 
-        {/* Animated Process Flow Steps */}
+        {/* Process Flow Steps */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3.5 sm:gap-4 relative">
           {[
             {
               step: "01",
-              title: "Traffic",
-              desc: "Targeted brand visitors arrive on a lightning-fast, mobile-optimized store homepage.",
-              metric: "Sub-1.2s Load"
+              title: "Store Visit",
+              desc: "Buyers land on your fast, mobile-friendly store homepage.",
+              metric: "Sub-1.2s Speed"
             },
             {
               step: "02",
-              title: "Trust",
-              desc: "Instant credibility established through verified reviews, security badges & authentic social proof.",
-              metric: "High Security"
+              title: "Build Trust",
+              desc: "Show customer reviews, star ratings, and secure badges.",
+              metric: "High Trust"
             },
             {
               step: "03",
-              title: "Shopping Experience",
-              desc: "Seamless touch navigation, custom liquid sections & slide cart drawer upsells.",
-              metric: "Frictionless UX"
+              title: "Easy Shopping",
+              desc: "Simple product navigation, custom sections, and clear cart.",
+              metric: "Easy UX"
             },
             {
               step: "04",
-              title: "Sales",
-              desc: "1-click Razorpay/Stripe checkout, instant COD OTP verification, and automated shipping label sync.",
-              metric: "3.8x Conv. Lift"
+              title: "Quick Checkout",
+              desc: "Easy payment with Razorpay, Stripe, or Cash on Delivery.",
+              metric: "Quick Sales"
             },
             {
               step: "05",
-              title: "Scale",
-              desc: "Post-purchase WhatsApp tracking flows, automated email flows & subscriber retention.",
-              metric: "Predictable Growth"
+              title: "Happy Customers",
+              desc: "Automatic shipping tracking updates and repeat buyers.",
+              metric: "Brand Growth"
             }
           ].map((item, idx) => (
             <motion.div
@@ -890,13 +890,13 @@ export default function MetaAdsShopifyLandingPage() {
           className="text-center max-w-3xl mx-auto mb-12 sm:mb-16"
         >
           <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-emerald-600 mb-2 block font-mono">
-            Client Success Stories
+            Client Reviews
           </span>
           <h2 className="text-2.5xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-            Trusted by 100+ High-Growth E-Commerce Founders
+            What E-Commerce Founders Say About Us
           </h2>
           <p className="text-xs sm:text-base text-slate-600 mt-2.5 leading-relaxed">
-            See how SalePXL helped Shopify brands increase conversion rates, integrate payment/shipping partners, and scale sales.
+            See how we helped 100+ brands build better Shopify stores.
           </p>
         </motion.div>
 
@@ -942,7 +942,7 @@ export default function MetaAdsShopifyLandingPage() {
 
                   <div className="md:col-span-4 bg-gradient-to-br from-emerald-500/10 via-teal-500/5 to-white border border-emerald-200 rounded-2xl p-5 text-center space-y-2 shadow-sm">
                     <div className="text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-slate-500">
-                      Performance Result
+                      Result Delivered
                     </div>
                     <div className="text-2.5xl sm:text-3xl font-black text-emerald-600 font-mono">
                       <AnimatedStatCounter value={t.statVal} />
@@ -974,7 +974,7 @@ export default function MetaAdsShopifyLandingPage() {
         </div>
       </section>
 
-      {/* ─── 6. SERVICES SECTION (Shopify Focused Only) ──────────────────────── */}
+      {/* ─── 6. SERVICES SECTION ────────────────────────────────────────────── */}
       <section className="py-14 sm:py-20 lg:py-24 px-4 sm:px-6 max-w-7xl mx-auto relative z-10 border-t border-emerald-100">
         <motion.div
           initial={{ opacity: 0, y: 15 }}
@@ -984,13 +984,13 @@ export default function MetaAdsShopifyLandingPage() {
           className="text-center max-w-3xl mx-auto mb-12 sm:mb-16"
         >
           <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-emerald-600 mb-2 block font-mono">
-            Shopify Specialized Services
+            What We Do
           </span>
           <h2 className="text-2.5xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-            Complete Shopify Engineering Solutions
+            Our Shopify Development Services
           </h2>
           <p className="text-xs sm:text-base text-slate-600 mt-2.5 leading-relaxed">
-            Everything your e-commerce brand needs to scale sales, custom sections, payment gateways, and automated shipping.
+            Everything you need to launch, redesign, and grow your online store.
           </p>
         </motion.div>
 
@@ -1038,7 +1038,7 @@ export default function MetaAdsShopifyLandingPage() {
         </div>
       </section>
 
-      {/* ─── 7. LEAD CAPTURE FORM SECTION (HIGHEST PRIORITY) ────────────────── */}
+      {/* ─── 7. LEAD CAPTURE FORM SECTION ───────────────────────────────────── */}
       <section
         id="lead-form"
         className="py-14 sm:py-20 lg:py-24 px-4 sm:px-6 max-w-4xl mx-auto relative z-10 scroll-mt-24"
@@ -1059,10 +1059,10 @@ export default function MetaAdsShopifyLandingPage() {
               Get Started Today
             </span>
             <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-              Get Your Custom Shopify Store Strategy & Proposal
+              Get Your Custom Shopify Store Proposal
             </h2>
             <p className="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
-              Fill out your project details below. Our senior Shopify architects will review your brand and send you a custom growth plan within 2 hours.
+              Fill out your project details below. Our team will review your brand and send you a custom store plan within 2 hours.
             </p>
           </div>
 
@@ -1271,7 +1271,7 @@ export default function MetaAdsShopifyLandingPage() {
                 </>
               ) : (
                 <>
-                  <span>Get Custom Proposal & Strategy</span>
+                  <span>Get My Store Proposal</span>
                   <ArrowRight className="w-4 h-4" />
                 </>
               )}
@@ -1300,11 +1300,11 @@ export default function MetaAdsShopifyLandingPage() {
           </div>
 
           <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight mb-3">
-            Need Help Choosing the Right Shopify Solution?
+            Have Questions About Your Shopify Store?
           </h2>
 
           <p className="text-xs sm:text-base text-emerald-100 max-w-2xl mx-auto mb-7 leading-relaxed font-medium">
-            Speak directly with our senior Shopify architects on WhatsApp for instant guidance, payment gateway advice, and project estimation.
+            Message us on WhatsApp to discuss your project, get pricing, and ask any questions.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5">
@@ -1346,7 +1346,7 @@ export default function MetaAdsShopifyLandingPage() {
             Frequently Asked Questions
           </h2>
           <p className="text-xs sm:text-sm text-slate-600 mt-2">
-            Everything you need to know about our Shopify store development process.
+            Simple answers to common questions about building your Shopify store.
           </p>
         </motion.div>
 
@@ -1410,15 +1410,15 @@ export default function MetaAdsShopifyLandingPage() {
         >
           <div className="max-w-3xl mx-auto space-y-4 sm:space-y-6">
             <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-emerald-400 font-mono block">
-              Start Scaling Your Shopify Store Today
+              Start Building Your Store Today
             </span>
 
             <h2 className="text-2.5xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
-              Ready to Build a Shopify Store That Converts?
+              Ready to Build Your Shopify Store?
             </h2>
 
             <p className="text-xs sm:text-base text-slate-300 leading-relaxed">
-              Stop losing customers to slow, low-converting templates. Partner with SalePXL to launch a speed-optimized, custom-engineered store with seamless payment & shipping setup in days.
+              Stop losing customers to slow, low-converting templates. We build fast, high-converting stores that help your brand grow.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 pt-3">
