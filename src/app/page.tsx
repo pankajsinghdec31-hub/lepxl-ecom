@@ -1428,7 +1428,7 @@ export default function HomePage() {
             <div className="mb-3 sm:mb-4 animate-fade-blur flex justify-start">
               <span className="inline-flex items-center gap-2 text-[10px] sm:text-[11px] font-semibold tracking-widest uppercase px-3.5 py-1.5 rounded-full border border-white/20 bg-white/[0.06] text-white/80 backdrop-blur-sm">
                 <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-                India's #1 Shopify Agency
+                100+ Stores Built • High-Converting Design
               </span>
             </div>
 
@@ -1463,8 +1463,10 @@ export default function HomePage() {
             </div>
 
             {/* Trust strip - hidden on mobile, visible from sm up */}
-            <div className="mt-5 sm:mt-7 hidden sm:flex flex-row flex-wrap items-center justify-start gap-x-5 gap-y-2 animate-fade-blur" style={{ animationDelay: "0.2s" }}>
-              <span className="text-white/60 text-xs text-center"><strong className="text-white">100+</strong> stores built</span>
+            <div className="mt-5 sm:mt-7 hidden sm:flex flex-row flex-wrap items-center justify-start gap-x-3 gap-y-2 animate-fade-blur text-xs" style={{ animationDelay: "0.2s" }}>
+              <span className="text-white/80 font-medium">100+ Stores Built</span>
+              <span className="text-white/30">•</span>
+              <span className="text-primary font-semibold">High-Converting Design</span>
             </div>
           </div>
         </div>
