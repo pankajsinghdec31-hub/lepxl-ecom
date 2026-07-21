@@ -287,23 +287,23 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
         <div className="sticky top-0 h-screen w-full flex flex-col justify-between py-3 z-10 overflow-hidden">
 
           {/* Header Section from User Spec */}
-          <div className="max-w-3xl mx-auto px-4 w-full z-40 text-center flex flex-col items-center pt-2 sm:pt-4">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono font-medium tracking-widest uppercase mb-3 shadow-[0_0_20px_rgba(16,185,129,0.15)]">
+          <div className="max-w-3xl mx-auto px-4 w-full z-40 text-center flex flex-col items-center pt-1 sm:pt-2">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono font-medium tracking-widest uppercase mb-2 shadow-[0_0_20px_rgba(16,185,129,0.15)]">
               <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
               <span>THE GROWTH FORMULA</span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light font-grotesk text-white tracking-tight leading-[1.15] mb-3">
+            <h2 className="text-3xl lg:text-4xl font-light font-grotesk text-white tracking-tight leading-snug mb-1.5">
               Hyper-Optimized. <span className="text-emerald-400 font-normal">Designed to Convert.</span>
             </h2>
 
-            <p className="text-white/70 text-xs sm:text-sm md:text-base font-light leading-relaxed max-w-2xl mx-auto font-sans">
-              A successful Shopify store isn't built by design alone. Real growth happens when every part of the customer journey works together. We optimize every touchpoint to transform traffic into loyal customers and sustainable revenue.
+            <p className="text-white/70 text-xs sm:text-sm font-light max-w-xl mx-auto font-sans leading-relaxed">
+              We optimize every touchpoint of your customer journey to transform traffic into high-converting sales & revenue.
             </p>
           </div>
 
           {/* Header Progress Tracker */}
-          <div className="max-w-4xl mx-auto px-4 w-full z-40 mt-3">
+          <div className="max-w-4xl mx-auto px-4 w-full z-40 mt-2">
             <div className="flex flex-col items-center gap-2">
               
               <div className="flex items-center gap-3">
@@ -392,9 +392,9 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
             >
               {/* DESKTOP PANEL 1: TRAFFIC INFLOW */}
               <div className="w-[100vw] h-full shrink-0 flex items-center justify-center px-12">
-                <div className="max-w-4xl w-full grid grid-cols-12 gap-8 items-center bg-white/[0.02] border border-amber-500/20 rounded-3xl p-5 sm:p-6 backdrop-blur-md shadow-2xl relative">
+                <div className="max-w-4xl w-full grid grid-cols-12 gap-8 items-center bg-white/[0.02] border border-amber-500/20 rounded-3xl p-5 sm:p-6 pt-9 backdrop-blur-md shadow-2xl relative">
                   
-                  <div className="absolute -top-3 left-8 px-3 py-0.5 rounded-full bg-amber-500/20 border border-amber-500/40 text-[10px] font-mono font-bold text-amber-400 uppercase tracking-widest">
+                  <div className="absolute top-3 left-6 px-3 py-0.5 rounded-full bg-amber-500/20 border border-amber-500/40 text-[10px] font-mono font-bold text-amber-400 uppercase tracking-widest z-20">
                     Stage 01 • Your Ad Traffic Inflow
                   </div>
 
@@ -465,9 +465,9 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
 
               {/* DESKTOP PANEL 2: STOREFRONT TRUST & SALE PXL POSITIONING */}
               <div className="w-[100vw] h-full shrink-0 flex items-center justify-center px-8 lg:px-12">
-                <div className="max-w-5xl w-full grid grid-cols-12 gap-8 items-center bg-white/[0.02] border border-emerald-500/25 rounded-3xl p-5 sm:p-6 backdrop-blur-md shadow-2xl relative">
+                <div className="max-w-5xl w-full grid grid-cols-12 gap-8 items-center bg-white/[0.02] border border-emerald-500/25 rounded-3xl p-5 sm:p-6 pt-9 backdrop-blur-md shadow-2xl relative">
                   
-                  <div className="absolute -top-3 left-8 px-3.5 py-1 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-[10px] font-mono font-bold text-emerald-400 uppercase tracking-widest flex items-center gap-1.5 shadow-[0_0_15px_rgba(16,185,129,0.3)]">
+                  <div className="absolute top-3 left-6 px-3.5 py-1 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-[10px] font-mono font-bold text-emerald-400 uppercase tracking-widest flex items-center gap-1.5 shadow-[0_0_15px_rgba(16,185,129,0.3)] z-20">
                     <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
                     <span>Stage 02 • High-Converting Shopify Store</span>
                   </div>
@@ -650,9 +650,9 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
 
               {/* DESKTOP PANEL 3: HIGH-CONVERTING STORE OUTPUT */}
               <div className="w-[100vw] h-full shrink-0 flex items-center justify-center px-8 lg:px-12">
-                <div className="max-w-5xl w-full grid grid-cols-12 gap-8 items-center bg-white/[0.02] border border-indigo-500/30 rounded-3xl p-5 sm:p-6 backdrop-blur-md shadow-2xl relative">
+                <div className="max-w-5xl w-full grid grid-cols-12 gap-8 items-center bg-white/[0.02] border border-indigo-500/30 rounded-3xl p-5 sm:p-6 pt-9 backdrop-blur-md shadow-2xl relative">
                   
-                  <div className="absolute -top-3 left-8 px-3.5 py-1 rounded-full bg-indigo-500/20 border border-indigo-500/40 text-[10px] font-mono font-bold text-indigo-400 uppercase tracking-widest flex items-center gap-1.5 shadow-[0_0_15px_rgba(99,102,241,0.3)]">
+                  <div className="absolute top-3 left-6 px-3.5 py-1 rounded-full bg-indigo-500/20 border border-indigo-500/40 text-[10px] font-mono font-bold text-indigo-400 uppercase tracking-widest flex items-center gap-1.5 shadow-[0_0_15px_rgba(99,102,241,0.3)] z-20">
                     <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-ping" />
                     <span>Stage 03 • High-Converting Store Output & Revenue</span>
                   </div>
