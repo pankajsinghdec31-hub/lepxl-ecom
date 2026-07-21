@@ -261,9 +261,11 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
   }, [isAutoScrolling, isInView, isHovered]);
 
   const trustBadges = [
-    { label: "Customer Psychology Trust", icon: "⭐", pos: "-top-4 -left-4" },
-    { label: "CRO Optimized PDP", icon: "🎯", pos: "-top-4 -right-4" },
-    { label: "Faster 1-Click Checkout", icon: "🚀", pos: "-bottom-4 left-1/2 -translate-x-1/2" }
+    { label: "Customer Trust", icon: "⭐", pos: "-top-3 left-4" },
+    { label: "Easy Shopping", icon: "🛍️", pos: "-top-3 right-4" },
+    { label: "High-Converting Store", icon: "📈", pos: "top-1/2 -left-12 -translate-y-1/2" },
+    { label: "Mobile Friendly", icon: "📱", pos: "top-1/2 -right-12 -translate-y-1/2" },
+    { label: "High Quality Product Page", icon: "✨", pos: "-bottom-3 left-1/2 -translate-x-1/2" }
   ];
 
   return (
@@ -469,53 +471,54 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
                   
                   <div className="absolute top-3 left-6 px-3.5 py-1 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-[10px] font-mono font-bold text-emerald-400 uppercase tracking-widest flex items-center gap-1.5 shadow-[0_0_15px_rgba(16,185,129,0.3)] z-20">
                     <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-                    <span>Stage 02 • High-Converting Shopify Store</span>
+                    <span>STAGE 02 • SalePXL High-Converting Shopify Store</span>
                   </div>
 
                   {/* Left Column: Copy & SalePXL Psychology Pillars */}
-                  <div className="col-span-5 space-y-4">
+                  <div className="col-span-5 space-y-3">
                     <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-emerald-500/10 border border-emerald-500/20 text-[11px] font-mono text-emerald-300">
                       <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
                       <span>SalePXL Store Architecture</span>
                     </div>
 
-                    <h3 className="text-3xl font-extrabold font-grotesk tracking-tight text-white leading-tight">
-                      Build Instant <span className="text-emerald-400">Buyer Trust</span> & Best UX
+                    <h3 className="text-2xl sm:text-3xl font-extrabold font-grotesk tracking-tight text-white leading-tight">
+                      Turn More Visitors <span className="text-emerald-400">Into Customers</span>
                     </h3>
                     
                     <p className="text-xs text-white/70 leading-relaxed font-sans">
-                      We build buyer trust with SalePXL Shopify stores. Engineered with customer psychology, ultra-clean design, and well-optimized product pages to turn visitors into buyers.
+                      Your Shopify store builds trust, answers customer questions, and makes buying simple. This helps more visitors become paying customers.
                     </p>
 
-                    <div className="space-y-2.5 pt-1">
-                      <div className="flex items-start gap-2.5 text-xs text-emerald-200">
+                    <div className="space-y-2 pt-1 font-sans">
+                      <div className="flex items-center gap-2 text-xs text-emerald-200">
+                        <div className="p-1 rounded bg-emerald-500/20 border border-emerald-500/40 shrink-0">
+                          <Star className="w-3.5 h-3.5 text-emerald-400 fill-emerald-400" />
+                        </div>
+                        <span className="font-semibold text-white">Build Customer Trust</span>
+                      </div>
+
+                      <div className="flex items-start gap-2 text-xs text-emerald-200">
                         <div className="p-1 rounded bg-emerald-500/20 border border-emerald-500/40 shrink-0 mt-0.5">
                           <Zap className="w-3.5 h-3.5 text-emerald-400" />
                         </div>
                         <div>
-                          <span className="font-semibold text-white">CRO-Optimized 2X Conversion PDP:</span>
-                          <span className="text-white/60 block text-[11px]">Product pages designed around scannable benefit blocks & visual proof.</span>
+                          <span className="font-semibold text-white">Easy Shopping Experience:</span>
+                          <span className="text-white/60 block text-[11px]">Clean and simple design • Fast-loading pages</span>
                         </div>
                       </div>
 
-                      <div className="flex items-start gap-2.5 text-xs text-emerald-200">
-                        <div className="p-1 rounded bg-emerald-500/20 border border-emerald-500/40 shrink-0 mt-0.5">
-                          <Star className="w-3.5 h-3.5 text-emerald-400 fill-emerald-400" />
-                        </div>
-                        <div>
-                          <span className="font-semibold text-white">Customer Psychology & Buyer Trust:</span>
-                          <span className="text-white/60 block text-[11px]">Verified review widgets, authority seals, and zero-anxiety guarantees.</span>
-                        </div>
-                      </div>
-
-                      <div className="flex items-start gap-2.5 text-xs text-emerald-200">
-                        <div className="p-1 rounded bg-emerald-500/20 border border-emerald-500/40 shrink-0 mt-0.5">
+                      <div className="flex items-center gap-2 text-xs text-emerald-200">
+                        <div className="p-1 rounded bg-emerald-500/20 border border-emerald-500/40 shrink-0">
                           <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
                         </div>
-                        <div>
-                          <span className="font-semibold text-white">Faster Checkout & Offer Positioning:</span>
-                          <span className="text-white/60 block text-[11px]">Strategic discount callouts paired with 1-click express payment flow.</span>
+                        <span className="font-semibold text-white">Faster Checkout</span>
+                      </div>
+
+                      <div className="flex items-center gap-2 text-xs text-emerald-200">
+                        <div className="p-1 rounded bg-emerald-500/20 border border-emerald-500/40 shrink-0">
+                          <TrendingUp className="w-3.5 h-3.5 text-emerald-400" />
                         </div>
+                        <span className="font-semibold text-white">Better Conversion Rate</span>
                       </div>
                     </div>
                   </div>
@@ -799,7 +802,7 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
 
           <div className="max-w-xl mx-auto px-4 z-40 text-center pb-2">
             <p className="text-xs sm:text-sm font-grotesk text-white/80 font-light">
-              Traffic brings visitors. <span className="text-emerald-400 font-normal">Your Shopify store earns customers.</span>
+              Traffic Brings Visitors. <span className="text-emerald-400 font-normal">SalePXL Turns Them Into Customers.</span>
             </p>
           </div>
 
@@ -891,14 +894,14 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
         {/* ── MOBILE STEP 2: HIGH-CONVERTING SHOPIFY STORE ── */}
         <div className="p-5 rounded-3xl bg-gradient-to-b from-emerald-500/15 via-[#070b18] to-[#04060d] border border-emerald-500/30 backdrop-blur-xl shadow-2xl space-y-4 relative overflow-hidden">
           <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-[9px] font-mono font-bold text-emerald-400 uppercase tracking-wider">
-            Stage 02 • High-Converting Shopify Store
+            STAGE 02 • SalePXL High-Converting Shopify Store
           </div>
 
           <h3 className="text-xl font-extrabold font-grotesk text-white leading-tight">
-            Build Instant <span className="text-emerald-400">Buyer Trust</span> & Best UX
+            Turn More Visitors <span className="text-emerald-400">Into Customers</span>
           </h3>
           <p className="text-xs text-white/70 leading-relaxed font-sans">
-            We build buyer trust with SalePXL Shopify stores. Engineered with customer psychology, ultra-clean design, and well-optimized product pages to turn visitors into buyers.
+            Your Shopify store builds trust, answers customer questions, and makes buying simple. This helps more visitors become paying customers.
           </p>
 
           {/* Realistic Mobile E-Commerce Storefront Card Mockup */}
@@ -906,7 +909,7 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
             
             {/* Top Bar */}
             <div className="bg-gradient-to-r from-emerald-600 to-teal-500 py-1 px-3 text-center flex items-center justify-between text-[9px] font-bold text-black">
-              <span>⚡ SALEPXL 2X CONVERSION STORE</span>
+              <span>⚡ SALEPXL HIGH-CONVERTING STORE</span>
               <span className="bg-black/20 text-white font-mono px-1 rounded">COD ACTIVE</span>
             </div>
 
@@ -943,20 +946,20 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
               {/* Mobile CRO Psychology Badges Grid */}
               <div className="grid grid-cols-2 gap-1.5 pt-1">
                 <div className="p-1.5 rounded-lg bg-slate-900 border border-emerald-500/30 text-[9px] font-mono text-emerald-300 flex items-center gap-1">
-                  <span>⚡</span>
-                  <span>2X Conversion PDP</span>
+                  <span>⭐</span>
+                  <span>Customer Trust</span>
                 </div>
                 <div className="p-1.5 rounded-lg bg-slate-900 border border-emerald-500/30 text-[9px] font-mono text-emerald-300 flex items-center gap-1">
-                  <span>🔒</span>
-                  <span>Customer Psychology</span>
+                  <span>🛍️</span>
+                  <span>Easy Shopping</span>
                 </div>
                 <div className="p-1.5 rounded-lg bg-slate-900 border border-emerald-500/30 text-[9px] font-mono text-emerald-300 flex items-center gap-1">
-                  <span>🎯</span>
-                  <span>Offer Positioning</span>
+                  <span>📈</span>
+                  <span>High-Converting Store</span>
                 </div>
                 <div className="p-1.5 rounded-lg bg-slate-900 border border-emerald-500/30 text-[9px] font-mono text-emerald-300 flex items-center gap-1">
-                  <span>🚀</span>
-                  <span>Faster Checkout</span>
+                  <span>📱</span>
+                  <span>Mobile Friendly</span>
                 </div>
               </div>
             </div>
@@ -1038,7 +1041,7 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
         {/* ── MOBILE FOOTER NOTE ── */}
         <div className="pt-2 text-center">
           <p className="text-xs font-grotesk text-white/80 font-light">
-            Traffic brings visitors. <span className="text-emerald-400 font-normal">Your Shopify store earns customers.</span>
+            Traffic Brings Visitors. <span className="text-emerald-400 font-normal">SalePXL Turns Them Into Customers.</span>
           </p>
         </div>
 
