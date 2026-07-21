@@ -42,7 +42,7 @@ export default function ShopifyLaunchCalculator() {
   };
 
   return (
-    <div className="relative pt-44 pb-24 px-6 text-left min-h-screen bg-gradient-to-b from-[#fafcfc] via-[#f5faf7] to-[#eaf7f2] overflow-hidden -mt-24 font-grotesk">
+    <div className="relative pt-24 sm:pt-32 pb-24 px-6 text-left min-h-screen bg-gradient-to-b from-[#fafcfc] via-[#f5faf7] to-[#eaf7f2] overflow-hidden -mt-24 font-grotesk">
       {/* Decorative Blob Backgrounds */}
       <div className="absolute top-[-5%] right-[-10%] w-[45%] h-[400px] rounded-full bg-emerald-400/[0.04] blur-[130px] pointer-events-none animate-pulse" />
       <div className="absolute top-[35%] left-[-10%] w-[40%] h-[450px] rounded-full bg-teal-300/[0.03] blur-[120px] pointer-events-none" />

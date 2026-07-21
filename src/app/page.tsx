@@ -1126,7 +1126,7 @@ export default function HomePage() {
   }, []);
 
   const { scrollYProgress } = useScroll({
-    target: isMounted && containerRef.current ? containerRef : undefined,
+    target: containerRef,
     offset: ["start start", "end end"]
   });
 

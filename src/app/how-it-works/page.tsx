@@ -154,7 +154,7 @@ export default function HowItWorksPage() {
     setIsMounted(true);
   }, []);
 
-  const { scrollYProgress } = useScroll({ target: isMounted && containerRef.current ? containerRef : undefined });
+  const { scrollYProgress } = useScroll({ target: containerRef });
   const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30 });
 
   // Onboarding Checklist state
@@ -215,7 +215,7 @@ export default function HowItWorksPage() {
   }, []);
 
   return (
-    <div ref={containerRef} className="relative pt-28 sm:pt-44 pb-12 sm:pb-24 px-4 sm:px-6 text-left min-h-screen bg-gradient-to-b from-[#fafcfc] via-[#f5faf7] to-[#eaf7f2] overflow-hidden -mt-24 font-grotesk">
+    <div ref={containerRef} className="relative pt-24 sm:pt-32 pb-12 sm:pb-24 px-4 sm:px-6 text-left min-h-screen bg-gradient-to-b from-[#fafcfc] via-[#f5faf7] to-[#eaf7f2] overflow-hidden -mt-24 font-grotesk">
       
       {/* Background decoration glow */}
       <div className="absolute top-[10%] right-[-15%] w-[600px] h-[600px] bg-emerald-400/[0.08] rounded-full blur-[140px] pointer-events-none animate-pulse" />

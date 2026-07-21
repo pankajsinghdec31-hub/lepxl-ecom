@@ -208,7 +208,7 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
 
   // Desktop scroll progress
   const { scrollYProgress } = useScroll({
-    target: isMounted && containerRef.current ? containerRef : undefined,
+    target: containerRef,
     offset: ["start start", "end end"]
   });
 

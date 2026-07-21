@@ -68,7 +68,7 @@ const SERVICES: ServiceItem[] = [
 
 export default function ServicesPage() {
   return (
-    <div className="relative pt-28 sm:pt-44 pb-12 sm:pb-24 px-4 sm:px-6 text-left min-h-screen bg-gradient-to-b from-[#fafcfc] via-[#f5faf7] to-[#eaf7f2] overflow-hidden -mt-24 font-grotesk">
+    <div className="relative pt-24 sm:pt-32 pb-12 sm:pb-24 px-4 sm:px-6 text-left min-h-screen bg-gradient-to-b from-[#fafcfc] via-[#f5faf7] to-[#eaf7f2] overflow-hidden -mt-24 font-grotesk">
       {/* Glow backgrounds */}
       <div className="absolute top-[20%] right-[-10%] w-[40%] h-[500px] rounded-full bg-emerald-400/[0.04] blur-[150px] pointer-events-none" />
       <div className="absolute bottom-[20%] left-[-10%] w-[40%] h-[500px] rounded-full bg-teal-300/[0.03] blur-[150px] pointer-events-none" />

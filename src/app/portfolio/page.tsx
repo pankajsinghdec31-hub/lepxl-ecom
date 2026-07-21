@@ -631,7 +631,7 @@ function StickySlideshow() {
   }, []);
 
   const { scrollYProgress } = useScroll({
-    target: isMounted && containerRef.current ? containerRef : undefined,
+    target: containerRef,
     offset: ["start start", "end end"]
   });
 
@@ -898,7 +898,7 @@ export default function PortfolioPage() {
   }, []);
 
   const { scrollYProgress } = useScroll({
-    target: isMounted && masonrySectionRef.current ? masonrySectionRef : undefined,
+    target: masonrySectionRef,
     offset: ["start end", "end start"]
   });
 
@@ -941,7 +941,7 @@ export default function PortfolioPage() {
   };
 
   return (
-    <div className="relative pt-28 sm:pt-44 pb-12 sm:pb-24 px-4 sm:px-6 text-left min-h-screen bg-gradient-to-b from-[#fafcfc] via-[#f5faf7] to-[#eaf7f2] overflow-hidden -mt-24 font-grotesk">
+    <div className="relative pt-24 sm:pt-32 pb-12 sm:pb-24 px-4 sm:px-6 text-left min-h-screen bg-gradient-to-b from-[#fafcfc] via-[#f5faf7] to-[#eaf7f2] overflow-hidden -mt-24 font-grotesk">
       {/* Background glow highlights */}
       <div className="absolute top-0 left-0 w-full h-[600px] bg-gradient-to-b from-[#fafcfc] to-transparent pointer-events-none z-0" />
       <div className="absolute top-[25%] right-[-10%] w-[500px] h-[500px] bg-emerald-500/[0.04] rounded-full blur-[140px] pointer-events-none" />

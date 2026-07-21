@@ -160,7 +160,7 @@ export default function ShopifyAuditPage() {
   };
 
   return (
-    <div className="relative pt-44 pb-24 px-6 text-left min-h-screen bg-gradient-to-b from-[#fafcfc] via-[#f5faf7] to-[#eaf7f2] overflow-hidden -mt-24 font-grotesk">
+    <div className="relative pt-24 sm:pt-32 pb-24 px-6 text-left min-h-screen bg-gradient-to-b from-[#fafcfc] via-[#f5faf7] to-[#eaf7f2] overflow-hidden -mt-24 font-grotesk">
       {/* Decorative Blur Backgrounds */}
       <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[500px] rounded-full bg-emerald-400/[0.04] blur-[140px] pointer-events-none animate-pulse" />
       <div className="absolute top-[20%] right-[-10%] w-[45%] h-[600px] rounded-full bg-teal-300/[0.03] blur-[160px] pointer-events-none" />
