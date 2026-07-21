@@ -39,7 +39,7 @@ export const BLOG_POSTS: BlogPost[] = [
       role: "Founder & E-Commerce Strategist at SalePXL",
       avatar: "/founder_1.jpg"
     },
-    coverImage: "/process_sales_mockup.png",
+    coverImage: "/blogs/payment_gateways.svg",
     excerpt: "Selecting the right payment gateway in India directly affects your checkout drop-off rate and UPI conversion success. Here is an in-depth comparison of fees, settlement times, and 1-tap UPI integration.",
     tableOfContents: [
       { id: "overview", text: "Why Payment Gateways Matter for Indian D2C Brands" },
@@ -140,7 +140,7 @@ export const BLOG_POSTS: BlogPost[] = [
       role: "Founder & E-Commerce Strategist at SalePXL",
       avatar: "/founder_1.jpg"
     },
-    coverImage: "/process_plan_mockup.png",
+    coverImage: "/blogs/shipping_courier.svg",
     excerpt: "High RTO (Return to Origin) rates and slow courier dispatch can destroy D2C margins. Learn how top Indian brands select courier partners, automate shipping labels, and verify COD orders.",
     tableOfContents: [
       { id: "overview", text: "The RTO Challenge in Indian E-Commerce" },
@@ -193,7 +193,7 @@ export const BLOG_POSTS: BlogPost[] = [
       role: "Founder & E-Commerce Strategist at SalePXL",
       avatar: "/founder_1.jpg"
     },
-    coverImage: "/apparel_mockup.png",
+    coverImage: "/blogs/dropshipping_guide.svg",
     excerpt: "Dropshipping in India is booming with local suppliers offering 2-day delivery and COD options. Discover the exact steps to launch your store with zero upfront inventory costs.",
     tableOfContents: [
       { id: "intro", text: "What is Indian Dropshipping?" },
@@ -242,7 +242,7 @@ export const BLOG_POSTS: BlogPost[] = [
       role: "Founder & E-Commerce Strategist at SalePXL",
       avatar: "/founder_1.jpg"
     },
-    coverImage: "/process_build_mockup.png",
+    coverImage: "/blogs/shopify_vs_woocommerce.svg",
     excerpt: "Struggling with plugin conflicts, database crashes, and slow load times on WooCommerce? Here is why switching to Shopify transforms your operational speed and sales conversion.",
     tableOfContents: [
       { id: "overview", text: "The Platform Dilemma: Hosted vs Self-Hosted" },
@@ -281,7 +281,7 @@ export const BLOG_POSTS: BlogPost[] = [
       role: "Founder & E-Commerce Strategist at SalePXL",
       avatar: "/founder_1.jpg"
     },
-    coverImage: "/photoshoot_after.jpg",
+    coverImage: "/blogs/dropshipping_guide.svg",
     excerpt: "Don't launch your store unprepared. Go through this 10-point checklist covering GST compliance, mobile UX audits, courier API integrations, and checkout testing.",
     tableOfContents: [
       { id: "legal", text: "1. Business Registration & Legal Setup" },
@@ -330,7 +330,7 @@ export const BLOG_POSTS: BlogPost[] = [
       role: "Founder & E-Commerce Strategist at SalePXL",
       avatar: "/founder_1.jpg"
     },
-    coverImage: "/glossier.png",
+    coverImage: "/blogs/shopify_vs_woocommerce.svg",
     excerpt: "Installing too many apps slows down your store. Here are the 10 essential, lightweight Shopify apps every brand needs to maximize order revenue and customer retention.",
     tableOfContents: [
       { id: "apps-list", text: "Top 10 High-ROAS Shopify Apps" },
@@ -372,7 +372,7 @@ export const BLOG_POSTS: BlogPost[] = [
       role: "Founder & E-Commerce Strategist at SalePXL",
       avatar: "/founder_1.jpg"
     },
-    coverImage: "/apparel_mockup.png",
+    coverImage: "/blogs/shipping_courier.svg",
     excerpt: "The Indian D2C landscape is evolving fast. Discover how top direct-to-consumer brands adapt to quick delivery expectations, UPI payments, and interactive video storefronts.",
     tableOfContents: [
       { id: "overview", text: "The Shift in Indian Consumer Behavior" },
@@ -409,7 +409,7 @@ export const BLOG_POSTS: BlogPost[] = [
       role: "Founder & E-Commerce Strategist at SalePXL",
       avatar: "/founder_1.jpg"
     },
-    coverImage: "/wellness_mockup.png",
+    coverImage: "/blogs/page_speed.svg",
     excerpt: "A 1-second delay in page load time reduces conversions by 7%. Learn how to audit your theme Liquid files, defer third-party scripts, and compress images for sub-1.5s load times.",
     tableOfContents: [
       { id: "impact", text: "The Conversion Impact of Store Speed" },
@@ -446,7 +446,7 @@ export const BLOG_POSTS: BlogPost[] = [
       role: "Founder & E-Commerce Strategist at SalePXL",
       avatar: "/founder_1.jpg"
     },
-    coverImage: "/supplement_mockup.png",
+    coverImage: "/blogs/payment_gateways.svg",
     excerpt: "Increasing your conversion rate from 1.5% to 3.0% doubles your revenue without spending a single extra dollar on Google or Meta ads. Here are 10 battle-tested CRO tactics.",
     tableOfContents: [
       { id: "what-is-cro", text: "What is E-Commerce CRO?" },
@@ -482,7 +482,7 @@ export const BLOG_POSTS: BlogPost[] = [
       role: "Founder & E-Commerce Strategist at SalePXL",
       avatar: "/founder_1.jpg"
     },
-    coverImage: "/jewelry_mockup.png",
+    coverImage: "/blogs/luxury_shopify.svg",
     excerpt: "Luxury brands require a distinct visual language. Discover how high-end apparel, jewelry, and perfume storefronts use dark aesthetics, tailored fonts, and high-impact layouts.",
     tableOfContents: [
       { id: "aesthetics", text: "Luxury Design Foundations" },

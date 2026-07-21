@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#060c16"/>
+      <stop offset="100%" stop-color="#03060c"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="12" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#bg)"/>
+
+  <!-- Left Side: SHOPIFY (Modern, Emerald, Fast) -->
+  <g transform="translate(40, 80)">
+    <rect x="0" y="0" width="340" height="340" rx="20" fill="#091b15" stroke="#10b981" stroke-width="2" filter="url(#glow)"/>
+    
+    <!-- Shopify Bag Icon -->
+    <path d="M 170 60 L 210 90 H 130 Z M 130 90 H 210 V 160 C 210 180, 130 180, 130 160 Z" fill="#10b981" filter="url(#glow)"/>
+    <text x="170" y="140" fill="#000000" font-family="sans-serif" font-size="28" font-weight="900" text-anchor="middle">S</text>
+
+    <text x="170" y="210" fill="#ffffff" font-family="sans-serif" font-size="20" font-weight="extrabold" text-anchor="middle">SHOPIFY</text>
+    <text x="170" y="235" fill="#34d399" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Sub-1.2s Global Speed</text>
+
+    <!-- Checklist -->
+    <text x="60" y="275" fill="#a7f3d0" font-family="sans-serif" font-size="12">✓ 99.99% Cloud Uptime</text>
+    <text x="60" y="295" fill="#a7f3d0" font-family="sans-serif" font-size="12">✓ 1-Click Express Checkout</text>
+    <text x="60" y="315" fill="#a7f3d0" font-family="sans-serif" font-size="12">✓ Zero Server Crashes</text>
+  </g>
+
+  <!-- Divider VS Badge -->
+  <circle cx="400" cy="250" r="30" fill="#10b981" filter="url(#glow)"/>
+  <text x="400" y="257" fill="#000000" font-family="sans-serif" font-size="16" font-weight="900" text-anchor="middle">VS</text>
+
+  <!-- Right Side: WOOCOMMERCE (Legacy, Warning) -->
+  <g transform="translate(420, 80)">
+    <rect x="0" y="0" width="340" height="340" rx="20" fill="#1c1214" stroke="#f43f5e" stroke-width="1.5" opacity="0.8"/>
+    
+    <text x="170" y="130" fill="#f43f5e" font-family="sans-serif" font-size="36" font-weight="900" text-anchor="middle">Woo</text>
+    <text x="170" y="210" fill="#ffffff" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">WOOCOMMERCE</text>
+    <text x="170" y="235" fill="#fda4af" font-family="sans-serif" font-size="12" text-anchor="middle">Legacy Self-Hosted</text>
+
+    <text x="60" y="275" fill="#fca5a5" font-family="sans-serif" font-size="12">⚠️ Plugin Conflicts & Crashes</text>
+    <text x="60" y="295" fill="#fca5a5" font-family="sans-serif" font-size="12">⚠️ Slow Database Speed</text>
+    <text x="60" y="315" fill="#fca5a5" font-family="sans-serif" font-size="12">⚠️ High Maintenance Costs</text>
+  </g>
+</svg>
