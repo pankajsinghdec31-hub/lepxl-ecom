@@ -88,6 +88,20 @@ const FAQ_ITEMS = [
 // Google Reviews consolidated data for the interactive reviews layout
 const GOOGLE_REVIEWS_CONSOLIDATED = [
   {
+    name: "Monica Fernandes",
+    avatarColor: "bg-amber-600",
+    avatarText: "MF",
+    metadata: "Local Guide · 28 reviews · 10 photos",
+    stars: 5,
+    timeAgo: "2 months ago",
+    headline: "Optimized & Branded Store",
+    text: "Our store is now fully optimized for mobile devices and perfectly represents our brand style. The checkout flow is fast and completely frictionless.",
+    image: "/founder_2.jpg",
+    statVal: "+4.2%",
+    statLabel: "Conversion Rate",
+    category: "Bracelet & Jewelry Store"
+  },
+  {
     name: "Malay Trivedi",
     avatarColor: "bg-sky-500",
     avatarText: "MT",
@@ -114,20 +128,6 @@ const GOOGLE_REVIEWS_CONSOLIDATED = [
     statVal: "+85%",
     statLabel: "Brand Appeal",
     category: "Health & Wellness Store"
-  },
-  {
-    name: "Monica Fernandes",
-    avatarColor: "bg-amber-600",
-    avatarText: "MF",
-    metadata: "Local Guide · 28 reviews · 10 photos",
-    stars: 5,
-    timeAgo: "2 months ago",
-    headline: "Optimized & Branded Store",
-    text: "Our store is now fully optimized for mobile devices and perfectly represents our brand style. The checkout flow is fast and completely frictionless.",
-    image: "/founder_2.jpg",
-    statVal: "+4.2%",
-    statLabel: "Conversion Rate",
-    category: "Bracelet & Jewelry Store"
   },
   {
     name: "Deepika Nair",
