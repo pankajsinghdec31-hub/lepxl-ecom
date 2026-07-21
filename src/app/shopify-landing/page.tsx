@@ -47,6 +47,15 @@ import {
   useScrollTracking
 } from "@/lib/analytics";
 
+// ─── WhatsApp SVG Logo Component ─────────────────────────────────────────
+function WhatsAppLogo({ className = "w-4 h-4 fill-[#25D366]" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className}>
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.05 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+    </svg>
+  );
+}
+
 // ─── Animated Stat Counter Component ──────────────────────────────────────
 function AnimatedStatCounter({ value }: { value: string }) {
   const [displayValue, setDisplayValue] = useState(value);
@@ -172,11 +181,63 @@ const TESTIMONIALS = [
   }
 ];
 
-// ─── 3. Shopify Services Data ────────────────────────────────────────────────
+// ─── 3. Why Choose SalePXL Data ──────────────────────────────────────────────
+const WHY_CHOOSE_ITEMS = [
+  {
+    title: "High-Converting Stores",
+    desc: "Frictionless sales funnels designed to turn casual visitors into instant buyers.",
+    icon: ShoppingBag,
+    tag: "Max Sales"
+  },
+  {
+    title: "Custom OS 2.0 Sections",
+    desc: "Bespoke drag-and-drop Liquid sections built specifically for your brand's unique needs.",
+    icon: LayoutGrid,
+    tag: "Custom Liquid"
+  },
+  {
+    title: "Payment Gateway Setup",
+    desc: "Official Razorpay, Stripe, Cashfree & Paytm integration with automated COD OTP verification.",
+    icon: CreditCard,
+    tag: "Instant Checkout"
+  },
+  {
+    title: "Shipping Partner Integration",
+    desc: "Automated Shiprocket & Delhivery sync for live rates, label printing, and order tracking.",
+    icon: Truck,
+    tag: "Auto Order Sync"
+  },
+  {
+    title: "AI Product Photoshoots",
+    desc: "Turn basic product shots into high-end lifestyle catalog imagery, saving lakhs in photo costs.",
+    icon: Camera,
+    tag: "AI Studio Shots"
+  },
+  {
+    title: "Mobile-First Design",
+    desc: "Over 80% of traffic is mobile. We build touch-optimized layouts for effortless smartphone shopping.",
+    icon: Smartphone,
+    tag: "Touch UX"
+  },
+  {
+    title: "Fast Loading Speed",
+    desc: "Sub-1.2s page load times ensuring minimal drop-offs and frictionless checkout experience.",
+    icon: Zap,
+    tag: "Sub-1.2s Speed"
+  },
+  {
+    title: "Frictionless Slide Cart Upsells",
+    desc: "1-click upsells, free shipping progress bars, quantity breaks, and sticky buy bars that boost order values.",
+    icon: Sliders,
+    tag: "AOV Boost"
+  }
+];
+
+// ─── 4. Shopify Services Data ────────────────────────────────────────────────
 const SHOPIFY_SERVICES = [
   {
     title: "High-Converting Shopify Development",
-    desc: "Custom OS 2.0 Shopify stores built from scratch with bespoke drag-and-drop sections, zero template bloat, and sub-1.2s speed.",
+    desc: "Custom OS 2.0 Shopify stores built from scratch with high-converting layouts, zero template bloat, and sub-1.2s speed.",
     icon: ShoppingBag,
     highlight: "100% Bespoke OS 2.0"
   },
@@ -206,7 +267,7 @@ const SHOPIFY_SERVICES = [
   },
   {
     title: "Shopify Speed Optimization",
-    desc: "Core Web Vitals optimization achieving 90+ Google PageSpeed scores for instant page loads and lower bounce rates.",
+    desc: "Core Web Vitals optimization achieving 90+ Google PageSpeed scores for instant page loads and minimal bounce rates.",
     icon: Zap,
     highlight: "Sub-1.2s Load Speed"
   },
@@ -218,7 +279,7 @@ const SHOPIFY_SERVICES = [
   }
 ];
 
-// ─── 4. FAQ Data ─────────────────────────────────────────────────────────────
+// ─── 5. FAQ Data ─────────────────────────────────────────────────────────────
 const FAQ_ITEMS = [
   {
     q: "What is your typical project delivery timeline for Shopify stores?",
@@ -241,8 +302,8 @@ const FAQ_ITEMS = [
     a: "Yes! We build bespoke Liquid and React custom sections (routine builders, bundle drawers, sticky CTA bars, interactive comparison tables) that you can easily edit directly from your Shopify theme customizer."
   },
   {
-    q: "Can you migrate my store from WooCommerce/WordPress without losing SEO?",
-    a: "Yes. We execute zero-downtime migrations including product catalogs, customer history, order records, and 301 URL redirects to protect your organic SEO rankings and traffic."
+    q: "Can you migrate my store from WooCommerce/WordPress seamlessly?",
+    a: "Yes. We execute zero-downtime migrations including product catalogs, customer history, order records, and URL redirects so your operation runs smoothly without missing a single order."
   },
   {
     q: "What post-launch support and training do you provide?",
@@ -275,15 +336,26 @@ export default function MetaAdsShopifyLandingPage() {
   const [formErrors, setFormErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Testimonial Auto Slider
+  // Testimonial Auto Slider State
   const [activeTestimonialIdx, setActiveTestimonialIdx] = useState(0);
-
   useEffect(() => {
     const timer = setInterval(() => {
       setActiveTestimonialIdx((prev) => (prev + 1) % TESTIMONIALS.length);
     }, 6000);
     return () => clearInterval(timer);
   }, []);
+
+  // Why Choose SalePXL Auto Slider State
+  const [whyChooseIdx, setWhyChooseIdx] = useState(0);
+  const [isWhyChooseHovered, setIsWhyChooseHovered] = useState(false);
+
+  useEffect(() => {
+    if (isWhyChooseHovered) return;
+    const timer = setInterval(() => {
+      setWhyChooseIdx((prev) => (prev + 1) % WHY_CHOOSE_ITEMS.length);
+    }, 3500);
+    return () => clearInterval(timer);
+  }, [isWhyChooseHovered]);
 
   // Open FAQ State
   const [openFaqIdx, setOpenFaqIdx] = useState<number | null>(0);
@@ -392,22 +464,22 @@ export default function MetaAdsShopifyLandingPage() {
             initial={{ opacity: 0, y: -12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.35, ease: "easeOut" }}
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/10 text-[11px] sm:text-xs font-semibold text-primary uppercase tracking-wider mb-5 shadow-sm max-w-full text-center"
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/10 text-[11px] sm:text-xs font-semibold text-primary uppercase tracking-wider mb-4 sm:mb-5 shadow-sm max-w-full text-center"
           >
             <Sparkles className="w-3.5 h-3.5 text-primary shrink-0" />
-            <span className="truncate">⚡ Premium Shopify Design & Development Agency</span>
+            <span className="truncate">⚡ #1 High-Converting Shopify Store Agency</span>
           </motion.div>
 
-          {/* Main Headline */}
+          {/* Main Headline (Non-Cropping Mobile Optimized) */}
           <motion.h1
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="text-2.5xl xs:text-3.5xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.12] mb-5 sm:mb-6"
+            className="text-[22px] xs:text-[28px] sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-[1.2] mb-4 sm:mb-6"
           >
-            Build a High-Converting Shopify Store That{" "}
-            <span className="bg-gradient-to-r from-primary via-[#34F5AE] to-emerald-400 bg-clip-text text-transparent">
-              Scales Your Brand
+            High-Converting Shopify Store{" "}
+            <span className="bg-gradient-to-r from-primary via-[#34F5AE] to-emerald-400 bg-clip-text text-transparent block sm:inline mt-1 sm:mt-0">
+              Built to Scale Your Sales
             </span>
           </motion.h1>
 
@@ -416,9 +488,9 @@ export default function MetaAdsShopifyLandingPage() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="text-sm sm:text-lg lg:text-xl text-neutral-300 leading-relaxed max-w-3xl mx-auto mb-8 font-normal px-2"
+            className="text-xs sm:text-base lg:text-lg text-neutral-300 leading-relaxed max-w-3xl mx-auto mb-7 sm:mb-8 font-normal px-1"
           >
-            Turn store visitors into loyal customers. SalePXL designs and engineers custom OS 2.0 Shopify stores with high-converting custom sections, seamless payment gateways, automated shipping integrations, and AI product photoshoots.
+            Turn store visitors into loyal buyers. SalePXL designs and engineers custom OS 2.0 Shopify stores with high-converting custom sections, seamless payment gateways, automated shipping integrations, and AI product photoshoots.
           </motion.p>
 
           {/* Hero CTAs */}
@@ -426,14 +498,14 @@ export default function MetaAdsShopifyLandingPage() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45, delay: 0.28, ease: [0.22, 1, 0.36, 1] }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-3.5 sm:gap-4 mb-10 sm:mb-14 w-full"
+            className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-9 sm:mb-14 w-full"
           >
             <a
               href="#lead-form"
-              onClick={() => trackCTAClick({ cta_name: "Book Free Consultation Hero", cta_location: "Hero Primary" })}
+              onClick={() => trackCTAClick({ cta_name: "Book Strategy Call Hero", cta_location: "Hero Primary" })}
               className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-7 sm:px-8 py-3.5 sm:py-4 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider text-black bg-primary hover:bg-primary-hover shadow-[0_0_35px_rgba(34,227,154,0.35)] active:scale-95 transition-all duration-300 group cursor-pointer"
             >
-              <span>Book Free Consultation</span>
+              <span>Book Strategy Call</span>
               <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
             </a>
 
@@ -444,7 +516,7 @@ export default function MetaAdsShopifyLandingPage() {
               onClick={() => trackWhatsAppClick("Hero Secondary CTA")}
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 sm:px-8 py-3.5 sm:py-4 rounded-full text-xs sm:text-sm font-semibold text-white bg-white/[0.06] hover:bg-white/10 border border-white/15 active:scale-95 transition-all duration-300"
             >
-              <MessageCircle className="w-4 h-4 text-[#25D366]" />
+              <WhatsAppLogo className="w-4 h-4 fill-[#25D366]" />
               <span>Chat on WhatsApp</span>
             </a>
           </motion.div>
@@ -454,7 +526,7 @@ export default function MetaAdsShopifyLandingPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-4 max-w-4xl mx-auto pt-6 border-t border-white/[0.08]"
+            className="grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-4 max-w-4xl mx-auto pt-5 border-t border-white/[0.08]"
           >
             {[
               { val: "100+", label: "Stores Built", desc: "Proven track record" },
@@ -466,73 +538,73 @@ export default function MetaAdsShopifyLandingPage() {
                 key={idx}
                 whileHover={{ y: -4 }}
                 transition={{ duration: 0.2 }}
-                className="bg-white/[0.02] border border-white/[0.06] rounded-2xl p-3.5 sm:p-4 text-center hover:border-primary/30 transition-all duration-300"
+                className="bg-white/[0.02] border border-white/[0.06] rounded-2xl p-3 sm:p-4 text-center hover:border-primary/30 transition-all duration-300"
               >
-                <div className="text-lg sm:text-2xl font-extrabold text-primary font-mono mb-0.5">
+                <div className="text-base sm:text-2xl font-extrabold text-primary font-mono mb-0.5">
                   <AnimatedStatCounter value={badge.val} />
                 </div>
-                <div className="text-[11px] sm:text-xs font-semibold text-white uppercase tracking-wider">
+                <div className="text-[10px] sm:text-xs font-semibold text-white uppercase tracking-wider">
                   {badge.label}
                 </div>
-                <div className="text-[10px] sm:text-[11px] text-neutral-400 mt-0.5">
+                <div className="text-[9px] sm:text-[11px] text-neutral-400 mt-0.5">
                   {badge.desc}
                 </div>
               </motion.div>
             ))}
           </motion.div>
 
-          {/* Feature Showcase Grid Cards: Payment, Shipping, Custom Sections, AI Photoshoot */}
+          {/* Feature Showcase Grid Cards */}
           <motion.div
             initial={{ opacity: 0, scale: 0.97 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.42 }}
-            className="mt-10 sm:mt-14 relative max-w-4xl mx-auto rounded-2xl sm:rounded-3xl border border-white/15 bg-[#0a0a0a] p-5 sm:p-8 shadow-[0_20px_60px_rgba(0,0,0,0.8)] text-left"
+            className="mt-8 sm:mt-14 relative max-w-4xl mx-auto rounded-2xl sm:rounded-3xl border border-white/15 bg-[#0a0a0a] p-4 sm:p-8 shadow-[0_20px_60px_rgba(0,0,0,0.8)] text-left"
           >
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-4">
               {/* Feature 1: Custom Sections */}
-              <div className="bg-white/[0.03] border border-white/10 rounded-2xl p-4 flex flex-col justify-between space-y-3">
-                <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
-                  <LayoutGrid className="w-5 h-5" />
+              <div className="bg-white/[0.03] border border-white/10 rounded-2xl p-4 flex flex-col justify-between space-y-2.5">
+                <div className="w-9 h-9 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+                  <LayoutGrid className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-white mb-1">Custom Sections</h4>
-                  <p className="text-xs text-neutral-400 leading-relaxed">Bespoke Liquid drag-and-drop sections, routine builders & cart drawers.</p>
+                  <h4 className="text-xs sm:text-sm font-bold text-white mb-1">Custom Sections</h4>
+                  <p className="text-[11px] sm:text-xs text-neutral-400 leading-relaxed">Bespoke Liquid drag-and-drop sections, routine builders & cart drawers.</p>
                 </div>
                 <span className="text-[10px] font-mono font-bold text-primary">✓ 100% Theme Customizer</span>
               </div>
 
               {/* Feature 2: Payment Gateways */}
-              <div className="bg-white/[0.03] border border-white/10 rounded-2xl p-4 flex flex-col justify-between space-y-3">
-                <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
-                  <CreditCard className="w-5 h-5" />
+              <div className="bg-white/[0.03] border border-white/10 rounded-2xl p-4 flex flex-col justify-between space-y-2.5">
+                <div className="w-9 h-9 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+                  <CreditCard className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-white mb-1">Payment Gateways</h4>
-                  <p className="text-xs text-neutral-400 leading-relaxed">Razorpay, Stripe, Cashfree, Paytm & COD OTP verification.</p>
+                  <h4 className="text-xs sm:text-sm font-bold text-white mb-1">Payment Gateways</h4>
+                  <p className="text-[11px] sm:text-xs text-neutral-400 leading-relaxed">Razorpay, Stripe, Cashfree, Paytm & COD OTP verification.</p>
                 </div>
                 <span className="text-[10px] font-mono font-bold text-primary">✓ Instant Checkout</span>
               </div>
 
               {/* Feature 3: Shipping Integration */}
-              <div className="bg-white/[0.03] border border-white/10 rounded-2xl p-4 flex flex-col justify-between space-y-3">
-                <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
-                  <Truck className="w-5 h-5" />
+              <div className="bg-white/[0.03] border border-white/10 rounded-2xl p-4 flex flex-col justify-between space-y-2.5">
+                <div className="w-9 h-9 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+                  <Truck className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-white mb-1">Shipping Partners</h4>
-                  <p className="text-xs text-neutral-400 leading-relaxed">Shiprocket, Delhivery, DTDC & automated tracking setup.</p>
+                  <h4 className="text-xs sm:text-sm font-bold text-white mb-1">Shipping Partners</h4>
+                  <p className="text-[11px] sm:text-xs text-neutral-400 leading-relaxed">Shiprocket, Delhivery, DTDC & automated tracking setup.</p>
                 </div>
                 <span className="text-[10px] font-mono font-bold text-primary">✓ Auto Order Sync</span>
               </div>
 
               {/* Feature 4: AI Photoshoots */}
-              <div className="bg-white/[0.03] border border-white/10 rounded-2xl p-4 flex flex-col justify-between space-y-3">
-                <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
-                  <Camera className="w-5 h-5" />
+              <div className="bg-white/[0.03] border border-white/10 rounded-2xl p-4 flex flex-col justify-between space-y-2.5">
+                <div className="w-9 h-9 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+                  <Camera className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-white mb-1">AI Product Photoshoot</h4>
-                  <p className="text-xs text-neutral-400 leading-relaxed">Transform flat-lays into studio lifestyle photos + 20 free listings.</p>
+                  <h4 className="text-xs sm:text-sm font-bold text-white mb-1">AI Product Photoshoot</h4>
+                  <p className="text-[11px] sm:text-xs text-neutral-400 leading-relaxed">Transform flat-lays into studio lifestyle photos + 20 free listings.</p>
                 </div>
                 <span className="text-[10px] font-mono font-bold text-primary">✓ Save Lakhs in Studio Costs</span>
               </div>
@@ -541,14 +613,14 @@ export default function MetaAdsShopifyLandingPage() {
         </div>
       </section>
 
-      {/* ─── 2. WHY SALEPXL SECTION ─────────────────────────────────────────── */}
+      {/* ─── 2. WHY SALEPXL SECTION (Interactive Auto Slider) ────────────────── */}
       <section className="py-14 sm:py-20 lg:py-24 px-4 sm:px-6 max-w-7xl mx-auto relative z-10 border-t border-white/[0.08]">
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-40px" }}
           transition={{ duration: 0.4 }}
-          className="text-center max-w-3xl mx-auto mb-12 sm:mb-16"
+          className="text-center max-w-3xl mx-auto mb-10 sm:mb-14"
         >
           <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-primary mb-2 block font-mono">
             Why Choose SalePXL
@@ -561,72 +633,92 @@ export default function MetaAdsShopifyLandingPage() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-          {[
-            {
-              title: "High-Converting Stores",
-              desc: "Frictionless sales funnels designed to turn casual visitors into instant buyers.",
-              icon: ShoppingBag
-            },
-            {
-              title: "Custom OS 2.0 Sections",
-              desc: "Bespoke drag-and-drop Liquid sections built specifically for your brand's unique needs.",
-              icon: LayoutGrid
-            },
-            {
-              title: "Payment Gateway Setup",
-              desc: "Official Razorpay, Stripe, Cashfree & Paytm integration with automated COD OTP verification.",
-              icon: CreditCard
-            },
-            {
-              title: "Shipping Partner Integration",
-              desc: "Automated Shiprocket & Delhivery sync for live rates, label printing, and order tracking.",
-              icon: Truck
-            },
-            {
-              title: "AI Product Photoshoots",
-              desc: "Turn basic product shots into high-end lifestyle catalog imagery, saving lakhs in photo costs.",
-              icon: Camera
-            },
-            {
-              title: "Mobile-First Design",
-              desc: "Over 80% of traffic is mobile. We build touch-optimized layouts for effortless smartphone shopping.",
-              icon: Smartphone
-            },
-            {
-              title: "Fast Loading Speed",
-              desc: "Sub-1.2s page load times ensuring minimal drop-offs and excellent Core Web Vitals.",
-              icon: Zap
-            },
-            {
-              title: "SEO & Schema Optimized",
-              desc: "Clean schema markup, optimized metadata, and clean code for top Google organic rankings.",
-              icon: Code
-            }
-          ].map((item, idx) => {
-            const IconComp = item.icon;
-            return (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-30px" }}
-                transition={{ duration: 0.35, delay: idx * 0.05 }}
-                whileHover={{ y: -4 }}
-                className="bg-[#0a0a0a] border border-white/[0.08] hover:border-primary/40 rounded-2xl p-5 sm:p-6 transition-all duration-300 group"
+        {/* Auto Sliding Showcase Cards */}
+        <div
+          className="relative max-w-5xl mx-auto"
+          onMouseEnter={() => setIsWhyChooseHovered(true)}
+          onMouseLeave={() => setIsWhyChooseHovered(false)}
+        >
+          {/* Controls: Prev & Next Buttons */}
+          <div className="flex items-center justify-between mb-4 sm:mb-6">
+            <div className="text-xs text-neutral-400 font-mono">
+              Features Showcase <span className="text-primary font-bold">{whyChooseIdx + 1}</span> / {WHY_CHOOSE_ITEMS.length}
+            </div>
+
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() =>
+                  setWhyChooseIdx((prev) => (prev === 0 ? WHY_CHOOSE_ITEMS.length - 1 : prev - 1))
+                }
+                className="w-8 h-8 rounded-full bg-white/5 hover:bg-white/15 border border-white/10 flex items-center justify-center text-white transition-colors cursor-pointer"
+                aria-label="Previous feature"
               >
-                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-4 text-primary group-hover:bg-primary group-hover:text-black transition-colors duration-300">
-                  <IconComp className="w-5 h-5 sm:w-6 sm:h-6" />
-                </div>
-                <h3 className="text-base sm:text-lg font-bold text-white mb-2">
-                  {item.title}
-                </h3>
-                <p className="text-xs sm:text-sm text-neutral-400 leading-relaxed">
-                  {item.desc}
-                </p>
-              </motion.div>
-            );
-          })}
+                <ChevronLeft className="w-4 h-4" />
+              </button>
+              <button
+                onClick={() =>
+                  setWhyChooseIdx((prev) => (prev + 1) % WHY_CHOOSE_ITEMS.length)
+                }
+                className="w-8 h-8 rounded-full bg-white/5 hover:bg-white/15 border border-white/10 flex items-center justify-center text-white transition-colors cursor-pointer"
+                aria-label="Next feature"
+              >
+                <ChevronRight className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
+
+          {/* Active Card Slider View */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+            {[0, 1].map((offset) => {
+              const itemIdx = (whyChooseIdx + offset) % WHY_CHOOSE_ITEMS.length;
+              const item = WHY_CHOOSE_ITEMS[itemIdx];
+              const IconComp = item.icon;
+              return (
+                <AnimatePresence key={`${itemIdx}-${offset}`} mode="wait">
+                  <motion.div
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -20 }}
+                    transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                    className="bg-[#0a0a0a] border border-white/10 hover:border-primary/40 rounded-2xl p-6 sm:p-8 text-left transition-all duration-300 flex flex-col justify-between group shadow-lg min-h-[200px]"
+                  >
+                    <div>
+                      <div className="flex items-center justify-between mb-4">
+                        <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-black transition-colors duration-300">
+                          <IconComp className="w-6 h-6" />
+                        </div>
+                        <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-primary px-3 py-1 rounded-full bg-primary/10 border border-primary/20">
+                          {item.tag}
+                        </span>
+                      </div>
+                      <h3 className="text-lg sm:text-xl font-bold text-white mb-2">
+                        {item.title}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed">
+                        {item.desc}
+                      </p>
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
+              );
+            })}
+          </div>
+
+          {/* Pagination Indicators */}
+          <div className="flex items-center justify-center gap-1.5 mt-6">
+            {WHY_CHOOSE_ITEMS.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => setWhyChooseIdx(idx)}
+                className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
+                  idx === whyChooseIdx
+                    ? "w-6 bg-primary"
+                    : "w-1.5 bg-white/20 hover:bg-white/40"
+                }`}
+                aria-label={`Go to slide ${idx + 1}`}
+              />
+            ))}
+          </div>
         </div>
       </section>
 
@@ -755,7 +847,7 @@ export default function MetaAdsShopifyLandingPage() {
             {
               step: "05",
               title: "Scale",
-              desc: "Post-purchase WhatsApp tracking flows, automated Klaviyo emails & subscriber retention.",
+              desc: "Post-purchase WhatsApp tracking flows, automated email flows & subscriber retention.",
               metric: "Predictable Growth"
             }
           ].map((item, idx) => (
@@ -964,7 +1056,7 @@ export default function MetaAdsShopifyLandingPage() {
               Get Started Today
             </span>
             <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
-              Get Your Free Shopify Store Consultation
+              Get Your Custom Shopify Store Strategy & Proposal
             </h2>
             <p className="text-xs sm:text-sm text-neutral-400 mt-2 leading-relaxed">
               Fill out your project details below. Our senior Shopify architects will review your brand and send you a custom growth plan within 2 hours.
@@ -1176,7 +1268,7 @@ export default function MetaAdsShopifyLandingPage() {
                 </>
               ) : (
                 <>
-                  <span>Get Free Store Consultation</span>
+                  <span>Get Custom Proposal & Strategy</span>
                   <ArrowRight className="w-4 h-4" />
                 </>
               )}
@@ -1201,7 +1293,7 @@ export default function MetaAdsShopifyLandingPage() {
           className="bg-gradient-to-br from-[#0c1f17] via-[#0a0a0a] to-[#0a0a0a] border border-[#25D366]/30 rounded-2xl sm:rounded-3xl p-6 sm:p-12 lg:p-14 text-center relative overflow-hidden shadow-[0_20px_50px_rgba(37,211,102,0.1)]"
         >
           <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#25D366]/15 border border-[#25D366]/30 flex items-center justify-center mx-auto mb-5 text-[#25D366]">
-            <MessageCircle className="w-7 h-7 sm:w-8 sm:h-8" />
+            <WhatsAppLogo className="w-7 h-7 sm:w-8 sm:h-8 fill-[#25D366]" />
           </div>
 
           <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight mb-3">
@@ -1220,7 +1312,7 @@ export default function MetaAdsShopifyLandingPage() {
               onClick={() => trackWhatsAppClick("Large WhatsApp CTA Section")}
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 sm:px-8 py-3.5 sm:py-4 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider text-black bg-[#25D366] hover:bg-[#20ba5a] shadow-[0_0_30px_rgba(37,211,102,0.35)] active:scale-95 transition-all duration-300"
             >
-              <MessageCircle className="w-4 h-4" />
+              <WhatsAppLogo className="w-4 h-4 fill-black" />
               <span>Chat on WhatsApp</span>
             </a>
 
@@ -1229,7 +1321,7 @@ export default function MetaAdsShopifyLandingPage() {
               onClick={() => trackCTAClick({ cta_name: "Book Consultation WhatsApp Banner", cta_location: "WhatsApp Section" })}
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 sm:px-8 py-3.5 sm:py-4 rounded-full text-xs sm:text-sm font-semibold text-white bg-white/10 hover:bg-white/20 border border-white/15 active:scale-95 transition-all duration-300"
             >
-              <span>Book Free Consultation</span>
+              <span>Book Strategy Call</span>
             </a>
           </div>
         </motion.div>
@@ -1330,7 +1422,7 @@ export default function MetaAdsShopifyLandingPage() {
                 onClick={() => trackCTAClick({ cta_name: "Book Consultation Final CTA", cta_location: "Final Banner" })}
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 sm:px-8 py-3.5 sm:py-4 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider text-black bg-primary hover:bg-primary-hover shadow-[0_0_35px_rgba(34,227,154,0.4)] active:scale-95 transition-all duration-300 cursor-pointer"
               >
-                <span>Book Free Consultation</span>
+                <span>Book Strategy Call</span>
                 <ArrowRight className="w-4 h-4" />
               </a>
 
@@ -1341,7 +1433,7 @@ export default function MetaAdsShopifyLandingPage() {
                 onClick={() => trackWhatsAppClick("Final CTA Section")}
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 sm:px-8 py-3.5 sm:py-4 rounded-full text-xs sm:text-sm font-semibold text-white bg-white/10 hover:bg-white/20 border border-white/15 active:scale-95 transition-all duration-300"
               >
-                <MessageCircle className="w-4 h-4 text-[#25D366]" />
+                <WhatsAppLogo className="w-4 h-4 fill-[#25D366]" />
                 <span>Chat on WhatsApp</span>
               </a>
             </div>
@@ -1349,28 +1441,6 @@ export default function MetaAdsShopifyLandingPage() {
         </motion.div>
       </section>
 
-      {/* ─── 11. MOBILE STICKY BOTTOM CTA BAR ───────────────────────────────── */}
-      <div className="fixed bottom-0 left-0 right-0 z-40 bg-[#080808]/95 backdrop-blur-xl border-t border-white/15 p-3 md:hidden flex items-center justify-between gap-2.5 shadow-[0_-10px_30px_rgba(0,0,0,0.8)]">
-        <a
-          href="https://wa.me/919917780656?text=Hi%20SalePXL%2C%20I%20need%20a%20Shopify%20store."
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={() => trackWhatsAppClick("Mobile Sticky Bar")}
-          className="flex-1 inline-flex items-center justify-center gap-1.5 py-3 rounded-full text-xs font-bold text-white bg-white/10 border border-white/15 active:scale-95 transition-transform"
-        >
-          <MessageCircle className="w-4 h-4 text-[#25D366]" />
-          <span>WhatsApp</span>
-        </a>
-
-        <a
-          href="#lead-form"
-          onClick={() => trackCTAClick({ cta_name: "Mobile Sticky CTA", cta_location: "Mobile Bottom Bar" })}
-          className="flex-[1.5] inline-flex items-center justify-center gap-1.5 py-3 rounded-full text-xs font-bold uppercase tracking-wider text-black bg-primary hover:bg-primary-hover shadow-[0_0_20px_rgba(34,227,154,0.3)] active:scale-95 transition-transform"
-        >
-          <span>Book Consultation</span>
-          <ArrowRight className="w-3.5 h-3.5" />
-        </a>
-      </div>
     </div>
   );
 }
