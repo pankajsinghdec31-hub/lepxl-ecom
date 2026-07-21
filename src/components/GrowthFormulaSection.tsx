@@ -261,14 +261,9 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
   }, [isAutoScrolling, isInView, isHovered]);
 
   const trustBadges = [
-    { label: "SalePXL 2X Conversion PDP", icon: "⚡", pos: "-top-7 left-1/2 -translate-x-1/2" },
-    { label: "Customer Psychology Trust", icon: "⭐", pos: "-left-16 top-6" },
-    { label: "CRO Optimized Product Page", icon: "🎯", pos: "-right-16 top-6" },
-    { label: "Faster 1-Click Checkout", icon: "🚀", pos: "-top-4 right-2" },
-    { label: "Offer & Discount Positioning", icon: "🏷️", pos: "-left-14 bottom-8" },
-    { label: "Clean & Well-Optimized UX", icon: "✨", pos: "-right-14 bottom-8" },
-    { label: "Buyer Trust & Proof Engine", icon: "🛡️", pos: "-bottom-6 left-1/3 -translate-x-1/2" },
-    { label: "High-Converting Shopify Store", icon: "🛍️", pos: "-bottom-6 right-6" }
+    { label: "Customer Psychology Trust", icon: "⭐", pos: "-top-4 -left-4" },
+    { label: "CRO Optimized PDP", icon: "🎯", pos: "-top-4 -right-4" },
+    { label: "Faster 1-Click Checkout", icon: "🚀", pos: "-bottom-4 left-1/2 -translate-x-1/2" }
   ];
 
   return (
@@ -526,7 +521,7 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
                   </div>
 
                   {/* Right Column: Interactive CRO E-Commerce Store Preview Card */}
-                  <div className="col-span-7 flex items-center justify-center relative py-4">
+                  <div className="col-span-7 flex items-center justify-center relative py-6 px-4">
                     <div className="w-[310px] bg-[#070b14] border-2 border-emerald-500/40 rounded-2xl shadow-[0_0_40px_rgba(16,185,129,0.15)] relative overflow-hidden z-10 font-sans">
                       
                       {/* Store Top Announcement Bar */}
@@ -636,13 +631,13 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
 
                     </div>
 
-                    {/* Floating CRO Psychology Pills positioned around the Store Card */}
+                    {/* Floating CRO Psychology Pills positioned neatly around the Store Card */}
                     {trustBadges.map((badge, i) => (
                       <motion.span
                         key={badge.label}
-                        animate={{ y: [0, -6, 0] }}
-                        transition={{ duration: 2.8 + i * 0.2, repeat: Infinity, ease: "easeInOut" }}
-                        className={`absolute ${badge.pos} px-3 py-1 rounded-full bg-slate-900/95 border border-emerald-500/50 text-[10px] font-mono font-bold text-emerald-300 backdrop-blur-md shadow-[0_0_15px_rgba(16,185,129,0.2)] whitespace-nowrap z-20 flex items-center gap-1.5`}
+                        animate={{ y: [0, -4, 0] }}
+                        transition={{ duration: 2.8 + i * 0.3, repeat: Infinity, ease: "easeInOut" }}
+                        className={`absolute ${badge.pos} px-3 py-1 rounded-full bg-[#070b14] border border-emerald-500/50 text-[10px] font-mono font-bold text-emerald-300 backdrop-blur-md shadow-[0_0_15px_rgba(16,185,129,0.25)] whitespace-nowrap z-20 flex items-center gap-1.5`}
                       >
                         <span>{badge.icon}</span>
                         <span>{badge.label}</span>
