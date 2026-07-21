@@ -5,16 +5,11 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import {
   ArrowRight,
-  TrendingUp,
-  Award,
   Zap,
   Phone,
-  MessageCircle,
-  CheckCircle2,
   ChevronDown,
   ChevronLeft,
   ChevronRight,
-  HelpCircle,
   ArrowUpRight,
   ShoppingBag,
   Smartphone,
@@ -23,23 +18,19 @@ import {
   Star,
   Sparkles,
   ShieldCheck,
-  BarChart3,
-  Layers,
-  Lock,
-  Clock,
-  ExternalLink,
   User,
   Mail,
   Building,
   Globe,
-  DollarSign,
   FileText,
   Truck,
   CreditCard,
   Camera,
-  LayoutGrid
+  LayoutGrid,
+  CheckCircle2,
+  TrendingUp
 } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useMotionValue, useSpring } from "framer-motion";
 import {
   trackLeadEvent,
   trackWhatsAppClick,
@@ -47,73 +38,50 @@ import {
   useScrollTracking
 } from "@/lib/analytics";
 
-// ─── WhatsApp SVG Logo Component ─────────────────────────────────────────
-function WhatsAppLogo({ className = "w-4 h-4 fill-[#25D366]" }: { className?: string }) {
+// ─── WhatsApp SVG ─────────────────────────────────────────────────────────────
+function WhatsAppLogo({ className = "w-4 h-4" }: { className?: string }) {
   return (
-    <svg viewBox="0 0 24 24" className={className}>
+    <svg viewBox="0 0 24 24" className={className} fill="currentColor">
       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.05 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
     </svg>
   );
 }
 
-// ─── Animated Stat Counter Component ──────────────────────────────────────
+// ─── Animated Number Counter ───────────────────────────────────────────────────
 function AnimatedStatCounter({ value }: { value: string }) {
   const [displayValue, setDisplayValue] = useState(value);
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLSpanElement>(null);
   const hasAnimated = useRef(false);
-
   useEffect(() => {
     const node = ref.current;
     if (!node) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting && !hasAnimated.current) {
-          hasAnimated.current = true;
-          const match = value.match(/^([^\d]*)([\d.]+)([^\d]*)$/);
-          if (!match) return;
-
-          const prefix = match[1];
-          const targetNum = parseFloat(match[2]);
-          const suffix = match[3];
-
-          const duration = 1200;
-          const startTime = performance.now();
-
-          const animate = (currentTime: number) => {
-            const elapsedTime = currentTime - startTime;
-            const progress = Math.min(elapsedTime / duration, 1);
-            const easeProgress = 1 - Math.pow(1 - progress, 3);
-            const currentNum = targetNum * easeProgress;
-
-            const formattedNum =
-              targetNum % 1 === 0
-                ? Math.floor(currentNum).toString()
-                : currentNum.toFixed(1);
-
-            setDisplayValue(`${prefix}${formattedNum}${suffix}`);
-
-            if (progress < 1) {
-              requestAnimationFrame(animate);
-            } else {
-              setDisplayValue(value);
-            }
-          };
-
-          requestAnimationFrame(animate);
-        }
-      },
-      { threshold: 0.2 }
-    );
-
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting && !hasAnimated.current) {
+        hasAnimated.current = true;
+        const match = value.match(/^([^\d]*)([\d.]+)([^\d]*)$/);
+        if (!match) return;
+        const [, prefix, numStr, suffix] = match;
+        const target = parseFloat(numStr);
+        const duration = 1400;
+        const start = performance.now();
+        const tick = (now: number) => {
+          const p = Math.min((now - start) / duration, 1);
+          const e = 1 - Math.pow(1 - p, 4);
+          const cur = target % 1 === 0 ? Math.floor(target * e).toString() : (target * e).toFixed(1);
+          setDisplayValue(`${prefix}${cur}${suffix}`);
+          if (p < 1) requestAnimationFrame(tick);
+          else setDisplayValue(value);
+        };
+        requestAnimationFrame(tick);
+      }
+    }, { threshold: 0.3 });
     observer.observe(node);
     return () => observer.disconnect();
   }, [value]);
-
-  return <div ref={ref}>{displayValue}</div>;
+  return <span ref={ref}>{displayValue}</span>;
 }
 
-// ─── 1. Portfolio Marquee Data ──────────────────────────────────────────────
+// ─── Data ─────────────────────────────────────────────────────────────────────
 const PORTFOLIO_IMAGES_ROW1 = [
   { src: "/chomp.jpg", alt: "Chomp Brand" },
   { src: "/offlimits.jpg", alt: "OffLimits" },
@@ -141,7 +109,6 @@ const PORTFOLIO_IMAGES_ROW2 = [
   { src: "https://jhango-images.b-cdn.net/images/swadezi.webp", alt: "Swadezi" }
 ];
 
-// ─── 2. Testimonial Data ─────────────────────────────────────────────────────
 const TESTIMONIALS = [
   {
     name: "Monica Fernandes",
@@ -149,8 +116,8 @@ const TESTIMONIALS = [
     image: "/founder_2.jpg",
     stars: 5,
     quote: "Our store checkout is now fully setup with Razorpay, COD verification, and Shiprocket tracking. Our sales jumped from 1.2% to 3.8% instantly!",
-    statVal: "+4.2%",
-    statLabel: "Conversion Rate"
+    metric: "+4.2%",
+    metricLabel: "Conversion Rate"
   },
   {
     name: "Malay Trivedi",
@@ -158,8 +125,8 @@ const TESTIMONIALS = [
     image: "/founder_4.jpg",
     stars: 5,
     quote: "The speed was amazing. Our store was live in 3 days with custom sections and slide cart upsells that doubled our average order value.",
-    statVal: "3 Days",
-    statLabel: "Delivery Speed"
+    metric: "3 Days",
+    metricLabel: "Live Delivery"
   },
   {
     name: "James Park",
@@ -167,8 +134,8 @@ const TESTIMONIALS = [
     image: "/founder_5.jpg",
     stars: 5,
     quote: "Their AI product photo service saved us lakhs in photography costs. They turned simple pictures into beautiful catalog photos easily!",
-    statVal: "-90%",
-    statLabel: "Photo Shoot Costs"
+    metric: "-90%",
+    metricLabel: "Photo Costs"
   },
   {
     name: "Deepika Nair",
@@ -176,217 +143,94 @@ const TESTIMONIALS = [
     image: "/founder_3.jpg",
     stars: 5,
     quote: "SalePXL set up our shipping partners and payment gateways smoothly. The store looks clean and loads super fast on mobile.",
-    statVal: "+3.8x",
-    statLabel: "Revenue Lift"
+    metric: "+3.8x",
+    metricLabel: "Revenue Lift"
   }
 ];
 
-// ─── 3. Why Choose SalePXL Data ──────────────────────────────────────────────
-const WHY_CHOOSE_ITEMS = [
-  {
-    title: "High-Converting Store Design",
-    desc: "Clean, easy-to-use layouts designed to turn casual visitors into paying customers.",
-    icon: ShoppingBag,
-    tag: "More Sales"
-  },
-  {
-    title: "Custom Drag-and-Drop Sections",
-    desc: "Bespoke sections made for your brand that you can easily edit anytime.",
-    icon: LayoutGrid,
-    tag: "Easy Editing"
-  },
-  {
-    title: "Payment Gateway Setup",
-    desc: "Easy payment integration with Razorpay, Stripe, Paytm, and COD order verification.",
-    icon: CreditCard,
-    tag: "Easy Checkout"
-  },
-  {
-    title: "Shipping Partner Integration",
-    desc: "Automatic order sync with Shiprocket and Delhivery for easy tracking and shipping.",
-    icon: Truck,
-    tag: "Auto Shipping"
-  },
-  {
-    title: "AI Product Photoshoots",
-    desc: "Turn basic product photos into studio-quality photos, saving lakhs in camera costs.",
-    icon: Camera,
-    tag: "Save Money"
-  },
-  {
-    title: "Built for Mobile Phones",
-    desc: "Over 80% of buyers shop on phones. We make your store fast and easy to use on mobile.",
-    icon: Smartphone,
-    tag: "Mobile Ready"
-  },
-  {
-    title: "Super Fast Load Speed",
-    desc: "Sub-1.2 second load speed so buyers never leave your page out of frustration.",
-    icon: Zap,
-    tag: "Sub-1.2s Speed"
-  },
-  {
-    title: "Slide Cart & Order Upsells",
-    desc: "1-click cart upsells, free shipping progress bars, and bundle discounts that increase order value.",
-    icon: Sliders,
-    tag: "Higher Orders"
-  }
+const SERVICES = [
+  { icon: ShoppingBag, title: "Custom Shopify Store", desc: "We build custom OS 2.0 stores from scratch — clean layouts, zero clutter, fast loading.", tag: "OS 2.0" },
+  { icon: LayoutGrid, title: "Custom Sections & Design", desc: "Drag-and-drop sections like product builders, sticky buy bars, and slide cart drawers.", tag: "Custom Sections" },
+  { icon: CreditCard, title: "Payment Gateway Setup", desc: "Razorpay, Stripe, Cashfree, Paytm, and Cash-On-Delivery verification.", tag: "Razorpay & Stripe" },
+  { icon: Truck, title: "Shipping Integration", desc: "Shiprocket, Delhivery, DTDC, and Ekart — automatic rates and order tracking.", tag: "Shiprocket" },
+  { icon: Camera, title: "AI Product Photos", desc: "Turn basic photos into studio-quality lifestyle images. Includes 20 free product listings.", tag: "AI Photos" },
+  { icon: Zap, title: "Speed Optimization", desc: "90+ PageSpeed score so your store opens instantly on every mobile device.", tag: "Sub-1.2s" },
+  { icon: Code, title: "App Setup & Automations", desc: "Klaviyo emails, WhatsApp updates, review apps, and payment gateway automations.", tag: "Full Setup" }
 ];
 
-// ─── 4. Shopify Services Data ────────────────────────────────────────────────
-const SHOPIFY_SERVICES = [
-  {
-    title: "Custom Shopify Store Building",
-    desc: "We build custom OS 2.0 Shopify stores from scratch with clean layouts, zero clutter, and fast loading speed.",
-    icon: ShoppingBag,
-    highlight: "Custom Shopify OS 2.0"
-  },
-  {
-    title: "Custom Sections & Theme Design",
-    desc: "Tailored drag-and-drop sections like product builders, sticky buy bars, and slide cart drawers.",
-    icon: LayoutGrid,
-    highlight: "Custom Sections"
-  },
-  {
-    title: "Payment Gateway Integration",
-    desc: "Setup for Razorpay, Stripe, Cashfree, Paytm, and Cash-On-Delivery (COD) verification.",
-    icon: CreditCard,
-    highlight: "Razorpay & Stripe"
-  },
-  {
-    title: "Shipping Partner Integration",
-    desc: "Setup with Shiprocket, Delhivery, DTDC, and Ekart for automatic shipping rates and order tracking.",
-    icon: Truck,
-    highlight: "Shiprocket & Delhivery"
-  },
-  {
-    title: "AI Product Photos & Catalog Setup",
-    desc: "Turn basic product photos into studio quality lifestyle images. Includes up to 20 free product listings.",
-    icon: Camera,
-    highlight: "AI Product Photos"
-  },
-  {
-    title: "Shopify Speed Optimization",
-    desc: "Speed optimization to get 90+ Google PageSpeed scores so your store opens instantly on mobile.",
-    icon: Zap,
-    highlight: "Fast Mobile Speed"
-  },
-  {
-    title: "App Setup & Automations",
-    desc: "Full setup for Klaviyo emails, WhatsApp order updates, customer reviews, and payment gateways.",
-    icon: Code,
-    highlight: "Complete App Setup"
-  }
+const WHY_ITEMS = [
+  { icon: ShoppingBag, title: "High-Converting Design", desc: "Clean layouts that turn visitors into buyers.", tag: "More Sales" },
+  { icon: LayoutGrid, title: "Custom Drag-and-Drop Sections", desc: "Sections made for your brand, editable anytime.", tag: "Easy Editing" },
+  { icon: CreditCard, title: "Payment Gateway Setup", desc: "Razorpay, Stripe, Paytm, and COD verification.", tag: "Easy Checkout" },
+  { icon: Truck, title: "Shipping Partner Integration", desc: "Auto order sync with Shiprocket and Delhivery.", tag: "Auto Shipping" },
+  { icon: Camera, title: "AI Product Photoshoots", desc: "Studio quality photos without the expensive shoots.", tag: "Save Money" },
+  { icon: Smartphone, title: "Built for Mobile", desc: "80% of buyers shop on phones. We make it fast and easy.", tag: "Mobile Ready" },
+  { icon: Zap, title: "Super Fast Load Speed", desc: "Sub-1.2 second speed so buyers never leave.", tag: "Sub-1.2s" },
+  { icon: Sliders, title: "Slide Cart & Upsells", desc: "1-click upsells and free shipping progress bars.", tag: "Higher Orders" }
 ];
 
-// ─── 5. FAQ Data ─────────────────────────────────────────────────────────────
+const PROCESS_STEPS = [
+  { step: "01", title: "Store Visit", desc: "Buyers land on your fast, mobile-friendly homepage.", metric: "Sub-1.2s Speed" },
+  { step: "02", title: "Build Trust", desc: "Reviews, star ratings, and secure payment badges.", metric: "High Trust" },
+  { step: "03", title: "Easy Shopping", desc: "Simple navigation, custom sections, and clear cart.", metric: "Easy UX" },
+  { step: "04", title: "Quick Checkout", desc: "Razorpay, Stripe, or Cash on Delivery — frictionless.", metric: "Quick Sales" },
+  { step: "05", title: "Happy Customers", desc: "Automatic shipping tracking and repeat buyers.", metric: "Brand Growth" }
+];
+
 const FAQ_ITEMS = [
-  {
-    q: "How long does it take to build a Shopify store?",
-    a: "Our standard delivery time is 3 to 7 business days for a complete, high-converting Shopify store."
-  },
-  {
-    q: "How do payment gateways and Cash on Delivery (COD) work?",
-    a: "We set up official payment gateways like Razorpay, Stripe, and Paytm for instant payments, plus Cash on Delivery (COD) verification to prevent fake orders."
-  },
-  {
-    q: "Which shipping services do you integrate?",
-    a: "We integrate Shiprocket, Delhivery, DTDC, and other shipping partners directly into your Shopify dashboard for automatic label printing and order tracking."
-  },
-  {
-    q: "How does the AI Product Photoshoot service work?",
-    a: "Send us basic product photos, and our AI design pipeline transforms them into high-quality lifestyle photos. This saves lakhs in studio photography costs."
-  },
-  {
-    q: "Can I easily edit my store content myself?",
-    a: "Yes! We build drag-and-drop custom sections so you can easily change text, images, products, and banners anytime from your Shopify dashboard."
-  },
-  {
-    q: "Can you transfer my store from WordPress or WooCommerce?",
-    a: "Yes. We safely move your products, customers, and order history to Shopify without any downtime."
-  },
-  {
-    q: "What support do you provide after the store is live?",
-    a: "We provide 30 days of free support after launch, plus a 1-on-1 walkthrough session so you feel 100% confident managing your store."
-  },
-  {
-    q: "What are your payment terms?",
-    a: "50% advance to start work, and the remaining 50% after your store is complete and you approve it."
-  }
+  { q: "How long does it take to build a Shopify store?", a: "Our standard delivery time is 3 to 7 business days for a complete, high-converting Shopify store." },
+  { q: "How do payment gateways and Cash on Delivery (COD) work?", a: "We set up Razorpay, Stripe, and Paytm for instant payments, plus COD verification to prevent fake orders." },
+  { q: "Which shipping services do you integrate?", a: "We integrate Shiprocket, Delhivery, DTDC, and other partners for automatic label printing and order tracking." },
+  { q: "How does the AI Product Photoshoot service work?", a: "Send us basic product photos, and our AI pipeline transforms them into high-quality lifestyle photos — saving lakhs in studio costs." },
+  { q: "Can I easily edit my store content myself?", a: "Yes! We build drag-and-drop sections so you can change text, images, and products anytime from your Shopify dashboard." },
+  { q: "Can you transfer my store from WordPress or WooCommerce?", a: "Yes. We safely move your products, customers, and order history to Shopify without any downtime." },
+  { q: "What support do you provide after launch?", a: "30 days of free support plus a 1-on-1 walkthrough so you feel 100% confident running your store." },
+  { q: "What are your payment terms?", a: "50% advance to start, and the remaining 50% after your store is complete and approved." }
 ];
 
+// ─── Main Component ───────────────────────────────────────────────────────────
 export default function MetaAdsShopifyLandingPage() {
   const router = useRouter();
-
-  // Scroll tracking hook
   useScrollTracking();
 
-  // Form State
   const [formData, setFormData] = useState({
-    fullName: "",
-    businessName: "",
-    phone: "",
-    email: "",
-    website: "",
-    monthlyRevenue: "Under ₹1 Lakh",
-    projectBudget: "Under ₹20,000",
-    projectDetails: ""
+    fullName: "", businessName: "", phone: "", email: "",
+    website: "", monthlyRevenue: "Under ₹1 Lakh",
+    projectBudget: "Under ₹20,000", projectDetails: ""
   });
-
   const [formErrors, setFormErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-
-  // Testimonial Auto Slider State
   const [activeTestimonialIdx, setActiveTestimonialIdx] = useState(0);
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setActiveTestimonialIdx((prev) => (prev + 1) % TESTIMONIALS.length);
-    }, 6000);
-    return () => clearInterval(timer);
-  }, []);
-
-  // Why Choose SalePXL Auto Slider State
-  const [whyChooseIdx, setWhyChooseIdx] = useState(0);
-  const [isWhyChooseHovered, setIsWhyChooseHovered] = useState(false);
-
-  useEffect(() => {
-    if (isWhyChooseHovered) return;
-    const timer = setInterval(() => {
-      setWhyChooseIdx((prev) => (prev + 1) % WHY_CHOOSE_ITEMS.length);
-    }, 3500);
-    return () => clearInterval(timer);
-  }, [isWhyChooseHovered]);
-
-  // Open FAQ State
+  const [whyIdx, setWhyIdx] = useState(0);
+  const [isWhyHovered, setIsWhyHovered] = useState(false);
   const [openFaqIdx, setOpenFaqIdx] = useState<number | null>(0);
 
-  // Form Handler
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
-  ) => {
+  useEffect(() => {
+    const t = setInterval(() => setActiveTestimonialIdx(p => (p + 1) % TESTIMONIALS.length), 6000);
+    return () => clearInterval(t);
+  }, []);
+
+  useEffect(() => {
+    if (isWhyHovered) return;
+    const t = setInterval(() => setWhyIdx(p => (p + 1) % WHY_ITEMS.length), 3500);
+    return () => clearInterval(t);
+  }, [isWhyHovered]);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-    if (formErrors[name]) {
-      setFormErrors((prev) => ({ ...prev, [name]: "" }));
-    }
+    setFormData(p => ({ ...p, [name]: value }));
+    if (formErrors[name]) setFormErrors(p => ({ ...p, [name]: "" }));
   };
 
   const validateForm = () => {
     const errors: Record<string, string> = {};
     if (!formData.fullName.trim()) errors.fullName = "Full Name is required";
     if (!formData.businessName.trim()) errors.businessName = "Business/Brand Name is required";
-    if (!formData.phone.trim()) {
-      errors.phone = "Phone number is required for WhatsApp updates";
-    } else if (formData.phone.replace(/\D/g, "").length < 8) {
-      errors.phone = "Please enter a valid phone number";
-    }
-    if (!formData.email.trim()) {
-      errors.email = "Email address is required";
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      errors.email = "Please enter a valid email address";
-    }
-    if (!formData.projectDetails.trim()) errors.projectDetails = "Please tell us briefly about your store goals";
-
+    if (!formData.phone.trim()) errors.phone = "Phone number is required";
+    else if (formData.phone.replace(/\D/g, "").length < 8) errors.phone = "Please enter a valid phone number";
+    if (!formData.email.trim()) errors.email = "Email address is required";
+    else if (!/\S+@\S+\.\S+/.test(formData.email)) errors.email = "Please enter a valid email address";
+    if (!formData.projectDetails.trim()) errors.projectDetails = "Please tell us about your project";
     setFormErrors(errors);
     return Object.keys(errors).length === 0;
   };
@@ -394,45 +238,25 @@ export default function MetaAdsShopifyLandingPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validateForm()) return;
-
     setIsSubmitting(true);
-    const redirectPath =
-      typeof window !== "undefined" && window.location.pathname.startsWith("/shopify-meta-ads")
-        ? "/shopify-meta-ads/thank-you"
-        : "/shopify-landing/thank-you";
-
+    const redirectPath = typeof window !== "undefined" && window.location.pathname.startsWith("/shopify-meta-ads")
+      ? "/shopify-meta-ads/thank-you" : "/shopify-landing/thank-you";
     try {
-      // 1. Submit lead to API
       await fetch("/api/submit-lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          source: "shopify-landing",
-          name: formData.fullName,
-          businessName: formData.businessName,
-          phone: formData.phone,
-          email: formData.email,
-          website: formData.website,
-          monthlyRevenue: formData.monthlyRevenue,
-          projectBudget: formData.projectBudget,
-          projectDetails: formData.projectDetails,
-          service: "High-Converting Shopify Store Consultation"
+          source: "shopify-landing", name: formData.fullName, businessName: formData.businessName,
+          phone: formData.phone, email: formData.email, website: formData.website,
+          monthlyRevenue: formData.monthlyRevenue, projectBudget: formData.projectBudget,
+          projectDetails: formData.projectDetails, service: "High-Converting Shopify Store Consultation"
         })
       });
-
-      // 2. Track analytics
       trackLeadEvent({
-        name: formData.fullName,
-        businessName: formData.businessName,
-        email: formData.email,
-        phone: formData.phone,
-        monthlyRevenue: formData.monthlyRevenue,
-        budgetRange: formData.projectBudget,
-        service: "Shopify Store Development",
-        source: "shopify_landing"
+        name: formData.fullName, businessName: formData.businessName, email: formData.email,
+        phone: formData.phone, monthlyRevenue: formData.monthlyRevenue,
+        budgetRange: formData.projectBudget, service: "Shopify Store Development", source: "shopify_landing"
       });
-
-      // 3. Redirect to Thank You page
       router.push(redirectPath);
     } catch (error) {
       console.error("[Landing Form Error]:", error);
@@ -442,150 +266,167 @@ export default function MetaAdsShopifyLandingPage() {
     }
   };
 
-  return (
-    <div className="bg-[#080c14] text-white font-sans antialiased min-h-screen relative overflow-x-hidden selection:bg-violet-500/40 selection:text-white">
+  // Input styles
+  const inputBase = "w-full bg-[#0f1a14] border rounded-xl pl-11 pr-4 py-3.5 text-sm text-white placeholder-[#4a6354] focus:outline-none transition-all min-h-[50px] text-[16px] sm:text-sm";
+  const inputNormal = `${inputBase} border-[#1e3028] focus:border-[#22E39A] focus:ring-2 focus:ring-[#22E39A]/15`;
+  const inputError = `${inputBase} border-red-500/60 focus:border-red-500`;
 
-      {/* ── Ambient Background Glows ── */}
-      <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
-        {/* Top violet glow */}
-        <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[500px] rounded-full bg-violet-600/20 blur-[120px]" />
-        {/* Mid green accent */}
-        <div className="absolute top-[60%] -right-40 w-[500px] h-[400px] rounded-full bg-emerald-500/10 blur-[100px]" />
-        {/* Bottom purple */}
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-purple-800/15 blur-[100px]" />
+  return (
+    <div className="relative min-h-screen overflow-x-hidden font-sans antialiased text-white" style={{ background: "#040d09" }}>
+
+      {/* ── CSS for animations ── */}
+      <style>{`
+        @keyframes floatA { 0%,100% { transform: translateY(0px) scale(1); } 50% { transform: translateY(-18px) scale(1.03); } }
+        @keyframes floatB { 0%,100% { transform: translateY(0px) scale(1); } 50% { transform: translateY(14px) scale(0.97); } }
+        @keyframes shimmer { 0% { background-position: -200% center; } 100% { background-position: 200% center; } }
+        @keyframes pulse-ring { 0%,100% { opacity:0.6; transform:scale(1); } 50% { opacity:0.2; transform:scale(1.15); } }
+        .float-a { animation: floatA 9s ease-in-out infinite; }
+        .float-b { animation: floatB 11s ease-in-out infinite; }
+        .shimmer-text {
+          background: linear-gradient(90deg, #22E39A 0%, #a8ffdc 40%, #22E39A 60%, #06b76e 100%);
+          background-size: 200% auto;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          animation: shimmer 4s linear infinite;
+        }
+        .glow-card:hover { box-shadow: 0 0 0 1px #22E39A33, 0 20px 60px -10px #22E39A18; }
+        .green-glow { box-shadow: 0 0 30px #22E39A20, 0 0 60px #22E39A10; }
+      `}</style>
+
+      {/* ── Ambient Background ── */}
+      <div className="pointer-events-none fixed inset-0 z-0">
+        <div className="float-a absolute -top-32 left-1/2 -translate-x-1/2 w-[900px] h-[600px] rounded-full opacity-[0.07]" style={{ background: "radial-gradient(ellipse, #22E39A 0%, transparent 70%)" }} />
+        <div className="float-b absolute top-[55%] -right-64 w-[600px] h-[500px] rounded-full opacity-[0.05]" style={{ background: "radial-gradient(ellipse, #22E39A 0%, transparent 70%)" }} />
+        <div className="absolute bottom-0 -left-32 w-[500px] h-[500px] rounded-full opacity-[0.04]" style={{ background: "radial-gradient(ellipse, #10b981 0%, transparent 70%)" }} />
+        {/* Dot grid */}
+        <div className="absolute inset-0" style={{ backgroundImage: "radial-gradient(#22E39A08 1px, transparent 1px)", backgroundSize: "32px 32px" }} />
+        {/* Top border line */}
+        <div className="absolute top-0 left-0 right-0 h-px" style={{ background: "linear-gradient(90deg, transparent, #22E39A40, transparent)" }} />
       </div>
 
-      {/* ── Dot grid overlay ── */}
-      <div className="pointer-events-none fixed inset-0 z-0 bg-[radial-gradient(rgba(139,92,246,0.06)_1px,transparent_1px)] [background-size:28px_28px]" />
-
-      {/* ─────────────────────────────────────────────────────────────── */}
-      {/* ─── 1. HERO SECTION ─────────────────────────────────────────── */}
-      {/* ─────────────────────────────────────────────────────────────── */}
-      <section className="relative pt-14 sm:pt-20 lg:pt-28 pb-14 sm:pb-20 px-4 sm:px-6 max-w-6xl mx-auto z-10">
+      {/* ═══════════════════════════════════════════════════════════ */}
+      {/* HERO */}
+      {/* ═══════════════════════════════════════════════════════════ */}
+      <section className="relative z-10 pt-14 sm:pt-20 lg:pt-28 pb-16 sm:pb-24 px-4 sm:px-6 max-w-6xl mx-auto">
         <div className="text-center max-w-4xl mx-auto">
 
-          {/* Badge */}
+          {/* Live Badge */}
           <motion.div
-            initial={{ opacity: 0, y: -12 }}
+            initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, ease: "easeOut" }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-violet-500/10 border border-violet-500/30 text-[11px] sm:text-xs font-bold text-violet-300 uppercase tracking-wider mb-5 backdrop-blur-sm"
+            transition={{ duration: 0.4 }}
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#22E39A]/25 bg-[#22E39A]/[0.07] text-[11px] sm:text-xs font-semibold text-[#22E39A] uppercase tracking-widest mb-6"
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-violet-400 animate-pulse" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#22E39A] animate-pulse" />
             ⚡ High-Converting Shopify Store Agency
           </motion.div>
 
-          {/* Main Headline */}
+          {/* Headline */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="text-[28px] xs:text-[34px] sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.15] mb-5"
+            transition={{ duration: 0.55, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+            className="text-[30px] xs:text-[36px] sm:text-5xl lg:text-[62px] font-extrabold tracking-tight leading-[1.12] mb-5"
           >
-            We Build High-Converting{" "}
-            <span className="bg-gradient-to-r from-violet-400 via-purple-300 to-emerald-400 bg-clip-text text-transparent block sm:inline mt-1 sm:mt-0">
-              Shopify Stores
-            </span>{" "}
-            That Scale Your Brand
+            We Build{" "}
+            <span className="shimmer-text">High-Converting</span>
+            <br className="hidden sm:block" />
+            Shopify Stores That Scale Your Brand
           </motion.h1>
 
-          {/* Subheading */}
+          {/* Subtext */}
           <motion.p
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="text-sm sm:text-lg text-slate-400 leading-relaxed max-w-2xl mx-auto mb-8 font-medium px-1"
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-sm sm:text-lg text-[#7a9989] leading-relaxed max-w-2xl mx-auto mb-9"
           >
-            Get a fast, beautiful Shopify store with custom sections, payment gateways (Razorpay, Stripe), fast shipping integration (Shiprocket), and AI product photos.
+            Get a fast, beautiful Shopify store with custom sections, payment gateways (Razorpay, Stripe), shipping integration (Shiprocket), and AI product photos.
           </motion.p>
 
-          {/* Hero CTAs */}
+          {/* CTAs */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-12 w-full"
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-14"
           >
             <a
               href="#lead-form"
               onClick={() => trackCTAClick({ cta_name: "Get Project Quote Hero", cta_location: "Hero Primary" })}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full text-sm font-bold uppercase tracking-wider text-white bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-500 hover:to-purple-500 shadow-[0_0_30px_rgba(139,92,246,0.45)] active:scale-95 transition-all duration-300 group cursor-pointer"
+              className="group w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full text-sm font-bold uppercase tracking-wider text-[#040d09] transition-all duration-300 active:scale-95 cursor-pointer"
+              style={{ background: "linear-gradient(135deg, #22E39A, #0dba76)", boxShadow: "0 0 35px #22E39A40, 0 8px 30px #0dba7630" }}
             >
               <span>Get Free Project Quote</span>
               <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
             </a>
-
             <a
               href="https://wa.me/919917780656?text=Hi%20SalePXL%2C%20I%20need%20a%20high-converting%20Shopify%20store%20built."
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => trackWhatsAppClick("Hero Secondary CTA")}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full text-sm font-bold text-white bg-white/5 hover:bg-white/10 border border-white/10 active:scale-95 transition-all duration-300 backdrop-blur-sm"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full text-sm font-semibold text-white transition-all duration-300 active:scale-95 border border-[#22E39A]/20 bg-[#22E39A]/[0.05] hover:bg-[#22E39A]/[0.1] hover:border-[#22E39A]/40"
             >
-              <WhatsAppLogo className="w-4 h-4 fill-[#25D366]" />
+              <WhatsAppLogo className="w-4 h-4 text-[#25D366]" />
               <span>Chat on WhatsApp</span>
             </a>
           </motion.div>
 
-          {/* 4 Key Trust Badges */}
+          {/* Stats Strip */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.5, delay: 0.4 }}
             className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 max-w-3xl mx-auto"
           >
             {[
-              { val: "100+", label: "Stores Built", desc: "Real Client Results" },
-              { val: "Shopify", label: "Official Experts", desc: "OS 2.0 Certified" },
-              { val: "Easy", label: "Payments & Shipping", desc: "Razorpay & Shiprocket" },
-              { val: "Sub-1.2s", label: "Fast Mobile Speed", desc: "90+ PageSpeed score" }
-            ].map((badge, idx) => (
+              { val: "100+", label: "Stores Built", sub: "Real results" },
+              { val: "Shopify", label: "Official Experts", sub: "OS 2.0 certified" },
+              { val: "Easy", label: "Pay & Ship Setup", sub: "Razorpay & Shiprocket" },
+              { val: "Sub-1.2s", label: "Mobile Speed", sub: "90+ PageSpeed" }
+            ].map((s, i) => (
               <motion.div
-                key={idx}
-                whileHover={{ y: -4, scale: 1.02 }}
+                key={i}
+                whileHover={{ y: -4 }}
                 transition={{ duration: 0.2 }}
-                className="bg-white/[0.04] border border-white/[0.08] hover:border-violet-500/40 rounded-2xl p-3.5 sm:p-4 text-center backdrop-blur-sm hover:bg-white/[0.06] transition-all duration-300 hover:shadow-[0_0_20px_rgba(139,92,246,0.12)]"
+                className="glow-card rounded-2xl p-4 text-center border border-[#1a2e22] bg-[#080f0a] transition-all duration-300"
               >
-                <div className="text-base sm:text-xl font-extrabold text-violet-300 font-mono mb-0.5">
-                  <AnimatedStatCounter value={badge.val} />
+                <div className="text-base sm:text-xl font-black text-[#22E39A] font-mono mb-0.5">
+                  <AnimatedStatCounter value={s.val} />
                 </div>
-                <div className="text-[10px] sm:text-xs font-bold text-white/80 uppercase tracking-wider">
-                  {badge.label}
-                </div>
-                <div className="text-[9px] sm:text-[11px] text-slate-500 mt-0.5">
-                  {badge.desc}
-                </div>
+                <div className="text-[10px] sm:text-xs font-bold text-white/70 uppercase tracking-wider">{s.label}</div>
+                <div className="text-[9px] sm:text-[11px] text-[#4a6354] mt-0.5">{s.sub}</div>
               </motion.div>
             ))}
           </motion.div>
 
-          {/* Feature Showcase Grid Cards */}
+          {/* Hero Feature Grid */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.97 }}
+            initial={{ opacity: 0, scale: 0.98 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="mt-10 sm:mt-16 relative max-w-4xl mx-auto rounded-2xl sm:rounded-3xl border border-white/[0.08] bg-white/[0.03] backdrop-blur-md p-4 sm:p-8 text-left"
+            className="mt-10 sm:mt-14 rounded-2xl sm:rounded-3xl border border-[#1a2e22] bg-[#060f08] p-4 sm:p-8 text-left relative overflow-hidden"
           >
-            {/* Glow line top */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-violet-500/60 to-transparent" />
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-4">
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-[#22E39A]/50 to-transparent" />
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
               {[
-                { icon: LayoutGrid, title: "Custom Sections", desc: "Easy drag-and-drop sections, product builders, and cart drawers.", tag: "✓ Easy Editing" },
-                { icon: CreditCard, title: "Payment Setup", desc: "Razorpay, Stripe, Cashfree, Paytm, and COD options.", tag: "✓ Easy Payments" },
-                { icon: Truck, title: "Shipping Partners", desc: "Shiprocket, Delhivery, DTDC, and automatic order tracking.", tag: "✓ Auto Shipping" },
-                { icon: Camera, title: "AI Product Photos", desc: "Turn simple photos into studio quality shots + 20 free listings.", tag: "✓ Save Photo Costs" }
+                { icon: LayoutGrid, title: "Custom Sections", desc: "Drag-and-drop product builders and cart drawers.", tag: "Easy Editing" },
+                { icon: CreditCard, title: "Payment Setup", desc: "Razorpay, Stripe, Cashfree, Paytm, and COD.", tag: "Easy Payments" },
+                { icon: Truck, title: "Shipping Partners", desc: "Shiprocket, Delhivery, DTDC — auto tracking.", tag: "Auto Shipping" },
+                { icon: Camera, title: "AI Product Photos", desc: "Studio quality + 20 free product listings.", tag: "Save Costs" }
               ].map((f, i) => {
                 const FIcon = f.icon;
                 return (
-                  <div key={i} className="bg-white/[0.04] border border-white/[0.06] hover:border-violet-500/40 rounded-2xl p-4 flex flex-col justify-between space-y-3 transition-all duration-300 hover:shadow-[0_0_20px_rgba(139,92,246,0.1)] hover:bg-white/[0.06] group">
-                    <div className="w-9 h-9 rounded-xl bg-violet-500/15 border border-violet-500/20 flex items-center justify-center text-violet-400 group-hover:scale-110 transition-transform">
-                      <FIcon className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <div key={i} className="glow-card group rounded-xl p-4 border border-[#142019] bg-[#080f0a] hover:bg-[#0a1410] transition-all duration-300 flex flex-col gap-3">
+                    <div className="w-9 h-9 rounded-lg flex items-center justify-center text-[#22E39A] bg-[#22E39A]/10 border border-[#22E39A]/15 group-hover:bg-[#22E39A]/15 transition-colors">
+                      <FIcon className="w-4 h-4" />
                     </div>
                     <div>
-                      <h4 className="text-xs sm:text-sm font-bold text-white mb-1">{f.title}</h4>
-                      <p className="text-[11px] sm:text-xs text-slate-400 leading-relaxed">{f.desc}</p>
+                      <p className="text-xs sm:text-sm font-bold text-white mb-1">{f.title}</p>
+                      <p className="text-[11px] text-[#5a7a68] leading-relaxed">{f.desc}</p>
                     </div>
-                    <span className="text-[10px] font-mono font-bold text-violet-300 bg-violet-500/10 px-2 py-0.5 rounded-full border border-violet-500/20 w-fit">{f.tag}</span>
+                    <span className="text-[10px] font-bold text-[#22E39A] bg-[#22E39A]/10 px-2 py-0.5 rounded-full border border-[#22E39A]/20 w-fit">✓ {f.tag}</span>
                   </div>
                 );
               })}
@@ -594,267 +435,202 @@ export default function MetaAdsShopifyLandingPage() {
         </div>
       </section>
 
-      {/* ─────────────────────────────────────────────────────────────── */}
-      {/* ─── 2. WHY SALEPXL SECTION ──────────────────────────────────── */}
-      {/* ─────────────────────────────────────────────────────────────── */}
-      <section className="py-16 sm:py-24 px-4 sm:px-6 max-w-6xl mx-auto relative z-10">
-        <div className="absolute inset-0 rounded-3xl bg-gradient-to-b from-violet-900/5 to-transparent pointer-events-none" />
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-40px" }}
-          transition={{ duration: 0.4 }}
-          className="text-center max-w-2xl mx-auto mb-12 sm:mb-16"
-        >
-          <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-violet-400 mb-3 block font-mono">
-            Why Choose SalePXL
-          </span>
-          <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
-            Why E-Commerce Brands Choose SalePXL
-          </h2>
-          <p className="text-sm sm:text-base text-slate-400 mt-3 leading-relaxed">
-            We fix slow load times, poor mobile design, and complicated checkout steps so you get more sales.
-          </p>
+      {/* ═══════════════════════════════════════════════════════════ */}
+      {/* WHY SALEPXL — Interactive Carousel */}
+      {/* ═══════════════════════════════════════════════════════════ */}
+      <section className="relative z-10 py-16 sm:py-24 px-4 sm:px-6 max-w-6xl mx-auto border-t border-[#0f1f14]">
+        <motion.div initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }} className="text-center max-w-2xl mx-auto mb-12">
+          <span className="text-xs font-bold uppercase tracking-widest text-[#22E39A] mb-3 block font-mono">Why Choose SalePXL</span>
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight mb-3">Why E-Commerce Brands Choose SalePXL</h2>
+          <p className="text-sm text-[#7a9989]">We fix slow stores, poor mobile design, and complicated checkout so you get more sales.</p>
         </motion.div>
 
-        {/* Auto Sliding Showcase Cards */}
+        {/* Tab navigation + Big Card */}
         <div
           className="relative max-w-5xl mx-auto"
-          onMouseEnter={() => setIsWhyChooseHovered(true)}
-          onMouseLeave={() => setIsWhyChooseHovered(false)}
+          onMouseEnter={() => setIsWhyHovered(true)}
+          onMouseLeave={() => setIsWhyHovered(false)}
         >
-          {/* Controls */}
-          <div className="flex items-center justify-between mb-5 sm:mb-6">
-            <div className="text-xs text-slate-500 font-mono">
-              Features Showcase <span className="text-violet-400 font-bold">{whyChooseIdx + 1}</span> / {WHY_CHOOSE_ITEMS.length}
-            </div>
-            <div className="flex items-center gap-2">
-              <button
-                onClick={() => setWhyChooseIdx((prev) => (prev === 0 ? WHY_CHOOSE_ITEMS.length - 1 : prev - 1))}
-                className="w-8 h-8 rounded-full bg-white/[0.06] hover:bg-violet-500/20 border border-white/10 flex items-center justify-center text-white transition-all shadow-sm cursor-pointer hover:border-violet-500/40"
-                aria-label="Previous feature"
-              >
-                <ChevronLeft className="w-4 h-4 text-violet-400" />
-              </button>
-              <button
-                onClick={() => setWhyChooseIdx((prev) => (prev + 1) % WHY_CHOOSE_ITEMS.length)}
-                className="w-8 h-8 rounded-full bg-white/[0.06] hover:bg-violet-500/20 border border-white/10 flex items-center justify-center text-white transition-all shadow-sm cursor-pointer hover:border-violet-500/40"
-                aria-label="Next feature"
-              >
-                <ChevronRight className="w-4 h-4 text-violet-400" />
-              </button>
-            </div>
-          </div>
-
-          {/* Active Card Slider View */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-            {[0, 1].map((offset) => {
-              const itemIdx = (whyChooseIdx + offset) % WHY_CHOOSE_ITEMS.length;
-              const item = WHY_CHOOSE_ITEMS[itemIdx];
-              const IconComp = item.icon;
+          {/* Pill tabs */}
+          <div className="flex flex-wrap justify-center gap-2 mb-8">
+            {WHY_ITEMS.map((item, idx) => {
+              const IIcon = item.icon;
               return (
-                <AnimatePresence key={`${itemIdx}-${offset}`} mode="wait">
-                  <motion.div
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -20 }}
-                    transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-                    className="bg-white/[0.04] border border-white/[0.08] hover:border-violet-500/40 rounded-2xl p-6 sm:p-8 text-left transition-all duration-300 flex flex-col justify-between group min-h-[200px] hover:bg-white/[0.06] hover:shadow-[0_0_30px_rgba(139,92,246,0.12)] backdrop-blur-sm"
-                  >
-                    <div>
-                      <div className="flex items-center justify-between mb-5">
-                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-violet-600 to-purple-700 flex items-center justify-center text-white shadow-[0_0_20px_rgba(139,92,246,0.3)] group-hover:scale-110 transition-transform">
-                          <IconComp className="w-6 h-6" />
-                        </div>
-                        <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-violet-300 px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/20">
-                          {item.tag}
-                        </span>
-                      </div>
-                      <h3 className="text-lg sm:text-xl font-bold text-white mb-2">
-                        {item.title}
-                      </h3>
-                      <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
-                        {item.desc}
-                      </p>
-                    </div>
-                  </motion.div>
-                </AnimatePresence>
+                <button
+                  key={idx}
+                  onClick={() => setWhyIdx(idx)}
+                  className={`flex items-center gap-1.5 px-3 sm:px-4 py-2 rounded-full text-[11px] sm:text-xs font-bold border transition-all duration-300 cursor-pointer ${
+                    idx === whyIdx
+                      ? "bg-[#22E39A] text-[#040d09] border-[#22E39A] shadow-[0_0_20px_#22E39A40]"
+                      : "bg-[#080f0a] text-[#7a9989] border-[#1a2e22] hover:border-[#22E39A]/40 hover:text-[#22E39A]"
+                  }`}
+                >
+                  <IIcon className="w-3 h-3" />
+                  <span className="hidden sm:inline">{item.tag}</span>
+                </button>
               );
             })}
           </div>
 
-          {/* Pagination Dots */}
-          <div className="flex items-center justify-center gap-1.5 mt-6">
-            {WHY_CHOOSE_ITEMS.map((_, idx) => (
-              <button
-                key={idx}
-                onClick={() => setWhyChooseIdx(idx)}
-                className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
-                  idx === whyChooseIdx
-                    ? "w-6 bg-violet-500"
-                    : "w-1.5 bg-white/20 hover:bg-white/40"
-                }`}
-                aria-label={`Go to slide ${idx + 1}`}
-              />
-            ))}
-          </div>
+          {/* Big card display */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={whyIdx}
+              initial={{ opacity: 0, y: 16, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -16, scale: 0.98 }}
+              transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+              className="rounded-2xl sm:rounded-3xl border border-[#1a2e22] bg-[#060f08] p-8 sm:p-12 relative overflow-hidden"
+              style={{ boxShadow: "0 0 60px #22E39A0a" }}
+            >
+              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#22E39A]/40 to-transparent" />
+              <div className="absolute -top-24 -right-24 w-64 h-64 rounded-full opacity-[0.06]" style={{ background: "radial-gradient(ellipse, #22E39A, transparent 70%)" }} />
+
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 sm:gap-10 relative">
+                {/* Icon */}
+                <div className="shrink-0">
+                  {(() => { const IIcon = WHY_ITEMS[whyIdx].icon; return (
+                    <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl flex items-center justify-center text-[#040d09] green-glow" style={{ background: "linear-gradient(135deg, #22E39A, #0dba76)" }}>
+                      <IIcon className="w-8 h-8 sm:w-10 sm:h-10" />
+                    </div>
+                  ); })()}
+                </div>
+
+                {/* Content */}
+                <div className="flex-1">
+                  <div className="flex flex-wrap items-center gap-3 mb-3">
+                    <h3 className="text-xl sm:text-3xl font-extrabold text-white">{WHY_ITEMS[whyIdx].title}</h3>
+                    <span className="px-3 py-1 rounded-full text-[11px] font-bold text-[#22E39A] bg-[#22E39A]/10 border border-[#22E39A]/20">{WHY_ITEMS[whyIdx].tag}</span>
+                  </div>
+                  <p className="text-sm sm:text-base text-[#7a9989] leading-relaxed">{WHY_ITEMS[whyIdx].desc}</p>
+                </div>
+
+                {/* Step indicator */}
+                <div className="shrink-0 text-5xl sm:text-7xl font-black font-mono text-[#22E39A]/10 select-none">
+                  {String(whyIdx + 1).padStart(2, "0")}
+                </div>
+              </div>
+
+              {/* Prev / Next arrows */}
+              <div className="flex items-center justify-between mt-8 pt-6 border-t border-[#0f1f14]">
+                <button
+                  onClick={() => setWhyIdx(p => (p === 0 ? WHY_ITEMS.length - 1 : p - 1))}
+                  className="flex items-center gap-2 text-xs font-bold text-[#7a9989] hover:text-[#22E39A] transition-colors cursor-pointer"
+                >
+                  <ChevronLeft className="w-4 h-4" /> Prev
+                </button>
+                <div className="flex gap-1.5">
+                  {WHY_ITEMS.map((_, i) => (
+                    <button key={i} onClick={() => setWhyIdx(i)} className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${i === whyIdx ? "w-8 bg-[#22E39A]" : "w-1.5 bg-[#1a2e22] hover:bg-[#22E39A]/40"}`} />
+                  ))}
+                </div>
+                <button
+                  onClick={() => setWhyIdx(p => (p + 1) % WHY_ITEMS.length)}
+                  className="flex items-center gap-2 text-xs font-bold text-[#7a9989] hover:text-[#22E39A] transition-colors cursor-pointer"
+                >
+                  Next <ChevronRight className="w-4 h-4" />
+                </button>
+              </div>
+            </motion.div>
+          </AnimatePresence>
         </div>
       </section>
 
-      {/* ─────────────────────────────────────────────────────────────── */}
-      {/* ─── 3. PORTFOLIO MARQUEE ────────────────────────────────────── */}
-      {/* ─────────────────────────────────────────────────────────────── */}
-      <section className="py-16 sm:py-24 relative overflow-hidden border-t border-white/[0.05] z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-40px" }}
-          transition={{ duration: 0.4 }}
-          className="max-w-[1360px] mx-auto px-4 sm:px-6 mb-10 text-center"
-        >
-          <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-violet-400 font-mono block mb-3">
-            Our Portfolio
-          </span>
-          <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
-            Shopify Stores <span className="text-violet-400">We've</span> Built &{" "}
-            <span className="bg-gradient-to-r from-violet-400 to-emerald-400 bg-clip-text text-transparent">Transformed</span>
+      {/* ═══════════════════════════════════════════════════════════ */}
+      {/* PORTFOLIO MARQUEE */}
+      {/* ═══════════════════════════════════════════════════════════ */}
+      <section className="relative z-10 py-16 sm:py-24 overflow-hidden border-t border-[#0f1f14]">
+        <motion.div initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }} className="max-w-6xl mx-auto px-4 sm:px-6 text-center mb-10">
+          <span className="text-xs font-bold uppercase tracking-widest text-[#22E39A] mb-3 block font-mono">Our Portfolio</span>
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight mb-3">
+            Shopify Stores We've Built & <span className="shimmer-text">Transformed</span>
           </h2>
-          <p className="text-sm sm:text-base text-slate-400 max-w-2xl mx-auto mt-3">
-            Real Shopify stores built for fast mobile speed, easy shopping, and higher sales.
-          </p>
+          <p className="text-sm text-[#7a9989] max-w-xl mx-auto">Real stores built for speed, easy shopping, and more sales.</p>
         </motion.div>
 
-        {/* Row 1 Marquee */}
-        <div className="marquee-container marquee-pause mb-5 sm:mb-6">
+        <div className="marquee-container marquee-pause mb-5">
           <div className="marquee-content" style={{ "--marquee-speed": "45s" } as React.CSSProperties}>
-            {PORTFOLIO_IMAGES_ROW1.map((img, idx) => (
-              <div key={idx} className="premium-hover-image-container flex-shrink-0 w-[240px] xs:w-[260px] sm:w-[280px] rounded-[20px] sm:rounded-[24px] border border-white/10 hover:border-violet-500/40 shadow-md bg-white/[0.03] overflow-hidden transition-all">
-                <img src={img.src} alt={img.alt} loading="lazy" decoding="async" className="premium-hover-image w-full display-block object-cover object-top select-none pointer-events-none" />
+            {PORTFOLIO_IMAGES_ROW1.map((img, i) => (
+              <div key={i} className="flex-shrink-0 w-[240px] sm:w-[280px] rounded-2xl border border-[#1a2e22] hover:border-[#22E39A]/40 overflow-hidden bg-[#060f08] transition-all duration-300 glow-card">
+                <img src={img.src} alt={img.alt} loading="lazy" decoding="async" className="w-full object-cover object-top select-none pointer-events-none" />
               </div>
             ))}
           </div>
           <div className="marquee-content" aria-hidden="true" style={{ "--marquee-speed": "45s" } as React.CSSProperties}>
-            {PORTFOLIO_IMAGES_ROW1.map((img, idx) => (
-              <div key={idx + "-dup"} className="premium-hover-image-container flex-shrink-0 w-[240px] xs:w-[260px] sm:w-[280px] rounded-[20px] sm:rounded-[24px] border border-white/10 hover:border-violet-500/40 shadow-md bg-white/[0.03] overflow-hidden transition-all">
-                <img src={img.src} alt={img.alt} loading="lazy" decoding="async" className="premium-hover-image w-full display-block object-cover object-top select-none pointer-events-none" />
+            {PORTFOLIO_IMAGES_ROW1.map((img, i) => (
+              <div key={i + "-d"} className="flex-shrink-0 w-[240px] sm:w-[280px] rounded-2xl border border-[#1a2e22] hover:border-[#22E39A]/40 overflow-hidden bg-[#060f08] transition-all duration-300 glow-card">
+                <img src={img.src} alt={img.alt} loading="lazy" decoding="async" className="w-full object-cover object-top select-none pointer-events-none" />
               </div>
             ))}
           </div>
         </div>
 
-        {/* Row 2 Marquee - Reverse */}
-        <div className="marquee-container marquee-pause">
+        <div className="marquee-container marquee-pause mb-10">
           <div className="marquee-content-reverse" style={{ "--marquee-speed": "45s" } as React.CSSProperties}>
-            {PORTFOLIO_IMAGES_ROW2.map((img, idx) => (
-              <div key={idx} className="premium-hover-image-container flex-shrink-0 w-[240px] xs:w-[260px] sm:w-[280px] rounded-[20px] sm:rounded-[24px] border border-white/10 hover:border-violet-500/40 shadow-md bg-white/[0.03] overflow-hidden transition-all">
-                <img src={img.src} alt={img.alt} loading="lazy" decoding="async" className="premium-hover-image w-full display-block object-cover object-top select-none pointer-events-none" />
+            {PORTFOLIO_IMAGES_ROW2.map((img, i) => (
+              <div key={i} className="flex-shrink-0 w-[240px] sm:w-[280px] rounded-2xl border border-[#1a2e22] hover:border-[#22E39A]/40 overflow-hidden bg-[#060f08] transition-all duration-300 glow-card">
+                <img src={img.src} alt={img.alt} loading="lazy" decoding="async" className="w-full object-cover object-top select-none pointer-events-none" />
               </div>
             ))}
           </div>
           <div className="marquee-content-reverse" aria-hidden="true" style={{ "--marquee-speed": "45s" } as React.CSSProperties}>
-            {PORTFOLIO_IMAGES_ROW2.map((img, idx) => (
-              <div key={idx + "-dup"} className="premium-hover-image-container flex-shrink-0 w-[240px] xs:w-[260px] sm:w-[280px] rounded-[20px] sm:rounded-[24px] border border-white/10 hover:border-violet-500/40 shadow-md bg-white/[0.03] overflow-hidden transition-all">
-                <img src={img.src} alt={img.alt} loading="lazy" decoding="async" className="premium-hover-image w-full display-block object-cover object-top select-none pointer-events-none" />
+            {PORTFOLIO_IMAGES_ROW2.map((img, i) => (
+              <div key={i + "-d"} className="flex-shrink-0 w-[240px] sm:w-[280px] rounded-2xl border border-[#1a2e22] hover:border-[#22E39A]/40 overflow-hidden bg-[#060f08] transition-all duration-300 glow-card">
+                <img src={img.src} alt={img.alt} loading="lazy" decoding="async" className="w-full object-cover object-top select-none pointer-events-none" />
               </div>
             ))}
           </div>
         </div>
 
-        <div className="text-center mt-10 sm:mt-12 flex flex-col sm:flex-row items-center justify-center gap-3.5 px-4">
-          <a
-            href="#lead-form"
-            onClick={() => trackCTAClick({ cta_name: "Build Your Store Portfolio Section", cta_location: "Marquee Portfolio" })}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 sm:px-8 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-500 hover:to-purple-500 shadow-[0_0_25px_rgba(139,92,246,0.35)] active:scale-95 transition-all duration-300 cursor-pointer"
-          >
-            <span>Build Your High-Converting Store</span>
-            <ArrowRight className="w-4 h-4" />
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 px-4">
+          <a href="#lead-form" onClick={() => trackCTAClick({ cta_name: "Build Store Portfolio", cta_location: "Portfolio" })} className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider text-[#040d09] active:scale-95 transition-all cursor-pointer" style={{ background: "linear-gradient(135deg,#22E39A,#0dba76)", boxShadow: "0 0 25px #22E39A35" }}>
+            <span>Build Your Store</span><ArrowRight className="w-4 h-4" />
           </a>
-          <Link
-            href="/portfolio"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 sm:px-8 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider text-white/80 bg-white/[0.05] border border-white/10 hover:bg-white/[0.08] active:scale-95 transition-all duration-300"
-          >
-            <span>View Full Portfolio</span>
-            <ArrowUpRight className="w-4 h-4 text-violet-400" />
+          <Link href="/portfolio" className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider text-[#22E39A] border border-[#22E39A]/25 bg-[#22E39A]/[0.05] hover:bg-[#22E39A]/[0.1] active:scale-95 transition-all">
+            <span>View Full Portfolio</span><ArrowUpRight className="w-4 h-4" />
           </Link>
         </div>
       </section>
 
-      {/* ─────────────────────────────────────────────────────────────── */}
-      {/* ─── 4. OUR PROCESS SECTION ──────────────────────────────────── */}
-      {/* ─────────────────────────────────────────────────────────────── */}
-      <section className="py-16 sm:py-24 px-4 sm:px-6 max-w-6xl mx-auto relative z-10 border-t border-white/[0.05]">
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-40px" }}
-          transition={{ duration: 0.4 }}
-          className="text-center max-w-2xl mx-auto mb-12 sm:mb-16"
-        >
-          <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-violet-400 mb-3 block font-mono">
-            How It Works
-          </span>
-          <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
-            Our 5-Step Store Building Process
-          </h2>
-          <p className="text-sm sm:text-base text-slate-400 mt-3 leading-relaxed">
-            How we help your store turn visitors into happy customers.
-          </p>
+      {/* ═══════════════════════════════════════════════════════════ */}
+      {/* PROCESS */}
+      {/* ═══════════════════════════════════════════════════════════ */}
+      <section className="relative z-10 py-16 sm:py-24 px-4 sm:px-6 max-w-6xl mx-auto border-t border-[#0f1f14]">
+        <motion.div initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }} className="text-center max-w-2xl mx-auto mb-12">
+          <span className="text-xs font-bold uppercase tracking-widest text-[#22E39A] mb-3 block font-mono">How It Works</span>
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight mb-3">Our 5-Step Store Building Process</h2>
+          <p className="text-sm text-[#7a9989]">How we help your store turn visitors into happy customers.</p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3.5 sm:gap-4 relative">
-          {[
-            { step: "01", title: "Store Visit", desc: "Buyers land on your fast, mobile-friendly store homepage.", metric: "Sub-1.2s Speed" },
-            { step: "02", title: "Build Trust", desc: "Show customer reviews, star ratings, and secure badges.", metric: "High Trust" },
-            { step: "03", title: "Easy Shopping", desc: "Simple product navigation, custom sections, and clear cart.", metric: "Easy UX" },
-            { step: "04", title: "Quick Checkout", desc: "Easy payment with Razorpay, Stripe, or Cash on Delivery.", metric: "Quick Sales" },
-            { step: "05", title: "Happy Customers", desc: "Automatic shipping tracking updates and repeat buyers.", metric: "Brand Growth" }
-          ].map((item, idx) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 relative">
+          {PROCESS_STEPS.map((item, idx) => (
             <motion.div
               key={idx}
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-30px" }}
-              transition={{ duration: 0.35, delay: idx * 0.08 }}
-              whileHover={{ y: -6, scale: 1.02 }}
-              className="bg-white/[0.04] border border-white/[0.08] hover:border-violet-500/40 rounded-2xl p-5 text-left relative group transition-all duration-300 hover:bg-white/[0.06] hover:shadow-[0_0_25px_rgba(139,92,246,0.12)] backdrop-blur-sm"
+              viewport={{ once: true }}
+              transition={{ duration: 0.35, delay: idx * 0.07 }}
+              whileHover={{ y: -6 }}
+              className="glow-card relative group rounded-2xl p-5 border border-[#1a2e22] bg-[#060f08] transition-all duration-300 cursor-default overflow-hidden"
             >
-              <div className="text-3xl font-black font-mono text-violet-600/40 group-hover:text-violet-400 transition-colors mb-3">
-                {item.step}
-              </div>
-              <h3 className="text-base sm:text-lg font-bold text-white mb-1.5">
-                {item.title}
-              </h3>
-              <p className="text-xs text-slate-400 leading-relaxed mb-4">
-                {item.desc}
-              </p>
-              <div className="inline-block px-2.5 py-1 rounded-full bg-violet-500/10 border border-violet-500/20 text-[10px] font-mono font-bold text-violet-300">
-                {item.metric}
-              </div>
+              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#22E39A]/0 to-transparent group-hover:via-[#22E39A]/40 transition-all duration-500" />
+              <div className="text-4xl font-black font-mono text-[#22E39A]/15 group-hover:text-[#22E39A]/30 transition-colors duration-300 mb-3 leading-none">{item.step}</div>
+              <h3 className="text-base font-bold text-white mb-1.5">{item.title}</h3>
+              <p className="text-xs text-[#5a7a68] leading-relaxed mb-4">{item.desc}</p>
+              <span className="inline-block px-2.5 py-1 rounded-full bg-[#22E39A]/10 border border-[#22E39A]/20 text-[10px] font-bold text-[#22E39A] font-mono">{item.metric}</span>
             </motion.div>
           ))}
         </div>
       </section>
 
-      {/* ─────────────────────────────────────────────────────────────── */}
-      {/* ─── 5. TESTIMONIALS SECTION ─────────────────────────────────── */}
-      {/* ─────────────────────────────────────────────────────────────── */}
-      <section className="py-16 sm:py-24 px-4 sm:px-6 max-w-6xl mx-auto relative z-10 border-t border-white/[0.05]">
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-40px" }}
-          transition={{ duration: 0.4 }}
-          className="text-center max-w-2xl mx-auto mb-12 sm:mb-16"
-        >
-          <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-violet-400 mb-3 block font-mono">
-            Client Reviews
-          </span>
-          <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
-            What E-Commerce Founders Say About Us
-          </h2>
-          <p className="text-sm sm:text-base text-slate-400 mt-3 leading-relaxed">
-            See how we helped 100+ brands build better Shopify stores.
-          </p>
+      {/* ═══════════════════════════════════════════════════════════ */}
+      {/* TESTIMONIALS */}
+      {/* ═══════════════════════════════════════════════════════════ */}
+      <section className="relative z-10 py-16 sm:py-24 px-4 sm:px-6 max-w-6xl mx-auto border-t border-[#0f1f14]">
+        <motion.div initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }} className="text-center max-w-2xl mx-auto mb-12">
+          <span className="text-xs font-bold uppercase tracking-widest text-[#22E39A] mb-3 block font-mono">Client Reviews</span>
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight mb-3">What Founders Say About Us</h2>
+          <p className="text-sm text-[#7a9989]">See how we helped 100+ brands build better Shopify stores.</p>
         </motion.div>
 
         <div className="max-w-4xl mx-auto">
@@ -864,35 +640,40 @@ export default function MetaAdsShopifyLandingPage() {
               return (
                 <motion.div
                   key={t.name}
-                  initial={{ opacity: 0, y: 10, scale: 0.98 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: -10, scale: 0.98 }}
+                  initial={{ opacity: 0, x: 30, scale: 0.98 }}
+                  animate={{ opacity: 1, x: 0, scale: 1 }}
+                  exit={{ opacity: 0, x: -30, scale: 0.98 }}
                   transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                  className="bg-white/[0.04] border border-white/[0.08] rounded-2xl sm:rounded-3xl p-6 sm:p-10 lg:p-12 backdrop-blur-sm relative overflow-hidden"
+                  className="rounded-2xl sm:rounded-3xl border border-[#1a2e22] bg-[#060f08] p-7 sm:p-10 relative overflow-hidden"
+                  style={{ boxShadow: "0 0 50px #22E39A08" }}
                 >
-                  {/* Glow behind */}
-                  <div className="absolute -top-20 -right-20 w-48 h-48 rounded-full bg-violet-600/10 blur-[60px] pointer-events-none" />
-                  <div className="space-y-5 sm:space-y-6 relative">
-                    <div className="flex items-center gap-1 text-amber-400">
-                      {[...Array(t.stars)].map((_, s) => (
-                        <Star key={s} className="w-4 h-4 sm:w-5 sm:h-5 fill-current" />
-                      ))}
-                    </div>
-                    <p className="text-base sm:text-xl text-white/90 leading-relaxed font-medium italic">
-                      "{t.quote}"
-                    </p>
-                    <div className="flex items-center gap-3 pt-2">
-                      <img
-                        src={t.image}
-                        alt={t.name}
-                        loading="lazy"
-                        decoding="async"
-                        className="w-11 h-11 rounded-full object-cover border border-violet-500/30 shrink-0 shadow-sm"
-                      />
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-px bg-gradient-to-r from-transparent via-[#22E39A]/50 to-transparent" />
+                  <div className="absolute -bottom-20 -right-20 w-48 h-48 rounded-full opacity-[0.05]" style={{ background: "radial-gradient(ellipse, #22E39A, transparent 70%)" }} />
+
+                  {/* Stars */}
+                  <div className="flex items-center gap-1 mb-5">
+                    {[...Array(t.stars)].map((_, s) => (
+                      <Star key={s} className="w-4 h-4 fill-amber-400 text-amber-400" />
+                    ))}
+                  </div>
+
+                  {/* Quote */}
+                  <p className="text-base sm:text-xl text-white/90 leading-relaxed font-medium italic mb-6">
+                    "{t.quote}"
+                  </p>
+
+                  {/* Bottom row */}
+                  <div className="flex items-center justify-between flex-wrap gap-4">
+                    <div className="flex items-center gap-3">
+                      <img src={t.image} alt={t.name} loading="lazy" className="w-11 h-11 rounded-full object-cover border border-[#22E39A]/25 shrink-0" />
                       <div>
-                        <h4 className="text-sm sm:text-base font-bold text-white">{t.name}</h4>
-                        <p className="text-xs text-slate-400">{t.brand}</p>
+                        <p className="text-sm font-bold text-white">{t.name}</p>
+                        <p className="text-xs text-[#5a7a68]">{t.brand}</p>
                       </div>
+                    </div>
+                    <div className="text-right">
+                      <div className="text-2xl font-black text-[#22E39A] font-mono">{t.metric}</div>
+                      <div className="text-[11px] text-[#5a7a68] font-medium">{t.metricLabel}</div>
                     </div>
                   </div>
                 </motion.div>
@@ -900,84 +681,53 @@ export default function MetaAdsShopifyLandingPage() {
             })}
           </AnimatePresence>
 
-          {/* Pagination Dots */}
-          <div className="flex items-center justify-center gap-2 mt-6 sm:mt-8">
-            {TESTIMONIALS.map((_, dotIdx) => (
-              <button
-                key={dotIdx}
-                onClick={() => setActiveTestimonialIdx(dotIdx)}
-                className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
-                  dotIdx === activeTestimonialIdx
-                    ? "w-7 sm:w-8 bg-violet-500"
-                    : "w-2 sm:w-2.5 bg-white/20 hover:bg-white/40"
-                }`}
-                aria-label={`Go to slide ${dotIdx + 1}`}
-              />
+          {/* Dots */}
+          <div className="flex items-center justify-center gap-2 mt-6">
+            {TESTIMONIALS.map((_, i) => (
+              <button key={i} onClick={() => setActiveTestimonialIdx(i)} className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${i === activeTestimonialIdx ? "w-8 bg-[#22E39A]" : "w-2 bg-[#1a2e22] hover:bg-[#22E39A]/40"}`} />
             ))}
           </div>
         </div>
       </section>
 
-      {/* ─────────────────────────────────────────────────────────────── */}
-      {/* ─── 6. SERVICES SECTION ─────────────────────────────────────── */}
-      {/* ─────────────────────────────────────────────────────────────── */}
-      <section className="py-16 sm:py-24 px-4 sm:px-6 max-w-6xl mx-auto relative z-10 border-t border-white/[0.05]">
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-40px" }}
-          transition={{ duration: 0.4 }}
-          className="text-center max-w-2xl mx-auto mb-12 sm:mb-16"
-        >
-          <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-violet-400 mb-3 block font-mono">
-            What We Do
-          </span>
-          <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
-            Our Shopify Development Services
-          </h2>
-          <p className="text-sm sm:text-base text-slate-400 mt-3 leading-relaxed">
-            Everything you need to launch, redesign, and grow your online store.
-          </p>
+      {/* ═══════════════════════════════════════════════════════════ */}
+      {/* SERVICES */}
+      {/* ═══════════════════════════════════════════════════════════ */}
+      <section className="relative z-10 py-16 sm:py-24 px-4 sm:px-6 max-w-6xl mx-auto border-t border-[#0f1f14]">
+        <motion.div initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }} className="text-center max-w-2xl mx-auto mb-12">
+          <span className="text-xs font-bold uppercase tracking-widest text-[#22E39A] mb-3 block font-mono">What We Do</span>
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight mb-3">Our Shopify Development Services</h2>
+          <p className="text-sm text-[#7a9989]">Everything you need to launch, redesign, and grow your online store.</p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-          {SHOPIFY_SERVICES.map((srv, idx) => {
-            const IconComp = srv.icon;
+          {SERVICES.map((srv, idx) => {
+            const SIcon = srv.icon;
             return (
               <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-30px" }}
-                transition={{ duration: 0.35, delay: idx * 0.06 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.35, delay: idx * 0.05 }}
                 whileHover={{ y: -5 }}
-                className="bg-white/[0.04] border border-white/[0.08] hover:border-violet-500/40 rounded-2xl p-5 sm:p-7 flex flex-col justify-between text-left transition-all duration-300 group hover:bg-white/[0.06] hover:shadow-[0_0_30px_rgba(139,92,246,0.12)] backdrop-blur-sm relative overflow-hidden"
+                className="glow-card group relative rounded-2xl p-6 sm:p-7 border border-[#1a2e22] bg-[#060f08] transition-all duration-300 overflow-hidden flex flex-col"
               >
-                {/* Left accent line */}
-                <div className="absolute left-0 top-4 bottom-4 w-[2px] rounded-full bg-gradient-to-b from-violet-600/60 to-transparent" />
-                <div>
-                  <div className="flex items-center justify-between mb-5">
-                    <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-violet-500/10 border border-violet-500/20 flex items-center justify-center text-violet-400 group-hover:bg-violet-600 group-hover:text-white transition-colors duration-300 group-hover:shadow-[0_0_15px_rgba(139,92,246,0.3)]">
-                      <IconComp className="w-5 h-5 sm:w-6 sm:h-6" />
-                    </div>
-                    <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-violet-300 px-2.5 py-1 rounded-full bg-violet-500/10 border border-violet-500/20 truncate max-w-[150px]">
-                      {srv.highlight}
-                    </span>
+                {/* Top green bar on hover */}
+                <div className="absolute top-0 left-4 right-4 h-px bg-gradient-to-r from-transparent via-[#22E39A]/0 to-transparent group-hover:via-[#22E39A]/50 transition-all duration-500" />
+
+                <div className="flex items-center justify-between mb-5">
+                  <div className="w-11 h-11 rounded-xl bg-[#22E39A]/10 border border-[#22E39A]/15 flex items-center justify-center text-[#22E39A] group-hover:bg-[#22E39A] group-hover:text-[#040d09] transition-all duration-300 group-hover:shadow-[0_0_15px_#22E39A40]">
+                    <SIcon className="w-5 h-5" />
                   </div>
-                  <h3 className="text-base sm:text-lg font-bold text-white mb-2.5">
-                    {srv.title}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-slate-400 leading-relaxed mb-6">
-                    {srv.desc}
-                  </p>
+                  <span className="text-[10px] font-bold text-[#22E39A] bg-[#22E39A]/10 border border-[#22E39A]/20 px-2.5 py-1 rounded-full truncate max-w-[140px]">{srv.tag}</span>
                 </div>
-                <a
-                  href="#lead-form"
-                  onClick={() => trackCTAClick({ cta_name: `Service ${srv.title}`, cta_location: "Services Grid" })}
-                  className="inline-flex items-center gap-2 text-xs font-bold text-violet-400 hover:text-violet-300 uppercase tracking-wider transition-colors pt-4 border-t border-white/[0.06] cursor-pointer"
-                >
-                  <span>Request Service</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
+
+                <h3 className="text-base sm:text-lg font-bold text-white mb-2.5">{srv.title}</h3>
+                <p className="text-xs sm:text-sm text-[#5a7a68] leading-relaxed flex-1 mb-5">{srv.desc}</p>
+
+                <a href="#lead-form" onClick={() => trackCTAClick({ cta_name: `Service ${srv.title}`, cta_location: "Services Grid" })} className="inline-flex items-center gap-2 text-xs font-bold text-[#22E39A] hover:text-white transition-colors pt-4 border-t border-[#0f1f14] cursor-pointer mt-auto">
+                  <span>Request Service</span><ArrowRight className="w-3.5 h-3.5" />
                 </a>
               </motion.div>
             );
@@ -985,341 +735,189 @@ export default function MetaAdsShopifyLandingPage() {
         </div>
       </section>
 
-      {/* ─────────────────────────────────────────────────────────────── */}
-      {/* ─── 7. LEAD CAPTURE FORM SECTION ────────────────────────────── */}
-      {/* ─────────────────────────────────────────────────────────────── */}
-      <section
-        id="lead-form"
-        className="py-16 sm:py-24 px-4 sm:px-6 max-w-3xl mx-auto relative z-10 scroll-mt-10"
-      >
+      {/* ═══════════════════════════════════════════════════════════ */}
+      {/* LEAD FORM */}
+      {/* ═══════════════════════════════════════════════════════════ */}
+      <section id="lead-form" className="relative z-10 py-16 sm:py-24 px-4 sm:px-6 max-w-3xl mx-auto scroll-mt-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-40px" }}
-          transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-          className="bg-white/[0.04] border border-white/[0.08] rounded-2xl sm:rounded-3xl p-6 sm:p-10 lg:p-12 relative overflow-hidden backdrop-blur-md text-left"
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          className="rounded-2xl sm:rounded-3xl border border-[#1a2e22] bg-[#060f08] p-6 sm:p-10 relative overflow-hidden"
+          style={{ boxShadow: "0 0 80px #22E39A0a" }}
         >
-          {/* Glow top bar */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2/3 h-px bg-gradient-to-r from-transparent via-violet-500/60 to-transparent" />
-          {/* Background glow */}
-          <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-80 h-80 rounded-full bg-violet-600/10 blur-[80px] pointer-events-none" />
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2/3 h-px bg-gradient-to-r from-transparent via-[#22E39A]/60 to-transparent" />
+          <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-80 h-80 rounded-full opacity-[0.05]" style={{ background: "radial-gradient(ellipse, #22E39A, transparent 70%)" }} />
 
-          {/* Form Header */}
-          <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10 relative">
-            <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-violet-400 mb-3 block font-mono">
-              Get Started Today
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-              Get Your Custom Shopify Store Proposal
-            </h2>
-            <p className="text-xs sm:text-sm text-slate-400 mt-2 leading-relaxed">
-              Fill out your project details below. Our team will review your brand and send you a custom store plan within 2 hours.
-            </p>
+          <div className="text-center max-w-xl mx-auto mb-8 relative">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#22E39A] mb-3 block font-mono">Get Started Today</span>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mb-2">Get Your Custom Shopify Store Proposal</h2>
+            <p className="text-xs sm:text-sm text-[#5a7a68] leading-relaxed">Fill out your project details. Our team will review your brand and send a custom plan within 2 hours.</p>
           </div>
 
-          {/* Lead Capture Form */}
-          <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6 relative">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+          <form onSubmit={handleSubmit} className="space-y-5 relative">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {/* Full Name */}
               <div>
-                <label className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
-                  Full Name <span className="text-violet-400">*</span>
-                </label>
+                <label className="block text-[11px] font-bold uppercase tracking-wider text-[#7a9989] mb-2">Full Name <span className="text-[#22E39A]">*</span></label>
                 <div className="relative">
-                  <User className="w-4 h-4 text-slate-500 absolute left-4 top-3.5 pointer-events-none" />
-                  <input
-                    type="text"
-                    name="fullName"
-                    value={formData.fullName}
-                    onChange={handleInputChange}
-                    placeholder="Pankaj Singh"
-                    className={`w-full bg-white/[0.05] border ${
-                      formErrors.fullName ? "border-red-500" : "border-white/[0.1] focus:border-violet-500 focus:ring-2 focus:ring-violet-500/20"
-                    } rounded-xl pl-11 pr-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none transition-all min-h-[48px] sm:min-h-[52px] text-[16px] sm:text-sm backdrop-blur-sm`}
-                  />
+                  <User className="w-4 h-4 text-[#3a5445] absolute left-4 top-4 pointer-events-none" />
+                  <input type="text" name="fullName" value={formData.fullName} onChange={handleInputChange} placeholder="Pankaj Singh" className={formErrors.fullName ? inputError : inputNormal} />
                 </div>
-                {formErrors.fullName && (
-                  <p className="text-xs text-red-400 mt-1 font-medium">{formErrors.fullName}</p>
-                )}
+                {formErrors.fullName && <p className="text-xs text-red-400 mt-1">{formErrors.fullName}</p>}
               </div>
 
               {/* Business Name */}
               <div>
-                <label className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
-                  Business / Brand Name <span className="text-violet-400">*</span>
-                </label>
+                <label className="block text-[11px] font-bold uppercase tracking-wider text-[#7a9989] mb-2">Brand Name <span className="text-[#22E39A]">*</span></label>
                 <div className="relative">
-                  <Building className="w-4 h-4 text-slate-500 absolute left-4 top-3.5 pointer-events-none" />
-                  <input
-                    type="text"
-                    name="businessName"
-                    value={formData.businessName}
-                    onChange={handleInputChange}
-                    placeholder="e.g., Pilgrim Skincare"
-                    className={`w-full bg-white/[0.05] border ${
-                      formErrors.businessName ? "border-red-500" : "border-white/[0.1] focus:border-violet-500 focus:ring-2 focus:ring-violet-500/20"
-                    } rounded-xl pl-11 pr-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none transition-all min-h-[48px] sm:min-h-[52px] text-[16px] sm:text-sm backdrop-blur-sm`}
-                  />
+                  <Building className="w-4 h-4 text-[#3a5445] absolute left-4 top-4 pointer-events-none" />
+                  <input type="text" name="businessName" value={formData.businessName} onChange={handleInputChange} placeholder="e.g., Pilgrim Skincare" className={formErrors.businessName ? inputError : inputNormal} />
                 </div>
-                {formErrors.businessName && (
-                  <p className="text-xs text-red-400 mt-1 font-medium">{formErrors.businessName}</p>
-                )}
+                {formErrors.businessName && <p className="text-xs text-red-400 mt-1">{formErrors.businessName}</p>}
               </div>
 
-              {/* Phone Number */}
+              {/* Phone */}
               <div>
-                <label className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
-                  Phone Number (for WhatsApp) <span className="text-violet-400">*</span>
-                </label>
+                <label className="block text-[11px] font-bold uppercase tracking-wider text-[#7a9989] mb-2">Phone (WhatsApp) <span className="text-[#22E39A]">*</span></label>
                 <div className="relative">
-                  <Phone className="w-4 h-4 text-slate-500 absolute left-4 top-3.5 pointer-events-none" />
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleInputChange}
-                    placeholder="+91 9917780656"
-                    className={`w-full bg-white/[0.05] border ${
-                      formErrors.phone ? "border-red-500" : "border-white/[0.1] focus:border-violet-500 focus:ring-2 focus:ring-violet-500/20"
-                    } rounded-xl pl-11 pr-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none transition-all min-h-[48px] sm:min-h-[52px] text-[16px] sm:text-sm backdrop-blur-sm`}
-                  />
+                  <Phone className="w-4 h-4 text-[#3a5445] absolute left-4 top-4 pointer-events-none" />
+                  <input type="tel" name="phone" value={formData.phone} onChange={handleInputChange} placeholder="+91 9917780656" className={formErrors.phone ? inputError : inputNormal} />
                 </div>
-                {formErrors.phone && (
-                  <p className="text-xs text-red-400 mt-1 font-medium">{formErrors.phone}</p>
-                )}
+                {formErrors.phone && <p className="text-xs text-red-400 mt-1">{formErrors.phone}</p>}
               </div>
 
-              {/* Email Address */}
+              {/* Email */}
               <div>
-                <label className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
-                  Business Email <span className="text-violet-400">*</span>
-                </label>
+                <label className="block text-[11px] font-bold uppercase tracking-wider text-[#7a9989] mb-2">Business Email <span className="text-[#22E39A]">*</span></label>
                 <div className="relative">
-                  <Mail className="w-4 h-4 text-slate-500 absolute left-4 top-3.5 pointer-events-none" />
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    placeholder="pankaj@yourbrand.com"
-                    className={`w-full bg-white/[0.05] border ${
-                      formErrors.email ? "border-red-500" : "border-white/[0.1] focus:border-violet-500 focus:ring-2 focus:ring-violet-500/20"
-                    } rounded-xl pl-11 pr-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none transition-all min-h-[48px] sm:min-h-[52px] text-[16px] sm:text-sm backdrop-blur-sm`}
-                  />
+                  <Mail className="w-4 h-4 text-[#3a5445] absolute left-4 top-4 pointer-events-none" />
+                  <input type="email" name="email" value={formData.email} onChange={handleInputChange} placeholder="pankaj@yourbrand.com" className={formErrors.email ? inputError : inputNormal} />
                 </div>
-                {formErrors.email && (
-                  <p className="text-xs text-red-400 mt-1 font-medium">{formErrors.email}</p>
-                )}
+                {formErrors.email && <p className="text-xs text-red-400 mt-1">{formErrors.email}</p>}
               </div>
 
-              {/* Website (Optional) */}
+              {/* Website */}
               <div className="sm:col-span-2">
-                <label className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
-                  Existing Website (Optional)
-                </label>
+                <label className="block text-[11px] font-bold uppercase tracking-wider text-[#7a9989] mb-2">Existing Website (Optional)</label>
                 <div className="relative">
-                  <Globe className="w-4 h-4 text-slate-500 absolute left-4 top-3.5 pointer-events-none" />
-                  <input
-                    type="text"
-                    name="website"
-                    value={formData.website}
-                    onChange={handleInputChange}
-                    placeholder="https://yourbrand.com"
-                    className="w-full bg-white/[0.05] border border-white/[0.1] focus:border-violet-500 focus:ring-2 focus:ring-violet-500/20 rounded-xl pl-11 pr-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none transition-all min-h-[48px] sm:min-h-[52px] text-[16px] sm:text-sm backdrop-blur-sm"
-                  />
+                  <Globe className="w-4 h-4 text-[#3a5445] absolute left-4 top-4 pointer-events-none" />
+                  <input type="text" name="website" value={formData.website} onChange={handleInputChange} placeholder="https://yourbrand.com" className={inputNormal} />
                 </div>
               </div>
             </div>
 
-            {/* Project Budget Range */}
+            {/* Budget */}
             <div>
-              <label className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-3">
-                Project Budget Range
-              </label>
-              <div className="grid grid-cols-3 gap-2.5 sm:gap-3">
-                {[
-                  "Under ₹20,000",
-                  "₹20k - ₹30k",
-                  "₹30k - ₹50k"
-                ].map((b) => (
-                  <button
-                    key={b}
-                    type="button"
-                    onClick={() => setFormData((prev) => ({ ...prev, projectBudget: b }))}
-                    className={`py-3 px-2 sm:px-3 rounded-xl text-xs sm:text-sm font-semibold border transition-all duration-200 active:scale-95 cursor-pointer ${
+              <label className="block text-[11px] font-bold uppercase tracking-wider text-[#7a9989] mb-3">Project Budget</label>
+              <div className="grid grid-cols-3 gap-2.5">
+                {["Under ₹20,000", "₹20k - ₹30k", "₹30k - ₹50k"].map(b => (
+                  <button key={b} type="button" onClick={() => setFormData(p => ({ ...p, projectBudget: b }))}
+                    className={`py-3 px-2 rounded-xl text-xs font-bold border transition-all duration-200 active:scale-95 cursor-pointer ${
                       formData.projectBudget === b
-                        ? "bg-violet-600 text-white border-violet-500 font-bold shadow-[0_0_20px_rgba(139,92,246,0.4)]"
-                        : "bg-white/[0.04] text-slate-300 border-white/[0.1] hover:border-violet-500/40 hover:bg-violet-500/10"
-                    }`}
-                  >
-                    {b}
+                        ? "bg-[#22E39A] text-[#040d09] border-[#22E39A] shadow-[0_0_15px_#22E39A35]"
+                        : "bg-[#0a1610] text-[#7a9989] border-[#1a2e22] hover:border-[#22E39A]/40 hover:text-[#22E39A]"
+                    }`}>{b}
                   </button>
                 ))}
               </div>
             </div>
 
-            {/* Tell us about your project */}
+            {/* Details */}
             <div>
-              <label className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
-                Tell Us About Your Project <span className="text-violet-400">*</span>
-              </label>
+              <label className="block text-[11px] font-bold uppercase tracking-wider text-[#7a9989] mb-2">About Your Project <span className="text-[#22E39A]">*</span></label>
               <div className="relative">
-                <FileText className="w-4 h-4 text-slate-500 absolute left-4 top-3.5 pointer-events-none" />
-                <textarea
-                  name="projectDetails"
-                  rows={3}
-                  value={formData.projectDetails}
-                  onChange={handleInputChange}
-                  placeholder="Tell us about your brand products, target audience, and main goals for your Shopify store..."
-                  className={`w-full bg-white/[0.05] border ${
-                    formErrors.projectDetails ? "border-red-500" : "border-white/[0.1] focus:border-violet-500 focus:ring-2 focus:ring-violet-500/20"
-                  } rounded-xl pl-11 pr-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none transition-all text-[16px] sm:text-sm backdrop-blur-sm`}
-                />
+                <FileText className="w-4 h-4 text-[#3a5445] absolute left-4 top-4 pointer-events-none" />
+                <textarea name="projectDetails" rows={3} value={formData.projectDetails} onChange={handleInputChange}
+                  placeholder="Tell us about your brand, products, target audience, and main goals..."
+                  className={`${formErrors.projectDetails ? inputError : inputNormal} !min-h-0`} />
               </div>
-              {formErrors.projectDetails && (
-                <p className="text-xs text-red-400 mt-1 font-medium">{formErrors.projectDetails}</p>
-              )}
+              {formErrors.projectDetails && <p className="text-xs text-red-400 mt-1">{formErrors.projectDetails}</p>}
             </div>
 
-            {/* Submit Button */}
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className="w-full py-4 rounded-full text-sm font-bold uppercase tracking-wider text-white bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-500 hover:to-purple-500 shadow-[0_0_30px_rgba(139,92,246,0.4)] active:scale-[0.98] transition-all duration-300 disabled:opacity-70 flex items-center justify-center gap-2 cursor-pointer"
+            {/* Submit */}
+            <button type="submit" disabled={isSubmitting} className="w-full py-4 rounded-full text-sm font-bold uppercase tracking-wider text-[#040d09] transition-all duration-300 disabled:opacity-70 flex items-center justify-center gap-2 cursor-pointer active:scale-[0.98]"
+              style={{ background: "linear-gradient(135deg, #22E39A, #0dba76)", boxShadow: "0 0 35px #22E39A35, 0 8px 25px #0dba7625" }}
             >
               {isSubmitting ? (
-                <>
-                  <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                  <span>Submitting Details...</span>
-                </>
+                <><div className="w-5 h-5 border-2 border-[#040d09] border-t-transparent rounded-full animate-spin" /><span>Submitting...</span></>
               ) : (
-                <>
-                  <span>Get My Store Proposal</span>
-                  <ArrowRight className="w-4 h-4" />
-                </>
+                <><span>Get My Store Proposal</span><ArrowRight className="w-4 h-4" /></>
               )}
             </button>
 
-            {/* Privacy note */}
-            <p className="text-[11px] text-slate-500 text-center flex items-center justify-center gap-1.5 pt-1">
-              <ShieldCheck className="w-3.5 h-3.5 text-violet-400 shrink-0" />
-              <span>100% Confidential. Your data is never shared.</span>
+            <p className="text-[11px] text-[#3a5445] text-center flex items-center justify-center gap-1.5 pt-1">
+              <ShieldCheck className="w-3.5 h-3.5 text-[#22E39A]/60 shrink-0" />
+              100% Confidential. Your data is never shared.
             </p>
           </form>
         </motion.div>
       </section>
 
-      {/* ─────────────────────────────────────────────────────────────── */}
-      {/* ─── 8. WHATSAPP CTA SECTION ─────────────────────────────────── */}
-      {/* ─────────────────────────────────────────────────────────────── */}
-      <section className="py-14 px-4 sm:px-6 max-w-6xl mx-auto relative z-10">
+      {/* ═══════════════════════════════════════════════════════════ */}
+      {/* WHATSAPP BANNER */}
+      {/* ═══════════════════════════════════════════════════════════ */}
+      <section className="relative z-10 py-12 px-4 sm:px-6 max-w-6xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, scale: 0.98 }}
+          initial={{ opacity: 0, scale: 0.97 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true, margin: "-40px" }}
+          viewport={{ once: true }}
           transition={{ duration: 0.4 }}
-          className="bg-gradient-to-br from-violet-900/60 via-purple-900/40 to-[#080c14] border border-violet-500/20 rounded-2xl sm:rounded-3xl p-6 sm:p-12 lg:p-14 text-center relative overflow-hidden shadow-[0_0_60px_rgba(139,92,246,0.15)]"
+          className="rounded-2xl sm:rounded-3xl border border-[#1a2e22] bg-[#060f08] p-8 sm:p-12 text-center relative overflow-hidden"
+          style={{ boxShadow: "0 0 60px #22E39A0c" }}
         >
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(139,92,246,0.08)_0%,transparent_70%)] pointer-events-none" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,#22E39A0a_0%,transparent_65%)] pointer-events-none" />
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-px bg-gradient-to-r from-transparent via-[#22E39A]/50 to-transparent" />
 
-          <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-white/[0.06] border border-white/10 flex items-center justify-center mx-auto mb-5 backdrop-blur-md shadow-lg relative">
-            <WhatsAppLogo className="w-7 h-7 sm:w-8 sm:h-8 fill-[#25D366]" />
+          <div className="relative w-14 h-14 mx-auto mb-5">
+            <div className="absolute inset-0 rounded-full animate-[pulse-ring_2.5s_ease-in-out_infinite] bg-[#25D366]/20" />
+            <div className="w-14 h-14 rounded-full bg-[#25D366]/15 border border-[#25D366]/30 flex items-center justify-center text-[#25D366]">
+              <WhatsAppLogo className="w-7 h-7 text-[#25D366]" />
+            </div>
           </div>
 
-          <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight mb-3 relative">
-            Have Questions About Your Shopify Store?
-          </h2>
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight mb-3">Have Questions About Your Shopify Store?</h2>
+          <p className="text-sm sm:text-base text-[#7a9989] max-w-xl mx-auto mb-7">Message us on WhatsApp to discuss your project, get pricing, and ask any questions.</p>
 
-          <p className="text-sm sm:text-base text-slate-400 max-w-2xl mx-auto mb-7 leading-relaxed relative">
-            Message us on WhatsApp to discuss your project, get pricing, and ask any questions.
-          </p>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 relative">
-            <a
-              href="https://wa.me/919917780656?text=Hi%20SalePXL%2C%20I%20need%20help%20choosing%20the%20right%20Shopify%20solution%20for%20my%20brand."
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => trackWhatsAppClick("Large WhatsApp CTA Section")}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 sm:px-8 py-3.5 sm:py-4 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider text-white bg-[#25D366]/20 hover:bg-[#25D366]/30 border border-[#25D366]/40 active:scale-95 transition-all duration-300"
-            >
-              <WhatsAppLogo className="w-4 h-4 fill-[#25D366]" />
-              <span>Chat on WhatsApp</span>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5">
+            <a href="https://wa.me/919917780656?text=Hi%20SalePXL%2C%20I%20need%20help%20with%20my%20Shopify%20store." target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("WhatsApp CTA Banner")} className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full text-sm font-bold text-white border border-[#25D366]/35 bg-[#25D366]/10 hover:bg-[#25D366]/20 active:scale-95 transition-all">
+              <WhatsAppLogo className="w-4 h-4 text-[#25D366]" /><span>Chat on WhatsApp</span>
             </a>
-            <a
-              href="#lead-form"
-              onClick={() => trackCTAClick({ cta_name: "Book Consultation WhatsApp Banner", cta_location: "WhatsApp Section" })}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 sm:px-8 py-3.5 sm:py-4 rounded-full text-xs sm:text-sm font-bold text-white bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-500 hover:to-purple-500 shadow-[0_0_20px_rgba(139,92,246,0.3)] active:scale-95 transition-all duration-300"
-            >
+            <a href="#lead-form" onClick={() => trackCTAClick({ cta_name: "Book Strategy Call Banner", cta_location: "WhatsApp Section" })} className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full text-sm font-bold text-[#040d09] active:scale-95 transition-all" style={{ background: "linear-gradient(135deg,#22E39A,#0dba76)", boxShadow: "0 0 20px #22E39A30" }}>
               <span>Book Strategy Call</span>
             </a>
           </div>
         </motion.div>
       </section>
 
-      {/* ─────────────────────────────────────────────────────────────── */}
-      {/* ─── 9. FAQ SECTION ──────────────────────────────────────────── */}
-      {/* ─────────────────────────────────────────────────────────────── */}
-      <section className="py-16 sm:py-24 px-4 sm:px-6 max-w-3xl mx-auto relative z-10 border-t border-white/[0.05]">
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-40px" }}
-          transition={{ duration: 0.4 }}
-          className="text-center max-w-2xl mx-auto mb-12 sm:mb-16"
-        >
-          <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-violet-400 mb-3 block font-mono">
-            Got Questions?
-          </span>
-          <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
-            Frequently Asked Questions
-          </h2>
-          <p className="text-xs sm:text-sm text-slate-400 mt-3">
-            Simple answers to common questions about building your Shopify store.
-          </p>
+      {/* ═══════════════════════════════════════════════════════════ */}
+      {/* FAQ */}
+      {/* ═══════════════════════════════════════════════════════════ */}
+      <section className="relative z-10 py-16 sm:py-24 px-4 sm:px-6 max-w-3xl mx-auto border-t border-[#0f1f14]">
+        <motion.div initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }} className="text-center max-w-2xl mx-auto mb-12">
+          <span className="text-xs font-bold uppercase tracking-widest text-[#22E39A] mb-3 block font-mono">Got Questions?</span>
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight mb-3">Frequently Asked Questions</h2>
+          <p className="text-sm text-[#7a9989]">Simple answers about building your Shopify store.</p>
         </motion.div>
 
-        <div className="space-y-3 sm:space-y-3.5 text-left">
+        <div className="space-y-3">
           {FAQ_ITEMS.map((faq, idx) => {
             const isOpen = openFaqIdx === idx;
             return (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-20px" }}
-                transition={{ duration: 0.3, delay: idx * 0.04 }}
-                className={`border ${
-                  isOpen
-                    ? "border-violet-500/40 bg-violet-500/[0.04] shadow-[0_0_20px_rgba(139,92,246,0.08)]"
-                    : "border-white/[0.07] bg-white/[0.03]"
-                } rounded-2xl overflow-hidden transition-all duration-300 backdrop-blur-sm`}
+              <motion.div key={idx} initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.3, delay: idx * 0.03 }}
+                className={`rounded-2xl border overflow-hidden transition-all duration-300 ${isOpen ? "border-[#22E39A]/35 bg-[#060f08] shadow-[0_0_20px_#22E39A0a]" : "border-[#0f1f14] bg-[#060c0a]"}`}
               >
-                <button
-                  onClick={() => setOpenFaqIdx(isOpen ? null : idx)}
-                  className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-3 sm:gap-4 focus:outline-none cursor-pointer"
-                >
-                  <span className="text-sm sm:text-base font-semibold text-white leading-snug">
-                    {faq.q}
-                  </span>
-                  <div
-                    className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center shrink-0 transition-all duration-300 ${
-                      isOpen
-                        ? "rotate-180 bg-violet-500/20 text-violet-400 border border-violet-500/30"
-                        : "bg-white/[0.05] text-slate-400 border border-white/[0.08]"
-                    }`}
-                  >
+                <button onClick={() => setOpenFaqIdx(isOpen ? null : idx)} className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer">
+                  <span className="text-sm sm:text-base font-semibold text-white leading-snug">{faq.q}</span>
+                  <div className={`w-7 h-7 rounded-full flex items-center justify-center shrink-0 border transition-all duration-300 ${isOpen ? "bg-[#22E39A]/15 border-[#22E39A]/30 text-[#22E39A] rotate-180" : "bg-[#0a1610] border-[#1a2e22] text-[#5a7a68]"}`}>
                     <ChevronDown className="w-4 h-4" />
                   </div>
                 </button>
-
                 <AnimatePresence>
                   {isOpen && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                      className="px-4 sm:px-5 pb-4 sm:pb-5 text-xs sm:text-sm text-slate-400 leading-relaxed border-t border-white/[0.05] pt-3.5"
+                    <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                      className="px-4 sm:px-5 pb-4 sm:pb-5 text-xs sm:text-sm text-[#5a7a68] leading-relaxed border-t border-[#0f1f14] pt-3.5"
                     >
                       {faq.a}
                     </motion.div>
@@ -1331,51 +929,36 @@ export default function MetaAdsShopifyLandingPage() {
         </div>
       </section>
 
-      {/* ─────────────────────────────────────────────────────────────── */}
-      {/* ─── 10. FINAL CTA SECTION ───────────────────────────────────── */}
-      {/* ─────────────────────────────────────────────────────────────── */}
-      <section className="py-16 sm:py-24 px-4 sm:px-6 max-w-6xl mx-auto relative z-10 border-t border-white/[0.05]">
+      {/* ═══════════════════════════════════════════════════════════ */}
+      {/* FINAL CTA */}
+      {/* ═══════════════════════════════════════════════════════════ */}
+      <section className="relative z-10 py-16 sm:py-24 px-4 sm:px-6 max-w-6xl mx-auto border-t border-[#0f1f14]">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-40px" }}
-          transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-          className="bg-gradient-to-br from-violet-900/50 via-purple-900/30 to-[#080c14] border border-violet-500/20 rounded-2xl sm:rounded-3xl p-8 sm:p-14 lg:p-16 text-center relative overflow-hidden"
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          className="rounded-2xl sm:rounded-3xl border border-[#22E39A]/15 p-8 sm:p-14 text-center relative overflow-hidden"
+          style={{ background: "linear-gradient(135deg, #050e07 0%, #060f08 50%, #040d06 100%)", boxShadow: "0 0 80px #22E39A10, inset 0 0 80px #22E39A08" }}
         >
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(139,92,246,0.15)_0%,transparent_60%)] pointer-events-none" />
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-violet-500/50 to-transparent" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,#22E39A12_0%,transparent_60%)] pointer-events-none" />
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-px bg-gradient-to-r from-transparent via-[#22E39A]/60 to-transparent" />
 
-          <div className="max-w-3xl mx-auto space-y-4 sm:space-y-6 relative">
-            <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-violet-400 font-mono block">
-              Start Building Your Store Today
-            </span>
+          <div className="relative max-w-3xl mx-auto space-y-4 sm:space-y-6">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#22E39A] font-mono block">Start Building Your Store Today</span>
             <h2 className="text-2xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
               Ready to Build Your{" "}
-              <span className="bg-gradient-to-r from-violet-400 to-emerald-400 bg-clip-text text-transparent">
-                Shopify Store?
-              </span>
+              <span className="shimmer-text">Shopify Store?</span>
             </h2>
-            <p className="text-sm sm:text-base text-slate-400 leading-relaxed">
-              Stop losing customers to slow, low-converting templates. We build fast, high-converting stores that help your brand grow.
+            <p className="text-sm sm:text-base text-[#7a9989] leading-relaxed">
+              Stop losing customers to slow, low-converting templates. We build fast, high-converting stores that grow your brand.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 pt-3">
-              <a
-                href="#lead-form"
-                onClick={() => trackCTAClick({ cta_name: "Book Consultation Final CTA", cta_location: "Final Banner" })}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full text-sm font-bold uppercase tracking-wider text-white bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-500 hover:to-purple-500 shadow-[0_0_30px_rgba(139,92,246,0.4)] active:scale-95 transition-all duration-300 cursor-pointer"
-              >
-                <span>Book Strategy Call</span>
-                <ArrowRight className="w-4 h-4" />
+              <a href="#lead-form" onClick={() => trackCTAClick({ cta_name: "Book Consultation Final CTA", cta_location: "Final Banner" })} className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full text-sm font-bold uppercase tracking-wider text-[#040d09] active:scale-95 transition-all cursor-pointer" style={{ background: "linear-gradient(135deg,#22E39A,#0dba76)", boxShadow: "0 0 35px #22E39A40" }}>
+                <span>Book Strategy Call</span><ArrowRight className="w-4 h-4" />
               </a>
-              <a
-                href="https://wa.me/919917780656?text=Hi%20SalePXL%2C%20I'm%20ready%20to%20build%20a%20Shopify%20store%20that%20converts."
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => trackWhatsAppClick("Final CTA Section")}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full text-sm font-bold text-white bg-white/[0.05] hover:bg-white/[0.1] border border-white/10 active:scale-95 transition-all duration-300"
-              >
-                <WhatsAppLogo className="w-4 h-4 fill-[#25D366]" />
-                <span>Chat on WhatsApp</span>
+              <a href="https://wa.me/919917780656?text=Hi%20SalePXL%2C%20I'm%20ready%20to%20build%20my%20Shopify%20store." target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("Final CTA")} className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full text-sm font-semibold text-white border border-[#22E39A]/20 bg-[#22E39A]/[0.05] hover:bg-[#22E39A]/[0.1] active:scale-95 transition-all">
+                <WhatsAppLogo className="w-4 h-4 text-[#25D366]" /><span>Chat on WhatsApp</span>
               </a>
             </div>
           </div>
