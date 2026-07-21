@@ -42,15 +42,37 @@ function pushDataLayer(eventObj: Record<string, any>) {
   }
 }
 
+// Helper to safely parse positive numeric value for Meta Pixel / CAPI (must be > 0)
+export function parseNumericValue(valueStr?: string | number): number {
+  if (typeof valueStr === "number" && !isNaN(valueStr) && valueStr > 0) {
+    return valueStr;
+  }
+  if (!valueStr || typeof valueStr !== "string") return 1.0;
+
+  // Search for numbers like 20,000 or 20k or 30k
+  const matches = valueStr.match(/\d+(?:,\d+)?(?:\.\d+)?/g);
+  if (matches && matches.length > 0) {
+    let raw = matches[0].replace(/,/g, "");
+    let num = parseFloat(raw);
+    if (valueStr.toLowerCase().includes("k")) {
+      num = num * 1000;
+    }
+    if (num > 0) return num;
+  }
+  return 1.0;
+}
+
 // 2️⃣ Lead Event Tracking (Meta Pixel, GA4, GTM, CAPI)
 export function trackLeadEvent(params: LeadEventParams) {
+  const numericVal = parseNumericValue(params.budgetRange);
+
   // Meta Pixel
   const fbq = getFBQ();
   if (fbq) {
     fbq("track", "Lead", {
       content_name: params.service || "Shopify Store Consultation",
       content_category: "Landing Page Lead",
-      value: params.budgetRange || "Standard",
+      value: numericVal,
       currency: "INR",
     });
     fbq("track", "Contact", {
@@ -62,7 +84,7 @@ export function trackLeadEvent(params: LeadEventParams) {
   const gtag = getGtag();
   if (gtag) {
     gtag("event", "generate_lead", {
-      value: params.budgetRange,
+      value: numericVal,
       currency: "INR",
       lead_source: params.source || "meta_ads_landing",
       service: params.service || "Shopify Development",
@@ -76,6 +98,7 @@ export function trackLeadEvent(params: LeadEventParams) {
     user_business: params.businessName,
     monthly_revenue: params.monthlyRevenue,
     budget_range: params.budgetRange,
+    numeric_value: numericVal,
     timestamp: new Date().toISOString(),
   });
 
@@ -94,7 +117,7 @@ export function trackLeadEvent(params: LeadEventParams) {
         custom_data: {
           content_name: params.service || "Shopify Consultation",
           currency: "INR",
-          value: params.budgetRange,
+          value: numericVal,
         },
       });
       const blob = new Blob([capiData], { type: "application/json" });

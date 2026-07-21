@@ -77,10 +77,12 @@ export default function EnquiryBox() {
       try {
         const fbq = (window as any)?.fbq as undefined | ((...args: any[]) => void);
         if (typeof fbq === "function") {
+          const matches = (formData.budgetRange || "").match(/\d+/);
+          const numVal = matches ? parseFloat(matches[0]) * 1000 : 20000;
           fbq("track", "Lead", {
             content_name: formData.projectCategory || "Enquiry Box",
             content_category: "Enquiry Form",
-            value: formData.budgetRange || "Unknown",
+            value: numVal,
             currency: "INR",
           });
         }

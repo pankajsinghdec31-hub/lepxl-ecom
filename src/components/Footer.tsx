@@ -24,7 +24,7 @@ export default function Footer() {
           content_name: "Newsletter",
           content_category: "Footer Form",
           currency: "INR",
-          value: 0
+          value: 1.00
         });
       }
     }

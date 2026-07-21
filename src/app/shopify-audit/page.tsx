@@ -149,7 +149,7 @@ export default function ShopifyAuditPage() {
           fbq("track", "Lead", {
             content_name: "Shopify Growth Audit",
             content_category: "Audit Form",
-            value: revenueLeakage || 0,
+            value: Math.max(1, revenueLeakage || 1),
             currency: "INR",
           });
         }
