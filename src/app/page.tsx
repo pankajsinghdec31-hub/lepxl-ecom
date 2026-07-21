@@ -62,11 +62,6 @@ const FAQ_ITEMS = [
   {
     q: "What are your payment terms?",
     a: "Our standard payment term is 50% advance to initiate the build and the remaining 50% upon successful delivery of the project."
-  },
-  {
-    q: "Is the store fully search engine optimized (SEO friendly)?",
-    a: "Yes. We build stores with standard SEO practices in mind, including meta description fields, semantic HTML5 structure, image alt-tag configs, and page speed optimization to help you rank higher on Google search results."
-  },
   {
     q: "Will my store be responsive and mobile-friendly?",
     a: "Yes. Over 80% of e-commerce traffic comes from mobile devices, so we follow a strict mobile-first design system. Touch targets, checkout slides, and image banners are fully optimized for all screen sizes."
