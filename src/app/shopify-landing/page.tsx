@@ -912,9 +912,9 @@ export default function MetaAdsShopifyLandingPage() {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: -10, scale: 0.98 }}
                   transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                  className="bg-gradient-to-b from-white via-emerald-50/40 to-white border border-emerald-200/80 rounded-2xl sm:rounded-3xl p-6 sm:p-10 lg:p-12 shadow-[0_20px_50px_rgba(16,185,129,0.08)] text-left grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 items-center"
+                  className="bg-gradient-to-b from-white via-emerald-50/40 to-white border border-emerald-200/80 rounded-2xl sm:rounded-3xl p-6 sm:p-10 lg:p-12 shadow-[0_20px_50px_rgba(16,185,129,0.08)] text-left"
                 >
-                  <div className="md:col-span-8 space-y-4 sm:space-y-6">
+                  <div className="space-y-4 sm:space-y-6">
                     <div className="flex items-center gap-1 text-amber-400">
                       {[...Array(t.stars)].map((_, s) => (
                         <Star key={s} className="w-4 h-4 sm:w-5 sm:h-5 fill-current" />
@@ -937,18 +937,6 @@ export default function MetaAdsShopifyLandingPage() {
                         <h4 className="text-sm sm:text-base font-bold text-slate-900">{t.name}</h4>
                         <p className="text-xs text-slate-500">{t.brand}</p>
                       </div>
-                    </div>
-                  </div>
-
-                  <div className="md:col-span-4 bg-gradient-to-br from-emerald-500/10 via-teal-500/5 to-white border border-emerald-200 rounded-2xl p-5 text-center space-y-2 shadow-sm">
-                    <div className="text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-slate-500">
-                      Result Delivered
-                    </div>
-                    <div className="text-2.5xl sm:text-3xl font-black text-emerald-600 font-mono">
-                      <AnimatedStatCounter value={t.statVal} />
-                    </div>
-                    <div className="text-xs text-slate-800 font-bold">
-                      {t.statLabel}
                     </div>
                   </div>
                 </motion.div>

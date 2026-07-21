@@ -3,6 +3,7 @@ import Script from "next/script";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import MainWrapper from "@/components/MainWrapper";
 
 export const metadata: Metadata = {
   title: "SalePixel | Premium Shopify Design & Development Agency",
@@ -58,7 +59,7 @@ export default function RootLayout({
       </head>
       <body suppressHydrationWarning className="bg-[#050505] text-white font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-primary/20 selection:text-white">
         <Navbar />
-        <main className="flex-grow pt-24">{children}</main>
+        <MainWrapper>{children}</MainWrapper>
         <Footer />
         
         {/* Floating WhatsApp Button for Mobile Devices Only */}
