@@ -3,6 +3,7 @@ import Metadata from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BLOG_POSTS, BlogPost } from "@/lib/blogs";
+import BlogCardImage from "@/components/BlogCardImage";
 import { 
   Clock, 
   ArrowLeft, 
@@ -131,11 +132,12 @@ export default async function BlogDetailPage({ params }: BlogSlugPageProps) {
         </header>
 
         {/* COVER IMAGE */}
-        <div className="w-full aspect-[21/9] rounded-3xl overflow-hidden bg-neutral-100 border border-neutral-200/80 shadow-sm relative">
-          <img
-            src={post.coverImage}
-            alt={post.title}
-            className="w-full h-full object-cover"
+        <div className="w-full aspect-[21/9] rounded-3xl overflow-hidden bg-neutral-900 border border-neutral-200/80 shadow-sm relative">
+          <BlogCardImage
+            slug={post.slug}
+            title={post.title}
+            category={post.category}
+            coverImage={post.coverImage}
           />
         </div>
 

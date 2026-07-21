@@ -2,6 +2,7 @@ import React from "react";
 import Metadata from "next";
 import Link from "next/link";
 import { BLOG_POSTS, BlogPost } from "@/lib/blogs";
+import BlogCardImage from "@/components/BlogCardImage";
 import { Search, Clock, ArrowRight, Sparkles, BookOpen, Tag, Calendar, User } from "lucide-react";
 
 export const metadata = {
@@ -63,13 +64,14 @@ export default function BlogListingPage() {
             href={`/blog/${featuredPost.slug}`}
             className="group grid grid-cols-1 lg:grid-cols-12 gap-6 p-6 sm:p-8 rounded-3xl bg-white border border-neutral-200/80 shadow-[0_10px_30px_rgba(0,0,0,0.03)] hover:border-emerald-500/40 transition-all duration-500"
           >
-            <div className="lg:col-span-7 aspect-[16/9] lg:aspect-auto w-full rounded-2xl overflow-hidden bg-neutral-100 relative">
-              <img
-                src={featuredPost.coverImage}
-                alt={featuredPost.title}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            <div className="lg:col-span-7 aspect-[16/9] lg:aspect-auto w-full rounded-2xl overflow-hidden bg-neutral-900 relative">
+              <BlogCardImage
+                slug={featuredPost.slug}
+                title={featuredPost.title}
+                category={featuredPost.category}
+                coverImage={featuredPost.coverImage}
               />
-              <div className="absolute top-4 left-4">
+              <div className="absolute top-4 left-4 z-20">
                 <span className="px-3 py-1 rounded-full bg-black/80 text-white text-[10px] font-bold uppercase tracking-wider backdrop-blur-md">
                   Featured Guide
                 </span>
@@ -132,18 +134,13 @@ export default function BlogListingPage() {
                 className="group flex flex-col justify-between p-5 rounded-2xl bg-white border border-neutral-200/80 shadow-sm hover:shadow-md hover:border-emerald-500/30 transition-all duration-300"
               >
                 <div className="flex flex-col gap-4">
-                  <div className="aspect-[16/10] w-full rounded-xl overflow-hidden bg-neutral-100 relative">
-                    <img
-                      src={post.coverImage}
-                      alt={post.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      loading="lazy"
+                  <div className="aspect-[16/10] w-full rounded-xl overflow-hidden bg-neutral-900 relative">
+                    <BlogCardImage
+                      slug={post.slug}
+                      title={post.title}
+                      category={post.category}
+                      coverImage={post.coverImage}
                     />
-                    <div className="absolute top-3 left-3">
-                      <span className="px-2.5 py-0.5 rounded-md bg-white/90 text-neutral-900 text-[10px] font-bold uppercase tracking-wider backdrop-blur-md border border-neutral-200 shadow-sm">
-                        {post.category}
-                      </span>
-                    </div>
                   </div>
 
                   <div className="flex items-center justify-between text-[11px] text-neutral-400 font-sans">
