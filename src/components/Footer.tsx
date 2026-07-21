@@ -10,7 +10,7 @@ export default function Footer() {
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
   const pathname = usePathname();
-  const isLandingPage = pathname.startsWith("/shopify-landing") || pathname === "/thank-you";
+  const isLandingPage = pathname.startsWith("/shopify-landing") || pathname.startsWith("/shopify-meta-ads") || pathname === "/thank-you";
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

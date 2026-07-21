@@ -22,7 +22,7 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
-  const isLandingPage = pathname.startsWith("/shopify-landing") || pathname === "/thank-you";
+  const isLandingPage = pathname.startsWith("/shopify-landing") || pathname.startsWith("/shopify-meta-ads") || pathname === "/thank-you";
 
   useEffect(() => {
     const handleScroll = () => {
