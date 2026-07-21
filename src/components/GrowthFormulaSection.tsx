@@ -284,7 +284,7 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
       {/* DESKTOP: STICKY INLINE HORIZONTAL SCROLL CAMERA (lg:block) */}
       {/* ─────────────────────────────────────────────────────────────────── */}
       <div className="hidden lg:block min-h-[350vh]">
-        <div className="sticky top-0 h-screen w-full flex flex-col justify-between py-6 z-10 overflow-hidden">
+        <div className="sticky top-0 h-screen w-full flex flex-col justify-between py-3 z-10 overflow-hidden">
 
           {/* Header Section from User Spec */}
           <div className="max-w-3xl mx-auto px-4 w-full z-40 text-center flex flex-col items-center pt-2 sm:pt-4">
@@ -382,7 +382,7 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
           </div>
 
           {/* Desktop Horizontal Track */}
-          <div className="w-full h-[65vh] my-auto relative overflow-hidden flex items-center">
+          <div className="w-full flex-1 my-auto relative overflow-x-hidden overflow-y-visible flex items-center py-4">
             
             <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-0.5 bg-gradient-to-r from-amber-500/40 via-emerald-500/40 to-indigo-500/40 z-0 pointer-events-none" />
 
@@ -392,7 +392,7 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
             >
               {/* DESKTOP PANEL 1: TRAFFIC INFLOW */}
               <div className="w-[100vw] h-full shrink-0 flex items-center justify-center px-12">
-                <div className="max-w-4xl w-full grid grid-cols-12 gap-8 items-center bg-white/[0.02] border border-amber-500/20 rounded-3xl p-7 backdrop-blur-md shadow-2xl relative">
+                <div className="max-w-4xl w-full grid grid-cols-12 gap-8 items-center bg-white/[0.02] border border-amber-500/20 rounded-3xl p-5 sm:p-6 backdrop-blur-md shadow-2xl relative">
                   
                   <div className="absolute -top-3 left-8 px-3 py-0.5 rounded-full bg-amber-500/20 border border-amber-500/40 text-[10px] font-mono font-bold text-amber-400 uppercase tracking-widest">
                     Stage 01 • Your Ad Traffic Inflow
@@ -465,7 +465,7 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
 
               {/* DESKTOP PANEL 2: STOREFRONT TRUST & SALE PXL POSITIONING */}
               <div className="w-[100vw] h-full shrink-0 flex items-center justify-center px-8 lg:px-12">
-                <div className="max-w-5xl w-full grid grid-cols-12 gap-8 items-center bg-white/[0.02] border border-emerald-500/25 rounded-3xl p-7 backdrop-blur-md shadow-2xl relative">
+                <div className="max-w-5xl w-full grid grid-cols-12 gap-8 items-center bg-white/[0.02] border border-emerald-500/25 rounded-3xl p-5 sm:p-6 backdrop-blur-md shadow-2xl relative">
                   
                   <div className="absolute -top-3 left-8 px-3.5 py-1 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-[10px] font-mono font-bold text-emerald-400 uppercase tracking-widest flex items-center gap-1.5 shadow-[0_0_15px_rgba(16,185,129,0.3)]">
                     <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
@@ -650,7 +650,7 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
 
               {/* DESKTOP PANEL 3: HIGH-CONVERTING STORE OUTPUT */}
               <div className="w-[100vw] h-full shrink-0 flex items-center justify-center px-8 lg:px-12">
-                <div className="max-w-5xl w-full grid grid-cols-12 gap-8 items-center bg-white/[0.02] border border-indigo-500/30 rounded-3xl p-7 backdrop-blur-md shadow-2xl relative">
+                <div className="max-w-5xl w-full grid grid-cols-12 gap-8 items-center bg-white/[0.02] border border-indigo-500/30 rounded-3xl p-5 sm:p-6 backdrop-blur-md shadow-2xl relative">
                   
                   <div className="absolute -top-3 left-8 px-3.5 py-1 rounded-full bg-indigo-500/20 border border-indigo-500/40 text-[10px] font-mono font-bold text-indigo-400 uppercase tracking-widest flex items-center gap-1.5 shadow-[0_0_15px_rgba(99,102,241,0.3)]">
                     <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-ping" />
