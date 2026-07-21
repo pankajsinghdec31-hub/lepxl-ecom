@@ -476,10 +476,6 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
 
                   {/* Left Column: Copy & SalePXL Psychology Pillars */}
                   <div className="col-span-5 space-y-3">
-                    <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-emerald-500/10 border border-emerald-500/20 text-[11px] font-mono text-emerald-300">
-                      <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
-                      <span>SalePXL Store Architecture</span>
-                    </div>
 
                     <h3 className="text-2xl sm:text-3xl font-extrabold font-grotesk tracking-tight text-white leading-tight">
                       Turn More Visitors <span className="text-emerald-400">Into Customers</span>
