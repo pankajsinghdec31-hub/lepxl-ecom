@@ -1476,18 +1476,7 @@ export default function HomePage() {
 
             {/* Trust strip - hidden on mobile, visible from sm up */}
             <div className="mt-5 sm:mt-7 hidden sm:flex flex-row flex-wrap items-center justify-start gap-x-5 gap-y-2 animate-fade-blur" style={{ animationDelay: "0.2s" }}>
-              <div className="flex items-center gap-2 justify-center">
-                <div className="flex -space-x-1.5">
-                  {["SB","WE","SZ","AK"].map((t, i) => (
-                    <span key={i} className="w-5.5 h-5.5 rounded-full bg-primary/10 border border-[#050505] flex items-center justify-center text-[7px] font-bold text-primary">{t}</span>
-                  ))}
-                </div>
-                <span className="text-white/60 text-xs">Trusted by <strong className="text-white">800+ brands</strong></span>
-              </div>
-              <span className="text-white/20">|</span>
               <span className="text-white/60 text-xs text-center"><strong className="text-white">100+</strong> stores built</span>
-              <span className="text-white/20">|</span>
-              <span className="text-white/60 text-xs text-center"><strong className="text-white">Sub-1.2s</strong> avg speed</span>
             </div>
           </div>
         </div>
@@ -1692,10 +1681,10 @@ export default function HomePage() {
             {/* Left side text column */}
             <div className="w-full lg:w-[45%] text-left flex flex-col justify-center">
               <h2 className="premium-heading text-3xl sm:text-4xl lg:text-[2.75rem] font-light text-white leading-[1.1] tracking-tight font-grotesk">
-                Customize <span className="light-gradient-text font-normal">everything</span> with <span className="premium-highlight">Shopify Integrations</span>
+                Seamless <span className="light-gradient-text font-normal">Payment & Shipping</span> with <span className="premium-highlight">Essential App Integrations</span>
               </h2>
               <p className="mt-6 text-white/70 text-base sm:text-lg font-light leading-relaxed max-w-lg">
-                We install and configure essential Shopify apps for reviews, upsells, bundles, loyalty programs, analytics, WhatsApp automation, email marketing, and store automation to increase sales, boost conversions, and improve customer retention.
+                We integrate top-tier payment gateways, automated shipping & fulfillment APIs, 1-click checkouts, and essential commerce apps directly into your storefront to deliver the best UI, fastest checkout, and peak user experience.
               </p>
             </div>
 

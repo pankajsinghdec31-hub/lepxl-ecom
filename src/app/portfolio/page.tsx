@@ -510,12 +510,12 @@ const TABS = [
 ];
 
 const APP_INTEGRATIONS = [
-  { name: "Shiprocket", type: "Logistics Sync", desc: "Automate shipping labels, courier dispatch routing and tracking emails." },
-  { name: "Delhivery", type: "Fulfillment Sync", desc: "Enterprise API integration for automatic order weight and delivery tracking." },
-  { name: "Razorpay", type: "Payment Gateway", desc: "Native checkout integration with fast UPI buy selectors and credit options." },
-  { name: "Stripe", type: "Global Checkout", desc: "Multi-currency checkout accepting cards, Apple Pay, and digital wallets worldwide." },
-  { name: "Gokwik", type: "One-Click Checkout", desc: "Skip cart to checkout drawer, reducing address-input leakage by 25%." },
-  { name: "Whatamore", type: "Interactive Feeds", desc: "Embed shoppable reels and visual user-generated reviews right on PDP pages." }
+  { name: "Shiprocket", type: "Logistics Sync", desc: "Automate shipping labels, courier dispatch routing, NDR tracking, and instant delivery notifications." },
+  { name: "Delhivery", type: "Fulfillment Sync", desc: "Enterprise API integration for automated order weight calculation, real-time shipment sync, and delivery tracking." },
+  { name: "Razorpay", type: "Payment Gateway", desc: "Native checkout integration with fast 1-tap UPI buy selectors, netbanking, cards, and instant refund triggers." },
+  { name: "Stripe", type: "Global Checkout", desc: "Multi-currency checkout accepting credit cards, Apple Pay, Google Pay, and localized digital wallets worldwide." },
+  { name: "Gokwik", type: "One-Click Checkout", desc: "Skip cart friction with 1-click checkout drawers and pre-filled address auto-completion, boosting conversion rates by 25%." },
+  { name: "Whatamore", type: "Interactive Feeds", desc: "Embed shoppable video reels and visual UGC reviews directly onto PDP pages to elevate store UI and buyer trust." }
 ];
 
 const TESTIMONIALS = [
@@ -1032,9 +1032,9 @@ export default function PortfolioPage() {
         {/* APP INTEGRATION GRID */}
         <section className="flex flex-col gap-12 border-t border-neutral-200/60 pt-24 text-left">
           <div className="text-center flex flex-col gap-3 max-w-2xl mx-auto">
-            <span className="text-xs text-emerald-700 uppercase tracking-widest font-mono font-bold">Commerce Integrations</span>
-            <h2 className="text-3xl md:text-4xl font-light font-grotesk text-neutral-900">Do more with custom apps</h2>
-            <p className="text-sm text-neutral-500 max-w-xl mx-auto font-sans">We connect top-tier logistics, checkout overlays, and checkout drawers directly into your layout.</p>
+            <span className="text-xs text-emerald-700 uppercase tracking-widest font-mono font-bold">Payment, Shipping & Essential Integrations</span>
+            <h2 className="text-3xl md:text-4xl font-light font-grotesk text-neutral-900">Payment & Shipping Apps Built for Peak UI & Experience</h2>
+            <p className="text-sm text-neutral-500 max-w-xl mx-auto font-sans">We connect top-tier payment gateways, automated logistics & shipping APIs, 1-click checkouts, and essential commerce apps directly into your layout for the best UI and user experience.</p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 font-sans">
