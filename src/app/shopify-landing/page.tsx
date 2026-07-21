@@ -443,17 +443,20 @@ export default function MetaAdsShopifyLandingPage() {
   };
 
   return (
-    <div className="bg-[#050505] text-white font-sans antialiased min-h-screen relative overflow-x-hidden">
+    <div className="bg-[#030404] text-white font-sans antialiased min-h-screen relative overflow-x-hidden selection:bg-primary selection:text-black">
+      {/* Clean Interactive Background Dot Pattern */}
+      <div className="absolute inset-0 bg-[radial-gradient(#ffffff0a_1px,transparent_1px)] [background-size:28px_28px] pointer-events-none z-0" />
+
       {/* Hardware Accelerated Background Ambient Glows */}
       <motion.div
-        animate={{ y: [0, -12, 0] }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-[340px] sm:w-[600px] lg:w-[800px] h-[350px] sm:h-[500px] bg-primary/[0.07] rounded-full blur-[140px] pointer-events-none z-0"
+        animate={{ y: [0, -15, 0], opacity: [0.08, 0.12, 0.08] }}
+        transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-[360px] sm:w-[650px] lg:w-[850px] h-[380px] sm:h-[550px] bg-gradient-to-tr from-primary/[0.12] via-[#22e39a]/[0.05] to-transparent rounded-full blur-[160px] pointer-events-none z-0"
       />
       <motion.div
-        animate={{ y: [0, 15, 0] }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-[1200px] right-0 w-[300px] sm:w-[500px] h-[400px] bg-primary/[0.04] rounded-full blur-[160px] pointer-events-none z-0"
+        animate={{ y: [0, 18, 0], opacity: [0.05, 0.09, 0.05] }}
+        transition={{ duration: 11, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-[1200px] right-0 w-[320px] sm:w-[550px] h-[450px] bg-gradient-to-bl from-primary/[0.08] via-emerald-500/[0.03] to-transparent rounded-full blur-[180px] pointer-events-none z-0"
       />
 
       {/* ─── 1. HERO SECTION ────────────────────────────────────────────────── */}
@@ -464,13 +467,13 @@ export default function MetaAdsShopifyLandingPage() {
             initial={{ opacity: 0, y: -12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.35, ease: "easeOut" }}
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/10 text-[11px] sm:text-xs font-semibold text-primary uppercase tracking-wider mb-4 sm:mb-5 shadow-sm max-w-full text-center"
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-primary/10 via-emerald-500/10 to-primary/10 border border-primary/25 text-[11px] sm:text-xs font-bold text-primary uppercase tracking-wider mb-4 sm:mb-5 shadow-[0_0_15px_rgba(34,227,154,0.15)] max-w-full text-center"
           >
             <Sparkles className="w-3.5 h-3.5 text-primary shrink-0" />
             <span className="truncate">⚡ #1 High-Converting Shopify Store Agency</span>
           </motion.div>
 
-          {/* Main Headline (Non-Cropping Mobile Optimized) */}
+          {/* Main Headline */}
           <motion.h1
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
@@ -503,7 +506,7 @@ export default function MetaAdsShopifyLandingPage() {
             <a
               href="#lead-form"
               onClick={() => trackCTAClick({ cta_name: "Book Strategy Call Hero", cta_location: "Hero Primary" })}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-7 sm:px-8 py-3.5 sm:py-4 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider text-black bg-primary hover:bg-primary-hover shadow-[0_0_35px_rgba(34,227,154,0.35)] active:scale-95 transition-all duration-300 group cursor-pointer"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-7 sm:px-8 py-3.5 sm:py-4 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider text-black bg-primary hover:bg-primary-hover shadow-[0_0_35px_rgba(34,227,154,0.4)] active:scale-95 transition-all duration-300 group cursor-pointer"
             >
               <span>Book Strategy Call</span>
               <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -514,7 +517,7 @@ export default function MetaAdsShopifyLandingPage() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => trackWhatsAppClick("Hero Secondary CTA")}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 sm:px-8 py-3.5 sm:py-4 rounded-full text-xs sm:text-sm font-semibold text-white bg-white/[0.06] hover:bg-white/10 border border-white/15 active:scale-95 transition-all duration-300"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 sm:px-8 py-3.5 sm:py-4 rounded-full text-xs sm:text-sm font-semibold text-white bg-white/[0.06] hover:bg-white/10 border border-white/15 active:scale-95 transition-all duration-300 backdrop-blur-sm"
             >
               <WhatsAppLogo className="w-4 h-4 fill-[#25D366]" />
               <span>Chat on WhatsApp</span>
@@ -538,7 +541,7 @@ export default function MetaAdsShopifyLandingPage() {
                 key={idx}
                 whileHover={{ y: -4 }}
                 transition={{ duration: 0.2 }}
-                className="bg-white/[0.02] border border-white/[0.06] rounded-2xl p-3 sm:p-4 text-center hover:border-primary/30 transition-all duration-300"
+                className="bg-gradient-to-b from-white/[0.04] to-white/[0.01] border border-white/10 rounded-2xl p-3 sm:p-4 text-center hover:border-primary/40 hover:shadow-[0_0_20px_rgba(34,227,154,0.12)] transition-all duration-300 backdrop-blur-md"
               >
                 <div className="text-base sm:text-2xl font-extrabold text-primary font-mono mb-0.5">
                   <AnimatedStatCounter value={badge.val} />
@@ -553,60 +556,60 @@ export default function MetaAdsShopifyLandingPage() {
             ))}
           </motion.div>
 
-          {/* Feature Showcase Grid Cards */}
+          {/* Feature Showcase Grid Cards with Color Gradients */}
           <motion.div
             initial={{ opacity: 0, scale: 0.97 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.42 }}
-            className="mt-8 sm:mt-14 relative max-w-4xl mx-auto rounded-2xl sm:rounded-3xl border border-white/15 bg-[#0a0a0a] p-4 sm:p-8 shadow-[0_20px_60px_rgba(0,0,0,0.8)] text-left"
+            className="mt-8 sm:mt-14 relative max-w-4xl mx-auto rounded-2xl sm:rounded-3xl border border-white/15 bg-gradient-to-b from-[#0e1612] via-[#090d0b] to-[#050605] p-4 sm:p-8 shadow-[0_20px_60px_rgba(0,0,0,0.8)] text-left backdrop-blur-xl"
           >
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-4">
               {/* Feature 1: Custom Sections */}
-              <div className="bg-white/[0.03] border border-white/10 rounded-2xl p-4 flex flex-col justify-between space-y-2.5">
-                <div className="w-9 h-9 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+              <div className="bg-gradient-to-br from-[#121c17] via-[#0b120e] to-[#070a08] border border-white/10 hover:border-primary/50 rounded-2xl p-4 flex flex-col justify-between space-y-2.5 transition-all duration-300 hover:shadow-[0_0_25px_rgba(34,227,154,0.15)] group">
+                <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-primary/25 via-primary/10 to-transparent border border-primary/30 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
                   <LayoutGrid className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
                 <div>
                   <h4 className="text-xs sm:text-sm font-bold text-white mb-1">Custom Sections</h4>
-                  <p className="text-[11px] sm:text-xs text-neutral-400 leading-relaxed">Bespoke Liquid drag-and-drop sections, routine builders & cart drawers.</p>
+                  <p className="text-[11px] sm:text-xs text-neutral-300 leading-relaxed">Bespoke Liquid drag-and-drop sections, routine builders & cart drawers.</p>
                 </div>
-                <span className="text-[10px] font-mono font-bold text-primary">✓ 100% Theme Customizer</span>
+                <span className="text-[10px] font-mono font-bold text-primary bg-primary/10 px-2 py-0.5 rounded-full border border-primary/20 w-fit">✓ Theme Customizer</span>
               </div>
 
               {/* Feature 2: Payment Gateways */}
-              <div className="bg-white/[0.03] border border-white/10 rounded-2xl p-4 flex flex-col justify-between space-y-2.5">
-                <div className="w-9 h-9 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+              <div className="bg-gradient-to-br from-[#121c17] via-[#0b120e] to-[#070a08] border border-white/10 hover:border-primary/50 rounded-2xl p-4 flex flex-col justify-between space-y-2.5 transition-all duration-300 hover:shadow-[0_0_25px_rgba(34,227,154,0.15)] group">
+                <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-primary/25 via-primary/10 to-transparent border border-primary/30 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
                   <CreditCard className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
                 <div>
                   <h4 className="text-xs sm:text-sm font-bold text-white mb-1">Payment Gateways</h4>
-                  <p className="text-[11px] sm:text-xs text-neutral-400 leading-relaxed">Razorpay, Stripe, Cashfree, Paytm & COD OTP verification.</p>
+                  <p className="text-[11px] sm:text-xs text-neutral-300 leading-relaxed">Razorpay, Stripe, Cashfree, Paytm & COD OTP verification.</p>
                 </div>
-                <span className="text-[10px] font-mono font-bold text-primary">✓ Instant Checkout</span>
+                <span className="text-[10px] font-mono font-bold text-primary bg-primary/10 px-2 py-0.5 rounded-full border border-primary/20 w-fit">✓ Instant Checkout</span>
               </div>
 
               {/* Feature 3: Shipping Integration */}
-              <div className="bg-white/[0.03] border border-white/10 rounded-2xl p-4 flex flex-col justify-between space-y-2.5">
-                <div className="w-9 h-9 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+              <div className="bg-gradient-to-br from-[#121c17] via-[#0b120e] to-[#070a08] border border-white/10 hover:border-primary/50 rounded-2xl p-4 flex flex-col justify-between space-y-2.5 transition-all duration-300 hover:shadow-[0_0_25px_rgba(34,227,154,0.15)] group">
+                <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-primary/25 via-primary/10 to-transparent border border-primary/30 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
                   <Truck className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
                 <div>
                   <h4 className="text-xs sm:text-sm font-bold text-white mb-1">Shipping Partners</h4>
-                  <p className="text-[11px] sm:text-xs text-neutral-400 leading-relaxed">Shiprocket, Delhivery, DTDC & automated tracking setup.</p>
+                  <p className="text-[11px] sm:text-xs text-neutral-300 leading-relaxed">Shiprocket, Delhivery, DTDC & automated tracking setup.</p>
                 </div>
-                <span className="text-[10px] font-mono font-bold text-primary">✓ Auto Order Sync</span>
+                <span className="text-[10px] font-mono font-bold text-primary bg-primary/10 px-2 py-0.5 rounded-full border border-primary/20 w-fit">✓ Auto Order Sync</span>
               </div>
 
               {/* Feature 4: AI Photoshoots */}
-              <div className="bg-white/[0.03] border border-white/10 rounded-2xl p-4 flex flex-col justify-between space-y-2.5">
-                <div className="w-9 h-9 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+              <div className="bg-gradient-to-br from-[#121c17] via-[#0b120e] to-[#070a08] border border-white/10 hover:border-primary/50 rounded-2xl p-4 flex flex-col justify-between space-y-2.5 transition-all duration-300 hover:shadow-[0_0_25px_rgba(34,227,154,0.15)] group">
+                <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-primary/25 via-primary/10 to-transparent border border-primary/30 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
                   <Camera className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
                 <div>
                   <h4 className="text-xs sm:text-sm font-bold text-white mb-1">AI Product Photoshoot</h4>
-                  <p className="text-[11px] sm:text-xs text-neutral-400 leading-relaxed">Transform flat-lays into studio lifestyle photos + 20 free listings.</p>
+                  <p className="text-[11px] sm:text-xs text-neutral-300 leading-relaxed">Transform flat-lays into studio lifestyle photos + 20 free listings.</p>
                 </div>
-                <span className="text-[10px] font-mono font-bold text-primary">✓ Save Lakhs in Studio Costs</span>
+                <span className="text-[10px] font-mono font-bold text-primary bg-primary/10 px-2 py-0.5 rounded-full border border-primary/20 w-fit">✓ Save Photo Costs</span>
               </div>
             </div>
           </motion.div>
@@ -667,7 +670,7 @@ export default function MetaAdsShopifyLandingPage() {
             </div>
           </div>
 
-          {/* Active Card Slider View */}
+          {/* Active Card Slider View with Gradient Styling */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
             {[0, 1].map((offset) => {
               const itemIdx = (whyChooseIdx + offset) % WHY_CHOOSE_ITEMS.length;
@@ -680,14 +683,14 @@ export default function MetaAdsShopifyLandingPage() {
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -20 }}
                     transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-                    className="bg-[#0a0a0a] border border-white/10 hover:border-primary/40 rounded-2xl p-6 sm:p-8 text-left transition-all duration-300 flex flex-col justify-between group shadow-lg min-h-[200px]"
+                    className="bg-gradient-to-br from-[#0e1713] via-[#090e0b] to-[#050706] border border-white/15 hover:border-primary/60 rounded-2xl p-6 sm:p-8 text-left transition-all duration-300 flex flex-col justify-between group shadow-[0_15px_40px_rgba(0,0,0,0.7)] min-h-[200px]"
                   >
                     <div>
                       <div className="flex items-center justify-between mb-4">
-                        <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-black transition-colors duration-300">
+                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/25 via-primary/10 to-transparent border border-primary/30 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-black transition-colors duration-300">
                           <IconComp className="w-6 h-6" />
                         </div>
-                        <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-primary px-3 py-1 rounded-full bg-primary/10 border border-primary/20">
+                        <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-primary px-3 py-1 rounded-full bg-primary/10 border border-primary/25">
                           {item.tag}
                         </span>
                       </div>
@@ -723,7 +726,7 @@ export default function MetaAdsShopifyLandingPage() {
       </section>
 
       {/* ─── 3. SHOPIFY PORTFOLIO MARQUEE SHOWCASE ───────────────────────────── */}
-      <section className="py-14 sm:py-20 relative overflow-hidden bg-[#050505] border-t border-white/[0.08] z-10">
+      <section className="py-14 sm:py-20 relative overflow-hidden bg-[#030404] border-t border-white/[0.08] z-10">
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -746,14 +749,14 @@ export default function MetaAdsShopifyLandingPage() {
         <div className="marquee-container marquee-pause mb-5 sm:mb-6">
           <div className="marquee-content" style={{ "--marquee-speed": "45s" } as React.CSSProperties}>
             {PORTFOLIO_IMAGES_ROW1.map((img, idx) => (
-              <div key={idx} className="premium-hover-image-container flex-shrink-0 w-[240px] xs:w-[260px] sm:w-[280px] rounded-[20px] sm:rounded-[24px] border border-white/[0.08] hover:border-primary/40 shadow-xl bg-[#0a0a0a]">
+              <div key={idx} className="premium-hover-image-container flex-shrink-0 w-[240px] xs:w-[260px] sm:w-[280px] rounded-[20px] sm:rounded-[24px] border border-white/10 hover:border-primary/50 shadow-xl bg-[#090d0b]">
                 <img src={img.src} alt={img.alt} loading="lazy" decoding="async" className="premium-hover-image w-full display-block object-cover object-top select-none pointer-events-none" />
               </div>
             ))}
           </div>
           <div className="marquee-content" aria-hidden="true" style={{ "--marquee-speed": "45s" } as React.CSSProperties}>
             {PORTFOLIO_IMAGES_ROW1.map((img, idx) => (
-              <div key={idx + "-dup"} className="premium-hover-image-container flex-shrink-0 w-[240px] xs:w-[260px] sm:w-[280px] rounded-[20px] sm:rounded-[24px] border border-white/[0.08] hover:border-primary/40 shadow-xl bg-[#0a0a0a]">
+              <div key={idx + "-dup"} className="premium-hover-image-container flex-shrink-0 w-[240px] xs:w-[260px] sm:w-[280px] rounded-[20px] sm:rounded-[24px] border border-white/10 hover:border-primary/50 shadow-xl bg-[#090d0b]">
                 <img src={img.src} alt={img.alt} loading="lazy" decoding="async" className="premium-hover-image w-full display-block object-cover object-top select-none pointer-events-none" />
               </div>
             ))}
@@ -764,14 +767,14 @@ export default function MetaAdsShopifyLandingPage() {
         <div className="marquee-container marquee-pause">
           <div className="marquee-content-reverse" style={{ "--marquee-speed": "45s" } as React.CSSProperties}>
             {PORTFOLIO_IMAGES_ROW2.map((img, idx) => (
-              <div key={idx} className="premium-hover-image-container flex-shrink-0 w-[240px] xs:w-[260px] sm:w-[280px] rounded-[20px] sm:rounded-[24px] border border-white/[0.08] hover:border-primary/40 shadow-xl bg-[#0a0a0a]">
+              <div key={idx} className="premium-hover-image-container flex-shrink-0 w-[240px] xs:w-[260px] sm:w-[280px] rounded-[20px] sm:rounded-[24px] border border-white/10 hover:border-primary/50 shadow-xl bg-[#090d0b]">
                 <img src={img.src} alt={img.alt} loading="lazy" decoding="async" className="premium-hover-image w-full display-block object-cover object-top select-none pointer-events-none" />
               </div>
             ))}
           </div>
           <div className="marquee-content-reverse" aria-hidden="true" style={{ "--marquee-speed": "45s" } as React.CSSProperties}>
             {PORTFOLIO_IMAGES_ROW2.map((img, idx) => (
-              <div key={idx + "-dup"} className="premium-hover-image-container flex-shrink-0 w-[240px] xs:w-[260px] sm:w-[280px] rounded-[20px] sm:rounded-[24px] border border-white/[0.08] hover:border-primary/40 shadow-xl bg-[#0a0a0a]">
+              <div key={idx + "-dup"} className="premium-hover-image-container flex-shrink-0 w-[240px] xs:w-[260px] sm:w-[280px] rounded-[20px] sm:rounded-[24px] border border-white/10 hover:border-primary/50 shadow-xl bg-[#090d0b]">
                 <img src={img.src} alt={img.alt} loading="lazy" decoding="async" className="premium-hover-image w-full display-block object-cover object-top select-none pointer-events-none" />
               </div>
             ))}
@@ -782,7 +785,7 @@ export default function MetaAdsShopifyLandingPage() {
           <a
             href="#lead-form"
             onClick={() => trackCTAClick({ cta_name: "Build Your Store Portfolio Section", cta_location: "Marquee Portfolio" })}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 sm:px-8 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider text-black bg-primary hover:bg-primary-hover shadow-[0_0_25px_rgba(34,227,154,0.3)] active:scale-95 transition-all duration-300 cursor-pointer"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 sm:px-8 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider text-black bg-primary hover:bg-primary-hover shadow-[0_0_25px_rgba(34,227,154,0.35)] active:scale-95 transition-all duration-300 cursor-pointer"
           >
             <span>Build Your High-Converting Store</span>
             <ArrowRight className="w-4 h-4" />
@@ -817,7 +820,7 @@ export default function MetaAdsShopifyLandingPage() {
           </p>
         </motion.div>
 
-        {/* Animated Process Flow Steps */}
+        {/* Animated Process Flow Steps with Card Gradients */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3.5 sm:gap-4 relative">
           {[
             {
@@ -858,7 +861,7 @@ export default function MetaAdsShopifyLandingPage() {
               viewport={{ once: true, margin: "-30px" }}
               transition={{ duration: 0.35, delay: idx * 0.08 }}
               whileHover={{ y: -4 }}
-              className="bg-[#0a0a0a] border border-white/10 hover:border-primary/40 rounded-2xl p-5 text-left relative group transition-all duration-300"
+              className="bg-gradient-to-b from-[#0d1511] via-[#080d0a] to-[#040605] border border-white/10 hover:border-primary/40 rounded-2xl p-5 text-left relative group transition-all duration-300 shadow-md"
             >
               <div className="text-2.5xl sm:text-3xl font-black font-mono text-primary/30 group-hover:text-primary transition-colors mb-2.5">
                 {item.step}
@@ -866,10 +869,10 @@ export default function MetaAdsShopifyLandingPage() {
               <h3 className="text-base sm:text-lg font-bold text-white mb-1.5">
                 {item.title}
               </h3>
-              <p className="text-xs text-neutral-400 leading-relaxed mb-4">
+              <p className="text-xs text-neutral-300 leading-relaxed mb-4">
                 {item.desc}
               </p>
-              <div className="inline-block px-2.5 py-1 rounded-full bg-primary/10 border border-primary/20 text-[10px] font-mono font-bold text-primary">
+              <div className="inline-block px-2.5 py-1 rounded-full bg-gradient-to-r from-primary/15 to-emerald-500/10 border border-primary/30 text-[10px] font-mono font-bold text-primary">
                 {item.metric}
               </div>
             </motion.div>
@@ -897,7 +900,7 @@ export default function MetaAdsShopifyLandingPage() {
           </p>
         </motion.div>
 
-        {/* Testimonial Auto Slider Card */}
+        {/* Testimonial Auto Slider Card with Gradient Styling */}
         <div className="max-w-4xl mx-auto">
           <AnimatePresence mode="wait">
             {TESTIMONIALS.map((t, idx) => {
@@ -909,7 +912,7 @@ export default function MetaAdsShopifyLandingPage() {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: -10, scale: 0.98 }}
                   transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                  className="bg-[#0a0a0a] border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-10 lg:p-12 shadow-[0_20px_50px_rgba(0,0,0,0.6)] text-left grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 items-center"
+                  className="bg-gradient-to-b from-[#0e1612] via-[#090d0b] to-[#050706] border border-white/15 rounded-2xl sm:rounded-3xl p-6 sm:p-10 lg:p-12 shadow-[0_20px_50px_rgba(0,0,0,0.7)] text-left grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 items-center backdrop-blur-xl"
                 >
                   <div className="md:col-span-8 space-y-4 sm:space-y-6">
                     <div className="flex items-center gap-1 text-amber-400">
@@ -928,7 +931,7 @@ export default function MetaAdsShopifyLandingPage() {
                         alt={t.name}
                         loading="lazy"
                         decoding="async"
-                        className="w-10 h-10 rounded-full object-cover border border-primary/30 shrink-0"
+                        className="w-10 h-10 rounded-full object-cover border border-primary/40 shrink-0 shadow-md"
                       />
                       <div>
                         <h4 className="text-sm sm:text-base font-bold text-white">{t.name}</h4>
@@ -937,7 +940,7 @@ export default function MetaAdsShopifyLandingPage() {
                     </div>
                   </div>
 
-                  <div className="md:col-span-4 bg-white/[0.03] border border-white/10 rounded-2xl p-5 text-center space-y-2">
+                  <div className="md:col-span-4 bg-gradient-to-br from-primary/10 via-emerald-500/5 to-transparent border border-primary/25 rounded-2xl p-5 text-center space-y-2 shadow-inner">
                     <div className="text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-neutral-400">
                       Performance Result
                     </div>
@@ -1002,21 +1005,21 @@ export default function MetaAdsShopifyLandingPage() {
                 viewport={{ once: true, margin: "-30px" }}
                 transition={{ duration: 0.35, delay: idx * 0.06 }}
                 whileHover={{ y: -4 }}
-                className="bg-[#0a0a0a] border border-white/10 hover:border-primary/40 rounded-2xl p-5 sm:p-7 flex flex-col justify-between text-left transition-all duration-300 group"
+                className="bg-gradient-to-b from-[#0c1410] to-[#060807] border border-white/10 hover:border-primary/40 rounded-2xl p-5 sm:p-7 flex flex-col justify-between text-left transition-all duration-300 group shadow-md"
               >
                 <div>
                   <div className="flex items-center justify-between mb-5">
-                    <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-black transition-colors duration-300">
+                    <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-primary/25 via-primary/10 to-transparent border border-primary/30 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-black transition-colors duration-300">
                       <IconComp className="w-5 h-5 sm:w-6 sm:h-6" />
                     </div>
-                    <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-primary px-2.5 py-1 rounded-full bg-primary/10 border border-primary/20 truncate max-w-[150px]">
+                    <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-primary px-2.5 py-1 rounded-full bg-gradient-to-r from-primary/15 to-emerald-500/10 border border-primary/25 truncate max-w-[150px]">
                       {srv.highlight}
                     </span>
                   </div>
                   <h3 className="text-lg sm:text-xl font-bold text-white mb-2.5">
                     {srv.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-neutral-400 leading-relaxed mb-6">
+                  <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed mb-6">
                     {srv.desc}
                   </p>
                 </div>
@@ -1045,7 +1048,7 @@ export default function MetaAdsShopifyLandingPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-40px" }}
           transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-          className="bg-[#0a0a0a] border border-white/15 rounded-2xl sm:rounded-3xl p-5 sm:p-10 lg:p-12 shadow-[0_25px_60px_rgba(0,0,0,0.8)] relative overflow-hidden text-left"
+          className="bg-gradient-to-b from-[#0e1612] via-[#0a0e0b] to-[#050605] border border-primary/30 rounded-2xl sm:rounded-3xl p-5 sm:p-10 lg:p-12 shadow-[0_0_50px_rgba(34,227,154,0.12)] relative overflow-hidden text-left backdrop-blur-xl"
         >
           {/* Top Subtle Glow */}
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent" />
@@ -1058,7 +1061,7 @@ export default function MetaAdsShopifyLandingPage() {
             <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
               Get Your Custom Shopify Store Strategy & Proposal
             </h2>
-            <p className="text-xs sm:text-sm text-neutral-400 mt-2 leading-relaxed">
+            <p className="text-xs sm:text-sm text-neutral-300 mt-2 leading-relaxed">
               Fill out your project details below. Our senior Shopify architects will review your brand and send you a custom growth plan within 2 hours.
             </p>
           </div>
@@ -1079,9 +1082,9 @@ export default function MetaAdsShopifyLandingPage() {
                     value={formData.fullName}
                     onChange={handleInputChange}
                     placeholder="Pankaj Singh"
-                    className={`w-full bg-[#121212] border ${
-                      formErrors.fullName ? "border-red-500" : "border-white/10 focus:border-primary"
-                    } rounded-xl pl-11 pr-4 py-3 text-sm text-white placeholder-neutral-500 focus:outline-none transition-colors min-h-[48px] sm:min-h-[52px] text-[16px] sm:text-sm`}
+                    className={`w-full bg-[#0f1211] border ${
+                      formErrors.fullName ? "border-red-500" : "border-white/15 focus:border-primary focus:shadow-[0_0_20px_rgba(34,227,154,0.2)]"
+                    } rounded-xl pl-11 pr-4 py-3 text-sm text-white placeholder-neutral-500 focus:outline-none transition-all min-h-[48px] sm:min-h-[52px] text-[16px] sm:text-sm`}
                   />
                 </div>
                 {formErrors.fullName && (
@@ -1102,9 +1105,9 @@ export default function MetaAdsShopifyLandingPage() {
                     value={formData.businessName}
                     onChange={handleInputChange}
                     placeholder="e.g., Pilgrim Skincare"
-                    className={`w-full bg-[#121212] border ${
-                      formErrors.businessName ? "border-red-500" : "border-white/10 focus:border-primary"
-                    } rounded-xl pl-11 pr-4 py-3 text-sm text-white placeholder-neutral-500 focus:outline-none transition-colors min-h-[48px] sm:min-h-[52px] text-[16px] sm:text-sm`}
+                    className={`w-full bg-[#0f1211] border ${
+                      formErrors.businessName ? "border-red-500" : "border-white/15 focus:border-primary focus:shadow-[0_0_20px_rgba(34,227,154,0.2)]"
+                    } rounded-xl pl-11 pr-4 py-3 text-sm text-white placeholder-neutral-500 focus:outline-none transition-all min-h-[48px] sm:min-h-[52px] text-[16px] sm:text-sm`}
                   />
                 </div>
                 {formErrors.businessName && (
@@ -1125,9 +1128,9 @@ export default function MetaAdsShopifyLandingPage() {
                     value={formData.phone}
                     onChange={handleInputChange}
                     placeholder="+91 9917780656"
-                    className={`w-full bg-[#121212] border ${
-                      formErrors.phone ? "border-red-500" : "border-white/10 focus:border-primary"
-                    } rounded-xl pl-11 pr-4 py-3 text-sm text-white placeholder-neutral-500 focus:outline-none transition-colors min-h-[48px] sm:min-h-[52px] text-[16px] sm:text-sm`}
+                    className={`w-full bg-[#0f1211] border ${
+                      formErrors.phone ? "border-red-500" : "border-white/15 focus:border-primary focus:shadow-[0_0_20px_rgba(34,227,154,0.2)]"
+                    } rounded-xl pl-11 pr-4 py-3 text-sm text-white placeholder-neutral-500 focus:outline-none transition-all min-h-[48px] sm:min-h-[52px] text-[16px] sm:text-sm`}
                   />
                 </div>
                 {formErrors.phone && (
@@ -1148,9 +1151,9 @@ export default function MetaAdsShopifyLandingPage() {
                     value={formData.email}
                     onChange={handleInputChange}
                     placeholder="pankaj@yourbrand.com"
-                    className={`w-full bg-[#121212] border ${
-                      formErrors.email ? "border-red-500" : "border-white/10 focus:border-primary"
-                    } rounded-xl pl-11 pr-4 py-3 text-sm text-white placeholder-neutral-500 focus:outline-none transition-colors min-h-[48px] sm:min-h-[52px] text-[16px] sm:text-sm`}
+                    className={`w-full bg-[#0f1211] border ${
+                      formErrors.email ? "border-red-500" : "border-white/15 focus:border-primary focus:shadow-[0_0_20px_rgba(34,227,154,0.2)]"
+                    } rounded-xl pl-11 pr-4 py-3 text-sm text-white placeholder-neutral-500 focus:outline-none transition-all min-h-[48px] sm:min-h-[52px] text-[16px] sm:text-sm`}
                   />
                 </div>
                 {formErrors.email && (
@@ -1171,7 +1174,7 @@ export default function MetaAdsShopifyLandingPage() {
                     value={formData.website}
                     onChange={handleInputChange}
                     placeholder="https://yourbrand.com"
-                    className="w-full bg-[#121212] border border-white/10 focus:border-primary rounded-xl pl-11 pr-4 py-3 text-sm text-white placeholder-neutral-500 focus:outline-none transition-colors min-h-[48px] sm:min-h-[52px] text-[16px] sm:text-sm"
+                    className="w-full bg-[#0f1211] border border-white/15 focus:border-primary focus:shadow-[0_0_20px_rgba(34,227,154,0.2)] rounded-xl pl-11 pr-4 py-3 text-sm text-white placeholder-neutral-500 focus:outline-none transition-all min-h-[48px] sm:min-h-[52px] text-[16px] sm:text-sm"
                   />
                 </div>
               </div>
@@ -1195,8 +1198,8 @@ export default function MetaAdsShopifyLandingPage() {
                     onClick={() => setFormData((prev) => ({ ...prev, monthlyRevenue: rev }))}
                     className={`py-3 px-2 sm:px-3 rounded-xl text-xs font-semibold border transition-all duration-200 active:scale-95 cursor-pointer ${
                       formData.monthlyRevenue === rev
-                        ? "bg-primary text-black border-primary font-bold shadow-[0_0_15px_rgba(34,227,154,0.35)]"
-                        : "bg-[#121212] text-neutral-300 border-white/10 hover:border-white/30"
+                        ? "bg-primary text-black border-primary font-bold shadow-[0_0_20px_rgba(34,227,154,0.35)]"
+                        : "bg-[#0f1211] text-neutral-300 border-white/15 hover:border-white/35"
                     }`}
                   >
                     {rev}
@@ -1222,8 +1225,8 @@ export default function MetaAdsShopifyLandingPage() {
                     onClick={() => setFormData((prev) => ({ ...prev, projectBudget: b }))}
                     className={`py-3 px-2 sm:px-3 rounded-xl text-xs sm:text-sm font-semibold border transition-all duration-200 active:scale-95 cursor-pointer ${
                       formData.projectBudget === b
-                        ? "bg-primary text-black border-primary font-bold shadow-[0_0_15px_rgba(34,227,154,0.35)]"
-                        : "bg-[#121212] text-neutral-300 border-white/10 hover:border-white/30"
+                        ? "bg-primary text-black border-primary font-bold shadow-[0_0_20px_rgba(34,227,154,0.35)]"
+                        : "bg-[#0f1211] text-neutral-300 border-white/15 hover:border-white/35"
                     }`}
                   >
                     {b}
@@ -1245,9 +1248,9 @@ export default function MetaAdsShopifyLandingPage() {
                   value={formData.projectDetails}
                   onChange={handleInputChange}
                   placeholder="Tell us about your brand products, target audience, and main goals for your Shopify store..."
-                  className={`w-full bg-[#121212] border ${
-                    formErrors.projectDetails ? "border-red-500" : "border-white/10 focus:border-primary"
-                  } rounded-xl pl-11 pr-4 py-3 text-sm text-white placeholder-neutral-500 focus:outline-none transition-colors text-[16px] sm:text-sm`}
+                  className={`w-full bg-[#0f1211] border ${
+                    formErrors.projectDetails ? "border-red-500" : "border-white/15 focus:border-primary focus:shadow-[0_0_20px_rgba(34,227,154,0.2)]"
+                  } rounded-xl pl-11 pr-4 py-3 text-sm text-white placeholder-neutral-500 focus:outline-none transition-all text-[16px] sm:text-sm`}
                 />
               </div>
               {formErrors.projectDetails && (
@@ -1259,7 +1262,7 @@ export default function MetaAdsShopifyLandingPage() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full py-3.5 sm:py-4 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider text-black bg-primary hover:bg-primary-hover shadow-[0_0_30px_rgba(34,227,154,0.4)] active:scale-98 transition-all duration-300 disabled:opacity-70 flex items-center justify-center gap-2 cursor-pointer"
+              className="w-full py-3.5 sm:py-4 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider text-black bg-primary hover:bg-primary-hover shadow-[0_0_35px_rgba(34,227,154,0.45)] active:scale-98 transition-all duration-300 disabled:opacity-70 flex items-center justify-center gap-2 cursor-pointer"
             >
               {isSubmitting ? (
                 <>
@@ -1290,9 +1293,9 @@ export default function MetaAdsShopifyLandingPage() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: "-40px" }}
           transition={{ duration: 0.4 }}
-          className="bg-gradient-to-br from-[#0c1f17] via-[#0a0a0a] to-[#0a0a0a] border border-[#25D366]/30 rounded-2xl sm:rounded-3xl p-6 sm:p-12 lg:p-14 text-center relative overflow-hidden shadow-[0_20px_50px_rgba(37,211,102,0.1)]"
+          className="bg-gradient-to-r from-[#0c2419] via-[#091a12] to-[#050b08] border border-[#25D366]/40 rounded-2xl sm:rounded-3xl p-6 sm:p-12 lg:p-14 text-center relative overflow-hidden shadow-[0_0_40px_rgba(37,211,102,0.15)] backdrop-blur-xl"
         >
-          <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#25D366]/15 border border-[#25D366]/30 flex items-center justify-center mx-auto mb-5 text-[#25D366]">
+          <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#25D366]/15 border border-[#25D366]/30 flex items-center justify-center mx-auto mb-5 text-[#25D366] shadow-[0_0_20px_rgba(37,211,102,0.2)]">
             <WhatsAppLogo className="w-7 h-7 sm:w-8 sm:h-8 fill-[#25D366]" />
           </div>
 
@@ -1357,7 +1360,9 @@ export default function MetaAdsShopifyLandingPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-20px" }}
                 transition={{ duration: 0.3, delay: idx * 0.04 }}
-                className="bg-[#0a0a0a] border border-white/10 rounded-2xl overflow-hidden transition-colors duration-200"
+                className={`bg-gradient-to-r from-[#090d0a] to-[#060807] border ${
+                  isOpen ? "border-primary/40 shadow-[0_0_20px_rgba(34,227,154,0.1)]" : "border-white/10"
+                } rounded-2xl overflow-hidden transition-all duration-300`}
               >
                 <button
                   onClick={() => setOpenFaqIdx(isOpen ? null : idx)}
@@ -1401,7 +1406,7 @@ export default function MetaAdsShopifyLandingPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-40px" }}
           transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-          className="bg-gradient-to-b from-[#0a0a0a] to-[#050505] border border-white/15 rounded-2xl sm:rounded-3xl p-6 sm:p-14 lg:p-16 text-center relative overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.8)]"
+          className="bg-gradient-to-b from-[#0f1713] via-[#0a0f0c] to-[#040505] border border-white/15 rounded-2xl sm:rounded-3xl p-6 sm:p-14 lg:p-16 text-center relative overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.8)] backdrop-blur-xl"
         >
           <div className="max-w-3xl mx-auto space-y-4 sm:space-y-6">
             <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-primary font-mono block">
