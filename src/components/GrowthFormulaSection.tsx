@@ -478,7 +478,7 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
                   <div className="col-span-5 space-y-3">
 
                     <h3 className="text-2xl sm:text-3xl font-extrabold font-grotesk tracking-tight text-white leading-tight">
-                      Turn More Visitors <span className="text-emerald-400">Into Customers</span>
+                      Visitors <span className="text-emerald-400">Into Customers</span>
                     </h3>
                     
                     <p className="text-xs text-white/70 leading-relaxed font-sans">
@@ -894,7 +894,7 @@ export default function GrowthFormulaSection({ onOpenModal }: GrowthFormulaSecti
           </div>
 
           <h3 className="text-xl font-extrabold font-grotesk text-white leading-tight">
-            Turn More Visitors <span className="text-emerald-400">Into Customers</span>
+            Visitors <span className="text-emerald-400">Into Customers</span>
           </h3>
           <p className="text-xs text-white/70 leading-relaxed font-sans">
             Your Shopify store builds trust, answers customer questions, and makes buying simple. This helps more visitors become paying customers.
