@@ -1717,7 +1717,7 @@ export default function HomePage() {
               FAQ
             </span>
             <h2 className="premium-heading text-3xl sm:text-4xl lg:text-[2.75rem] font-light text-white tracking-tight font-grotesk">
-              Optimization <span className="premium-highlight"><span className="light-gradient-text font-normal">Process</span> Details</span>
+              Clear Your <span className="premium-highlight"><span className="light-gradient-text font-normal">Doubts</span></span>
             </h2>
           </div>
 
