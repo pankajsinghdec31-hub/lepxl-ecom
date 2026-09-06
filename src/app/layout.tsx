@@ -181,7 +181,7 @@ export default function RootLayout({
         
         {/* Floating WhatsApp Button for Mobile Devices Only */}
         <a
-          href="https://wa.me/919917780656"
+          href="https://wa.me/919917780656?text=Hi%20SalePXL%2C%20I%27m%20interested%20in%20building%20a%20high-converting%20Shopify%20store.%20Can%20we%20chat%3F"
           target="_blank"
           rel="noopener noreferrer"
           className="fixed bottom-6 right-6 z-40 md:hidden flex items-center justify-center w-14 h-14 rounded-full bg-primary text-black shadow-[0_8px_30px_rgba(34,227,154,0.4)] active:scale-95 transition-all duration-300 group hover:bg-[#34F5AE]"

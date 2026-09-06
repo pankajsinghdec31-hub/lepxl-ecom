@@ -571,7 +571,7 @@ export default function HowItWorksPage() {
               Start Your Project
             </Link>
             <a
-              href="https://wa.me/919917780656"
+              href="https://wa.me/919917780656?text=Hi%20SalePXL%2C%20I%27m%20interested%20in%20building%20a%20high-converting%20Shopify%20store.%20Can%20we%20chat%3F"
               target="_blank"
               rel="noopener noreferrer"
               className="px-8 py-4 rounded-full bg-white text-neutral-900 border-2 border-neutral-900 font-bold uppercase tracking-wider text-xs sm:text-sm hover:bg-neutral-900 hover:text-white transition-all"

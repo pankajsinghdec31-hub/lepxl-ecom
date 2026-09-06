@@ -716,7 +716,7 @@ export default function ShopifyAuditPage() {
 
                   <div className="flex flex-col sm:flex-row items-center gap-4 mt-6 w-full font-sans">
                     <a
-                      href="https://wa.me/919917780656"
+                      href="https://wa.me/919917780656?text=Hi%20SalePXL%2C%20I%20just%20requested%20a%20Shopify%20store%20audit.%20Can%20we%20chat%3F"
                       target="_blank"
                       rel="noreferrer"
                       className="w-full sm:flex-1 py-3 px-4 rounded-xl text-xs font-bold uppercase tracking-wider text-neutral-700 bg-transparent border border-neutral-200 hover:bg-neutral-50 transition-all text-center"

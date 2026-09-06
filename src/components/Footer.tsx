@@ -59,7 +59,7 @@ export default function Footer() {
               <span>+91 9917780656</span>
             </a>
             <a 
-              href="https://wa.me/919917780656" 
+              href="https://wa.me/919917780656?text=Hi%20SalePXL%2C%20I%27m%20interested%20in%20building%20a%20high-converting%20Shopify%20store.%20Can%20we%20chat%3F" 
               target="_blank" 
               rel="noopener noreferrer"
               onClick={() => trackWhatsAppClick("Minimal Footer")}

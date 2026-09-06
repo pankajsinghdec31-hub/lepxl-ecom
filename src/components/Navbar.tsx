@@ -139,7 +139,7 @@ export default function Navbar() {
           {/* CTA Button */}
           <div className="hidden md:flex items-center gap-6">
             <Link
-              href="https://wa.me/919917780656"
+              href="https://wa.me/919917780656?text=Hi%20SalePXL%2C%20I%27m%20interested%20in%20building%20a%20high-converting%20Shopify%20store.%20Can%20we%20chat%3F"
               target="_blank"
               rel="noopener noreferrer"
               className={`inline-flex items-center gap-2 text-sm font-medium transition-colors ${
@@ -228,7 +228,7 @@ export default function Navbar() {
                 <span>Start Now</span>
               </Link>
               <Link
-                href="https://wa.me/919917780656"
+                href="https://wa.me/919917780656?text=Hi%20SalePXL%2C%20I%27m%20interested%20in%20building%20a%20high-converting%20Shopify%20store.%20Can%20we%20chat%3F"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full flex items-center justify-center gap-2 btn-secondary h-12 rounded-full text-sm font-semibold uppercase tracking-wider text-white border border-white/20 text-center"

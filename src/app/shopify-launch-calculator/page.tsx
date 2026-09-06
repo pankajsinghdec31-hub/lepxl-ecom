@@ -369,7 +369,7 @@ export default function ShopifyLaunchCalculator() {
                 <ArrowRight className="w-4 h-4" />
               </a>
               <a
-                href="https://wa.me/919917780656"
+                href="https://wa.me/919917780656?text=Hi%20SalePXL%2C%20I%20used%20the%20Shopify%20Launch%20Calculator%20and%20want%20to%20discuss%20my%20project."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto btn-secondary inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-sm font-semibold uppercase tracking-wider text-neutral-700 border border-neutral-200 text-center"
@@ -383,7 +383,7 @@ export default function ShopifyLaunchCalculator() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-6 pt-6 border-t border-neutral-200/60 text-xs text-neutral-500">
               <div className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-emerald-600" />
-                <span>WhatsApp: <a href="https://wa.me/919917780656" target="_blank" rel="noopener noreferrer" className="text-neutral-800 font-bold font-mono">+91 9917780656</a></span>
+                <span>WhatsApp: <a href="https://wa.me/919917780656?text=Hi%20SalePXL%2C%20I%27m%20interested%20in%20building%20a%20high-converting%20Shopify%20store.%20Can%20we%20chat%3F" target="_blank" rel="noopener noreferrer" className="text-neutral-800 font-bold font-mono">+91 9917780656</a></span>
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-emerald-600" />
