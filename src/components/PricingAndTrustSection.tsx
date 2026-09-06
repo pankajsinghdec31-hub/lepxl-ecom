@@ -9,14 +9,12 @@ import {
   Building2,
   ArrowRight
 } from "lucide-react";
-import FoundersReviewsMarquee from "@/components/FoundersReviewsMarquee";
 import LeadCaptureModal from "@/components/LeadCaptureModal";
 
 export default function PricingAndTrustSection() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedBudget, setSelectedBudget] = useState("Under ₹29,999/-");
   const [selectedPlanName, setSelectedPlanName] = useState("");
-
 
   const PRICING_PLANS = [
     {
@@ -77,39 +75,6 @@ export default function PricingAndTrustSection() {
     }
   ];
 
-  const METRICS = [
-    {
-      metric: "$45M+",
-      title: "Revenue Generated",
-      desc: "For Shopify & D2C Stores Globally"
-    },
-    {
-      metric: "15%+",
-      title: "Average Conversion Lift",
-      desc: "Across Custom Store Redesigns"
-    },
-    {
-      metric: "64+",
-      title: "Active Brands",
-      desc: "Trust Us as Their Extended Tech Team"
-    },
-    {
-      metric: "100%",
-      title: "Growth Focused",
-      desc: "Dedicated to Scaling Brand Revenue"
-    }
-  ];
-
-  const BRAND_NAMES = [
-    "PRADHVAY",
-    "PLARSH COMFORT",
-    "ZAROORI ACADEMY",
-    "REELUP",
-    "HYPE THE GYM",
-    "MOONLIT",
-    "SOLAA SALON"
-  ];
-
   const handleOpenConnectModal = (planBudget: string, planName: string) => {
     setSelectedBudget(planBudget);
     setSelectedPlanName(planName);
@@ -119,88 +84,6 @@ export default function PricingAndTrustSection() {
   return (
     <div className="w-full bg-[#050505] text-white overflow-hidden">
       
-      {/* ─────────────────────────────────────────────────────────────────── */}
-      {/* SECTION 1: TRUSTED BY 200+ BRAND OWNERS */}
-      {/* ─────────────────────────────────────────────────────────────────── */}
-      <section className="relative py-20 sm:py-28 px-6 border-t border-white/[0.08] bg-gradient-to-b from-[#080d14] to-[#050505]">
-        <div className="max-w-[1360px] mx-auto flex flex-col gap-12 relative z-10">
-          
-          {/* Social Proof Header Badge & Title */}
-          <div className="flex flex-col items-center text-center gap-4 max-w-3xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/25 backdrop-blur-md"
-            >
-              <div className="flex -space-x-2 overflow-hidden">
-                <div className="inline-block h-6 w-6 rounded-full ring-2 ring-black bg-gradient-to-tr from-emerald-400 to-teal-500 text-[10px] font-bold text-black flex items-center justify-center">PS</div>
-                <div className="inline-block h-6 w-6 rounded-full ring-2 ring-black bg-gradient-to-tr from-blue-500 to-indigo-500 text-[10px] font-bold text-white flex items-center justify-center">AK</div>
-                <div className="inline-block h-6 w-6 rounded-full ring-2 ring-black bg-gradient-to-tr from-purple-500 to-pink-500 text-[10px] font-bold text-white flex items-center justify-center">RD</div>
-              </div>
-              <span className="text-xs font-mono font-bold text-emerald-400 tracking-wide uppercase">
-                Trusted by 200+ brand owners
-              </span>
-            </motion.div>
-
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white tracking-tight font-grotesk leading-[1.15]"
-            >
-              End-to-End Shopify Expertise — <br className="hidden sm:block" />
-              <span className="text-emerald-400 font-normal">Design</span>,{" "}
-              <span className="text-emerald-400 font-normal">Development</span>,{" "}
-              <span className="text-white font-normal">Performance</span> &{" "}
-              <span className="text-emerald-400 font-normal">Growth</span>
-            </motion.h2>
-          </div>
-
-          {/* Marquee Brand Logos Strip */}
-          <div className="w-full py-6 border-y border-white/[0.06] overflow-hidden relative">
-            <div className="flex items-center justify-around flex-wrap gap-8 opacity-75 grayscale hover:grayscale-0 transition-all duration-500">
-              {BRAND_NAMES.map((name, idx) => (
-                <span
-                  key={idx}
-                  className="font-mono text-sm sm:text-base font-bold tracking-[0.25em] text-white/50 hover:text-emerald-400 transition-colors uppercase cursor-pointer"
-                >
-                  {name}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          {/* Metrics Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-4">
-            {METRICS.map((item, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: idx * 0.1 }}
-                className="p-6 sm:p-8 rounded-3xl bg-[#0c131a]/80 border border-white/10 hover:border-emerald-500/30 transition-all duration-300 flex flex-col justify-between backdrop-blur-md group"
-              >
-                <div className="text-4xl sm:text-5xl font-black text-white font-grotesk tracking-tight group-hover:text-emerald-400 transition-colors">
-                  {item.metric}
-                </div>
-                <div className="mt-4">
-                  <h3 className="text-sm font-bold text-white font-grotesk">{item.title}</h3>
-                  <p className="text-xs text-white/50 mt-1 leading-relaxed font-sans">{item.desc}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-        </div>
-      </section>
-
-      {/* AUTO-SCROLLING FOUNDERS & TEAMS REVIEWS MARQUEE */}
-      <FoundersReviewsMarquee />
-
       {/* ─────────────────────────────────────────────────────────────────── */}
       {/* SECTION 2: AFFORDABLE PRICING. EXPERIENCED TEAM. */}
       {/* ─────────────────────────────────────────────────────────────────── */}
