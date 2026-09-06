@@ -113,7 +113,7 @@ export default function Footer() {
               />
             </Link>
             <p className="text-[#8C8C8C] text-sm leading-relaxed max-w-xs">
-              Conversion-built Shopify Stores by Shopify Experts for high-growth D2C brands.
+              SalePXL builds conversion-focused Shopify stores for D2C brands. We combine strategic design, CRO and custom development.
             </p>
             <div className="flex flex-col gap-3 text-xs text-[#8C8C8C]">
               <div className="flex items-center gap-2 group">
