@@ -174,7 +174,6 @@ export default function Footer() {
                 { name: "Shopify Store Build", href: "/services" },
                 { name: "Custom Liquid PDPs", href: "/services" },
                 { name: "CRO Optimization", href: "/services" },
-                { name: "Speed Tuning", href: "/services" },
                 { name: "Dropshipping Store", href: "/services" }
               ].map((link) => (
                 <li key={link.name}>
