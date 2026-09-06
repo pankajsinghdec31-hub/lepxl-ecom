@@ -129,7 +129,7 @@ const TESTIMONIALS = [
     metricLabel: "Live Delivery"
   },
   {
-    name: "James Park",
+    name: "Rohan Malhotra",
     brand: "Health & Wellness",
     image: "/founder_5.jpg",
     stars: 5,

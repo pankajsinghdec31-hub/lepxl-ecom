@@ -104,9 +104,9 @@ const GOOGLE_REVIEWS_CONSOLIDATED = [
     category: "Clothing & Apparel Store"
   },
   {
-    name: "James Park",
+    name: "Rohan Malhotra",
     avatarColor: "bg-rose-600",
-    avatarText: "JP",
+    avatarText: "RM",
     metadata: "Local Guide · 13 reviews · 5 photos",
     stars: 5,
     timeAgo: "5 months ago",
