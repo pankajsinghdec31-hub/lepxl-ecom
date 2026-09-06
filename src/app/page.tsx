@@ -1453,7 +1453,7 @@ export default function HomePage() {
           {/* Header */}
           <div className="text-center mb-12 sm:mb-16 flex flex-col items-center">
             <h2 className="premium-heading text-2xl sm:text-4xl lg:text-[2.75rem] font-light text-white tracking-tight font-grotesk">
-              How SalePXL Builds a <span className="premium-highlight">High-Converting Store</span>
+              How We <span className="premium-highlight">Work</span>
             </h2>
           </div>
 
