@@ -35,7 +35,6 @@ import { copyImages } from "./how-it-works/actions";
 import AnimatedDashboard from "@/components/AnimatedDashboard";
 import StartProjectForm from "@/components/StartProjectForm";
 import GrowthFormulaSection from "@/components/GrowthFormulaSection";
-import InteractiveComparison from "@/components/InteractiveComparison";
 
 // FAQ Items
 const FAQ_ITEMS = [
@@ -1736,22 +1735,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 9. BEFORE & AFTER PERFORMANCE COMPARISON */}
-      <section className="py-16 md:py-24 lg:py-36 px-6 bg-gradient-to-b from-[#070e17] to-[#04080d] border-y border-white/[0.08] relative z-20 rounded-t-[32px] md:rounded-t-[48px] mt-[-32px] md:mt-[-48px]">
-        <div className="max-w-[1360px] mx-auto flex flex-col gap-16 px-6">
-          <div className="text-center max-w-2xl mx-auto flex flex-col gap-4">
-            <h2 className="premium-heading text-3xl sm:text-4xl lg:text-[2.75rem] font-light text-white tracking-tight font-grotesk">
-              Why 90% of Stores Fail <span className="light-gradient-text font-normal">vs.</span> <span className="premium-highlight">The SalePXL Conversion Blueprint</span>
-            </h2>
-            <p className="text-white/70 text-base font-light">
-              We replace sluggish, heavy pre-built templates with optimized custom engines. The difference is measurable.
-            </p>
-          </div>
-
-          {/* Interactive Comparison Component */}
-          <InteractiveComparison />
-        </div>
-      </section>
 
       {/* 10. LOVED BY FOUNDERS & TEAMS WORLDWIDE SECTION */}
       <section className="pt-24 pb-16 md:pt-36 md:pb-24 lg:pt-48 lg:pb-36 relative overflow-hidden bg-gradient-to-b from-[#120324] to-[#070114] border-t border-white/[0.08] rounded-t-[32px] md:rounded-t-[48px] mt-[-32px] md:mt-[-48px] z-20">
