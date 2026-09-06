@@ -149,13 +149,15 @@ export default function AboutPage() {
           <p className="text-xs sm:text-sm text-neutral-500 max-w-lg leading-relaxed">
             Schedule a conversation with the SalePXL team to map out budget priorities, speed targets, and scale projections.
           </p>
-          <Link
-            href="/contact"
+          <a
+            href="https://calendly.com/salepxl"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 px-8 h-14 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-black hover:bg-neutral-900 transition-all shadow-md group"
           >
             <span>Book Strategy Session</span>
             <ArrowRight className="w-4.5 h-4.5 transition-transform duration-300 group-hover:translate-x-1" />
-          </Link>
+          </a>
         </section>
 
       </div>

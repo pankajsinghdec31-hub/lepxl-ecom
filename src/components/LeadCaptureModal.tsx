@@ -149,13 +149,24 @@ export default function LeadCaptureModal({
               <p className="text-white/70 text-sm sm:text-base max-w-lg leading-relaxed font-sans">
                 Thank you, <strong className="text-white">{fullName}</strong>. Our Shopify strategy specialists will review your requirements and get back to you within <span className="text-emerald-400 font-bold">2 hours</span>.
               </p>
-              <button
-                type="button"
-                onClick={handleModalClose}
-                className="mt-4 px-8 py-3.5 rounded-full bg-emerald-400 text-black text-sm font-bold uppercase tracking-wider hover:bg-emerald-300 transition-all cursor-pointer shadow-lg"
-              >
-                Close Window
-              </button>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-4">
+                <a
+                  href="https://calendly.com/salepxl"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-8 py-3.5 rounded-full bg-emerald-400 text-black text-sm font-bold uppercase tracking-wider hover:bg-emerald-300 transition-all cursor-pointer shadow-lg inline-flex items-center gap-2"
+                >
+                  <PhoneCall className="w-4 h-4" />
+                  <span>Book Strategy Call on Calendly</span>
+                </a>
+                <button
+                  type="button"
+                  onClick={handleModalClose}
+                  className="px-6 py-3.5 rounded-full bg-white/10 text-white text-sm font-semibold hover:bg-white/20 transition-all cursor-pointer border border-white/15"
+                >
+                  Close Window
+                </button>
+              </div>
             </div>
           ) : (
             /* FORM STATE: LEFT & RIGHT COLUMNS */
@@ -178,10 +189,15 @@ export default function LeadCaptureModal({
                       <Star className="w-4 h-4 text-emerald-400 fill-emerald-400 shrink-0" />
                       <span>Trusted by 200+ growing brands</span>
                     </div>
-                    <div className="flex items-center gap-2.5 text-xs text-white/80 font-sans">
+                    <a
+                      href="https://calendly.com/salepxl"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2.5 text-xs text-emerald-400 hover:text-emerald-300 font-sans font-medium transition-colors"
+                    >
                       <PhoneCall className="w-4 h-4 text-emerald-400 shrink-0" />
-                      <span>Free strategy consultation</span>
-                    </div>
+                      <span>Free strategy consultation (Calendly)</span>
+                    </a>
                   </div>
                 </div>
 

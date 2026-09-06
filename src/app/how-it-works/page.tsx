@@ -884,15 +884,15 @@ export default function HowItWorksPage() {
             <span>Start Your Shopify Project</span>
             <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
           </Link>
-          <Link
-            href="https://wa.me/919917780656"
+          <a
+            href="https://calendly.com/salepxl"
             target="_blank"
             rel="noopener noreferrer"
             className="w-full sm:w-auto inline-flex items-center justify-center px-8 h-14 rounded-full text-xs font-bold uppercase tracking-wider text-neutral-700 border border-neutral-200 bg-white hover:bg-neutral-50 transition-all gap-1.5 shadow-sm"
           >
             <span>Book a Discovery Call</span>
             <ArrowUpRight className="w-4 h-4" />
-          </Link>
+          </a>
         </div>
 
       </section>

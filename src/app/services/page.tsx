@@ -132,13 +132,15 @@ export default function ServicesPage() {
           <p className="text-xs text-neutral-600 max-w-lg leading-relaxed">
             Schedule a session to analyze your platform requirements, speed bottlenecks, and outline a step-by-step launch roadmap.
           </p>
-          <Link
-            href="/contact"
+          <a
+            href="https://calendly.com/salepxl"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-wider text-white bg-black hover:bg-neutral-800 transition-all shadow-sm"
           >
             <span>Book Free Strategy Call</span>
             <ArrowRight className="w-4 h-4" />
-          </Link>
+          </a>
         </div>
 
       </div>

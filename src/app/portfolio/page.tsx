@@ -963,12 +963,14 @@ export default function PortfolioPage() {
             Browse our curated portfolio of custom Shopify stores, Liquid theme builds, speed-optimized architectures, and high-converting e-commerce experiences engineered for scaling D2C brands.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 mt-2 sm:mt-4 font-sans">
-            <Link
-              href="/contact"
+            <a
+              href="https://calendly.com/salepxl"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-6 py-2.5 sm:px-8 sm:py-3 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-black hover:bg-neutral-900 transition-all duration-300 shadow-lg hover:scale-[1.02]"
             >
               Book Strategy Call
-            </Link>
+            </a>
             <Link
               href="https://wa.me/919917780656"
               target="_blank"
@@ -1159,13 +1161,15 @@ export default function PortfolioPage() {
           <p className="text-xs sm:text-sm text-neutral-500 max-w-xl leading-relaxed">
             Let Pankaj and the SalePXL team analyze your storefront layout, isolate checkout leakage points, and build a high-performance blueprint.
           </p>
-          <Link
-            href="/contact"
+          <a
+            href="https://calendly.com/salepxl"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-black hover:bg-neutral-900 transition-all duration-300 hover:scale-[1.02]"
           >
             <span>Book Strategy Call</span>
             <ArrowRight className="w-4 h-4" strokeWidth={3} />
-          </Link>
+          </a>
         </section>
 
       </div>
