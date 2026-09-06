@@ -23,6 +23,7 @@ import {
   Zap
 } from "lucide-react";
 import { motion, AnimatePresence, useScroll, useTransform, useMotionValueEvent } from "framer-motion";
+import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 
 interface Project {
   name: string;
@@ -972,9 +973,10 @@ export default function PortfolioPage() {
               href="https://wa.me/919917780656"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-6 py-2.5 sm:px-8 sm:py-3 rounded-full text-xs font-bold uppercase tracking-wider text-neutral-700 border border-neutral-200 bg-white hover:bg-neutral-50 transition-all duration-300"
+              className="inline-flex items-center justify-center gap-2 px-6 py-2.5 sm:px-8 sm:py-3 rounded-full text-xs font-bold uppercase tracking-wider text-neutral-700 border border-neutral-200 bg-white hover:bg-neutral-50 transition-all duration-300"
             >
-              WhatsApp Pankaj
+              <WhatsAppIcon className="w-4 h-4 fill-[#25D366] shrink-0" />
+              <span>WhatsApp Pankaj</span>
             </Link>
           </div>
         </section>

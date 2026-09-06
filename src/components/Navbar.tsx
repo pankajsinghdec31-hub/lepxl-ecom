@@ -3,9 +3,10 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, ArrowUpRight, CheckCircle2, MessageCircle } from "lucide-react";
+import { Menu, X, ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { trackWhatsAppClick, trackCTAClick } from "@/lib/analytics";
+import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 
 export const NAV_LINKS = [
   { name: "Home", href: "/" },
@@ -141,13 +142,14 @@ export default function Navbar() {
               href="https://wa.me/919917780656"
               target="_blank"
               rel="noopener noreferrer"
-              className={`text-sm font-medium transition-colors ${
+              className={`inline-flex items-center gap-2 text-sm font-medium transition-colors ${
                 isContactPage 
                   ? "text-black/60 hover:text-black" 
-                  : "text-[#8e8e93] premium-hover-link"
+                  : "text-[#8e8e93] premium-hover-link hover:text-white"
               }`}
             >
-              WhatsApp Us
+              <WhatsAppIcon className="w-4 h-4 fill-[#25D366] shrink-0" />
+              <span>WhatsApp Us</span>
             </Link>
             <Link
               href="/contact"
@@ -231,6 +233,7 @@ export default function Navbar() {
                 rel="noopener noreferrer"
                 className="w-full flex items-center justify-center gap-2 btn-secondary h-12 rounded-full text-sm font-semibold uppercase tracking-wider text-white border border-white/20 text-center"
               >
+                <WhatsAppIcon className="w-4.5 h-4.5 fill-[#25D366] shrink-0" />
                 <span>WhatsApp Us</span>
               </Link>
               <div className="text-center text-xs text-[#8e8e93] flex items-center justify-center gap-1.5 mt-2">

@@ -35,6 +35,8 @@ import { copyImages } from "./how-it-works/actions";
 import AnimatedDashboard from "@/components/AnimatedDashboard";
 import StartProjectForm from "@/components/StartProjectForm";
 import GrowthFormulaSection from "@/components/GrowthFormulaSection";
+import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
+import PricingAndTrustSection from "@/components/PricingAndTrustSection";
 
 // FAQ Items
 const FAQ_ITEMS = [
@@ -1312,7 +1314,7 @@ export default function HomePage() {
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto btn-secondary inline-flex items-center justify-center gap-2 px-8 h-13 rounded-full border border-white text-white text-xs sm:text-sm font-semibold backdrop-blur-sm hover:border-emerald-400 hover:text-emerald-400 transition-colors"
               >
-                <MessageCircle className="w-4 h-4 text-emerald-400 shrink-0" />
+                <WhatsAppIcon className="w-4.5 h-4.5 fill-[#25D366] shrink-0" />
                 <span>Chat on WhatsApp</span>
               </a>
             </div>
@@ -1735,6 +1737,9 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* PRICING & TRUST SECTIONS */}
+      <PricingAndTrustSection />
+
 
       {/* 10. LOVED BY FOUNDERS & TEAMS WORLDWIDE SECTION */}
       <section className="pt-24 pb-16 md:pt-36 md:pb-24 lg:pt-48 lg:pb-36 relative overflow-hidden bg-gradient-to-b from-[#120324] to-[#070114] border-t border-white/[0.08] rounded-t-[32px] md:rounded-t-[48px] mt-[-32px] md:mt-[-48px] z-20">
@@ -1973,7 +1978,7 @@ export default function HomePage() {
               rel="noopener noreferrer"
               className="w-full sm:w-auto btn-secondary inline-flex items-center justify-center gap-2 px-8 h-13 rounded-full text-sm font-semibold uppercase tracking-wider text-white border border-white/20 text-center cursor-pointer"
             >
-              <Phone className="w-4 h-4 text-primary premium-hover-icon" />
+              <WhatsAppIcon className="w-4.5 h-4.5 fill-[#25D366] shrink-0" />
               <span>Chat on WhatsApp</span>
             </a>
           </div>

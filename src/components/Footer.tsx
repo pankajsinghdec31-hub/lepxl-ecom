@@ -6,6 +6,8 @@ import { usePathname } from "next/navigation";
 import { Mail, Phone, MapPin, ArrowRight, MessageCircle } from "lucide-react";
 import { trackWhatsAppClick } from "@/lib/analytics";
 
+import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
+
 export default function Footer() {
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
@@ -63,7 +65,7 @@ export default function Footer() {
               onClick={() => trackWhatsAppClick("Minimal Footer")}
               className="flex items-center gap-1.5 hover:text-[#25D366] transition-colors"
             >
-              <MessageCircle className="w-3.5 h-3.5 text-[#25D366]" />
+              <WhatsAppIcon className="w-3.5 h-3.5 fill-[#25D366] shrink-0" />
               <span>WhatsApp Us</span>
             </a>
           </div>
