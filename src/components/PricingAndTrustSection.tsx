@@ -80,9 +80,9 @@ export default function PricingAndTrustSection() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       {/* SECTION 2: SHOPIFY STORE PACKAGES (Deliverables Agency Light Theme) */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <section className="relative py-6 sm:py-8 md:py-10 px-4 sm:px-6 bg-neutral-50/60 border-t border-neutral-200">
+      <section className="relative py-10 sm:py-14 md:py-16 px-4 sm:px-6 bg-neutral-50/60 border-t border-neutral-200">
 
-        <div className="max-w-[1360px] mx-auto flex flex-col gap-5 sm:gap-6 relative z-10">
+        <div className="max-w-5xl mx-auto flex flex-col gap-8 sm:gap-10 relative z-10">
           
           {/* Section Header */}
           <div className="text-center max-w-3xl mx-auto flex flex-col gap-1">
@@ -97,8 +97,8 @@ export default function PricingAndTrustSection() {
             </motion.h2>
           </div>
 
-          {/* Pricing Cards Grid (Standard Vertical Stack on Mobile, 3-Columns on Desktop) */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6 items-stretch max-w-md md:max-w-none mx-auto w-full">
+          {/* Pricing Cards Grid (Sleek Vertical Portrait Cards) */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-7 items-stretch max-w-sm md:max-w-none mx-auto w-full">
             {PRICING_PLANS.map((plan, idx) => {
               const isPopular = plan.isPopular;
               return (
@@ -108,31 +108,31 @@ export default function PricingAndTrustSection() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: idx * 0.1 }}
-                  className={`relative rounded-2xl sm:rounded-3xl bg-white flex flex-col justify-between transition-all duration-300 shadow-md hover:shadow-xl overflow-hidden ${
+                  className={`relative rounded-3xl bg-white flex flex-col justify-between transition-all duration-300 shadow-md hover:shadow-xl overflow-hidden ${
                     isPopular
-                      ? "border-2 border-emerald-500 shadow-emerald-500/10 md:-translate-y-1"
-                      : "border border-neutral-200/80 shadow-neutral-200/40 hover:border-neutral-300"
+                      ? "border-2 border-emerald-500 shadow-emerald-500/15 md:-translate-y-1"
+                      : "border border-neutral-200/90 shadow-neutral-200/40 hover:border-neutral-300"
                   }`}
                 >
                   {/* Card Content Wrapper */}
-                  <div className={`p-5 sm:p-6 lg:p-7 flex flex-col justify-between flex-1 ${
+                  <div className={`p-6 sm:p-7 flex flex-col justify-between flex-1 ${
                     isPopular ? "bg-gradient-to-b from-emerald-500/10 via-emerald-500/5 to-white" : ""
                   }`}>
                     
                     <div>
                       {/* Tagline */}
-                      <div className="text-center text-[10px] sm:text-xs font-sans font-semibold text-neutral-500 uppercase tracking-wider mb-1">
+                      <div className="text-center text-[10px] sm:text-xs font-sans font-semibold text-neutral-500 uppercase tracking-wider mb-2">
                         {plan.tagline}
                       </div>
 
                       {/* Name */}
-                      <h3 className="text-center text-xl sm:text-2xl font-extrabold text-neutral-900 font-grotesk tracking-tight leading-snug mb-2">
+                      <h3 className="text-center text-xl sm:text-2xl font-extrabold text-neutral-900 font-grotesk tracking-tight leading-snug mb-3">
                         {plan.name}
                       </h3>
 
                       {/* Price Block */}
-                      <div className="text-center my-3 pb-3 border-b border-neutral-100">
-                        <span className="text-[10px] sm:text-xs font-sans font-medium text-neutral-500 uppercase tracking-wide block mb-0.5">
+                      <div className="text-center my-4 pb-4 border-b border-neutral-100">
+                        <span className="text-[10px] sm:text-xs font-sans font-medium text-neutral-500 uppercase tracking-wide block mb-1">
                           {plan.priceSub}
                         </span>
                         <div className="text-3xl sm:text-4xl font-black text-neutral-900 font-grotesk tracking-tight">
@@ -141,15 +141,15 @@ export default function PricingAndTrustSection() {
                       </div>
 
                       {/* Includes Header */}
-                      <div className="text-[10px] sm:text-xs font-bold text-neutral-900 font-grotesk uppercase tracking-wider mb-2">
+                      <div className="text-[10px] sm:text-xs font-bold text-neutral-900 font-grotesk uppercase tracking-wider mb-3">
                         Includes:
                       </div>
 
                       {/* Features List */}
-                      <div className="space-y-2 mb-4">
+                      <div className="space-y-3 mb-6">
                         {plan.features.map((feat, fIdx) => (
-                          <div key={fIdx} className="flex items-start gap-2 text-[11px] sm:text-xs text-neutral-700 font-sans leading-tight">
-                            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0 mt-0.5" />
+                          <div key={fIdx} className="flex items-start gap-2.5 text-xs text-neutral-700 font-sans leading-snug">
+                            <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
                             <span>{feat}</span>
                           </div>
                         ))}
@@ -158,11 +158,11 @@ export default function PricingAndTrustSection() {
                     </div>
 
                     {/* CTA Action Button */}
-                    <div className="pt-3 border-t border-neutral-100 mt-auto">
+                    <div className="pt-4 border-t border-neutral-100 mt-auto">
                       <button
                         type="button"
                         onClick={() => handleOpenConnectModal(plan.budgetCategory, plan.name)}
-                        className={`w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer ${
+                        className={`w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer ${
                           isPopular
                             ? "bg-[#22E39A] text-black hover:bg-emerald-400 shadow-md shadow-emerald-500/20 active:scale-95"
                             : "bg-white text-neutral-900 border border-neutral-900 hover:bg-neutral-900 hover:text-white active:scale-95"
