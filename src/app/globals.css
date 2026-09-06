@@ -464,3 +464,20 @@ h1, h2, h3, h4, h5, h6 {
   background-clip: text;
 }
 
+/* ── SMOOTH PERFORMANCE & HARDWARE ACCELERATION OPTIMIZATIONS ── */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.animate-fade-blur,
+.btn-primary,
+.btn-secondary,
+.premium-card,
+.premium-hover-card,
+.premium-portfolio-card {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
