@@ -1,8 +1,7 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Sparkles, BarChart3, Layers } from "lucide-react";
 
 export default function AboutPage() {
   return (
@@ -11,137 +10,63 @@ export default function AboutPage() {
       <div className="absolute top-[10%] left-[-15%] w-[600px] h-[600px] bg-emerald-400/[0.04] rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-[10%] right-[-15%] w-[600px] h-[600px] bg-teal-300/[0.04] rounded-full blur-[140px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto flex flex-col gap-8 sm:gap-14 relative z-10">
+      <div className="max-w-7xl mx-auto flex flex-col gap-10 sm:gap-16 relative z-10">
         
         {/* Page Header */}
-        <div className="text-center max-w-4xl mx-auto flex flex-col gap-3 sm:gap-5">
-
-          <h1 className="text-3xl sm:text-4xl md:text-6xl font-light tracking-tight leading-tight text-neutral-900 font-grotesk">
-            We build high-converting <br />
+        <div className="text-center max-w-4xl mx-auto flex flex-col gap-4 sm:gap-6">
+          <span className="text-xs font-mono font-bold uppercase tracking-[0.25em] text-emerald-600">
+            About SalePXL
+          </span>
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-light tracking-tight leading-tight text-neutral-900 font-grotesk">
+            We Build High-Converting <br />
             <span className="font-normal bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent font-sans">
-              Shopify Stores
+              Shopify Stores That Create Product Value
             </span>
           </h1>
-          <p className="text-neutral-600 text-xs sm:text-base leading-relaxed max-w-2xl mx-auto font-sans">
-            We are a dedicated Shopify development agency focusing exclusively on designing, coding, and optimizing e-commerce stores. We do only e-commerce setups.
+          <p className="text-neutral-600 text-sm sm:text-lg leading-relaxed max-w-2xl mx-auto font-sans">
+            With 5 years of hands-on D2C engineering experience, we focus exclusively on e-commerce. Every team member brings deep store analytics expertise and custom UI/UX design to turn browsers into loyal buyers.
           </p>
         </div>
 
         <hr className="border-neutral-200/80" />
 
-        {/* Core Stats Row */}
-        <section className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-12 font-sans py-2 text-left">
-          <div className="flex flex-col gap-1 sm:gap-2">
-            <span className="text-3xl sm:text-5xl font-light font-grotesk tracking-tight text-neutral-900">5 Years</span>
-            <span className="text-[9px] sm:text-[10px] text-neutral-400 font-mono uppercase tracking-widest font-semibold">ESTABLISHED HISTORY</span>
+        {/* High UI/UX & E-commerce Only Core Highlights */}
+        <section className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 font-sans text-left">
+          <div className="p-8 rounded-3xl bg-white border border-neutral-200/80 shadow-sm flex flex-col gap-4 hover:border-emerald-500/30 transition-all">
+            <div className="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600">
+              <Sparkles className="w-6 h-6" />
+            </div>
+            <h3 className="text-xl font-bold text-neutral-900 font-grotesk">High UI/UX & Custom Sections</h3>
+            <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed">
+              We design custom Liquid sections and visual product displays that highlight craftsmanship, build immediate buyer trust, and elevate perceived product value.
+            </p>
           </div>
-          <div className="flex flex-col gap-1 sm:gap-2">
-            <span className="text-3xl sm:text-5xl font-light font-grotesk tracking-tight text-neutral-900">100%</span>
-            <span className="text-[9px] sm:text-[10px] text-neutral-400 font-mono uppercase tracking-widest font-semibold">EXCLUSIVELY E-COMMERCE</span>
+
+          <div className="p-8 rounded-3xl bg-white border border-neutral-200/80 shadow-sm flex flex-col gap-4 hover:border-emerald-500/30 transition-all">
+            <div className="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600">
+              <BarChart3 className="w-6 h-6" />
+            </div>
+            <h3 className="text-xl font-bold text-neutral-900 font-grotesk">5+ Years Store Analytics Expertise</h3>
+            <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed">
+              Every engineer and designer on our team has hands-on e-commerce store analytics experience, optimizing conversion funnels, checkout drop-offs, and ROAS.
+            </p>
           </div>
-          <div className="flex flex-col gap-1 sm:gap-2">
-            <span className="text-3xl sm:text-5xl font-light font-grotesk tracking-tight text-neutral-900">80+</span>
-            <span className="text-[9px] sm:text-[10px] text-neutral-400 font-mono uppercase tracking-widest font-semibold">STORES LAUNCHED</span>
+
+          <div className="p-8 rounded-3xl bg-white border border-neutral-200/80 shadow-sm flex flex-col gap-4 hover:border-emerald-500/30 transition-all">
+            <div className="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600">
+              <Layers className="w-6 h-6" />
+            </div>
+            <h3 className="text-xl font-bold text-neutral-900 font-grotesk">100% Exclusively E-Commerce</h3>
+            <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed">
+              We do not build corporate landing pages or generic sites. We build only high-converting Shopify e-commerce stores engineered for mobile speed and conversions.
+            </p>
           </div>
         </section>
 
         <hr className="border-neutral-200/80" />
 
-        {/* Narrative / Focus Areas Section */}
-        <section className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-16 items-start text-left">
-          <div className="md:col-span-4 flex flex-col gap-2">
-            <span className="text-xs text-emerald-700 font-mono uppercase tracking-[0.2em] font-bold">
-              02 / Focus Areas
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-light font-grotesk tracking-tight text-neutral-900">
-              Only Ecom Setups.
-            </h2>
-          </div>
-          
-          <div className="md:col-span-8 flex flex-col gap-8 text-neutral-600 text-sm sm:text-base leading-relaxed font-sans">
-            <p>
-              We do not build corporate landing pages, directory lists, or generic websites. Over the past 5 years, we have aligned our entire engineering and design focus toward Shopify Stores.
-            </p>
-            <p>
-              Our core competencies include all-in-one e-commerce setups, Shopify store integrations, custom Liquid section development, custom theme development, conversion-rate optimization (CRO), and advanced checkout optimization.
-            </p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 pt-4 border-t border-neutral-100 mt-2">
-              {[
-                "Shopify Store Integrations",
-                "Custom Theme Development",
-                "Custom Liquid Sections",
-                "Custom Checkout Architectures",
-                "Conversion Rate Optimization (CRO)",
-                "Sub-second Performance Tuning"
-              ].map((cap, index) => (
-                <div key={index} className="flex items-center gap-2.5 text-xs text-neutral-800 font-semibold">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                  <span>{cap}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <hr className="border-neutral-200/80" />
-
-        {/* Compliance and Office Grid */}
-        <section className="grid grid-cols-1 md:grid-cols-2 gap-16 font-sans text-left">
-          
-          {/* Conversion engineering details */}
-          <div className="flex flex-col gap-6">
-            <div className="flex flex-col gap-2">
-              <span className="text-xs text-emerald-700 font-mono uppercase tracking-[0.2em] font-bold">
-                03 / Performance &amp; CRO Standards
-              </span>
-              <h3 className="text-xl font-bold text-neutral-900 font-grotesk tracking-tight">Conversion-First Engineering</h3>
-            </div>
-            <p className="text-xs text-neutral-600 leading-relaxed max-w-md">
-              We don&apos;t just build templates — we engineer Shopify Stores optimized for maximum speed, seamless user journeys, and higher average order values (AOV).
-            </p>
-            <div className="flex flex-col gap-2 border-t border-neutral-100 pt-4 font-mono text-[11px] text-neutral-500">
-              <div className="flex justify-between">
-                <span>Core Standards:</span>
-                <span className="text-neutral-900 font-bold">Shopify OS 2.0 &amp; Liquid</span>
-              </div>
-              <div className="flex justify-between">
-                <span>Mobile Load Speeds:</span>
-                <span className="text-emerald-700 font-bold">Sub-1.5 Seconds</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Location details */}
-          <div className="flex flex-col gap-6">
-            <div className="flex flex-col gap-2">
-              <span className="text-xs text-emerald-700 font-mono uppercase tracking-[0.2em] font-bold">
-                04 / Physical Office
-              </span>
-              <h3 className="text-xl font-bold text-neutral-900 font-grotesk tracking-tight">Dehradun, Uttarakhand</h3>
-            </div>
-            <p className="text-xs text-neutral-600 leading-relaxed max-w-md">
-              Operating from the foothills of the Himalayas in Dehradun, Uttarakhand, India. Our office handles development pipelines, speed optimizations, and storefront integrations for international clients.
-            </p>
-            <div className="flex flex-col gap-2 border-t border-neutral-100 pt-4 font-mono text-[11px] text-neutral-500">
-              <div className="flex justify-between">
-                <span>Coordinates:</span>
-                <span className="text-neutral-900 font-bold">Dehradun, India</span>
-              </div>
-              <div className="flex justify-between">
-                <span>Communications Hub:</span>
-                <a href="tel:+919917780656" className="text-emerald-700 font-bold hover:underline">
-                  +91 9917780656
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <hr className="border-neutral-200/80" />
-
-        {/* Minimal CTA Banner */}
-        <section className="text-center py-12 flex flex-col gap-8 items-center max-w-3xl mx-auto font-sans">
+        {/* Minimal CTA Banner (Kept intact as requested) */}
+        <section className="text-center py-8 sm:py-12 flex flex-col gap-6 sm:gap-8 items-center max-w-3xl mx-auto font-sans">
           <h2 className="text-2xl sm:text-4xl font-light font-grotesk tracking-tight leading-tight text-neutral-900">
             Let's design a high-converting store <br />
             for your <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent font-normal font-sans">brand.</span>
