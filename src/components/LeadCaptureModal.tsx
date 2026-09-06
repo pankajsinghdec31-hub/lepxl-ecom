@@ -198,7 +198,7 @@ export default function LeadCaptureModal({
                       className="flex items-center gap-2.5 text-xs text-[#22E39A] hover:text-[#1fce8b] font-sans font-medium transition-colors"
                     >
                       <PhoneCall className="w-4 h-4 text-[#22E39A] shrink-0" />
-                      <span>Free strategy consultation (Calendly)</span>
+                      <span>Book A Meeting with Us</span>
                     </a>
                   </div>
                 </div>
