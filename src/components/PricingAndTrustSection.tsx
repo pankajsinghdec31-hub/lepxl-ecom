@@ -2,21 +2,19 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import Link from "next/link";
 import {
   CheckCircle2,
   Sparkles,
-  ArrowRight,
-  TrendingUp,
-  ShieldCheck,
   Zap,
   Building2,
-  Users2
+  ArrowRight
 } from "lucide-react";
-import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
+import LeadCaptureModal from "@/components/LeadCaptureModal";
 
 export default function PricingAndTrustSection() {
-  const [hoveredCard, setHoveredCard] = useState<number | null>(1); // Default highlight center card
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedBudget, setSelectedBudget] = useState("Under ₹29,999/-");
+  const [selectedPlanName, setSelectedPlanName] = useState("");
 
   const PRICING_PLANS = [
     {
@@ -26,6 +24,7 @@ export default function PricingAndTrustSection() {
       price: "₹29,999",
       priceSub: "Starts at",
       isPopular: false,
+      budgetCategory: "Under ₹29,999/-",
       icon: <Zap className="w-6 h-6 text-emerald-400" />,
       features: [
         "Premium Shopify Theme Setup & Branding",
@@ -34,8 +33,7 @@ export default function PricingAndTrustSection() {
         "Mobile-First Responsive UI",
         "Sub-2s Speed & Basic SEO Setup",
         "15-Day Post-Launch Support"
-      ],
-      whatsappMsg: "Hi%20SalePXL%20team%2C%20I'm%20interested%20in%20the%20E-commerce%20Starter%20plan%20(₹29%2C999)."
+      ]
     },
     {
       id: "shopify-store",
@@ -45,6 +43,7 @@ export default function PricingAndTrustSection() {
       priceSub: "Starts at",
       isPopular: true,
       badge: "MOST POPULAR",
+      budgetCategory: "₹29,999/- ₹79,999/-",
       icon: <Sparkles className="w-6 h-6 text-emerald-400" />,
       features: [
         "High-Converting UI/UX Branded Design",
@@ -54,8 +53,7 @@ export default function PricingAndTrustSection() {
         "Sub-2s Speed Optimization & Advanced Analytics",
         "1-on-1 Dedicated Shopify Specialist Support",
         "Meta Pixel & Google Analytics Setup"
-      ],
-      whatsappMsg: "Hi%20SalePXL%20team%2C%20I'm%20interested%20in%20the%20Shopify%20Store%20plan%20(₹59%2C999)."
+      ]
     },
     {
       id: "enterprise",
@@ -64,6 +62,7 @@ export default function PricingAndTrustSection() {
       price: "Custom",
       priceSub: "Starts at",
       isPopular: false,
+      budgetCategory: "₹79,999/ +",
       icon: <Building2 className="w-6 h-6 text-emerald-400" />,
       features: [
         "Dedicated Expert Shopify Development Team",
@@ -72,8 +71,7 @@ export default function PricingAndTrustSection() {
         "Omnichannel Sales & Marketing Automation",
         "Dedicated Account Manager & SLA Guarantee",
         "24/7 Priority Technical Support"
-      ],
-      whatsappMsg: "Hi%20SalePXL%20team%2C%20I'd%20like%20to%20discuss%20a%20Custom%20Enterprise%20Shopify%20project."
+      ]
     }
   ];
 
@@ -109,6 +107,12 @@ export default function PricingAndTrustSection() {
     "MOONLIT",
     "SOLAA SALON"
   ];
+
+  const handleOpenConnectModal = (planBudget: string, planName: string) => {
+    setSelectedBudget(planBudget);
+    setSelectedPlanName(planName);
+    setIsModalOpen(true);
+  };
 
   return (
     <div className="w-full bg-[#050505] text-white overflow-hidden">
@@ -243,7 +247,6 @@ export default function PricingAndTrustSection() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: idx * 0.12 }}
-                  onMouseEnter={() => setHoveredCard(idx)}
                   className={`relative p-8 sm:p-10 rounded-[32px] flex flex-col justify-between transition-all duration-300 backdrop-blur-xl ${
                     isPopular
                       ? "bg-[#091712]/90 border-2 border-emerald-500/60 shadow-[0_0_50px_rgba(34,227,154,0.15)] md:-translate-y-3"
@@ -298,19 +301,18 @@ export default function PricingAndTrustSection() {
 
                   {/* CTA Action Button */}
                   <div className="pt-4 border-t border-white/10">
-                    <a
-                      href={`https://wa.me/919917780656?text=${plan.whatsappMsg}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 ${
+                    <button
+                      type="button"
+                      onClick={() => handleOpenConnectModal(plan.budgetCategory, plan.name)}
+                      className={`w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer ${
                         isPopular
                           ? "bg-emerald-400 text-black hover:bg-emerald-300 shadow-[0_4px_20px_rgba(34,227,154,0.3)] hover:scale-[1.02]"
                           : "bg-white/10 text-white hover:bg-white/20 border border-white/15"
                       }`}
                     >
-                      <WhatsAppIcon className={`w-4 h-4 shrink-0 ${isPopular ? "fill-black" : "fill-emerald-400"}`} />
-                      <span>Discuss This Plan</span>
-                    </a>
+                      <span>Connect with Us</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </button>
                   </div>
                 </motion.div>
               );
@@ -319,6 +321,14 @@ export default function PricingAndTrustSection() {
 
         </div>
       </section>
+
+      {/* POPUP MODAL */}
+      <LeadCaptureModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        defaultBudget={selectedBudget}
+        defaultPlanName={selectedPlanName}
+      />
 
     </div>
   );
