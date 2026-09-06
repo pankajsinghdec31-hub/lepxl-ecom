@@ -4,9 +4,6 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import {
   CheckCircle2,
-  Sparkles,
-  Zap,
-  Building2,
   ArrowRight
 } from "lucide-react";
 import LeadCaptureModal from "@/components/LeadCaptureModal";
@@ -26,7 +23,6 @@ export default function PricingAndTrustSection() {
       priceSub: "Starting at",
       isPopular: false,
       budgetCategory: "Under ₹29,999",
-      icon: <Zap className="w-8 h-8 text-emerald-600" />,
       description: "A conversion-focused Shopify setup for brands that need a professional store with essential customizations to start selling.",
       features: [
         "Custom Shopify sections based on client requirements",
@@ -50,7 +46,6 @@ export default function PricingAndTrustSection() {
       isPopular: true,
       badge: "MOST POPULAR",
       budgetCategory: "₹30,000 - ₹79,999",
-      icon: <Sparkles className="w-8 h-8 text-emerald-600" />,
       description: "A more advanced Shopify experience with full branding and deeper customization across the store.",
       features: [
         "A+ product imagery and product presentation",
@@ -74,7 +69,6 @@ export default function PricingAndTrustSection() {
       priceSub: "Starting at",
       isPopular: false,
       budgetCategory: "₹80,000+",
-      icon: <Building2 className="w-8 h-8 text-emerald-600" />,
       description: "A complete custom Shopify growth setup built around the brand, customer journey, and long-term marketing requirements.",
       features: [
         "Fully customized store experience",
@@ -177,13 +171,6 @@ export default function PricingAndTrustSection() {
                       <h3 className="text-center text-2xl sm:text-3xl font-extrabold text-neutral-900 font-grotesk tracking-tight leading-snug mb-4">
                         {plan.name}
                       </h3>
-
-                      {/* Icon Badge Center */}
-                      <div className="flex justify-center my-4">
-                        <div className="w-16 h-16 rounded-2xl bg-emerald-100/70 border border-emerald-200 flex items-center justify-center shadow-sm">
-                          {plan.icon}
-                        </div>
-                      </div>
 
                       {/* Price Block */}
                       <div className="text-center my-6 pb-6 border-b border-neutral-100">
