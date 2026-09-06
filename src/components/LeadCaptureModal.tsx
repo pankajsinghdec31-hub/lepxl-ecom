@@ -270,7 +270,7 @@ export default function LeadCaptureModal({
                     {[
                       "New Shopify Store Build",
                       "Redesign Existing Store",
-                      "Custom Features / App Integration",
+                      "Custom Features & Integrations",
                       "Store Migration"
                     ].map((svc) => {
                       const isChecked = selectedServices.includes(svc);

@@ -29,7 +29,6 @@ export default function PricingAndTrustSection() {
       budgetCategory: "Under ₹29,999/-",
       icon: <Zap className="w-6 h-6 text-emerald-400" />,
       description: "A conversion-focused Shopify setup for brands that need a professional store with the essential customizations to start selling.",
-      bestFor: "New and growing brands looking for a professional Shopify store without extensive custom development.",
       features: [
         "Custom Shopify sections based on client requirements",
         "CRO-focused store structure",
@@ -222,14 +221,16 @@ export default function PricingAndTrustSection() {
                     </div>
 
                     {/* Best For Box */}
-                    <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/10 mb-8">
-                      <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-emerald-400 block mb-1">
-                        Best For:
-                      </span>
-                      <p className="text-xs text-white/70 font-sans leading-relaxed">
-                        {plan.bestFor}
-                      </p>
-                    </div>
+                    {plan.bestFor && (
+                      <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/10 mb-8">
+                        <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-emerald-400 block mb-1">
+                          Best For:
+                        </span>
+                        <p className="text-xs text-white/70 font-sans leading-relaxed">
+                          {plan.bestFor}
+                        </p>
+                      </div>
+                    )}
                   </div>
 
                   {/* CTA Action Button */}

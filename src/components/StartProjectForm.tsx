@@ -244,7 +244,7 @@ export default function StartProjectForm({ onSuccess }: { onSuccess?: () => void
                   <option value="Store Redesign & CRO">Store Redesign & Conversion Rate Optimization</option>
                   <option value="Speed & Performance Optimization">Speed & Performance Optimization</option>
                   <option value="Shopify Plus Migration">Shopify Plus Migration</option>
-                  <option value="Custom App & API Integration">Custom App & Integration</option>
+                  <option value="Custom Feature & API Integration">Custom Feature & API Integration</option>
                   <option value="Monthly Retainer & Support">Monthly Shopify Growth Retainer</option>
                 </select>
                 <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400 pointer-events-none" />

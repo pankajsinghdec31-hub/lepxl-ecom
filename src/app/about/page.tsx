@@ -63,14 +63,14 @@ export default function AboutPage() {
               We do not build corporate landing pages, directory lists, or generic websites. Over the past 5 years, we have aligned our entire engineering and design focus toward Shopify Stores.
             </p>
             <p>
-              Our core competencies include all-in-one e-commerce setups, Shopify store integrations, custom Shopify app builders, custom theme development, conversion-rate optimization (CRO), and advanced checkout optimization.
+              Our core competencies include all-in-one e-commerce setups, Shopify store integrations, custom Liquid section development, custom theme development, conversion-rate optimization (CRO), and advanced checkout optimization.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 pt-4 border-t border-neutral-100 mt-2">
               {[
                 "Shopify Store Integrations",
                 "Custom Theme Development",
-                "Shopify App Builder Configs",
+                "Custom Liquid Sections",
                 "Custom Checkout Architectures",
                 "Conversion Rate Optimization (CRO)",
                 "Sub-second Performance Tuning"
@@ -103,7 +103,7 @@ export default function AboutPage() {
             <div className="flex flex-col gap-2 border-t border-neutral-100 pt-4 font-mono text-[11px] text-neutral-500">
               <div className="flex justify-between">
                 <span>Core Standards:</span>
-                <span className="text-neutral-900 font-bold">Liquid &amp; Custom Apps</span>
+                <span className="text-neutral-900 font-bold">Shopify OS 2.0 &amp; Liquid</span>
               </div>
               <div className="flex justify-between">
                 <span>Mobile Load Speeds:</span>
