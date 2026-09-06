@@ -108,16 +108,6 @@ export default function PricingAndTrustSection({ showMarquee = true }: { showMar
           
           {/* Section Header */}
           <div className="text-center max-w-3xl mx-auto flex flex-col gap-3">
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="text-xs font-mono font-bold uppercase tracking-[0.25em] text-emerald-600"
-            >
-              Affordable Pricing. Experienced Team.
-            </motion.div>
-            
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -125,7 +115,7 @@ export default function PricingAndTrustSection({ showMarquee = true }: { showMar
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-3xl sm:text-5xl md:text-6xl font-light text-neutral-900 tracking-tight font-grotesk leading-tight"
             >
-              Shopify Store <span className="text-emerald-600 font-normal">Packages</span>
+              Affordable Pricing. <span className="text-emerald-600 font-normal">Experienced Team.</span>
             </motion.h2>
 
             <motion.p
