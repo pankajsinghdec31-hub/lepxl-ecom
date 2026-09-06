@@ -440,7 +440,7 @@ export default function EnquiryBox() {
                   {isSubmitting ? (
                     <span>Submitting...</span>
                   ) : (
-                    <span>Get Free Consultation</span>
+                    <span>Book a Meeting</span>
                   )}
                 </button>
               )}

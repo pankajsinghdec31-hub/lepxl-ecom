@@ -180,13 +180,15 @@ export default function CaseStudiesPage() {
           <p className="text-xs text-neutral-600 max-w-lg leading-relaxed">
             Let our team analyze your current checkout funnel and page speed metrics to map out a performance structure tailored to your product catalog.
           </p>
-          <Link
-            href="/contact"
+          <a
+            href="https://calendly.com/salepxl/"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-xs font-semibold uppercase tracking-wider text-white bg-black hover:bg-neutral-800 transition-all shadow-sm"
           >
-            <span>Get Free Consultation</span>
+            <span>Book a Meeting</span>
             <ArrowRight className="w-4 h-4" />
-          </Link>
+          </a>
         </div>
 
       </div>

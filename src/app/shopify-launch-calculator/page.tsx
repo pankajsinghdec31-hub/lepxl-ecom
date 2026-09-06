@@ -359,13 +359,15 @@ export default function ShopifyLaunchCalculator() {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-2">
-              <Link
-                href="/contact"
+              <a
+                href="https://calendly.com/salepxl/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-full sm:w-auto btn-primary inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-sm font-semibold uppercase tracking-wider text-white bg-black shadow-sm font-bold cursor-pointer"
               >
-                <span>Get Free Consultation</span>
+                <span>Book a Meeting</span>
                 <ArrowRight className="w-4 h-4" />
-              </Link>
+              </a>
               <a
                 href="https://wa.me/919917780656"
                 target="_blank"

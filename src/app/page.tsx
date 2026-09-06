@@ -1783,13 +1783,15 @@ export default function HomePage() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto mt-2">
-            <Link
-              href="/contact"
+            <a
+              href="https://calendly.com/salepxl/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-full sm:w-auto btn-primary inline-flex items-center justify-center gap-2 px-8 h-13 rounded-full text-sm font-bold uppercase tracking-wider text-black bg-white shadow-sm cursor-pointer"
             >
-              <span>Get Free Consultation</span>
+              <span>Book a Meeting</span>
               <ArrowRight className="w-4 h-4 premium-hover-icon" />
-            </Link>
+            </a>
             
             <a
               href="https://wa.me/919917780656"
