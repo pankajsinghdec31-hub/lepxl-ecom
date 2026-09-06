@@ -127,13 +127,13 @@ export default function LeadCaptureModal({
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 20 }}
           transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-          className="relative w-full max-w-4xl bg-[#0a0f14] border border-white/15 rounded-[28px] sm:rounded-[36px] shadow-[0_25px_80px_rgba(0,0,0,0.9)] overflow-hidden z-10 text-white my-auto"
+          className="relative w-full max-w-4xl bg-white border border-neutral-200 rounded-[28px] sm:rounded-[36px] shadow-2xl overflow-hidden z-10 text-neutral-900 my-auto"
         >
           {/* Close Button */}
           <button
             type="button"
             onClick={handleModalClose}
-            className="absolute top-4 right-4 sm:top-6 sm:right-6 z-20 w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 flex items-center justify-center text-white transition-colors cursor-pointer"
+            className="absolute top-4 right-4 sm:top-6 sm:right-6 z-20 w-9 h-9 rounded-full bg-neutral-100 hover:bg-neutral-200 border border-neutral-300 flex items-center justify-center text-neutral-700 transition-colors cursor-pointer"
             aria-label="Close modal"
           >
             <X className="w-5 h-5" />
@@ -141,22 +141,22 @@ export default function LeadCaptureModal({
 
           {isSuccess ? (
             /* SUCCESS STATE */
-            <div className="p-8 sm:p-14 text-center flex flex-col items-center justify-center gap-5 min-h-[440px]">
-              <div className="w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400">
+            <div className="p-8 sm:p-14 text-center flex flex-col items-center justify-center gap-5 min-h-[440px] bg-white">
+              <div className="w-16 h-16 rounded-full bg-emerald-100 border border-emerald-300 flex items-center justify-center text-emerald-600">
                 <CheckCircle2 className="w-9 h-9" />
               </div>
-              <h3 className="text-2xl sm:text-4xl font-light text-white font-grotesk">
-                Request Received <span className="text-emerald-400 font-normal">Successfully!</span>
+              <h3 className="text-2xl sm:text-4xl font-light text-neutral-900 font-grotesk">
+                Request Received <span className="text-emerald-600 font-normal">Successfully!</span>
               </h3>
-              <p className="text-white/70 text-sm sm:text-base max-w-lg leading-relaxed font-sans">
-                Thank you, <strong className="text-white">{fullName}</strong>. Our Shopify strategy specialists will review your requirements and get back to you within <span className="text-emerald-400 font-bold">2 hours</span>.
+              <p className="text-neutral-600 text-sm sm:text-base max-w-lg leading-relaxed font-sans">
+                Thank you, <strong className="text-neutral-900">{fullName}</strong>. Our Shopify strategy specialists will review your requirements and get back to you within <span className="text-emerald-600 font-bold">2 hours</span>.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-4">
                 <a
                   href="https://calendly.com/salepxl"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-8 py-3.5 rounded-full bg-emerald-400 text-black text-sm font-bold uppercase tracking-wider hover:bg-emerald-300 transition-all cursor-pointer shadow-lg inline-flex items-center gap-2"
+                  className="px-8 py-3.5 rounded-full bg-[#22E39A] text-black text-sm font-bold uppercase tracking-wider hover:bg-[#1fce8b] transition-all cursor-pointer shadow-lg inline-flex items-center gap-2"
                 >
                   <PhoneCall className="w-4 h-4" />
                   <span>Book Strategy Call on Calendly</span>
@@ -164,7 +164,7 @@ export default function LeadCaptureModal({
                 <button
                   type="button"
                   onClick={handleModalClose}
-                  className="px-6 py-3.5 rounded-full bg-white/10 text-white text-sm font-semibold hover:bg-white/20 transition-all cursor-pointer border border-white/15"
+                  className="px-6 py-3.5 rounded-full bg-neutral-100 text-neutral-800 text-sm font-semibold hover:bg-neutral-200 transition-all cursor-pointer border border-neutral-200"
                 >
                   Close Window
                 </button>
@@ -172,32 +172,32 @@ export default function LeadCaptureModal({
             </div>
           ) : (
             /* FORM STATE: LEFT & RIGHT COLUMNS */
-            <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
+            <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch bg-white">
               
               {/* LEFT COLUMN: BRAND DETAILS & TRUST INFO */}
-              <div className="lg:col-span-5 p-6 sm:p-10 bg-gradient-to-br from-[#0c141d] to-[#060a0e] border-b lg:border-b-0 lg:border-r border-white/10 flex flex-col justify-between gap-6">
+              <div className="lg:col-span-5 p-6 sm:p-10 bg-gradient-to-br from-neutral-900 to-black text-white border-b lg:border-b-0 lg:border-r border-neutral-800 flex flex-col justify-between gap-6">
                 <div>
                   <h2 className="text-2xl sm:text-3xl font-light text-white font-grotesk leading-snug">
-                    Launch a <span className="text-emerald-400 font-normal">High-Growth</span> <br />
+                    Launch a <span className="text-[#22E39A] font-normal">High-Growth</span> <br />
                     Shopify Store
                   </h2>
                   
-                  <p className="text-xs sm:text-sm text-white/60 font-sans leading-relaxed mt-3">
+                  <p className="text-xs sm:text-sm text-neutral-300 font-sans leading-relaxed mt-3">
                     Tell us brief about your project needs & our team will get back to you within <span className="text-white font-semibold">2 hours</span> having a clear plan to build / scale your store.
                   </p>
 
                   <div className="space-y-2.5 mt-6 pt-6 border-t border-white/10">
-                    <div className="flex items-center gap-2.5 text-xs text-white/80 font-sans">
-                      <Star className="w-4 h-4 text-emerald-400 fill-emerald-400 shrink-0" />
+                    <div className="flex items-center gap-2.5 text-xs text-neutral-200 font-sans">
+                      <Star className="w-4 h-4 text-[#22E39A] fill-[#22E39A] shrink-0" />
                       <span>Trusted by 200+ growing brands</span>
                     </div>
                     <a
                       href="https://calendly.com/salepxl"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2.5 text-xs text-emerald-400 hover:text-emerald-300 font-sans font-medium transition-colors"
+                      className="flex items-center gap-2.5 text-xs text-[#22E39A] hover:text-[#1fce8b] font-sans font-medium transition-colors"
                     >
-                      <PhoneCall className="w-4 h-4 text-emerald-400 shrink-0" />
+                      <PhoneCall className="w-4 h-4 text-[#22E39A] shrink-0" />
                       <span>Free strategy consultation (Calendly)</span>
                     </a>
                   </div>
@@ -213,11 +213,11 @@ export default function LeadCaptureModal({
                 </div>
               </div>
 
-              {/* RIGHT COLUMN: INTERACTIVE FORM */}
-              <form onSubmit={handleSubmit} className="lg:col-span-7 p-6 sm:p-10 flex flex-col justify-between gap-5">
+              {/* RIGHT COLUMN: INTERACTIVE FORM (WHITE BACKGROUND) */}
+              <form onSubmit={handleSubmit} className="lg:col-span-7 p-6 sm:p-10 flex flex-col justify-between gap-5 bg-white">
                 
                 {errorMsg && (
-                  <div className="p-3 rounded-xl bg-red-500/10 border border-red-500/30 text-red-400 text-xs font-sans">
+                  <div className="p-3 rounded-xl bg-red-50 border border-red-200 text-red-600 text-xs font-sans">
                     {errorMsg}
                   </div>
                 )}
@@ -231,11 +231,11 @@ export default function LeadCaptureModal({
                       placeholder="Full Name*"
                       value={fullName}
                       onChange={(e) => setFullName(e.target.value)}
-                      className="w-full bg-white/[0.04] border border-white/15 rounded-xl px-4 py-3 text-xs sm:text-sm text-white placeholder-white/40 focus:outline-none focus:border-emerald-400 transition-colors"
+                      className="w-full bg-neutral-50 border border-neutral-300 focus:border-emerald-500 focus:bg-white rounded-xl px-4 py-3 text-xs sm:text-sm text-neutral-900 placeholder-neutral-400 focus:outline-none transition-colors"
                     />
                   </div>
                   <div className="relative flex items-center">
-                    <div className="absolute left-3.5 flex items-center gap-1 text-xs font-mono text-white/60 select-none border-r border-white/15 pr-2">
+                    <div className="absolute left-3.5 flex items-center gap-1 text-xs font-mono text-neutral-500 select-none border-r border-neutral-300 pr-2">
                       <span>🇮🇳 +91</span>
                     </div>
                     <input
@@ -244,7 +244,7 @@ export default function LeadCaptureModal({
                       placeholder="Mobile Number"
                       value={mobileNumber}
                       onChange={(e) => setMobileNumber(e.target.value)}
-                      className="w-full bg-white/[0.04] border border-white/15 rounded-xl pl-20 pr-4 py-3 text-xs sm:text-sm text-white placeholder-white/40 focus:outline-none focus:border-emerald-400 transition-colors"
+                      className="w-full bg-neutral-50 border border-neutral-300 focus:border-emerald-500 focus:bg-white rounded-xl pl-20 pr-4 py-3 text-xs sm:text-sm text-neutral-900 placeholder-neutral-400 focus:outline-none transition-colors"
                     />
                   </div>
                 </div>
@@ -257,13 +257,13 @@ export default function LeadCaptureModal({
                     placeholder="Business Email*"
                     value={businessEmail}
                     onChange={(e) => setBusinessEmail(e.target.value)}
-                    className="w-full bg-white/[0.04] border border-white/15 rounded-xl px-4 py-3 text-xs sm:text-sm text-white placeholder-white/40 focus:outline-none focus:border-emerald-400 transition-colors"
+                    className="w-full bg-neutral-50 border border-neutral-300 focus:border-emerald-500 focus:bg-white rounded-xl px-4 py-3 text-xs sm:text-sm text-neutral-900 placeholder-neutral-400 focus:outline-none transition-colors"
                   />
                 </div>
 
                 {/* Services Checkboxes */}
                 <div>
-                  <label className="text-xs font-sans text-white/70 block mb-2 font-medium">
+                  <label className="text-xs font-sans text-neutral-700 block mb-2 font-medium">
                     Which service(s) you are interested in? *
                   </label>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -281,14 +281,14 @@ export default function LeadCaptureModal({
                           onClick={() => toggleService(svc)}
                           className={`flex items-center gap-2 px-3 py-2 rounded-xl text-[11px] sm:text-xs font-sans text-left transition-all border cursor-pointer ${
                             isChecked
-                              ? "bg-emerald-500/15 border-emerald-500/50 text-emerald-300 font-semibold"
-                              : "bg-white/[0.02] border-white/10 text-white/70 hover:bg-white/[0.05]"
+                              ? "bg-emerald-50 border-emerald-500 text-emerald-900 font-semibold"
+                              : "bg-neutral-50 border-neutral-200 text-neutral-700 hover:bg-neutral-100"
                           }`}
                         >
                           <div className={`w-3.5 h-3.5 rounded border flex items-center justify-center shrink-0 ${
-                            isChecked ? "bg-emerald-500 border-emerald-500 text-black" : "border-white/30"
+                            isChecked ? "bg-emerald-500 border-emerald-500 text-white" : "border-neutral-400"
                           }`}>
-                            {isChecked && <CheckCircle2 className="w-3 h-3 text-black stroke-[3]" />}
+                            {isChecked && <CheckCircle2 className="w-3 h-3 text-white stroke-[3]" />}
                           </div>
                           <span>{svc}</span>
                         </button>
@@ -303,7 +303,7 @@ export default function LeadCaptureModal({
                     <select
                       value={brandCategory}
                       onChange={(e) => setBrandCategory(e.target.value)}
-                      className="w-full bg-[#0c141d] border border-white/15 rounded-xl px-4 py-3 text-xs sm:text-sm text-white placeholder-white/40 focus:outline-none focus:border-emerald-400 transition-colors appearance-none cursor-pointer"
+                      className="w-full bg-neutral-50 border border-neutral-300 focus:border-emerald-500 focus:bg-white rounded-xl px-4 py-3 text-xs sm:text-sm text-neutral-900 placeholder-neutral-400 focus:outline-none transition-colors appearance-none cursor-pointer"
                     >
                       <option value="Fashion & Apparel">Fashion & Apparel</option>
                       <option value="Beauty & Skincare">Beauty & Skincare</option>
@@ -323,15 +323,14 @@ export default function LeadCaptureModal({
                       placeholder="Store Name or Website Url"
                       value={storeUrl}
                       onChange={(e) => setStoreUrl(e.target.value)}
-                      className="w-full bg-white/[0.04] border border-emerald-500/30 rounded-xl px-4 py-3 text-xs sm:text-sm text-white placeholder-white/40 focus:outline-none focus:border-emerald-400 transition-colors shadow-[0_0_15px_rgba(34,227,154,0.05)]"
+                      className="w-full bg-neutral-50 border border-neutral-300 focus:border-emerald-500 focus:bg-white rounded-xl px-4 py-3 text-xs sm:text-sm text-neutral-900 placeholder-neutral-400 focus:outline-none transition-colors"
                     />
                   </div>
                 </div>
 
-
                 {/* Budget Selection Pills */}
                 <div>
-                  <label className="text-xs font-sans text-white/70 block mb-2 font-medium">
+                  <label className="text-xs font-sans text-neutral-700 block mb-2 font-medium">
                     What is your Budget?
                   </label>
                   <div className="grid grid-cols-3 gap-2">
@@ -344,8 +343,8 @@ export default function LeadCaptureModal({
                           onClick={() => setBudget(bOption)}
                           className={`py-2 px-2 rounded-xl text-[10px] sm:text-xs font-mono font-bold text-center transition-all border cursor-pointer ${
                             isSel
-                              ? "bg-emerald-400 text-black border-emerald-400 shadow-[0_0_15px_rgba(34,227,154,0.3)]"
-                              : "bg-white/[0.04] border-white/15 text-white/70 hover:bg-white/10"
+                              ? "bg-[#22E39A] text-black border-[#22E39A] shadow-md font-bold"
+                              : "bg-neutral-100 border-neutral-200 text-neutral-700 hover:bg-neutral-200"
                           }`}
                         >
                           {bOption}
@@ -362,9 +361,9 @@ export default function LeadCaptureModal({
                     id="auth-check"
                     checked={authorized}
                     onChange={(e) => setAuthorized(e.target.checked)}
-                    className="mt-0.5 rounded border-white/30 bg-white/5 text-emerald-500 focus:ring-emerald-400 cursor-pointer"
+                    className="mt-0.5 rounded border-neutral-300 text-emerald-600 focus:ring-emerald-500 cursor-pointer"
                   />
-                  <label htmlFor="auth-check" className="text-[10px] sm:text-[11px] text-white/60 font-sans cursor-pointer leading-tight">
+                  <label htmlFor="auth-check" className="text-[10px] sm:text-[11px] text-neutral-600 font-sans cursor-pointer leading-tight">
                     I authorise SalePXL team to reach out to me to discuss about the project
                   </label>
                 </div>
@@ -373,7 +372,7 @@ export default function LeadCaptureModal({
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-3.5 px-6 rounded-2xl bg-emerald-400 text-black text-xs sm:text-sm font-bold uppercase tracking-wider hover:bg-emerald-300 transition-all duration-300 shadow-[0_4px_25px_rgba(34,227,154,0.3)] hover:scale-[1.01] cursor-pointer flex items-center justify-center gap-2"
+                  className="w-full py-3.5 px-6 rounded-2xl bg-[#22E39A] text-black text-xs sm:text-sm font-bold uppercase tracking-wider hover:bg-[#1fce8b] transition-all duration-300 shadow-md hover:scale-[1.01] cursor-pointer flex items-center justify-center gap-2"
                 >
                   {isSubmitting ? (
                     <span>Submitting...</span>
@@ -386,14 +385,14 @@ export default function LeadCaptureModal({
                 </button>
 
                 {/* Guarantee Statements */}
-                <div className="space-y-1.5 pt-2 border-t border-white/10 text-[10px] sm:text-[11px] text-white/50 font-sans">
+                <div className="space-y-1.5 pt-2 border-t border-neutral-200 text-[10px] sm:text-[11px] text-neutral-500 font-sans">
                   <div className="flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0"></span>
-                    <span>In just <strong className="text-white underline">2 hrs you will get a response back</strong> from our team of experts</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0"></span>
+                    <span>In just <strong className="text-neutral-800 underline">2 hrs you will get a response back</strong> from our team of experts</span>
                   </div>
                   <div className="flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0"></span>
-                    <span>Your idea / discussion is 100% protected by our <strong className="text-white">Non Disclosure Agreement & Confidentiality Policy</strong></span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0"></span>
+                    <span>Your idea / discussion is 100% protected by our <strong className="text-neutral-800">Non Disclosure Agreement & Confidentiality Policy</strong></span>
                   </div>
                 </div>
 
@@ -403,6 +402,7 @@ export default function LeadCaptureModal({
           )}
 
         </motion.div>
+
       </div>
     </AnimatePresence>
   );
