@@ -1,21 +1,18 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Send, CheckCircle2, ChevronDown, User, Mail, Phone, ShoppingBag, Landmark, Clock, FileText, Camera, Link2 } from "lucide-react";
+import { Send, CheckCircle2, ChevronDown, User, Mail, Phone, Globe, Shield, Sparkles, Clock, FileText, Lock } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function StartProjectForm({ onSuccess }: { onSuccess?: () => void }) {
   const [formData, setFormData] = useState({
     name: "",
+    companyUrl: "",
     email: "",
     phone: "",
-    service: "",
-    productsCount: "",
-    photoshootAvailable: "",
-    budgetRange: "",
-    timeline: "",
-    projectDetails: "",
-    referenceLink: ""
+    serviceType: "Custom Shopify Store",
+    budgetRange: "₹40K - ₹75K",
+    projectDetails: ""
   });
 
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -37,15 +34,12 @@ export default function StartProjectForm({ onSuccess }: { onSuccess?: () => void
     setSubmitted(false);
     setFormData({
       name: "",
+      companyUrl: "",
       email: "",
       phone: "",
-      service: "",
-      productsCount: "",
-      photoshootAvailable: "",
-      budgetRange: "",
-      timeline: "",
-      projectDetails: "",
-      referenceLink: ""
+      serviceType: "Custom Shopify Store",
+      budgetRange: "₹40K - ₹75K",
+      projectDetails: ""
     });
     if (onSuccess) {
       onSuccess();
@@ -54,18 +48,15 @@ export default function StartProjectForm({ onSuccess }: { onSuccess?: () => void
 
   const validate = () => {
     const newErrors: Record<string, string> = {};
-    if (!formData.name.trim()) newErrors.name = "Name is required";
+    if (!formData.name.trim()) newErrors.name = "Your Name is required";
     if (!formData.email.trim()) {
-      newErrors.email = "Email is required";
+      newErrors.email = "Work email is required";
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
       newErrors.email = "Invalid email format";
     }
-    if (!formData.phone.trim()) newErrors.phone = "Phone is required";
-    if (!formData.service) newErrors.service = "Select a service";
-    if (!formData.productsCount) newErrors.productsCount = "Select products range";
-    if (!formData.photoshootAvailable) newErrors.photoshootAvailable = "Photoshoot option required";
-    if (!formData.budgetRange) newErrors.budgetRange = "Select budget";
-    if (!formData.timeline) newErrors.timeline = "Select timeline";
+    if (!formData.phone.trim()) newErrors.phone = "Phone number is required";
+    if (!formData.serviceType) newErrors.serviceType = "Select a service type";
+    if (!formData.budgetRange) newErrors.budgetRange = "Select a project budget";
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -80,25 +71,33 @@ export default function StartProjectForm({ onSuccess }: { onSuccess?: () => void
       await fetch("/api/submit-lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ source: "start-project", ...formData }),
+        body: JSON.stringify({
+          source: "start-project-proposal",
+          name: formData.name,
+          storeUrl: formData.companyUrl || "N/A",
+          email: formData.email,
+          phone: formData.phone,
+          service: formData.serviceType,
+          budgetRange: formData.budgetRange,
+          projectDetails: formData.projectDetails
+        }),
       });
     } catch (_) {
-      // Fail silently — lead still shown as submitted
+      // Fail silently
     } finally {
       setIsSubmitting(false);
     }
 
     setSubmitted(true);
-    localStorage.setItem("salepxl_hero_lead", JSON.stringify(formData));
+    localStorage.setItem("salepxl_proposal_lead", JSON.stringify(formData));
 
     // Track lead in Meta Pixel
     try {
       const fbq = (window as any)?.fbq as undefined | ((...args: any[]) => void);
       if (typeof fbq === "function") {
-        const matches = (formData.budgetRange || "").match(/\d+/);
-        const numVal = matches ? parseFloat(matches[0]) * 1000 : 20000;
+        const numVal = formData.budgetRange.includes("1.5L") ? 150000 : 50000;
         fbq("track", "Lead", {
-          content_name: formData.service || "Start Project",
+          content_name: formData.serviceType || "Request a Proposal",
           content_category: "Lead Form",
           value: numVal,
           currency: "INR",
@@ -109,243 +108,188 @@ export default function StartProjectForm({ onSuccess }: { onSuccess?: () => void
     }
   };
 
-  const inputClass = (hasError: boolean) =>
-    `w-full h-[52px] bg-white border ${hasError
-      ? "border-red-500/30 focus:border-red-500 focus:ring-red-500/15"
-      : "border-neutral-200/80 focus:border-emerald-500 focus:ring-emerald-500/15"
-    } text-neutral-800 text-sm rounded-xl pl-11 pr-4 transition-all duration-300 outline-none focus:ring-4 placeholder:text-neutral-400`;
-
-  const selectClass = (hasError: boolean) =>
-    `w-full h-[52px] bg-white border ${hasError
-      ? "border-red-500/30 focus:border-red-500 focus:ring-red-500/15"
-      : "border-neutral-200/80 focus:border-emerald-500 focus:ring-emerald-500/15"
-    } text-neutral-800 text-sm rounded-xl pl-11 pr-10 transition-all duration-300 outline-none focus:ring-4 appearance-none cursor-pointer`;
-
+  const budgetOptions = [
+    "< ₹20K",
+    "₹20K - ₹40K",
+    "₹40K - ₹75K",
+    "₹75K - ₹1.5L",
+    "> ₹1.5L"
+  ];
 
   return (
-    <div className="w-full text-left relative">
-      <form onSubmit={handleSubmit} className="flex flex-col gap-6 sm:gap-8 relative z-10 font-sans w-full max-w-3xl mx-auto">
-        {/* Title & Description moved inside form as a simplified top header */}
-        <div className="text-center mb-8">
-          <span className="text-[10px] text-emerald-700 font-sans uppercase tracking-widest font-bold mb-2 block">
-            Partner with SalePXL
-          </span>
-          <h3 className="text-2xl sm:text-3xl font-light text-neutral-900 tracking-tight leading-[1.1] font-grotesk">
-            Start <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent font-normal font-sans">Your</span> Project
-          </h3>
-          <p className="text-sm text-neutral-600 leading-relaxed mt-2 max-w-lg mx-auto">
-            Let's build a High Converting Ecommerce Store. Share your project requirements below to schedule a strategy consultation.
+    <div className="w-full text-left relative font-sans">
+      <form onSubmit={handleSubmit} className="flex flex-col gap-6 relative z-10 w-full max-w-3xl mx-auto">
+        
+        {/* Deliverable Agency Header Badges & Title */}
+        <div className="flex flex-col items-center text-center gap-3 mb-2">
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs text-neutral-300 font-sans tracking-wide">
+            <span className="flex items-center gap-1.5 font-medium">
+              <span className="w-2 h-2 rounded-full bg-[#22E39A] shadow-[0_0_8px_#22E39A]" />
+              Free Consultation
+            </span>
+            <span className="flex items-center gap-1.5 font-medium">
+              <span className="w-2 h-2 rounded-full bg-[#22E39A] shadow-[0_0_8px_#22E39A]" />
+              NDA Available
+            </span>
+            <span className="flex items-center gap-1.5 font-medium">
+              <span className="w-2 h-2 rounded-full bg-[#22E39A] shadow-[0_0_8px_#22E39A]" />
+              1hr Response
+            </span>
+          </div>
+
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-light text-white tracking-tight font-grotesk mt-2">
+            Request a <span className="text-[#22E39A] font-normal">Proposal</span>
+          </h2>
+          <p className="text-xs sm:text-sm text-neutral-400 max-w-lg leading-relaxed font-sans">
+            Tell us brief about your Shopify requirements & our strategy team will analyze your project and get back to you with a custom plan.
           </p>
         </div>
 
-        {/* Form Fields Container */}
-        <div className="flex flex-col gap-6 sm:gap-8 w-full">
-          {/* Grid for Name & Email */}
+        {/* Deliverable Form Fields Layout */}
+        <div className="flex flex-col gap-5 w-full bg-[#070d14]/80 p-6 sm:p-8 rounded-3xl border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.8)] backdrop-blur-md">
+          
+          {/* Row 1: Name & Company URL (2 Columns) */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="flex flex-col relative text-left">
-              <label className="text-[10px] text-neutral-500 uppercase font-sans tracking-wider font-semibold mb-2 block">Your Name *</label>
-              <div className="relative">
-                <input
-                  type="text"
-                  name="name"
-                  autoComplete="name"
-                  placeholder="Pankaj Singh"
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className={`${inputClass(!!errors.name)} peer`}
-                />
-                <User className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400 transition-colors duration-300 peer-focus:text-emerald-600 pointer-events-none" strokeWidth={1.75} />
-              </div>
-              {errors.name && <span className="text-[11px] text-red-500 font-medium mt-1.5 block">{errors.name}</span>}
-            </div>
-
-            <div className="flex flex-col relative text-left">
-              <label className="text-[10px] text-neutral-500 uppercase font-sans tracking-wider font-semibold mb-2 block">Business Email *</label>
-              <div className="relative">
-                <input
-                  type="email"
-                  name="email"
-                  autoComplete="email"
-                  placeholder="growth@salepxl.com"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className={`${inputClass(!!errors.email)} peer`}
-                />
-                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400 transition-colors duration-300 peer-focus:text-emerald-600 pointer-events-none" strokeWidth={1.75} />
-              </div>
-              {errors.email && <span className="text-[11px] text-red-500 font-medium mt-1.5 block">{errors.email}</span>}
-            </div>
-          </div>
-
-          {/* Grid for Contact & Service */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="flex flex-col relative text-left">
-              <label className="text-[10px] text-neutral-500 uppercase font-sans tracking-wider font-semibold mb-2 block">Contact Number *</label>
-              <div className="relative">
-                <input
-                  type="text"
-                  name="phone"
-                  autoComplete="tel"
-                  placeholder="+91 9917780656"
-                  value={formData.phone}
-                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  className={`${inputClass(!!errors.phone)} peer`}
-                />
-                <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400 transition-colors duration-300 peer-focus:text-emerald-600 pointer-events-none" strokeWidth={1.75} />
-              </div>
-              {errors.phone && <span className="text-[11px] text-red-500 font-medium mt-1.5 block">{errors.phone}</span>}
-            </div>
-
-            <div className="flex flex-col relative text-left">
-              <label className="text-[10px] text-neutral-500 uppercase font-sans tracking-wider font-semibold mb-2 block">Select a Service *</label>
-              <div className="relative">
-                <select
-                  value={formData.service}
-                  onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                  className={`${selectClass(!!errors.service)} peer`}
-                >
-                  <option value="">Choose Service</option>
-                  <option value="New Store Design">New Store Design</option>
-                  <option value="Revamp">Store Revamp</option>
-                  <option value="CRO">CRO Optimization</option>
-                  <option value="Dropshipping Store">Dropshipping Store</option>
-                </select>
-                <ShoppingBag className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400 transition-colors duration-300 peer-focus:text-emerald-600 pointer-events-none" strokeWidth={1.75} />
-                <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400 transition-colors duration-300 peer-focus:text-emerald-600 pointer-events-none" strokeWidth={1.75} />
-              </div>
-              {errors.service && <span className="text-[11px] text-red-500 font-medium mt-1.5 block">{errors.service}</span>}
-            </div>
-          </div>
-
-          {/* Grid for Products & Photoshoot */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="flex flex-col relative text-left">
-              <label className="text-[10px] text-neutral-500 uppercase font-sans tracking-wider font-semibold mb-2 block">Number of Products *</label>
-              <div className="relative">
-                <select
-                  value={formData.productsCount}
-                  onChange={(e) => setFormData({ ...formData, productsCount: e.target.value })}
-                  className={`${selectClass(!!errors.productsCount)} peer`}
-                >
-                  <option value="">Choose Count</option>
-                  <option value="1-50">1 - 50 Products</option>
-                  <option value="50-200">50 - 200 Products</option>
-                  <option value="200+">200+ Products</option>
-                </select>
-                <ShoppingBag className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400 transition-colors duration-300 peer-focus:text-emerald-600 pointer-events-none" strokeWidth={1.75} />
-                <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400 transition-transform duration-300 peer-focus:text-emerald-600 pointer-events-none" />
-              </div>
-              {errors.productsCount && <span className="text-[11px] text-red-500 font-medium mt-1.5 block">{errors.productsCount}</span>}
-            </div>
-
-            <div className="flex flex-col relative text-left">
-              <label className="text-[10px] text-neutral-500 uppercase font-sans tracking-wider font-semibold mb-2 block">Photoshoot Available? *</label>
-              <div className="relative">
-                <select
-                  value={formData.photoshootAvailable}
-                  onChange={(e) => setFormData({ ...formData, photoshootAvailable: e.target.value })}
-                  className={`${selectClass(!!errors.photoshootAvailable)} peer`}
-                >
-                  <option value="">Select Yes/No</option>
-                  <option value="Yes">Yes</option>
-                  <option value="No">No</option>
-                </select>
-                <Camera className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400 transition-colors duration-300 peer-focus:text-emerald-600 pointer-events-none" strokeWidth={1.75} />
-                <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400 transition-colors duration-300 peer-focus:text-emerald-600 pointer-events-none" strokeWidth={1.75} />
-              </div>
-              {errors.photoshootAvailable && <span className="text-[11px] text-red-500 font-medium mt-1.5 block">{errors.photoshootAvailable}</span>}
-            </div>
-          </div>
-
-          {/* Grid for Budget & Timeline */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="flex flex-col relative text-left">
-              <label className="text-[10px] text-neutral-500 uppercase font-sans tracking-wider font-semibold mb-2 block">Project Budget *</label>
-              <div className="relative">
-                <select
-                  value={formData.budgetRange}
-                  onChange={(e) => setFormData({ ...formData, budgetRange: e.target.value })}
-                  className={`${selectClass(!!errors.budgetRange)} peer`}
-                >
-                  <option value="">Choose Budget</option>
-                  <option value="Under ₹20K">Under ₹20K</option>
-                  <option value="₹20K - ₹40K">₹20K - ₹40K</option>
-                  <option value="Above ₹40K">Above ₹40K</option>
-                </select>
-                <Landmark className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400 transition-colors duration-300 peer-focus:text-emerald-600 pointer-events-none" strokeWidth={1.75} />
-                <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400 transition-transform duration-300 peer-focus:text-emerald-600 pointer-events-none" />
-              </div>
-              {errors.budgetRange && <span className="text-[11px] text-red-500 font-medium mt-1.5 block">{errors.budgetRange}</span>}
-            </div>
-
-            <div className="flex flex-col relative text-left">
-              <label className="text-[10px] text-neutral-500 uppercase font-sans tracking-wider font-semibold mb-2 block">Expected Timeline *</label>
-              <div className="relative">
-                <select
-                  value={formData.timeline}
-                  onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
-                  className={`${selectClass(!!errors.timeline)} peer`}
-                >
-                  <option value="">Select Timeline</option>
-                  <option value="ASAP">ASAP</option>
-                  <option value="1 Week">1 Week</option>
-                  <option value="2 Weeks">2 Weeks</option>
-                </select>
-                <Clock className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400 transition-colors duration-300 peer-focus:text-emerald-600 pointer-events-none" strokeWidth={1.75} />
-                <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400 transition-colors duration-300 peer-focus:text-emerald-600 pointer-events-none" strokeWidth={1.75} />
-              </div>
-              {errors.timeline && <span className="text-[11px] text-red-500 font-medium mt-1.5 block">{errors.timeline}</span>}
-            </div>
-          </div>
-
-          {/* Reference Website Link */}
-          <div className="flex flex-col relative text-left">
-            <label className="text-[10px] text-neutral-500 uppercase font-sans tracking-wider font-semibold mb-2 block">Reference Website Link (Optional)</label>
-            <div className="relative">
-              <textarea
-                rows={2}
-                placeholder="e.g. https://competitor1.com, https://competitor2.com"
-                value={formData.referenceLink}
-                onChange={(e) => setFormData({ ...formData, referenceLink: e.target.value })}
-                className="w-full bg-white border border-neutral-200/80 focus:border-emerald-500 focus:ring-emerald-500/15 text-neutral-800 text-sm rounded-xl pl-11 pr-4 py-3 transition-all duration-300 outline-none focus:ring-4 placeholder:text-neutral-400 resize-none peer"
+            <div className="flex flex-col text-left">
+              <label className="text-xs text-neutral-300 font-medium mb-1.5 block">Your Name *</label>
+              <input
+                type="text"
+                name="name"
+                autoComplete="name"
+                placeholder="Your Name"
+                value={formData.name}
+                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                className={`w-full h-12 bg-white/[0.04] border ${errors.name ? "border-red-500" : "border-white/15 focus:border-[#22E39A]"} text-white text-sm rounded-xl px-4 outline-none transition-all placeholder:text-neutral-500`}
               />
-              <Link2 className="absolute left-4 top-4 w-4 h-4 text-neutral-400 transition-colors duration-300 peer-focus:text-emerald-600 pointer-events-none" strokeWidth={1.75} />
+              {errors.name && <span className="text-[11px] text-red-400 font-medium mt-1">{errors.name}</span>}
             </div>
-          </div>
 
-          {/* Custom Brief Box */}
-          <div className="flex flex-col relative text-left">
-            <label className="text-[10px] text-neutral-500 uppercase font-sans tracking-wider font-semibold mb-2 block">About your project or brand</label>
-            <div className="relative">
-              <textarea
-                rows={3}
-                placeholder="Describe your design styling, custom features, or Shopify goals..."
-                value={formData.projectDetails}
-                onChange={(e) => setFormData({ ...formData, projectDetails: e.target.value })}
-                className="w-full bg-white border border-neutral-200/80 focus:border-emerald-500 focus:ring-emerald-500/15 text-neutral-800 text-sm rounded-xl pl-11 pr-4 py-3.5 transition-all duration-300 outline-none focus:ring-4 placeholder:text-neutral-400 resize-none min-h-[100px] peer"
+            <div className="flex flex-col text-left">
+              <label className="text-xs text-neutral-300 font-medium mb-1.5 block">Company url *</label>
+              <input
+                type="text"
+                name="companyUrl"
+                placeholder="Company url / website"
+                value={formData.companyUrl}
+                onChange={(e) => setFormData({ ...formData, companyUrl: e.target.value })}
+                className="w-full h-12 bg-white/[0.04] border border-white/15 focus:border-[#22E39A] text-white text-sm rounded-xl px-4 outline-none transition-all placeholder:text-neutral-500"
               />
-              <FileText className="absolute left-4 top-4.5 w-4 h-4 text-neutral-400 transition-colors duration-300 peer-focus:text-emerald-600 pointer-events-none" strokeWidth={1.75} />
             </div>
           </div>
 
-          {/* Submit Button */}
+          {/* Row 2: Work email (1 Column Full Width) */}
+          <div className="flex flex-col text-left">
+            <label className="text-xs text-neutral-300 font-medium mb-1.5 block">Work email *</label>
+            <input
+              type="email"
+              name="email"
+              autoComplete="email"
+              placeholder="Work email *"
+              value={formData.email}
+              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+              className={`w-full h-12 bg-white/[0.04] border ${errors.email ? "border-red-500" : "border-white/15 focus:border-[#22E39A]"} text-white text-sm rounded-xl px-4 outline-none transition-all placeholder:text-neutral-500`}
+            />
+            {errors.email && <span className="text-[11px] text-red-400 font-medium mt-1">{errors.email}</span>}
+          </div>
+
+          {/* Row 3: Phone number (1 Column Full Width) */}
+          <div className="flex flex-col text-left">
+            <label className="text-xs text-neutral-300 font-medium mb-1.5 block">Phone number *</label>
+            <input
+              type="tel"
+              name="phone"
+              autoComplete="tel"
+              placeholder="Phone number *"
+              value={formData.phone}
+              onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+              className={`w-full h-12 bg-white/[0.04] border ${errors.phone ? "border-red-500" : "border-white/15 focus:border-[#22E39A]"} text-white text-sm rounded-xl px-4 outline-none transition-all placeholder:text-neutral-500`}
+            />
+            {errors.phone && <span className="text-[11px] text-red-400 font-medium mt-1">{errors.phone}</span>}
+          </div>
+
+          {/* Row 4: Service type (Select Dropdown) */}
+          <div className="flex flex-col text-left">
+            <label className="text-xs text-neutral-300 font-medium mb-1.5 block">Service type *</label>
+            <div className="relative">
+              <select
+                value={formData.serviceType}
+                onChange={(e) => setFormData({ ...formData, serviceType: e.target.value })}
+                className="w-full h-12 bg-[#0c141d] border border-white/15 focus:border-[#22E39A] text-white text-sm rounded-xl px-4 pr-10 outline-none transition-all appearance-none cursor-pointer"
+              >
+                <option value="Custom Shopify Store">Custom Shopify Store Development</option>
+                <option value="Store Redesign & CRO">Store Redesign & Conversion Rate Optimization</option>
+                <option value="Speed & Performance Optimization">Speed & Performance Optimization</option>
+                <option value="Shopify Plus Migration">Shopify Plus Migration</option>
+                <option value="Custom App & API Integration">Custom App & Integration</option>
+                <option value="Monthly Retainer & Support">Monthly Shopify Growth Retainer</option>
+              </select>
+              <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400 pointer-events-none" />
+            </div>
+          </div>
+
+          {/* Row 5: Estimated Project Budget * (Horizontal Interactive Pills) */}
+          <div className="flex flex-col text-left">
+            <label className="text-xs text-neutral-300 font-medium mb-2 block">Estimated Project Budget *</label>
+            <div className="flex flex-wrap gap-2 sm:gap-3">
+              {budgetOptions.map((opt) => {
+                const isSelected = formData.budgetRange === opt;
+                return (
+                  <button
+                    key={opt}
+                    type="button"
+                    onClick={() => setFormData({ ...formData, budgetRange: opt })}
+                    className={`px-4 py-2.5 rounded-full text-xs font-semibold transition-all border cursor-pointer ${
+                      isSelected
+                        ? "bg-[#22E39A] text-black border-[#22E39A] shadow-[0_0_15px_rgba(34,227,154,0.4)]"
+                        : "bg-white/[0.04] text-neutral-300 border-white/15 hover:bg-white/10 hover:border-white/30"
+                    }`}
+                  >
+                    {opt}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Row 6: Project Details Textarea */}
+          <div className="flex flex-col text-left">
+            <label className="text-xs text-neutral-300 font-medium mb-1.5 block">Tell us more about your project...</label>
+            <textarea
+              rows={4}
+              placeholder="Tell us more about your project..."
+              value={formData.projectDetails}
+              onChange={(e) => setFormData({ ...formData, projectDetails: e.target.value })}
+              className="w-full bg-white/[0.04] border border-white/15 focus:border-[#22E39A] text-white text-sm rounded-xl p-4 outline-none transition-all placeholder:text-neutral-500 resize-none min-h-[110px]"
+            />
+          </div>
+
+          {/* Row 7: Deliverable Agency Disclaimer */}
+          <p className="text-[11px] text-neutral-400 leading-normal font-sans">
+            By submitting this form, you acknowledge that the information you provide will be processed only for our internal operations. This data will not be shared with any 3rd party vendors.
+          </p>
+
+          {/* Full Width Pill Submit Button */}
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full h-[52px] rounded-xl text-xs font-bold uppercase tracking-wider text-white bg-emerald-600 hover:bg-emerald-500 shadow-sm transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer mt-2 disabled:opacity-70 disabled:cursor-not-allowed"
+            className="w-full h-13 rounded-full text-sm font-bold uppercase tracking-wider text-black bg-[#22E39A] hover:bg-[#1fce8b] shadow-[0_4px_25px_rgba(34,227,154,0.35)] transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer mt-2 hover:scale-[1.01] active:scale-[0.99] disabled:opacity-70 disabled:cursor-not-allowed"
           >
             {isSubmitting ? (
               <>
-                <svg className="animate-spin w-4 h-4" viewBox="0 0 24 24" fill="none">
+                <svg className="animate-spin w-4 h-4 text-black" viewBox="0 0 24 24" fill="none">
                   <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                   <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
                 </svg>
-                Sending...
+                <span>Submitting...</span>
               </>
             ) : (
-              <>Submit Lead <Send className="w-3.5 h-3.5" /></>
+              <>
+                <span>Submit</span>
+                <Send className="w-4 h-4 stroke-[2.5]" />
+              </>
             )}
           </button>
+
         </div>
       </form>
 
@@ -353,128 +297,48 @@ export default function StartProjectForm({ onSuccess }: { onSuccess?: () => void
       <AnimatePresence>
         {submitted && (
           <div className="fixed inset-0 z-[99999] flex items-center justify-center p-4">
-            {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={handleClose}
-              className="absolute inset-0 bg-black/60 backdrop-blur-md cursor-pointer"
+              className="absolute inset-0 bg-black/80 backdrop-blur-md cursor-pointer"
             />
 
-            {/* Cartoon Success Modal */}
             <motion.div
-              initial={{ scale: 0.5, y: 100, rotate: -6, opacity: 0 }}
-              animate={{
-                scale: 1,
-                y: 0,
-                rotate: 0,
-                opacity: 1,
-                transition: { type: "spring", damping: 12, stiffness: 100 }
-              }}
-              exit={{
-                scale: 0.8,
-                y: 50,
-                rotate: 4,
-                opacity: 0,
-                transition: { duration: 0.2 }
-              }}
-              className="relative w-[92%] sm:w-full max-w-md p-8 sm:p-10 rounded-[32px] bg-gradient-to-b from-white to-emerald-50 border-[5px] border-black shadow-[8px_8px_0px_0px_#000] text-center flex flex-col items-center gap-6 z-50 overflow-visible"
+              initial={{ scale: 0.9, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.9, opacity: 0, y: 20 }}
+              className="relative w-full max-w-md p-8 sm:p-10 rounded-3xl bg-[#0a0f14] border border-[#22E39A]/40 shadow-[0_0_50px_rgba(34,227,154,0.25)] text-center flex flex-col items-center gap-5 z-50 text-white"
             >
-              {/* Cartoon Close Button */}
-              <motion.button
-                whileHover={{ scale: 1.1, rotate: 90, boxShadow: "2px 2px 0px #000" }}
-                whileTap={{ scale: 0.9, rotate: -45, x: 2, y: 2, boxShadow: "0px 0px 0px #000" }}
-                transition={{ type: "spring", stiffness: 400, damping: 15 }}
-                onClick={handleClose}
-                className="absolute -top-4 -right-4 sm:-top-5 sm:-right-5 w-11 h-11 rounded-full border-4 border-black bg-rose-500 hover:bg-rose-400 text-white flex items-center justify-center shadow-[3px_3px_0px_0px_#000] cursor-pointer outline-none transition-all z-[100]"
-                aria-label="Close success popup"
-              >
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={4}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </motion.button>
+              <div className="w-16 h-16 rounded-full bg-[#22E39A]/15 border border-[#22E39A]/40 flex items-center justify-center text-[#22E39A]">
+                <CheckCircle2 className="w-9 h-9" />
+              </div>
 
-              {/* Animated Cartoon Checkmark */}
-              <motion.div
-                initial={{ scale: 0, rotate: -30 }}
-                animate={{ scale: 1, rotate: 0 }}
-                transition={{ type: "spring", damping: 10, delay: 0.1 }}
-                className="w-20 h-20 rounded-full border-[5px] border-black bg-emerald-400 flex items-center justify-center shadow-[4px_4px_0px_0px_#000] text-white relative overflow-visible my-2"
-              >
-                <svg className="w-10 h-10 stroke-white" fill="none" viewBox="0 0 24 24" strokeWidth={4.5} strokeLinecap="round" strokeLinejoin="round">
-                  <polyline points="20 6 9 17 4 12" />
-                </svg>
-
-                {/* Sparkles / floating shapes */}
-                <motion.div
-                  className="absolute -top-3 -left-3 text-yellow-400 text-2xl filter drop-shadow-[1.5px_1.5px_0px_rgba(0,0,0,1)] font-bold select-none pointer-events-none"
-                  animate={{
-                    scale: [1, 1.25, 1],
-                    rotate: [0, 15, -15, 0],
-                    y: [0, -5, 0]
-                  }}
-                  transition={{
-                    repeat: Infinity,
-                    duration: 2.2,
-                    ease: "easeInOut"
-                  }}
-                >
-                  ★
-                </motion.div>
-                <motion.div
-                  className="absolute top-2 -right-4 text-cyan-400 text-3xl filter drop-shadow-[1.5px_1.5px_0px_rgba(0,0,0,1)] font-bold select-none pointer-events-none"
-                  animate={{
-                    scale: [0.9, 1.2, 0.9],
-                    rotate: [0, -20, 20, 0],
-                    y: [0, 4, 0]
-                  }}
-                  transition={{
-                    repeat: Infinity,
-                    duration: 2.8,
-                    ease: "easeInOut",
-                    delay: 0.4
-                  }}
-                >
-                  ✦
-                </motion.div>
-                <motion.div
-                  className="absolute -bottom-2 -left-2 text-orange-400 text-lg filter drop-shadow-[1px_1px_0px_rgba(0,0,0,1)] font-bold select-none pointer-events-none"
-                  animate={{
-                    scale: [1, 1.3, 1],
-                    x: [0, -3, 0],
-                    y: [0, -3, 0]
-                  }}
-                  transition={{
-                    repeat: Infinity,
-                    duration: 2,
-                    ease: "easeInOut",
-                    delay: 0.2
-                  }}
-                >
-                  ●
-                </motion.div>
-              </motion.div>
-
-              {/* Content */}
-              <div className="flex flex-col gap-3">
-                <h3 className="text-2xl font-black text-black uppercase tracking-tight font-sans">
-                  Request Received!
+              <div className="flex flex-col gap-2">
+                <h3 className="text-2xl font-bold text-white font-grotesk">
+                  Proposal Request Received!
                 </h3>
-                <p className="text-sm text-neutral-700 leading-relaxed font-semibold px-2">
-                  Thank you for reaching out. We will review your request details and email you a calendar booking link shortly.
+                <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed font-sans px-2">
+                  Thank you <strong className="text-white">{formData.name}</strong>. Our team will review your project details and reach out within 1 hour.
                 </p>
               </div>
 
-              {/* Big primary button */}
-              <motion.button
-                whileHover={{ scale: 1.03, boxShadow: "2px 2px 0px #000" }}
-                whileTap={{ scale: 0.97, x: 2, y: 2, boxShadow: "0px 0px 0px #000" }}
-                onClick={handleClose}
-                className="w-full mt-2 py-4 rounded-2xl border-4 border-black bg-yellow-400 hover:bg-yellow-300 text-black font-black uppercase tracking-wider shadow-[4px_4px_0px_0px_#000] cursor-pointer outline-none transition-all text-xs"
+              <a
+                href="https://calendly.com/salepxl"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-3.5 rounded-full bg-[#22E39A] text-black text-xs font-bold uppercase tracking-wider hover:bg-[#1fce8b] transition-all cursor-pointer shadow-lg flex items-center justify-center gap-2"
               >
-                Done, Let's Go! 🚀
-              </motion.button>
+                <span>Book Direct Meeting on Calendly</span>
+              </a>
+
+              <button
+                onClick={handleClose}
+                className="w-full py-3 rounded-full bg-white/10 text-white text-xs font-semibold hover:bg-white/20 transition-all border border-white/15 cursor-pointer"
+              >
+                Close
+              </button>
             </motion.div>
           </div>
         )}
