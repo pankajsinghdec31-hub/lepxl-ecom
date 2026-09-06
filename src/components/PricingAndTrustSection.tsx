@@ -15,8 +15,8 @@ export default function PricingAndTrustSection() {
 
   const PRICING_PLANS = [
     {
-      id: "custom-shopify",
-      name: "Custom Shopify Store",
+      id: "shopify-standard",
+      name: "Shopify Standard",
       tagline: "E-commerce Starter",
       price: "₹25,000",
       priceSub: "Starting at",
@@ -37,8 +37,8 @@ export default function PricingAndTrustSection() {
       ]
     },
     {
-      id: "fully-customized",
-      name: "Fully Customized Shopify Store",
+      id: "shopify-pro",
+      name: "Shopify Pro",
       tagline: "Most Popular Choice",
       price: "₹40,000",
       priceSub: "Starting at",
@@ -61,8 +61,8 @@ export default function PricingAndTrustSection() {
       ]
     },
     {
-      id: "advanced-custom",
-      name: "Shopify Advanced Custom",
+      id: "shopify-growth",
+      name: "Shopify Growth",
       tagline: "Complete Growth Setup",
       price: "₹60,000",
       priceSub: "Starting at",
