@@ -52,7 +52,6 @@ export default function PricingAndTrustSection() {
       budgetCategory: "₹29,999/- ₹79,999/-",
       icon: <Sparkles className="w-8 h-8 text-emerald-600" />,
       description: "A more advanced Shopify experience with full branding and deeper customization across the store.",
-      bestFor: "Established brands that want their Shopify store to look and feel completely unique rather than relying on standard theme sections.",
       features: [
         "A+ product imagery and product presentation",
         "A+ promotional banners and visual content",
@@ -77,7 +76,6 @@ export default function PricingAndTrustSection() {
       budgetCategory: "₹79,999/ +",
       icon: <Building2 className="w-8 h-8 text-emerald-600" />,
       description: "A complete custom Shopify growth setup built around the brand, customer journey, and long-term marketing requirements.",
-      bestFor: "Brands looking for a complete Shopify foundation ready to sell, support marketing, analytics, paid ads, and future growth.",
       features: [
         "Fully customized store experience",
         "Advanced custom sections and templates",
@@ -217,17 +215,7 @@ export default function PricingAndTrustSection() {
                         ))}
                       </div>
 
-                      {/* Best For Box */}
-                      {plan.bestFor && (
-                        <div className="p-4 rounded-2xl bg-neutral-50 border border-neutral-200/80 mb-8">
-                          <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-emerald-700 block mb-1">
-                            Best For:
-                          </span>
-                          <p className="text-xs text-neutral-600 font-sans leading-relaxed">
-                            {plan.bestFor}
-                          </p>
-                        </div>
-                      )}
+
                     </div>
 
                     {/* CTA Action Button */}
