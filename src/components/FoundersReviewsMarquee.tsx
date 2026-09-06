@@ -19,7 +19,7 @@ const REVIEWS_DATA: ReviewItem[] = [
     name: "Naveen Aggarwal",
     category: "Clothing Brand",
     location: "Delhi",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
+    avatar: "/founder_1.jpg",
     quote: "Partnered with SalePXL to build our D2C Shopify store. Their team delivered a seamless layout that boosted our checkout conversion rate by 35% within the first month."
   },
   {
@@ -27,7 +27,7 @@ const REVIEWS_DATA: ReviewItem[] = [
     name: "Rasmeen Sethi",
     category: "Indo-Western Apparel",
     location: "Mumbai",
-    avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&auto=format&fit=crop&q=80",
+    avatar: "/founder_2.jpg",
     quote: "Dear SalePXL Team, while managing events, I lacked online reach. You built a Shopify store reflecting my Indo-western collections perfectly, making RS truly borderless."
   },
   {
@@ -35,7 +35,7 @@ const REVIEWS_DATA: ReviewItem[] = [
     name: "Dr. Miheer Pathak",
     category: "Beauty & Skincare",
     location: "Bangalore",
-    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80",
+    avatar: "/founder_3.jpg",
     quote: "SalePXL built a stunning website reflecting our brand vision, with intuitive navigation and seamless checkout, driving engagement and online sales effortlessly."
   },
   {
@@ -43,7 +43,7 @@ const REVIEWS_DATA: ReviewItem[] = [
     name: "Monica Fernandes",
     category: "Jewelry & Accessories",
     location: "Jaipur",
-    avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&auto=format&fit=crop&q=80",
+    avatar: "/founder_4.jpg",
     quote: "Our store is now fully optimized for mobile devices and perfectly represents our brand style. The checkout flow is fast and completely frictionless."
   },
   {
@@ -51,7 +51,7 @@ const REVIEWS_DATA: ReviewItem[] = [
     name: "Malay Trivedi",
     category: "Home & Lifestyle",
     location: "Surat",
-    avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=150&auto=format&fit=crop&q=80",
+    avatar: "/founder_5.jpg",
     quote: "The SalePXL team transformed our entire Shopify UI. We saw an immediate jump in add-to-cart rates and customer trust within the first week of launch."
   },
   {
@@ -59,7 +59,7 @@ const REVIEWS_DATA: ReviewItem[] = [
     name: "Ananya Sharma",
     category: "Clothing Brand",
     location: "Mumbai",
-    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
+    avatar: "/founder_6.jpg",
     quote: "Working with the SalePXL team was seamless. They understood our D2C vision and executed custom Liquid sections that elevated our store branding."
   }
 ];
