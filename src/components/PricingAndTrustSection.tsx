@@ -100,7 +100,7 @@ export default function PricingAndTrustSection() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       {/* SECTION 2: SHOPIFY STORE PACKAGES (Deliverables Agency Light Theme) */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <section className="relative py-20 sm:py-32 px-6 bg-neutral-50/60 border-t border-neutral-200">
+      <section className="relative py-14 sm:py-20 md:py-24 px-4 sm:px-6 bg-neutral-50/60 border-t border-neutral-200">
 
         <div className="max-w-[1360px] mx-auto flex flex-col gap-16 relative z-10">
           

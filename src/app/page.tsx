@@ -1345,13 +1345,13 @@ export default function HomePage() {
 
 
       {/* ── OMNICHANNEL / SELL EVERYWHERE SECTION ── */}
-      <section className="py-16 md:py-24 lg:py-36 relative z-20 overflow-hidden bg-bg-dark border-t border-b border-white/[0.08] rounded-t-[32px] md:rounded-t-[48px] mt-2 sm:mt-[-32px] md:mt-[-48px]">
-        <div className="max-w-[1360px] mx-auto px-6">
+      <section className="py-14 sm:py-20 md:py-24 relative z-20 overflow-hidden bg-bg-dark border-t border-b border-white/[0.08]">
+        <div className="max-w-[1360px] mx-auto px-4 sm:px-6">
           
           {/* Main big headline & Navigation controls */}
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12 sm:mb-16">
             <div className="max-w-4xl text-left">
-              <h2 className="premium-heading text-3xl sm:text-4xl lg:text-[2.75rem] font-light leading-[1.2] tracking-tight font-grotesk select-none flex flex-wrap gap-x-4 gap-y-3">
+              <h2 className="premium-heading text-2xl sm:text-4xl lg:text-[2.75rem] font-light leading-[1.2] tracking-tight font-grotesk select-none flex flex-wrap gap-x-3 sm:gap-x-4 gap-y-2 sm:gap-y-3">
                 <span className="text-white/30 mr-1 transition-all duration-300 hover:text-white cursor-default">
                   Convert <span className="light-gradient-text font-normal">every visitor</span> into a loyal customer.
                 </span>
@@ -1364,7 +1364,7 @@ export default function HomePage() {
             <div className="flex items-center gap-3 self-end md:self-auto">
               <button
                 onClick={() => scrollPortfolio("left")}
-                className="w-12 h-12 rounded-full border border-white/[0.08] bg-white/[0.02] hover:bg-white/[0.06] text-white flex items-center justify-center transition-all duration-300 active:scale-95 cursor-pointer backdrop-blur-sm shadow-md"
+                className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-white/[0.08] bg-white/[0.02] hover:bg-white/[0.06] text-white flex items-center justify-center transition-all duration-300 active:scale-95 cursor-pointer backdrop-blur-sm shadow-md"
                 aria-label="Scroll left"
               >
                 <svg className="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24" strokeWidth="2">
@@ -1373,7 +1373,7 @@ export default function HomePage() {
               </button>
               <button
                 onClick={() => scrollPortfolio("right")}
-                className="w-12 h-12 rounded-full border border-white/[0.08] bg-white/[0.02] hover:bg-white/[0.06] text-white flex items-center justify-center transition-all duration-300 active:scale-95 cursor-pointer backdrop-blur-sm shadow-md"
+                className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-white/[0.08] bg-white/[0.02] hover:bg-white/[0.06] text-white flex items-center justify-center transition-all duration-300 active:scale-95 cursor-pointer backdrop-blur-sm shadow-md"
                 aria-label="Scroll right"
               >
                 <svg className="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24" strokeWidth="2">
@@ -1446,13 +1446,13 @@ export default function HomePage() {
       </section>
 
       {/* ── BUILD LAUNCH SCALE SECTION ── */}
-      <section className="pt-24 pb-16 md:pt-36 md:pb-24 lg:pt-48 lg:pb-36 relative z-10 overflow-hidden bg-gradient-to-b from-[#050505] to-[#011a12] border-b border-white/[0.08]">
+      <section className="py-14 sm:py-20 md:py-24 relative z-10 overflow-hidden bg-gradient-to-b from-[#050505] to-[#011a12] border-b border-white/[0.08]">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/[0.02] rounded-full blur-[120px] pointer-events-none" />
 
-        <div className="max-w-[1360px] mx-auto px-6">
+        <div className="max-w-[1360px] mx-auto px-4 sm:px-6">
           {/* Header */}
-          <div className="text-center mb-16 flex flex-col items-center">
-            <h2 className="premium-heading text-3xl sm:text-4xl lg:text-[2.75rem] font-light text-white tracking-tight font-grotesk">
+          <div className="text-center mb-12 sm:mb-16 flex flex-col items-center">
+            <h2 className="premium-heading text-2xl sm:text-4xl lg:text-[2.75rem] font-light text-white tracking-tight font-grotesk">
               How SalePXL Builds a <span className="premium-highlight">High-Converting Store</span>
             </h2>
           </div>
@@ -1586,8 +1586,8 @@ export default function HomePage() {
 
 
       {/* 6. TRUSTED BY 100+ BRANDS LOGO SECTION */}
-      <section className="py-16 md:py-24 lg:py-36 bg-white relative z-20 overflow-hidden rounded-t-[32px] md:rounded-t-[48px] mt-[-32px] md:mt-[-48px]">
-        <div className="max-w-[1360px] mx-auto px-6 flex flex-col gap-6 text-center items-center mb-8">
+      <section className="py-14 sm:py-20 bg-white relative z-20 overflow-hidden border-b border-neutral-200">
+        <div className="max-w-[1360px] mx-auto px-4 sm:px-6 flex flex-col gap-6 text-center items-center mb-8">
           <span className="text-[10px] text-neutral-400 font-sans uppercase tracking-widest font-black">
             Trusted by 100+ Brands
           </span>
@@ -1652,10 +1652,10 @@ export default function HomePage() {
 
 
       {/* 7. SHOPIFY PORTFOLIO MARQUEE SHOWCASE */}
-      <section className="py-16 md:py-24 lg:py-36 relative overflow-hidden bg-bg-dark border-b border-white/[0.08] z-10">
-        <div className="max-w-[1360px] mx-auto px-6 mb-12 flex flex-col gap-4 text-center">
+      <section className="py-14 sm:py-20 md:py-24 relative overflow-hidden bg-bg-dark border-b border-white/[0.08] z-10">
+        <div className="max-w-[1360px] mx-auto px-4 sm:px-6 mb-12 flex flex-col gap-4 text-center">
 
-          <h2 className="premium-heading text-3xl sm:text-4xl lg:text-[2.75rem] font-light text-white tracking-tight font-grotesk">
+          <h2 className="premium-heading text-2xl sm:text-4xl lg:text-[2.75rem] font-light text-white tracking-tight font-grotesk">
             Stores <span className="light-gradient-text font-normal">We've</span> Built & <span className="premium-highlight text-white">Transformed</span>
           </h2>
         </div>
@@ -1664,14 +1664,14 @@ export default function HomePage() {
         <div className="marquee-container marquee-pause mb-6">
           <div className="marquee-content" style={{ "--marquee-speed": "45s" } as React.CSSProperties}>
             {PORTFOLIO_IMAGES_ROW1.map((img, idx) => (
-              <div key={idx} className="premium-hover-image-container flex-shrink-0 w-[280px] rounded-[24px] border border-white/[0.08] hover:border-primary/30 shadow-sm">
+              <div key={idx} className="premium-hover-image-container flex-shrink-0 w-[240px] sm:w-[280px] rounded-[24px] border border-white/[0.08] hover:border-primary/30 shadow-sm">
                 <img src={img.src} alt={img.alt} className="premium-hover-image w-full display-block object-cover object-top select-none pointer-events-none" />
               </div>
             ))}
           </div>
           <div className="marquee-content" aria-hidden="true" style={{ "--marquee-speed": "45s" } as React.CSSProperties}>
             {PORTFOLIO_IMAGES_ROW1.map((img, idx) => (
-              <div key={idx + "-dup"} className="premium-hover-image-container flex-shrink-0 w-[280px] rounded-[24px] border border-white/[0.08] hover:border-primary/30 shadow-sm">
+              <div key={idx + "-dup"} className="premium-hover-image-container flex-shrink-0 w-[240px] sm:w-[280px] rounded-[24px] border border-white/[0.08] hover:border-primary/30 shadow-sm">
                 <img src={img.src} alt={img.alt} className="premium-hover-image w-full display-block object-cover object-top select-none pointer-events-none" />
               </div>
             ))}
@@ -1682,14 +1682,14 @@ export default function HomePage() {
         <div className="marquee-container marquee-pause">
           <div className="marquee-content-reverse" style={{ "--marquee-speed": "45s" } as React.CSSProperties}>
             {PORTFOLIO_IMAGES_ROW2.map((img, idx) => (
-              <div key={idx} className="premium-hover-image-container flex-shrink-0 w-[280px] rounded-[24px] border border-white/[0.08] hover:border-primary/30 shadow-sm">
+              <div key={idx} className="premium-hover-image-container flex-shrink-0 w-[240px] sm:w-[280px] rounded-[24px] border border-white/[0.08] hover:border-primary/30 shadow-sm">
                 <img src={img.src} alt={img.alt} className="premium-hover-image w-full display-block object-cover object-top select-none pointer-events-none" />
               </div>
             ))}
           </div>
           <div className="marquee-content-reverse" aria-hidden="true" style={{ "--marquee-speed": "45s" } as React.CSSProperties}>
             {PORTFOLIO_IMAGES_ROW2.map((img, idx) => (
-              <div key={idx + "-dup"} className="premium-hover-image-container flex-shrink-0 w-[280px] rounded-[24px] border border-white/[0.08] hover:border-primary/30 shadow-sm">
+              <div key={idx + "-dup"} className="premium-hover-image-container flex-shrink-0 w-[240px] sm:w-[280px] rounded-[24px] border border-white/[0.08] hover:border-primary/30 shadow-sm">
                 <img src={img.src} alt={img.alt} className="premium-hover-image w-full display-block object-cover object-top select-none pointer-events-none" />
               </div>
             ))}
@@ -1710,13 +1710,13 @@ export default function HomePage() {
 
 
       {/* 9. FAQ ACCORDION SECTION */}
-      <section className="py-16 md:py-24 lg:py-36 px-6 bg-bg-dark border-y border-white/[0.08] relative z-20 rounded-t-[32px] md:rounded-t-[48px] mt-[-32px] md:mt-[-48px]">
-        <div className="max-w-4xl mx-auto flex flex-col gap-16">
-          <div className="text-center flex flex-col gap-4">
+      <section className="py-14 sm:py-20 md:py-24 px-4 sm:px-6 bg-bg-dark border-y border-white/[0.08] relative z-20">
+        <div className="max-w-4xl mx-auto flex flex-col gap-12 sm:gap-16">
+          <div className="text-center flex flex-col gap-3">
             <span className="text-xs text-primary font-mono uppercase tracking-widest font-bold">
               FAQ
             </span>
-            <h2 className="premium-heading text-3xl sm:text-4xl lg:text-[2.75rem] font-light text-white tracking-tight font-grotesk">
+            <h2 className="premium-heading text-2xl sm:text-4xl lg:text-[2.75rem] font-light text-white tracking-tight font-grotesk">
               Clear Your <span className="premium-highlight"><span className="light-gradient-text font-normal">Doubts</span></span>
             </h2>
           </div>
@@ -1732,11 +1732,11 @@ export default function HomePage() {
                 >
                   <button
                     onClick={() => toggleFaq(index)}
-                    className="w-full flex items-center justify-between p-6 text-left text-white hover:text-primary transition-colors focus:outline-none group"
+                    className="w-full flex items-center justify-between p-5 sm:p-6 text-left text-white hover:text-primary transition-colors focus:outline-none group"
                   >
                     <div className="flex items-center gap-3">
                       <HelpCircle className="w-4.5 h-4.5 text-primary shrink-0 premium-hover-icon" />
-                      <span className="text-sm sm:text-base font-semibold">{faq.q}</span>
+                      <span className="text-xs sm:text-base font-semibold">{faq.q}</span>
                     </div>
                     <ChevronDown
                       className={`w-4 h-4 text-white/40 shrink-0 transition-transform duration-300 ${
@@ -1754,7 +1754,7 @@ export default function HomePage() {
                         transition={{ duration: 0.2 }}
                         className="overflow-hidden"
                       >
-                        <div className="px-6 pb-6 pt-2 text-xs sm:text-sm text-white/70 leading-relaxed border-t border-white/[0.08]">
+                        <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-2 text-xs sm:text-sm text-white/70 leading-relaxed border-t border-white/[0.08]">
                           {faq.a}
                         </div>
                       </motion.div>
