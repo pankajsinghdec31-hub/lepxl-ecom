@@ -239,21 +239,6 @@ export default function Footer() {
                 </p>
               )}
             </div>
-
-            <div>
-              <h3 className="text-white text-xs font-bold tracking-wider uppercase mb-2">
-                Legal
-              </h3>
-              <div className="flex items-center gap-4 text-xs text-[#8C8C8C]">
-                <Link href="/privacy" className="hover:text-white transition-colors">
-                  Privacy Policy
-                </Link>
-                <span>·</span>
-                <Link href="/terms" className="hover:text-white transition-colors">
-                  Terms of Service
-                </Link>
-              </div>
-            </div>
           </div>
 
         </div>
