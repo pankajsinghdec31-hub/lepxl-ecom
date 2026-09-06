@@ -1585,11 +1585,11 @@ export default function HomePage() {
       )}
 
 
-      {/* 6. TRUSTED BY 800+ LEADING BRANDS LOGO SECTION */}
+      {/* 6. TRUSTED BY 100+ BRANDS LOGO SECTION */}
       <section className="py-16 md:py-24 lg:py-36 bg-white relative z-20 overflow-hidden rounded-t-[32px] md:rounded-t-[48px] mt-[-32px] md:mt-[-48px]">
         <div className="max-w-[1360px] mx-auto px-6 flex flex-col gap-6 text-center items-center mb-8">
           <span className="text-[10px] text-neutral-400 font-sans uppercase tracking-widest font-black">
-            Trusted by 800+ Leading Brands
+            Trusted by 100+ Brands
           </span>
         </div>
 
