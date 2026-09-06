@@ -75,14 +75,9 @@ export default function FoundersReviewsMarquee() {
       <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-[500px] h-[500px] bg-teal-500/[0.04] rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-[1360px] mx-auto px-6 mb-12 relative z-10 text-center flex flex-col items-center">
-        {/* Top Badge Pill */}
-        <span className="text-xs text-[#22E39A] font-mono uppercase tracking-widest font-bold px-4 py-1.5 rounded-full bg-[#22E39A]/10 border border-[#22E39A]/30 mb-4 inline-block">
-          Trusted by 100+ D2C Founders
-        </span>
-
         {/* Section Heading */}
         <h2 className="text-3xl sm:text-5xl md:text-6xl font-light text-white tracking-tight font-grotesk leading-tight">
-          Loved by <span className="text-[#22E39A] font-normal">Founders & Teams</span> Worldwide
+          Trusted by <span className="text-[#22E39A] font-normal">100+ D2C Founders</span>
         </h2>
         <p className="text-xs sm:text-sm text-neutral-400 max-w-xl mx-auto mt-3 font-sans leading-relaxed">
           See how high-converting Shopify stores engineered by SalePXL drive measurable growth and revenue for D2C brands.
