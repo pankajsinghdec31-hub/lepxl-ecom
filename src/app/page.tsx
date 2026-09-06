@@ -1446,21 +1446,21 @@ export default function HomePage() {
       </section>
 
       {/* ── BUILD LAUNCH SCALE SECTION ── */}
-      <section className="py-14 sm:py-20 md:py-24 relative z-10 overflow-hidden bg-gradient-to-b from-[#050505] to-[#011a12] border-b border-white/[0.08]">
+      <section className="py-10 sm:py-14 md:py-16 relative z-10 overflow-hidden bg-gradient-to-b from-[#050505] to-[#011a12] border-b border-white/[0.08]">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/[0.02] rounded-full blur-[120px] pointer-events-none" />
 
         <div className="max-w-[1360px] mx-auto px-4 sm:px-6">
           {/* Header */}
-          <div className="text-center mb-12 sm:mb-16 flex flex-col items-center">
+          <div className="text-center mb-8 sm:mb-10 flex flex-col items-center">
             <h2 className="premium-heading text-2xl sm:text-4xl lg:text-[2.75rem] font-light text-white tracking-tight font-grotesk">
               How We <span className="premium-highlight">Work</span>
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             {/* Left side: Video Browser Card (One Card) */}
             <div className="lg:col-span-5 relative flex justify-center lg:justify-start select-none w-full">
-              <div className="relative w-full aspect-[4/3] rounded-[24px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.6)]">
+              <div className="relative w-full max-h-[320px] aspect-[16/10] sm:aspect-[4/3] rounded-[20px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.6)]">
                 <video
                   autoPlay
                   muted
@@ -1476,7 +1476,7 @@ export default function HomePage() {
             </div>
 
             {/* Right side: Interactive Collapsible Steps List */}
-            <div className="lg:col-span-7 flex flex-col justify-center pl-0 lg:pl-8">
+            <div className="lg:col-span-7 flex flex-col justify-center pl-0 lg:pl-6">
               <div className="flex flex-col">
                 {BUILD_PROCESS_STEPS.map((step, idx) => {
                   const isActive = activeProcessStep === idx;
@@ -1489,22 +1489,22 @@ export default function HomePage() {
                         }
                       }}
                       onClick={() => setActiveProcessStep(isActive ? null : idx)}
-                      className="group cursor-pointer py-6 border-b border-white/[0.08] flex flex-col gap-2 transition-all duration-300"
+                      className="group cursor-pointer py-3.5 sm:py-4 border-b border-white/[0.08] flex flex-col gap-1.5 transition-all duration-300"
                     >
                       <div className="flex items-baseline justify-between">
-                        <div className="flex items-baseline gap-5">
-                          <span className={`font-mono text-sm font-bold transition-colors duration-300 ${
+                        <div className="flex items-baseline gap-4 sm:gap-5">
+                          <span className={`font-mono text-xs sm:text-sm font-bold transition-colors duration-300 ${
                             isActive ? "text-primary" : "text-white/40 group-hover:text-primary/70"
                           }`}>
                             {step.num}
                           </span>
-                          <h3 className={`text-xl sm:text-2xl font-light tracking-tight transition-colors duration-300 ${
+                          <h3 className={`text-lg sm:text-xl font-light tracking-tight transition-colors duration-300 ${
                             isActive ? "text-white" : "text-[#8e8e93] group-hover:text-white"
                           }`}>
                             {step.title}
                           </h3>
                         </div>
-                        <span className="text-white/40 text-sm font-mono font-bold shrink-0">
+                        <span className="text-white/40 text-xs sm:text-sm font-mono font-bold shrink-0">
                           {isActive ? "−" : "+"}
                         </span>
                       </div>
@@ -1517,7 +1517,7 @@ export default function HomePage() {
                             transition={{ duration: 0.3 }}
                             className="overflow-hidden"
                           >
-                            <p className="text-sm sm:text-base text-white/70 leading-relaxed pl-10 pt-1 pb-4">
+                            <p className="text-xs sm:text-sm text-white/70 leading-relaxed pl-8 sm:pl-10 pt-1 pb-2">
                               {step.desc}
                             </p>
                           </motion.div>
@@ -1529,10 +1529,10 @@ export default function HomePage() {
               </div>
 
               {/* Get Started Button */}
-              <div className="mt-10 pl-10">
+              <div className="mt-6 pl-8 sm:pl-10">
                 <button
                   onClick={() => setShowFormModal(true)}
-                  className="w-full sm:w-auto btn-primary inline-flex items-center justify-center px-10 h-14 rounded-full text-black text-sm font-bold shadow-[0_4px_12px_rgba(255,255,255,0.08)] cursor-pointer"
+                  className="w-full sm:w-auto btn-primary inline-flex items-center justify-center px-8 h-12 rounded-full text-black text-xs sm:text-sm font-bold shadow-[0_4px_12px_rgba(255,255,255,0.08)] cursor-pointer"
                 >
                   Get Started
                 </button>
