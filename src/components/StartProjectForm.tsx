@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Send, CheckCircle2, ChevronDown, User, Mail, Phone, Globe, Shield, Sparkles, Clock, FileText, Lock } from "lucide-react";
+import { Send, CheckCircle2, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function StartProjectForm({ onSuccess }: { onSuccess?: () => void }) {
@@ -122,36 +122,36 @@ export default function StartProjectForm({ onSuccess }: { onSuccess?: () => void
         
         {/* Deliverable Agency Header Badges & Title */}
         <div className="flex flex-col items-center text-center gap-3 mb-2">
-          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs text-neutral-300 font-sans tracking-wide">
-            <span className="flex items-center gap-1.5 font-medium">
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs text-neutral-700 font-sans tracking-wide">
+            <span className="flex items-center gap-1.5 font-semibold">
               <span className="w-2 h-2 rounded-full bg-[#22E39A] shadow-[0_0_8px_#22E39A]" />
               Free Consultation
             </span>
-            <span className="flex items-center gap-1.5 font-medium">
+            <span className="flex items-center gap-1.5 font-semibold">
               <span className="w-2 h-2 rounded-full bg-[#22E39A] shadow-[0_0_8px_#22E39A]" />
               NDA Available
             </span>
-            <span className="flex items-center gap-1.5 font-medium">
+            <span className="flex items-center gap-1.5 font-semibold">
               <span className="w-2 h-2 rounded-full bg-[#22E39A] shadow-[0_0_8px_#22E39A]" />
               1hr Response
             </span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-light text-white tracking-tight font-grotesk mt-2">
-            Request a <span className="text-[#22E39A] font-normal">Proposal</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-light text-neutral-900 tracking-tight font-grotesk mt-2">
+            Request a <span className="text-emerald-600 font-normal">Proposal</span>
           </h2>
-          <p className="text-xs sm:text-sm text-neutral-400 max-w-lg leading-relaxed font-sans">
+          <p className="text-xs sm:text-sm text-neutral-600 max-w-lg leading-relaxed font-sans">
             Tell us brief about your Shopify requirements & our strategy team will analyze your project and get back to you with a custom plan.
           </p>
         </div>
 
-        {/* Deliverable Form Fields Layout */}
-        <div className="flex flex-col gap-5 w-full bg-[#070d14]/80 p-6 sm:p-8 rounded-3xl border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.8)] backdrop-blur-md">
+        {/* Deliverable Form Fields Container (White Card Theme) */}
+        <div className="flex flex-col gap-5 w-full bg-white p-6 sm:p-10 rounded-3xl border border-neutral-200 shadow-2xl">
           
           {/* Row 1: Name & Company URL (2 Columns) */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="flex flex-col text-left">
-              <label className="text-xs text-neutral-300 font-medium mb-1.5 block">Your Name *</label>
+              <label className="text-xs text-neutral-700 font-semibold mb-1.5 block">Your Name *</label>
               <input
                 type="text"
                 name="name"
@@ -159,27 +159,27 @@ export default function StartProjectForm({ onSuccess }: { onSuccess?: () => void
                 placeholder="Your Name"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className={`w-full h-12 bg-white/[0.04] border ${errors.name ? "border-red-500" : "border-white/15 focus:border-[#22E39A]"} text-white text-sm rounded-xl px-4 outline-none transition-all placeholder:text-neutral-500`}
+                className={`w-full h-12 bg-neutral-50/50 border ${errors.name ? "border-red-500" : "border-neutral-200 focus:border-emerald-500 focus:bg-white"} text-neutral-900 text-sm rounded-xl px-4 outline-none transition-all placeholder:text-neutral-400`}
               />
-              {errors.name && <span className="text-[11px] text-red-400 font-medium mt-1">{errors.name}</span>}
+              {errors.name && <span className="text-[11px] text-red-500 font-medium mt-1">{errors.name}</span>}
             </div>
 
             <div className="flex flex-col text-left">
-              <label className="text-xs text-neutral-300 font-medium mb-1.5 block">Company url *</label>
+              <label className="text-xs text-neutral-700 font-semibold mb-1.5 block">Company url *</label>
               <input
                 type="text"
                 name="companyUrl"
                 placeholder="Company url / website"
                 value={formData.companyUrl}
                 onChange={(e) => setFormData({ ...formData, companyUrl: e.target.value })}
-                className="w-full h-12 bg-white/[0.04] border border-white/15 focus:border-[#22E39A] text-white text-sm rounded-xl px-4 outline-none transition-all placeholder:text-neutral-500"
+                className="w-full h-12 bg-neutral-50/50 border border-neutral-200 focus:border-emerald-500 focus:bg-white text-neutral-900 text-sm rounded-xl px-4 outline-none transition-all placeholder:text-neutral-400"
               />
             </div>
           </div>
 
           {/* Row 2: Work email (1 Column Full Width) */}
           <div className="flex flex-col text-left">
-            <label className="text-xs text-neutral-300 font-medium mb-1.5 block">Work email *</label>
+            <label className="text-xs text-neutral-700 font-semibold mb-1.5 block">Work email *</label>
             <input
               type="email"
               name="email"
@@ -187,14 +187,14 @@ export default function StartProjectForm({ onSuccess }: { onSuccess?: () => void
               placeholder="Work email *"
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              className={`w-full h-12 bg-white/[0.04] border ${errors.email ? "border-red-500" : "border-white/15 focus:border-[#22E39A]"} text-white text-sm rounded-xl px-4 outline-none transition-all placeholder:text-neutral-500`}
+              className={`w-full h-12 bg-neutral-50/50 border ${errors.email ? "border-red-500" : "border-neutral-200 focus:border-emerald-500 focus:bg-white"} text-neutral-900 text-sm rounded-xl px-4 outline-none transition-all placeholder:text-neutral-400`}
             />
-            {errors.email && <span className="text-[11px] text-red-400 font-medium mt-1">{errors.email}</span>}
+            {errors.email && <span className="text-[11px] text-red-500 font-medium mt-1">{errors.email}</span>}
           </div>
 
           {/* Row 3: Phone number (1 Column Full Width) */}
           <div className="flex flex-col text-left">
-            <label className="text-xs text-neutral-300 font-medium mb-1.5 block">Phone number *</label>
+            <label className="text-xs text-neutral-700 font-semibold mb-1.5 block">Phone number *</label>
             <input
               type="tel"
               name="phone"
@@ -202,19 +202,19 @@ export default function StartProjectForm({ onSuccess }: { onSuccess?: () => void
               placeholder="Phone number *"
               value={formData.phone}
               onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-              className={`w-full h-12 bg-white/[0.04] border ${errors.phone ? "border-red-500" : "border-white/15 focus:border-[#22E39A]"} text-white text-sm rounded-xl px-4 outline-none transition-all placeholder:text-neutral-500`}
+              className={`w-full h-12 bg-neutral-50/50 border ${errors.phone ? "border-red-500" : "border-neutral-200 focus:border-emerald-500 focus:bg-white"} text-neutral-900 text-sm rounded-xl px-4 outline-none transition-all placeholder:text-neutral-400`}
             />
-            {errors.phone && <span className="text-[11px] text-red-400 font-medium mt-1">{errors.phone}</span>}
+            {errors.phone && <span className="text-[11px] text-red-500 font-medium mt-1">{errors.phone}</span>}
           </div>
 
           {/* Row 4: Service type (Select Dropdown) */}
           <div className="flex flex-col text-left">
-            <label className="text-xs text-neutral-300 font-medium mb-1.5 block">Service type *</label>
+            <label className="text-xs text-neutral-700 font-semibold mb-1.5 block">Service type *</label>
             <div className="relative">
               <select
                 value={formData.serviceType}
                 onChange={(e) => setFormData({ ...formData, serviceType: e.target.value })}
-                className="w-full h-12 bg-[#0c141d] border border-white/15 focus:border-[#22E39A] text-white text-sm rounded-xl px-4 pr-10 outline-none transition-all appearance-none cursor-pointer"
+                className="w-full h-12 bg-neutral-50/50 border border-neutral-200 focus:border-emerald-500 focus:bg-white text-neutral-900 text-sm rounded-xl px-4 pr-10 outline-none transition-all appearance-none cursor-pointer"
               >
                 <option value="Custom Shopify Store">Custom Shopify Store Development</option>
                 <option value="Store Redesign & CRO">Store Redesign & Conversion Rate Optimization</option>
@@ -229,7 +229,7 @@ export default function StartProjectForm({ onSuccess }: { onSuccess?: () => void
 
           {/* Row 5: Estimated Project Budget * (Horizontal Interactive Pills) */}
           <div className="flex flex-col text-left">
-            <label className="text-xs text-neutral-300 font-medium mb-2 block">Estimated Project Budget *</label>
+            <label className="text-xs text-neutral-700 font-semibold mb-2 block">Estimated Project Budget *</label>
             <div className="flex flex-wrap gap-2 sm:gap-3">
               {budgetOptions.map((opt) => {
                 const isSelected = formData.budgetRange === opt;
@@ -240,8 +240,8 @@ export default function StartProjectForm({ onSuccess }: { onSuccess?: () => void
                     onClick={() => setFormData({ ...formData, budgetRange: opt })}
                     className={`px-4 py-2.5 rounded-full text-xs font-semibold transition-all border cursor-pointer ${
                       isSelected
-                        ? "bg-[#22E39A] text-black border-[#22E39A] shadow-[0_0_15px_rgba(34,227,154,0.4)]"
-                        : "bg-white/[0.04] text-neutral-300 border-white/15 hover:bg-white/10 hover:border-white/30"
+                        ? "bg-[#22E39A] text-black border-[#22E39A] shadow-md font-bold"
+                        : "bg-neutral-100 text-neutral-700 border-neutral-200 hover:bg-neutral-200"
                     }`}
                   >
                     {opt}
@@ -253,18 +253,18 @@ export default function StartProjectForm({ onSuccess }: { onSuccess?: () => void
 
           {/* Row 6: Project Details Textarea */}
           <div className="flex flex-col text-left">
-            <label className="text-xs text-neutral-300 font-medium mb-1.5 block">Tell us more about your project...</label>
+            <label className="text-xs text-neutral-700 font-semibold mb-1.5 block">Tell us more about your project...</label>
             <textarea
               rows={4}
               placeholder="Tell us more about your project..."
               value={formData.projectDetails}
               onChange={(e) => setFormData({ ...formData, projectDetails: e.target.value })}
-              className="w-full bg-white/[0.04] border border-white/15 focus:border-[#22E39A] text-white text-sm rounded-xl p-4 outline-none transition-all placeholder:text-neutral-500 resize-none min-h-[110px]"
+              className="w-full bg-neutral-50/50 border border-neutral-200 focus:border-emerald-500 focus:bg-white text-neutral-900 text-sm rounded-xl p-4 outline-none transition-all placeholder:text-neutral-400 resize-none min-h-[110px]"
             />
           </div>
 
           {/* Row 7: Deliverable Agency Disclaimer */}
-          <p className="text-[11px] text-neutral-400 leading-normal font-sans">
+          <p className="text-[11px] text-neutral-500 leading-normal font-sans">
             By submitting this form, you acknowledge that the information you provide will be processed only for our internal operations. This data will not be shared with any 3rd party vendors.
           </p>
 
@@ -302,25 +302,25 @@ export default function StartProjectForm({ onSuccess }: { onSuccess?: () => void
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={handleClose}
-              className="absolute inset-0 bg-black/80 backdrop-blur-md cursor-pointer"
+              className="absolute inset-0 bg-black/60 backdrop-blur-md cursor-pointer"
             />
 
             <motion.div
               initial={{ scale: 0.9, opacity: 0, y: 20 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.9, opacity: 0, y: 20 }}
-              className="relative w-full max-w-md p-8 sm:p-10 rounded-3xl bg-[#0a0f14] border border-[#22E39A]/40 shadow-[0_0_50px_rgba(34,227,154,0.25)] text-center flex flex-col items-center gap-5 z-50 text-white"
+              className="relative w-full max-w-md p-8 sm:p-10 rounded-3xl bg-white border border-neutral-200 shadow-2xl text-center flex flex-col items-center gap-5 z-50 text-neutral-900"
             >
-              <div className="w-16 h-16 rounded-full bg-[#22E39A]/15 border border-[#22E39A]/40 flex items-center justify-center text-[#22E39A]">
+              <div className="w-16 h-16 rounded-full bg-emerald-100 border border-emerald-300 flex items-center justify-center text-emerald-600">
                 <CheckCircle2 className="w-9 h-9" />
               </div>
 
               <div className="flex flex-col gap-2">
-                <h3 className="text-2xl font-bold text-white font-grotesk">
+                <h3 className="text-2xl font-bold text-neutral-900 font-grotesk">
                   Proposal Request Received!
                 </h3>
-                <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed font-sans px-2">
-                  Thank you <strong className="text-white">{formData.name}</strong>. Our team will review your project details and reach out within 1 hour.
+                <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed font-sans px-2">
+                  Thank you <strong className="text-neutral-900">{formData.name}</strong>. Our team will review your project details and reach out within 1 hour.
                 </p>
               </div>
 
@@ -335,7 +335,7 @@ export default function StartProjectForm({ onSuccess }: { onSuccess?: () => void
 
               <button
                 onClick={handleClose}
-                className="w-full py-3 rounded-full bg-white/10 text-white text-xs font-semibold hover:bg-white/20 transition-all border border-white/15 cursor-pointer"
+                className="w-full py-3 rounded-full bg-neutral-100 text-neutral-800 text-xs font-semibold hover:bg-neutral-200 transition-all border border-neutral-200 cursor-pointer"
               >
                 Close
               </button>
@@ -346,3 +346,4 @@ export default function StartProjectForm({ onSuccess }: { onSuccess?: () => void
     </div>
   );
 }
+
