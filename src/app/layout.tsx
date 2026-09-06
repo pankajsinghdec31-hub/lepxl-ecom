@@ -6,32 +6,74 @@ import Footer from "@/components/Footer";
 import MainWrapper from "@/components/MainWrapper";
 
 export const metadata: Metadata = {
-  title: "SalePixel | Premium Shopify Design & Development Agency",
+  title: {
+    default: "SalePixel | Premium Shopify Design & Development Agency",
+    template: "%s | SalePixel Shopify Agency",
+  },
   description:
-    "SalePixel specializes in custom Shopify store design, development, store redesigns, and conversion rate optimization (CRO) for D2C brands.",
+    "SalePixel is an expert Shopify agency specializing in high-converting custom Shopify stores, Liquid theme development, store redesigns, and CRO for D2C brands.",
   icons: {
     icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
   },
   keywords: [
     "Shopify Agency",
-    "Shopify Design",
-    "Shopify Development",
-    "Shopify Store Redesign",
-    "Custom Shopify Development",
+    "Shopify Experts",
+    "Shopify Design Agency",
+    "Shopify Store Development",
+    "Custom Shopify Theme Development",
     "Shopify CRO",
+    "Conversion Rate Optimization",
+    "Ecommerce Store Development",
+    "Shopify Migration",
     "Dropshipping Shopify Store",
+    "SalePXL",
+    "SalePixel",
   ],
-  authors: [{ name: "SalePixel Team" }],
+  authors: [{ name: "SalePixel Team", url: "https://salepxl.com" }],
   creator: "SalePixel",
+  publisher: "SalePixel",
+  metadataBase: new URL("https://salepxl.com"),
+  alternates: {
+    canonical: "https://salepxl.com",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   openGraph: {
     title: "SalePixel | Premium Shopify Design & Development Agency",
     description:
-      "Beautiful, trustworthy, and conversion-focused Shopify stores designed and engineered for growing brands.",
-    type: "website",
-    locale: "en_US",
+      "Engineered Shopify stores built for high conversions, sub-second speed, and long-term brand scaling.",
+    url: "https://salepxl.com",
     siteName: "SalePixel",
+    images: [
+      {
+        url: "https://salepxl.com/logo.png",
+        width: 1200,
+        height: 630,
+        alt: "SalePixel Shopify Agency",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
   },
-  metadataBase: new URL("https://salepxl.com"),
+  twitter: {
+    card: "summary_large_image",
+    title: "SalePixel | Premium Shopify Design & Development Agency",
+    description:
+      "Engineered Shopify stores built for high conversions, sub-second speed, and long-term brand scaling.",
+    images: ["https://salepxl.com/logo.png"],
+    creator: "@salepxl",
+  },
   verification: {
     other: {
       "facebook-domain-verification": "f7ap0qjveg1bmvgyntcvvtut3ytdi0",
@@ -57,6 +99,79 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200..800&family=Geist+Mono:wght@100..900&display=swap" rel="stylesheet" />
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1315915199980599"
              crossOrigin="anonymous"></script>
+        <Script id="schema-jsonld" type="application/ld+json" strategy="afterInteractive">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "Organization",
+                "@id": "https://salepxl.com/#organization",
+                "name": "SalePixel",
+                "alternateName": ["SalePXL", "SalePixel Shopify Agency"],
+                "url": "https://salepxl.com",
+                "logo": "https://salepxl.com/logo.png",
+                "email": "helpsalepxl@gmail.com",
+                "telephone": "+919917780656",
+                "description": "SalePixel is a specialized Shopify design & development agency engineering high-converting ecommerce stores and custom Liquid solutions for D2C brands.",
+                "sameAs": [
+                  "https://wa.me/919917780656",
+                  "https://calendly.com/salepxl"
+                ]
+              },
+              {
+                "@type": "ProfessionalService",
+                "@id": "https://salepxl.com/#service",
+                "name": "SalePixel Shopify Agency",
+                "url": "https://salepxl.com",
+                "image": "https://salepxl.com/logo.png",
+                "priceRange": "₹25,000 - ₹80,000+",
+                "email": "helpsalepxl@gmail.com",
+                "telephone": "+919917780656",
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressCountry": "IN"
+                },
+                "areaServed": "Global",
+                "hasOfferCatalog": {
+                  "@type": "OfferCatalog",
+                  "name": "Shopify Development Services",
+                  "itemListElement": [
+                    {
+                      "@type": "Offer",
+                      "itemOffered": {
+                        "@type": "Service",
+                        "name": "Shopify Store Development"
+                      }
+                    },
+                    {
+                      "@type": "Offer",
+                      "itemOffered": {
+                        "@type": "Service",
+                        "name": "Custom Liquid & Theme Development"
+                      }
+                    },
+                    {
+                      "@type": "Offer",
+                      "itemOffered": {
+                        "@type": "Service",
+                        "name": "Conversion Rate Optimization (CRO)"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "@type": "WebSite",
+                "@id": "https://salepxl.com/#website",
+                "url": "https://salepxl.com",
+                "name": "SalePixel",
+                "publisher": {
+                  "@id": "https://salepxl.com/#organization"
+                }
+              }
+            ]
+          })}
+        </Script>
       </head>
       <body suppressHydrationWarning className="bg-[#050505] text-white font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-primary/20 selection:text-white">
         <Navbar />

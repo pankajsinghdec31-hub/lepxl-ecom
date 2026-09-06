@@ -39,9 +39,12 @@ export async function generateMetadata({ params }: BlogSlugPageProps) {
   }
 
   return {
-    title: `${post.metaTitle} | SalePXL`,
+    title: `${post.metaTitle} | SalePixel`,
     description: post.metaDescription,
     keywords: [post.focusKeyword, ...post.secondaryKeywords],
+    alternates: {
+      canonical: `https://salepxl.com/blog/${post.slug}`,
+    },
     openGraph: {
       title: post.metaTitle,
       description: post.metaDescription,
@@ -50,6 +53,12 @@ export async function generateMetadata({ params }: BlogSlugPageProps) {
       publishedTime: post.publishDate,
       authors: [post.author.name],
       images: [{ url: post.coverImage }]
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.metaTitle,
+      description: post.metaDescription,
+      images: [post.coverImage],
     }
   };
 }
@@ -64,8 +73,37 @@ export default async function BlogDetailPage({ params }: BlogSlugPageProps) {
 
   const relatedPosts = BLOG_POSTS.filter((p) => p.slug !== post.slug).slice(0, 3);
 
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": post.title,
+    "description": post.excerpt,
+    "image": post.coverImage,
+    "datePublished": post.publishDate,
+    "author": {
+      "@type": "Person",
+      "name": post.author.name
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "SalePixel",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://salepxl.com/logo.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://salepxl.com/blog/${post.slug}`
+    }
+  };
+
   return (
     <div className="relative pt-24 sm:pt-32 pb-16 sm:pb-24 px-4 sm:px-6 text-left min-h-screen bg-gradient-to-b from-[#fafcfc] via-[#f5faf7] to-[#eaf7f2] overflow-hidden -mt-24 font-grotesk">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
       {/* Background glow highlights */}
       <div className="absolute top-0 left-0 w-full h-[600px] bg-gradient-to-b from-[#fafcfc] to-transparent pointer-events-none z-0" />
       <div className="absolute top-[20%] right-[-10%] w-[500px] h-[500px] bg-emerald-500/[0.04] rounded-full blur-[140px] pointer-events-none" />
