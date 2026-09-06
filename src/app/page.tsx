@@ -34,7 +34,6 @@ import { copyImages } from "./how-it-works/actions";
 
 import AnimatedDashboard from "@/components/AnimatedDashboard";
 import StartProjectForm from "@/components/StartProjectForm";
-import GrowthFormulaSection from "@/components/GrowthFormulaSection";
 import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 import PricingAndTrustSection from "@/components/PricingAndTrustSection";
 
@@ -1597,9 +1596,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* ── THE GROWTH FORMULA SECTION — Premium Dark Storytelling ── */}
-      <GrowthFormulaSection onOpenModal={() => setShowFormModal(true)} />
 
       {/* ── FORM MODAL — works on all screen sizes ── */}
       {showFormModal && (
