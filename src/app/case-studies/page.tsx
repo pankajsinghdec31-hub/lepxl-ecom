@@ -178,7 +178,7 @@ export default function CaseStudiesPage() {
             Want to optimize your brand's <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent font-normal font-sans">store performance?</span>
           </h2>
           <p className="text-xs text-neutral-600 max-w-lg leading-relaxed">
-            Let Pankaj Singh analyze your current checkout funnel and page speed metrics to map out a performance structure tailored to your product catalog.
+            Let our team analyze your current checkout funnel and page speed metrics to map out a performance structure tailored to your product catalog.
           </p>
           <Link
             href="/contact"

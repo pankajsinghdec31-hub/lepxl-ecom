@@ -231,7 +231,7 @@ export default async function BlogDetailPage({ params }: BlogSlugPageProps) {
             Ready to build your <span className="text-emerald-400 font-normal">High-Converting Shopify Store?</span>
           </h2>
           <p className="text-xs sm:text-sm text-neutral-400 max-w-xl leading-relaxed">
-            Let Pankaj and the SalePXL team custom design, build, and optimize your storefront for maximum sales conversion.
+            Let the SalePXL team custom design, build, and optimize your storefront for maximum sales conversion.
           </p>
           <Link
             href="/contact"

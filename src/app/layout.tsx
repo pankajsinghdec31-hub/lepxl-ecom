@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     "Shopify CRO",
     "Dropshipping Shopify Store",
   ],
-  authors: [{ name: "Pankaj Singh" }],
+  authors: [{ name: "SalePixel Team" }],
   creator: "SalePixel",
   openGraph: {
     title: "SalePixel | Premium Shopify Design & Development Agency",

@@ -186,7 +186,7 @@ export default function BlogListingPage() {
             Want us to build your Shopify store with <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent font-normal">sub-1.2s speed & peak CRO?</span>
           </h2>
           <p className="text-xs sm:text-sm text-neutral-500 max-w-xl leading-relaxed">
-            Pankaj and the SalePXL team custom design and engineer Shopify stores for Indian and international D2C brands.
+            The SalePXL team custom designs and engineers Shopify stores for Indian and international D2C brands.
           </p>
           <Link
             href="/contact"

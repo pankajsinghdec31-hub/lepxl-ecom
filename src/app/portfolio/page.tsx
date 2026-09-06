@@ -1159,7 +1159,7 @@ export default function PortfolioPage() {
             Want to see your Shopify store listed here with scaling <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent font-normal">ROAS?</span>
           </h2>
           <p className="text-xs sm:text-sm text-neutral-500 max-w-xl leading-relaxed">
-            Let Pankaj and the SalePXL team analyze your storefront layout, isolate checkout leakage points, and build a high-performance blueprint.
+            Let the SalePXL team analyze your storefront layout, isolate checkout leakage points, and build a high-performance blueprint.
           </p>
           <a
             href="https://calendly.com/salepxl"

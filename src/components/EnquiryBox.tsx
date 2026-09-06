@@ -211,7 +211,7 @@ export default function EnquiryBox() {
                       <label className="text-[10px] text-[#8e8e93] uppercase tracking-wider font-semibold">Full Name *</label>
                       <input
                         type="text"
-                        placeholder="e.g. Pankaj Singh"
+                        placeholder="e.g. Rahul Sharma"
                         value={formData.name}
                         onChange={(e) => {
                           setFormData({ ...formData, name: e.target.value });

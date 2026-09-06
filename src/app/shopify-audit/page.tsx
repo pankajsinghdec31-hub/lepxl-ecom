@@ -654,7 +654,7 @@ export default function ShopifyAuditPage() {
                         id="contact-name"
                         type="text"
                         required
-                        placeholder="Pankaj Sharma"
+                        placeholder="Rahul Sharma"
                         value={contactName}
                         onChange={(e) => setContactName(e.target.value)}
                         className="w-full bg-white border border-neutral-200 text-neutral-800 text-xs rounded-xl px-4 py-3 focus:outline-none focus:border-emerald-500 transition-colors"
@@ -668,7 +668,7 @@ export default function ShopifyAuditPage() {
                         id="contact-email"
                         type="email"
                         required
-                        placeholder="pankaj@mybrand.com"
+                        placeholder="hello@mybrand.com"
                         value={contactEmail}
                         onChange={(e) => setContactEmail(e.target.value)}
                         className="w-full bg-white border border-neutral-200 text-neutral-800 text-xs rounded-xl px-4 py-3 focus:outline-none focus:border-emerald-500 transition-colors"
@@ -710,7 +710,7 @@ export default function ShopifyAuditPage() {
                       Thank you, **{contactName}**. We have logged your store metrics for **{storeUrl || "your brand"}** with leakage projection of **{formatCurrency(revenueLeakage)}/mo**.
                     </p>
                     <p className="text-xs text-neutral-600 leading-relaxed mt-2 mx-auto">
-                      Pankaj Singh or a growth strategist will contact you on WhatsApp/Phone at **{contactPhone}** or Email **{contactEmail}** within 24 hours with your blueprint.
+                      Our growth strategist will contact you on WhatsApp/Phone at **{contactPhone}** or Email **{contactEmail}** within 24 hours with your blueprint.
                     </p>
                   </div>
 

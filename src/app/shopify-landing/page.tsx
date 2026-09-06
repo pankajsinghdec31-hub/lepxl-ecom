@@ -763,7 +763,7 @@ export default function MetaAdsShopifyLandingPage() {
                 <label className="block text-[11px] font-bold uppercase tracking-wider text-[#7a9989] mb-2">Full Name <span className="text-[#22E39A]">*</span></label>
                 <div className="relative">
                   <User className="w-4 h-4 text-[#3a5445] absolute left-4 top-4 pointer-events-none" />
-                  <input type="text" name="fullName" value={formData.fullName} onChange={handleInputChange} placeholder="Pankaj Singh" className={formErrors.fullName ? inputError : inputNormal} />
+                  <input type="text" name="fullName" value={formData.fullName} onChange={handleInputChange} placeholder="Rahul Sharma" className={formErrors.fullName ? inputError : inputNormal} />
                 </div>
                 {formErrors.fullName && <p className="text-xs text-red-400 mt-1">{formErrors.fullName}</p>}
               </div>
@@ -793,7 +793,7 @@ export default function MetaAdsShopifyLandingPage() {
                 <label className="block text-[11px] font-bold uppercase tracking-wider text-[#7a9989] mb-2">Business Email <span className="text-[#22E39A]">*</span></label>
                 <div className="relative">
                   <Mail className="w-4 h-4 text-[#3a5445] absolute left-4 top-4 pointer-events-none" />
-                  <input type="email" name="email" value={formData.email} onChange={handleInputChange} placeholder="pankaj@yourbrand.com" className={formErrors.email ? inputError : inputNormal} />
+                  <input type="email" name="email" value={formData.email} onChange={handleInputChange} placeholder="hello@yourbrand.com" className={formErrors.email ? inputError : inputNormal} />
                 </div>
                 {formErrors.email && <p className="text-xs text-red-400 mt-1">{formErrors.email}</p>}
               </div>

@@ -60,7 +60,7 @@ const REVIEWS_DATA: ReviewItem[] = [
     category: "Clothing Brand",
     location: "Mumbai",
     avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
-    quote: "Working with Pankaj and the SalePXL team was seamless. They understood our D2C vision and executed custom Liquid sections that elevated our store branding."
+    quote: "Working with the SalePXL team was seamless. They understood our D2C vision and executed custom Liquid sections that elevated our store branding."
   }
 ];
 
