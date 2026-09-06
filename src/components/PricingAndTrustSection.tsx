@@ -17,7 +17,7 @@ export default function PricingAndTrustSection() {
     {
       id: "shopify-standard",
       name: "Shopify Standard",
-      tagline: "E-commerce Starter",
+      tagline: "Delivery 4-7 Days",
       price: "₹25,000",
       priceSub: "Starting at",
       isPopular: false,
@@ -39,7 +39,7 @@ export default function PricingAndTrustSection() {
     {
       id: "shopify-pro",
       name: "Shopify Pro",
-      tagline: "Most Popular Choice",
+      tagline: "Delivery 7-14 Days",
       price: "₹40,000",
       priceSub: "Starting at",
       isPopular: true,
@@ -63,7 +63,7 @@ export default function PricingAndTrustSection() {
     {
       id: "shopify-growth",
       name: "Shopify Growth",
-      tagline: "Complete Growth Setup",
+      tagline: "Delivery 14-21 Days",
       price: "₹60,000",
       priceSub: "Starting at",
       isPopular: false,
