@@ -14,7 +14,7 @@ import FoundersReviewsMarquee from "@/components/FoundersReviewsMarquee";
 
 export default function PricingAndTrustSection() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedBudget, setSelectedBudget] = useState("Under ₹29,999/-");
+  const [selectedBudget, setSelectedBudget] = useState("Under ₹29,999");
   const [selectedPlanName, setSelectedPlanName] = useState("");
 
   const PRICING_PLANS = [
@@ -25,7 +25,7 @@ export default function PricingAndTrustSection() {
       price: "₹25,000",
       priceSub: "Starting at",
       isPopular: false,
-      budgetCategory: "Under ₹29,999/-",
+      budgetCategory: "Under ₹29,999",
       icon: <Zap className="w-8 h-8 text-emerald-600" />,
       description: "A conversion-focused Shopify setup for brands that need a professional store with essential customizations to start selling.",
       features: [
@@ -49,7 +49,7 @@ export default function PricingAndTrustSection() {
       priceSub: "Starting at",
       isPopular: true,
       badge: "MOST POPULAR",
-      budgetCategory: "₹29,999/- ₹79,999/-",
+      budgetCategory: "₹30,000 - ₹79,999",
       icon: <Sparkles className="w-8 h-8 text-emerald-600" />,
       description: "A more advanced Shopify experience with full branding and deeper customization across the store.",
       features: [
@@ -73,7 +73,7 @@ export default function PricingAndTrustSection() {
       price: "₹60,000",
       priceSub: "Starting at",
       isPopular: false,
-      budgetCategory: "₹79,999/ +",
+      budgetCategory: "₹80,000+",
       icon: <Building2 className="w-8 h-8 text-emerald-600" />,
       description: "A complete custom Shopify growth setup built around the brand, customer journey, and long-term marketing requirements.",
       features: [

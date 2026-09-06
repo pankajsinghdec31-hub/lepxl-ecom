@@ -29,9 +29,15 @@ export default function LeadCaptureModal({
   const [isSuccess, setIsSuccess] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
 
+  const normalizeBudget = (b: string) => {
+    if (b.includes("79,999") && b.includes("29,999")) return "₹30,000 - ₹79,999";
+    if (b.includes("79,999") || b.includes("80,000") || b.includes("+")) return "₹80,000+";
+    return "Under ₹29,999";
+  };
+
   useEffect(() => {
     if (defaultBudget) {
-      setBudget(defaultBudget);
+      setBudget(normalizeBudget(defaultBudget));
     }
   }, [defaultBudget]);
 
@@ -96,7 +102,7 @@ export default function LeadCaptureModal({
       if (typeof fbq === "function") {
         fbq("track", "Lead", {
           content_name: "Pricing Popup Connect",
-          value: budget.includes("79,999") ? 80000 : 30000,
+          value: budget.includes("80,000") || budget.includes("79,999") ? 80000 : 30000,
           currency: "INR"
         });
       }
@@ -133,10 +139,10 @@ export default function LeadCaptureModal({
           <button
             type="button"
             onClick={handleModalClose}
-            className="absolute top-4 right-4 sm:top-6 sm:right-6 z-20 w-9 h-9 rounded-full bg-neutral-100 hover:bg-neutral-200 border border-neutral-300 flex items-center justify-center text-neutral-700 transition-colors cursor-pointer"
+            className="absolute top-3 right-3 sm:top-4 sm:right-4 z-30 w-8 h-8 rounded-full bg-neutral-100 hover:bg-neutral-200 border border-neutral-300 flex items-center justify-center text-neutral-700 transition-colors cursor-pointer shadow-sm"
             aria-label="Close modal"
           >
-            <X className="w-5 h-5" />
+            <X className="w-4 h-4" />
           </button>
 
           {isSuccess ? (
@@ -149,7 +155,7 @@ export default function LeadCaptureModal({
                 Request Received <span className="text-emerald-600 font-normal">Successfully!</span>
               </h3>
               <p className="text-neutral-600 text-sm sm:text-base max-w-lg leading-relaxed font-sans">
-                Thank you, <strong className="text-neutral-900">{fullName}</strong>. Our Shopify strategy specialists will review your requirements and get back to you within <span className="text-emerald-600 font-bold">2 hours</span>.
+                Thank you, <strong className="text-neutral-900">{fullName}</strong>. Our Shopify strategy specialists will review your requirements and reach out to you shortly.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-4">
                 <a
@@ -183,7 +189,7 @@ export default function LeadCaptureModal({
                   </h2>
                   
                   <p className="text-xs sm:text-sm text-neutral-300 font-sans leading-relaxed mt-3">
-                    Tell us brief about your project needs & our team will get back to you within <span className="text-white font-semibold">2 hours</span> having a clear plan to build / scale your store.
+                    Tell us brief about your project needs & our team will get back to you with a clear plan to build / scale your store.
                   </p>
 
                   <div className="space-y-2.5 mt-6 pt-6 border-t border-white/10">
@@ -214,7 +220,7 @@ export default function LeadCaptureModal({
               </div>
 
               {/* RIGHT COLUMN: INTERACTIVE FORM (WHITE BACKGROUND) */}
-              <form onSubmit={handleSubmit} className="lg:col-span-7 p-6 sm:p-10 flex flex-col justify-between gap-5 bg-white">
+              <form onSubmit={handleSubmit} className="lg:col-span-7 p-6 sm:p-10 pt-12 sm:pt-14 flex flex-col justify-between gap-5 bg-white">
                 
                 {errorMsg && (
                   <div className="p-3 rounded-xl bg-red-50 border border-red-200 text-red-600 text-xs font-sans">
@@ -334,7 +340,7 @@ export default function LeadCaptureModal({
                     What is your Budget?
                   </label>
                   <div className="grid grid-cols-3 gap-2">
-                    {["Under ₹29,999/-", "₹29,999/- ₹79,999/-", "₹79,999/ +"].map((bOption) => {
+                    {["Under ₹29,999", "₹30,000 - ₹79,999", "₹80,000+"].map((bOption) => {
                       const isSel = budget === bOption;
                       return (
                         <button
@@ -383,18 +389,6 @@ export default function LeadCaptureModal({
                     </>
                   )}
                 </button>
-
-                {/* Guarantee Statements */}
-                <div className="space-y-1.5 pt-2 border-t border-neutral-200 text-[10px] sm:text-[11px] text-neutral-500 font-sans">
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0"></span>
-                    <span>In just <strong className="text-neutral-800 underline">2 hrs you will get a response back</strong> from our team of experts</span>
-                  </div>
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0"></span>
-                    <span>Your idea / discussion is 100% protected by our <strong className="text-neutral-800">Non Disclosure Agreement & Confidentiality Policy</strong></span>
-                  </div>
-                </div>
 
               </form>
 
