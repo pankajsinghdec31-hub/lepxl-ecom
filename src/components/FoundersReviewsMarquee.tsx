@@ -43,7 +43,7 @@ const REVIEWS_DATA: ReviewItem[] = [
     name: "Monica Fernandes",
     category: "Jewelry & Accessories",
     location: "Jaipur",
-    avatar: "/founder_4.jpg",
+    avatar: "/founder_9.jpg",
     quote: "Our store is now fully optimized for mobile devices and perfectly represents our brand style. The checkout flow is fast and completely frictionless."
   },
   {
@@ -51,7 +51,7 @@ const REVIEWS_DATA: ReviewItem[] = [
     name: "Malay Trivedi",
     category: "Home & Lifestyle",
     location: "Surat",
-    avatar: "/founder_5.jpg",
+    avatar: "/founder_4.jpg",
     quote: "The SalePXL team transformed our entire Shopify UI. We saw an immediate jump in add-to-cart rates and customer trust within the first week of launch."
   },
   {
@@ -59,7 +59,7 @@ const REVIEWS_DATA: ReviewItem[] = [
     name: "Ananya Sharma",
     category: "Clothing Brand",
     location: "Mumbai",
-    avatar: "/founder_6.jpg",
+    avatar: "/founder_5.jpg",
     quote: "Working with the SalePXL team was seamless. They understood our D2C vision and executed custom Liquid sections that elevated our store branding."
   }
 ];

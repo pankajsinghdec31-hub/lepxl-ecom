@@ -131,14 +131,14 @@ const TESTIMONIALS = [
   {
     name: "Rohan Malhotra",
     brand: "Health & Wellness",
-    image: "/founder_5.jpg",
+    image: "/founder_8.jpg",
     stars: 5,
     quote: "Their AI product photo service saved us lakhs in photography costs. They turned simple pictures into beautiful catalog photos easily!",
     metric: "-90%",
     metricLabel: "Photo Costs"
   },
   {
-    name: "Deepika Nair",
+    name: "Dr. Miheer Pathak",
     brand: "Home Decor & Furnishings",
     image: "/founder_3.jpg",
     stars: 5,

@@ -116,15 +116,15 @@ const GOOGLE_REVIEWS_CONSOLIDATED = [
     timeAgo: "5 months ago",
     headline: "Premium High-Converting Design",
     text: "The design speed and quality are phenomenal. They built custom sections that fit our branding guidelines perfectly, giving us a unique and high-converting store design.",
-    image: "/founder_5.jpg",
+    image: "/founder_8.jpg",
     statVal: "+85%",
     statLabel: "Brand Appeal",
     category: "Health & Wellness Store"
   },
   {
-    name: "Deepika Nair",
+    name: "Dr. Miheer Pathak",
     avatarColor: "bg-blue-600",
-    avatarText: "DN",
+    avatarText: "MP",
     metadata: "Local Guide · 36 reviews · 18 photos",
     stars: 5,
     timeAgo: "7 months ago",
@@ -144,7 +144,7 @@ const GOOGLE_REVIEWS_CONSOLIDATED = [
     timeAgo: "3 months ago",
     headline: "Dedicated Developer Team Support",
     text: "The post-launch team support has been outstanding. They resolved minor adjustments instantly, provided complete dashboard training, and acted like true partners.",
-    image: "/founder_1.jpg",
+    image: "/founder_6.jpg",
     statVal: "+3.8x",
     statLabel: "Customer LTV",
     category: "Organic Tea & Beverages Store"
@@ -1309,8 +1309,7 @@ export default function HomePage() {
 
             {/* Sub-copy */}
             <p className="mt-4 sm:mt-5 text-white/70 text-lg sm:text-xl font-light leading-relaxed max-w-xl animate-fade-blur text-left" style={{ animationDelay: "0.1s" }}>
-              Traffic comes from anywhere, but trust comes from your store.<br />
-              We design and build high-converting Shopify stores that create value of product.
+              Traffic comes from anywhere, but trust comes from your store.
             </p>
 
             {/* CTA buttons — Full-width stacked on mobile, auto-width left-aligned on desktop */}

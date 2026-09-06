@@ -195,7 +195,7 @@ export default function LeadCaptureModal({
                   <div className="space-y-2.5 mt-6 pt-6 border-t border-white/10">
                     <div className="flex items-center gap-2.5 text-xs text-neutral-200 font-sans">
                       <Star className="w-4 h-4 text-[#22E39A] fill-[#22E39A] shrink-0" />
-                      <span>Trusted by 200+ growing brands</span>
+                      <span>Trusted by 100+ growing brands</span>
                     </div>
                     <a
                       href="https://calendly.com/salepxl"
