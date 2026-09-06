@@ -413,22 +413,43 @@ const PORTFOLIO_CARDS = [
 const BUILD_PROCESS_STEPS = [
   {
     num: "01",
-    title: "Strategy & Planning",
-    desc: "We understand your brand, products, and audience to create a Shopify store built for maximum conversions.",
+    title: "Brand & Product Understanding",
+    desc: "We first understand your brand, product, target audience, and business goals to create a store strategy built around your specific needs.",
     desktopImg: "/process_plan_mockup.png",
     mobileImg: "/process_plan_mockup.png"
   },
   {
     num: "02",
-    title: "Build High-CRO Shopify Stores",
-    desc: "We design and develop lightning-fast, mobile-first Shopify stores with custom Liquid development, premium UX, and conversion-focused layouts.",
+    title: "Competitor Research & Store Layout Strategy",
+    desc: "We study successful brands in your niche to understand proven layouts, product presentation, offers, trust elements, and customer journeys. We use these insights to create a unique structure tailored to your brand.",
     desktopImg: "/experts_desktop.png",
     mobileImg: "/experts_mobile.png"
   },
   {
     num: "03",
-    title: "Optimize & Scale",
-    desc: "From CRO improvements and performance optimization to advanced Shopify features, we help your store increase sales and scale profitably.",
+    title: "Conversion-Focused Design & Custom Development",
+    desc: "We bring the strategy to life with custom Shopify design and development. Every section — from product presentation and visuals to benefits, offers, trust elements, and CTAs — is designed to communicate value and support the buying decision.",
+    desktopImg: "/process_sales_mockup.png",
+    mobileImg: "/process_sales_mockup.png"
+  },
+  {
+    num: "04",
+    title: "CRO, Testing & Functionality",
+    desc: "We test the store across devices and review speed, responsiveness, functionality, navigation, cart experience, and conversion flow to identify and remove friction.",
+    desktopImg: "/process_plan_mockup.png",
+    mobileImg: "/process_plan_mockup.png"
+  },
+  {
+    num: "05",
+    title: "Launch & Optimization Ready",
+    desc: "We refine every detail and prepare a fast, responsive, mobile-friendly, and conversion-focused store that's ready for launch.",
+    desktopImg: "/experts_desktop.png",
+    mobileImg: "/experts_mobile.png"
+  },
+  {
+    num: "06",
+    title: "Go Live",
+    desc: "Once everything is tested and approved, we take your store live and perform final checks to ensure the complete customer journey works smoothly.",
     desktopImg: "/process_sales_mockup.png",
     mobileImg: "/process_sales_mockup.png"
   }
@@ -1438,9 +1459,11 @@ export default function HomePage() {
         <div className="max-w-[1360px] mx-auto px-6">
           {/* Header */}
           <div className="text-center mb-16 flex flex-col items-center">
-
-            <h2 className="premium-heading text-3xl sm:text-4xl lg:text-[2.75rem] font-light text-white tracking-tight font-grotesk mt-2">
-              Build. <span className="light-gradient-text font-normal">Launch.</span> <span className="premium-highlight">Scale.</span>
+            <span className="text-xs font-mono font-bold uppercase tracking-[0.25em] text-emerald-400 mb-3">
+              Precision Execution: Our 6-Step Shopify Growth Blueprint
+            </span>
+            <h2 className="premium-heading text-3xl sm:text-4xl lg:text-[2.75rem] font-light text-white tracking-tight font-grotesk">
+              How SalePXL Builds a <span className="premium-highlight">High-Converting Store</span>
             </h2>
           </div>
 
