@@ -1089,8 +1089,8 @@ export default function HomePage() {
   const [activeFunnelStep, setActiveFunnelStep] = useState(0);
   const [isOptimizedStore, setIsOptimizedStore] = useState(true);
 
-  // Process Timeline States (defaults to null so content does not auto-open on mobile)
-  const [activeProcessStep, setActiveProcessStep] = useState<number | null>(null);
+  // Process Timeline States (defaults to 0 so first item "Brand & Product Understanding" is open by default on mobile & web)
+  const [activeProcessStep, setActiveProcessStep] = useState<number | null>(0);
   const [wireframeLayout, setWireframeLayout] = useState<Record<string, boolean>>({
     announcement: true,
     hero: true,
