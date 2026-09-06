@@ -138,8 +138,8 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* 2-COLUMN GRID ON MOBILE (Deliverable.agency style), 4-COLUMN ON DESKTOP */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10 py-8 border-t border-b border-white/[0.08] mb-8">
+        {/* 2-COLUMN GRID ON MOBILE, 3-COLUMN ON DESKTOP */}
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-10 py-8 border-t border-b border-white/[0.08] mb-8">
           
           {/* Column 1: Quick Links */}
           <div className="flex flex-col gap-3">
@@ -151,9 +151,8 @@ export default function Footer() {
                 { name: "Home", href: "/" },
                 { name: "Services", href: "/services" },
                 { name: "Portfolio", href: "/portfolio" },
-                { name: "How We Work", href: "/how-it-works" },
-                { name: "About Us", href: "/about" },
-                { name: "Contact Us", href: "/contact" }
+                { name: "About", href: "/about" },
+                { name: "Contact", href: "/contact" }
               ].map((link) => (
                 <li key={link.name}>
                   <Link href={link.href} className="hover:text-white transition-colors inline-block">
@@ -171,10 +170,10 @@ export default function Footer() {
             </h3>
             <ul className="flex flex-col gap-2.5 text-xs text-[#8C8C8C]">
               {[
-                { name: "Shopify Store Build", href: "/services" },
-                { name: "Custom Liquid PDPs", href: "/services" },
-                { name: "CRO Optimization", href: "/services" },
-                { name: "Dropshipping Store", href: "/services" }
+                { name: "Shopify Development", href: "/services" },
+                { name: "Shopify CRO Optimization", href: "/services" },
+                { name: "Dropshipping Store", href: "/services" },
+                { name: "Custom Shopify Development", href: "/services" }
               ].map((link) => (
                 <li key={link.name}>
                   <Link href={link.href} className="hover:text-white transition-colors inline-block">
@@ -185,28 +184,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 3: Tools & Resources */}
-          <div className="flex flex-col gap-3">
-            <h3 className="text-white text-xs font-bold tracking-wider uppercase">
-              Resources
-            </h3>
-            <ul className="flex flex-col gap-2.5 text-xs text-[#8C8C8C]">
-              {[
-                { name: "Shopify Audit", href: "/shopify-audit" },
-                { name: "Launch Calculator", href: "/shopify-launch-calculator" },
-                { name: "Blog & Insights", href: "/blog" },
-                { name: "Case Studies", href: "/case-studies" }
-              ].map((link) => (
-                <li key={link.name}>
-                  <Link href={link.href} className="hover:text-white transition-colors inline-block">
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Column 4: Legal & Newsletter */}
+          {/* Column 3: Newsletter */}
           <div className="col-span-2 md:col-span-1 flex flex-col gap-6 pt-4 md:pt-0 border-t border-white/[0.06] md:border-0">
             <div>
               <h3 className="text-white text-xs font-bold tracking-wider uppercase mb-3">
