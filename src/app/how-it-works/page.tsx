@@ -49,7 +49,6 @@ const STEPS: Step[] = [
     title: "Brand & Product Understanding",
     headline: "Establishing Your Brand Foundation",
     description: "We deep-dive into your brand identity, target demographic, unique value proposition (UVP), and catalog requirements to establish a strong positioning foundation.",
-    highlights: ["Brand Identity & Values", "Target Demographic Analysis", "Catalog & Collection Setup", "UVP & Positioning Strategy"],
     checklist: [
       "Brand Guidelines & Logo Assets",
       "Product Catalog & Pricing Matrix",
@@ -63,24 +62,21 @@ const STEPS: Step[] = [
     num: "02",
     title: "Competitor Research & Store Layout Strategy",
     headline: "Mapping a High-Converting Store Layout",
-    description: "Our team analyzes top-performing competitors in your niche, identifies customer friction points, and maps out a high-converting store structure and wireframe.",
-    highlights: ["Competitor UI/UX Analysis", "Niche Benchmark Research", "High-Converting Wireframes", "User Flow & Sitemap Mapping"]
+    description: "Our team analyzes top-performing competitors in your niche, identifies customer friction points, and maps out a high-converting store structure and wireframe."
   },
   {
     id: "step-3",
     num: "03",
     title: "Conversion-Focused Design & Custom Development",
     headline: "Designing & Building Your Storefront",
-    description: "We design and develop custom Shopify Liquid sections, high-converting product pages, dynamic collection layouts, and mobile-optimized visual assets tailored to your brand.",
-    highlights: ["Custom Liquid Sections", "High-Converting PDP Layouts", "A+ Banners & Visual Assets", "Mobile-First UX Architecture"]
+    description: "We design and develop custom Shopify Liquid sections, high-converting product pages, dynamic collection layouts, and mobile-optimized visual assets tailored to your brand."
   },
   {
     id: "step-4",
     num: "04",
     title: "CRO, Testing & Functionality",
     headline: "Optimizing Speed, Checkout & Customer Journey",
-    description: "We integrate essential apps, payment gateways, automated shipping APIs, cart upsells, and 1-click checkouts, performing rigorous speed and conversion optimization.",
-    highlights: ["1-Click Checkout & UPI Integration", "Automated Shipping & COD Verification", "Speed Optimization (90+ Score)", "AOV Upsell & Bundle Mechanics"]
+    description: "We integrate essential apps, payment gateways, automated shipping APIs, cart upsells, and 1-click checkouts, performing rigorous speed and conversion optimization."
   },
   {
     id: "step-5",
@@ -88,7 +84,6 @@ const STEPS: Step[] = [
     title: "Launch & Optimization Ready",
     headline: "Pre-Launch Audits & Analytics Setup",
     description: "We run full technical audits, verify Meta Pixel and tracking analytics, test checkout flows across devices, and prepare all assets for a seamless store handover.",
-    highlights: ["Meta Pixel & CAPI Event Verification", "Google Analytics & GTM Triggers", "Cross-Device UX Audit", "Pre-Launch Checklist (28 Points)"],
     checklist: [
       "28-Point Checkout Integrity Audit",
       "Meta Pixel & Conversion API Test",
@@ -102,8 +97,7 @@ const STEPS: Step[] = [
     num: "06",
     title: "Go Live",
     headline: "Taking Your Store Live 🚀",
-    description: "Once everything is tested and approved, we take your store live and perform final checks to ensure the complete customer journey works smoothly.",
-    highlights: ["Live Store Deployment", "Admin & Ownership Transfer", "Real-Time Order Tracking Test", "Post-Launch Growth Support"]
+    description: "Once everything is tested and approved, we take your store live and perform final checks to ensure the complete customer journey works smoothly."
   }
 ];
 
@@ -342,20 +336,7 @@ export default function HowItWorksPage() {
                       {step.description}
                     </p>
 
-                    {/* Step Highlight Badges */}
-                    {step.highlights && (
-                      <div className="mt-6 flex flex-wrap gap-2">
-                        {step.highlights.map((highlight, hIdx) => (
-                          <span
-                            key={hIdx}
-                            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-emerald-50 border border-emerald-200/50 text-emerald-700"
-                          >
-                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                            {highlight}
-                          </span>
-                        ))}
-                      </div>
-                    )}
+
 
                     {/* Interactive Custom Elements per Step */}
                     <div className="mt-8 border-t border-neutral-200/60 pt-6">
