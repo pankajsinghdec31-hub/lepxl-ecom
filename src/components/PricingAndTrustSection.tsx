@@ -113,18 +113,8 @@ export default function PricingAndTrustSection() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-3xl sm:text-5xl md:text-6xl font-light text-neutral-900 tracking-tight font-grotesk leading-tight"
             >
-              Affordable Pricing. <span className="text-emerald-600 font-normal">Experienced Team.</span>
+              Affordable <span className="text-emerald-600 font-normal">Pricing</span>
             </motion.h2>
-
-            <motion.p
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-neutral-600 text-sm sm:text-base font-light max-w-xl mx-auto font-sans"
-            >
-              Transparent packages built by Shopify Experts for high conversions and long-term brand scaling.
-            </motion.p>
           </div>
 
           {/* Pricing Cards Grid */}
