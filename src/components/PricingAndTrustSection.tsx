@@ -20,59 +20,79 @@ export default function PricingAndTrustSection() {
 
   const PRICING_PLANS = [
     {
-      id: "starter",
-      name: "E-commerce Starter",
-      timeline: "Delivery in 1–2 weeks",
-      price: "₹29,999",
-      priceSub: "Starts at",
+      id: "custom-shopify",
+      name: "Custom Shopify Store",
+      tagline: "E-commerce Starter",
+      price: "₹25,000",
+      priceSub: "Starting at",
       isPopular: false,
       budgetCategory: "Under ₹29,999/-",
       icon: <Zap className="w-6 h-6 text-emerald-400" />,
+      description: "A conversion-focused Shopify setup for brands that need a professional store with the essential customizations to start selling.",
+      bestFor: "New and growing brands looking for a professional Shopify store without extensive custom development.",
       features: [
-        "Premium Shopify Theme Setup & Branding",
-        "Product Catalog Setup (Up to 30 Products)",
-        "Payment Gateway & Shipping Integration",
-        "Mobile-First Responsive UI",
-        "Sub-2s Speed & Basic SEO Setup",
-        "15-Day Post-Launch Support"
+        "Custom Shopify sections based on client requirements",
+        "CRO-focused store structure",
+        "Shopify product and collection setup",
+        "Product images and promotional banners",
+        "Payment gateway integration",
+        "Shipping integration",
+        "Essential Shopify app integrations",
+        "Mobile-responsive design",
+        "Essential pages and store setup",
+        "Basic conversion-focused customization"
       ]
     },
     {
-      id: "shopify-store",
-      name: "Shopify Store",
-      timeline: "Delivery within 2–3 weeks",
-      price: "₹59,999",
-      priceSub: "Starts at",
+      id: "fully-customized",
+      name: "Fully Customized Shopify Store",
+      tagline: "Most Popular Choice",
+      price: "₹40,000",
+      priceSub: "Starting at",
       isPopular: true,
       badge: "MOST POPULAR",
       budgetCategory: "₹29,999/- ₹79,999/-",
       icon: <Sparkles className="w-6 h-6 text-emerald-400" />,
+      description: "A more advanced Shopify experience with full branding and deeper customization across the store.",
+      bestFor: "Established brands that want their Shopify store to look and feel completely unique rather than relying on standard theme sections.",
       features: [
-        "High-Converting UI/UX Branded Design",
-        "Advanced Theme Customization & Custom Styling",
-        "Up to 100 Product Listings & Custom Collections",
-        "Custom Cart Upsell & High-Margin Bundle Offers",
-        "Sub-2s Speed Optimization & Advanced Analytics",
-        "1-on-1 Dedicated Shopify Specialist Support",
-        "Meta Pixel & Google Analytics Setup"
+        "A+ product imagery and product presentation",
+        "A+ promotional banners and visual content",
+        "Fully customized Shopify sections",
+        "Custom product-page layouts",
+        "Additional product templates where required",
+        "Custom collection and landing-page sections",
+        "Full brand-focused visual implementation",
+        "Advanced product storytelling",
+        "Essential app integrations",
+        "CRO-focused customer journey",
+        "Mobile and desktop optimization"
       ]
     },
     {
-      id: "enterprise",
-      name: "Enterprise",
-      timeline: "Custom Timeline Based on Scope",
-      price: "Custom",
-      priceSub: "Starts at",
+      id: "advanced-custom",
+      name: "Shopify Advanced Custom",
+      tagline: "Complete Growth Setup",
+      price: "₹60,000",
+      priceSub: "Starting at",
       isPopular: false,
       budgetCategory: "₹79,999/ +",
       icon: <Building2 className="w-6 h-6 text-emerald-400" />,
+      description: "A complete custom Shopify growth setup built around the brand, customer journey, and long-term marketing requirements.",
+      bestFor: "Brands looking for a complete Shopify foundation ready to sell, support marketing, analytics, paid ads, and future growth.",
       features: [
-        "Dedicated Expert Shopify Development Team",
-        "Complex ERP, API & Custom System Integrations",
-        "Headless Shopify & Custom App Development",
-        "Omnichannel Sales & Marketing Automation",
-        "Dedicated Account Manager & SLA Guarantee",
-        "24/7 Priority Technical Support"
+        "Fully customized store experience",
+        "Advanced custom sections and templates",
+        "Advanced product-page customization",
+        "Custom landing pages",
+        "Complete brand implementation",
+        "Marketing & Meta Pixel / tracking setup",
+        "Meta Ads & social media account setup",
+        "Essential marketing & growth integrations",
+        "SEO fundamentals and meta-tag setup",
+        "Conversion tracking & CRO store architecture",
+        "Performance and mobile optimization",
+        "Essential growth-focused app integrations"
       ]
     }
   ];
@@ -90,10 +110,9 @@ export default function PricingAndTrustSection() {
       <FoundersReviewsMarquee />
 
       {/* ─────────────────────────────────────────────────────────────────── */}
-      {/* SECTION 2: AFFORDABLE PRICING. EXPERIENCED TEAM. */}
+      {/* SECTION 2: SHOPIFY STORE PACKAGES */}
       {/* ─────────────────────────────────────────────────────────────────── */}
       <section className="relative py-20 sm:py-32 px-6 bg-gradient-to-b from-[#050505] via-[#070d14] to-[#050505] border-t border-white/[0.08]">
-
 
         <div className="max-w-[1360px] mx-auto flex flex-col gap-16 relative z-10">
           
@@ -106,7 +125,7 @@ export default function PricingAndTrustSection() {
               transition={{ duration: 0.5 }}
               className="text-xs font-mono font-bold uppercase tracking-[0.25em] text-emerald-400"
             >
-              Custom Shopify Packages
+              Affordable Pricing. Experienced Team.
             </motion.div>
             
             <motion.h2
@@ -116,8 +135,7 @@ export default function PricingAndTrustSection() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-3xl sm:text-5xl md:text-6xl font-light text-white tracking-tight font-grotesk leading-tight"
             >
-              Affordable Pricing. <br />
-              <span className="text-emerald-400 font-normal">Experienced Team.</span>
+              Shopify Store <span className="text-emerald-400 font-normal">Packages</span>
             </motion.h2>
 
             <motion.p
@@ -127,7 +145,7 @@ export default function PricingAndTrustSection() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-white/60 text-sm sm:text-base font-light max-w-xl mx-auto font-sans"
             >
-              No hidden developer markups or slow agency delays. High-converting Shopify stores engineered by senior Liquid specialists.
+              Transparent packages engineered for high conversions and long-term brand scaling.
             </motion.p>
           </div>
 
@@ -156,14 +174,14 @@ export default function PricingAndTrustSection() {
                   )}
 
                   <div>
-                    {/* Delivery Timeline Tag */}
-                    <div className="text-[11px] font-mono font-semibold text-white/50 mb-3 uppercase tracking-wider">
-                      {plan.timeline}
+                    {/* Tagline */}
+                    <div className="text-[11px] font-mono font-semibold text-emerald-400 mb-2 uppercase tracking-wider">
+                      {plan.tagline}
                     </div>
 
                     {/* Title & Icon */}
-                    <div className="flex items-center justify-between gap-4 mb-6 pb-6 border-b border-white/10">
-                      <h3 className="text-xl sm:text-2xl font-bold text-white font-grotesk tracking-tight">
+                    <div className="flex items-start justify-between gap-4 mb-4">
+                      <h3 className="text-xl sm:text-2xl font-bold text-white font-grotesk tracking-tight leading-snug">
                         {plan.name}
                       </h3>
                       <div className="p-2.5 rounded-2xl bg-emerald-500/10 border border-emerald-500/25 shrink-0">
@@ -172,7 +190,7 @@ export default function PricingAndTrustSection() {
                     </div>
 
                     {/* Price Block */}
-                    <div className="mb-8">
+                    <div className="mb-6 pb-6 border-b border-white/10">
                       <span className="text-xs font-mono text-white/40 block mb-1 uppercase tracking-wider">
                         {plan.priceSub}
                       </span>
@@ -183,14 +201,34 @@ export default function PricingAndTrustSection() {
                       </div>
                     </div>
 
+                    {/* Description */}
+                    <p className="text-xs text-white/70 font-sans leading-relaxed mb-6">
+                      {plan.description}
+                    </p>
+
+                    {/* Features List Header */}
+                    <div className="text-xs font-bold text-white font-grotesk uppercase tracking-wider mb-3">
+                      Includes:
+                    </div>
+
                     {/* Features List */}
-                    <div className="space-y-3.5 mb-8">
+                    <div className="space-y-3 mb-8">
                       {plan.features.map((feat, fIdx) => (
-                        <div key={fIdx} className="flex items-start gap-3 text-xs sm:text-sm text-white/80 font-sans leading-relaxed">
-                          <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                        <div key={fIdx} className="flex items-start gap-2.5 text-xs text-white/80 font-sans leading-relaxed">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
                           <span>{feat}</span>
                         </div>
                       ))}
+                    </div>
+
+                    {/* Best For Box */}
+                    <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/10 mb-8">
+                      <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-emerald-400 block mb-1">
+                        Best For:
+                      </span>
+                      <p className="text-xs text-white/70 font-sans leading-relaxed">
+                        {plan.bestFor}
+                      </p>
                     </div>
                   </div>
 
@@ -216,6 +254,7 @@ export default function PricingAndTrustSection() {
 
         </div>
       </section>
+
 
       {/* POPUP MODAL */}
       <LeadCaptureModal
