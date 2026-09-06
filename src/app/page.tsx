@@ -1317,7 +1317,7 @@ export default function HomePage() {
             {/* Sub-copy */}
             <p className="mt-4 sm:mt-5 text-white/70 text-lg sm:text-xl font-light leading-relaxed max-w-xl animate-fade-blur text-left" style={{ animationDelay: "0.1s" }}>
               Traffic comes from anywhere, but trust comes from your store.<br />
-              We design and engineer high-converting Shopify experiences that scale.
+              We design and build high-converting Shopify stores that create value of product.
             </p>
 
             {/* CTA buttons — Full-width stacked on mobile, auto-width left-aligned on desktop */}
