@@ -160,10 +160,7 @@ export default function PricingAndTrustSection() {
                         </div>
                       </div>
 
-                      {/* Description */}
-                      <p className="text-xs text-neutral-600 font-sans leading-relaxed mb-6 text-center">
-                        {plan.description}
-                      </p>
+
 
                       {/* Includes Header */}
                       <div className="text-xs font-bold text-neutral-900 font-grotesk uppercase tracking-wider mb-3">
