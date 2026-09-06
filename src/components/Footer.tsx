@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Mail, Phone, MapPin, ArrowRight, MessageCircle } from "lucide-react";
+import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
 import { trackWhatsAppClick } from "@/lib/analytics";
 
 import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
@@ -92,10 +92,11 @@ export default function Footer() {
       <div className="absolute bottom-0 right-1/4 w-96 h-96 rounded-full bg-primary/[0.03] blur-[120px] pointer-events-none" />
       <div className="absolute top-1/4 left-10 w-72 h-72 rounded-full bg-primary/[0.02] blur-[100px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 pt-16 pb-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-          {/* Brand Info */}
-          <div className="flex flex-col gap-6">
+      <div className="max-w-7xl mx-auto px-6 pt-12 md:pt-16 pb-8 relative z-10">
+        
+        {/* Brand Header & Contact info (Mobile & Desktop Top) */}
+        <div className="mb-8 md:mb-12 flex flex-col md:flex-row md:items-start justify-between gap-6">
+          <div className="flex flex-col gap-4 max-w-sm">
             <Link
               href="/"
               onClick={(e) => {
@@ -109,47 +110,53 @@ export default function Footer() {
               <img 
                 src="/logo.png" 
                 alt="SalePixel - Shopify Agency" 
-                className="h-9 w-auto object-contain invert hue-rotate-180 transition-transform duration-300 group-hover:scale-[1.02]"
+                className="h-8 md:h-9 w-auto object-contain invert hue-rotate-180 transition-transform duration-300 group-hover:scale-[1.02]"
               />
             </Link>
-            <p className="text-[#8C8C8C] text-sm leading-relaxed max-w-xs">
+            <p className="text-[#8C8C8C] text-xs sm:text-sm leading-relaxed">
               SalePXL builds conversion-focused Shopify stores for D2C brands. We combine strategic design, CRO and custom development.
             </p>
-            <div className="flex flex-col gap-3 text-xs text-[#8C8C8C]">
-              <div className="flex items-center gap-2 group">
-                <Phone className="w-4 h-4 text-primary premium-hover-icon" />
-                <a href="tel:+919917780656" className="premium-hover-link">
-                  +91 9917780656
-                </a>
-              </div>
-              <div className="flex items-center gap-2 group">
-                <Mail className="w-4 h-4 text-primary premium-hover-icon" />
-                <a href="mailto:helpsalepxl@gmail.com" className="premium-hover-link">
-                  helpsalepxl@gmail.com
-                </a>
-              </div>
-              <div className="flex items-center gap-2 group">
-                <MapPin className="w-4 h-4 text-primary premium-hover-icon" />
-                <span>Dehradun, Uttarakhand, India</span>
-              </div>
-            </div>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h3 className="text-white text-sm font-semibold tracking-wider uppercase mb-6">
+          <div className="flex flex-wrap md:flex-col gap-3 text-xs text-[#8C8C8C] pt-2 md:pt-0 border-t border-white/[0.08] md:border-0">
+            <div className="flex items-center gap-2 group">
+              <Phone className="w-3.5 h-3.5 text-primary shrink-0" />
+              <a href="tel:+919917780656" className="hover:text-white transition-colors font-mono">
+                +91 9917780656
+              </a>
+            </div>
+            <div className="flex items-center gap-2 group">
+              <Mail className="w-3.5 h-3.5 text-primary shrink-0" />
+              <a href="mailto:helpsalepxl@gmail.com" className="hover:text-white transition-colors">
+                helpsalepxl@gmail.com
+              </a>
+            </div>
+            <div className="flex items-center gap-2 group">
+              <MapPin className="w-3.5 h-3.5 text-primary shrink-0" />
+              <span>Dehradun, Uttarakhand, India</span>
+            </div>
+          </div>
+        </div>
+
+        {/* 2-COLUMN GRID ON MOBILE (Deliverable.agency style), 4-COLUMN ON DESKTOP */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10 py-8 border-t border-b border-white/[0.08] mb-8">
+          
+          {/* Column 1: Quick Links */}
+          <div className="flex flex-col gap-3">
+            <h3 className="text-white text-xs font-bold tracking-wider uppercase">
               Quick Links
             </h3>
-            <ul className="flex flex-col gap-3.5 text-sm text-[#8C8C8C]">
+            <ul className="flex flex-col gap-2.5 text-xs text-[#8C8C8C]">
               {[
                 { name: "Home", href: "/" },
                 { name: "Services", href: "/services" },
                 { name: "Portfolio", href: "/portfolio" },
-                { name: "About", href: "/about" },
-                { name: "Contact", href: "/contact" }
+                { name: "How We Work", href: "/how-it-works" },
+                { name: "About Us", href: "/about" },
+                { name: "Contact Us", href: "/contact" }
               ].map((link) => (
                 <li key={link.name}>
-                  <Link href={link.href} className="premium-hover-link inline-block">
+                  <Link href={link.href} className="hover:text-white transition-colors inline-block">
                     {link.name}
                   </Link>
                 </li>
@@ -157,20 +164,21 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Services */}
-          <div>
-            <h3 className="text-white text-sm font-semibold tracking-wider uppercase mb-6">
+          {/* Column 2: Services */}
+          <div className="flex flex-col gap-3">
+            <h3 className="text-white text-xs font-bold tracking-wider uppercase">
               Services
             </h3>
-            <ul className="flex flex-col gap-3.5 text-sm text-[#8C8C8C]">
+            <ul className="flex flex-col gap-2.5 text-xs text-[#8C8C8C]">
               {[
-                { name: "Shopify Development", href: "/services" },
-                { name: "Shopify CRO Optimization", href: "/services" },
-                { name: "Dropshipping Store", href: "/services" },
-                { name: "Custom Shopify Development", href: "/services" }
+                { name: "Shopify Store Build", href: "/services" },
+                { name: "Custom Liquid PDPs", href: "/services" },
+                { name: "CRO Optimization", href: "/services" },
+                { name: "Speed Tuning", href: "/services" },
+                { name: "Dropshipping Store", href: "/services" }
               ].map((link) => (
                 <li key={link.name}>
-                  <Link href={link.href} className="premium-hover-link inline-block">
+                  <Link href={link.href} className="hover:text-white transition-colors inline-block">
                     {link.name}
                   </Link>
                 </li>
@@ -178,30 +186,51 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Newsletter / Call */}
-          <div className="flex flex-col gap-6">
+          {/* Column 3: Tools & Resources */}
+          <div className="flex flex-col gap-3">
+            <h3 className="text-white text-xs font-bold tracking-wider uppercase">
+              Resources
+            </h3>
+            <ul className="flex flex-col gap-2.5 text-xs text-[#8C8C8C]">
+              {[
+                { name: "Shopify Audit", href: "/shopify-audit" },
+                { name: "Launch Calculator", href: "/shopify-launch-calculator" },
+                { name: "Blog & Insights", href: "/blog" },
+                { name: "Case Studies", href: "/case-studies" }
+              ].map((link) => (
+                <li key={link.name}>
+                  <Link href={link.href} className="hover:text-white transition-colors inline-block">
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Column 4: Legal & Newsletter */}
+          <div className="col-span-2 md:col-span-1 flex flex-col gap-6 pt-4 md:pt-0 border-t border-white/[0.06] md:border-0">
             <div>
-              <h3 className="text-white text-sm font-semibold tracking-wider uppercase mb-4">
+              <h3 className="text-white text-xs font-bold tracking-wider uppercase mb-3">
                 Scale Your Brand
               </h3>
-              <p className="text-[#8C8C8C] text-xs leading-relaxed mb-4">
+              <p className="text-[#8C8C8C] text-xs leading-relaxed mb-3">
                 eCommerce insights. Zero spam.
               </p>
-              <form onSubmit={handleSubmit} className="relative flex items-center">
+              <form onSubmit={handleSubmit} className="relative flex items-center max-w-xs">
                 <input
                   type="email"
                   required
                   placeholder="Enter your email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full bg-[#101010] border border-white/[0.08] text-white text-xs rounded-full px-5 py-3 focus:outline-none focus:border-primary transition-colors pr-12 h-12"
+                  className="w-full bg-[#101010] border border-white/[0.08] text-white text-xs rounded-full px-4 py-2.5 focus:outline-none focus:border-primary transition-colors pr-10 h-10"
                 />
                 <button
                   type="submit"
-                  className="absolute right-2 p-1.5 rounded-full bg-primary hover:bg-primary-hover transition-all duration-300 text-black w-8 h-8 flex items-center justify-center cursor-pointer"
+                  className="absolute right-1.5 p-1 rounded-full bg-primary hover:bg-primary-hover transition-all duration-300 text-black w-7 h-7 flex items-center justify-center cursor-pointer"
                   aria-label="Subscribe"
                 >
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </form>
               {subscribed && (
@@ -210,22 +239,30 @@ export default function Footer() {
                 </p>
               )}
             </div>
+
+            <div>
+              <h3 className="text-white text-xs font-bold tracking-wider uppercase mb-2">
+                Legal
+              </h3>
+              <div className="flex items-center gap-4 text-xs text-[#8C8C8C]">
+                <Link href="/privacy" className="hover:text-white transition-colors">
+                  Privacy Policy
+                </Link>
+                <span>·</span>
+                <Link href="/terms" className="hover:text-white transition-colors">
+                  Terms of Service
+                </Link>
+              </div>
+            </div>
           </div>
+
         </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-8 border-t border-white/[0.08] flex flex-col sm:flex-row items-center justify-between gap-4">
+        {/* Bottom Copyright Bar */}
+        <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-[#8C8C8C] text-xs text-center sm:text-left">
             &copy; {new Date().getFullYear()} SalePXL (SALEPXL). All rights reserved.
           </p>
-          <div className="flex items-center gap-6 text-xs text-[#8C8C8C]">
-            <Link href="/privacy" className="premium-hover-link">
-              Privacy Policy
-            </Link>
-            <Link href="/terms" className="premium-hover-link">
-              Terms of Service
-            </Link>
-          </div>
         </div>
       </div>
     </footer>
