@@ -125,16 +125,6 @@ export default function StartProjectForm({ onSuccess }: { onSuccess?: () => void
         
         {/* Deliverable Agency Header Badges & Title */}
         <div className="flex flex-col items-center text-center gap-3 mb-2">
-          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs text-neutral-700 font-sans tracking-wide">
-            <span className="flex items-center gap-1.5 font-semibold">
-              <span className="w-2 h-2 rounded-full bg-[#22E39A] shadow-[0_0_8px_#22E39A]" />
-              Free Consultation
-            </span>
-            <span className="flex items-center gap-1.5 font-semibold">
-              <span className="w-2 h-2 rounded-full bg-[#22E39A] shadow-[0_0_8px_#22E39A]" />
-              1hr Response
-            </span>
-          </div>
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-light text-neutral-900 tracking-tight font-grotesk mt-2">
             Request a <span className="text-emerald-600 font-normal">Proposal</span>
