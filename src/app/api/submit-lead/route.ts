@@ -113,11 +113,11 @@ export async function POST(req: NextRequest) {
     const phone = data.phone || data.contactPhone || "";
 
     // 1️⃣ Send email via Gmail SMTP (only if credentials are configured)
-    const gmailUser = process.env.GMAIL_USER;
+    const notifyEmail = process.env.LEAD_NOTIFY_EMAIL || "helpsalepxl@gmail.com";
+    const gmailUser = process.env.GMAIL_USER || notifyEmail;
     const gmailPass = process.env.GMAIL_APP_PASSWORD;
-    const notifyEmail = process.env.LEAD_NOTIFY_EMAIL;
 
-    if (gmailUser && gmailPass && notifyEmail) {
+    if (gmailUser && gmailPass) {
       try {
         // Dynamic import to avoid build errors when package is absent
         const nodemailer = await import("nodemailer");
@@ -129,6 +129,7 @@ export async function POST(req: NextRequest) {
         await transporter.sendMail({
           from: `"SalePXL Leads" <${gmailUser}>`,
           to: notifyEmail,
+          replyTo: email || undefined,
           subject: `New Lead: ${name} — ${data.service || data.projectCategory || data.source}`,
           html: buildEmailHtml(data),
         });
