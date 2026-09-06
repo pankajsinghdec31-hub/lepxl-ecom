@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Mail, Phone, ArrowRight } from "lucide-react";
+import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
 import { trackWhatsAppClick } from "@/lib/analytics";
 
 import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
@@ -130,6 +130,10 @@ export default function Footer() {
               <a href="mailto:helpsalepxl@gmail.com" className="hover:text-white transition-colors">
                 helpsalepxl@gmail.com
               </a>
+            </div>
+            <div className="flex items-center gap-2 group">
+              <MapPin className="w-3.5 h-3.5 text-primary shrink-0" />
+              <span>Sector 15, Navi Mumbai-410209, Maharashtra</span>
             </div>
           </div>
         </div>

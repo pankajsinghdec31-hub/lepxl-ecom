@@ -327,7 +327,7 @@ export default function InvoiceGenerator() {
                 <div>
                   <h2 className="text-2xl font-bold font-grotesk tracking-tight text-neutral-900">SalePixel</h2>
                   <p className="text-[10px] text-neutral-400 mt-1 leading-relaxed max-w-xs font-light">
-                    Dehradun, Uttarakhand, India<br />
+                    Sector 15, Navi Mumbai-410209, Maharashtra<br />
                     helpsalepxl@gmail.com · +91 9917780656
                   </p>
                 </div>

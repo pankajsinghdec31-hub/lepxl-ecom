@@ -1807,9 +1807,14 @@ export default function HomePage() {
             </a>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-8 text-xs text-white/50 pt-6 border-t border-white/[0.08] w-full max-w-lg">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mt-8 text-xs text-white/50 pt-6 border-t border-white/[0.08] w-full max-w-2xl text-center sm:text-left">
             <div className="flex items-center gap-2">
-              <Building className="w-4 h-4 text-primary" />
+              <MapPin className="w-4 h-4 text-primary shrink-0" />
+              <span>Sector 15, Navi Mumbai-410209, Maharashtra</span>
+            </div>
+            <div className="hidden sm:block text-white/10">|</div>
+            <div className="flex items-center gap-2">
+              <Building className="w-4 h-4 text-primary shrink-0" />
               <span>Registered Enterprise: SALEPXL</span>
             </div>
           </div>
