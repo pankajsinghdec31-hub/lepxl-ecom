@@ -1322,12 +1322,14 @@ export default function HomePage() {
 
             {/* CTA buttons — Full-width stacked on mobile, auto-width left-aligned on desktop */}
             <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row items-center justify-start gap-3 w-full sm:w-auto max-w-sm sm:max-w-none animate-fade-blur" style={{ animationDelay: "0.15s" }}>
-              <button
-                onClick={() => setShowFormModal(true)}
+              <a
+                href="https://calendly.com/salepxl/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-full sm:w-auto btn-primary inline-flex items-center justify-center gap-2 px-8 h-13 rounded-full text-black bg-white text-xs sm:text-sm font-bold shadow-sm cursor-pointer"
               >
                 Start with SalePXL
-              </button>
+              </a>
               <a
                 href="https://wa.me/919917780656?text=Hi%20SalePXL%20team%2C%20I'd%20like%20to%20discuss%20building%20a%20high-converting%20Shopify%20store."
                 target="_blank"
