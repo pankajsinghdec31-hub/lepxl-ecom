@@ -82,7 +82,7 @@ export default function ServicesPage() {
             SalePXL Shopify <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent font-normal font-sans">Development</span>
           </h1>
           <p className="text-neutral-600 text-xs sm:text-base leading-relaxed max-w-2xl mx-auto font-sans">
-            Traffic comes from anywhere, but trust comes from your store. We build custom, speed-optimized Shopify Stores and engineer high-converting purchase paths. No pre-made templates—just custom High Converting Ecommerce Store engineering.
+            Traffic comes from anywhere, but trust comes from your store. We build custom, speed-optimized Shopify Stores and craft high-converting purchase paths. No pre-made templates—just custom High Converting Ecommerce Store development by Shopify Experts.
           </p>
         </div>
 

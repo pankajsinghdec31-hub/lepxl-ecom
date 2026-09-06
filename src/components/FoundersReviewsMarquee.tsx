@@ -80,7 +80,7 @@ export default function FoundersReviewsMarquee() {
           Trusted by <span className="text-[#22E39A] font-normal">100+ D2C Founders</span>
         </h2>
         <p className="text-xs sm:text-sm text-neutral-400 max-w-xl mx-auto mt-3 font-sans leading-relaxed">
-          See how high-converting Shopify stores engineered by SalePXL drive measurable growth and revenue for D2C brands.
+          See how high-converting Shopify stores built by SalePXL Shopify Experts drive measurable growth and revenue for D2C brands.
         </p>
       </div>
 

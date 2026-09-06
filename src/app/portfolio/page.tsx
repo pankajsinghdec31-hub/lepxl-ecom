@@ -606,7 +606,7 @@ export default function PortfolioPage() {
             </span>
           </h1>
           <p className="text-neutral-600 text-xs sm:text-base leading-relaxed max-w-2xl mx-auto font-sans">
-            Browse our curated portfolio of custom Shopify stores, Liquid theme builds, speed-optimized architectures, and high-converting e-commerce experiences engineered for scaling D2C brands.
+            Browse our curated portfolio of custom Shopify stores, Liquid theme builds, speed-optimized architectures, and high-converting e-commerce experiences built by Shopify Experts for scaling D2C brands.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 mt-2 sm:mt-4 font-sans">
             <a
@@ -634,7 +634,7 @@ export default function PortfolioPage() {
           <div className="flex flex-col gap-2 sm:gap-3 text-left">
             <span className="text-[10px] sm:text-xs text-emerald-700 uppercase tracking-widest font-mono font-bold">Shopify E-Commerce Showcase</span>
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-neutral-900 font-grotesk">Custom Shopify Stores Built for High Conversions</h2>
-            <p className="text-xs sm:text-sm text-neutral-500 max-w-xl font-sans">Every store engineered with clean Liquid code, mobile-first purchase paths, sub-second speed tuning, and high-converting Shopify designs.</p>
+            <p className="text-xs sm:text-sm text-neutral-500 max-w-xl font-sans">Every store built by Shopify Experts with clean Liquid code, mobile-first purchase paths, sub-second speed tuning, and high-converting Shopify designs.</p>
           </div>
 
 

@@ -24,7 +24,7 @@ export default function AboutPage() {
             </span>
           </h1>
           <p className="text-neutral-600 text-sm sm:text-lg leading-relaxed max-w-2xl mx-auto font-sans">
-            With 5 years of hands-on D2C engineering experience, we focus exclusively on e-commerce. Every team member brings deep store analytics expertise and custom UI/UX design to turn browsers into loyal buyers.
+            With 5 years of hands-on D2C Shopify Expert experience, we focus exclusively on e-commerce. Every team member brings deep store analytics expertise and custom UI/UX design to turn browsers into loyal buyers.
           </p>
         </div>
 
@@ -48,7 +48,7 @@ export default function AboutPage() {
             </div>
             <h3 className="text-xl font-bold text-neutral-900 font-grotesk">5+ Years Store Analytics Expertise</h3>
             <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed">
-              Every engineer and designer on our team has hands-on e-commerce store analytics experience, optimizing conversion funnels, checkout drop-offs, and ROAS.
+              Every Shopify Expert and designer on our team has hands-on e-commerce store analytics experience, optimizing conversion funnels, checkout drop-offs, and ROAS.
             </p>
           </div>
 
@@ -58,7 +58,7 @@ export default function AboutPage() {
             </div>
             <h3 className="text-xl font-bold text-neutral-900 font-grotesk">100% Exclusively E-Commerce</h3>
             <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed">
-              We do not build corporate landing pages or generic sites. We build only high-converting Shopify e-commerce stores engineered for mobile speed and conversions.
+              We do not build corporate landing pages or generic sites. We build only high-converting Shopify e-commerce stores built by Shopify Experts for mobile speed and conversions.
             </p>
           </div>
         </section>

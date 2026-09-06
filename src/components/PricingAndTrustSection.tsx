@@ -9,7 +9,7 @@ import {
 import LeadCaptureModal from "@/components/LeadCaptureModal";
 import FoundersReviewsMarquee from "@/components/FoundersReviewsMarquee";
 
-export default function PricingAndTrustSection() {
+export default function PricingAndTrustSection({ showMarquee = true }: { showMarquee?: boolean }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedBudget, setSelectedBudget] = useState("Under ₹29,999");
   const [selectedPlanName, setSelectedPlanName] = useState("");
@@ -97,7 +97,7 @@ export default function PricingAndTrustSection() {
     <div className="w-full bg-white text-neutral-900 overflow-hidden">
       
       {/* AUTO-SCROLLING FOUNDERS & TEAMS REVIEWS MARQUEE */}
-      <FoundersReviewsMarquee />
+      {showMarquee && <FoundersReviewsMarquee />}
 
       {/* ─────────────────────────────────────────────────────────────────── */}
       {/* SECTION 2: SHOPIFY STORE PACKAGES (Deliverables Agency Light Theme) */}
@@ -135,7 +135,7 @@ export default function PricingAndTrustSection() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-neutral-600 text-sm sm:text-base font-light max-w-xl mx-auto font-sans"
             >
-              Transparent packages engineered for high conversions and long-term brand scaling.
+              Transparent packages built by Shopify Experts for high conversions and long-term brand scaling.
             </motion.p>
           </div>
 
