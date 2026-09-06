@@ -213,7 +213,7 @@ export default function LeadCaptureModal({
                 <div className="pt-6 border-t border-white/10">
                   <img
                     src="/logo.png"
-                    alt="SalePXL Logo"
+                    alt="SalePixel - Shopify Agency"
                     className="h-7 w-auto object-contain invert hue-rotate-180"
                   />
                 </div>

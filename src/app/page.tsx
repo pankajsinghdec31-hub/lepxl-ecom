@@ -1294,6 +1294,9 @@ export default function HomePage() {
         {/* ── HERO CONTENT — anchored bottom-left like Shopify ── */}
         <div className="absolute bottom-0 left-0 right-0 pb-12 sm:pb-20 z-10">
           <div className="max-w-[1360px] mx-auto px-6">
+            {/* Primary SEO Heading */}
+            <h1 className="sr-only">SalePixel | Premium Shopify Design & Development Agency</h1>
+
             {/* Agency badge */}
             <div className="mb-3 sm:mb-4 animate-fade-blur flex justify-start">
               <span className="inline-flex items-center gap-2 text-[10px] sm:text-[11px] font-semibold tracking-widest uppercase px-3.5 py-1.5 rounded-full border border-white/20 bg-white/[0.06] text-white/80 backdrop-blur-sm">
@@ -1303,9 +1306,9 @@ export default function HomePage() {
             </div>
 
             {/* Giant headline */}
-            <h1 className="text-[2.65rem] xs:text-[3.25rem] sm:text-6xl md:text-7xl lg:text-[4.75rem] font-light text-white leading-[1.15] tracking-tight max-w-4xl animate-fade-blur text-left font-grotesk" style={{ animationDelay: "0.05s" }}>
+            <h2 className="text-[2.65rem] xs:text-[3.25rem] sm:text-6xl md:text-7xl lg:text-[4.75rem] font-light text-white leading-[1.15] tracking-tight max-w-4xl animate-fade-blur text-left font-grotesk" style={{ animationDelay: "0.05s" }}>
               Build. Launch. <span className="premium-highlight">Scale.</span>
-            </h1>
+            </h2>
 
             {/* Sub-copy */}
             <p className="mt-4 sm:mt-5 text-white/70 text-lg sm:text-xl font-light leading-relaxed max-w-xl animate-fade-blur text-left" style={{ animationDelay: "0.1s" }}>

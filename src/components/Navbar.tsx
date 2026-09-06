@@ -100,7 +100,7 @@ export default function Navbar() {
           >
             <img 
               src="/logo.png" 
-              alt="SalePXL Logo" 
+              alt="SalePixel - Shopify Design & Development Agency" 
               className={`h-9 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02] ${
                 isContactPage ? "" : "invert hue-rotate-180"
               }`}

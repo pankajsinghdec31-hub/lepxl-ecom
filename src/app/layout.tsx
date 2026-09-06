@@ -93,6 +93,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
+        <meta name="title" content="SalePixel | Premium Shopify Design & Development Agency" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800,700,500,400,300,100&display=swap" rel="stylesheet" />
