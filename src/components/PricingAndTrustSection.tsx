@@ -7,9 +7,8 @@ import {
   ArrowRight
 } from "lucide-react";
 import LeadCaptureModal from "@/components/LeadCaptureModal";
-import FoundersReviewsMarquee from "@/components/FoundersReviewsMarquee";
 
-export default function PricingAndTrustSection({ showMarquee = true }: { showMarquee?: boolean }) {
+export default function PricingAndTrustSection() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedBudget, setSelectedBudget] = useState("Under ₹29,999");
   const [selectedPlanName, setSelectedPlanName] = useState("");
@@ -96,8 +95,7 @@ export default function PricingAndTrustSection({ showMarquee = true }: { showMar
   return (
     <div className="w-full bg-white text-neutral-900 overflow-hidden">
       
-      {/* AUTO-SCROLLING FOUNDERS & TEAMS REVIEWS MARQUEE */}
-      {showMarquee && <FoundersReviewsMarquee />}
+
 
       {/* ─────────────────────────────────────────────────────────────────── */}
       {/* SECTION 2: SHOPIFY STORE PACKAGES (Deliverables Agency Light Theme) */}
