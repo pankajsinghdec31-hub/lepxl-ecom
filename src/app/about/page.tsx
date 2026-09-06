@@ -14,9 +14,6 @@ export default function AboutPage() {
         
         {/* Page Header */}
         <div className="text-center max-w-4xl mx-auto flex flex-col gap-4 sm:gap-6">
-          <span className="text-xs font-mono font-bold uppercase tracking-[0.25em] text-emerald-600">
-            About SalePXL
-          </span>
           <h1 className="text-3xl sm:text-5xl md:text-6xl font-light tracking-tight leading-tight text-neutral-900 font-grotesk">
             We Build High-Converting <br />
             <span className="font-normal bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent font-sans">

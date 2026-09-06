@@ -1453,9 +1453,6 @@ export default function HomePage() {
         <div className="max-w-[1360px] mx-auto px-6">
           {/* Header */}
           <div className="text-center mb-16 flex flex-col items-center">
-            <span className="text-xs font-mono font-bold uppercase tracking-[0.25em] text-emerald-400 mb-3">
-              Precision Execution: Our 6-Step Shopify Growth Blueprint
-            </span>
             <h2 className="premium-heading text-3xl sm:text-4xl lg:text-[2.75rem] font-light text-white tracking-tight font-grotesk">
               How SalePXL Builds a <span className="premium-highlight">High-Converting Store</span>
             </h2>
