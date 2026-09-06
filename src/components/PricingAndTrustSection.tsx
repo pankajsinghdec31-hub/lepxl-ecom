@@ -168,7 +168,7 @@ export default function PricingAndTrustSection() {
                             : "bg-white text-neutral-900 border border-neutral-900 hover:bg-neutral-900 hover:text-white active:scale-95"
                         }`}
                       >
-                        <span>Discuss This Plan</span>
+                        <span>Know More</span>
                         <ArrowRight className="w-3.5 h-3.5" />
                       </button>
                     </div>
