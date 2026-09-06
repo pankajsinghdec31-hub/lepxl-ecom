@@ -1809,11 +1809,6 @@ export default function HomePage() {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-8 text-xs text-white/50 pt-6 border-t border-white/[0.08] w-full max-w-lg">
             <div className="flex items-center gap-2">
-              <MapPin className="w-4 h-4 text-primary" />
-              <span>Dehradun, Uttarakhand, India</span>
-            </div>
-            <div className="hidden sm:block text-white/10">|</div>
-            <div className="flex items-center gap-2">
               <Building className="w-4 h-4 text-primary" />
               <span>Registered Enterprise: SALEPXL</span>
             </div>
