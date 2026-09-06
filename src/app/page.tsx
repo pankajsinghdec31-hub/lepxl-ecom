@@ -1089,19 +1089,8 @@ export default function HomePage() {
   const [activeFunnelStep, setActiveFunnelStep] = useState(0);
   const [isOptimizedStore, setIsOptimizedStore] = useState(true);
 
-  // Process Timeline States
-  const [activeProcessStep, setActiveProcessStep] = useState(0);
-
-  // Auto-cycle Build / Launch / Scale steps automatically on mobile
-  useEffect(() => {
-    const timer = setInterval(() => {
-      if (typeof window !== "undefined" && window.innerWidth < 768) {
-        setActiveProcessStep((prev) => (prev + 1) % 3);
-      }
-    }, 3200);
-
-    return () => clearInterval(timer);
-  }, []);
+  // Process Timeline States (defaults to null so content does not auto-open on mobile)
+  const [activeProcessStep, setActiveProcessStep] = useState<number | null>(null);
   const [wireframeLayout, setWireframeLayout] = useState<Record<string, boolean>>({
     announcement: true,
     hero: true,
@@ -1498,21 +1487,30 @@ export default function HomePage() {
                   return (
                     <div
                       key={idx}
-                      onMouseEnter={() => setActiveProcessStep(idx)}
-                      onClick={() => setActiveProcessStep(idx)}
+                      onMouseEnter={() => {
+                        if (typeof window !== "undefined" && window.innerWidth >= 768) {
+                          setActiveProcessStep(idx);
+                        }
+                      }}
+                      onClick={() => setActiveProcessStep(isActive ? null : idx)}
                       className="group cursor-pointer py-6 border-b border-white/[0.08] flex flex-col gap-2 transition-all duration-300"
                     >
-                      <div className="flex items-baseline gap-5">
-                        <span className={`font-mono text-sm font-bold transition-colors duration-300 ${
-                          isActive ? "text-primary" : "text-white/40 group-hover:text-primary/70"
-                        }`}>
-                          {step.num}
+                      <div className="flex items-baseline justify-between">
+                        <div className="flex items-baseline gap-5">
+                          <span className={`font-mono text-sm font-bold transition-colors duration-300 ${
+                            isActive ? "text-primary" : "text-white/40 group-hover:text-primary/70"
+                          }`}>
+                            {step.num}
+                          </span>
+                          <h3 className={`text-xl sm:text-2xl font-light tracking-tight transition-colors duration-300 ${
+                            isActive ? "text-white" : "text-[#8e8e93] group-hover:text-white"
+                          }`}>
+                            {step.title}
+                          </h3>
+                        </div>
+                        <span className="text-white/40 text-sm font-mono font-bold shrink-0">
+                          {isActive ? "−" : "+"}
                         </span>
-                        <h3 className={`text-xl sm:text-2xl font-light tracking-tight transition-colors duration-300 ${
-                          isActive ? "text-white" : "text-[#8e8e93] group-hover:text-white"
-                        }`}>
-                          {step.title}
-                        </h3>
                       </div>
                       <AnimatePresence>
                         {isActive && (
