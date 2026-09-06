@@ -1356,7 +1356,7 @@ export default function HomePage() {
                   Convert <span className="light-gradient-text font-normal">every visitor</span> into a loyal customer.
                 </span>
                 <span className="premium-highlight text-white transition-all duration-300 hover:text-primary cursor-default">High-converting stores.</span>
-                <span className="text-white/60 transition-all duration-300 hover:text-white cursor-default">Seamless mobile checkout.</span>
+                <span className="text-white/60 transition-all duration-300 hover:text-white cursor-default">Conversion Focused User Journey.</span>
               </h2>
             </div>
             
