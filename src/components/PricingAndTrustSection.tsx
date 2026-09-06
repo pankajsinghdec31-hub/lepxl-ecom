@@ -10,11 +10,13 @@ import {
   ArrowRight
 } from "lucide-react";
 import LeadCaptureModal from "@/components/LeadCaptureModal";
+import FoundersReviewsMarquee from "@/components/FoundersReviewsMarquee";
 
 export default function PricingAndTrustSection() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedBudget, setSelectedBudget] = useState("Under ₹29,999/-");
   const [selectedPlanName, setSelectedPlanName] = useState("");
+
 
   const PRICING_PLANS = [
     {
@@ -84,10 +86,14 @@ export default function PricingAndTrustSection() {
   return (
     <div className="w-full bg-[#050505] text-white overflow-hidden">
       
+      {/* AUTO-SCROLLING FOUNDERS & TEAMS REVIEWS MARQUEE */}
+      <FoundersReviewsMarquee />
+
       {/* ─────────────────────────────────────────────────────────────────── */}
       {/* SECTION 2: AFFORDABLE PRICING. EXPERIENCED TEAM. */}
       {/* ─────────────────────────────────────────────────────────────────── */}
       <section className="relative py-20 sm:py-32 px-6 bg-gradient-to-b from-[#050505] via-[#070d14] to-[#050505] border-t border-white/[0.08]">
+
 
         <div className="max-w-[1360px] mx-auto flex flex-col gap-16 relative z-10">
           
