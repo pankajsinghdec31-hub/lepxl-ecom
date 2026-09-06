@@ -6,8 +6,8 @@
 }
 
 @theme {
-  --font-sans: "Plus Jakarta Sans", "Neue Haas Grotesk", -apple-system, sans-serif;
-  --font-grotesk: "Plus Jakarta Sans", "Neue Haas Grotesk", -apple-system, sans-serif;
+  --font-sans: "Cabinet Grotesk", "Cabinet Grotesk Placeholder", sans-serif;
+  --font-grotesk: "Cabinet Grotesk", "Cabinet Grotesk Placeholder", sans-serif;
   --font-mono: 'Geist Mono', monospace;
   --color-primary: #22E39A;
   --color-primary-hover: #34F5AE;
@@ -255,7 +255,7 @@ body.home-page main {
 
 /* Align all section headings from hero to footer with the inspected Shopify reference style */
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Plus Jakarta Sans", "Neue Haas Grotesk", Helvetica, Arial, sans-serif !important;
+  font-family: "Cabinet Grotesk", "Cabinet Grotesk Placeholder", sans-serif !important;
   font-weight: 300 !important;
   text-transform: none !important;
   letter-spacing: -0.03em !important;
