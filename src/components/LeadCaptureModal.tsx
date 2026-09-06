@@ -21,6 +21,7 @@ export default function LeadCaptureModal({
   const [mobileNumber, setMobileNumber] = useState("");
   const [businessEmail, setBusinessEmail] = useState("");
   const [selectedServices, setSelectedServices] = useState<string[]>(["New Shopify Store Build"]);
+  const [brandCategory, setBrandCategory] = useState("Fashion & Apparel");
   const [storeUrl, setStoreUrl] = useState("");
   const [budget, setBudget] = useState(defaultBudget);
   const [authorized, setAuthorized] = useState(true);
@@ -68,6 +69,7 @@ export default function LeadCaptureModal({
       name: fullName,
       email: businessEmail,
       phone: mobileNumber,
+      brandCategory: brandCategory || "General E-commerce",
       services: selectedServices.join(", "),
       storeUrl: storeUrl || "N/A",
       budgetRange: budget,
@@ -295,16 +297,37 @@ export default function LeadCaptureModal({
                   </div>
                 </div>
 
-                {/* Store URL */}
-                <div>
-                  <input
-                    type="text"
-                    placeholder="Store Name or Website Url"
-                    value={storeUrl}
-                    onChange={(e) => setStoreUrl(e.target.value)}
-                    className="w-full bg-white/[0.04] border border-emerald-500/30 rounded-xl px-4 py-3 text-xs sm:text-sm text-white placeholder-white/40 focus:outline-none focus:border-emerald-400 transition-colors shadow-[0_0_15px_rgba(34,227,154,0.05)]"
-                  />
+                {/* Brand Category & Store URL (2 Columns) */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <select
+                      value={brandCategory}
+                      onChange={(e) => setBrandCategory(e.target.value)}
+                      className="w-full bg-[#0c141d] border border-white/15 rounded-xl px-4 py-3 text-xs sm:text-sm text-white placeholder-white/40 focus:outline-none focus:border-emerald-400 transition-colors appearance-none cursor-pointer"
+                    >
+                      <option value="Fashion & Apparel">Fashion & Apparel</option>
+                      <option value="Beauty & Skincare">Beauty & Skincare</option>
+                      <option value="Health & Supplements">Health & Supplements</option>
+                      <option value="Electronics & Accessories">Electronics & Accessories</option>
+                      <option value="Jewelry & Watches">Jewelry & Watches</option>
+                      <option value="Food & Beverage">Food & Beverage</option>
+                      <option value="Home & Living">Home & Living</option>
+                      <option value="Fitness & Sports">Fitness & Sports</option>
+                      <option value="Dropshipping">Dropshipping Store</option>
+                      <option value="Other">Other Brand Category</option>
+                    </select>
+                  </div>
+                  <div>
+                    <input
+                      type="text"
+                      placeholder="Store Name or Website Url"
+                      value={storeUrl}
+                      onChange={(e) => setStoreUrl(e.target.value)}
+                      className="w-full bg-white/[0.04] border border-emerald-500/30 rounded-xl px-4 py-3 text-xs sm:text-sm text-white placeholder-white/40 focus:outline-none focus:border-emerald-400 transition-colors shadow-[0_0_15px_rgba(34,227,154,0.05)]"
+                    />
+                  </div>
                 </div>
+
 
                 {/* Budget Selection Pills */}
                 <div>

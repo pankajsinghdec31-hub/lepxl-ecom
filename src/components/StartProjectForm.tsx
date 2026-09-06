@@ -10,6 +10,7 @@ export default function StartProjectForm({ onSuccess }: { onSuccess?: () => void
     companyUrl: "",
     email: "",
     phone: "",
+    brandCategory: "Fashion & Apparel",
     serviceType: "Custom Shopify Store",
     budgetRange: "₹40K - ₹75K",
     projectDetails: ""
@@ -37,6 +38,7 @@ export default function StartProjectForm({ onSuccess }: { onSuccess?: () => void
       companyUrl: "",
       email: "",
       phone: "",
+      brandCategory: "Fashion & Apparel",
       serviceType: "Custom Shopify Store",
       budgetRange: "₹40K - ₹75K",
       projectDetails: ""
@@ -77,6 +79,7 @@ export default function StartProjectForm({ onSuccess }: { onSuccess?: () => void
           storeUrl: formData.companyUrl || "N/A",
           email: formData.email,
           phone: formData.phone,
+          brandCategory: formData.brandCategory || "General E-commerce",
           service: formData.serviceType,
           budgetRange: formData.budgetRange,
           projectDetails: formData.projectDetails
@@ -177,55 +180,82 @@ export default function StartProjectForm({ onSuccess }: { onSuccess?: () => void
             </div>
           </div>
 
-          {/* Row 2: Work email (1 Column Full Width) */}
-          <div className="flex flex-col text-left">
-            <label className="text-xs text-neutral-700 font-semibold mb-1.5 block">Work email *</label>
-            <input
-              type="email"
-              name="email"
-              autoComplete="email"
-              placeholder="Work email *"
-              value={formData.email}
-              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              className={`w-full h-12 bg-neutral-50/50 border ${errors.email ? "border-red-500" : "border-neutral-200 focus:border-emerald-500 focus:bg-white"} text-neutral-900 text-sm rounded-xl px-4 outline-none transition-all placeholder:text-neutral-400`}
-            />
-            {errors.email && <span className="text-[11px] text-red-500 font-medium mt-1">{errors.email}</span>}
-          </div>
+          {/* Row 2: Work email & Phone Number (2 Columns) */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="flex flex-col text-left">
+              <label className="text-xs text-neutral-700 font-semibold mb-1.5 block">Work email *</label>
+              <input
+                type="email"
+                name="email"
+                autoComplete="email"
+                placeholder="Work email *"
+                value={formData.email}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                className={`w-full h-12 bg-neutral-50/50 border ${errors.email ? "border-red-500" : "border-neutral-200 focus:border-emerald-500 focus:bg-white"} text-neutral-900 text-sm rounded-xl px-4 outline-none transition-all placeholder:text-neutral-400`}
+              />
+              {errors.email && <span className="text-[11px] text-red-500 font-medium mt-1">{errors.email}</span>}
+            </div>
 
-          {/* Row 3: Phone number (1 Column Full Width) */}
-          <div className="flex flex-col text-left">
-            <label className="text-xs text-neutral-700 font-semibold mb-1.5 block">Phone number *</label>
-            <input
-              type="tel"
-              name="phone"
-              autoComplete="tel"
-              placeholder="Phone number *"
-              value={formData.phone}
-              onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-              className={`w-full h-12 bg-neutral-50/50 border ${errors.phone ? "border-red-500" : "border-neutral-200 focus:border-emerald-500 focus:bg-white"} text-neutral-900 text-sm rounded-xl px-4 outline-none transition-all placeholder:text-neutral-400`}
-            />
-            {errors.phone && <span className="text-[11px] text-red-500 font-medium mt-1">{errors.phone}</span>}
-          </div>
-
-          {/* Row 4: Service type (Select Dropdown) */}
-          <div className="flex flex-col text-left">
-            <label className="text-xs text-neutral-700 font-semibold mb-1.5 block">Service type *</label>
-            <div className="relative">
-              <select
-                value={formData.serviceType}
-                onChange={(e) => setFormData({ ...formData, serviceType: e.target.value })}
-                className="w-full h-12 bg-neutral-50/50 border border-neutral-200 focus:border-emerald-500 focus:bg-white text-neutral-900 text-sm rounded-xl px-4 pr-10 outline-none transition-all appearance-none cursor-pointer"
-              >
-                <option value="Custom Shopify Store">Custom Shopify Store Development</option>
-                <option value="Store Redesign & CRO">Store Redesign & Conversion Rate Optimization</option>
-                <option value="Speed & Performance Optimization">Speed & Performance Optimization</option>
-                <option value="Shopify Plus Migration">Shopify Plus Migration</option>
-                <option value="Custom App & API Integration">Custom App & Integration</option>
-                <option value="Monthly Retainer & Support">Monthly Shopify Growth Retainer</option>
-              </select>
-              <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400 pointer-events-none" />
+            <div className="flex flex-col text-left">
+              <label className="text-xs text-neutral-700 font-semibold mb-1.5 block">Phone number *</label>
+              <input
+                type="tel"
+                name="phone"
+                autoComplete="tel"
+                placeholder="Phone number *"
+                value={formData.phone}
+                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                className={`w-full h-12 bg-neutral-50/50 border ${errors.phone ? "border-red-500" : "border-neutral-200 focus:border-emerald-500 focus:bg-white"} text-neutral-900 text-sm rounded-xl px-4 outline-none transition-all placeholder:text-neutral-400`}
+              />
+              {errors.phone && <span className="text-[11px] text-red-500 font-medium mt-1">{errors.phone}</span>}
             </div>
           </div>
+
+          {/* Row 3: Brand Category & Service Type (2 Columns) */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="flex flex-col text-left">
+              <label className="text-xs text-neutral-700 font-semibold mb-1.5 block">Brand Category *</label>
+              <div className="relative">
+                <select
+                  value={formData.brandCategory}
+                  onChange={(e) => setFormData({ ...formData, brandCategory: e.target.value })}
+                  className="w-full h-12 bg-neutral-50/50 border border-neutral-200 focus:border-emerald-500 focus:bg-white text-neutral-900 text-sm rounded-xl px-4 pr-10 outline-none transition-all appearance-none cursor-pointer"
+                >
+                  <option value="Fashion & Apparel">Fashion & Apparel</option>
+                  <option value="Beauty & Skincare">Beauty & Skincare</option>
+                  <option value="Health & Supplements">Health & Supplements</option>
+                  <option value="Electronics & Accessories">Electronics & Accessories</option>
+                  <option value="Jewelry & Watches">Jewelry & Watches</option>
+                  <option value="Food & Beverage">Food & Beverage</option>
+                  <option value="Home & Living">Home & Living</option>
+                  <option value="Fitness & Sports">Fitness & Sports</option>
+                  <option value="Dropshipping">Dropshipping Store</option>
+                  <option value="Other">Other Brand Category</option>
+                </select>
+                <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400 pointer-events-none" />
+              </div>
+            </div>
+
+            <div className="flex flex-col text-left">
+              <label className="text-xs text-neutral-700 font-semibold mb-1.5 block">Service type *</label>
+              <div className="relative">
+                <select
+                  value={formData.serviceType}
+                  onChange={(e) => setFormData({ ...formData, serviceType: e.target.value })}
+                  className="w-full h-12 bg-neutral-50/50 border border-neutral-200 focus:border-emerald-500 focus:bg-white text-neutral-900 text-sm rounded-xl px-4 pr-10 outline-none transition-all appearance-none cursor-pointer"
+                >
+                  <option value="Custom Shopify Store">Custom Shopify Store Development</option>
+                  <option value="Store Redesign & CRO">Store Redesign & Conversion Rate Optimization</option>
+                  <option value="Speed & Performance Optimization">Speed & Performance Optimization</option>
+                  <option value="Shopify Plus Migration">Shopify Plus Migration</option>
+                  <option value="Custom App & API Integration">Custom App & Integration</option>
+                  <option value="Monthly Retainer & Support">Monthly Shopify Growth Retainer</option>
+                </select>
+                <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400 pointer-events-none" />
+              </div>
+            </div>
+          </div>
+
 
           {/* Row 5: Estimated Project Budget * (Horizontal Interactive Pills) */}
           <div className="flex flex-col text-left">
