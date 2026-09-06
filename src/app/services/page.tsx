@@ -113,10 +113,6 @@ export default function ServicesPage() {
                       ))}
                     </ul>
                   </div>
-                  <div className="pt-3 border-t border-neutral-200/60 flex justify-between items-center text-[10px] sm:text-xs">
-                    <span className="text-neutral-500 uppercase tracking-wider font-mono">Performance Metric</span>
-                    <span className="font-bold text-emerald-600 font-mono">{srv.metric}</span>
-                  </div>
                 </div>
               );
             })}
