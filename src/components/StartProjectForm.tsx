@@ -132,10 +132,6 @@ export default function StartProjectForm({ onSuccess }: { onSuccess?: () => void
             </span>
             <span className="flex items-center gap-1.5 font-semibold">
               <span className="w-2 h-2 rounded-full bg-[#22E39A] shadow-[0_0_8px_#22E39A]" />
-              NDA Available
-            </span>
-            <span className="flex items-center gap-1.5 font-semibold">
-              <span className="w-2 h-2 rounded-full bg-[#22E39A] shadow-[0_0_8px_#22E39A]" />
               1hr Response
             </span>
           </div>
