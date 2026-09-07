@@ -186,36 +186,35 @@ export default function LeadCaptureModal({
             <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch bg-white">
               
               {/* LEFT COLUMN: BRAND DETAILS & TRUST INFO */}
-              <div className="lg:col-span-5 p-6 sm:p-10 bg-gradient-to-br from-neutral-900 to-black text-white border-b lg:border-b-0 lg:border-r border-neutral-800 flex flex-col justify-between gap-6">
+              <div className="lg:col-span-5 p-4 sm:p-6 lg:p-10 bg-gradient-to-br from-neutral-900 to-black text-white border-b lg:border-b-0 lg:border-r border-neutral-800 flex flex-col justify-between gap-3 lg:gap-6">
                 <div>
-                  <h2 className="text-2xl sm:text-3xl font-light text-white font-grotesk leading-snug">
-                    Launch a <span className="text-[#22E39A] font-normal">High-Growth</span> <br />
-                    Shopify Store
+                  <h2 className="text-lg sm:text-2xl lg:text-3xl font-light text-white font-grotesk leading-snug">
+                    Launch a <span className="text-[#22E39A] font-normal">High-Growth</span> Shopify Store
                   </h2>
                   
-                  <p className="text-xs sm:text-sm text-neutral-300 font-sans leading-relaxed mt-3">
+                  <p className="text-[11px] sm:text-xs lg:text-sm text-neutral-300 font-sans leading-normal mt-1 sm:mt-2">
                     Tell us brief about your project needs & our team will get back to you with a clear plan to build / scale your store.
                   </p>
 
-                  <div className="space-y-2.5 mt-6 pt-6 border-t border-white/10">
-                    <div className="flex items-center gap-2.5 text-xs text-neutral-200 font-sans">
-                      <Star className="w-4 h-4 text-[#22E39A] fill-[#22E39A] shrink-0" />
-                      <span>Trusted by 100+ growing brands</span>
+                  <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 mt-2.5 pt-2.5 sm:mt-4 sm:pt-4 border-t border-white/10">
+                    <div className="flex items-center gap-1.5 text-[10px] sm:text-xs text-neutral-200 font-sans">
+                      <Star className="w-3.5 h-3.5 text-[#22E39A] fill-[#22E39A] shrink-0" />
+                      <span>Trusted by 100+ brands</span>
                     </div>
                     <a
                       href="https://calendly.com/salepxl"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2.5 text-xs text-[#22E39A] hover:text-[#1fce8b] font-sans font-medium transition-colors"
+                      className="flex items-center gap-1.5 text-[10px] sm:text-xs text-[#22E39A] hover:text-[#1fce8b] font-sans font-medium transition-colors"
                     >
-                      <PhoneCall className="w-4 h-4 text-[#22E39A] shrink-0" />
-                      <span>Book A Meeting with Us</span>
+                      <PhoneCall className="w-3.5 h-3.5 text-[#22E39A] shrink-0" />
+                      <span>Book A Meeting</span>
                     </a>
                   </div>
                 </div>
 
-                {/* Footer Brand Logo */}
-                <div className="pt-6 border-t border-white/10">
+                {/* Footer Brand Logo (Desktop only) */}
+                <div className="hidden lg:block pt-6 border-t border-white/10">
                   <img
                     src="/logo.png"
                     alt="SalePixel - Shopify Agency"
@@ -225,7 +224,7 @@ export default function LeadCaptureModal({
               </div>
 
               {/* RIGHT COLUMN: INTERACTIVE FORM (WHITE BACKGROUND) */}
-              <form onSubmit={handleSubmit} className="lg:col-span-7 p-6 sm:p-10 pt-12 sm:pt-14 flex flex-col justify-between gap-5 bg-white">
+              <form onSubmit={handleSubmit} className="lg:col-span-7 p-4 sm:p-8 lg:p-10 pt-4 sm:pt-8 lg:pt-10 flex flex-col justify-between gap-4 sm:gap-5 bg-white">
                 
                 {errorMsg && (
                   <div className="p-3 rounded-xl bg-red-50 border border-red-200 text-red-600 text-xs font-sans">
