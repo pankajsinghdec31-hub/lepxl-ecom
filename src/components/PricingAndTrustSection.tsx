@@ -10,7 +10,7 @@ import LeadCaptureModal from "@/components/LeadCaptureModal";
 
 export default function PricingAndTrustSection() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedBudget, setSelectedBudget] = useState("Under ₹29,999");
+  const [selectedBudget, setSelectedBudget] = useState("₹25000");
   const [selectedPlanName, setSelectedPlanName] = useState("");
 
   const PRICING_PLANS = [
@@ -21,7 +21,7 @@ export default function PricingAndTrustSection() {
       price: "₹25,000",
       priceSub: "Starting at",
       isPopular: false,
-      budgetCategory: "Under ₹29,999",
+      budgetCategory: "₹25000",
       features: [
         "Custom Liquid sections based on requirements",
         "CRO-focused store structure & mobile design",
@@ -39,7 +39,7 @@ export default function PricingAndTrustSection() {
       priceSub: "Starting at",
       isPopular: true,
       badge: "MOST POPULAR",
-      budgetCategory: "₹30,000 - ₹79,999",
+      budgetCategory: "₹40000",
       features: [
         "A+ product imagery & banner presentation",
         "Fully customized Liquid sections & PDP layouts",
@@ -56,7 +56,7 @@ export default function PricingAndTrustSection() {
       price: "₹60,000",
       priceSub: "Starting at",
       isPopular: false,
-      budgetCategory: "80,000+",
+      budgetCategory: "₹60000",
       features: [
         "Fully customized bespoke store experience",
         "Advanced product & landing-page customization",
