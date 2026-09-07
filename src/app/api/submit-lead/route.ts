@@ -11,6 +11,7 @@ interface LeadPayload {
   monthlyRevenue?: string;
   projectBudget?: string;
   service?: string;
+  services?: string;
   budgetRange?: string;
   timeline?: string;
   productsCount?: string;
@@ -18,6 +19,8 @@ interface LeadPayload {
   projectDetails?: string;
   referenceLink?: string;
   brandName?: string;
+  brandCategory?: string;
+  planSelected?: string;
   projectCategory?: string;
   platform?: string;
   contactName?: string;
@@ -45,6 +48,8 @@ function buildEmailHtml(data: LeadPayload): string {
       ? "🚀 Start Project Form"
       : data.source === "enquiry-box"
       ? "📬 Enquiry Box"
+      : data.source === "pricing-connect-modal"
+      ? "💼 Pricing Connect Lead Modal"
       : "🔍 Shopify Growth Audit";
 
   const name = data.name || data.contactName || "Unknown";
@@ -77,11 +82,12 @@ function buildEmailHtml(data: LeadPayload): string {
       <p style="margin:0 0 12px;font-size:12px;font-weight:700;color:#9ca3af;letter-spacing:1.5px;text-transform:uppercase;">Lead Details</p>
       <table style="width:100%;border-collapse:collapse;border:1px solid #f0f0f0;">
         ${row("Source", sourceLabel)}
-        ${row("Business / Brand", data.businessName || data.brandName)}
-        ${row("Website", data.website || data.storeUrl)}
+        ${row("Business / Brand", data.brandCategory || data.brandName || data.businessName)}
+        ${row("Website / Store URL", data.storeUrl || data.website)}
+        ${row("Selected Plan", data.planSelected)}
+        ${row("Project Budget", data.budgetRange || data.projectBudget)}
+        ${row("Service(s) Interested", data.services || data.service || data.projectCategory)}
         ${row("Monthly Revenue", data.monthlyRevenue)}
-        ${row("Project Budget", data.projectBudget || data.budgetRange)}
-        ${row("Service", data.service || data.projectCategory)}
         ${row("Timeline", data.timeline)}
         ${row("Products Count", data.productsCount)}
         ${row("Photoshoot Available", data.photoshootAvailable)}
@@ -119,7 +125,6 @@ export async function POST(req: NextRequest) {
 
     if (gmailUser && gmailPass) {
       try {
-        // Dynamic import to avoid build errors when package is absent
         const nodemailer = await import("nodemailer");
         const transporter = nodemailer.default.createTransport({
           service: "gmail",
@@ -130,12 +135,11 @@ export async function POST(req: NextRequest) {
           from: `"SalePXL Leads" <${gmailUser}>`,
           to: notifyEmail,
           replyTo: email || undefined,
-          subject: `New Lead: ${name} — ${data.service || data.projectCategory || data.source}`,
+          subject: `New Lead: ${name} — ${data.services || data.service || data.planSelected || data.source}`,
           html: buildEmailHtml(data),
         });
       } catch (emailErr) {
         console.error("[submit-lead] Email error:", emailErr);
-        // Continue — don't fail the whole request if email fails
       }
     }
 
@@ -145,21 +149,26 @@ export async function POST(req: NextRequest) {
       try {
         const sheetPayload = {
           timestamp: new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" }),
-          source: data.source,
+          source: data.source || "pricing-connect-modal",
           name,
           email,
           phone,
-          service: data.service || data.projectCategory || "",
-          budgetRange: data.budgetRange || "",
+          services: data.services || data.service || data.projectCategory || "",
+          service: data.service || data.services || data.projectCategory || "",
+          budgetRange: data.budgetRange || data.projectBudget || "",
+          projectBudget: data.projectBudget || data.budgetRange || "",
+          brandCategory: data.brandCategory || data.brandName || data.businessName || "",
+          brandName: data.brandName || data.brandCategory || data.businessName || "",
+          storeUrl: data.storeUrl || data.website || "",
+          website: data.website || data.storeUrl || "",
+          planSelected: data.planSelected || "",
           timeline: data.timeline || "",
           productsCount: data.productsCount || "",
           photoshootAvailable: data.photoshootAvailable || "",
-          brandName: data.brandName || "",
           platform: data.platform || "",
-          storeUrl: data.storeUrl || "",
           revenueLeakage: data.revenueLeakage || "",
           referenceLink: data.referenceLink || "",
-          projectDetails: data.projectDetails || "",
+          projectDetails: data.projectDetails || (data.planSelected ? `Selected Plan: ${data.planSelected}` : ""),
         };
 
         await fetch(webhookUrl, {
@@ -169,7 +178,6 @@ export async function POST(req: NextRequest) {
         });
       } catch (sheetErr) {
         console.error("[submit-lead] Sheets error:", sheetErr);
-        // Continue — don't fail the whole request if sheets fails
       }
     }
 

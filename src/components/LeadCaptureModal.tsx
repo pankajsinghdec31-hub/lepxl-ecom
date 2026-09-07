@@ -72,15 +72,20 @@ export default function LeadCaptureModal({
     setIsSubmitting(true);
 
     const payload = {
+      source: "pricing-connect-modal",
       name: fullName,
       email: businessEmail,
       phone: mobileNumber,
       brandCategory: brandCategory || "General E-commerce",
+      brandName: brandCategory || "General E-commerce",
+      service: selectedServices.join(", "),
       services: selectedServices.join(", "),
       storeUrl: storeUrl || "N/A",
+      website: storeUrl || "N/A",
       budgetRange: budget,
+      projectBudget: budget,
       planSelected: defaultPlanName || "General Enquiry",
-      source: "pricing-connect-modal"
+      projectDetails: defaultPlanName ? `Plan Selected: ${defaultPlanName}` : "General Enquiry"
     };
 
     try {
