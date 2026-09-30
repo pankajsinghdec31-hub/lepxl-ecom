@@ -1,15 +1,24 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Shopify Store Portfolio | Recent Custom D2C Store Builds",
+  title: "Shopify Portfolio | High Converting Shopify Store & Dropshipping Builds",
   description:
-    "Browse SalePixel's portfolio of high-converting Shopify store designs, custom Liquid builds, and brand transformations across beauty, apparel, and lifestyle.",
+    "Explore high converting Shopify stores and custom dropshipping store setups engineered by SalePXL, the best ecommerce agency for scaling D2C brands.",
+  keywords: [
+    "High Converting Shopify Store",
+    "best ecommerce agency",
+    "dropshipping store",
+    "custom shopify",
+    "ecommerce development",
+    "shopify portfolio",
+    "custom shopify store examples"
+  ],
   alternates: {
     canonical: "https://salepxl.com/portfolio",
   },
   openGraph: {
-    title: "Shopify Store Portfolio | SalePixel Agency",
-    description: "Explore real D2C Shopify store builds engineered for conversion speed and premium brand appeal.",
+    title: "Shopify Portfolio | SalePXL — High Converting Shopify Store",
+    description: "Explore real D2C and dropshipping Shopify store builds engineered for conversion speed and premium brand appeal.",
     url: "https://salepxl.com/portfolio",
   },
 };

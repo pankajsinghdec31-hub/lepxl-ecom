@@ -1,15 +1,24 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Shopify & E-Commerce Blog | D2C Masterclasses & CRO Guides",
+  title: "Shopify & Ecommerce Blog | High Converting Shopify Store Guides | SalePXL",
   description:
-    "Expert Shopify insights, payment gateway guides, shipping comparison, dropshipping tutorials, and conversion optimization strategies by SalePixel.",
+    "Expert ecommerce guides on building a high converting Shopify store, dropshipping store setups, custom Shopify development, payment gateways, and CRO strategies by SalePXL.",
+  keywords: [
+    "High Converting Shopify Store",
+    "best ecommerce agency",
+    "dropshipping store",
+    "custom shopify",
+    "ecommerce development",
+    "shopify blog",
+    "ecommerce guides"
+  ],
   alternates: {
     canonical: "https://salepxl.com/blog",
   },
   openGraph: {
-    title: "Shopify & D2C Growth Masterclasses | SalePixel Blog",
-    description: "In-depth guides on Shopify store development, payment gateways, logistics, and D2C brand scaling.",
+    title: "Shopify & Ecommerce Blog | SalePXL — High Converting Shopify Store",
+    description: "In-depth guides on high converting Shopify stores, dropshipping store setups, and custom ecommerce development.",
     url: "https://salepxl.com/blog",
   },
 };

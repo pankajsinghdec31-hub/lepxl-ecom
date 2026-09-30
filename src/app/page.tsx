@@ -40,6 +40,18 @@ import PricingAndTrustSection from "@/components/PricingAndTrustSection";
 // FAQ Items
 const FAQ_ITEMS = [
   {
+    q: "Why is SalePXL considered the best ecommerce agency for a high converting Shopify store?",
+    a: "SalePXL combines conversion-rate optimization (CRO), sub-second page speed engineering, and bespoke Liquid UI/UX. We don't just build pretty themes — we engineer high converting Shopify stores designed from the ground up to maximize Average Order Value (AOV) and return on ad spend (ROAS)."
+  },
+  {
+    q: "Do you build custom Shopify dropshipping stores?",
+    a: "Yes! We specialize in turnkey, high-converting dropshipping store setups. From winning product page layouts, high-trust badges, and sticky cart drawers to supplier app synchronization and automated tracking, we build dropshipping stores ready to scale profitably."
+  },
+  {
+    q: "What custom Shopify and ecommerce development services do you offer?",
+    a: "We offer end-to-end ecommerce development: bespoke Shopify theme design, custom Liquid section coding, third-party ERP/CRM integrations, custom product bundlers, speed optimization (90+ mobile Core Web Vitals), and CRO funnel architecture."
+  },
+  {
     q: "What is your typical project delivery timeline?",
     a: "Our standard delivery timeline is 3 to 7 days, depending on the complexity and custom features required for your Shopify store."
   },
@@ -1275,13 +1287,13 @@ export default function HomePage() {
         <div className="absolute bottom-0 left-0 right-0 pb-12 sm:pb-20 z-10">
           <div className="max-w-[1360px] mx-auto px-6">
             {/* Primary SEO Heading */}
-            <h1 className="sr-only">SalePixel | Premium Shopify Design & Development Agency</h1>
+            <h1 className="sr-only">SalePXL — High Converting Shopify Store | Best Ecommerce Agency & Dropshipping Store Development</h1>
 
             {/* Agency badge */}
             <div className="mb-3 sm:mb-4 animate-fade-blur flex justify-start">
               <span className="inline-flex items-center gap-2 text-[10px] sm:text-[11px] font-semibold tracking-widest uppercase px-3.5 py-1.5 rounded-full border border-white/20 bg-white/[0.06] text-white/80 backdrop-blur-sm">
                 <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-                100+ Stores Built • High-Converting Design
+                High Converting Shopify Store • Best Ecommerce Agency
               </span>
             </div>
 
@@ -1292,7 +1304,7 @@ export default function HomePage() {
 
             {/* Sub-copy */}
             <p className="mt-4 sm:mt-5 text-white/70 text-lg sm:text-xl font-light leading-relaxed max-w-xl animate-fade-blur text-left" style={{ animationDelay: "0.1s" }}>
-              Traffic comes from anywhere, but trust comes from your store.
+              Traffic comes from anywhere, but trust & conversions come from your store. We engineer high converting Shopify stores, dropshipping stores, and custom ecommerce solutions built to turn visitors into buyers.
             </p>
 
             {/* CTA buttons — Full-width stacked on mobile, auto-width left-aligned on desktop */}
@@ -1320,7 +1332,9 @@ export default function HomePage() {
             <div className="mt-5 sm:mt-7 hidden sm:flex flex-row flex-wrap items-center justify-start gap-x-3 gap-y-2 animate-fade-blur text-xs" style={{ animationDelay: "0.2s" }}>
               <span className="text-white/80 font-medium">100+ Stores Built</span>
               <span className="text-white/30">•</span>
-              <span className="text-primary font-semibold">High-Converting Design</span>
+              <span className="text-primary font-semibold">High Converting Shopify Store</span>
+              <span className="text-white/30">•</span>
+              <span className="text-white/80 font-medium">Best Ecommerce Agency</span>
             </div>
           </div>
         </div>

@@ -7,33 +7,46 @@ import MainWrapper from "@/components/MainWrapper";
 
 export const metadata: Metadata = {
   title: {
-    default: "SalePixel | Premium Shopify Design & Development Agency",
-    template: "%s | SalePixel Shopify Agency",
+    default: "SalePXL — High Converting Shopify Store | Best Ecommerce Agency",
+    template: "%s | SalePXL — High Converting Shopify Store",
   },
   description:
-    "SalePixel is an expert Shopify agency specializing in high-converting custom Shopify stores, Liquid theme development, store redesigns, and CRO for D2C brands.",
+    "SalePXL is the best ecommerce agency specializing in high converting Shopify stores, dropshipping store setups, custom Shopify development, and Liquid theme architecture to scale your brand.",
   icons: {
     icon: "/favicon.png",
     shortcut: "/favicon.png",
     apple: "/favicon.png",
   },
   keywords: [
-    "Shopify Agency",
-    "Shopify Experts",
-    "Shopify Design Agency",
-    "Shopify Store Development",
-    "Custom Shopify Theme Development",
-    "Shopify CRO",
-    "Conversion Rate Optimization",
-    "Ecommerce Store Development",
-    "Shopify Migration",
-    "Dropshipping Shopify Store",
+    "High Converting Shopify Store",
+    "best ecommerce agency",
+    "dropshipping store",
+    "custom shopify",
+    "custom shopify store",
+    "ecommerce development",
+    "custom shopify development",
+    "shopify development agency",
+    "ecommerce agency",
+    "dropshipping shopify store",
+    "custom liquid development",
+    "high converting shopify stores",
+    "shopify store design",
+    "shopify ecommerce development",
+    "shopify CRO agency",
+    "conversion rate optimization shopify",
+    "shopify experts india",
+    "d2c ecommerce agency",
+    "shopify website builder",
+    "ecommerce store development",
+    "shopify dropshipping agency",
+    "custom ecommerce website",
+    "shopify theme customization",
     "SalePXL",
     "SalePixel",
   ],
-  authors: [{ name: "SalePixel Team", url: "https://salepxl.com" }],
-  creator: "SalePixel",
-  publisher: "SalePixel",
+  authors: [{ name: "SalePXL Team", url: "https://salepxl.com" }],
+  creator: "SalePXL",
+  publisher: "SalePXL",
   metadataBase: new URL("https://salepxl.com"),
   alternates: {
     canonical: "https://salepxl.com",
@@ -50,17 +63,17 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "SalePixel | Premium Shopify Design & Development Agency",
+    title: "SalePXL — High Converting Shopify Store | Best Ecommerce Agency",
     description:
-      "Engineered Shopify stores built for high conversions, sub-second speed, and long-term brand scaling.",
+      "SalePXL builds high converting Shopify stores, custom dropshipping setups, and scalable ecommerce solutions engineered for high conversion rates and rapid brand growth.",
     url: "https://salepxl.com",
-    siteName: "SalePixel",
+    siteName: "SalePXL",
     images: [
       {
         url: "https://salepxl.com/logo.png",
         width: 1200,
         height: 630,
-        alt: "SalePixel Shopify Agency",
+        alt: "SalePXL — High Converting Shopify Store & Best Ecommerce Agency",
       },
     ],
     locale: "en_US",
@@ -68,9 +81,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "SalePixel | Premium Shopify Design & Development Agency",
+    title: "SalePXL — High Converting Shopify Store | Best Ecommerce Agency",
     description:
-      "Engineered Shopify stores built for high conversions, sub-second speed, and long-term brand scaling.",
+      "SalePXL builds high converting Shopify stores, custom dropshipping setups, and scalable ecommerce solutions engineered for high conversion rates.",
     images: ["https://salepxl.com/logo.png"],
     creator: "@salepxl",
   },
@@ -93,7 +106,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
-        <meta name="title" content="SalePixel | Premium Shopify Design & Development Agency" />
+        <meta name="title" content="SalePXL — High Converting Shopify Store | Best Ecommerce Agency" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800,700,500,400,300,100&display=swap" rel="stylesheet" />
@@ -107,13 +120,29 @@ export default function RootLayout({
               {
                 "@type": "Organization",
                 "@id": "https://salepxl.com/#organization",
-                "name": "SalePixel",
-                "alternateName": ["SalePXL", "SalePixel Shopify Agency"],
+                "name": "SalePXL",
+                "alternateName": [
+                  "SalePixel",
+                  "SalePXL — High Converting Shopify Store",
+                  "SalePXL Ecommerce Agency",
+                  "SalePXL Shopify Agency"
+                ],
                 "url": "https://salepxl.com",
                 "logo": "https://salepxl.com/logo.png",
+                "slogan": "High Converting Shopify Store",
                 "email": "helpsalepxl@gmail.com",
                 "telephone": "+919917780656",
-                "description": "SalePixel is a specialized Shopify design & development agency engineering high-converting ecommerce stores and custom Liquid solutions for D2C brands.",
+                "description": "SalePXL is the best ecommerce agency specializing in high converting Shopify stores, dropshipping store setups, custom Shopify development, and Liquid theme architecture.",
+                "knowsAbout": [
+                  "High Converting Shopify Store",
+                  "Shopify Store Development",
+                  "Dropshipping Store Setup",
+                  "Custom Shopify Development",
+                  "Ecommerce Development",
+                  "Conversion Rate Optimization (CRO)",
+                  "Custom Liquid Theme Development",
+                  "Shopify Speed Optimization"
+                ],
                 "sameAs": [
                   "https://wa.me/919917780656",
                   "https://calendly.com/salepxl"
@@ -122,10 +151,11 @@ export default function RootLayout({
               {
                 "@type": "ProfessionalService",
                 "@id": "https://salepxl.com/#service",
-                "name": "SalePixel Shopify Agency",
+                "name": "SalePXL — Best Ecommerce Agency",
                 "url": "https://salepxl.com",
                 "image": "https://salepxl.com/logo.png",
-                "priceRange": "₹25,000 - ₹80,000+",
+                "slogan": "High Converting Shopify Store",
+                "priceRange": "$$ - $$$",
                 "email": "helpsalepxl@gmail.com",
                 "telephone": "+919917780656",
                 "address": {
@@ -136,29 +166,47 @@ export default function RootLayout({
                   "addressCountry": "IN"
                 },
                 "areaServed": "Global",
+                "aggregateRating": {
+                  "@type": "AggregateRating",
+                  "ratingValue": "4.9",
+                  "reviewCount": "120",
+                  "bestRating": "5",
+                  "worstRating": "1"
+                },
                 "hasOfferCatalog": {
                   "@type": "OfferCatalog",
-                  "name": "Shopify Development Services",
+                  "name": "Shopify & Ecommerce Development Services",
                   "itemListElement": [
                     {
                       "@type": "Offer",
                       "itemOffered": {
                         "@type": "Service",
-                        "name": "Shopify Store Development"
+                        "name": "High Converting Shopify Store Development",
+                        "description": "Custom Shopify store design and engineering focused on maximizing conversion rate and average order value."
                       }
                     },
                     {
                       "@type": "Offer",
                       "itemOffered": {
                         "@type": "Service",
-                        "name": "Custom Liquid & Theme Development"
+                        "name": "Dropshipping Store Setup & Architecture",
+                        "description": "Turnkey dropshipping store creation with winning product layout, automated suppliers sync, and conversion-optimized checkout."
                       }
                     },
                     {
                       "@type": "Offer",
                       "itemOffered": {
                         "@type": "Service",
-                        "name": "Conversion Rate Optimization (CRO)"
+                        "name": "Custom Shopify & Liquid Theme Development",
+                        "description": "Tailor-made Shopify themes, bespoke Liquid components, custom sections, and unique brand aesthetics."
+                      }
+                    },
+                    {
+                      "@type": "Offer",
+                      "itemOffered": {
+                        "@type": "Service",
+                        "name": "Ecommerce Development & CRO Tuning",
+                        "description": "End-to-end ecommerce development, sub-second speed optimization, and CRO audits to eliminate drop-offs."
                       }
                     }
                   ]
@@ -168,7 +216,8 @@ export default function RootLayout({
                 "@type": "WebSite",
                 "@id": "https://salepxl.com/#website",
                 "url": "https://salepxl.com",
-                "name": "SalePixel",
+                "name": "SalePXL — High Converting Shopify Store",
+                "description": "Best ecommerce agency engineering high converting Shopify stores and custom ecommerce solutions.",
                 "publisher": {
                   "@id": "https://salepxl.com/#organization"
                 }

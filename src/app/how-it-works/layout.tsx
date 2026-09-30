@@ -1,15 +1,23 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "How It Works | SalePixel's 6-Step Shopify Growth Process",
+  title: "How It Works | High Converting Shopify Store Process | SalePXL",
   description:
-    "Discover SalePixel's step-by-step Shopify store development process: discovery, custom Liquid design, checkout optimization, quality QA, and launch.",
+    "Discover SalePXL's step-by-step process: discovery, custom Shopify development, dropshipping store architecture, CRO optimization, and launch.",
+  keywords: [
+    "High Converting Shopify Store",
+    "best ecommerce agency",
+    "dropshipping store",
+    "custom shopify",
+    "ecommerce development",
+    "shopify development process"
+  ],
   alternates: {
     canonical: "https://salepxl.com/how-it-works",
   },
   openGraph: {
-    title: "How It Works | SalePixel Shopify Process",
-    description: "Learn how SalePixel plans, builds, and launches high-converting Shopify stores in 6 steps.",
+    title: "How It Works | SalePXL — High Converting Shopify Store Process",
+    description: "Learn how SalePXL, the best ecommerce agency, plans, builds, and launches high converting Shopify stores.",
     url: "https://salepxl.com/how-it-works",
   },
 };

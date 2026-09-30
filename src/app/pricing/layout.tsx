@@ -1,15 +1,23 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Shopify Store Pricing & Packages | Affordable E-Commerce Plans",
+  title: "Shopify Store Pricing | High Converting Shopify Store & Ecommerce Agency",
   description:
-    "Transparent Shopify store development pricing by SalePixel. Choose from Custom Starter, Fully Customized, or Advanced Growth setups built by Shopify Experts.",
+    "Get custom quotes from SalePXL, the best ecommerce agency for high converting Shopify stores, dropshipping store setups, custom Shopify development, and CRO.",
+  keywords: [
+    "High Converting Shopify Store",
+    "best ecommerce agency",
+    "dropshipping store",
+    "custom shopify",
+    "ecommerce development",
+    "shopify store pricing"
+  ],
   alternates: {
     canonical: "https://salepxl.com/pricing",
   },
   openGraph: {
-    title: "Shopify Store Pricing & Packages | SalePixel Agency",
-    description: "Affordable, transparent pricing packages for custom Shopify store builds and CRO optimizations.",
+    title: "Shopify Store Pricing | SalePXL — High Converting Shopify Store",
+    description: "Transparent custom quotes for high converting Shopify stores, dropshipping stores, and ecommerce development.",
     url: "https://salepxl.com/pricing",
   },
 };

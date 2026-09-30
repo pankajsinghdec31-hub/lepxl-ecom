@@ -1,15 +1,23 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About Us | Shopify Experts & E-Commerce Store Engineers",
+  title: "About Us | Best Ecommerce Agency for High Converting Shopify Stores",
   description:
-    "Learn about SalePixel — a dedicated Shopify agency with 5+ years of experience building high-converting Shopify stores, custom Liquid sections, and CRO solutions.",
+    "Learn about SalePXL — the best ecommerce agency dedicated to engineering high converting Shopify stores, dropshipping store architectures, and custom Liquid solutions.",
+  keywords: [
+    "High Converting Shopify Store",
+    "best ecommerce agency",
+    "dropshipping store",
+    "custom shopify",
+    "ecommerce development",
+    "shopify agency about us"
+  ],
   alternates: {
     canonical: "https://salepxl.com/about",
   },
   openGraph: {
-    title: "About Us | SalePixel Shopify Agency",
-    description: "Discover how SalePixel designs and engineers custom Shopify stores for scaling D2C brands.",
+    title: "About Us | SalePXL — High Converting Shopify Store & Best Ecommerce Agency",
+    description: "Discover how SalePXL engineers high converting Shopify stores and custom ecommerce solutions for scaling brands.",
     url: "https://salepxl.com/about",
   },
 };

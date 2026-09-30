@@ -1,15 +1,23 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Shopify Launch Calculator | Estimate Your Custom Store Investment",
+  title: "Shopify Store Cost Calculator | High Converting Shopify Store | SalePXL",
   description:
-    "Calculate your custom Shopify store development cost and launch timeline with SalePixel's interactive cost calculator.",
+    "Calculate custom Shopify store development costs and launch timelines with SalePXL, the best ecommerce agency for high converting Shopify stores and dropshipping setups.",
+  keywords: [
+    "High Converting Shopify Store",
+    "best ecommerce agency",
+    "dropshipping store",
+    "custom shopify",
+    "ecommerce development",
+    "shopify cost calculator"
+  ],
   alternates: {
     canonical: "https://salepxl.com/shopify-launch-calculator",
   },
   openGraph: {
-    title: "Shopify Launch Calculator | SalePixel Agency",
-    description: "Get an instant cost estimate for building or redesigning your Shopify store with SalePixel.",
+    title: "Shopify Store Cost Calculator | SalePXL — High Converting Shopify Store",
+    description: "Get an instant cost estimate for building or redesigning your high converting Shopify store with SalePXL.",
     url: "https://salepxl.com/shopify-launch-calculator",
   },
 };

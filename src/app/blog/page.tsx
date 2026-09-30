@@ -6,21 +6,25 @@ import BlogCardImage from "@/components/BlogCardImage";
 import { Search, Clock, ArrowRight, Sparkles, BookOpen, Tag, Calendar, User } from "lucide-react";
 
 export const metadata = {
-  title: "E-Commerce & Shopify Growth Blog | SalePXL Agency",
+  title: "Shopify & Ecommerce Blog | High Converting Shopify Store Guides | SalePXL",
   description:
-    "Actionable guides on Shopify development, Indian payment gateways, shipping courier options, conversion rate optimization (CRO), dropshipping, and speed tuning.",
+    "Actionable guides on building a high converting Shopify store, custom Shopify development, dropshipping store setups, payment gateways, and conversion rate optimization (CRO).",
   keywords: [
+    "High Converting Shopify Store",
+    "best ecommerce agency",
+    "dropshipping store",
+    "custom shopify",
+    "ecommerce development",
     "Shopify Blog India",
     "E-commerce Guides India",
     "Top payment gateway in India",
     "Best shipping company in India",
     "How to start dropshipping in India",
-    "Why choose Shopify over WooCommerce",
     "Shopify CRO Tips"
   ],
   openGraph: {
-    title: "E-Commerce & Shopify Growth Blog | SalePXL Agency",
-    description: "Actionable guides on Shopify store development, payment gateways, shipping, and CRO.",
+    title: "Shopify & Ecommerce Blog | SalePXL — High Converting Shopify Store",
+    description: "Actionable guides on high converting Shopify stores, dropshipping store setups, and custom ecommerce development.",
     url: "https://salepxl.com/blog",
     type: "website"
   }

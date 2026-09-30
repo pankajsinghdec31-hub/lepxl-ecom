@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: BlogSlugPageProps) {
   }
 
   return {
-    title: `${post.metaTitle} | SalePixel`,
+    title: `${post.metaTitle} | SalePXL — High Converting Shopify Store`,
     description: post.metaDescription,
     keywords: [post.focusKeyword, ...post.secondaryKeywords],
     alternates: {
