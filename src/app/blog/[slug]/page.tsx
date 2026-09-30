@@ -86,7 +86,7 @@ export default async function BlogDetailPage({ params }: BlogSlugPageProps) {
     },
     "publisher": {
       "@type": "Organization",
-      "name": "SalePixel",
+      "name": "SalePXL",
       "logo": {
         "@type": "ImageObject",
         "url": "https://salepxl.com/logo.png"

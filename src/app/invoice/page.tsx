@@ -32,7 +32,7 @@ export default function InvoiceGenerator() {
 
   const [paymentStatus, setPaymentStatus] = useState<"Paid" | "Pending">("Paid");
   const [paymentMethod, setPaymentMethod] = useState("PhonePe / UPI");
-  const [notes, setNotes] = useState("Thank you for choosing SalePixel. We look forward to building your successful Shopify store!");
+  const [notes, setNotes] = useState("Thank you for choosing SalePXL. We look forward to building your successful Shopify store!");
 
   const handleSelectPlan = (planName: string, price: number) => {
     setItems([
@@ -325,7 +325,7 @@ export default function InvoiceGenerator() {
               {/* Header: Company & Invoice info */}
               <div className="flex justify-between items-start gap-4 mb-10 pb-8 border-b border-neutral-100">
                 <div>
-                  <h2 className="text-2xl font-bold font-grotesk tracking-tight text-neutral-900">SalePixel</h2>
+                  <h2 className="text-2xl font-bold font-grotesk tracking-tight text-neutral-900">SalePXL</h2>
                   <p className="text-[10px] text-neutral-400 mt-1 leading-relaxed max-w-xs font-light">
                     Dehradun - 248001, Uttarakhand, India<br />
                     helpsalepxl@gmail.com · +91 9917780656
@@ -431,7 +431,7 @@ export default function InvoiceGenerator() {
                   <div className="text-[10px] text-neutral-500 space-y-0.5 leading-relaxed font-light">
                     <p><span className="font-medium text-neutral-600">Method:</span> {paymentMethod}</p>
                     <p><span className="font-medium text-neutral-600">Company UPI ID:</span> M22TBYDYBWYC8@ybl</p>
-                    <p><span className="font-medium text-neutral-600">Merchant Name:</span> SalePxl / SalePixel</p>
+                    <p><span className="font-medium text-neutral-600">Merchant Name:</span> SALEPXL</p>
                   </div>
                 </div>
                 <div className="text-left sm:text-right">

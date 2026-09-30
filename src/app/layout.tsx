@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     "custom ecommerce website",
     "shopify theme customization",
     "SalePXL",
-    "SalePixel",
+    "salepxl",
   ],
   authors: [{ name: "SalePXL Team", url: "https://salepxl.com" }],
   creator: "SalePXL",
@@ -122,7 +122,7 @@ export default function RootLayout({
                 "@id": "https://salepxl.com/#organization",
                 "name": "SalePXL",
                 "alternateName": [
-                  "SalePixel",
+                  "salepxl",
                   "SalePXL — High Converting Shopify Store",
                   "SalePXL Ecommerce Agency",
                   "SalePXL Shopify Agency"

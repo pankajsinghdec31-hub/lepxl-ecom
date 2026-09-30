@@ -40,7 +40,7 @@ export default function Footer() {
             <Link href="/shopify-landing" className="flex items-center group select-none">
               <img 
                 src="/logo.png" 
-                alt="SalePixel - Shopify Agency" 
+                alt="SalePXL - Shopify Agency" 
                 className="h-8 w-auto object-contain invert hue-rotate-180"
               />
             </Link>
@@ -109,7 +109,7 @@ export default function Footer() {
             >
               <img 
                 src="/logo.png" 
-                alt="SalePixel - Shopify Agency" 
+                alt="SalePXL - Shopify Agency" 
                 className="h-8 md:h-9 w-auto object-contain invert hue-rotate-180 transition-transform duration-300 group-hover:scale-[1.02]"
               />
             </Link>

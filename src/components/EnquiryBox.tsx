@@ -461,7 +461,7 @@ export default function EnquiryBox() {
             <div className="flex flex-col gap-2">
               <h3 className="text-xl font-bold text-white">Project Details Submitted</h3>
               <p className="text-xs text-[#8e8e93] max-w-sm mx-auto leading-relaxed">
-                Thank you, <span className="text-white font-semibold">{formData.name}</span>. We have received your project details for <span className="text-white font-semibold">{formData.brandName || "your brand"}</span>. A Shopify strategist from SalePixel will review your request and get back to you within 12 hours.
+                Thank you, <span className="text-white font-semibold">{formData.name}</span>. We have received your project details for <span className="text-white font-semibold">{formData.brandName || "your brand"}</span>. A Shopify strategist from SalePXL will review your request and get back to you within 12 hours.
               </p>
             </div>
             <button

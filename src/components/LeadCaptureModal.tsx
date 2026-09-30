@@ -217,7 +217,7 @@ export default function LeadCaptureModal({
                 <div className="hidden lg:block pt-6 border-t border-white/10">
                   <img
                     src="/logo.png"
-                    alt="SalePixel - Shopify Agency"
+                    alt="SalePXL - Shopify Agency"
                     className="h-7 w-auto object-contain invert hue-rotate-180"
                   />
                 </div>
