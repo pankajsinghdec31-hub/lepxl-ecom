@@ -211,20 +211,40 @@ const HOME_PROJECTS: MockupConfig[] = [
 
 const UPLOADED_BRAND_LOGOS_1 = [
   { src: "/brand-logos/highsky-coffee.webp", alt: "Highsky Coffee" },
+  { src: "/brand-logos/humble-organic-labs.webp", alt: "Humble Organic Labs" },
+  { src: "/brand-logos/5th-and-fox.webp", alt: "5th & Fox" },
+  { src: "/brand-logos/adriana.webp", alt: "Adriana Jewelry" },
   { src: "/brand-logos/kalpveda.webp", alt: "KalpVeda" },
-  { src: "/brand-logos/vani-veda.webp", alt: "Vani Veda" },
+  { src: "/brand-logos/revora-club.webp", alt: "Revora Club" },
+  { src: "/brand-logos/krustoz.webp", alt: "Krustoz" },
+  { src: "/brand-logos/noori-jewels.webp", alt: "Noori" },
   { src: "/brand-logos/food-insta.webp", alt: "Food Insta" },
+  { src: "/brand-logos/ehesas.webp", alt: "Ehesas" },
   { src: "/brand-logos/vyngs.webp", alt: "VYNGS" },
+  { src: "/brand-logos/dragonfly-emblem.webp", alt: "Dragonfly Luxury" },
+  { src: "/brand-logos/wheelsco.webp", alt: "The WheelsCo" },
+  { src: "/brand-logos/vani-veda.webp", alt: "Vani Veda" },
   { src: "/brand-logos/kishoriju.webp", alt: "Kishoriju" },
   { src: "/brand-logos/styleora.webp", alt: "Styleora" },
   { src: "/brand-logos/ratan-rashi.webp", alt: "Ratan Rashi" },
   { src: "/brand-logos/iraya-althea.webp", alt: "Iraya Althea" },
+  { src: "/brand-logos/iraya-althea-horizontal.webp", alt: "Iraya Althea" },
   { src: "/brand-logos/miktoksi-living.webp", alt: "Miktoksi Living" },
 ];
 
 const UPLOADED_BRAND_LOGOS_2 = [
+  { src: "/brand-logos/5th-and-fox.webp", alt: "5th & Fox" },
+  { src: "/brand-logos/revora-club.webp", alt: "Revora Club" },
+  { src: "/brand-logos/noori-jewels.webp", alt: "Noori" },
+  { src: "/brand-logos/ehesas.webp", alt: "Ehesas" },
+  { src: "/brand-logos/adriana.webp", alt: "Adriana Jewelry" },
+  { src: "/brand-logos/dragonfly-emblem.webp", alt: "Dragonfly Luxury" },
+  { src: "/brand-logos/humble-organic-labs.webp", alt: "Humble Organic Labs" },
+  { src: "/brand-logos/krustoz.webp", alt: "Krustoz" },
+  { src: "/brand-logos/wheelsco.webp", alt: "The WheelsCo" },
   { src: "/brand-logos/kishoriju.webp", alt: "Kishoriju" },
   { src: "/brand-logos/vyngs.webp", alt: "VYNGS" },
+  { src: "/brand-logos/iraya-althea-horizontal.webp", alt: "Iraya Althea" },
   { src: "/brand-logos/miktoksi-living.webp", alt: "Miktoksi Living" },
   { src: "/brand-logos/styleora.webp", alt: "Styleora" },
   { src: "/brand-logos/kalpveda.webp", alt: "KalpVeda" },
@@ -238,11 +258,9 @@ const UPLOADED_BRAND_LOGOS_2 = [
 const LOGO_ROW_1 = [
   ...UPLOADED_BRAND_LOGOS_1,
   ...UPLOADED_BRAND_LOGOS_1,
-  ...UPLOADED_BRAND_LOGOS_1,
 ];
 
 const LOGO_ROW_2 = [
-  ...UPLOADED_BRAND_LOGOS_2,
   ...UPLOADED_BRAND_LOGOS_2,
   ...UPLOADED_BRAND_LOGOS_2,
 ];
@@ -1560,7 +1578,7 @@ export default function HomePage() {
                 key={idx}
                 src={logo.src}
                 alt={logo.alt}
-                className="h-9 sm:h-11 w-auto max-w-[140px] sm:max-w-[170px] object-contain mx-6 sm:mx-8 opacity-90 hover:opacity-100 transition-opacity duration-300 select-none pointer-events-none"
+                className="h-9 sm:h-12 w-auto max-w-[150px] sm:max-w-[180px] object-contain mx-6 sm:mx-8 opacity-100 select-none pointer-events-none"
                 loading="lazy"
               />
             ))}
@@ -1571,7 +1589,7 @@ export default function HomePage() {
                 key={idx + "-dup"}
                 src={logo.src}
                 alt={logo.alt}
-                className="h-9 sm:h-11 w-auto max-w-[140px] sm:max-w-[170px] object-contain mx-6 sm:mx-8 opacity-90 hover:opacity-100 transition-opacity duration-300 select-none pointer-events-none"
+                className="h-9 sm:h-12 w-auto max-w-[150px] sm:max-w-[180px] object-contain mx-6 sm:mx-8 opacity-100 select-none pointer-events-none"
                 loading="lazy"
               />
             ))}
@@ -1586,7 +1604,7 @@ export default function HomePage() {
                 key={idx}
                 src={logo.src}
                 alt={logo.alt}
-                className="h-9 sm:h-11 w-auto max-w-[140px] sm:max-w-[170px] object-contain mx-6 sm:mx-8 opacity-90 hover:opacity-100 transition-opacity duration-300 select-none pointer-events-none"
+                className="h-9 sm:h-12 w-auto max-w-[150px] sm:max-w-[180px] object-contain mx-6 sm:mx-8 opacity-100 select-none pointer-events-none"
                 loading="lazy"
               />
             ))}
@@ -1597,7 +1615,7 @@ export default function HomePage() {
                 key={idx + "-dup"}
                 src={logo.src}
                 alt={logo.alt}
-                className="h-9 sm:h-11 w-auto max-w-[140px] sm:max-w-[170px] object-contain mx-6 sm:mx-8 opacity-90 hover:opacity-100 transition-opacity duration-300 select-none pointer-events-none"
+                className="h-9 sm:h-12 w-auto max-w-[150px] sm:max-w-[180px] object-contain mx-6 sm:mx-8 opacity-100 select-none pointer-events-none"
                 loading="lazy"
               />
             ))}
