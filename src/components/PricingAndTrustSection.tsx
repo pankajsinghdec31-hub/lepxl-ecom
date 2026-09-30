@@ -18,8 +18,8 @@ export default function PricingAndTrustSection() {
       id: "shopify-standard",
       name: "Shopify Standard",
       tagline: "Delivery 4-7 Days",
-      price: "₹25,000",
-      priceSub: "Starting at",
+      price: "Custom Quote",
+      priceSub: "Flexible Investment",
       isPopular: false,
       budgetCategory: "₹25000",
       features: [
@@ -35,8 +35,8 @@ export default function PricingAndTrustSection() {
       id: "shopify-pro",
       name: "Shopify Pro",
       tagline: "Delivery 7-14 Days",
-      price: "₹40,000",
-      priceSub: "Starting at",
+      price: "Custom Quote",
+      priceSub: "Flexible Investment",
       isPopular: true,
       badge: "MOST POPULAR",
       budgetCategory: "₹40000",
@@ -53,8 +53,8 @@ export default function PricingAndTrustSection() {
       id: "shopify-growth",
       name: "Shopify Growth",
       tagline: "Delivery 14-21 Days",
-      price: "₹60,000",
-      priceSub: "Starting at",
+      price: "Custom Quote",
+      priceSub: "Flexible Investment",
       isPopular: false,
       budgetCategory: "₹60000",
       features: [
@@ -93,7 +93,7 @@ export default function PricingAndTrustSection() {
               transition={{ duration: 0.4 }}
               className="text-2xl sm:text-4xl md:text-5xl font-light text-neutral-900 tracking-tight font-grotesk leading-tight"
             >
-              Affordable <span className="text-emerald-600 font-normal">Pricing</span>
+              Shopify Store <span className="text-emerald-600 font-normal">Packages</span>
             </motion.h2>
           </div>
 
@@ -135,7 +135,7 @@ export default function PricingAndTrustSection() {
                         <span className="text-[10px] sm:text-xs font-sans font-medium text-neutral-500 uppercase tracking-wide block mb-1">
                           {plan.priceSub}
                         </span>
-                        <div className="text-3xl sm:text-4xl font-black text-neutral-900 font-grotesk tracking-tight">
+                        <div className="text-2xl sm:text-3xl font-extrabold text-neutral-900 font-grotesk tracking-tight">
                           {plan.price}
                         </div>
                       </div>
@@ -168,7 +168,7 @@ export default function PricingAndTrustSection() {
                             : "bg-white text-neutral-900 border border-neutral-900 hover:bg-neutral-900 hover:text-white active:scale-95"
                         }`}
                       >
-                        <span>Know More</span>
+                        <span>Contact Us</span>
                         <ArrowRight className="w-3.5 h-3.5" />
                       </button>
                     </div>
