@@ -212,6 +212,7 @@ const HOME_PROJECTS: MockupConfig[] = [
 const UPLOADED_BRAND_LOGOS_1 = [
   { src: "/brand-logos/highsky-coffee.webp", alt: "Highsky Coffee" },
   { src: "/brand-logos/humble-organic-labs.webp", alt: "Humble Organic Labs" },
+  { src: "/brand-logos/shell-case.webp", alt: "Shell Case" },
   { src: "/brand-logos/sehat-herbal-india.webp", alt: "Sehat Herbal India" },
   { src: "/brand-logos/ovilip.webp", alt: "Ovilip" },
   { src: "/brand-logos/5th-and-fox.webp", alt: "5th & Fox" },
@@ -235,6 +236,7 @@ const UPLOADED_BRAND_LOGOS_1 = [
 ];
 
 const UPLOADED_BRAND_LOGOS_2 = [
+  { src: "/brand-logos/shell-case.webp", alt: "Shell Case" },
   { src: "/brand-logos/sehat-herbal-india.webp", alt: "Sehat Herbal India" },
   { src: "/brand-logos/ovilip.webp", alt: "Ovilip" },
   { src: "/brand-logos/5th-and-fox.webp", alt: "5th & Fox" },
