@@ -1577,25 +1577,25 @@ export default function HomePage() {
         </div>
 
         {/* Row 1 Logos */}
-        <div className="marquee-container mb-6">
-          <div className="marquee-content" style={{ "--marquee-speed": "40s" } as React.CSSProperties}>
+        <div className="marquee-container marquee-pause mb-6">
+          <div className="marquee-content" style={{ "--marquee-speed": "60s" } as React.CSSProperties}>
             {LOGO_ROW_1.map((logo, idx) => (
               <img
                 key={idx}
                 src={logo.src}
                 alt={logo.alt}
-                className="h-9 sm:h-12 w-auto max-w-[150px] sm:max-w-[180px] object-contain mx-6 sm:mx-8 opacity-100 select-none pointer-events-none"
+                className="h-9 sm:h-12 w-auto max-w-[150px] sm:max-w-[180px] object-contain mx-6 sm:mx-8 opacity-100 select-none"
                 loading="lazy"
               />
             ))}
           </div>
-          <div className="marquee-content" aria-hidden="true" style={{ "--marquee-speed": "40s" } as React.CSSProperties}>
+          <div className="marquee-content" aria-hidden="true" style={{ "--marquee-speed": "60s" } as React.CSSProperties}>
             {LOGO_ROW_1.map((logo, idx) => (
               <img
                 key={idx + "-dup"}
                 src={logo.src}
                 alt={logo.alt}
-                className="h-9 sm:h-12 w-auto max-w-[150px] sm:max-w-[180px] object-contain mx-6 sm:mx-8 opacity-100 select-none pointer-events-none"
+                className="h-9 sm:h-12 w-auto max-w-[150px] sm:max-w-[180px] object-contain mx-6 sm:mx-8 opacity-100 select-none"
                 loading="lazy"
               />
             ))}
@@ -1603,19 +1603,19 @@ export default function HomePage() {
         </div>
 
         {/* Row 2 Logos - Reverse */}
-        <div className="marquee-container">
-          <div className="marquee-content-reverse" style={{ "--marquee-speed": "40s" } as React.CSSProperties}>
+        <div className="marquee-container marquee-pause">
+          <div className="marquee-content-reverse" style={{ "--marquee-speed": "60s" } as React.CSSProperties}>
             {LOGO_ROW_2.map((logo, idx) => (
               <img
                 key={idx}
                 src={logo.src}
                 alt={logo.alt}
-                className="h-9 sm:h-12 w-auto max-w-[150px] sm:max-w-[180px] object-contain mx-6 sm:mx-8 opacity-100 select-none pointer-events-none"
+                className="h-9 sm:h-12 w-auto max-w-[150px] sm:max-w-[180px] object-contain mx-6 sm:mx-8 opacity-100 select-none"
                 loading="lazy"
               />
             ))}
           </div>
-          <div className="marquee-content-reverse" aria-hidden="true" style={{ "--marquee-speed": "40s" } as React.CSSProperties}>
+          <div className="marquee-content-reverse" aria-hidden="true" style={{ "--marquee-speed": "60s" } as React.CSSProperties}>
             {LOGO_ROW_2.map((logo, idx) => (
               <img
                 key={idx + "-dup"}
