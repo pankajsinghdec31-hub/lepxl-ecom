@@ -130,6 +130,9 @@ export default function RootLayout({
                 "telephone": "+919917780656",
                 "address": {
                   "@type": "PostalAddress",
+                  "addressLocality": "Dehradun",
+                  "postalCode": "248001",
+                  "addressRegion": "Uttarakhand",
                   "addressCountry": "IN"
                 },
                 "areaServed": "Global",

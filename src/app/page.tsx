@@ -209,86 +209,42 @@ const HOME_PROJECTS: MockupConfig[] = [
   }
 ];
 
+const UPLOADED_BRAND_LOGOS_1 = [
+  { src: "/brand-logos/highsky-coffee.webp", alt: "Highsky Coffee" },
+  { src: "/brand-logos/kalpveda.webp", alt: "KalpVeda" },
+  { src: "/brand-logos/vani-veda.webp", alt: "Vani Veda" },
+  { src: "/brand-logos/food-insta.webp", alt: "Food Insta" },
+  { src: "/brand-logos/vyngs.webp", alt: "VYNGS" },
+  { src: "/brand-logos/kishoriju.webp", alt: "Kishoriju" },
+  { src: "/brand-logos/styleora.webp", alt: "Styleora" },
+  { src: "/brand-logos/ratan-rashi.webp", alt: "Ratan Rashi" },
+  { src: "/brand-logos/iraya-althea.webp", alt: "Iraya Althea" },
+  { src: "/brand-logos/miktoksi-living.webp", alt: "Miktoksi Living" },
+];
+
+const UPLOADED_BRAND_LOGOS_2 = [
+  { src: "/brand-logos/kishoriju.webp", alt: "Kishoriju" },
+  { src: "/brand-logos/vyngs.webp", alt: "VYNGS" },
+  { src: "/brand-logos/miktoksi-living.webp", alt: "Miktoksi Living" },
+  { src: "/brand-logos/styleora.webp", alt: "Styleora" },
+  { src: "/brand-logos/kalpveda.webp", alt: "KalpVeda" },
+  { src: "/brand-logos/highsky-coffee.webp", alt: "Highsky Coffee" },
+  { src: "/brand-logos/vani-veda.webp", alt: "Vani Veda" },
+  { src: "/brand-logos/ratan-rashi.webp", alt: "Ratan Rashi" },
+  { src: "/brand-logos/food-insta.webp", alt: "Food Insta" },
+  { src: "/brand-logos/iraya-althea.webp", alt: "Iraya Althea" },
+];
+
 const LOGO_ROW_1 = [
-  { src: "https://jhango-images.b-cdn.net/images/adil-quadri-logo.webp", alt: "Adil Quadri" },
-  { src: "https://jhango-images.b-cdn.net/images/aumtea-logo.webp", alt: "Aumtea" },
-  { src: "https://jhango-images.b-cdn.net/images/b5ive-logo.webp", alt: "B5ive" },
-  { src: "https://jhango-images.b-cdn.net/images/biotastic-logo.webp", alt: "Biotastic" },
-  { src: "https://jhango-images.b-cdn.net/images/logo-40.webp", alt: "Logo 40" },
-  { src: "https://jhango-images.b-cdn.net/images/mojo-vibe.webp", alt: "Mojo Vibe" },
-  { src: "https://jhango-images.b-cdn.net/images/varq-jewels-logo-jhango.webp", alt: "Varq Jewels" },
-  { src: "https://jhango-images.b-cdn.net/images/amp-krafts.webp", alt: "AMP Krafts" },
-  { src: "https://jhango-images.b-cdn.net/images/amorfi-logo.webp", alt: "Amorfi" },
-  { src: "https://jhango-images.b-cdn.net/images/blissway-logo.webp", alt: "Blissway" },
-  { src: "https://jhango-images.b-cdn.net/images/brown-logo.webp", alt: "Brown" },
-  { src: "https://jhango-images.b-cdn.net/images/logo-55.webp", alt: "Logo 55" },
-  { src: "https://jhango-images.b-cdn.net/images/logo-56.webp", alt: "Logo 56" },
-  { src: "https://jhango-images.b-cdn.net/images/logo-58.webp", alt: "Logo 58" },
-  { src: "https://jhango-images.b-cdn.net/images/logo-28.webp", alt: "Logo 28" },
-  { src: "https://jhango-images.b-cdn.net/images/logo-29.webp", alt: "Logo 29" },
-  { src: "https://jhango-images.b-cdn.net/images/logo-30.webp", alt: "Logo 30" },
-  { src: "https://jhango-images.b-cdn.net/images/logo-31.webp", alt: "Logo 31" },
-  { src: "https://jhango-images.b-cdn.net/images/logo-32.webp", alt: "Logo 32" },
-  { src: "https://jhango-images.b-cdn.net/images/logo-33.webp", alt: "Logo 33" },
-  { src: "https://jhango-images.b-cdn.net/images/logo-34.webp", alt: "Logo 34" },
-  { src: "https://jhango-images.b-cdn.net/images/logo-35.webp", alt: "Logo 35" },
-  { src: "https://jhango-images.b-cdn.net/images/logo-36.webp", alt: "Logo 36" },
-  { src: "https://jhango-images.b-cdn.net/images/logo-37.webp", alt: "Logo 37" },
-  { src: "https://jhango-images.b-cdn.net/images/logo-38.webp", alt: "Logo 38" },
-  { src: "https://jhango-images.b-cdn.net/images/logo-39.webp", alt: "Logo 39" },
-  { src: "https://jhango-images.b-cdn.net/images/logo-41.webp", alt: "Logo 41" },
-  { src: "https://jhango-images.b-cdn.net/images/logo-42.webp", alt: "Logo 42" },
-  { src: "https://jhango-images.b-cdn.net/images/logo-43.webp", alt: "Logo 43" },
-  { src: "https://jhango-images.b-cdn.net/images/logo-44.webp", alt: "Logo 44" },
-  { src: "https://jhango-images.b-cdn.net/images/logo-45.webp", alt: "Logo 45" },
-  { src: "https://jhango-images.b-cdn.net/images/logo-46.webp", alt: "Logo 46" },
-  { src: "https://jhango-images.b-cdn.net/images/logo-47.webp", alt: "Logo 47" },
-  { src: "https://jhango-images.b-cdn.net/images/logo-48.webp", alt: "Logo 48" },
-  { src: "https://jhango-images.b-cdn.net/images/logo-49.webp", alt: "Logo 49" },
-  { src: "https://jhango-images.b-cdn.net/images/logo-50.webp", alt: "Logo 50" },
-  { src: "https://jhango-images.b-cdn.net/images/logo-51.webp", alt: "Logo 51" }
+  ...UPLOADED_BRAND_LOGOS_1,
+  ...UPLOADED_BRAND_LOGOS_1,
+  ...UPLOADED_BRAND_LOGOS_1,
 ];
 
 const LOGO_ROW_2 = [
-  { src: "https://jhango-images.b-cdn.net/images/logo-52.webp", alt: "Logo 52" },
-  { src: "https://jhango-images.b-cdn.net/images/logo-53.webp", alt: "Logo 53" },
-  { src: "https://jhango-images.b-cdn.net/images/logo-54.webp", alt: "Logo 54" },
-  { src: "https://jhango-images.b-cdn.net/images/logo-lil.webp", alt: "Lil" },
-  { src: "https://jhango-images.b-cdn.net/images/logo-luzito.webp", alt: "Luzito" },
-  { src: "https://jhango-images.b-cdn.net/images/logo-rusty-brown.webp", alt: "Rusty Brown" },
-  { src: "https://jhango-images.b-cdn.net/images/new-logo.webp", alt: "New Logo" },
-  { src: "https://jhango-images.b-cdn.net/images/quantum-logo-1.webp", alt: "Quantum" },
-  { src: "https://jhango-images.b-cdn.net/images/runbugz-logo.webp", alt: "RunBugz" },
-  { src: "https://jhango-images.b-cdn.net/images/sleep-shell.webp", alt: "Sleep Shell" },
-  { src: "https://jhango-images.b-cdn.net/images/space-age-foods-logo.webp", alt: "Space Age Foods" },
-  { src: "https://jhango-images.b-cdn.net/images/wag-wonders-logo.webp", alt: "Wag Wonders" },
-  { src: "https://jhango-images.b-cdn.net/images/wednesday-lifestyle-logo-jhango.webp", alt: "Wednesday Lifestyle" },
-  { src: "https://jhango-images.b-cdn.net/images/arsya-logo.webp", alt: "Arsya" },
-  { src: "https://jhango-images.b-cdn.net/images/aryaki-logo.webp", alt: "Aryaki" },
-  { src: "https://jhango-images.b-cdn.net/images/boujee-beauty.webp", alt: "Boujee Beauty" },
-  { src: "https://jhango-images.b-cdn.net/images/cosmaya-logo.webp", alt: "Cosmaya" },
-  { src: "https://jhango-images.b-cdn.net/images/invisel-logo.webp", alt: "Invisel" },
-  { src: "https://jhango-images.b-cdn.net/images/logo-10.webp", alt: "Logo 10" },
-  { src: "https://jhango-images.b-cdn.net/images/logo-12.webp", alt: "Logo 12" },
-  { src: "https://jhango-images.b-cdn.net/images/logo-13.webp", alt: "Logo 13" },
-  { src: "https://jhango-images.b-cdn.net/images/logo-14.webp", alt: "Logo 14" },
-  { src: "https://jhango-images.b-cdn.net/images/logo-19.webp", alt: "Logo 19" },
-  { src: "https://jhango-images.b-cdn.net/images/logo-2.webp", alt: "Logo 2" },
-  { src: "https://jhango-images.b-cdn.net/images/logo-20.webp", alt: "Logo 20" },
-  { src: "https://jhango-images.b-cdn.net/images/logo-21.webp", alt: "Logo 21" },
-  { src: "https://jhango-images.b-cdn.net/images/logo-22.webp", alt: "Logo 22" },
-  { src: "https://jhango-images.b-cdn.net/images/logo-24.webp", alt: "Logo 24" },
-  { src: "https://jhango-images.b-cdn.net/images/logo-25.webp", alt: "Logo 25" },
-  { src: "https://jhango-images.b-cdn.net/images/logo-26.webp", alt: "Logo 26" },
-  { src: "https://jhango-images.b-cdn.net/images/logo-5.webp", alt: "Logo 5" },
-  { src: "https://jhango-images.b-cdn.net/images/logo-7.webp", alt: "Logo 7" },
-  { src: "https://jhango-images.b-cdn.net/images/logo-8.webp", alt: "Logo 8" },
-  { src: "https://jhango-images.b-cdn.net/images/logo-9.webp", alt: "Logo 9" },
-  { src: "https://jhango-images.b-cdn.net/images/logo-primary-2026-03-24-1.webp", alt: "Logo Primary" },
-  { src: "https://jhango-images.b-cdn.net/images/logo.webp", alt: "Logo" },
-  { src: "https://jhango-images.b-cdn.net/images/sasto-logo.webp", alt: "Sasto" },
-  { src: "https://jhango-images.b-cdn.net/images/vanalaya-logo.webp", alt: "Vanalaya" },
-  { src: "https://jhango-images.b-cdn.net/images/woof-misitry.webp", alt: "Woof Ministry" }
+  ...UPLOADED_BRAND_LOGOS_2,
+  ...UPLOADED_BRAND_LOGOS_2,
+  ...UPLOADED_BRAND_LOGOS_2,
 ];
 
 const PORTFOLIO_IMAGES_ROW1 = [
@@ -1604,7 +1560,7 @@ export default function HomePage() {
                 key={idx}
                 src={logo.src}
                 alt={logo.alt}
-                className="h-8 w-auto object-contain mx-6 opacity-85 hover:opacity-100 transition-opacity duration-300 select-none pointer-events-none"
+                className="h-9 sm:h-11 w-auto max-w-[140px] sm:max-w-[170px] object-contain mx-6 sm:mx-8 opacity-90 hover:opacity-100 transition-opacity duration-300 select-none pointer-events-none"
                 loading="lazy"
               />
             ))}
@@ -1615,7 +1571,7 @@ export default function HomePage() {
                 key={idx + "-dup"}
                 src={logo.src}
                 alt={logo.alt}
-                className="h-8 w-auto object-contain mx-6 opacity-85 hover:opacity-100 transition-opacity duration-300 select-none pointer-events-none"
+                className="h-9 sm:h-11 w-auto max-w-[140px] sm:max-w-[170px] object-contain mx-6 sm:mx-8 opacity-90 hover:opacity-100 transition-opacity duration-300 select-none pointer-events-none"
                 loading="lazy"
               />
             ))}
@@ -1630,7 +1586,7 @@ export default function HomePage() {
                 key={idx}
                 src={logo.src}
                 alt={logo.alt}
-                className="h-8 w-auto object-contain mx-6 opacity-85 hover:opacity-100 transition-opacity duration-300 select-none pointer-events-none"
+                className="h-9 sm:h-11 w-auto max-w-[140px] sm:max-w-[170px] object-contain mx-6 sm:mx-8 opacity-90 hover:opacity-100 transition-opacity duration-300 select-none pointer-events-none"
                 loading="lazy"
               />
             ))}
@@ -1641,7 +1597,7 @@ export default function HomePage() {
                 key={idx + "-dup"}
                 src={logo.src}
                 alt={logo.alt}
-                className="h-8 w-auto object-contain mx-6 opacity-85 hover:opacity-100 transition-opacity duration-300 select-none pointer-events-none"
+                className="h-9 sm:h-11 w-auto max-w-[140px] sm:max-w-[170px] object-contain mx-6 sm:mx-8 opacity-90 hover:opacity-100 transition-opacity duration-300 select-none pointer-events-none"
                 loading="lazy"
               />
             ))}
@@ -1810,7 +1766,7 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mt-8 text-xs text-white/50 pt-6 border-t border-white/[0.08] w-full max-w-2xl text-center sm:text-left">
             <div className="flex items-center gap-2">
               <MapPin className="w-4 h-4 text-primary shrink-0" />
-              <span>Sector 15, Navi Mumbai-410209, Maharashtra</span>
+              <span>Dehradun - 248001, Uttarakhand, India</span>
             </div>
             <div className="hidden sm:block text-white/10">|</div>
             <div className="flex items-center gap-2">

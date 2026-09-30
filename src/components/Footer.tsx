@@ -133,7 +133,7 @@ export default function Footer() {
             </div>
             <div className="flex items-center gap-2 group">
               <MapPin className="w-3.5 h-3.5 text-primary shrink-0" />
-              <span>Sector 15, Navi Mumbai-410209, Maharashtra</span>
+              <span>Dehradun - 248001, Uttarakhand, India</span>
             </div>
           </div>
         </div>
