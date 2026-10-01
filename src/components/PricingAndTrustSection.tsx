@@ -10,7 +10,7 @@ import LeadCaptureModal from "@/components/LeadCaptureModal";
 
 export default function PricingAndTrustSection() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedBudget, setSelectedBudget] = useState("₹25000");
+  const [selectedBudget, setSelectedBudget] = useState("₹25,000");
   const [selectedPlanName, setSelectedPlanName] = useState("");
 
   const PRICING_PLANS = [
@@ -18,10 +18,10 @@ export default function PricingAndTrustSection() {
       id: "shopify-standard",
       name: "Shopify Standard",
       tagline: "Delivery 4-7 Days",
-      price: "Custom Quote",
-      priceSub: "Flexible Investment",
+      price: "₹25,000",
+      priceSub: "Starts from",
       isPopular: false,
-      budgetCategory: "₹25000",
+      budgetCategory: "₹25,000",
       features: [
         "Custom Liquid sections based on requirements",
         "CRO-focused store structure & mobile design",
@@ -35,11 +35,11 @@ export default function PricingAndTrustSection() {
       id: "shopify-pro",
       name: "Shopify Pro",
       tagline: "Delivery 7-14 Days",
-      price: "Custom Quote",
-      priceSub: "Flexible Investment",
+      price: "₹40,000",
+      priceSub: "Starts from",
       isPopular: true,
       badge: "MOST POPULAR",
-      budgetCategory: "₹40000",
+      budgetCategory: "₹40,000",
       features: [
         "A+ product imagery & banner presentation",
         "Fully customized Liquid sections & PDP layouts",
@@ -53,10 +53,10 @@ export default function PricingAndTrustSection() {
       id: "shopify-growth",
       name: "Shopify Growth",
       tagline: "Delivery 14-21 Days",
-      price: "Custom Quote",
-      priceSub: "Flexible Investment",
+      price: "₹50,000+",
+      priceSub: "Starts from",
       isPopular: false,
-      budgetCategory: "₹60000",
+      budgetCategory: "₹50,000+",
       features: [
         "Fully customized bespoke store experience",
         "Advanced product & landing-page customization",
@@ -168,7 +168,7 @@ export default function PricingAndTrustSection() {
                             : "bg-white text-neutral-900 border border-neutral-900 hover:bg-neutral-900 hover:text-white active:scale-95"
                         }`}
                       >
-                        <span>Contact Us</span>
+                        <span>Get Started</span>
                         <ArrowRight className="w-3.5 h-3.5" />
                       </button>
                     </div>

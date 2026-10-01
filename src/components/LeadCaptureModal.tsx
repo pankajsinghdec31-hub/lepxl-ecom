@@ -14,7 +14,7 @@ interface LeadCaptureModalProps {
 export default function LeadCaptureModal({
   isOpen,
   onClose,
-  defaultBudget = "₹25000",
+  defaultBudget = "₹25,000",
   defaultPlanName
 }: LeadCaptureModalProps) {
   const [fullName, setFullName] = useState("");
@@ -30,9 +30,9 @@ export default function LeadCaptureModal({
   const [errorMsg, setErrorMsg] = useState("");
 
   const normalizeBudget = (b: string) => {
-    if (b.includes("40") || b.includes("40,000") || b.includes("40000") || b.includes("Pro")) return "₹40000";
-    if (b.includes("60") || b.includes("60,000") || b.includes("60000") || b.includes("Growth")) return "₹60000";
-    return "₹25000";
+    if (b.includes("40") || b.includes("Pro")) return "₹40,000";
+    if (b.includes("50") || b.includes("60") || b.includes("Growth")) return "₹50,000+";
+    return "₹25,000";
   };
 
   useEffect(() => {
@@ -344,7 +344,7 @@ export default function LeadCaptureModal({
                     What is your Budget?
                   </label>
                   <div className="grid grid-cols-3 gap-2">
-                    {["₹25000", "₹40000", "₹60000"].map((bOption) => {
+                    {["₹25,000", "₹40,000", "₹50,000+"].map((bOption) => {
                       const isSel = budget === bOption;
                       return (
                         <button

@@ -155,7 +155,7 @@ export default function RootLayout({
                 "url": "https://salepxl.com",
                 "image": "https://salepxl.com/logo.png",
                 "slogan": "High Converting Shopify Store",
-                "priceRange": "$$ - $$$",
+                "priceRange": "₹25,000 - ₹50,000+",
                 "email": "helpsalepxl@gmail.com",
                 "telephone": "+919917780656",
                 "address": {
