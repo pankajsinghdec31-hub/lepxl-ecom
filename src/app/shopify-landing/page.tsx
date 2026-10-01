@@ -586,8 +586,8 @@ export default function MetaAdsShopifyLandingPage() {
           <a href="#lead-form" onClick={() => trackCTAClick({ cta_name: "Build Store Portfolio", cta_location: "Portfolio" })} className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider text-[#040d09] active:scale-95 transition-all cursor-pointer" style={{ background: "linear-gradient(135deg,#22E39A,#0dba76)", boxShadow: "0 0 25px #22E39A35" }}>
             <span>Build Your Store</span><ArrowRight className="w-4 h-4" />
           </a>
-          <Link href="/portfolio" className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider text-[#22E39A] border border-[#22E39A]/25 bg-[#22E39A]/[0.05] hover:bg-[#22E39A]/[0.1] active:scale-95 transition-all">
-            <span>View Full Portfolio</span><ArrowUpRight className="w-4 h-4" />
+          <Link href="/high-converting-shopify-store" className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider text-[#22E39A] border border-[#22E39A]/25 bg-[#22E39A]/[0.05] hover:bg-[#22E39A]/[0.1] active:scale-95 transition-all">
+            <span>Live Client Stores (Kishoriju, Kalpveda, etc.)</span><ArrowUpRight className="w-4 h-4" />
           </Link>
         </div>
       </section>

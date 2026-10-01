@@ -14,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/contact",
     "/how-it-works",
     "/shopify-landing",
+    "/high-converting-shopify-store",
     "/shopify-meta-ads",
     "/shopify-audit",
     "/shopify-launch-calculator",
