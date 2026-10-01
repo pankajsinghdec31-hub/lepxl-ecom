@@ -7,7 +7,8 @@ export default function MainWrapper({ children }: { children: React.ReactNode })
   const pathname = usePathname();
   const isLandingPage =
     pathname.startsWith("/shopify-landing") ||
-    pathname.startsWith("/shopify-meta-ads");
+    pathname.startsWith("/shopify-meta-ads") ||
+    pathname.startsWith("/high-converting-shopify-store");
 
   return (
     <main className={`flex-grow ${isLandingPage ? "pt-0" : "pt-24"}`}>

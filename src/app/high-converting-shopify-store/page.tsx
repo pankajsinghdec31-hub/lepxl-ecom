@@ -208,7 +208,35 @@ export default function HighConvertingShopifyStorePage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#060807] text-white font-sans selection:bg-[#22E39A]/20 selection:text-white pt-20">
+    <div className="min-h-screen bg-[#060807] text-white font-sans selection:bg-[#22E39A]/20 selection:text-white">
+      
+      {/* ── MINIMAL TOP BAR ── */}
+      <div className="w-full border-b border-white/[0.08] bg-[#060807]/90 backdrop-blur-md sticky top-0 z-40 py-3.5 px-4 sm:px-8 flex items-center justify-between">
+        <Link href="/" className="flex items-center gap-2 select-none">
+          <img
+            src="/logo.png"
+            alt="SalePXL - High Converting Shopify Store"
+            className="h-7 sm:h-8 w-auto object-contain invert hue-rotate-180"
+          />
+        </Link>
+        <div className="flex items-center gap-3">
+          <a
+            href="https://wa.me/919917780656?text=Hi%20SalePXL%2C%20I%27m%20interested%20in%20building%20a%20high-converting%20Shopify%20store."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#22E39A]/10 border border-[#22E39A]/30 text-[#22E39A] text-xs font-semibold hover:bg-[#22E39A]/20 transition-all"
+          >
+            <WhatsAppIcon className="w-3.5 h-3.5 fill-[#25D366] shrink-0" />
+            <span className="hidden xs:inline">WhatsApp</span>
+          </a>
+          <button
+            onClick={() => handleOpenLead("₹40,000", "Top Bar CTA")}
+            className="px-4 py-2 rounded-full bg-[#22E39A] hover:bg-emerald-400 text-black text-xs font-bold transition-all shadow-sm cursor-pointer"
+          >
+            Get a Quote
+          </button>
+        </div>
+      </div>
       
       {/* ── HERO SECTION ── */}
       <section className="relative pt-12 sm:pt-20 pb-16 sm:pb-24 px-4 sm:px-6 overflow-hidden border-b border-white/[0.08]">
@@ -623,6 +651,18 @@ export default function HighConvertingShopifyStorePage() {
           </div>
         </div>
       </section>
+
+      {/* MINIMAL LANDING FOOTER */}
+      <footer className="py-8 px-6 text-center text-xs text-white/40 border-t border-white/[0.06] bg-[#050605]">
+        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p>© {new Date().getFullYear()} SalePXL. High Converting Shopify Stores. All rights reserved.</p>
+          <div className="flex items-center gap-4 text-white/50 text-[11px]">
+            <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <span>•</span>
+            <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
+          </div>
+        </div>
+      </footer>
 
       {/* LEAD CAPTURE MODAL */}
       <LeadCaptureModal

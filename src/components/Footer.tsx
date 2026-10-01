@@ -32,6 +32,10 @@ export default function Footer() {
     }
   };
 
+  if (pathname.startsWith("/high-converting-shopify-store")) {
+    return null;
+  }
+
   if (isLandingPage) {
     return (
       <footer className="bg-brand-black border-t border-white/[0.08] relative overflow-hidden py-10">
