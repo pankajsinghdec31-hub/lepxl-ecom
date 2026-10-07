@@ -88,6 +88,7 @@ export const metadata: Metadata = {
     creator: "@salepxl",
   },
   verification: {
+    google: "DCp3j-_T0N_TYrImb067zxGSkb7d5EQRAb-46fNHSYM",
     other: {
       "facebook-domain-verification": "f7ap0qjveg1bmvgyntcvvtut3ytdi0",
     },
@@ -106,6 +107,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
+        <meta name="google-site-verification" content="DCp3j-_T0N_TYrImb067zxGSkb7d5EQRAb-46fNHSYM" />
         <meta name="title" content="SalePXL — High Converting Shopify Store | Best Ecommerce Agency" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
